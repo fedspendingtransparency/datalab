@@ -55,12 +55,12 @@ class MouseOverPopover extends React.Component {
           open={open}
           anchorEl={this.state.anchorEl}
           anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
+            vertical: 'top',
+            horizontal: 'center',
           }}
           transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
+            vertical: 'bottom',
+            horizontal: 'center',
           }}
           onClose={this.handlePopoverClose}
           disableRestoreFocus
