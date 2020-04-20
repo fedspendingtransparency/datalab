@@ -28,6 +28,7 @@ const DemoPage = () => {
         <Button
           aria-owns={isOpen() ? 'mouse-over-popover' : undefined}
           aria-haspopup="true"
+          onKeyDown={onPopoverOpen}
           onMouseEnter={onPopoverOpen}
           onMouseLeave={onPopoverClose}>
           Hover with a Popover.
