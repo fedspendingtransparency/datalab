@@ -4,10 +4,11 @@ import { withStyles } from '@material-ui/styles';
 import PropTypes from "prop-types"
 import BreadCrumbs from "../breadcrumbs/breadcrumbs";
 import styles from './tooltip.module.scss';
-import { Grid } from "@material-ui/core";
+import { Grid, Hidden } from "@material-ui/core";
+import CloseIcon from '@material-ui/icons/Close';
 
 
-const inlineStyles = theme => ({
+const inlineStyles = () => ({
   popover: {
     pointerEvents: 'none'
   },
@@ -40,7 +41,6 @@ class MouseOverPopover extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const { classes } = this.props;
     const open = Boolean(this.state.anchorEl);
 
@@ -67,12 +67,17 @@ class MouseOverPopover extends React.Component {
         >
 
           <Grid container direction='row'>
-          <div className={styles.title}>{this.props.header}</div>
+          <div className={styles.title} onClick={this.handlePopoverClose}>
+            {this.props.title}
+            <Hidden lgUp>
+              <CloseIcon className={styles.close} />
+            </Hidden>
+          </div>
           {this.props.items.map((item, key) => {
             return (
-              <Grid item key={`grid-item ${key}`} className={styles.container}>
-                <div key={`title ${key}`} className={styles.label}>{item.title}</div>
-                <div key={`body ${key}`} className={styles.value}>{item.body}</div>
+              <Grid item key={`grid-item-${key}`} className={styles.container}>
+                <div key={`label-${key}`} className={styles.label}>{item.label}</div>
+                <div key={`value-${key}`} className={styles.value}>{item.value}</div>
               </Grid>
             )
           })}
