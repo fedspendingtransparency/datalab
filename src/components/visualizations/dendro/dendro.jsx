@@ -7,8 +7,8 @@ import * as $ from 'jquery';
 import './dendro.scss';
 
 import { Grid } from "@material-ui/core";
-import tooltipModule from '../../../components/tooltip/tooltip';
-import tooltipStyles from '../../../components/tooltip/tooltip.module.scss';
+import tooltipModule from '../../tooltip-legacy/tooltip';
+import tooltipStyles from '../../tooltip-legacy/tooltip.module.scss';
 
 
 export default function Dendro(props) {
@@ -101,7 +101,7 @@ export default function Dendro(props) {
             .attr('class', 'overlay')
             .call(zoomListener);
 
-      baseSvg.call(zoomListener).on("wheel.zoom", null); // dont let window scroll interfere with scroll for viz. 
+      baseSvg.call(zoomListener).on("wheel.zoom", null); // dont let window scroll interfere with scroll for viz.
 
       // Append a group which holds all nodes and which the zoom Listener can act upon.
       svgGroup = baseSvg.append('g').attr('id', 'dendro-viz');
