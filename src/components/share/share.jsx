@@ -106,17 +106,6 @@ export default class Share extends Component {
 
     const isShowing = this.state.show;
 
-
-
-
-    // hoverColor
-
-
-
-
-
-
-
     // TODO, use data-id's to dynamically see if "facebook" or "twitter".. etc..
     return (
       <div className={styles.shareContainer}>
