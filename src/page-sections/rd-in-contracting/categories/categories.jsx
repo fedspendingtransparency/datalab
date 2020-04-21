@@ -57,7 +57,11 @@ export default function Categories(props) {
         </Accordion>
 
       <ControlBar>
-        <Share />
+          <Share
+						location={{href: props.location.origin + props.location.pathname + '#' + props.sectionId}}
+						title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+						hoverColor='#1302d9'
+					/>
       </ControlBar>
 
       <div id="category-viz"></div>

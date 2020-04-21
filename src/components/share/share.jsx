@@ -36,7 +36,7 @@ export default class Share extends Component {
       this.pathName = pathNameSplit.join(' ');
     }
     this.defaultTitle = `Data Lab - ${this.pathName} - U.S. Treasury`;
-    this.title = this.props.title || this.defaultTitle;
+    this.title = encodeURIComponent(this.props.title || this.defaultTitle);
   }
 
   handleShow() {
@@ -105,6 +105,17 @@ export default class Share extends Component {
     ];
 
     const isShowing = this.state.show;
+
+
+
+
+    // hoverColor
+
+
+
+
+
+
 
     // TODO, use data-id's to dynamically see if "facebook" or "twitter".. etc..
     return (

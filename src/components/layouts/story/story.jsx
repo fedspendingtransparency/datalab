@@ -34,6 +34,11 @@ const StoryLayout = (props) => {
     toc = props.sectionToc ? <Toc sections={props.sectionToc} /> : <></>;
   }
 
+
+  console.log(props);
+  
+
+
   return <Default>
     <StorypageHeader/>
       <div className={styles.storyPage}>
