@@ -1,16 +1,44 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from "react"
 import './categories.scss';
 import 'src/styles/index.scss';
 import * as d3 from 'd3';
 import AccordionList from 'src/components/accordion-list/accordion-list';
-import Downloads from '../../../components/section-elements/downloads/downloads';
-import ControlBar from '../../../components/control-bar/control-bar';
-import Share from '../../../components/share/share';
+import Downloads from "../../../components/section-elements/downloads/downloads"
+import ControlBar from "../../../components/control-bar/control-bar"
+import Share from "../../../components/share/share";
+import variables from 'src/styles/variables.scss';
+
 
 export default function Categories(props) {
-	useEffect(() => {
-		const categoryViz = d3.select('#category-viz');
-		categoryViz.html(chart);
+  const [windowWidth, setWindowWidth] = useState(null);
+  const [previousDevice, setPreviousDevice] = useState(null);
+  const [device, setDevice] = useState(null);
+  const [hasDeviceChanged, setHasDeviceChanged] = useState(null);
+
+  function handleResize () {
+    setWindowWidth(typeof window !== 'undefined' ? window.innerWidth : '');
+    setPreviousDevice(device);
+
+    if(windowWidth) {
+      if (windowWidth >= parseInt(variables.lg)) {
+        setDevice(desktop);
+      } else if (windowWidth >= parseInt(variables.md)) {
+        setDevice(tablet);
+      } else {
+        setDevice(mobile);
+      }
+    }
+
+    setHasDeviceChanged(!(previousDevice !== device));
+
+  }
+
+  function init(chart) {
+    chart = chart || desktop;
+    const categoryViz = d3.select('#category-viz');
+
+    // check window size and change accordingly
+    categoryViz.html(chart);
 
 		const svg = categoryViz.select('svg');
 
@@ -25,29 +53,40 @@ export default function Categories(props) {
 			.on('blur', onBlur)
 		;
 
-		svg.attr('role', 'img')
-			.attr('aria-labelledby', 'desc')
-			.attr('desc', altText)
-		;
+    svg.attr('role', 'img')
+      .attr('aria-labelledby', 'desc')
+      .attr('desc', altText);
+  }
 
-		function onFocus() {
-			d3.select(this)
-				.select('circle')
-				.attr('fill', '#1302D9')
-				.attr('fill-opacity', '.12')
-				.attr('stroke', '#1302D9')
-			;
-		}
+  function onFocus() {
+    d3.select(this)
+      .select('circle')
+      .attr('fill', '#1302D9')
+      .attr('fill-opacity','.12')
+      .attr('stroke', '#1302D9');
+  }
 
-		function onBlur() {
-			d3.select(this)
-				.select('circle')
-				.attr('fill', 'unset')
-				.attr('stroke', '#555555')
-			;
-		}
-	});
-	
+  function onBlur() {
+    d3.select(this)
+      .select('circle')
+      .attr('fill', 'unset')
+      .attr('stroke', '#555555');
+  }
+
+  useEffect(() => {
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    if(!device || hasDeviceChanged) {
+      init(device);
+    }
+
+    return _ => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
+
   return (
     <>
         <h2 className ='rd-viztitle'>{props.section.viztitle}</h2>
@@ -79,7 +118,7 @@ export default function Categories(props) {
 
 const altText = `Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.`;
 
-const chart = `<svg tabindex=0 width="1000px" height="652px" viewBox="0 0 1000 652" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+const desktop = `<svg tabindex=0 width="1000px" height="652px" viewBox="0 0 1000 652" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Viz 2 Outline_Desktop</title>
     <desc>Created with Sketch.</desc>
     <defs>
@@ -612,3 +651,8 @@ const chart = `<svg tabindex=0 width="1000px" height="652px" viewBox="0 0 1000 6
         </g>
     </g>
 </svg>`
+
+
+const tablet = '<svg><circle id="circle-defense" stroke="#555555" fill="#FFFFFF" cx="946" cy="263.92" r="18"></circle></svg>';
+
+const mobile = '<svg><circle id="circle-defense" stroke="#555555" fill="#FFFFFF" cx="946" cy="263.92" r="18"></circle></svg>';
