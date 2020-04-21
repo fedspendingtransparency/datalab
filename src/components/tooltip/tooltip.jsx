@@ -24,25 +24,34 @@ class MouseOverPopover extends React.Component {
     super(props);
 
     this.state = {
-      anchorEl: null
+      anchorEl: null,
+      openedPopoverId: null
     }
   }
 
-  handlePopoverOpen = (event) => {
-    this.setState({anchorEl: event.currentTarget});
+  handlePopoverOpen = (event, popoverId) => {
+    this.setState({
+      openedPopoverId: popoverId,
+      anchorEl: event.currentTarget
+    });
   };
 
   handlePopoverClose = () => {
-    this.setState({anchorEl: null});
+    this.setState({
+      openedPopoverId: null,
+      anchorEl: null
+    });
   };
 
-  isOpen = () => {
-    Boolean(this.state.anchorEl)
+  isOpen = (id) => {
+    const { openedPopoverId } = this.state;
+    return (openedPopoverId == id);
   }
 
   render() {
     const { classes } = this.props;
-    const open = Boolean(this.state.anchorEl);
+    const { id, title, list } = this.props.items;
+    const { anchorEl, openedPopoverId } = this.state;
 
     return (
       <div className={styles.tooltip}>
@@ -52,8 +61,8 @@ class MouseOverPopover extends React.Component {
           classes={{
             paper: classes.paper,
           }}
-          open={open}
-          anchorEl={this.state.anchorEl}
+          open={this.isOpen(id)}
+          anchorEl={anchorEl}
           anchorOrigin={{
             vertical: 'top',
             horizontal: 'center',
@@ -68,12 +77,12 @@ class MouseOverPopover extends React.Component {
 
           <Grid container direction='row'>
           <div className={styles.title} onClick={this.handlePopoverClose}>
-            {this.props.title}
+            {title}
             <Hidden lgUp>
               <CloseIcon className={styles.close} />
             </Hidden>
           </div>
-          {this.props.items.map((item, key) => {
+          {list.map((item, key) => {
             return (
               <Grid item key={`grid-item-${key}`} className={styles.container}>
                 <div key={`label-${key}`} className={styles.label}>{item.label}</div>
@@ -91,7 +100,6 @@ class MouseOverPopover extends React.Component {
 
 export default withStyles(inlineStyles)(MouseOverPopover);
 
-BreadCrumbs.propTypes = {
-  classes: PropTypes.object.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired
+MouseOverPopover.propTypes = {
+  classes: PropTypes.object.isRequired
 }
