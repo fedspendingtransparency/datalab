@@ -118,7 +118,7 @@ export default function Categories(props) {
 
 const altText = `Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.`;
 
-const desktop = `<svg tabindex=0 width="1000px" height="652px" viewBox="0 0 1000 652" preserveAspectRatio="xMaxYMax meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+const desktop = `<svg tabindex=0 width="1000px" height="652px" viewBox="0 0 1000 652" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Viz 2 Outline_Desktop</title>
     <desc>Created with Sketch.</desc>
     <defs>
@@ -653,7 +653,7 @@ const desktop = `<svg tabindex=0 width="1000px" height="652px" viewBox="0 0 1000
 </svg>`
 
 /* tablet svg */
-const tablet = `<svg width="748px" height="609px" viewBox="0 0 748 609" preserveAspectRatio="xMaxYMax meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+const tablet = `<svg width="748px" height="609px" viewBox="0 0 748 609" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Viz 2 Outline_Tablet</title>
     <desc>Created with Sketch.</desc>
     <defs>
