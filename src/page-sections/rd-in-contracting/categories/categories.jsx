@@ -2,73 +2,71 @@ import React, { useEffect } from 'react';
 import './categories.scss';
 import 'src/styles/index.scss';
 import * as d3 from 'd3';
-import Accordion from "../../../components/accordion/accordion"
-import Downloads from "../../../components/section-elements/downloads/downloads"
-import ControlBar from "../../../components/control-bar/control-bar"
-import Share from "../../../components/share/share"
+import Accordion from '../../../components/accordion/accordion';
+import Downloads from '../../../components/section-elements/downloads/downloads';
+import ControlBar from '../../../components/control-bar/control-bar';
+import Share from '../../../components/share/share';
 
 export default function Categories(props) {
+	useEffect(() => {
+		const categoryViz = d3.select('#category-viz');
+		categoryViz.html(chart);
 
-  useEffect(() => {
-    const categoryViz = d3.select('#category-viz');
-    categoryViz.html(chart);
+		const svg = categoryViz.select('svg');
 
-    const svg = categoryViz.select('svg');
+		svg.attr('id', 'vizSvg');
 
-    svg
-      .attr('id', 'vizSvg');
+		svg.selectAll('.category-icon')
+			.attr('tabindex', 0)
+			.style('cursor', 'pointer')
+			.on('mouseover', onFocus)
+			.on('mouseout', onBlur)
+			.on('focus', onFocus)
+			.on('blur', onBlur)
+		;
 
-    svg.selectAll('.category-icon')
-      .attr('tabindex', 0)
-      .style('cursor', 'pointer')
-      .on('mouseover', onFocus)
-      .on('mouseout', onBlur)
-      .on('focus', onFocus)
-      .on('blur', onBlur);
+		svg.attr('role', 'img')
+			.attr('aria-labelledby', 'desc')
+			.attr('desc', altText)
+		;
 
-    svg.attr('role', 'img')
-      .attr('aria-labelledby', 'desc')
-      .attr('desc', altText);
+		function onFocus() {
+			d3.select(this)
+				.select('circle')
+				.attr('fill', '#1302D9')
+				.attr('fill-opacity', '.12')
+				.attr('stroke', '#1302D9')
+			;
+		}
 
-    function onFocus() {
-      d3.select(this)
-        .select('circle')
-        .attr('fill', '#1302D9')
-        .attr('fill-opacity','.12')
-        .attr('stroke', '#1302D9');
-    }
+		function onBlur() {
+			d3.select(this)
+				.select('circle')
+				.attr('fill', 'unset')
+				.attr('stroke', '#555555')
+			;
+		}
+	});
 
-    function onBlur() {
-      d3.select(this)
-        .select('circle')
-        .attr('fill', 'unset')
-        .attr('stroke', '#555555');
-    }
+	return (<>
+		<h2 className='rd-viztitle'>{props.section.viztitle}</h2>
+		<Accordion title='Instructions'>
+			<ul>
+				<li>instructions here</li>
+			</ul>
+		</Accordion>
 
-  });
+		<ControlBar>
+			<Share />
+		</ControlBar>
 
-  return (
-    <>
-        <h2 className ='rd-viztitle'>{props.section.viztitle}</h2>
-          <Accordion title='Instructions'>
-          <ul>
-            <li>instructions here</li>
-          </ul>
-        </Accordion>
+		<div id='category-viz'></div>
 
-      <ControlBar>
-        <Share />
-      </ControlBar>
-
-      <div id="category-viz"></div>
-
-      <Downloads
-        href={'/unstructured-data/rd-in-contracting/R&D_cfo_agency_20_categories_FY2019_viz2.v2.2020.03.18.csv'}
-        date={'December 2019'}
-      />
-    </>
-  );
-
+		<Downloads
+			href={'/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv'}
+			date={'December 2019'}
+		/>
+	</>);
 }
 
 const altText = `Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.`;
