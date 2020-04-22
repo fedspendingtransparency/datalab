@@ -52,6 +52,12 @@ ul {
   flex-basis: 100%;
 }
 
+h2.rd-viztitle  {
+  font-size: 2rem;
+  color: #666666;
+  margin-bottom: 9px;
+}
+
 @mixin homepageSectionHeading {
   font-size: 1.17rem;
   padding-bottom: 1rem;
@@ -259,6 +265,8 @@ $mdGrey: #555555;
     text-align: left;
   }
 }
+
+.section
 
 .section__header__title {
   color: $darkGrey;

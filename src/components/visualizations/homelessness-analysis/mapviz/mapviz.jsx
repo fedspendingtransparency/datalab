@@ -22,13 +22,21 @@ export default function Mapviz(props) {
     bottom: 15,
     left: 100
   };
-  const OtherformatNumber = d3.format(',.0f');
+  const getformattedNumber = d3.format(',.0f');
+
   const width = 1000;
   const height = 600;
-  let mapHeight = null; 
+  let mapHeight = null;
   let map1Centered = null;
   let path, g;
 
+  function OtherformatNumber (number) {
+    if(isNaN(number)) {
+      return 'NA';
+    } else {
+      return getformattedNumber(number);
+    }
+  }
 
   function GenMap() {
     d3.select('#container').append('div').attr('id', 'viz_container');

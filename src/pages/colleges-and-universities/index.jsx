@@ -62,8 +62,6 @@ const sections=
 
 export default class CollegesAndUniversitiesPage extends React.Component {
 
-
-
   render = () =>
     <StoryLayout isCustomHeader={true}
                  hwctaLink={this.props.location.pathname + '/methodologies'} >

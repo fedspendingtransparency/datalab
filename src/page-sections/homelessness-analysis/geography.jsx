@@ -94,7 +94,18 @@ export default function Geography(props) {
       width: 150,
       type: 'number'
     }];
-  const tableData = populationData.map(n => [n.coc_number, n.coc_name, n.total_homeless, n.sheltered_homeless, n.unsheltered_homeless, n.chronically_homeless, n.homeless_veterans, n.homeless_individuals, n.homeless_people_in_families, n.total_homeless_unaccompanied_youth_under_25]);
+  const tableData = populationData.map(n =>
+    [n.coc_number,
+      n.coc_name,
+      n.total_homeless,
+      n.sheltered_homeless,
+      n.unsheltered_homeless,
+      n.chronically_homeless,
+      n.homeless_veterans,
+      n.homeless_individuals,
+      n.homeless_people_in_families,
+      n.total_homeless_unaccompanied_youth_under_25
+  ]);
 
   const [filteredTableData, setFilteredData] = useState(tableData);
   const tableRef = React.createRef();
