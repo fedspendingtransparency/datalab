@@ -286,9 +286,7 @@ const Categories = () => {
 								checked={fundingType === 'research'}
 							/>
 							<label htmlFor='cuResearch'>&nbsp;Research Grants</label>
-
 							{grantsInfo()}
-
 						</Grid>
 					</Grid>
 				</div>
@@ -300,6 +298,7 @@ const Categories = () => {
 					chartRef={chartRef}
 				/>
 				<DataTable
+      		idName={'categoriesTable'}
 					fundingType={fundingType}
 					display={!chartView}
 					title={titlesByType[fundingType].categoryLabel + 's'}
