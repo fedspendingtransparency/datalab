@@ -30,7 +30,8 @@ const StoryLayout = (props) => {
         </Grid>
       </Grid>;
 
-    toc = <Toc sections={props.sectionToc} />;
+
+    toc = props.sectionToc ? <Toc sections={props.sectionToc} /> : <></>;
   }
 
   return <Default>
@@ -52,4 +53,9 @@ export default StoryLayout;
 
 StoryLayout.propTypes = {
   children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  introSentence: PropTypes.string.isRequired,
+  hwctaLink: PropTypes.string.isRequired,
+  contextStatement: PropTypes.string,
+  toc: PropTypes.array
 }

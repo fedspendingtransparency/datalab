@@ -3,13 +3,23 @@ import storySectionHeadingStyles from './story-section-heading.module.scss';
 import { Grid, Hidden } from '@material-ui/core';
 
 const StorySectionHeading = (props) => {
+  function NumberItem () {
+    if(props.number) {
+      return (
+        <Grid item xs={1} sm={12} xl={1} className={storySectionHeadingStyles.headerNumber}>
+          <h2>{props.number}</h2>
+        </Grid>
+      )
+    }
+    return <></>;
+  }
+
   return (
     <header>
       <section className={storySectionHeadingStyles.header}>
         <Grid container>
-          <Grid item xs={1} sm={12} xl={1} className={storySectionHeadingStyles.headerNumber}>
-            <h2>{props.number}</h2>
-          </Grid>
+          {props.header}
+          <NumberItem />
           <Hidden smUp>
             <Grid item xs={1} />
           </Hidden>

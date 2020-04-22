@@ -75,7 +75,8 @@ export default class MoreAnalyses extends React.Component {
     'contract-explorer': [3, 0, 2, 6],
     'homelessness-analysis': [1, 4, 3, 7],
     'budget-function': [0, 6, 1, 7],
-    'competition-in-contracting': [7, 5, 4, 2]
+    'competition-in-contracting': [7, 5, 4, 2],
+    'rd-in-contracting': [5, 4, 7, 6],
   };
 
   showAnything = () => {
