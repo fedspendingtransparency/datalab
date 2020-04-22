@@ -21,9 +21,12 @@ export default function RdInContractingPage(props) {
       {
         section: 'Spending',
         anchor: 'spending',
-        header: [<div className={styles.title} key={'spending-header'}>AMOUNT SPENT IN FY2018</div>],
-        sectionTeaser: [<>In Fiscal Year 2018, <span className={styles.subtitleHighlight} key={'spending-teaser'}>categories that R&D $119 billion were devoted </span>to contracted R&D initiatives.</>],
-        introBlurb: [<><p key={'spending-intro'}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</p></>],
+        header: [<div className={styles.title} key={'spending-header'}>2019 Agency Spending</div>],
+        sectionTeaser: [<>What <span className={styles.subtitleHighlight}>portion of federal agency contract spending</span> goes to R&D initiatives?</>],
+        introBlurb: [
+          <p key={'spending-intro'}>Investment in Research and Development, or R&D, is largely seen as a driver of innovation in both the public and private sectors.<a id='fr1' href='#fn1' className='footnoteref'>1</a> From medicine to autonomous vehicles, R&D investments lead to new products, technology advancements, and improved quality of life.  To fund R&D work, federal agencies can use grants, loans, and contracts. In this analysis we focus on contracts.</p>,
+          <p>Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts to perform R&D work in fiscal year 2019 (FY 2019), totaling $41.5B. Let’s take a look at the top ten CFO Act agencies by R&D contract spending.</p>
+        ],
         viztitle: 'R&D in Contracting by Category',
         tagName: 'spending'
       },
@@ -47,25 +50,22 @@ export default function RdInContractingPage(props) {
       }
     ];
 
-  return(
-    <>
-      <ExpressLayout
-        title={'Research & Development in Contracting'}
-        introSentence={'How much did the federal government invest in Research & Development with FY18 Contract Spending?'}
-        hwctaLink={props.location.pathname + '/methodologies'}>
+  return (
+    <ExpressLayout
+      title='Research & Development in Contract Spending'
+      introSentence='How much did the federal government invest in Research & Development with FY 2019 Contract Spending?'
+      hwctaLink={props.location.pathname + '/methodologies'}
+    >
+      <SEO title='Federal R&D in Contracting' keywords={['gatsby', 'application', 'react']} />
 
-        <SEO title='Federal R&D in Contracting' keywords={['gatsby', 'application', 'react']} />
-
-        {sections.map((item, key) => {
-          const SectionTag = sectionComponents[item.tagName];
-          return (
-            <StorySection key={key} header={item}>
-              <SectionTag key={key} sectionId={`section-${item.section}`} section={item} />
-            </StorySection>
-          )
-        })}
-
-      </ExpressLayout>
-    </>
+      {sections.map((item, key) => {
+        const SectionTag = sectionComponents[item.tagName];
+        return (
+          <StorySection key={key} header={item}>
+            <SectionTag sectionId={`section-${item.section}`} section={item} />
+          </StorySection>
+        )
+      })}
+    </ExpressLayout>
   );
 }
