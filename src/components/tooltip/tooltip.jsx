@@ -2,7 +2,6 @@ import React from 'react';
 import Popover from '@material-ui/core/Popover';
 import { withStyles } from '@material-ui/styles';
 import PropTypes from "prop-types"
-import BreadCrumbs from "../breadcrumbs/breadcrumbs";
 import styles from './tooltip.module.scss';
 import { Grid, Hidden } from "@material-ui/core";
 import CloseIcon from '@material-ui/icons/Close';
@@ -45,12 +44,11 @@ class MouseOverPopover extends React.Component {
 
   isOpen = (id) => {
     const { openedPopoverId } = this.state;
-    return (openedPopoverId == id);
+    return (openedPopoverId === id);
   }
 
   render() {
-    const { classes } = this.props;
-    const { id, title, list } = this.props.items;
+    const { classes, title, id } = this.props;
     const { anchorEl, openedPopoverId } = this.state;
 
     return (
@@ -82,11 +80,11 @@ class MouseOverPopover extends React.Component {
               <CloseIcon className={styles.close} />
             </Hidden>
           </div>
-          {list.map((item, key) => {
+          {this.props.rows.map((item, key) => {
             return (
               <Grid item key={`grid-item-${key}`} className={styles.container}>
-                <div key={`label-${key}`} className={styles.label}>{item.label}</div>
-                <div key={`value-${key}`} className={styles.value}>{item.value}</div>
+                <div key={`label-${key}`} className={styles.label}>{Object.keys(item)}</div>
+                <div key={`value-${key}`} className={styles.value}>{item[Object.keys(item)]}</div>
               </Grid>
             )
           })}
@@ -101,5 +99,9 @@ class MouseOverPopover extends React.Component {
 export default withStyles(inlineStyles)(MouseOverPopover);
 
 MouseOverPopover.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  rows: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  title: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired
+
 }

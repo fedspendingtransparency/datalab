@@ -1,29 +1,9 @@
 import React from "react";
 import Tooltip from "src/components/tooltip/tooltip";
 import Button from "@material-ui/core/Button/Button";
+import TooltipElement from "../components/tooltip/tooltip-element"
 
 const DemoPage = () => {
-  function onPopoverOpen(event, id, ref) {
-    if (ref && ref.current) {
-      ref.current.handlePopoverOpen(event, id)
-    }
-  }
-
-  function onPopoverClose(e, ref) {
-    if (ref && ref.current) {
-      ref.current.handlePopoverClose()
-    }
-  }
-
-  function isOpen(id, ref) {
-    if (ref && ref.current) {
-      ref.current.isOpen(id)
-    }
-  }
-
-  function tooltipRef() {
-    return React.createRef();
-  }
 
   const items1 = {
     id: 1,
@@ -55,27 +35,11 @@ const DemoPage = () => {
     ]
   };
 
-  /* add accent color, border, and svg as a prop */
-  const ButtonTooltip = React.forwardRef((props, ref) => (
-    <>
-      <Button
-        aria-owns={isOpen(props.items.id, ref) ? 'mouse-over-popover' : undefined}
-        aria-haspopup="true"
-        onKeyDown={(e) => onPopoverOpen(e, props.items.id, ref)}
-        onMouseEnter={(e) => onPopoverOpen(e, props.items.id, ref)}
-        onMouseLeave={(e) => onPopoverClose(e, ref)}>
-        {props.items.title}
-      </Button>
-
-      <Tooltip ref={ref} items={props.items} />
-    </>));
-
   return (
     <>
-      <ButtonTooltip ref={tooltipRef()} items={items1}/>
+      <TooltipElement items={items1} />
       <p>blah blah blah</p>
-      <ButtonTooltip ref={tooltipRef()} items={items2}/>
-
+      <TooltipElement items={items2} />
 
       <div>
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
@@ -136,7 +100,7 @@ const DemoPage = () => {
         et lorem. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. In auctor lobortis
         lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Vestibulum
         ullamcorper mauris at ligula. Fusce fermentum. Nullam cursus lacinia erat. Praesent blandit
-        <ButtonTooltip ref={tooltipRef()} items={items1}/>
+        <TooltipElement items={items1} />
         laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas, neque
         sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Quisque
         id mi. Ut tincidunt tincidunt erat. Etiam feugiat lorem non metus. Vestibulum dapibus nunc
@@ -184,7 +148,7 @@ const DemoPage = () => {
         quam vitae odio lacinia tincidunt. Praesent ut ligula non mi varius sagittis. Cras sagittis.
         Praesent ac sem eget est egestas volutpat. Vivamus consectetuer hendrerit lacus. Cras non
         dolor. Vivamus in erat ut urna cursus vestibulum. Fusce commodo aliquam arcu. Nam commodo
-        <ButtonTooltip ref={tooltipRef()} items={items1}/>
+        <TooltipElement items={items1} />
         suscipit quam. Quisque id odio. Praesent venenatis metus at tortor pulvinar varius.Lorem
         ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
         massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.

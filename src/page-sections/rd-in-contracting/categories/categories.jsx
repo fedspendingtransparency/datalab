@@ -1,14 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from "react"
 import './categories.scss';
 import 'src/styles/index.scss';
-import * as d3 from 'd3';
-import Accordion from '../../../components/accordion/accordion';
-import Downloads from '../../../components/section-elements/downloads/downloads';
-import ControlBar from '../../../components/control-bar/control-bar';
-import Share from '../../../components/share/share';
+import * as d3 from 'd3v3';
+import Accordion from 'src/components/accordion/accordion';
+import Downloads from 'src/components/section-elements/downloads/downloads';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
+import TooltipElement from "../../../components/tooltip/tooltip-element";
+import data from '../../../../static/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318_with_keys.csv';
+import ReactDOM from "react-dom"
 
 export default function Categories(props) {
+  const [tooltipData, setData] = useState([]);
+
 	useEffect(() => {
+    let items = [];
+    data.map((item, key) => {
+      items.push({
+        id: key,
+        title: item.description,
+        rows: [
+          { "Obligation": item.obligations },
+          { "Percentage": item.percents }
+        ]
+      })
+    });
+
+    setData(items);
+  },[]);
+
+  useEffect(() => {
 		const categoryViz = d3.select('#category-viz');
 		categoryViz.html(chart);
 
@@ -16,27 +37,39 @@ export default function Categories(props) {
 
 		svg.attr('id', 'vizSvg');
 
-		svg.selectAll('.category-icon')
-			.attr('tabindex', 0)
+    const iconGroups = svg.selectAll('.category-icon');
+
+    iconGroups.data(tooltipData)
+			.enter();
+
+    iconGroups.attr('tabindex', 0)
 			.style('cursor', 'pointer')
-			.on('mouseover', onFocus)
+			.on('mouseover', function(d) {
+				onFocus(d, this)
+      })
 			.on('mouseout', onBlur)
 			.on('focus', onFocus)
 			.on('blur', onBlur)
-		;
+
+		// append the tooltip here
 
 		svg.attr('role', 'img')
 			.attr('aria-labelledby', 'desc')
 			.attr('desc', altText)
 		;
 
-		function onFocus() {
-			d3.select(this)
+		function onFocus(d, el) {
+			console.log(d);
+			console.log(el);
+      // const tooltipItem = ReactDOM.render(<TooltipElement element={'g'} title={d.title} id={d.id} rows={d.rows} />, 'g');
+
+      d3.select(el)
 				.select('circle')
 				.attr('fill', '#1302D9')
 				.attr('fill-opacity', '.12')
 				.attr('stroke', '#1302D9')
-			;
+				.append(<TooltipElement element={'g'} title={d.title} id={d.id} rows={d.rows} />)
+
 		}
 
 		function onBlur() {
@@ -59,6 +92,13 @@ export default function Categories(props) {
 		<ControlBar>
 			<Share />
 		</ControlBar>
+
+		<div>
+
+		{tooltipData.map((item) => {
+			return <TooltipElement element={'circle'} title={item.title} id={item.id} rows={item.rows} />
+		})}
+		</div>
 
 		<div id='category-viz'></div>
 
