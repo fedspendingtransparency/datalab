@@ -21,6 +21,10 @@ const DemoPage = () => {
     }
   }
 
+  function tooltipRef() {
+    return React.createRef();
+  }
+
   const items1 = {
     id: 1,
     title: 'Hello',
@@ -68,9 +72,9 @@ const DemoPage = () => {
 
   return (
     <>
-      <ButtonTooltip ref={React.createRef()} items={items1}/>
+      <ButtonTooltip ref={tooltipRef()} items={items1}/>
       <p>blah blah blah</p>
-      <ButtonTooltip ref={React.createRef()} items={items2}/>
+      <ButtonTooltip ref={tooltipRef()} items={items2}/>
 
 
       <div>
@@ -132,7 +136,7 @@ const DemoPage = () => {
         et lorem. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. In auctor lobortis
         lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Vestibulum
         ullamcorper mauris at ligula. Fusce fermentum. Nullam cursus lacinia erat. Praesent blandit
-        <ButtonTooltip ref={React.createRef()} items={items1}/>
+        <ButtonTooltip ref={tooltipRef()} items={items1}/>
         laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas, neque
         sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Quisque
         id mi. Ut tincidunt tincidunt erat. Etiam feugiat lorem non metus. Vestibulum dapibus nunc
@@ -180,7 +184,7 @@ const DemoPage = () => {
         quam vitae odio lacinia tincidunt. Praesent ut ligula non mi varius sagittis. Cras sagittis.
         Praesent ac sem eget est egestas volutpat. Vivamus consectetuer hendrerit lacus. Cras non
         dolor. Vivamus in erat ut urna cursus vestibulum. Fusce commodo aliquam arcu. Nam commodo
-        <ButtonTooltip ref={React.createRef()} items={items1}/>
+        <ButtonTooltip ref={tooltipRef()} items={items1}/>
         suscipit quam. Quisque id odio. Praesent venenatis metus at tortor pulvinar varius.Lorem
         ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
         massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
