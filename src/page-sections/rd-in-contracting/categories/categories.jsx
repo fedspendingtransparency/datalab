@@ -47,19 +47,7 @@ export default function Categories(props) {
 			;
 		}
 	});
-
-	return (<>
-		<h2 className='rd-viztitle'>{props.section.viztitle}</h2>
-		<AccordionList title='Instructions'>
-			<ul>
-				<li>instructions here</li>
-			</ul>
-		</AccordionList>
-
-		<ControlBar>
-			<Share />
-		</ControlBar>
-
+	
   return (
     <>
         <h2 className ='rd-viztitle'>{props.section.viztitle}</h2>
@@ -76,17 +64,11 @@ export default function Categories(props) {
       <div id='category-viz'></div>
 
       <Downloads
-        href={'/unstructured-data/rd-in-contracting/R&D_cfo_agency_20_categories_FY2019_viz2.v2.2020.03.18.csv'}
+        href={'/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv'}
         date={'December 2019'}
       />
-    </>
-  );
+		</>);
 
-		<Downloads
-			href={'/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv'}
-			date={'December 2019'}
-		/>
-	</>);
 }
 
 const altText = `Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.`;
