@@ -7,14 +7,12 @@ import ExpressLayout from "src/components/layouts/express/express";
 import styles from './rd-in-contracting.module.scss';
 import StorySection from "src/components/section-elements/story-section/story-section"
 
-
 export default function RdInContractingPage(props) {
-
   const sectionComponents = {
     spending: Spending,
     categories: Categories,
     studies: Studies
-  }
+  };
 
   const sections =
     [
@@ -47,25 +45,22 @@ export default function RdInContractingPage(props) {
       }
     ];
 
-  return(
-    <>
-      <ExpressLayout
-        title={'Research & Development in Contracting'}
-        introSentence={'How much did the federal government invest in Research & Development with FY18 Contract Spending?'}
-        hwctaLink={props.location.pathname + '/methodologies'}>
+  return (
+    <ExpressLayout
+      title={'Research & Development in Contracting'}
+      introSentence={'How much did the federal government invest in Research & Development with FY18 Contract Spending?'}
+      hwctaLink={props.location.pathname + '/methodologies'}
+    >
+      <SEO title='Federal R&D in Contracting' keywords={['gatsby', 'application', 'react']} />
 
-        <SEO title='Federal R&D in Contracting' keywords={['gatsby', 'application', 'react']} />
-
-        {sections.map((item, key) => {
-          const SectionTag = sectionComponents[item.tagName];
-          return (
-            <StorySection key={key} header={item}>
-              <SectionTag key={key} sectionId={`section-${item.section}`} section={item} />
-            </StorySection>
-          )
-        })}
-
-      </ExpressLayout>
-    </>
+      {sections.map((item, key) => {
+        const SectionTag = sectionComponents[item.tagName];
+        return (
+          <StorySection key={key} header={item}>
+            <SectionTag sectionId={`section-${item.section}`} section={item} />
+          </StorySection>
+        )
+      })}
+    </ExpressLayout>
   );
 }
