@@ -23,6 +23,7 @@
 
   h2 {
     @include homepageSubtitle();
+    text-align: left;
     padding: 0 1rem;
   }
 
