@@ -226,9 +226,11 @@ h2.rd-viztitle  {
   letter-spacing: normal;
   color: $font-body-copy;
 }
-.superscript {
+
+.footnoteref {
   vertical-align:super;
   font-size: smaller;
+  color: currentColor;
 }
 
 /**
