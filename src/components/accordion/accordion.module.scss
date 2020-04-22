@@ -4,11 +4,15 @@ $left-indent: 32px;
 $vert-padding: 14px;
 
 .container {
+  position: relative;
   margin-bottom: 25px;
 }
 
 .accordion {
-  border: 1px solid #eee;
+  position: absolute;
+  z-index: 1;
+  background-color: $font-white;
+  border: 1px solid $font-lightGrey;
 }
 
 .heading {
@@ -49,6 +53,6 @@ $vert-padding: 14px;
   }
 
   .content {
-    max-height: 900px; // hack; larger than any content's height
+    max-height: 950px; // hack; larger than any content's height
   }
 }

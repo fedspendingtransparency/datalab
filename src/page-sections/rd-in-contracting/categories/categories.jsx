@@ -50,11 +50,11 @@ export default function Categories(props) {
 
 	return (<>
 		<h2 className='rd-viztitle'>{props.section.viztitle}</h2>
-		<Accordion title='Instructions'>
+		<AccordionList title='Instructions'>
 			<ul>
 				<li>instructions here</li>
 			</ul>
-		</Accordion>
+		</AccordionList>
 
 		<ControlBar>
 			<Share />
