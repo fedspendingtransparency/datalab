@@ -32,29 +32,29 @@ function IndexPage() {
       >
         <Grid item md={12} lg={8} className={homeStyles.featuredTile}>
           <FeatureTile
-            href={'rd-in-contracting'}
+            href='rd-in-contracting'
             imgSrc={rd}
             isMain={true}
-            imgAlt={''}
-            heading={'Research & Development in Contracting'}
-            body={'body'}
-            mobileBody={'mobile body'}
+            imgAlt=''
+            heading='R&D in Contract Spending'
+            body='In 2019 the federal government backed more than $40 billion in research and development (R&D) initiatives through contracts. Our analysis looks at the top agencies by R&D contract spending and how that money is used in different phases of basic research, applied research, and new development. See how categories such as energy, education, and space flight stack up and how R&D spending has trended over the last decade.'
+            mobileBody='In 2019 the federal government backed more than $40 billion in research and development (R&D) initiatives through contracts. Our analysis looks at the top agencies by R&D contract spending and how that money is used in different phases of basic research, applied research, and new development. See how categories such as energy, education, and space flight stack up and how R&D spending has trended over the last decade.'
           />
         </Grid>
         <Grid item md={12} lg={4}>
           <DtsTile
             href={'dts'}
-            heading={'Visualizing the Daily Treasury Statement'}
-            title={'How much does the federal government spend each day?'}
+            heading='Visualizing the Daily Treasury Statement'
+            title='How much does the federal government spend each day?'
           />
           <Grid item>
             <SecondaryTile
-              heading={'Fiscal Year 2019'}
+              heading='Fiscal Year 2019'
               subheading={`America's Finance Guide`}
-              href={'americas-finance-guide'}
+              href='americas-finance-guide'
               imgSrc={cg}
-              imgAlt={'The Department of Treasury building, in Washington, D.C., that includes a bronze statue of Albert Gallatin, the fourth Secretary of the Treasury.'}
-              body={`Your Guide to America's Finances is an overview of federal government finances in 2019, providing information on spending, revenue, the deficit, and debt. The Guide, which is created by Treasury's Data Lab, presents a series of interactive visualizations to allow you to explore these categories and how they have changed over time. Ultimately, the Guide seeks to provide a comprehensive overview of the trillions of dollars collected and spent by the federal government each year.`}
+              imgAlt='The Department of Treasury building, in Washington, D.C., that includes a bronze statue of Albert Gallatin, the fourth Secretary of the Treasury.'
+              body='Your guide to understanding the trillions of dollars that make up the federal balance sheet. Our interactive visualizations walk you through federal spending, revenue, the deficit, and debt.'
             />
           </Grid>
         </Grid>
@@ -73,24 +73,24 @@ function IndexPage() {
         </Grid>
         <Grid item md={12} lg={6} className={homeStyles.featuredTile}>
           <FeatureTile
-            href={'homelessness-analysis'}
+            href='homelessness-analysis'
             imgSrc={homelessImg}
-            imgAlt={'A homeless person leaning against a street pole and additional homeless people stand against a building in the far background.'}
-            heading={'Explore federal programs that address homelessness'}
-            body={'On a single night in 2018, more than 550,000 people experienced homelessness in the United States. With our visualization you can explore federal spending on programs that address homelessness and where individuals experiencing homeless are located.'}
-            mobileBody={'On a single night in 2018, more than 550,000 people experienced homelessness in the United States. With our visualization you can explore federal spending on programs that address homelessness and where individuals experiencing homeless are located.'}
+            imgAlt='A homeless person leaning against a street pole and additional homeless people stand against a building in the far background.'
+            heading='Explore federal programs that address homelessness'
+            body='On a single night in 2016, more than 500,000 people experienced homelessness in the United States. With our visualizations, you can see which federal programs are addressing homelessness, the amount of federal spending on homelessness by region, and where individuals experiencing homelessness are located. We also provide information about which regions are similar to others based on their homeless populations and funding profiles.'
+            mobileBody='On a single night in 2018, more than 550,000 people experienced homelessness in the United States. With our visualization you can explore federal spending on programs that address homelessness and where individuals experiencing homeless are located.'
           />
         </Grid>
       </Grid>
 
       <div className={homeStyles.featuredRow}>
         <FeatureRow
-          href={'colleges-and-universities'}
-          heading={'Colleges & Universities'}
-          title={'Federal Investment in Higher Education'}
-          blurb={`The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities through grants, contracts, and student aid. This interactive analysis gives you an opportunity to search schools and discover how much the government has invested in that institution. In the visualizations you can also break down the investment by federal agency and view data by investment category.`}
+          href='colleges-and-universities'
+          heading='Colleges & Universities'
+          title='Federal Investment in Higher Education'
+          blurb='The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities through grants, contracts, and student aid. This interactive analysis gives you an opportunity to search schools and discover how much the government has invested in that institution. In the visualizations you can also break down the investment by federal agency and view data by investment category.'
           imgSrc={cu}
-          imgAlt={'A university building with three streets leading up to it, each has an icon representing financial aid, grants, and contracts respectively.'}
+          imgAlt='A university building with three streets leading up to it, each has an icon representing financial aid, grants, and contracts respectively.'
         />
       </div>
 
