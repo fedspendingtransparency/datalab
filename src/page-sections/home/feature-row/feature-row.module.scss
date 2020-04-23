@@ -18,6 +18,7 @@ $landing-title-color: #4a4a4a;
 
 .heading {
   @include homepageTitle();
+  text-align: left;
   width: calc(100% - 32px);
   padding-top: 0;
   margin-top: 0;
@@ -25,6 +26,7 @@ $landing-title-color: #4a4a4a;
 
 .title {
   @include homepageSubtitle();
+  text-align: left;
   width: calc(100% - 32px);
 }
 
@@ -52,7 +54,7 @@ $landing-title-color: #4a4a4a;
     }
   }
 }
-// Desktop and higher
+
 @media (min-width: $desktop) {
   .container {
     border: 1px solid #ddd;
@@ -79,29 +81,7 @@ $landing-title-color: #4a4a4a;
   }
 }
 
-// tablet landscape and portrait
-@media (min-width: $phone) and (max-width: $desktop - 1) {
-  .content {
-    &:global(.MuiGrid-item) {
-      padding-top: 0 !important;
-    }
-  }
-
-  .heading {
-    margin-top: 0;
-  }
-
-  .image {
-    padding: 0 2px 0 0 !important;
-  }
-}
-
-// Phone and tablet
-@media screen and (max-width: $desktop - 1) {
-  .container {
-    flex-direction: row-reverse;
-  }
-
+@media (max-width: $desktop - 1) {
   .heading {
     margin-top: 0;
   }
@@ -119,24 +99,48 @@ $landing-title-color: #4a4a4a;
   }
 }
 
-// Phone only
-@media screen and (max-width: $phone - 1) {
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  .container {
+    flex-direction: row-reverse;
+  }
+}
+
+@media (min-width: $phone) and (max-width: $desktop - 1) {
+  .content {
+    &:global(.MuiGrid-item) {
+      padding-top: 0 !important;
+    }
+  }
+
+  .heading {
+    margin-top: 0;
+  }
+
+  .image {
+    padding: 0 2px 0 0 !important;
+  }
+}
+
+@media (max-width: $tablet - 1) {
+  .title {
+    margin-bottom: 0;
+  }
+
+  .heading,
+  .blurb {
+    display: none;
+  }
+}
+
+@media (max-width: $phone - 1) {
   .content {
     &:global(.MuiGrid-item) {
       padding-left: 0 !important;
     }
   }
 
-  .blurb {
-    display: none;
-  }
-
   .title {
     font-size: 1.125rem;
     width: 100%;
-  }
-
-  .container {
-    flex-direction: column-reverse;
   }
 }
