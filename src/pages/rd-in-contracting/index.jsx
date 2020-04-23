@@ -33,7 +33,7 @@ export default class RdInContractingPage extends React.Component {
           <div className={styles.flexContainer}>
             <img src={science} role='presentation' className={styles.leftImg} />
             <div>
-              <p>EXAMPLE:NASA's International Space Station is using a platform to gather data on temperature, light cycle, humidity control, and more.</p>
+              <p> EXAMPLE:NASA's International Space Station is using a platform to gather data on temperature, light cycle, humidity control, and more.</p>
               <a href='https://www.usaspending.gov/#/award/CONT_AWD_NNJ15GU47T_8000_NNJ15GU31B_8000' target='_blank' rel='noopener noreferrer'>
                 Contract Summary <LaunchOutlinedIcon fontSize='inherit' />
               </a>
