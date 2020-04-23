@@ -7,6 +7,7 @@ import Downloads from 'src/components/section-elements/downloads/downloads';
 import Share from '../../../components/share/share';
 import 'src/styles/index.scss';
 import { Hidden } from '@material-ui/core';
+import scssVariables from 'src/styles/variables.scss';
 
 export default function Studies(props) {
 	const [windowWidth, setWindowWidth] = useState(null);
@@ -44,17 +45,18 @@ export default function Studies(props) {
     />
 
 		<img src='/images/viz/rd/chart3.svg' className={styles.chart} />
+		<img src='/images/rd/chart3-desktop.svg' className={styles.chart} />
 		</Hidden>
 
     <Hidden only={['xs', 'sm', 'lg', 'xl']}>
-      <img src='/images/home-solid.svg' className={styles.chart} />
+      <img src='/images/rd/chart3-tablet.svg' className={styles.chart} />
     </Hidden>
 
     <Hidden mdUp>
-      <img src='/images/close.svg' className={styles.chart} />
+      <img src='/images/rd/chart3-mobile.svg' className={styles.chart} />
     </Hidden>
 
-		<GridList className={styles.legend} cols={windowWidth < 768 ? 2 : 5} cellHeight='auto'>
+		<GridList className={styles.legend} cols={windowWidth < parseInt(scssVariables.md) ? 2 : 5} cellHeight='auto'>
 			<GridListTile className={styles.legendTile}>
 				<div className={`${styles.legendBar} ${styles.one}`}></div>
 				<div className={styles.legendText}>Total R&D</div>
