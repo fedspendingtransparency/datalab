@@ -9,7 +9,7 @@ import AfgData from "src/libs/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
 import { AFGHeader } from 'src/components/headers/headers';
 import GdpTemplate from 'src/components/gdp-template/gdp-template'
-import Accordion from 'src/components/accordion/accordion'
+import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
@@ -89,11 +89,11 @@ function ExploreDebtPage(props) {
                             </div>
 
                             <section className="accordion sidebar intro-hidden">
-                                <Accordion title="Who owns the federal government's debt?">
+                                <AccordionList title="Who owns the federal government's debt?">
                                     <div>
                                         <p>Most of the federal government's debt is owned by federal trust funds and domestic investors in the United States. Foreign investors, including other governments, also own part of the debt.</p>
                                     </div>
-                                </Accordion>
+                                </AccordionList>
                             </section>
 
                             <section className="tour sidebar intro-hidden">
@@ -117,7 +117,7 @@ function ExploreDebtPage(props) {
                     </div> {/* end ffg-wrapper debt-intro */}
 
                     <section className="hwcta">
-                        <Accordion title="Data Sources and Methodology">
+                        <AccordionList title="Data Sources and Methodology">
                         <p>This visualization was created using the <a href={AfgData.current_mspd.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source for federal debt of the United States and the <a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue and spending. <GdpTemplate></GdpTemplate> Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.</p>
                         <div className="afg__download--div">
                             <div className="afg__download--heading">Download Source Data</div>
@@ -125,7 +125,7 @@ function ExploreDebtPage(props) {
                                 <li><a href="/americas-finance-guide/afgData/explore_federal_debt.csv" download="explore_federal_debt.csv">explore_federal_debt.csv</a></li>
                             </ul>
                         </div>
-                        </Accordion>
+                        </AccordionList>
                     </section>
                 </div>
             </Default>

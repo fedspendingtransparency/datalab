@@ -8,7 +8,7 @@ import AfgData from "../../../libs/_data/object_mapping.yml"
 import Default from "../../../components/layouts/default/default"
 import { AFGHeader } from '../../../components/headers/headers';
 import GdpTemplate from '../../../components/gdp-template/gdp-template'
-import Accordion from '../../../components/accordion/accordion'
+import AccordionList from '../../../components/accordion-list/accordion-list'
 import ControlBar from '../../../components/control-bar/control-bar'
 import Share from '../../../components/share/share'
 import { Helmet } from 'react-helmet';
@@ -120,7 +120,7 @@ function SpendingAndGdpPage(props) {
                     </div> {/* end "ffg-wrapper spending-intro" */}
 
                     <section className="hwcta">
-                        <Accordion title="Data Sources and Methodology">
+                        <AccordionList title="Data Sources and Methodology">
                             <p>The visualization was created using the <a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. <GdpTemplate></GdpTemplate> The spending-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that go out from the federal government annually. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.</p>
                             <div className="afg__download--div">
                                 <div className="afg__download--heading">Download Source Data</div>
@@ -128,7 +128,7 @@ function SpendingAndGdpPage(props) {
                                     <li><a href="/americas-finance-guide/afgData/federal_spending_gdp.csv" download="federal_spending_gdp.csv">federal_spending_gdp.csv</a></li>
                                 </ul>
                             </div>
-                        </Accordion>
+                        </AccordionList>
                     </section>
                 </div>
             </Default>

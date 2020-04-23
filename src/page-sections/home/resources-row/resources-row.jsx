@@ -46,7 +46,7 @@ const ResourcesRow = () => {
         </Grid>
 
         {resourcesItems.map((resource, index) =>
-          <Grid item xs={12} sm={12} md={4} lg={3}
+          <Grid item xs={12} md={4} lg={3}
             key={index}
             className={resourcesRowStyles.tileRow}
           >
@@ -58,7 +58,8 @@ const ResourcesRow = () => {
               <img
                 data-src={resource.imageSrc}
                 alt={resource.altText}
-                className={`${resourcesRowStyles.svgImg} lazyload`} />
+                className={`${resourcesRowStyles.svgImg} lazyload`}
+              />
               <h1 className={resourcesRowStyles.title}>
                 {resource.title}
               </h1>

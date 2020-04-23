@@ -5,7 +5,7 @@ import React from "react"
 import SEO from "src/components/seo"
 import AfgData from "src/libs/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
-import Accordion from 'src/components/accordion/accordion'
+import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
@@ -71,7 +71,7 @@ function RevenueTrendsPage(props) {
                         <div className="clearfix"></div>
 
                         <section className="hwcta">
-                            <Accordion title="Data Sources and Methodology">
+                            <AccordionList title="Data Sources and Methodology">
                                 <p>The visualization was created using <a href={AfgData.mts_homepage.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. Some categories from the MTS have been renamed in order to be more easily understood. <a href={AfgData.bls_cpiu.value} rel="noopener noreferrer" target="_blank">The Bureau of Labor Statistics (BLS) Consumer Price Index for All Urban Consumers (CPI-U)</a> was used to adjust revenue in fiscal years {AfgData.inflation_adj_years.value} for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time.</p>
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>
@@ -79,7 +79,7 @@ function RevenueTrendsPage(props) {
                                         <li><a href="/americas-finance-guide/afgData/federal_revenue_trends.csv" download="federal_revenue_trends.csv">federal_revenue_trends.csv</a></li>
                                     </ul>
                                 </div>
-                            </Accordion>
+                            </AccordionList>
                         </section>
                     </div>
                 </div>

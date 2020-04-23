@@ -5,7 +5,7 @@ import styles from './student-innovators-toolbox.module.scss';
 import FaqLayout from "../../components/layouts/faq/faq";
 import Downloads from '../../components/section-elements/downloads/downloads';
 import { Hidden, Grid } from '@material-ui/core';
-import Accordion from "../../components/accordion/accordion"
+import AccordionList from "../../components/accordion-list/accordion-list"
 import DesktopImage from '../../images/student-innovators-toolbox/Toolbox Desktop.png';
 import TabletImage from '../../images/student-innovators-toolbox/Toolbox Tablet.png';
 import MobileImage from '../../images/student-innovators-toolbox/Toolbox Mobile.png';
@@ -88,9 +88,9 @@ class AnalystGuidePage extends Component {
                     </>
                   })
                 }
-                return <Accordion key={key1} title={accordionTitle} containerClass={styles.accordionContainer}>
+                return <AccordionList key={key1} title={accordionTitle} containerClass={styles.accordionContainer}>
                   {accordionContent}
-                </Accordion>
+                </AccordionList>
               })
             }
           </section>

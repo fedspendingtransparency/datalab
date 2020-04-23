@@ -73,7 +73,6 @@ h2.rd-viztitle  {
 }
 
 @mixin homepageTitle {
-  text-align: left;
   color: #2272CE;
   font-size: 1rem;
   font-weight: bold;
@@ -84,14 +83,13 @@ h2.rd-viztitle  {
 }
 
 @mixin homepageSubtitle {
-  text-align: left;
   font-size: 130%;
-  font-weight: 600;
+  font-weight: $semibold;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.24;
   letter-spacing: normal;
-  color: #4A4A4A;
+  color: $primary-grey;
 
   &:hover {
     text-decoration: underline;
@@ -104,6 +102,7 @@ h2.rd-viztitle  {
   letter-spacing: 0.4px;
   font-size: 1rem;
   font-weight: 300;
+  color: $font-body-copy;
 }
 
 @mixin h1-heading {

@@ -4,7 +4,7 @@ import styles from './categories.module.scss';
 import storyHeadingStyles from "src/components/section-elements/story-section-heading/story-section-heading.module.scss";
 import * as _ from 'lodash';
 
-import Accordion from 'src/components/accordion/accordion';
+import AccordionList from 'src/components/accordion-list/accordion-list';
 import CategoriesVizContainer from './sunburst-container/sunburst-container';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -231,14 +231,14 @@ const Categories = () => {
 			/>
 		</Hidden>
 
-		<Accordion title='Instructions'>
+		<AccordionList title='Instructions'>
 			<ul>
 				<li>Select an investment type: contracts, grants, or research grants</li>
 				<li>Hover over each section to determine the category</li>
 				<li>Click on a specific section to display the total awards for that category</li>
 				<li>Click the center section to return to the original display</li>
 			</ul>
-		</Accordion>
+		</AccordionList>
 
 		<Grid container className={styles.catContainer}>
 			<Grid item>

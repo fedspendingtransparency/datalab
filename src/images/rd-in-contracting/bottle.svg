@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Applied Research</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="12.1109551%" x2="50%" y2="89.4950273%" id="linearGradient-1">
+            <stop stop-color="#1302D9" offset="0%"></stop>
+            <stop stop-color="#060B8E" offset="49.5460304%"></stop>
+            <stop stop-color="#3B1AAE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="12.1109551%" x2="50%" y2="89.4950273%" id="linearGradient-2">
+            <stop stop-color="#1302D9" offset="0%"></stop>
+            <stop stop-color="#060B8E" offset="49.5460304%"></stop>
+            <stop stop-color="#3B1AAE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="12.1109551%" x2="50%" y2="89.4950273%" id="linearGradient-3">
+            <stop stop-color="#1302D9" offset="0%"></stop>
+            <stop stop-color="#060B8E" offset="49.5460304%"></stop>
+            <stop stop-color="#3B1AAE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Applied-Research" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(0.500000, 0.500000)">
+            <path d="M31.5,0 C14.1030304,0 0,14.1030304 0,31.5 C0,48.8969696 14.1030304,63 31.5,63 C48.8969696,63 63,48.8969696 63,31.5 C63,14.1030304 48.8969696,0 31.5,0 Z M31.5,1 C48.3446849,1 62,14.6553151 62,31.5 C62,48.3446849 48.3446849,62 31.5,62 C14.6553151,62 1,48.3446849 1,31.5 C1,14.6553151 14.6553151,1 31.5,1 Z" id="Oval-Copy-35" fill="#1302D9" fill-rule="nonzero"></path>
+            <g id="Group-2" transform="translate(16.500000, 11.500000)">
+                <g id="Group" transform="translate(4.000000, 0.000000)">
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="21" height="9" rx="1"></rect>
+                    <rect id="Rectangle" fill="#FFFFFF" x="0" y="22" width="21" height="14" rx="1"></rect>
+                </g>
+                <path d="M8.16478818,10 L20.8066088,10 C22.0758142,10 23.2697017,10.6023455 24.0238679,11.6231862 L28.2172591,17.2993673 C28.7256567,17.9875351 29,18.820586 29,19.6761812 L29,37 C29,39.209139 27.209139,41 25,41 L4,41 C1.790861,41 2.705415e-16,39.209139 0,37 L0,19.4048398 C-9.9635459e-16,18.5215143 0.292390384,17.6630318 0.831550381,16.9633388 L4.99633856,11.558499 C5.75362951,10.5757273 6.92409084,10 8.16478818,10 Z" id="Rectangle-Copy-2" fill="url(#linearGradient-2)"></path>
+                <rect id="Rectangle-2" fill="#FFFFFF" x="4" y="21" width="21" height="14" rx="1"></rect>
+                <polygon id="+" fill="url(#linearGradient-3)" fill-rule="nonzero" points="15.816 33.328 15.816 28.912 20.04 28.912 20.04 26.416 15.816 26.416 15.816 22 13.224 22 13.224 26.416 9 26.416 9 28.912 13.224 28.912 13.224 33.328"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

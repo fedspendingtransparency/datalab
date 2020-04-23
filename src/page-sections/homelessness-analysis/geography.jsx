@@ -13,7 +13,7 @@ import Reset from "../../components/reset/reset";
 import Share from "../../components/share/share";
 import SearchIcon from '@material-ui/icons/Search';
 import Downloads from "../../components/section-elements/downloads/downloads";
-import Accordion from "../../components/accordion/accordion";
+import AccordionList from "../../components/accordion-list/accordion-list";
 
 export default function Geography(props) {
 
@@ -168,7 +168,7 @@ export default function Geography(props) {
     <div className="homelessness-subheading">Homeless Population by Region</div>
     <div className="homelessness-subheading2">HUD Point-in-time Count by Continuum of Care Area</div>
 
-    <Accordion
+    <AccordionList
       title='Instructions'>
       <ul>
         <li>Double click on the map to zoom into a region.</li>
@@ -178,7 +178,7 @@ export default function Geography(props) {
         <li>To view this data in table format, click the table icon in the upper-left hand corner of the visualization.</li>
         <li>To return to map view, click on the map icon in the upper-left hand corner of the visualization.</li>
       </ul>
-    </Accordion>
+    </AccordionList>
 
     <div className="viz-actions">
       <ControlBar>

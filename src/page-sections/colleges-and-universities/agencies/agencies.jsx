@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import storyHeadingStyles from 'src/components/section-elements/story-section-heading/story-section-heading.module.scss';
 import styles from './agencies.module.scss';
 
-import Accordion from 'src/components/accordion/accordion';
+import AccordionList from 'src/components/accordion-list/accordion-list';
 import BubbleChartOutlinedIcon from '@material-ui/icons/BubbleChartOutlined';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import Grid from '@material-ui/core/Grid';
@@ -113,14 +113,14 @@ const Agencies = (props) => {
       />
     </Hidden>
 
-    <Accordion title='Instructions'>
+    <AccordionList title='Instructions'>
       <p>In this visualization sub-agencies are represented by colorful circles and grouped together by their agency symbolized by the light gray bubble</p>
       <ul>
         <li>Hover over the circle cluster or individual circle for the total investment of the agency or sub-agency</li>
         <li>Click on a circle to view more details for each sub-agency</li>
         <li>Click anywhere in the gray circle to return to the original view</li>
       </ul>
-    </Accordion>
+    </AccordionList>
 
     <Share
       location={props.location}
