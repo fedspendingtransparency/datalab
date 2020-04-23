@@ -1,15 +1,16 @@
 import React from 'react';
 import styles from './rd-in-contracting.module.scss';
 
-import SEO from 'src/components/seo';
-import ExpressLayout from 'src/components/layouts/express/express';
-import StorySection from 'src/components/section-elements/story-section/story-section'
+import Accordion from 'src/components/accordion/accordion';
 import Categories from 'src/page-sections/rd-in-contracting/categories/categories.jsx';
+import ExpressLayout from 'src/components/layouts/express/express';
+import Footnotes from "../../components/footnotes/footnotes"
+import { Hidden } from '@material-ui/core';
+import SEO from 'src/components/seo';
 import Spending from 'src/page-sections/rd-in-contracting/spending/spending';
 import Studies from 'src/page-sections/rd-in-contracting/studies/studies';
+import StorySection from 'src/components/section-elements/story-section/story-section';
 
-import Accordion from 'src/components/accordion/accordion';
-import { Hidden } from '@material-ui/core';
 import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
 import microscope from 'src/images/rd-in-contracting/microscope.svg';
 import science from 'src/images/rd-in-contracting/science.svg';
@@ -120,7 +121,7 @@ export default class RdInContractingPage extends React.Component {
       introBlurb: <>
         <p>The federal government is one of the largest and most consistent funding sources of R&D in the United States,<a id='fr2' href='#fn2' className='footnoteref'>2</a> where total R&D obligations had only a net 1% change over the last decade. In total, the National Science Foundation reports that the federal government obligated $146B to R&D initiatives in its 2019 budget, which includes contracts as well as other key funding sources such as grants.<a id='fr3' href='#fn3' className='footnoteref'>3</a></p>
         <p><span className={styles.bold}>Why does the government invest in R&D?</span>
-        <br />A common rationale for federal R&D spending is that many socially beneficial research projects would not be attempted if society depended on the private sector alone for funding.<a id='fr4' href='#fn4' className='footnoteref'>4</a></p>
+          <br />A common rationale for federal R&D spending is that many socially beneficial research projects would not be attempted if society depended on the private sector alone for funding.<a id='fr4' href='#fn4' className='footnoteref'>4</a></p>
       </>,
       viztitle: 'Federal R&D Obligations 2009-2019',
       tagName: 'studies'
@@ -143,5 +144,21 @@ export default class RdInContractingPage extends React.Component {
           </StorySection>
         )
       })}
+
+      <Footnotes footnotes={[
+        <>
+          Global R&D: One Measure of Commitment to Innovation, Global R&D: One Measure of Commitment to Innovation § (2018).<br />
+          <a href='https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation' rel='noreferrer noopener' target='_blank'>https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation</a>
+        </>,
+        <>
+          Sargent, John F. "Federal Research and Development (R&D) Funding: FY2019." Federal Research and Development (R&D) Funding: FY2019, October 4, 2018.<br />
+          <a href='https://fas.org/sgp/crs/misc/R45150.pdf' rel='noreferrer noopener' target='_blank'>https://fas.org/sgp/crs/misc/R45150.pdf</a>
+        </>,
+        <>National Center for Science and Engineering Statistics, National Science Foundation. 2019. Federal R&D Funding, by Budget Function: Fiscal Years 2018–20. Detailed Statistical Tables NSF 20-305. Alexandria, VA. Available at <a href='https://ncses.nsf.gov/pubs/nsf20305/' rel='noreferrer noopener' target='_blank'>https://ncses.nsf.gov/pubs/nsf20305/</a>.</>,
+        <>
+          Maloney, Carolyn B, and Charles E Schumer. “The Pivotal Role of Government Investment in Basic Research.” U.S. Congress Joint Economic Committee. U.S. Congress Joint Economic Committee, May 2010.<br />
+          <a href='https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf' rel='noreferrer noopener' target='_blank'>https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf</a>
+        </>
+      ]} />
     </ExpressLayout>
 }

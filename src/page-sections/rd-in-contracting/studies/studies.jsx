@@ -32,7 +32,11 @@ export default function Studies(props) {
 			</ul>
 		</AccordionList>
 
-		<img src='/images/viz/rd/chart3.svg' className={styles.chart} />
+		<img
+		src='/images/viz/rd/chart3.svg'
+		alt='Line graph showing federal obligations for R&D from 2009 to 2019 broken out into categories for Basic research, applied research, development, R&D plant, and total R&D.'
+		className={styles.chart}
+		/>
 		<GridList className={styles.legend} cols={windowWidth < 768 ? 2 : 5} cellHeight='auto'>
 			<GridListTile className={styles.legendTile}>
 				<div className={`${styles.legendBar} ${styles.one}`}></div>

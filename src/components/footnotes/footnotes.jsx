@@ -9,10 +9,11 @@ export default class Footnotes extends React.Component {
 	render = () =>
 		<div id={styles.footnotes}>
 			<div className={styles.headerSpacer}><span className={styles.header}>Footnotes</span></div>
-			{this.props.footnotes.map((footnote, i) => <p key={i}>
-				<span id={`fn${i + 1}`} className={styles.number}><a href={`#fr${i + 1}`}>{i + 1}</a></span>
-				<span className={styles.text}>{footnote}</span>
-			</p>
+			{this.props.footnotes.map((footnote, i) =>
+				<div key={i} className={styles.footnote}>
+					<div id={`fn${i + 1}`} className={styles.number}><a href={`#fr${i + 1}`}>{i + 1}</a></div>
+					<div className={styles.content}>{footnote}</div>
+				</div>
 			)}
 		</div>
 };

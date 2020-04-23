@@ -23,12 +23,12 @@ export default function Categories(props) {
 			.on('mouseout', onBlur)
 			.on('focus', onFocus)
 			.on('blur', onBlur)
-		;
+			;
 
 		svg.attr('role', 'img')
 			.attr('aria-labelledby', 'desc')
 			.attr('desc', altText)
-		;
+			;
 
 		function onFocus() {
 			d3.select(this)
@@ -36,7 +36,7 @@ export default function Categories(props) {
 				.attr('fill', '#1302D9')
 				.attr('fill-opacity', '.12')
 				.attr('stroke', '#1302D9')
-			;
+				;
 		}
 
 		function onBlur() {
@@ -44,34 +44,35 @@ export default function Categories(props) {
 				.select('circle')
 				.attr('fill', 'unset')
 				.attr('stroke', '#555555')
-			;
+				;
 		}
 	});
-	
-  return (
-    <>
-        <h2 className ='rd-viztitle'>{props.section.viztitle}</h2>
-          <AccordionList title='Instructions'>
-          <ul>
-            <li>instructions here</li>
-          </ul>
-        </AccordionList>
 
-      <ControlBar>
-        <Share />
-      </ControlBar>
+	return <>
+		<h2 className='rd-viztitle'>{props.section.viztitle}</h2>
+		<AccordionList title='Instructions'>
+			<p>In this visualization, categories are represented by icons.</p>
+			<ul>
+				<li>Click or tap on an icon to see the category name, total dollars contracted for this category, and the percentage this total accounts for within R&D contract spending</li>
+				<li>To exit the pop-up, click or tap the X</li>
+			</ul>
+		</AccordionList>
 
-      <div id='category-viz'></div>
+		<ControlBar>
+			<Share />
+		</ControlBar>
 
-      <Downloads
-        href={'/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv'}
-        date={'December 2019'}
-      />
-		</>);
+		<div id='category-viz'></div>
+
+		<Downloads
+			href={'/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv'}
+			date={'December 2019'}
+		/>
+	</>;
 
 }
 
-const altText = `Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.`;
+const altText = 'Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.';
 
 const chart = `<svg tabindex=0 width="1000px" height="652px" viewBox="0 0 1000 652" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Viz 2 Outline_Desktop</title>

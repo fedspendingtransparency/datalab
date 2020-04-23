@@ -9,20 +9,31 @@
     padding-bottom: 0.5rem;
   }
 
+  .footnote {
+    margin-top: 1rem;
+    display: flex;
+  }
+
   .number,
-  .text {
+  .content {
     font-size: 1rem;
     color: $darkGrey;
   }
 
   .number {
-		vertical-align: super;
-		
-		a {
-			color: currentColor;
+    vertical-align: super;
+
+    a {
+      color: currentColor;
       text-decoration: none;
-		}
+    }
   }
+
+  // .content {
+  //   display: -ms-inline-grid;
+  //   display: inline-grid;
+  //   margin-left: 0.25rem
+  // }
 
   @media (min-width: $desktop) {
     #footnotes {
