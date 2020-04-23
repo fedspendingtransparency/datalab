@@ -6,6 +6,7 @@ import GridListTile from '@material-ui/core/GridListTile/GridListTile';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import Share from '../../../components/share/share';
 import 'src/styles/index.scss';
+import { Hidden } from '@material-ui/core';
 
 export default function Studies(props) {
 	const [windowWidth, setWindowWidth] = useState(null);
@@ -33,6 +34,7 @@ export default function Studies(props) {
 			</ul>
 		</Accordion>
 
+		<Hidden mdDown>
     <Share
       siteUrl={props.location.origin}
       pageUrl={props.location.pathname + '#' + props.sectionId}
@@ -42,6 +44,16 @@ export default function Studies(props) {
     />
 
 		<img src='/images/viz/rd/chart3.svg' className={styles.chart} />
+		</Hidden>
+
+    <Hidden only={['xs', 'sm', 'lg', 'xl']}>
+      <img src='/images/home-solid.svg' className={styles.chart} />
+    </Hidden>
+
+    <Hidden mdUp>
+      <img src='/images/close.svg' className={styles.chart} />
+    </Hidden>
+
 		<GridList className={styles.legend} cols={windowWidth < 768 ? 2 : 5} cellHeight='auto'>
 			<GridListTile className={styles.legendTile}>
 				<div className={`${styles.legendBar} ${styles.one}`}></div>
