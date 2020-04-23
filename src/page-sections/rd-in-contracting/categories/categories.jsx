@@ -58,11 +58,17 @@ export default function Categories(props) {
 			.attr('desc', altText)
 		;
 
+    function simulateClick(d) {
+    	console.log('simulate click');
+    	console.log(d);
+		}
+
 		function onFocus(d, el) {
 			console.log(d);
 			console.log(el);
       // const tooltipItem = ReactDOM.render(<TooltipElement element={'g'} title={d.title} id={d.id} rows={d.rows} />, 'g');
 
+      simulateClick(d, el);
       d3.select(el)
 				.select('circle')
 				.attr('fill', '#1302D9')
