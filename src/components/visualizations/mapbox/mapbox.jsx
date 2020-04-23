@@ -3,7 +3,6 @@ import * as $ from "jquery";
 import mapboxgl from 'mapbox-gl';
 import './mapbox.scss';
 import '../../../../node_modules/mapbox-gl/dist/mapbox-gl.css';
-import pin from '../../../images/colleges-and-universities/map-pin.png';
 import formatNumber from '../../../utils/number-formatter';
 
 export default function Mapbox(props) {
@@ -155,7 +154,7 @@ export default function Mapbox(props) {
 	    }
 	  });
 
-	  map.loadImage(pin, function (err, image) {
+	  map.loadImage('https://i.imgur.com/SfXEEcZ.png', function (err, image) {
 	    if (err) throw err;
 	    map.addImage('pin', image);
 	    map.addLayer({
