@@ -30,11 +30,10 @@ export default class RdInContractingPage extends React.Component {
         <div>
           <span className={`${styles.bold} ${styles.highlight} ${styles.bulletSize}`}>Basic Research</span>
           <p>The intent of <span className={styles.bold}>basic research</span> is to study more about a subject, to expand upon what we already know about it. This type of research usually doesn't result in solving a specific problem.</p>
-          <p className={styles.bold}>Real world example of Basic Research</p>
           <div className={styles.flexContainer}>
             <img src={science} role='presentation' className={styles.leftImg} />
             <div>
-              <p>NASA's International Space Station is using a platform to gather data on temperature, light cycle, humidity control, and more.</p>
+              <p>EXAMPLE: NASA's International Space Station is using a platform to gather data on temperature, light cycle, humidity control, and more.</p>
               <a href='https://www.usaspending.gov/#/award/CONT_AWD_NNJ15GU47T_8000_NNJ15GU31B_8000' target='_blank' rel='noopener noreferrer'>
                 Contract Summary <LaunchOutlinedIcon fontSize='inherit' />
               </a>
@@ -48,11 +47,10 @@ export default class RdInContractingPage extends React.Component {
         <div>
           <span className={`${styles.bold} ${styles.highlight} ${styles.bulletSize}`}>Applied Research</span>
           <p><span className={styles.bold}>Applied research</span> has a more specific goal of finding solutions to current problems using the accumulated knowledge from basic research.</p>
-          <p className={styles.bold}>Real world example of Applied Research</p>
           <div className={styles.flexContainer}>
             <img src={bottle} role='presentation' className={styles.leftImg} />
             <div>
-              <p>The Department of Health and Human Services is researching a drug that could counteract damage caused by radiation exposure.</p>
+              <p>EXAMPLE: The Department of Health and Human Services is researching a drug that could counteract damage caused by radiation exposure.</p>
               <a href='https://www.usaspending.gov/#/award/CONT_AWD_HHSO100201700026C_7505_-NONE-_-NONE-' target='_blank' rel='noopener noreferrer'>
                 Contract Summary <LaunchOutlinedIcon fontSize='inherit' />
               </a>
@@ -66,11 +64,10 @@ export default class RdInContractingPage extends React.Component {
         <div>
           <span className={`${styles.bold} ${styles.highlight} ${styles.bulletSize}`}>Development</span>
           <p><span className={styles.bold}>Development</span> refers to the innovative process of using applied research to create prototypes of potential solutions to real-world problems.</p>
-          <p className={styles.bold}>Real world example of Development</p>
           <div className={styles.flexContainer}>
             <img src={bulb} role='presentation' className={styles.leftImg} />
             <div>
-              <p>The Department of Energy developed a long-term solution for storing spent nuclear fuel and is studying its impact on licensing and operations of nuclear plants.</p>
+              <p>EXAMPLE: The Department of Energy developed a long-term solution for storing spent nuclear fuel and is studying its impact on licensing and operations of nuclear plants.</p>
               <a href='https://www.usaspending.gov/#/award/CONT_AWD_DENE0000593_8900_-NONE-_-NONE-' target='_blank' rel='noopener noreferrer'>
                 Contract Summary <LaunchOutlinedIcon fontSize='inherit' />
               </a>
