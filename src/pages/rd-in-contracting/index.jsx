@@ -27,7 +27,7 @@ export default function RdInContractingPage(props) {
           <p key={'spending-intro'}>Investment in Research and Development, or R&D, is largely seen as a driver of innovation in both the public and private sectors.<a id='fr1' href='#fn1' className='footnoteref'>1</a> From medicine to autonomous vehicles, R&D investments lead to new products, technology advancements, and improved quality of life.  To fund R&D work, federal agencies can use grants, loans, and contracts. In this analysis we focus on contracts.</p>,
           <p>Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts to perform R&D work in fiscal year 2019 (FY 2019), totaling $41.5B. Let’s take a look at the top ten CFO Act agencies by R&D contract spending.</p>
         ],
-        viztitle: 'R&D in Contracting by Category',
+        viztitle: 'R&D as a Portion of Total Federal Contract Spending by Agency',
         tagName: 'spending'
       },
       {
