@@ -162,8 +162,8 @@ export default function Institutions(props) {
 	}
 
 	function updateTableData(data) {
-		if (tableRef && tableRef.current) { tableRef.current.updateTableData(data); }
 		setFilteredData(data);
+		if (tableRef && tableRef.current) { tableRef.current.updateTableData(data); }
 	}
 
   return (<>
@@ -241,7 +241,6 @@ export default function Institutions(props) {
       ref={tableRef}
     />
     </Grid>
-
 
     <Downloads
       href={'/unstructured-data/mapbox/tableData.csv'}
