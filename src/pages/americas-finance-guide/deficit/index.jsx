@@ -7,7 +7,7 @@ import SEO from "src/components/seo";
 import AfgData from "src/libs/_data/object_mapping.yml";
 import Default from "src/components/layouts/default/default";
 import { AFGHeader } from 'src/components/headers/headers';
-import Accordion from 'src/components/accordion/accordion';
+import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import { Helmet } from 'react-helmet';
@@ -85,11 +85,11 @@ function ExploreDeficitPage(props) {
               </div>
 
               <section className="accordion sidebar intro-hidden">
-                <Accordion title="How else does the government finance a deficit?">
+                <AccordionList title="How else does the government finance a deficit?">
                   <div>
                     <p>The government can also use operating cash, which is available from an account at the Federal Reserve, to pay for deficit spending. This would be similar to an individual using their debit card to pay for purchases.</p>
                   </div>
-                </Accordion>
+                </AccordionList>
               </section>
 
               <section className="tour sidebar intro-hidden">
@@ -113,7 +113,7 @@ function ExploreDeficitPage(props) {
           </div>
 
           <section className="hwcta">
-            <Accordion title="Data Sources and Methodology">
+            <AccordionList title="Data Sources and Methodology">
               <p>This visualization was created using the <a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue, spending, and deficit and the <a href={AfgData.current_mspd.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source of federal debt.</p>
               <div className="afg__download--div">
                 <div className="afg__download--heading">Download Source Data</div>
@@ -121,7 +121,7 @@ function ExploreDeficitPage(props) {
                   <li><a href="/americas-finance-guide/afgData/explore_federal_deficit.csv" download="explore_federal_deficit.csv">explore_federal_deficit.csv</a></li>
                 </ul>
               </div>
-            </Accordion>
+            </AccordionList>
           </section>
         </div>
       </Default>

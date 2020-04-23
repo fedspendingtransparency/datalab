@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import SEO from "src/components/seo";
 import ToolLayout from "src/components/layouts/tool/tool";
-import Accordion from "src/components/accordion/accordion";
+import AccordionList from "src/components/accordion-list/accordion-list";
 import loadable from "@loadable/component";
 import ControlBar from '../../components/control-bar/control-bar.jsx';
 import Reset from '../../components/reset/reset';
@@ -44,7 +44,7 @@ function BudgetFunctionPage(props) {
         salaries for federal employees, rent payments for federal buildings, and spending on federal contracts.</p>"
         hwctaLink={props.location.pathname + '/methodologies'}>
 
-        <Accordion
+        <AccordionList
           title='Instructions'>
           <ul>
               <li>This Sankey diagram shows Budget Functions on the left and Object Classes on the right.</li>
@@ -52,7 +52,7 @@ function BudgetFunctionPage(props) {
               <li>Hover over an Object Class on the right to see how spending breaks down into Budget Functions.</li>
               <li>Click and drag any Budget Function or Object Class color bar to vertically rearrange the ordering of that category.</li>
           </ul>
-        </Accordion>
+        </AccordionList>
 
       <ControlBar>
         <Reset id='resetBtn'/>

@@ -6,7 +6,7 @@ import React from "react"
 import SEO from "src/components/seo"
 import AfgData from "src/libs/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
-import Accordion from 'src/components/accordion/accordion'
+import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
@@ -78,7 +78,7 @@ function DebtTrendsPage(props) {
                         <div className="clearfix"></div>
 
                         <section className="hwcta">
-                            <Accordion title="Data Sources and Methodology">
+                            <AccordionList title="Data Sources and Methodology">
                                 <p>This visualization was created using the <a href={AfgData.mspd_homepage.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source for federal debt of the United States. <GdpTemplate></GdpTemplate> Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.</p>
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>
@@ -86,7 +86,7 @@ function DebtTrendsPage(props) {
                                         <li><a href="/americas-finance-guide/afgData/federal_debt_trends.csv" download="federal_debt_trends.csv">federal_debt_trends.csv</a></li>
                                     </ul>
                                 </div>
-                            </Accordion>
+                            </AccordionList>
                         </section>
                     </div>
                 </div>
