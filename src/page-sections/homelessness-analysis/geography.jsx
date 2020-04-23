@@ -1,19 +1,19 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import { Hidden } from '@material-ui/core'
-import Mapviz from "../../components/visualizations/homelessness-analysis/mapviz/mapviz"
-import * as _ from "lodash"
+import Mapviz from '../../components/visualizations/homelessness-analysis/mapviz/mapviz'
+import * as _ from 'lodash'
 
 import dataSource from '../../components/visualizations/homelessness-analysis/utils/data-module';
-import TableContainer from "../colleges-and-universities/agencies/agencies-table-container";
-import styles from "../../components/visualizations/homelessness-analysis/mapviz/mapviz.module.scss";
-import mapImg from "../../components/visualizations/homelessness-analysis/mapviz/map.svg";
-import tableImg from "../../components/visualizations/homelessness-analysis/mapviz/table.svg";
-import ControlBar from "../../components/control-bar/control-bar";
-import Reset from "../../components/reset/reset";
-import Share from "../../components/share/share";
+import DataTable from 'src/components/table/data-table';
+import styles from '../../components/visualizations/homelessness-analysis/mapviz/mapviz.module.scss';
+import mapImg from '../../components/visualizations/homelessness-analysis/mapviz/map.svg';
+import tableImg from '../../components/visualizations/homelessness-analysis/mapviz/table.svg';
+import ControlBar from '../../components/control-bar/control-bar';
+import Reset from '../../components/reset/reset';
+import Share from '../../components/share/share';
 import SearchIcon from '@material-ui/icons/Search';
-import Downloads from "../../components/section-elements/downloads/downloads";
-import Accordion from "../../components/accordion/accordion";
+import Downloads from '../../components/section-elements/downloads/downloads';
+import Accordion from '../../components/accordion/accordion';
 
 export default function Geography(props) {
 
@@ -157,7 +157,7 @@ export default function Geography(props) {
     switchView('chart');
 
     const searchBox = document.getElementById('homeless-region-search');
-    if(searchBox){
+    if (searchBox) {
       searchBox.value = '';
     }
 
@@ -165,8 +165,8 @@ export default function Geography(props) {
   }
 
   return (<>
-    <div className="homelessness-subheading">Homeless Population by Region</div>
-    <div className="homelessness-subheading2">HUD Point-in-time Count by Continuum of Care Area</div>
+    <div className='homelessness-subheading'>Homeless Population by Region</div>
+    <div className='homelessness-subheading2'>HUD Point-in-time Count by Continuum of Care Area</div>
 
     <Accordion
       title='Instructions'>
@@ -180,14 +180,14 @@ export default function Geography(props) {
       </ul>
     </Accordion>
 
-    <div className="viz-actions">
+    <div className='viz-actions'>
       <ControlBar>
         <Reset _resetClick={reset} onClick={reset} />
         <Share location={props.location} />
       </ControlBar>
       <Hidden xsDown>
-        <div className="homeless-map-options">
-          <span className="homeless-style">View</span>
+        <div className='homeless-map-options'>
+          <span className='homeless-style'>View</span>
           <img id={styles.homelessActionMap} src={mapImg} onClick={function () { switchView('chart'); }} />
           <img id={styles.homelessActionTable} src={tableImg} onClick={function () { switchView('table'); }} />
           <input type='text'
@@ -209,13 +209,12 @@ export default function Geography(props) {
         data={dataSource}
         isClicked={clicked}
       />
-      <TableContainer
+      <DataTable
         display={!chartView}
-        tableColumnTitles={tableColumnTitles}
-        tableData={filteredTableData}
+        columnTitles={tableColumnTitles}
+        data={filteredTableData}
         tableRef={tableRef}
       />
-
       <Downloads
         href={'/unstructured-data/homelessness-analysis/panel_2_table_and_counts_v7_2020_03_27.csv'}
         date={'November 2019'}
