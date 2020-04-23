@@ -4,6 +4,10 @@ $highlightColor: #1302d9;
 $left-indent: 32px;
 $bullet-size: 1.5rem;
 
+.bold {
+  font-weight: $bold;
+}
+
 .subtitle-highlight {
   color: $highlightColor;
   font-size: inherit;
@@ -58,10 +62,6 @@ $bullet-size: 1.5rem;
 
   .highlight {
     color: $highlightColor;
-  }
-
-  .bold {
-    font-weight: $bold;
   }
 
   .center-img {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './studies.module.scss';
-import Accordion from 'src/components/accordion/accordion';
+import AccordionList from 'src/components/accordion-list/accordion-list';
 import GridList from '@material-ui/core/GridList/GridList';
 import GridListTile from '@material-ui/core/GridListTile/GridListTile';
 import Downloads from 'src/components/section-elements/downloads/downloads';
@@ -26,11 +26,11 @@ export default function Studies(props) {
 
 	return (<>
 		<h2 className='rd-viztitle'>{props.section.viztitle}</h2>
-		<Accordion title='Instructions'>
+		<AccordionList title='Instructions'>
 			<ul>
 				<li>instructions here</li>
 			</ul>
-		</Accordion>
+		</AccordionList>
 
 		<img src='/images/viz/rd/chart3.svg' className={styles.chart} />
 		<GridList className={styles.legend} cols={windowWidth < 768 ? 2 : 5} cellHeight='auto'>
