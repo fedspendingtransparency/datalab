@@ -4,7 +4,7 @@ import '../../styles/index.scss';
 import storyHeadingStyles from '../../components/section-elements/story-section-heading/story-section-heading.module.scss';
 import styles from './cu.module.scss';
 import refreshLogo from '../../images/colleges-and-universities/refresh.svg';
-import Accordion from '../../components/accordion/accordion';
+import AccordionList from '../../components/accordion-list/accordion-list';
 import { Hidden } from '@material-ui/core';
 import SearchPanel from 'src/components/chartpanels/search';
 import ControlBar from '../../components/control-bar/control-bar';
@@ -184,13 +184,13 @@ export default function Institutions(props) {
       />
     </Hidden>
 
-    <Accordion title='Instructions'>
+    <AccordionList title='Instructions'>
       <p>Click the map to get started</p>
       <p>The number displayed on each cluster is the number of institutions in that area</p>
       <p>Click on a regional cluster to expand the area and display details for each school</p>
       <p>Use the zoom in and zoom out keys to adjust the map view</p>
       <p>For a specific search, use the search tool to type in the school by name</p>
-    </Accordion>
+    </AccordionList>
 
     <ControlBar>
       <div className={styles.mapboxRefresh} id='refresh-btn'>
