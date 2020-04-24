@@ -30,8 +30,6 @@ export default function TooltipElement(props) {
   const CustomTooltip = React.forwardRef((props, ref) => (
     <>
       <CustomTag
-        aria-owns={isOpen(props.id, ref) ? 'mouse-over-popover' : undefined}
-        aria-haspopup="true"
         onKeyDown={(e) => onPopoverOpen(e, props.id, ref)}
         onMouseEnter={(e) => onPopoverOpen(e, props.id, ref)}
         onMouseLeave={(e) => onPopoverClose(e, ref)}>

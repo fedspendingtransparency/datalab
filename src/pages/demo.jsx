@@ -26,12 +26,7 @@ const DemoPage = () => {
     list: [
       {
         label: 'blah11',
-        value: 'blah blah222'
-      },
-      {
-        label: 'blah233',
-        value: 'blah blah2222'
-      }
+        value: 'blah blah222'}
     ]
   };
 
