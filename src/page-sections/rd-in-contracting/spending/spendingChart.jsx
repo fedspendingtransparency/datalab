@@ -15,17 +15,20 @@ export default class SpendingChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bWidth: 1400, // start desktop size
+      bWidth: 1200, // start desktop size
       showDetails: false,
     };
   }
 
   componentDidMount() {
+
+    this.setState({ bWidth: window.innerWidth }); // set initial width for render
+
     window.addEventListener('resize', this.handleWindowSizeChange);
     document.addEventListener('click', this.detailsListener);
     this.detailsClose();
     this.detailsKeyup();
-    this.closeDetailResize(); // resize event listener as well
+    this.closeDetailResize();
   }
 
   componentWillUnmount() {
@@ -105,9 +108,9 @@ export default class SpendingChart extends React.Component {
 
 
   /* We have to layer the popup over the svg 
-     with position absolute. This can get a bit messy.
-     We want to offset the chart where it doesn't overlay the axis
-     so we'll use these checkers to shift it over on certain sizes.
+    with position absolute. This can get a bit messy.
+    We want to offset the chart where it doesn't overlay the axis
+    so we'll use these checkers to shift it over on certain sizes.
   */
 
   /* Tablet Checker */
@@ -127,6 +130,7 @@ export default class SpendingChart extends React.Component {
   }
   
   render() {
+    console.log(this.state);
     let bWidth = this.state.bWidth;
     let isTabletSvg = bWidth <= 768 && bWidth >= 576;
     let isMobileSvg = bWidth <= 576;
