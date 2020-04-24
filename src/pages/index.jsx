@@ -37,8 +37,8 @@ function IndexPage() {
             isMain={true}
             imgAlt=''
             heading='R&D in Contract Spending'
-            body='In 2019 the federal government backed more than $40 billion in research and development (R&D) initiatives through contracts. Our analysis looks at the top agencies by R&D contract spending and how that money is used in different phases of basic research, applied research, and new development. See how categories such as energy, education, and space flight stack up and how R&D spending has trended over the last decade.'
-            mobileBody='In 2019 the federal government backed more than $40 billion in research and development (R&D) initiatives through contracts. Our analysis looks at the top agencies by R&D contract spending and how that money is used in different phases of basic research, applied research, and new development. See how categories such as energy, education, and space flight stack up and how R&D spending has trended over the last decade.'
+            body='R&D is often associated with the private sector, but in 2019 the federal government backed more than $40 billion in research initiatives through contracts. Our analysis looks at the top agencies by R&D contract spend and where the money is going. See how categories such as energy, education, and space flight stack up and how R&D spending has trended over the last decade.'
+            mobileBody='R&D is often associated with the private sector, but in 2019 the federal government backed more than $40 billion in research initiatives through contracts. Our analysis looks at the top agencies by R&D contract spend and where the money is going. See how categories such as energy, education, and space flight stack up and how R&D spending has trended over the last decade.'
           />
         </Grid>
         <Grid item md={12} lg={4}>
