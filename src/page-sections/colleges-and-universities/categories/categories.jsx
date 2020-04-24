@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styles from './categories.module.scss';
-import storyHeadingStyles from "src/components/section-elements/story-section-heading/story-section-heading.module.scss";
+import storyHeadingStyles from 'src/components/section-elements/story-section-heading/story-section-heading.module.scss';
 import * as _ from 'lodash';
 
-import Accordion from 'src/components/accordion/accordion';
+import AccordionList from 'src/components/accordion-list/accordion-list';
 import CategoriesVizContainer from './sunburst-container/sunburst-container';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import DataTable from 'src/components/table/data-table';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import { Grid, Hidden } from '@material-ui/core';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
@@ -16,7 +17,6 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import SearchPanel from 'src/components/chartpanels/search';
 import StoryHeading from 'src/components/section-elements/story-section-heading/story-section-heading';
 import SunburstIcon from 'src/images/sunburst_icon.svg';
-import TableContainer from "./categories-table-container";
 import VizControlPanel from 'src/components/chartpanels/viz-control';
 
 const Categories = () => {
@@ -210,7 +210,7 @@ const Categories = () => {
 			</IconButton>
 			<CardContent className={styles.text}>
 				In this visualization, we identified and set apart grants used for research projects. This subset of grants were awarded to individuals, groups, or institutions.
-		</CardContent>
+			</CardContent>
 		</Card>
 	</>;
 
@@ -231,14 +231,14 @@ const Categories = () => {
 			/>
 		</Hidden>
 
-		<Accordion title='Instructions'>
+		<AccordionList title='Instructions'>
 			<ul>
 				<li>Select an investment type: contracts, grants, or research grants</li>
 				<li>Hover over each section to determine the category</li>
 				<li>Click on a specific section to display the total awards for that category</li>
 				<li>Click the center section to return to the original display</li>
 			</ul>
-		</Accordion>
+		</AccordionList>
 
 		<Grid container className={styles.catContainer}>
 			<Grid item>
@@ -286,9 +286,7 @@ const Categories = () => {
 								checked={fundingType === 'research'}
 							/>
 							<label htmlFor='cuResearch'>&nbsp;Research Grants</label>
-
 							{grantsInfo()}
-
 						</Grid>
 					</Grid>
 				</div>
@@ -299,7 +297,8 @@ const Categories = () => {
 					title={titlesByType[fundingType]}
 					chartRef={chartRef}
 				/>
-				<TableContainer
+				<DataTable
+      		idName={'categoriesTable'}
 					fundingType={fundingType}
 					display={!chartView}
 					title={titlesByType[fundingType].categoryLabel + 's'}

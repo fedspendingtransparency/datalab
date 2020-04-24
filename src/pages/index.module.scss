@@ -30,8 +30,13 @@
 }
 
 @media (max-width: $desktop - 1) {
+  .featured-row {
+    padding-bottom: 0;
+  }
+  
   .more-analyses-row {
     flex-direction: column-reverse;
+    padding-bottom: 0;
 
     .featured-tile {
       margin-bottom: $margin-45;
@@ -45,7 +50,6 @@
   }
 
   .featured-tile-row,
-  .featured-row,
   .resource-row {
     padding-bottom: 0;
   }

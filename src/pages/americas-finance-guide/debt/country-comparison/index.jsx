@@ -6,7 +6,7 @@ import React from "react"
 import SEO from "src/components/seo"
 import AfgData from "src/libs/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
-import Accordion from 'src/components/accordion/accordion'
+import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
@@ -71,7 +71,7 @@ function DebtCountryComparisonPage(props) {
                         <div className="clearfix"></div>
 
                         <section className="hwcta">
-                            <Accordion title="Data Sources and Methodology">
+                            <AccordionList title="Data Sources and Methodology">
                                 <p>This visualization was created using the <a href={AfgData.country_comparison_mspd.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source for federal government debt of the United States. Gross domestic product (GDP) figures come from the <a href={AfgData.imf_gdp.value} rel="noopener noreferrer" target="_blank">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>. Debt figures for countries other than the United States also come from the <a href={AfgData.imf_debt.value} rel="noopener noreferrer" target="_blank">IMF WEOD</a>. Since debt figures were provided in the national currency for the selected countries, the numbers were subsequently converted to U.S. dollars. Currency conversion rates were pulled from <a href={AfgData.xe_conversion.value} rel="noopener noreferrer" target="_blank">XE.com</a> for {AfgData.xe_conversion_date.value}; the last day of the U.S. federal government's fiscal year.</p>
                                 <p>The conversion of debt figures to U.S. dollars makes comparisons among countries more convenient. However, the implied burden of debt may be misrepresented for a given country if the majority of that nation's debt was denominated in a currency other than U.S. dollars, and the currency in which the debt was held had an abnormal valuation relative to the U.S. dollar on the date of currency conversion.</p>
                                 <div className="afg__download--div">
@@ -80,7 +80,7 @@ function DebtCountryComparisonPage(props) {
                                         <li><a href="/americas-finance-guide/afgData/debt_country_comparison.csv" download="debt_country_comparison.csv">debt_country_comparison.csv</a></li>
                                     </ul>
                                 </div>
-                            </Accordion>
+                            </AccordionList>
                         </section>
                     </div>
                 </div>

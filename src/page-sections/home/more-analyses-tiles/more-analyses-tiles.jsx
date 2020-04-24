@@ -1,22 +1,21 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import moreAnalysesStyles from './more-analyses-tiles.module.scss';
 
-import federal from "src/images/more-analyses/federal.jpg"
-import workers from "src/images/more-analyses/workers.jpg"
-import budget from "src/images/more-analyses/budget.jpg"
-import competition from "src/images/more-analyses/competition.jpg"
+import { Grid } from '@material-ui/core';
 
-import { Grid } from "@material-ui/core"
-import moreAnalysesStyles from './more-analyses-tiles.module.scss'
-import PropTypes from "prop-types"
+import explorer from 'src/images/more-analyses/explorer.png';
+import workers from 'src/images/more-analyses/workers.jpg';
+import budget from 'src/images/more-analyses/budget.jpg';
+import competition from 'src/images/more-analyses/competition.jpg';
 
 const MoreAnalysesTiles = () => {
   const analyses = [{
-    href: 'federal-account-explorer',
-    imageSrc: federal,
-    title: 'Federal Account Explorer',
-    subtitle: 'Discover the federal government\'s spending accounts',
-    alt: 'A close view of a withered copy of the Statement of the Income and Expenditures of the United States.'
+    href: 'contract-explorer',
+    imageSrc: explorer,
+    alt: 'A picture of a microscope with a sunburst image overlaid.',
+    title: 'Contract Explorer',
+    subtitle: 'Who receives federal contracts?'
   }, {
     href: 'federal-employees',
     imageSrc: workers,
@@ -80,6 +79,4 @@ const MoreAnalysesTiles = () => {
   )
 }
 
-
 export default MoreAnalysesTiles;
-

@@ -6,7 +6,7 @@ import React from 'react';
 import SEO from 'src/components/seo';
 import AfgData from 'src/libs/_data/object_mapping.yml';
 import Default from 'src/components/layouts/default/default';
-import Accordion from 'src/components/accordion/accordion';
+import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Tabs from 'src/components/tabs/tabs';
@@ -73,7 +73,7 @@ function DeficitTrendsPage(props) {
 		   <p>Since {AfgData.last_surplus.value}, the U.S. has experienced a deficit each year. Beginning in 2016, increases in spending on Social Security, health care, and interest on federal debt have outpaced the growth of federal revenue.</p>
 
 		   <section className='accordion'>
-		     <Accordion title='What does it mean when there is a surplus, balanced budget, and deficit?' className='accordion__heading'>
+		     <AccordionList title='What does it mean when there is a surplus, balanced budget, and deficit?' className='accordion__heading'>
 		       <div className='accordion__content'>
 			 <div id='surplusComponent'>
 			   <div className='deficit--surplus__component--content deficit--surplus__surplus'>
@@ -90,7 +90,7 @@ function DeficitTrendsPage(props) {
                            </div>
 			 </div>
 		       </div>
-		     </Accordion>
+		     </AccordionList>
 		   </section>
 
 		   <section className='tour'>
@@ -108,7 +108,7 @@ function DeficitTrendsPage(props) {
 	     </div>
 
 	     <section className='hwcta deficit-trends__hwcta'>
-	       <Accordion title='Data Sources and Methodology'>
+	       <AccordionList title='Data Sources and Methodology'>
 		 <p>The visualization was created using the <a href={AfgData.mts_homepage.value} rel='noopener noreferrer' target='_blank'>Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue and spending of the United States.</p>
 		 <div className='afg__download--div'>
 		   <div className='afg__download--heading'>Download Source Data</div>
@@ -116,7 +116,7 @@ function DeficitTrendsPage(props) {
 		     <li><a href='/americas-finance-guide/afgData/federal_deficit_trends.csv' download='federal_deficit_trends.csv'>federal_deficit_trends.csv</a></li>
 		   </ul>
 		 </div>
-	       </Accordion>
+	       </AccordionList>
 	     </section>
 	   </Default>
 	 </>

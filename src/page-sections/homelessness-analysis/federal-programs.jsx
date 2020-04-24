@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import * as d3 from 'd3v3';
 import styles from './federal-programs.module.scss';
 
-import Accordion from '../../components/accordion/accordion';
+import AccordionList from '../../components/accordion-list/accordion-list';
 import Share from '../../components/share/share';
 import dataSource from '../../components/visualizations/homelessness-analysis/utils/data-module';
 import Downloads from '../../components/section-elements/downloads/downloads';
@@ -883,7 +883,7 @@ export default function FederalPrograms(props) {
     <div className="homeless-analysis federal-programs-section">
       <div className="homelessness-subheading">Federal Spending on Homelessness by Region</div>
       <div className="homelessness-subheading2">Federal grant awards by Continuum of Care Area</div>
-      <Accordion
+      <AccordionList
         title="Instructions">
         <strong>Map</strong>
         <ul>
@@ -906,7 +906,7 @@ export default function FederalPrograms(props) {
             Single-click the bars on the charts to visit a website describing each listed program in depth.
           </li>
         </ul>
-      </Accordion>
+      </AccordionList>
 
       <Share location={props.location} />
       <div className={styles.searchList}>

@@ -3,7 +3,6 @@
 .highlight {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  text-align: left;
 
   .headings {
     padding-bottom: 0 !important;
@@ -17,7 +16,7 @@
   .subheading {
     @include homepageSubtitle();
     font-size: 1.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .text {
@@ -38,15 +37,13 @@
   }
 }
 
-@media (max-width: $tablet - 1) {
+@media (max-width: $desktop - 1) {
   .highlight {
-    .subheading {
-      font-size: 1.25em;
-    }
+    border: none;
+  }
 
-    .text {
-      display: none;
-    }
+  .subheading {
+    margin-top: 0;
   }
 }
 
@@ -60,14 +57,18 @@
   }
 }
 
-@media (max-width: $desktop - 1) {
-  .highlight {
-    border: none;
-  }
-}
-
 @media (max-width: $tablet - 1) {
-  .highlight .heading {
-    margin-top: 0;
+  .highlight {
+    .heading {
+      margin-top: 0;
+    }
+
+    .subheading {
+      font-size: 1.25em;
+    }
+
+    p {
+      text-align: center;
+    }
   }
 }

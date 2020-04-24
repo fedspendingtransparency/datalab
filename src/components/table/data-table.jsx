@@ -25,15 +25,18 @@ export default class DataTable extends React.Component {
       sortBy: 'index'
     };
 
-    this.defaultWidth = 1000;
     this.handleRowsScroll = this.handleRowsScroll.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
     this.sort = this.sort.bind(this);
     this.updateSort = this.updateSort.bind(this);
     this.updateTableData = this.updateTableData.bind(this);
 
-    if (typeof document !== 'undefined' && typeof window !== 'undefined' && document.getElementById('chart-area')) {
-      this.defaultWidth = 1.25 * (document.getElementById('chart-area').clientWidth);
+    this.defaultWidth = 1000;
+    if (typeof document !== 'undefined') {
+      let chart = document.getElementById('chart-area');
+      if (chart && chart.clientWidth) { // i.e. if exists and clientWidth > 0
+        this.defaultWidth = 1.25 * chart.clientWidth;
+      }
     }
   }
 

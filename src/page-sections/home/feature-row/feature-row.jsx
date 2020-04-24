@@ -10,9 +10,9 @@ const FeatureRow = (props) => {
       <Grid
         container
         spacing={3}
-        className={featuredAnalysesStyles.container}>
-        <Grid item xs={12} sm={6}
-              className={featuredAnalysesStyles.content}>
+        className={featuredAnalysesStyles.container}
+      >
+        <Grid item xs={12} md={6} className={featuredAnalysesStyles.content}>
           <h1 className={featuredAnalysesStyles.heading}>
             {props.heading}
           </h1>
@@ -23,12 +23,12 @@ const FeatureRow = (props) => {
             {props.blurb}
           </p>
         </Grid>
-        <Grid item xs={12} sm={6} className={featuredAnalysesStyles.image}>
+        <Grid item xs={12} md={6} className={featuredAnalysesStyles.image}>
           <img
 						data-src={props.imgSrc}
             alt={props.imgAlt}
 					  className="lazyload"
-						/>
+					/>
         </Grid>
       </Grid>
     </Link>

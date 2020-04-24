@@ -20,7 +20,7 @@ export default class Share extends Component {
     this.handleShareClickReddit = this.handleShareClickReddit.bind(this);
     this.handleShareClickEmail = this.handleShareClickEmail.bind(this);
     this.openShareWindow = this.openShareWindow.bind(this);
-    this.url = this.props.location ? this.props.location.href : this.props.siteUrl + this.props.pageUrl;
+    this.url = encodeURIComponent(this.props.location ? this.props.location.href : this.props.siteUrl + this.props.pageUrl);
     this.pathName = this.props.location ? this.props.location.pathname : this.props.pageUrl;
 
     // The following will take the url pathname and make it into the readable text we've used in the past (eg. '/federal-employees' becomes 'Federal Employees')
@@ -36,7 +36,7 @@ export default class Share extends Component {
       this.pathName = pathNameSplit.join(' ');
     }
     this.defaultTitle = `Data Lab - ${this.pathName} - U.S. Treasury`;
-    this.title = this.props.title || this.defaultTitle;
+    this.title = encodeURIComponent(this.props.title || this.defaultTitle);
   }
 
   handleShow() {
@@ -65,7 +65,7 @@ export default class Share extends Component {
   }
 
   handleShareClickEmail(e) {
-    const finalUrl = `mailto:?subject=${this.title}&body=${this.props.text ? this.props.text + '%0D%0A%0D%0A' : ''}Check out this site ${this.url}`;
+    const finalUrl = `mailto:?subject=${this.title}&body=${this.props.text ? encodeURIComponent(this.props.text) + '%0D%0A%0D%0A' : ''}Check out this site ${this.url}`;
     window.location.href = finalUrl;
   }
 
