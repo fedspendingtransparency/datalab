@@ -133,7 +133,6 @@ export default class SpendingChart extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     let bWidth = this.state.bWidth;
     let isTabletSvg = bWidth <= 768 && bWidth >= 576;
     let isMobileSvg = bWidth <= 576;
@@ -151,7 +150,9 @@ export default class SpendingChart extends React.Component {
     };
 
     if (isTabletSvg) {
-      return (
+      return (<>
+        title
+        accordion
         <div className={styles.svgContainerTablet}>
           <Share
             siteUrl={this.props.location.origin}
@@ -170,7 +171,7 @@ export default class SpendingChart extends React.Component {
             date={'December 2019'}
           />
         </div>
-      );
+      </>);
     } else if (isMobileSvg) {
       return (
         <div className={styles.svgContainerMobile}>

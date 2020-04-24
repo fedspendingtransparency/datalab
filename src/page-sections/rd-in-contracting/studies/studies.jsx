@@ -28,6 +28,8 @@ export default function Studies(props) {
 
 	});
 
+	const chartAltText = 'Line graph showing federal obligations for R&D from 2009 to 2019 broken out into categories for Basic research, applied research, development, R&D plant, and total R&D.';
+
 	return (<>
 		<h2 className='rd-viztitle'>{props.section.viztitle}</h2>
 		<AccordionList title='Instructions'>
@@ -45,15 +47,13 @@ export default function Studies(props) {
 		/>
 
 		<Hidden mdDown>
-			<img src='/images/rd/chart3-desktop.svg' className={styles.chart} />
+			<img src='/images/rd/chart3-desktop.svg' className={styles.chart} alt={chartAltText} />
 		</Hidden>
-
 		<Hidden only={['xs', 'sm', 'lg', 'xl']}>
-			<img src='/images/rd/chart3-tablet.svg' className={styles.chart} />
+			<img src='/images/rd/chart3-tablet.svg' className={styles.chart} alt={chartAltText} />
 		</Hidden>
-
 		<Hidden mdUp>
-			<img src='/images/rd/chart3-mobile.svg' className={styles.chart} />
+			<img src='/images/rd/chart3-mobile.svg' className={styles.chart} alt={chartAltText} />
 		</Hidden>
 
 		<GridList className={styles.legend} cols={windowWidth < parseInt(scssVariables.md) ? 2 : 5} cellHeight='auto'>
