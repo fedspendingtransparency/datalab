@@ -22,7 +22,7 @@ export default function Categories(props) {
         title: item.description,
         rows: [
           { "Obligation": numberFormatter('dollars suffix', item.obligations) },
-          { "Percentage": numberFormatter('percent', item.percents) }
+          { "Percentage": numberFormatter('percent', Math.abs(item.percents)) }
         ],
         tooltipRef: React.createRef()
       })

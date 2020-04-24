@@ -31,6 +31,7 @@ export default function formatNumber(type, number) {
         '$' + formatDollarsText(Math.round(number))
           .replace('k', ' T')
           .replace('G', ' B')
+          .replace('M', ' M')
       );
     default:
       return '';
