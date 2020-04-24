@@ -35,7 +35,6 @@ export default function Studies(props) {
 			</ul>
 		</Accordion>
 
-		<Hidden mdDown>
     <Share
       siteUrl={props.location.origin}
       pageUrl={props.location.pathname + '#' + props.sectionId}
@@ -43,9 +42,9 @@ export default function Studies(props) {
       text={`#DYK the federal government is one of the largest and most consistent funding sources for Research & Development in the U.S.? Learn more by visiting #Data Lab's newest analysis, R&D in Contract Spending! #OpenData`}
       hoverColor='#1302d9'
     />
-
-		<img src='/images/viz/rd/chart3.svg' className={styles.chart} />
-		<img src='/images/rd/chart3-desktop.svg' className={styles.chart} />
+		
+		<Hidden mdDown>
+			<img src='/images/rd/chart3-desktop.svg' className={styles.chart} />
 		</Hidden>
 
     <Hidden only={['xs', 'sm', 'lg', 'xl']}>
