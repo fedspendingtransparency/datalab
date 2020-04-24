@@ -608,8 +608,8 @@ function DTS(props) {
       categorySeparatorDate = data.length > 1 ? data[0].date : null;
 
       if (data[0].name === "All Categories") {
-        d3.select(".dts-footnote").style("visibility", "visible");
-        d3.select(".dts-footnote-text").text("All Categories was created by taking Total Withdrawals (excluding transfers) and subtracting Public Debt Cash Redemp (Table III B) from it for each corresponding entry.");
+//        d3.select(".dts-footnote").style("visibility", "visible");
+        // d3.select(".dts-footnote-text").text("All Categories was created by taking Total Withdrawals (excluding transfers) and subtracting Public Debt Cash Redemp (Table III B) from it for each corresponding entry.");
       } else if (data.length > 1) {
         d3.select(".dts-footnote").style("visibility", "visible");
         d3.select(".dts-footnote-text").text(data[1].footnote); // was [0]!
@@ -835,7 +835,7 @@ function DTS(props) {
         let mtdDataPoint = dollarFormatter(getMouseOverDataPoint(masterMapping[categoryValue]["mtd"], this).value);
         let fytdDataPoint = dollarFormatter(getMouseOverDataPoint(masterMapping[categoryValue]["fytd"], this).value);
 
-        ttContainer.select(".dts-tt-category").text(d.name);
+        ttContainer.select(".dts-tt-category").text('Total');
         ttContainer.select(".dts-tt-date").text(mouseOverDateText);
 
         ttContainer.select(".dts-tt-daily-value").text(todayDataPoint);
