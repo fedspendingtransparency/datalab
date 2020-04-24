@@ -99,18 +99,13 @@ export default class DTSPage extends React.Component {
                                </select>
                              </div>
 
-                             <div className='category-container'>
-                               <label htmlFor="category-selector" className='category-select-label'>Categories</label>
-                               <select className='custom-select custom-select-start' id='category-selector'></select>
-                             </div>
+                             {/* <div className='category-container'> */}
+                             {/*   <label htmlFor="category-selector" className='category-select-label'>Categories</label> */}
+                             {/*   <select className='custom-select custom-select-start' id='category-selector'></select> */}
+                             {/* </div> */}
 
                            </div>
                            <DTS data={this.state.dtsData} />
-                         </div>
-
-                         {/* this will be removed soon, using as placeholder footnote text until implement fixes in later sprint */}
-                         <div className='dts-disclaimer'>
-                           <i>We are currently updating the DTS Tracker with changes to the Daily Treasury Statement for Health and Human Services (HHS) programs implemented on 3/10/20.</i>
                          </div>
 
                          <div className="dts-disclaimer">
