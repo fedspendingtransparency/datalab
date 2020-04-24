@@ -6,6 +6,8 @@ import GridListTile from '@material-ui/core/GridListTile/GridListTile';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import Share from '../../../components/share/share';
 import 'src/styles/index.scss';
+import { Hidden } from '@material-ui/core';
+import scssVariables from 'src/styles/variables.scss';
 
 export default function Studies(props) {
 	const [windowWidth, setWindowWidth] = useState(null);
@@ -40,9 +42,20 @@ export default function Studies(props) {
       text={`#DYK the federal government is one of the largest and most consistent funding sources for Research & Development in the U.S.? Learn more by visiting #Data Lab's newest analysis, R&D in Contract Spending! #OpenData`}
       hoverColor='#1302d9'
     />
+		
+		<Hidden mdDown>
+			<img src='/images/rd/chart3-desktop.svg' className={styles.chart} />
+		</Hidden>
 
-		<img src='/images/viz/rd/chart3.svg' className={styles.chart} />
-		<GridList className={styles.legend} cols={windowWidth < 768 ? 2 : 5} cellHeight='auto'>
+    <Hidden only={['xs', 'sm', 'lg', 'xl']}>
+      <img src='/images/rd/chart3-tablet.svg' className={styles.chart} />
+    </Hidden>
+
+    <Hidden mdUp>
+      <img src='/images/rd/chart3-mobile.svg' className={styles.chart} />
+    </Hidden>
+
+		<GridList className={styles.legend} cols={windowWidth < parseInt(scssVariables.md) ? 2 : 5} cellHeight='auto'>
 			<GridListTile className={styles.legendTile}>
 				<div className={`${styles.legendBar} ${styles.one}`}></div>
 				<div className={styles.legendText}>Total R&D</div>
