@@ -8,37 +8,34 @@ import ControlBar from "../../../components/control-bar/control-bar"
 import Share from "../../../components/share/share";
 import variables from 'src/styles/variables.scss';
 
-
 export default function Categories(props) {
-  const [windowWidth, setWindowWidth] = useState(null);
-  const [previousDevice, setPreviousDevice] = useState(null);
-  const [device, setDevice] = useState(null);
-  const [hasDeviceChanged, setHasDeviceChanged] = useState(null);
+	const [windowWidth, setWindowWidth] = useState(null);
+	const [previousDevice, setPreviousDevice] = useState(null);
+	const [device, setDevice] = useState(null);
+	const [hasDeviceChanged, setHasDeviceChanged] = useState(null);
 
-  function handleResize () {
-    setWindowWidth(typeof window !== 'undefined' ? window.innerWidth : '');
-    setPreviousDevice(device);
+	function handleResize() {
+		setWindowWidth(typeof window !== 'undefined' ? window.innerWidth : '');
+		setPreviousDevice(device);
 
-    if(windowWidth) {
-      if (windowWidth >= parseInt(variables.lg)) {
-        setDevice(desktop);
-      } else if (windowWidth >= parseInt(variables.md)) {
-        setDevice(tablet);
-      } else {
-        setDevice(mobile);
-      }
-    }
+		if (windowWidth) {
+			if (windowWidth >= parseInt(variables.lg)) {
+				setDevice(desktop);
+			} else if (windowWidth >= parseInt(variables.md)) {
+				setDevice(tablet);
+			} else {
+				setDevice(mobile);
+			}
+		}
+		setHasDeviceChanged(!(previousDevice !== device));
+	}
 
-    setHasDeviceChanged(!(previousDevice !== device));
+	function init(chart) {
+		chart = chart || desktop;
+		const categoryViz = d3.select('#category-viz');
 
-  }
-
-  function init(chart) {
-    chart = chart || desktop;
-    const categoryViz = d3.select('#category-viz');
-
-    // check window size and change accordingly
-    categoryViz.html(chart);
+		// check window size and change accordingly
+		categoryViz.html(chart);
 
 		const svg = categoryViz.select('svg');
 
@@ -51,69 +48,67 @@ export default function Categories(props) {
 			.on('mouseout', onBlur)
 			.on('focus', onFocus)
 			.on('blur', onBlur)
-		;
+			;
 
-    svg.attr('role', 'img')
-      .attr('aria-labelledby', 'desc')
-      .attr('desc', altText);
-  }
+		svg.attr('role', 'img')
+			.attr('aria-labelledby', 'desc')
+			.attr('desc', altText);
+	}
 
-  function onFocus() {
-    d3.select(this)
-      .select('circle')
-      .attr('fill', '#1302D9')
-      .attr('fill-opacity','.12')
-      .attr('stroke', '#1302D9');
-  }
+	function onFocus() {
+		d3.select(this)
+			.select('circle')
+			.attr('fill', '#1302D9')
+			.attr('fill-opacity', '.12')
+			.attr('stroke', '#1302D9');
+	}
 
-  function onBlur() {
-    d3.select(this)
-      .select('circle')
-      .attr('fill', 'unset')
-      .attr('stroke', '#555555');
-  }
+	function onBlur() {
+		d3.select(this)
+			.select('circle')
+			.attr('fill', 'unset')
+			.attr('stroke', '#555555');
+	}
 
-  useEffect(() => {
-    handleResize();
+	useEffect(() => {
+		handleResize();
 
-    window.addEventListener('resize', handleResize);
+		window.addEventListener('resize', handleResize);
 
-    if(!device || hasDeviceChanged) {
-      init(device);
-    }
+		if (!device || hasDeviceChanged) {
+			init(device);
+		}
 
-    return _ => {
-      window.removeEventListener('resize', handleResize);
-    };
-  });
+		return _ => {
+			window.removeEventListener('resize', handleResize);
+		};
+	});
 
-  return (
-    <>
-        <h2 className ='rd-viztitle'>{props.section.viztitle}</h2>
-          <AccordionList title='Instructions'>
-          <ul>
-            <li>instructions here</li>
-          </ul>
-        </AccordionList>
+	return <>
+		<h2 className='rd-viztitle'>{props.section.viztitle}</h2>
+		<AccordionList title='Instructions'>
+			<ul>
+				<li>instructions here</li>
+			</ul>
+		</AccordionList>
 
-      <ControlBar>
-				<Share
-					siteUrl={props.location.origin}
-					pageUrl={props.location.pathname + '#' + props.sectionId}
-					title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-					text={`What do agriculture, energy, and national defense all have in common? They’re all areas where the government spent dollars on R&D in 2019! Check out the latest analysis at #DataLab to learn more! #Transparency #Research`}
-					hoverColor='#1302d9'
-				/>
-      </ControlBar>
+		<ControlBar>
+			<Share
+				siteUrl={props.location.origin}
+				pageUrl={props.location.pathname + '#' + props.sectionId}
+				title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+				text={`What do agriculture, energy, and national defense all have in common? They’re all areas where the government spent dollars on R&D in 2019! Check out the latest analysis at #DataLab to learn more! #Transparency #Research`}
+				hoverColor='#1302d9'
+			/>
+		</ControlBar>
 
-      <div id='category-viz'></div>
+		<div id='category-viz'></div>
 
-      <Downloads
-        href={'/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv'}
-        date={'December 2019'}
-      />
-		</>);
-
+		<Downloads
+			href={'/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv'}
+			date={'December 2019'}
+		/>
+	</>;
 }
 
 const altText = `Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.`;
