@@ -5,7 +5,7 @@ import SEO from 'src/components/seo';
 import ExpressLayout from 'src/components/layouts/express/express';
 import StorySection from 'src/components/section-elements/story-section/story-section'
 import Categories from 'src/page-sections/rd-in-contracting/categories/categories.jsx';
-import Spending from 'src/page-sections/rd-in-contracting/spending/spending';
+import Spending from 'src/page-sections/rd-in-contracting/spending/spending-chart';
 import Studies from 'src/page-sections/rd-in-contracting/studies/studies';
 
 import Accordion from 'src/components/accordion/accordion';

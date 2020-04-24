@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" height="585px" viewBox="0 0 1064 585" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+
+    <style>
+      #toggle-region:hover {
+        pointer-events: all;
+	z-index: 100;
+        fill: #1302D9;
+	fill-opacity: 12%;
+	cursor: pointer;
+      }
+      g#Show-Details:hover {
+        pointer-events: all;
+	fill: none;
+	cursor: pointer;
+      }
+      #toggle-region {
+      z-index: 100;
+      fill: red;
+      fill-opacity: 0%;
+      };
+    </style>
+
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+      <stop stop-color="#3455DB" offset="0%"></stop>
+      <stop stop-color="#021FD9" offset="49.1026182%"></stop>
+      <stop stop-color="#041FCA" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+      <stop stop-color="#3455DB" offset="0%"></stop>
+      <stop stop-color="#021FD9" offset="49.1026182%"></stop>
+      <stop stop-color="#041FCA" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+      <stop stop-color="#3455DB" offset="0%"></stop>
+      <stop stop-color="#021FD9" offset="49.1026182%"></stop>
+      <stop stop-color="#041FCA" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+      <stop stop-color="#3455DB" offset="0%"></stop>
+      <stop stop-color="#021FD9" offset="49.1026182%"></stop>
+      <stop stop-color="#041FCA" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+      <stop stop-color="#3455DB" offset="0%"></stop>
+      <stop stop-color="#021FD9" offset="49.1026182%"></stop>
+      <stop stop-color="#041FCA" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-6">
+      <stop stop-color="#3455DB" offset="0%"></stop>
+      <stop stop-color="#021FD9" offset="49.1026182%"></stop>
+      <stop stop-color="#041FCA" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-7">
+      <stop stop-color="#3455DB" offset="0%"></stop>
+      <stop stop-color="#021FD9" offset="49.1026182%"></stop>
+      <stop stop-color="#041FCA" offset="100%"></stop>
+    </linearGradient>
+    <path d="M9.75,3.25 C9.75,1.45508594 11.2050859,0 13,0 C14.7949141,0 16.25,1.45508594 16.25,3.25 C16.25,5.04491406 14.7949141,6.5 13,6.5 C11.2050859,6.5 9.75,5.04491406 9.75,3.25 Z M15.4375,7.3125 L14.860625,7.3125 C13.707332,7.84280859 12.3423828,7.86571094 11.139375,7.3125 L10.5625,7.3125 C9.21628906,7.3125 8.125,8.40378906 8.125,9.75 L8.125,15.03125 C8.125,15.7043555 8.67064453,16.25 9.34375,16.25 L10.15625,16.25 L10.15625,21.53125 C10.15625,22.2043555 10.7018945,22.75 11.375,22.75 L14.625,22.75 C15.2981055,22.75 15.84375,22.2043555 15.84375,21.53125 L15.84375,16.25 L16.65625,16.25 C17.3293555,16.25 17.875,15.7043555 17.875,15.03125 L17.875,9.75 C17.875,8.40378906 16.7837109,7.3125 15.4375,7.3125 Z M19.7865078,16.917875 C19.43238,17.5030169 18.922261,17.9779498 18.3133438,18.2894258 C19.8622227,18.5479023 24.375,19.5941484 24.375,21.125 C24.375,23.476375 15.8612187,24.375 13,24.375 C9.42992578,24.375 1.625,23.3157539 1.625,21.125 C1.625,19.5953164 6.11208203,18.552168 7.68660547,18.2894258 C7.0777084,17.977921 6.56759649,17.5029947 6.21344141,16.917875 C3.80651172,17.4380273 0,18.6671367 0,21.125 C0,25.040793 9.07247656,26 13,26 C16.9228008,26 26,25.0420117 26,21.125 C26,18.6670352 22.193082,17.4379766 19.7865078,16.917875 Z" id="path-8"></path>
+    <rect id="path-10" x="528" y="359" width="440" height="91"></rect>
+    <mask id="mask-11" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="440" height="91" fill="white">
+      <use xlink:href="#path-10"></use>
+    </mask>
+  </defs>
+  <g id="Viz-1-Outline_Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Group" transform="translate(35.000000, 51.000000)">
+      <g id="Left-Numbers" transform="translate(49.500000, 0.000000)">
+        <g id="Base-Line" transform="translate(45.000000, 5.000000)" fill-rule="nonzero" stroke="#666666" stroke-width="0.882816">
+          <path d="M0.5,0 L0.5,442" id="Line-35-Copy-3"></path>
+          <line x1="1" y1="442.5" x2="870.894504" y2="442.5" id="Line-36-Copy"></line>
+          <line x1="871.5" y1="0" x2="871.5" y2="442" id="Line-35-Copy-2"></line>
+        </g>
+        <text id="$-5-B-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300" fill="#666666">
+          <tspan x="9" y="382">$ 5 B</tspan>
+        </text>
+        <text id="$-10-B-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300" fill="#666666">
+          <tspan x="0" y="309">$ 10 B</tspan>
+        </text>
+        <text id="$-15-B-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300" fill="#666666">
+          <tspan x="0" y="236">$ 15 B</tspan>
+        </text>
+        <text id="$-20-B-Copy-2" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300" fill="#666666">
+          <tspan x="0" y="162">$ 20 B</tspan>
+        </text>
+        <text id="$-25-B-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300" fill="#666666">
+          <tspan x="0" y="89">$ 25 B</tspan>
+        </text>
+        <text id="$-30-B-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300" fill="#666666">
+          <tspan x="0" y="16">$ 30 B</tspan>
+        </text>
+      </g>
+      <g id="purple-lines!-copy" transform="translate(95.500000, 7.000000)" stroke="#DDDDDD" stroke-linecap="square">
+        <line x1="1.17886179" y1="74.3" x2="869.852082" y2="74.3" id="Line" stroke-width="1.07008" opacity="0.5"></line>
+        <line x1="1.17886179" y1="148.1" x2="869.852082" y2="148.1" id="Line-Copy" stroke-width="1.07008" opacity="0.5"></line>
+        <line x1="1.17886179" y1="221.9" x2="869.852082" y2="221.9" id="Line-Copy-2" stroke-width="1.07008" opacity="0.5"></line>
+        <line x1="2.17886179" y1="295.7" x2="870.852082" y2="295.7" id="Line-Copy-3" stroke-width="1.07008" opacity="0.5"></line>
+        <line x1="2.17750678" y1="0.5" x2="869.852252" y2="0.5" id="Line" stroke-width="0.95" opacity="0.3"></line>
+        <line x1="1.17886179" y1="369.5" x2="869.852082" y2="369.5" id="Line-Copy-4" stroke-width="1.07008" opacity="0.5"></line>
+      </g>
+      <g id="Right-Numbers" transform="translate(973.500000, 0.000000)" fill="#666666" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+        <text id="10%-copy">
+          <tspan x="0" y="382">10%</tspan>
+        </text>
+        <text id="20%-copy">
+          <tspan x="0" y="308">20%</tspan>
+        </text>
+        <text id="30%-copy">
+          <tspan x="0" y="235">30%</tspan>
+        </text>
+        <text id="40%-copy">
+          <tspan x="0" y="162">40%</tspan>
+        </text>
+        <text id="50%-copy">
+          <tspan x="0" y="89">50%</tspan>
+        </text>
+        <text id="60%-copy">
+          <tspan x="0" y="16">60%</tspan>
+        </text>
+      </g>
+      <g id="Chart-Background" transform="translate(95.500000, 8.000000)" fill="#FAFAFA" fill-rule="nonzero">
+        <polygon id="Rectangle-16-Copy-2" points="0 295 869 295 869 368 0 368"></polygon>
+        <polygon id="Rectangle-16-Copy-7" points="0 148 869 148 869 221 0 221"></polygon>
+        <polygon id="Rectangle-16-Copy-12" points="0 0 869 0 869 73 0 73"></polygon>
+      </g>
+      <g id="Labels" transform="translate(37.500000, 456.000000)" fill="#666666">
+        <text id="NASA-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+          <tspan x="161" y="18">NASA</tspan>
+        </text>
+        <text id="HHS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+          <tspan x="253" y="18">HHS</tspan>
+        </text>
+        <text id="DOT-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+          <tspan x="430" y="18">DOT</tspan>
+        </text>
+        <text id="DOD-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+          <tspan x="84" y="18">DOD</tspan>
+        </text>
+        <text id="DHS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+          <tspan x="520" y="18">DHS</tspan>
+        </text>
+        <text id="AID-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+          <tspan x="612" y="18">AID</tspan>
+        </text>
+        <text id="DOC-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+          <tspan x="786" y="18">DOC</tspan>
+        </text>
+        <text id="DOE-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+          <tspan x="344" y="18">DOE</tspan>
+        </text>
+        <text id="DoEd-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+          <tspan x="696" y="18">DoEd</tspan>
+        </text>
+        <text id="VA-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+          <tspan x="876" y="18">VA</tspan>
+        </text>
+        <text id="AGENCY-Copy" transform="translate(28.000000, 11.500000) rotate(-360.000000) translate(-28.000000, -11.500000) " font-family="SourceSansPro-Regular, Source Sans Pro" font-size="18" font-weight="normal" letter-spacing="-1.041666">
+          <tspan x="0" y="18">AGENCY</tspan>
+        </text>
+      </g>
+      <text id="Research-&amp;-Developme-Copy" transform="translate(10.000000, 225.500000) rotate(270.000000) translate(-10.000000, -225.500000) " font-family="SourceSansPro-Bold, Source Sans Pro" font-size="16" font-weight="bold" fill="#666666">
+        <tspan x="-111.072" y="231.5">Research &amp; Development Devotion</tspan>
+      </text>
+      <g id="Percents" transform="translate(160.500000, 62.000000)" fill="#555555" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="19.823232" font-weight="500">
+        <text id="7%-copy">
+          <tspan x="0" y="330">7%</tspan>
+        </text>
+        <text id="48%-copy">
+          <tspan x="44" y="20">48%</tspan>
+        </text>
+        <text id="9%-copy">
+          <tspan x="155" y="304">9%</tspan>
+        </text>
+        <text id="6%-copy">
+          <tspan x="224" y="327">6%</tspan>
+        </text>
+        <text id="10%-copy-2">
+          <tspan x="308" y="302">10%</tspan>
+        </text>
+        <text id="2%-copy">
+          <tspan x="405" y="350">2%</tspan>
+        </text>
+        <text id="3%-copy">
+          <tspan x="577" y="343">3%</tspan>
+        </text>
+        <text id="3%-copy-3">
+          <tspan x="487" y="343">3%</tspan>
+        </text>
+        <text id="1%-copy">
+          <tspan x="742" y="370">&lt; 1%</tspan>
+        </text>
+        <text id="1%-copy-2">
+          <tspan x="662" y="366">1%</tspan>
+        </text>
+      </g>
+      <g id="Bar-Graph" transform="translate(120.500000, 52.000000)" stroke="#031FCB" stroke-width="0.53504">
+        <path d="M108.92992,269.26752 L81.07008,269.26752 C80.8484592,269.26752 80.6478192,269.35735 80.5025844,269.502584 C80.3573496,269.647819 80.26752,269.848459 80.26752,270.07008 L80.26752,394.73248 L109.73248,394.73248 L109.73248,270.07008 C109.73248,269.848459 109.64265,269.647819 109.497416,269.502584 C109.352181,269.35735 109.151541,269.26752 108.92992,269.26752 Z" id="Rectangle-Copy-21" fill="url(#linearGradient-1)"></path>
+        <path d="M197.92992,362.26752 L170.07008,362.26752 C169.848459,362.26752 169.647819,362.35735 169.502584,362.502584 C169.35735,362.647819 169.26752,362.848459 169.26752,363.07008 L169.26752,394.73248 L198.73248,394.73248 L198.73248,363.07008 C198.73248,362.848459 198.64265,362.647819 198.497416,362.502584 C198.352181,362.35735 198.151541,362.26752 197.92992,362.26752 Z" id="Rectangle-Copy-22" fill="url(#linearGradient-2)"></path>
+        <path d="M286.92992,369.26752 L259.07008,369.26752 C258.848459,369.26752 258.647819,369.35735 258.502584,369.502584 C258.35735,369.647819 258.26752,369.848459 258.26752,370.07008 L258.26752,394.73248 L287.73248,394.73248 L287.73248,370.07008 C287.73248,369.848459 287.64265,369.647819 287.497416,369.502584 C287.352181,369.35735 287.151541,369.26752 286.92992,369.26752 Z" id="Rectangle-Copy-23" fill="url(#linearGradient-3)"></path>
+        <path d="M374.92992,386.26752 L347.07008,386.26752 C346.848459,386.26752 346.647819,386.35735 346.502584,386.502584 C346.35735,386.647819 346.26752,386.848459 346.26752,387.07008 L346.26752,395.73248 L375.73248,395.73248 L375.73248,387.07008 C375.73248,386.848459 375.64265,386.647819 375.497416,386.502584 C375.352181,386.35735 375.151541,386.26752 374.92992,386.26752 Z" id="Rectangle-Copy-24" fill="url(#linearGradient-4)"></path>
+        <path d="M464.92992,390.26752 L437.07008,390.26752 C436.848459,390.26752 436.647819,390.35735 436.502584,390.502584 C436.35735,390.647819 436.26752,390.848459 436.26752,391.07008 L436.26752,394.73248 L465.73248,394.73248 L465.73248,391.07008 C465.73248,390.848459 465.64265,390.647819 465.497416,390.502584 C465.352181,390.35735 465.151541,390.26752 464.92992,390.26752 Z" id="Rectangle-Copy-25" fill="url(#linearGradient-5)"></path>
+        <path d="M552.92992,392.26752 L525.07008,392.26752 C524.848459,392.26752 524.647819,392.35735 524.502584,392.502584 C524.35735,392.647819 524.26752,392.848459 524.26752,393.07008 L524.26752,394.73248 L553.73248,394.73248 L553.73248,393.07008 C553.73248,392.848459 553.64265,392.647819 553.497416,392.502584 C553.352181,392.35735 553.151541,392.26752 552.92992,392.26752 Z" id="Rectangle-Copy-26" fill="url(#linearGradient-6)"></path>
+        <path d="M28.92992,0.26752 L1.07008,0.26752 C0.848459176,0.26752 0.647819176,0.357349588 0.502584382,0.502584382 C0.357349588,0.647819176 0.26752,0.848459176 0.26752,1.07008 L0.26752,395.73248 L29.73248,395.73248 L29.73248,1.07008 C29.73248,0.848459176 29.6426504,0.647819176 29.4974156,0.502584382 C29.3521808,0.357349588 29.1515408,0.26752 28.92992,0.26752 Z" id="Rectangle-Copy-2" fill="url(#linearGradient-7)"></path>
+      </g>
+      <path d="M134.5,394.015058 L215.565873,99 L306.086942,387.011354 L393.621876,410.034809 L481.475563,382.275058 L570.823778,436.765751 L659.438047,428.725822 L749.706476,429.725822 L840.5,443 L927.5,446.69382" id="Percent-Line" stroke="#FF9300" stroke-width="2" stroke-dasharray="3,2"></path>
+      <g id="Circles" transform="translate(131.500000, 96.000000)">
+        <circle id="Oval-Copy-35" stroke="#FF9300" stroke-width="2.6752" fill="#FFFFFF" cx="83.5" cy="4.5" r="4.5"></circle>
+        <circle id="Oval-Copy-36" stroke="#FF9300" stroke-width="2.6752" fill="#FFFFFF" cx="176.5" cy="291.5" r="4.5"></circle>
+        <circle id="Oval-Copy-37" stroke="#FF9300" stroke-width="2.6752" fill="#FFFFFF" cx="261.5" cy="312.5" r="4.5"></circle>
+        <circle id="Oval-Copy-38" stroke="#FF9300" stroke-width="2.6752" fill="#FFFFFF" cx="351.5" cy="286.5" r="4.5"></circle>
+        <circle id="Oval-Copy-40" stroke="#FF9300" stroke-width="2.6752" fill="#FFFFFF" cx="441.5" cy="339.5" r="4.5"></circle>
+        <circle id="Oval-Copy-42" stroke="#FF9300" stroke-width="2.6752" fill="#FFFFFF" cx="529.5" cy="331.5" r="4.5"></circle>
+        <circle id="Oval-Copy-43" stroke="#FF9300" stroke-width="2.6752" fill="#FFFFFF" cx="620.5" cy="334.5" r="4.5"></circle>
+        <circle id="Oval-Copy-46" stroke="#FF9300" stroke-width="2.6752" fill="#FFFFFF" cx="705.5" cy="346.5" r="4.5"></circle>
+        <circle id="Oval-Copy-52" stroke="#FF9300" stroke-width="2.6752" fill="#FFFFFF" cx="4.5" cy="294.5" r="4.5"></circle>
+        <circle id="Oval-Copy-51" stroke="#666666" stroke-width="0.882816" fill-rule="nonzero" cx="793.5" cy="350.5" r="4.5"></circle>
+      </g>
+      <g tabIndex="0" id="Show-Details" transform="translate(666.000000, 323.000000)">
+        <text id="SHOW-DETAILS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300" fill="#666666">
+          <tspan id="Show-Details-Text" x="37.5" y="23">SHOW DETAILS</tspan>
+        </text>
+        <g id="Solid/street-view">
+          <mask id="mask-9" fill="white">
+            <use xlink:href="#path-8"></use>
+          </mask>
+          <use id="Mask" fill="#000000" fill-rule="nonzero" xlink:href="#path-8"></use>
+          <g id="Color" stroke-width="1" fill-rule="evenodd" mask="url(#mask-9)" fill="#031FCB">
+            <rect id="Detail-Icon" x="0" y="0" width="31.6875" height="31.6875"></rect>
+          </g>
+        </g>
+      </g>
+      <use id="toggle-region" stroke="#1B3ADA" mask="url(#mask-11)" stroke-width="5" stroke-dasharray="7,7" xlink:href="#path-10"></use>
+    </g>
+  </g>
+</svg>
