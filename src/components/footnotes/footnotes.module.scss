@@ -21,7 +21,7 @@
   }
 
   .number {
-    vertical-align: super;
+    font-size: smaller;
 
     a {
       color: currentColor;
@@ -29,11 +29,9 @@
     }
   }
 
-  // .content {
-  //   display: -ms-inline-grid;
-  //   display: inline-grid;
-  //   margin-left: 0.25rem
-  // }
+  .content {
+    margin-left: 0.25rem
+  }
 
   @media (min-width: $desktop) {
     #footnotes {
