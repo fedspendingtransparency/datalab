@@ -1,0 +1,15 @@
+.chart-legend {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+};
+
+.legend-item {
+  padding-left: 3rem;
+  padding-right: 3rem;
+};
+
+.legend-item-small {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}

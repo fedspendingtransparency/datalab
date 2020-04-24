@@ -7,7 +7,7 @@ import ExpressLayout from 'src/components/layouts/express/express';
 import Footnotes from "../../components/footnotes/footnotes"
 import { Hidden } from '@material-ui/core';
 import SEO from 'src/components/seo';
-import Spending from 'src/page-sections/rd-in-contracting/spending/spending';
+import Spending from 'src/page-sections/rd-in-contracting/spending/spending-chart';
 import Studies from 'src/page-sections/rd-in-contracting/studies/studies';
 import StorySection from 'src/components/section-elements/story-section/story-section';
 
