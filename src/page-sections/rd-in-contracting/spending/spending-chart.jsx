@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './spendingChart.module.scss';
+import styles from './spending-chart.module.scss';
 
 import SectionOneChartDesktop from '../../../svgs/rd-and-contracting/chart1.svg';
 import SectionOneChartTablet from '../../../svgs/rd-and-contracting/chart1-tablet.svg';

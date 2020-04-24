@@ -24,11 +24,13 @@ $darkGrey: #666666;
 
   .title {
     @include homepageTitle();
+    text-align: left;
     margin-top: 0;
   }
 
   .subtitle {
     @include homepageSubtitle();
+    text-align: left;
   }
 
   .image {

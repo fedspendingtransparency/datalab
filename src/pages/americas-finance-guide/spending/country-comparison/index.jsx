@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 import SEO from "src/components/seo"
 import AfgData from "src/libs/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
-import Accordion from 'src/components/accordion/accordion'
+import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
@@ -71,7 +71,7 @@ function SpendingCountryComparisonPage(props) {
                         <div className="clearfix"></div>
 
                         <section className="hwcta">
-                            <Accordion title="Data Sources and Methodology">
+                            <AccordionList title="Data Sources and Methodology">
                                 <p>The visualization was created using the <a href={AfgData.country_comparison_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. Gross domestic product (GDP) figures come from the <a href={AfgData.bea_gdp.value} rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. Gross domestic product data for countries other than the United States comes from the <a href={AfgData.imf_gdp.value} rel="noopener noreferrer" target="_blank">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>.</p>
                                 <p>In researching potential data sources for information on the spending of other governments for the country comparison module, we chose the <a href={AfgData.cia_world_factbook.value} rel="noopener noreferrer" target="_blank">CIA World Factbook</a> because it provides the best comparison for the following reasons:</p>
                                 <ul>
@@ -87,7 +87,7 @@ function SpendingCountryComparisonPage(props) {
                                         <li><a href="/americas-finance-guide/afgData/spending_country_comparison.csv" download="spending_country_comparison.csv">spending_country_comparison.csv</a></li>
                                     </ul>
                                 </div>
-                            </Accordion>
+                            </AccordionList>
                         </section>
                     </div>
                 </div>
