@@ -136,7 +136,6 @@ export default class RdInContractingPage extends React.Component {
     >
       <SEO
         description='How much does the federal government invest in Research & Development? In FY 2019, $41.5 billion was contracted to R&D initiatives.'
-        meta='The federal government is one of the largest investors in research and development. Learn which agencies funded research and development through federal contracts and who spent the most by reading our analysis.'
         keywords={['research and development', 'federal research contracts', 'federal spending', 'R&D funding', 'R&D', 'federal contract spending']}
         title='U.S. Treasury Data Lab – Research & Development in Contract Spending'
       />
@@ -145,7 +144,7 @@ export default class RdInContractingPage extends React.Component {
         const SectionTag = this.sectionComponents[item.tagName];
         return (
           <StorySection key={key} header={item}>
-            <SectionTag sectionId={`section-${item.section}`} section={item} />
+            <SectionTag sectionId={`section-${item.anchor}`} section={item} location={this.props.location} />
           </StorySection>
         );
       })}
