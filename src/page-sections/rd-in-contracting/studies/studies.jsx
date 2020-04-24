@@ -4,6 +4,7 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import GridList from '@material-ui/core/GridList/GridList';
 import GridListTile from '@material-ui/core/GridListTile/GridListTile';
 import Downloads from 'src/components/section-elements/downloads/downloads';
+import Share from '../../../components/share/share';
 import 'src/styles/index.scss';
 
 export default function Studies(props) {
@@ -32,10 +33,18 @@ export default function Studies(props) {
 			</ul>
 		</AccordionList>
 
+		<Share
+			siteUrl={props.location.origin}
+			pageUrl={props.location.pathname + '#' + props.sectionId}
+			title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+			text={`#DYK the federal government is one of the largest and most consistent funding sources for Research & Development in the U.S.? Learn more by visiting #Data Lab's newest analysis, R&D in Contract Spending! #OpenData`}
+			hoverColor='#1302d9'
+		/>
+
 		<img
-		src='/images/viz/rd/chart3.svg'
-		alt='Line graph showing federal obligations for R&D from 2009 to 2019 broken out into categories for Basic research, applied research, development, R&D plant, and total R&D.'
-		className={styles.chart}
+			src='/images/viz/rd/chart3.svg'
+			alt='Line graph showing federal obligations for R&D from 2009 to 2019 broken out into categories for Basic research, applied research, development, R&D plant, and total R&D.'
+			className={styles.chart}
 		/>
 		<GridList className={styles.legend} cols={windowWidth < 768 ? 2 : 5} cellHeight='auto'>
 			<GridListTile className={styles.legendTile}>
@@ -65,5 +74,4 @@ export default function Studies(props) {
 			date={'December 2019'}
 		/>
 	</>);
-
 }
