@@ -11,6 +11,9 @@ import SectionOneChartPopupMobile from '../../../svgs/rd-and-contracting/chart1-
 
 import Legend from './legend.jsx';
 
+import Share from '../../../components/share/share';
+import Downloads from '../../../components/section-elements/downloads/downloads';
+
 export default class SpendingChart extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +38,7 @@ export default class SpendingChart extends React.Component {
 
   closeDetailResize = () => {
     let that = this;
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
       that.setState({ showDetails: false });
     });
   };
@@ -46,12 +49,12 @@ export default class SpendingChart extends React.Component {
 
   detailsClose = () => {
     let that = this;
-    document.getElementById('clear-24px').addEventListener('click', function() {
+    document.getElementById('clear-24px').addEventListener('click', function () {
       that.setState({ showDetails: false });
     });
 
     /* add keyboard enter click support */
-    document.getElementById('clear-24px').addEventListener('keyup', function(event) {
+    document.getElementById('clear-24px').addEventListener('keyup', function (event) {
       event.preventDefault();
       if (event.keyCode === 13) {
         that.setState({ showDetails: false });
@@ -61,16 +64,16 @@ export default class SpendingChart extends React.Component {
 
   detailsKeyup = () => {
     let that = this;
-    document.getElementById('Show-Details').addEventListener('keyup', function(event) {
+    document.getElementById('Show-Details').addEventListener('keyup', function (event) {
       event.preventDefault();
       if (event.keyCode === 13) {
-        that.setState({showDetails: !that.state.showDetails});
+        that.setState({ showDetails: !that.state.showDetails });
       };
     });
-    document.getElementById('Show-Details-Text').addEventListener('keyup', function(event) {
+    document.getElementById('Show-Details-Text').addEventListener('keyup', function (event) {
       event.preventDefault();
       if (event.keyCode === 13) {
-        that.setState({showDetails: !that.state.showDetails});
+        that.setState({ showDetails: !that.state.showDetails });
       };
     });
   }
@@ -84,22 +87,22 @@ export default class SpendingChart extends React.Component {
     let element = e.target;
 
     if (element.id === 'Show-Details-Text') {
-      this.setState({showDetails: !this.state.showDetails});
+      this.setState({ showDetails: !this.state.showDetails });
     };
 
     /* Little Person Icon */
     if (element.id === 'Detail-Icon') {
-      this.setState({showDetails: !this.state.showDetails});
+      this.setState({ showDetails: !this.state.showDetails });
     };
 
     /* Region bounded by dotted lines */
     if (element.id === 'toggle-region') {
-      this.setState({showDetails: !this.state.showDetails});
+      this.setState({ showDetails: !this.state.showDetails });
     };
-    
+
     /* The 'x' on "popup-x.svg" to close! */
     if (element.id === 'x-icon') {
-      this.setState({showDetails: false});
+      this.setState({ showDetails: false });
     }
   };
 
@@ -125,7 +128,7 @@ export default class SpendingChart extends React.Component {
       return '36%';
     };
   }
-  
+
   render() {
     let bWidth = this.state.bWidth;
     let isTabletSvg = bWidth <= 768 && bWidth >= 576;
@@ -144,33 +147,66 @@ export default class SpendingChart extends React.Component {
     };
 
     if (isTabletSvg) {
-      return(
+      return (
         <div className={styles.svgContainerTablet}>
+          <Share
+            siteUrl={this.props.location.origin}
+            pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
+            title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+            text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+            hoverColor='#1302d9'
+          />
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={tabletPopupStyle}>
-            <SectionOneChartPopupTablet/>
+            <SectionOneChartPopupTablet />
           </div>
-          <SectionOneChartTablet/>
-          <Legend/>
+          <SectionOneChartTablet />
+          <Legend />
+          <Downloads
+            href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
+            date={'December 2019'}
+          />
         </div>
       );
     } else if (isMobileSvg) {
-      return(
+      return (
         <div className={styles.svgContainerMobile}>
+          <Share
+            siteUrl={this.props.location.origin}
+            pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
+            title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+            text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+            hoverColor='#1302d9'
+          />
           <div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`}>
-            <SectionOneChartPopupMobile/>
+            <SectionOneChartPopupMobile />
           </div>
-          <SectionOneChartMobile/>
-          <Legend/>
+          <SectionOneChartMobile />
+          <Legend />
+          <Downloads
+            href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
+            date={'December 2019'}
+          />
         </div>
       );
     } else if (largestSvg) {
-      return(
+      return (
         <div className={styles.svgContainerDesktop}>
+          <Share
+            siteUrl={this.props.location.origin}
+            pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
+            title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+            text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+            hoverColor='#1302d9'
+          />
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={desktopPopupStyle}>
-            <SectionOneChartPopupDesktop/>
+            <SectionOneChartPopupDesktop />
           </div>
-          <SectionOneChartDesktop/>
-          <Legend/>
+          <SectionOneChartDesktop />
+          <Legend />
+          <Downloads
+            href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
+            date={'December 2019'}
+          />
         </div>
       );
     } else {
