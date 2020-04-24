@@ -7,7 +7,8 @@ import Downloads from 'src/components/section-elements/downloads/downloads';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import data from '../../../../static/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318_with_keys.csv';
-import Tooltip from "src/components/tooltip/tooltip"
+import Tooltip from "src/components/tooltip/tooltip";
+import numberFormatter from 'src/utils/number-formatter';
 
 
 export default function Categories(props) {
@@ -20,8 +21,8 @@ export default function Categories(props) {
         id: key,
         title: item.description,
         rows: [
-          { "Obligation": item.obligations },
-          { "Percentage": item.percents }
+          { "Obligation": numberFormatter('dollars suffix', item.obligations) },
+          { "Percentage": numberFormatter('percent', item.percents) }
         ],
         tooltipRef: React.createRef()
       })
