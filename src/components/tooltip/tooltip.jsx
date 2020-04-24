@@ -9,7 +9,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 const inlineStyles = () => ({
   popover: {
-    pointerEvents: 'none'
+    pointerEvents: 'none',
   },
   paper: {
     padding: '20px',
@@ -54,10 +54,9 @@ class MouseOverPopover extends React.Component {
     return (
       <div className={styles.tooltip}>
         <Popover
-          id="mouse-over-popover"
-          className={classes.popover}
+          className={`mouse-over-popover ${classes.popover}`}
           classes={{
-            paper: classes.paper,
+            paper: classes.paper
           }}
           open={this.isOpen(id)}
           anchorEl={anchorEl}
@@ -75,7 +74,7 @@ class MouseOverPopover extends React.Component {
 
           <Grid container direction='row'>
           <div className={styles.title} onClick={this.handlePopoverClose}>
-            {title}
+            <span>{title}</span>
             <Hidden lgUp>
               <CloseIcon className={styles.close} />
             </Hidden>
