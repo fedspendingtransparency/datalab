@@ -32,6 +32,9 @@ $font-black: #000000;
 $font-lightGrey: #eee;
 $font-title: #555555;
 $font-body-copy: #666666;
+
+$light-grey-border: #ddd;
+
 //
 //$color-carrot: #fc5a20;
 //$color-tangerine: #fa9441;
@@ -81,6 +84,7 @@ $dlExpressBlue: #1302D9;
 
 // R & D
 $rdBlue: #1302D9;
+$rdMdBlue: #002aff;
 
 // Analyst Guide
 $analystGuideBlue: #00C3C2;
@@ -136,5 +140,6 @@ $light: 200;
   rdBlue: $rdBlue;
   analystGuideBlue: $analystGuideBlue;
   studentToolboxBlue: $studentToolboxBlue;
+  rdMdBlue: $rdMdBlue;
 
 }

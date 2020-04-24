@@ -6,10 +6,10 @@
 .title {
   font-size: 18px;
   width: 100%;
-  font-weight: 600;
-  color: #555555;
+  font-weight: $semibold;
+  color: $font-title;
   padding-bottom: 10px;
-  border-bottom: solid 1px #dddddd;
+  border-bottom: solid 1px $light-grey-border;
 }
 
 .container {
@@ -19,15 +19,15 @@
 
 .label {
   font-size: 1rem;
-  color: #666666;
+  color: $font-body-copy;
   float: left;
 }
 
 .value {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: $semibold;
   text-align: right;
-  color: #002aff;
+  color: $rdMdBlue;
   float: right;
 }
 

@@ -83,8 +83,8 @@ class MouseOverPopover extends React.Component {
           {this.props.rows.map((item, key) => {
             return (
               <Grid item key={`grid-item-${key}`} className={styles.container}>
-                <div key={`label-${key}`} className={styles.label}>{Object.keys(item)}</div>
-                <div key={`value-${key}`} className={styles.value}>{item[Object.keys(item)]}</div>
+                <div className={styles.label}>{Object.keys(item)}</div>
+                <div className={styles.value}>{item[Object.keys(item)]}</div>
               </Grid>
             )
           })}
