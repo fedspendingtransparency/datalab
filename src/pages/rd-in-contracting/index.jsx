@@ -134,7 +134,7 @@ export default class RdInContractingPage extends React.Component {
         const SectionTag = this.sectionComponents[item.tagName];
         return (
           <StorySection key={key} header={item}>
-            <SectionTag sectionId={`section-${item.section}`} section={item} />
+            <SectionTag sectionId={`section-${item.section}`} section={item} {...this.props} />
           </StorySection>
         )
       })}
