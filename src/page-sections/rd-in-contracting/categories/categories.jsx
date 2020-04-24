@@ -58,7 +58,13 @@ export default function Categories(props) {
         </AccordionList>
 
       <ControlBar>
-        <Share />
+				<Share
+					siteUrl={props.location.origin}
+					pageUrl={props.location.pathname + '#' + props.sectionId}
+					title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+					text={`What do agriculture, energy, and national defense all have in common? They’re all areas where the government spent dollars on R&D in 2019! Check out the latest analysis at #DataLab to learn more! #Transparency #Research`}
+					hoverColor='#1302d9'
+				/>
       </ControlBar>
 
       <div id='category-viz'></div>
