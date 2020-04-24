@@ -10,12 +10,17 @@
       fill-opacity: 12%;
       cursor: pointer;
       }
+      use#toggle-region {
+      z-index: 100;
+      fill: red;
+      fill-opacity: 0%;
+      };
       g#Show-Details:hover {
       pointer-events: all;
       fill: none;
       cursor: pointer;
       }
-      g#Show-Details-Text:hover {
+      #Show-Details-Text:hover {
       pointer-events: all;
       fill: none;
       cursor: pointer;
