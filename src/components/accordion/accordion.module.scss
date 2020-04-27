@@ -5,10 +5,11 @@ $vert-padding: 14px;
 
 .container {
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 137px; // these are for R&D, which is the only use at this time
 }
 
 .accordion {
+  margin-top: -87px; // these are for R&D, which is the only use at this time
   position: absolute;
   z-index: 1;
   background-color: $font-white;
