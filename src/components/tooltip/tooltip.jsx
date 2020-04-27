@@ -28,6 +28,33 @@ class MouseOverPopover extends React.Component {
     }
   }
 
+  componentDidMount() {
+    const el = document.getElementById('closeButton');
+    // console.log(document);
+    // el.addEventListener('click', this.handlePopoverClose);
+    // el.addEventListener('keydown', function(e) {
+    //   if(e.keyCode === '13') {
+    //     this.handlePopoverClose();
+    //   }
+    // })
+
+    window.addEventListener('resize', this.handlePopoverClose);
+
+  }
+
+  componentWillUnmount() {
+    const el = document.getElementById('closeButton');
+    // console.log(el);
+    // el.removeEventListener('click', this.handlePopoverClose);
+    // el.removeEventListener('keydown', function(e) {
+    //   if(e.keyCode === '13') {
+    //     this.handlePopoverClose();
+    //   }
+    // })
+
+    window.removeEventListener('resize', this.handlePopoverClose);
+  }
+
   handlePopoverOpen = (event, popoverId) => {
     this.setState({
       openedPopoverId: popoverId,
@@ -36,6 +63,7 @@ class MouseOverPopover extends React.Component {
   };
 
   handlePopoverClose = () => {
+    console.log('close');
     this.setState({
       openedPopoverId: null,
       anchorEl: null
@@ -45,6 +73,13 @@ class MouseOverPopover extends React.Component {
   isOpen = (id) => {
     const { openedPopoverId } = this.state;
     return (openedPopoverId === id);
+  }
+
+  keyUpHandler = (e) => {
+    if(e.keyCode === 13) {
+      this.handlePopoverClose()
+      // need to call a function from the parent component
+    }
   }
 
   render() {
@@ -75,9 +110,9 @@ class MouseOverPopover extends React.Component {
           <Grid container direction='row'>
           <div className={styles.title} onClick={this.handlePopoverClose}>
             <span>{title}</span>
-            <Hidden lgUp>
-              <CloseIcon className={styles.close} />
-            </Hidden>
+            <span id="closeButton">
+              <CloseIcon tabIndex="0" className={styles.close} onClick={this.handlePopoverClose} onKeyUp={this.keyUpHandler} />
+            </span>
           </div>
           {this.props.rows.map((item, key) => {
             return (
