@@ -1,27 +1,19 @@
 import React from 'react';
-import footnotesStyles from './footnotes.module.scss';
-import { Grid } from "@material-ui/core"
+import styles from './footnotes.module.scss';
 
 export default class Footnotes extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+	constructor(props) {
+		super(props);
+	}
 
-  render = () =>
-    <Grid
-      container
-      id={footnotesStyles.footnotes}>
-      <Grid item>
-          <div className={footnotesStyles.header}>Footnotes</div>
-          <hr />
-      </Grid>
-      <Grid item>
-          {this.props.footnotes.map((footnote, i) => {
-            return <p key={i}>
-              <sup className={footnotesStyles.number}>{i + 1}</sup>
-              <span className={footnotesStyles.text}>{footnote}</span>
-            </p>
-          })}
-      </Grid>
-    </Grid>
+	render = () =>
+		<div id={styles.footnotes}>
+			<div className={styles.headerSpacer}><span className={styles.header}>Footnotes</span></div>
+			{this.props.footnotes.map((footnote, i) =>
+				<div key={i} className={styles.footnote}>
+					<div id={`fn${i + 1}`} className={styles.number}><a href={`#fr${i + 1}`}>{i + 1}</a></div>
+					<div className={styles.content}>{footnote}</div>
+				</div>
+			)}
+		</div>
 };

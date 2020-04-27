@@ -169,8 +169,10 @@ export default function Categories(props) {
   return (<>
     <h2 className='rd-viztitle'>{props.section.viztitle}</h2>
     <AccordionList title='Instructions'>
+      <p>In this visualization, categories are represented by icons.</p>
       <ul>
-        <li>instructions here</li>
+        <li>Click or tap on an icon to see the category name, total dollars contracted for this category, and the percentage this total accounts for within R&D contract spending</li>
+        <li>To exit the pop-up, click or tap the X</li>
       </ul>
     </AccordionList>
 

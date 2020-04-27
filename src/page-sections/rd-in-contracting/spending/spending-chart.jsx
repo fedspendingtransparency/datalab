@@ -1,6 +1,11 @@
 import React from 'react';
 import styles from './spending-chart.module.scss';
 
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import Downloads from '../../../components/section-elements/downloads/downloads';
+import ControlBar from "../../../components/control-bar/control-bar"
+import Share from '../../../components/share/share';
+
 import SectionOneChartDesktop from '../../../svgs/rd-and-contracting/chart1.svg';
 import SectionOneChartTablet from '../../../svgs/rd-and-contracting/chart1-tablet.svg';
 import SectionOneChartMobile from '../../../svgs/rd-and-contracting/chart1-mobile.svg';
@@ -10,9 +15,6 @@ import SectionOneChartPopupTablet from '../../../svgs/rd-and-contracting/chart1-
 import SectionOneChartPopupMobile from '../../../svgs/rd-and-contracting/chart1-mobile-popup.svg';
 
 import Legend from './legend.jsx';
-
-import Share from '../../../components/share/share';
-import Downloads from '../../../components/section-elements/downloads/downloads';
 
 export default class SpendingChart extends React.Component {
   constructor(props) {
@@ -24,8 +26,8 @@ export default class SpendingChart extends React.Component {
   }
 
   componentDidMount() {
-
     this.setState({ bWidth: window.innerWidth }); // set initial width for render
+    this.handleWindowSizeChange();
 
     window.addEventListener('resize', this.handleWindowSizeChange);
     document.addEventListener('click', this.detailsListener);
@@ -132,8 +134,29 @@ export default class SpendingChart extends React.Component {
     };
   }
 
+  instructions = () => (
+    <AccordionList title='Instructions'>
+      <ul>
+        <li>To better view the values for DHS, AID, DoEd, DOC, and the VA, click or tap on the values for any of these agencies</li>
+        <li>To exit the pop-up, click or tap the X</li>
+      </ul>
+      <span className={styles.instructionHeader}>Label Definitions</span>
+      <div className={styles.instructionNotes}>
+        {`        DOD – Department of Defense
+        NASA – National Aeronautics and Space Administration
+        HHS – Department of Health and Human Services
+        DOE – Department of Energy
+        DOT – Department of Transportation
+        DHS – Department of Homeland Security
+        AID – Agency for International Development
+        DoEd – Department of Education
+        DOC – Department of Commerce
+        VA – Department of Veterans’ Affairs`}
+      </div>
+    </AccordionList>
+  );
+
   render() {
-    console.log(this.state);
     let bWidth = this.state.bWidth;
     let isTabletSvg = bWidth <= 768 && bWidth >= 576;
     let isMobileSvg = bWidth <= 576;
@@ -151,15 +174,19 @@ export default class SpendingChart extends React.Component {
     };
 
     if (isTabletSvg) {
-      return (
+      return (<>
+        <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
+        {this.instructions()}
         <div className={styles.svgContainerTablet}>
-          <Share
-            siteUrl={this.props.location.origin}
-            pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
-            title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-            text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
-            hoverColor='#1302d9'
-          />
+          <ControlBar>
+            <Share
+              siteUrl={this.props.location.origin}
+              pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
+              title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+              text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+              hoverColor='#1302d9'
+            />
+          </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={tabletPopupStyle}>
             <SectionOneChartPopupTablet />
           </div>
@@ -170,17 +197,21 @@ export default class SpendingChart extends React.Component {
             date={'December 2019'}
           />
         </div>
-      );
+      </>);
     } else if (isMobileSvg) {
-      return (
+      return (<>
+        <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
+        {this.instructions()}
         <div className={styles.svgContainerMobile}>
-          <Share
-            siteUrl={this.props.location.origin}
-            pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
-            title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-            text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
-            hoverColor='#1302d9'
-          />
+          <ControlBar>
+            <Share
+              siteUrl={this.props.location.origin}
+              pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
+              title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+              text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+              hoverColor='#1302d9'
+            />
+          </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`}>
             <SectionOneChartPopupMobile />
           </div>
@@ -191,17 +222,21 @@ export default class SpendingChart extends React.Component {
             date={'December 2019'}
           />
         </div>
-      );
+      </>);
     } else if (largestSvg) {
-      return (
+      return (<>
+        <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
+        {this.instructions()}
         <div className={styles.svgContainerDesktop}>
-          <Share
-            siteUrl={this.props.location.origin}
-            pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
-            title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-            text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
-            hoverColor='#1302d9'
-          />
+          <ControlBar>
+            <Share
+              siteUrl={this.props.location.origin}
+              pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
+              title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+              text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+              hoverColor='#1302d9'
+            />
+          </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={desktopPopupStyle}>
             <SectionOneChartPopupDesktop />
           </div>
@@ -212,7 +247,7 @@ export default class SpendingChart extends React.Component {
             date={'December 2019'}
           />
         </div>
-      );
+      </>);
     } else {
       return null;
     }
