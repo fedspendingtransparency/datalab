@@ -3,6 +3,7 @@ import styles from './spending-chart.module.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Downloads from '../../../components/section-elements/downloads/downloads';
+import ControlBar from "../../../components/control-bar/control-bar"
 import Share from '../../../components/share/share';
 
 import SectionOneChartDesktop from '../../../svgs/rd-and-contracting/chart1.svg';
@@ -177,13 +178,15 @@ export default class SpendingChart extends React.Component {
         <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
         {this.instructions()}
         <div className={styles.svgContainerTablet}>
-          <Share
-            siteUrl={this.props.location.origin}
-            pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
-            title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-            text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
-            hoverColor='#1302d9'
-          />
+          <ControlBar>
+            <Share
+              siteUrl={this.props.location.origin}
+              pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
+              title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+              text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+              hoverColor='#1302d9'
+            />
+          </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={tabletPopupStyle}>
             <SectionOneChartPopupTablet />
           </div>
@@ -200,13 +203,15 @@ export default class SpendingChart extends React.Component {
         <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
         {this.instructions()}
         <div className={styles.svgContainerMobile}>
-          <Share
-            siteUrl={this.props.location.origin}
-            pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
-            title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-            text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
-            hoverColor='#1302d9'
-          />
+          <ControlBar>
+            <Share
+              siteUrl={this.props.location.origin}
+              pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
+              title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+              text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+              hoverColor='#1302d9'
+            />
+          </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`}>
             <SectionOneChartPopupMobile />
           </div>
@@ -223,13 +228,15 @@ export default class SpendingChart extends React.Component {
         <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
         {this.instructions()}
         <div className={styles.svgContainerDesktop}>
-          <Share
-            siteUrl={this.props.location.origin}
-            pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
-            title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-            text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
-            hoverColor='#1302d9'
-          />
+          <ControlBar>
+            <Share
+              siteUrl={this.props.location.origin}
+              pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
+              title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+              text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+              hoverColor='#1302d9'
+            />
+          </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={desktopPopupStyle}>
             <SectionOneChartPopupDesktop />
           </div>

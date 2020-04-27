@@ -3,11 +3,11 @@ import styles from './studies.module.scss';
 import 'src/styles/index.scss';
 import scssVariables from 'src/styles/variables.scss';
 
-import AccordionList from 'src/components/accordion-list/accordion-list';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import GridList from '@material-ui/core/GridList/GridList';
 import GridListTile from '@material-ui/core/GridListTile/GridListTile';
 import { Hidden } from '@material-ui/core';
+import ControlBar from "../../../components/control-bar/control-bar"
 import Share from '../../../components/share/share';
 
 export default function Studies(props) {
@@ -32,19 +32,15 @@ export default function Studies(props) {
 
 	return (<>
 		<h2 className='rd-viztitle'>{props.section.viztitle}</h2>
-		<AccordionList title='Instructions'>
-			<ul>
-				<li>instructions here</li>
-			</ul>
-		</AccordionList>
-
-		<Share
-			siteUrl={props.location.origin}
-			pageUrl={props.location.pathname + '#' + props.sectionId}
-			title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-			text={`#DYK the federal government is one of the largest and most consistent funding sources for Research & Development in the U.S.? Learn more by visiting #Data Lab's newest analysis, R&D in Contract Spending! #OpenData`}
-			hoverColor='#1302d9'
-		/>
+		<ControlBar>
+			<Share
+				siteUrl={props.location.origin}
+				pageUrl={props.location.pathname + '#' + props.sectionId}
+				title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+				text={`#DYK the federal government is one of the largest and most consistent funding sources for Research & Development in the U.S.? Learn more by visiting #Data Lab's newest analysis, R&D in Contract Spending! #OpenData`}
+				hoverColor='#1302d9'
+			/>
+		</ControlBar>
 
 		<Hidden mdDown>
 			<img src='/images/rd/chart3-desktop.svg' className={styles.chart} alt={chartAltText} />
