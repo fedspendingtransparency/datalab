@@ -29,29 +29,11 @@ class MouseOverPopover extends React.Component {
   }
 
   componentDidMount() {
-    const el = document.getElementById('closeButton');
-    // console.log(document);
-    // el.addEventListener('click', this.handlePopoverClose);
-    // el.addEventListener('keydown', function(e) {
-    //   if(e.keyCode === '13') {
-    //     this.handlePopoverClose();
-    //   }
-    // })
-
     window.addEventListener('resize', this.handlePopoverClose);
 
   }
 
   componentWillUnmount() {
-    const el = document.getElementById('closeButton');
-    // console.log(el);
-    // el.removeEventListener('click', this.handlePopoverClose);
-    // el.removeEventListener('keydown', function(e) {
-    //   if(e.keyCode === '13') {
-    //     this.handlePopoverClose();
-    //   }
-    // })
-
     window.removeEventListener('resize', this.handlePopoverClose);
   }
 
@@ -78,7 +60,7 @@ class MouseOverPopover extends React.Component {
   keyUpHandler = (e) => {
     if(e.keyCode === 13) {
       this.handlePopoverClose()
-      // need to call a function from the parent component
+      // need to call a function from the parent component to set focus to the correct element
     }
   }
 
