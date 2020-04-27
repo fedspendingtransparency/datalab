@@ -51,8 +51,8 @@ export default function Categories(props) {
 			;
 
 		svg.attr('role', 'img')
-			.attr('aria-labelledby', 'desc')
-			.attr('desc', altText);
+			.attr('aria-label', 'Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.')
+			;
 	}
 
 	function onFocus() {
@@ -60,14 +60,16 @@ export default function Categories(props) {
 			.select('circle')
 			.attr('fill', '#1302D9')
 			.attr('fill-opacity', '.12')
-			.attr('stroke', '#1302D9');
+			.attr('stroke', '#1302D9')
+			;
 	}
 
 	function onBlur() {
 		d3.select(this)
 			.select('circle')
 			.attr('fill', 'unset')
-			.attr('stroke', '#555555');
+			.attr('stroke', '#555555')
+			;
 	}
 
 	useEffect(() => {
@@ -87,8 +89,10 @@ export default function Categories(props) {
 	return <>
 		<h2 className='rd-viztitle'>{props.section.viztitle}</h2>
 		<AccordionList title='Instructions'>
+			<p>In this visualization, categories are represented by icons.</p>
 			<ul>
-				<li>instructions here</li>
+				<li>Click or tap on an icon to see the category name, total dollars contracted for this category, and the percentage this total accounts for within R&D contract spending</li>
+				<li>To exit the pop-up, click or tap the X</li>
 			</ul>
 		</AccordionList>
 
@@ -110,8 +114,6 @@ export default function Categories(props) {
 		/>
 	</>;
 }
-
-const altText = `Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.`;
 
 const desktop = `<svg tabindex=0 width="1000px" height="652px" viewBox="0 0 1000 652" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Viz 2 Outline_Desktop</title>
