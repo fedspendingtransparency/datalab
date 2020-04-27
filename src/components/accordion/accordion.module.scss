@@ -11,6 +11,7 @@ $vert-padding: 14px;
 .accordion {
   margin-top: -87px; // these are for R&D, which is the only use at this time
   position: absolute;
+  width: 100%;
   z-index: 1;
   background-color: $font-white;
   border: 1px solid $font-lightGrey;
