@@ -47,29 +47,6 @@ class MouseOverPopover extends React.Component {
     return (openedPopoverId === id);
   }
 
-  componentDidMount() {
-    const thisContext = this;
-
-    document.addEventListener('keydown', function(e) {
-      const el = document.getElementById(item);
-
-      console.log(e);
-      // if(thisContext.isOpen && e.keyCode === 13 || e.keyCode === 9) {
-      //   thisContext.handlePopoverClose();
-      // }
-    });
-  }
-
-  componentWillUnmount() {
-    const thisContext = this;
-
-    document.removeEventListener('keydown', function(e) {
-      // if(thisContext.isOpen && e.keyCode === 13 || e.keyCode === 9) {
-      //   thisContext.handlePopoverClose();
-      // }
-    });
-  }
-
   render() {
     const { classes, title, id } = this.props;
     const { anchorEl, openedPopoverId } = this.state;

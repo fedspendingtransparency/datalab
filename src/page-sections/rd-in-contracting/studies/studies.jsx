@@ -42,7 +42,7 @@ export default function Studies(props) {
       text={`#DYK the federal government is one of the largest and most consistent funding sources for Research & Development in the U.S.? Learn more by visiting #Data Lab's newest analysis, R&D in Contract Spending! #OpenData`}
       hoverColor='#1302d9'
     />
-		
+
 		<Hidden mdDown>
 			<img src='/images/rd/chart3-desktop.svg' className={styles.chart} />
 		</Hidden>

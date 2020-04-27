@@ -12,12 +12,11 @@ import variables from 'src/styles/variables.scss';
 import Desktop from '../../../svgs/rd-and-contracting/categories/desktop.svg';
 import Tablet from '../../../svgs/rd-and-contracting/categories/tablet.svg';
 import Mobile from '../../../svgs/rd-and-contracting/categories/mobile.svg';
-import { Hidden } from "@material-ui/core"
 
 
 export default function Categories(props) {
-	const [windowWidth, setWindowWidth] = useState(null);
-	const [device, setDevice] = useState('desktop');
+  const [windowWidth, setWindowWidth] = useState(null);
+  const [device, setDevice] = useState('desktop');
   const [tooltipData, setData] = useState({});
 
   useEffect(() => {
@@ -25,59 +24,53 @@ export default function Categories(props) {
     data.map((item, key) => {
       items[item.keys] = {
         id: key,
-          title: item.description,
-          rows: [
+        title: item.description,
+        rows: [
           { "Obligation": numberFormatter('dollars suffix', item.obligations) },
           { "Percentage": numberFormatter('percent', Math.abs(item.percents)) }
         ],
-          tooltipRef: React.createRef()
+        tooltipRef: React.createRef()
       }
     });
 
     setData(items);
-  },[]);
+  }, []);
 
-	function handleResize() {
-		setWindowWidth(typeof window !== 'undefined' ? window.innerWidth : '');
+  function handleResize() {
+    setWindowWidth(typeof window !== 'undefined' ? window.innerWidth : '');
 
-		if (windowWidth) {
-			if (windowWidth >= parseInt(variables.lg)) {
-				setDevice('desktop');
+    if (windowWidth) {
+      if (windowWidth >= parseInt(variables.lg)) {
+        setDevice('desktop');
 
       } else if (windowWidth >= parseInt(variables.md)) {
-				setDevice('tablet');
+        setDevice('tablet');
 
       } else {
-				setDevice('mobile');
+        setDevice('mobile');
 
       }
-		}
-	}
+    }
+  }
 
-	function onKeydown(e, key) {
+  function onKeydown(e, key) {
+    if (event.keyCode === 13) {
+      onFocus(e, key);
+    }
+  }
+
+  function onFocus(e, key) {
+    const el = e.currentTarget.getElementsByTagName('circle')[0];
     const item = tooltipData[key];
 
-    console.log(isOpen(item.id, item.tooltipRef));
+    el.setAttribute('fill', '#1302D9')
+    el.setAttribute('fill-opacity', '.12')
+    el.setAttribute('stroke', '#1302D9')
+    el.setAttribute('aria-haspopup', true)
+    el.setAttribute('aria-owns', isOpen(item.id, item.tooltipRef) ? "mouse-over-popover" : undefined);
 
-    if(event.keyCode === 13) {
-      onFocus(e, key);
-		}
-	}
-
-	function onFocus(e, key) {
-		e.preventDefault();
-
-		const el = e.currentTarget.getElementsByTagName('circle')[0];
-		const item = tooltipData[key];
-
-		el.setAttribute('fill', '#1302D9')
-		el.setAttribute('fill-opacity', '.12')
-		el.setAttribute('stroke', '#1302D9')
-		el.setAttribute('aria-haspopup', true)
-		el.setAttribute('aria-owns', isOpen(item.id, item.tooltipRef) ? "mouse-over-popover" : undefined);
-
-		onPopoverOpen(e, item.id, item.tooltipRef);
-	}
+    onPopoverOpen(e, item.id, item.tooltipRef);
+  }
 
   function onBlur(e, key) {
     const el = e.currentTarget.getElementsByTagName('circle')[0];
@@ -89,40 +82,55 @@ export default function Categories(props) {
     onPopoverClose(item.tooltipRef);
   }
 
-	useEffect(() => {
-		handleResize();
+  useEffect(() => {
+    handleResize();
 
-    Object.keys(tooltipData).forEach((item) => {
-			const el = document.getElementById(item);
-			el.setAttribute('tabindex', '0');
-			e.setAttribute('data-id', item.id);
-			el.addEventListener('mouseover', e => onFocus(e, item));
-			el.addEventListener('keydown', e => onKeydown(e, item));
-      el.addEventListener('click', e => onFocus(e, item));
-
-      el.addEventListener('mouseout', e => onBlur(e, item));
-			// el.addEventListener('keyup', e => onBlur(e, item));
-
-		});
-
-		return _ => {
-      Object.keys(tooltipData).forEach((item) => {
-        if(item) {
+    Object.keys(tooltipData)
+      .forEach((item) => {
+        if(typeof document !== 'undefined') {
           const el = document.getElementById(item);
-
-          el.removeEventListener('mouseover', e => onFocus(e, item));
-          el.removeEventListener('keydown', e => onFocus(e, item));
-          el.removeEventListener('click', e => onFocus(e, item));
-
-          el.removeEventListener('mouseout', e => onBlur(e, item));
-          // el.removeEventListener('keyup', e => onBlur(e, item));
-
+          el.setAttribute('tabindex', '0');
+          el.addEventListener('mouseover', e => onFocus(e, item));
+          el.addEventListener('keyup', e => onKeydown(e, item));
+          el.addEventListener('click', e => onFocus(e, item));
+          el.addEventListener('mouseout', e => onBlur(e, item));
         }
       });
 
-			window.removeEventListener('resize', handleResize);
-		};
-	});
+    if(typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
+    }
+
+    return _ => {
+      Object.keys(tooltipData)
+        .forEach((item) => {
+          if(typeof document !== 'undefined') {
+            const el = document.getElementById(item);
+
+            el.removeEventListener('mouseover', e => onFocus(e, item));
+            el.removeEventListener('keyup', e => onFocus(e, item));
+            el.removeEventListener('click', e => onFocus(e, item));
+            el.removeEventListener('mouseout', e => onBlur(e, item));
+          }
+
+        });
+
+      if(typeof window !== 'undefined') {
+        window.addEventListener('resize', handleResize);
+      }
+    };
+  });
+
+  useEffect(() => {
+    if(typeof document !== 'undefined') {
+      const svg = document.getElementsByTagName('svg')[0];
+      svg.setAttribute('id', 'vizSvg');
+      svg.setAttribute('role', 'img');
+      svg.setAttribute('aria-labelledby', 'desc');
+      svg.setAttribute('desc', altText);
+    }
+
+  });
 
   function onPopoverOpen(event, id, ref) {
     if (ref && ref.current) {
@@ -137,7 +145,7 @@ export default function Categories(props) {
   }
 
   function isOpen(id, ref) {
-  	let isOpen;
+    let isOpen;
     if (ref && ref.current) {
       isOpen = ref.current.isOpen(id);
     }
@@ -145,47 +153,50 @@ export default function Categories(props) {
     return isOpen;
   }
 
+  function Chart() {
+    switch(device) {
+      case 'tablet':
+        return <Tablet />
+      case 'mobile':
+        return <Mobile />
+      default:
+        return <Desktop />
+    }
+  }
+
   return (<>
-		<h2 className='rd-viztitle'>{props.section.viztitle}</h2>
-		<AccordionList title='Instructions'>
-			<ul>
-				<li>instructions here</li>
-			</ul>
-		</AccordionList>
+    <h2 className='rd-viztitle'>{props.section.viztitle}</h2>
+    <AccordionList title='Instructions'>
+      <ul>
+        <li>instructions here</li>
+      </ul>
+    </AccordionList>
 
-		<ControlBar>
-			<Share
-				siteUrl={props.location.origin}
-				pageUrl={props.location.pathname + '#' + props.sectionId}
-				title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-				text={`What do agriculture, energy, and national defense all have in common? They’re all areas where the government spent dollars on R&D in 2019! Check out the latest analysis at #DataLab to learn more! #Transparency #Research`}
-				hoverColor='#1302d9'
-			/>
-		</ControlBar>
+    <ControlBar>
+      <Share
+        siteUrl={props.location.origin}
+        pageUrl={props.location.pathname + '#' + props.sectionId}
+        title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+        text={`What do agriculture, energy, and national defense all have in common? They’re all areas where the government spent dollars on R&D in 2019! Check out the latest analysis at #DataLab to learn more! #Transparency #Research`}
+        hoverColor='#1302d9'
+      />
+    </ControlBar>
 
-    <Hidden mdDown>
-      <Desktop />
-    </Hidden>
+    <Chart />
 
-    <Hidden only={['xs', 'sm', 'lg', 'xl']}>
-      <Tablet />
-    </Hidden>
+    <Downloads
+      href={'/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv'}
+      date={'December 2019'}
+    />
 
-    <Hidden mdUp>
-      <Mobile />
-    </Hidden>
+    {Object.keys(tooltipData)
+      .map((i) => {
+        const item = tooltipData[i];
+        return <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows}/>
+      })}
 
-		<Downloads
-			href={'/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv'}
-			date={'December 2019'}
-		/>
-
-    {Object.keys(tooltipData).map((i) => {
-      const item = tooltipData[i];
-      return <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows} />
-    })}
-
-	</>);
+  </>);
 }
+
 
 const altText = `Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.`;
