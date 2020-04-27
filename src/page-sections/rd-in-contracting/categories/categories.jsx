@@ -54,7 +54,7 @@ export default function Categories(props) {
   }
 
   function onKeydown(e, key) {
-    if (event.keyCode === 13) {
+    if (e.keyCode === 13) {
       onFocus(e, key);
     }
   }
