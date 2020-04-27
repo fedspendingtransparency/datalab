@@ -69,6 +69,7 @@ export default function Categories(props) {
     el.setAttribute('aria-haspopup', true)
     el.setAttribute('aria-owns', isOpen(item.id, item.tooltipRef) ? "mouse-over-popover" : undefined);
 
+
     onPopoverOpen(e, item.id, item.tooltipRef);
   }
 
