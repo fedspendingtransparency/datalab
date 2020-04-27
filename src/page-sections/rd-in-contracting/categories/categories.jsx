@@ -63,9 +63,9 @@ export default function Categories(props) {
     const el = e.currentTarget.getElementsByTagName('circle')[0];
     const item = tooltipData[key];
 
-    el.setAttribute('fill', '#1302D9')
+    el.setAttribute('fill', variables.rdBlue)
     el.setAttribute('fill-opacity', '.12')
-    el.setAttribute('stroke', '#1302D9')
+    el.setAttribute('stroke', variables.rdBlue)
     el.setAttribute('aria-haspopup', true)
     el.setAttribute('aria-owns', isOpen(item.id, item.tooltipRef) ? "mouse-over-popover" : undefined);
 
@@ -77,7 +77,8 @@ export default function Categories(props) {
     const el = e.currentTarget.getElementsByTagName('circle')[0];
     const item = tooltipData[key];
 
-    el.setAttribute('fill', 'unset')
+    el.setAttribute('fill', 'white')
+    el.setAttribute('fill-opacity', '1')
     el.setAttribute('stroke', '#555555')
 
     onPopoverClose(item.tooltipRef);
