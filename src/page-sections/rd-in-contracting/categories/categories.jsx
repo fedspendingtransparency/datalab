@@ -9,14 +9,15 @@ import data from '../../../../static/unstructured-data/rd-in-contracting/r&d_spe
 import Tooltip from "src/components/tooltip/tooltip";
 import numberFormatter from 'src/utils/number-formatter';
 import variables from 'src/styles/variables.scss';
-import DesktopChart from '../../../svgs/rd-and-contracting/categories/desktop.svg';
+import Desktop from '../../../svgs/rd-and-contracting/categories/desktop.svg';
+import Tablet from '../../../svgs/rd-and-contracting/categories/tablet.svg';
+import Mobile from '../../../svgs/rd-and-contracting/categories/mobile.svg';
+import { Hidden } from "@material-ui/core"
 
 
 export default function Categories(props) {
 	const [windowWidth, setWindowWidth] = useState(null);
-	const [previousDevice, setPreviousDevice] = useState(null);
-	const [device, setDevice] = useState(null);
-	const [hasDeviceChanged, setHasDeviceChanged] = useState(null);
+	const [device, setDevice] = useState('desktop');
   const [tooltipData, setData] = useState({});
 
   useEffect(() => {
@@ -33,105 +34,92 @@ export default function Categories(props) {
       }
     });
 
-    console.log(items);
     setData(items);
   },[]);
 
 	function handleResize() {
 		setWindowWidth(typeof window !== 'undefined' ? window.innerWidth : '');
-		// setPreviousDevice(device);
-		//
-		// if (windowWidth) {
-		// 	if (windowWidth >= parseInt(variables.lg)) {
-		// 		setDevice(desktop);
-		// 	} else if (windowWidth >= parseInt(variables.md)) {
-		// 		setDevice(tablet);
-		// 	} else {
-		// 		setDevice(mobile);
-		// 	}
-		// }
-		// setHasDeviceChanged(!(previousDevice !== device));
+
+		if (windowWidth) {
+			if (windowWidth >= parseInt(variables.lg)) {
+				setDevice('desktop');
+
+      } else if (windowWidth >= parseInt(variables.md)) {
+				setDevice('tablet');
+
+      } else {
+				setDevice('mobile');
+
+      }
+		}
 	}
 
-  function init() {
-	// chart = chart || desktop;
-  }
-	// 	const categoryViz = d3.select('#category-viz');
-	// 	categoryViz.html(chart);
-	//
-	// 	const svg = categoryViz.select('svg');
-	//
-	// 	svg.attr('id', 'vizSvg');
-	//
-  //   const iconGroups = svg.selectAll('.category-icon');
-	//
-  //   iconGroups.data(tooltipData)
-	// 		.enter();
-	//
-  //   iconGroups.attr('tabindex', 0)
-	// 		.style('cursor', 'pointer')
-	// 		.on('mouseover', function(d) {
-	// 			onFocus(d, this)
-  //     })
-	// 		.on('mouseout', onBlur)
-	// 		.on('focus', function(d) {
-  //       onFocus(d, this)
-  //     })
-	// 		.on('blur', onBlur);
-	//
-	// 	svg.attr('role', 'img')
-	// 		.attr('aria-labelledby', 'desc')
-	// 		.attr('desc', altText);
-	//   }
-	//
-		function onFocus(e, key) {
-      const el = e.currentTarget.getElementsByTagName('circle')[0];
-      const item = tooltipData[key];
+	function onKeydown(e, key) {
+    const item = tooltipData[key];
 
-			el.setAttribute('fill', '#1302D9')
-      el.setAttribute('fill-opacity', '.12')
-      el.setAttribute('stroke', '#1302D9')
-      el.setAttribute('aria-haspopup', true)
-      el.setAttribute('aria-owns', isOpen(item.id, item.tooltipRef) ? "mouse-over-popover" : undefined);
+    console.log(isOpen(item.id, item.tooltipRef));
 
-      onPopoverOpen(e, item.id, item.tooltipRef);
-
+    if(event.keyCode === 13) {
+      onFocus(e, key);
 		}
+	}
+
+	function onFocus(e, key) {
+		e.preventDefault();
+
+		const el = e.currentTarget.getElementsByTagName('circle')[0];
+		const item = tooltipData[key];
+
+		el.setAttribute('fill', '#1302D9')
+		el.setAttribute('fill-opacity', '.12')
+		el.setAttribute('stroke', '#1302D9')
+		el.setAttribute('aria-haspopup', true)
+		el.setAttribute('aria-owns', isOpen(item.id, item.tooltipRef) ? "mouse-over-popover" : undefined);
+
+		onPopoverOpen(e, item.id, item.tooltipRef);
+	}
 
   function onBlur(e, key) {
     const el = e.currentTarget.getElementsByTagName('circle')[0];
     const item = tooltipData[key];
+
+    el.setAttribute('fill', 'unset')
+    el.setAttribute('stroke', '#555555')
 
     onPopoverClose(item.tooltipRef);
   }
 
 	useEffect(() => {
 		handleResize();
-    init();
-
-		// if (!device || hasDeviceChanged) {
-		// 	init(device);
-		// }
 
     Object.keys(tooltipData).forEach((item) => {
-    	if(item) {
-        const el = document.getElementById(item);
+			const el = document.getElementById(item);
+			el.setAttribute('tabindex', '0');
+			e.setAttribute('data-id', item.id);
+			el.addEventListener('mouseover', e => onFocus(e, item));
+			el.addEventListener('keydown', e => onKeydown(e, item));
+      el.addEventListener('click', e => onFocus(e, item));
 
-        el.setAttribute('tabindex', '0');
-        el.addEventListener('mouseover', e => onFocus(e, item));
-        el.addEventListener('keydown', e => onFocus(e, item));
-        el.addEventListener('click', e => onFocus(e, item));
+      el.addEventListener('mouseout', e => onBlur(e, item));
+			// el.addEventListener('keyup', e => onBlur(e, item));
 
-        el.addEventListener('mouseout', e => onBlur(e, item));
-        el.addEventListener('keyup', e => onBlur(e, item));
-
-      }
 		});
 
 		return _ => {
-			document.getElementById('world').addEventListener('mouseover', function () {
-				console.log('unclick!')
-			});
+      Object.keys(tooltipData).forEach((item) => {
+        if(item) {
+          const el = document.getElementById(item);
+
+          el.removeEventListener('mouseover', e => onFocus(e, item));
+          el.removeEventListener('keydown', e => onFocus(e, item));
+          el.removeEventListener('click', e => onFocus(e, item));
+
+          el.removeEventListener('mouseout', e => onBlur(e, item));
+          // el.removeEventListener('keyup', e => onBlur(e, item));
+
+        }
+      });
+
 			window.removeEventListener('resize', handleResize);
 		};
 	});
@@ -149,9 +137,12 @@ export default function Categories(props) {
   }
 
   function isOpen(id, ref) {
+  	let isOpen;
     if (ref && ref.current) {
-      ref.current.isOpen(id)
+      isOpen = ref.current.isOpen(id);
     }
+
+    return isOpen;
   }
 
   return (<>
@@ -172,7 +163,17 @@ export default function Categories(props) {
 			/>
 		</ControlBar>
 
-		<DesktopChart />
+    <Hidden mdDown>
+      <Desktop />
+    </Hidden>
+
+    <Hidden only={['xs', 'sm', 'lg', 'xl']}>
+      <Tablet />
+    </Hidden>
+
+    <Hidden mdUp>
+      <Mobile />
+    </Hidden>
 
 		<Downloads
 			href={'/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv'}
