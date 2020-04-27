@@ -10,6 +10,7 @@ import SectionOneChartDesktop from '../../../svgs/rd-and-contracting/chart1.svg'
 import SectionOneChartTablet from '../../../svgs/rd-and-contracting/chart1-tablet.svg';
 import SectionOneChartMobile from '../../../svgs/rd-and-contracting/chart1-mobile.svg';
 
+import CloseIcon from '@material-ui/icons/Close';
 import SectionOneChartPopupDesktop from '../../../svgs/rd-and-contracting/chart1-desktop-popup.svg';
 import SectionOneChartPopupTablet from '../../../svgs/rd-and-contracting/chart1-tablet-popup.svg';
 import SectionOneChartPopupMobile from '../../../svgs/rd-and-contracting/chart1-mobile-popup.svg';
@@ -105,8 +106,7 @@ export default class SpendingChart extends React.Component {
       this.setState({ showDetails: !this.state.showDetails });
     };
 
-    /* The 'x' on "popup-x.svg" to close! */
-    if (element.id === 'x-icon') {
+    if (element.id === 'close-popup') {
       this.setState({ showDetails: false });
     }
   };
@@ -189,6 +189,7 @@ export default class SpendingChart extends React.Component {
           </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={tabletPopupStyle}>
             <SectionOneChartPopupTablet />
+            <CloseIcon id='close-popup' className={styles.closeIcon} />
           </div>
           <SectionOneChartTablet />
           <Legend />
@@ -214,6 +215,7 @@ export default class SpendingChart extends React.Component {
           </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`}>
             <SectionOneChartPopupMobile />
+            <CloseIcon id='close-popup' className={styles.closeIcon} />
           </div>
           <SectionOneChartMobile />
           <Legend />
@@ -239,6 +241,7 @@ export default class SpendingChart extends React.Component {
           </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={desktopPopupStyle}>
             <SectionOneChartPopupDesktop />
+            <CloseIcon id='close-popup' className={styles.closeIcon} />
           </div>
           <SectionOneChartDesktop />
           <Legend />
