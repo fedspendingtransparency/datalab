@@ -88,25 +88,18 @@ export default class SpendingChart extends React.Component {
   */
   detailsListener = (e) => {
     let element = e.target;
-    console.log(element);
-    console.log(element.correspondingElement);
-
-    /* selectors for IE11... */
-    if (element.correspondingElement.id === 'path-10') {
-      this.setState({ showDetails: !this.state.showDetails });
-    }
-
-    if (element.correspondingElement.id === 'Show-Details-Text') {
-      this.setState({ showDetails: !this.state.showDetails });
-    }
-
-    if (element.correspondingElement.id === 'Detail-Icon') {
-      this.setState({ showDetails: !this.state.showDetails });
-    }
 
     if (element.id === 'Show-Details-Text') {
       this.setState({ showDetails: !this.state.showDetails });
     };
+
+    if (element.id === 'path-10') {
+      this.setState({ showDetails: !this.state.showDetails });
+    }
+
+    if (element.id === 'mask-11') {
+      this.setState({ showDetails: !this.state.showDetails });
+    }
 
     /* Little Person Icon */
     if (element.id === 'Detail-Icon') {
@@ -123,6 +116,22 @@ export default class SpendingChart extends React.Component {
     if (element.id === 'x-icon') {
       this.setState({ showDetails: false });
     }
+
+    /* selectors for IE11... */
+    if (element.correspondingElement) {
+      if (element.correspondingElement.id === 'path-10') {
+        this.setState({ showDetails: !this.state.showDetails });
+      }
+  
+      if (element.correspondingElement.id === 'Show-Details-Text') {
+        this.setState({ showDetails: !this.state.showDetails });
+      }
+  
+      if (element.correspondingElement.id === 'Detail-Icon') {
+        this.setState({ showDetails: !this.state.showDetails });
+      }  
+    }
+    
   };
 
 
