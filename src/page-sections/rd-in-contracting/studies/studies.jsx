@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styles from './studies.module.scss';
-import Accordion from 'src/components/accordion/accordion';
+import 'src/styles/index.scss';
+import scssVariables from 'src/styles/variables.scss';
+
+import Downloads from 'src/components/section-elements/downloads/downloads';
 import GridList from '@material-ui/core/GridList/GridList';
 import GridListTile from '@material-ui/core/GridListTile/GridListTile';
-import Downloads from 'src/components/section-elements/downloads/downloads';
-import Share from '../../../components/share/share';
-import 'src/styles/index.scss';
 import { Hidden } from '@material-ui/core';
-import scssVariables from 'src/styles/variables.scss';
+import ControlBar from "../../../components/control-bar/control-bar"
+import Share from '../../../components/share/share';
 
 export default function Studies(props) {
 	const [windowWidth, setWindowWidth] = useState(null);
@@ -27,33 +28,29 @@ export default function Studies(props) {
 
 	});
 
+	const chartAltText = 'Line graph showing federal obligations for R&D from 2009 to 2019 broken out into categories for Basic research, applied research, development, R&D plant, and total R&D.';
+
 	return (<>
 		<h2 className='rd-viztitle'>{props.section.viztitle}</h2>
-		<Accordion title='Instructions'>
-			<ul>
-				<li>instructions here</li>
-			</ul>
-		</Accordion>
+		<ControlBar>
+			<Share
+				siteUrl={props.location.origin}
+				pageUrl={props.location.pathname + '#' + props.sectionId}
+				title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+				text={`#DYK the federal government is one of the largest and most consistent funding sources for Research & Development in the U.S.? Learn more by visiting #Data Lab's newest analysis, R&D in Contract Spending! #OpenData`}
+				hoverColor='#1302d9'
+			/>
+		</ControlBar>
 
-    <Share
-      siteUrl={props.location.origin}
-      pageUrl={props.location.pathname + '#' + props.sectionId}
-      title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-      text={`#DYK the federal government is one of the largest and most consistent funding sources for Research & Development in the U.S.? Learn more by visiting #Data Lab's newest analysis, R&D in Contract Spending! #OpenData`}
-      hoverColor='#1302d9'
-    />
-		
 		<Hidden mdDown>
-			<img src='/images/rd/chart3-desktop.svg' className={styles.chart} />
+			<img src='/images/rd/chart3-desktop.svg' className={styles.chart} alt={chartAltText} />
 		</Hidden>
-
-    <Hidden only={['xs', 'sm', 'lg', 'xl']}>
-      <img src='/images/rd/chart3-tablet.svg' className={styles.chart} />
-    </Hidden>
-
-    <Hidden mdUp>
-      <img src='/images/rd/chart3-mobile.svg' className={styles.chart} />
-    </Hidden>
+		<Hidden only={['xs', 'sm', 'lg', 'xl']}>
+			<img src='/images/rd/chart3-tablet.svg' className={styles.chart} alt={chartAltText} />
+		</Hidden>
+		<Hidden mdUp>
+			<img src='/images/rd/chart3-mobile.svg' className={styles.chart} alt={chartAltText} />
+		</Hidden>
 
 		<GridList className={styles.legend} cols={windowWidth < parseInt(scssVariables.md) ? 2 : 5} cellHeight='auto'>
 			<GridListTile className={styles.legendTile}>

@@ -25,11 +25,11 @@ export default class RDHWCTA extends React.Component {
         <li>AGRICULTURE R&D (AA)</li>
         <li>COMMUNITY SERVICE R&D (AB)</li>
         <li>DEFENSE SYSTEMS R&D (AD)</li>
-        <li>DEFENSE (OTHER) R&D' (AC)</li>
+        <li>DEFENSE (OTHER) R&D (AC)</li>
         <li>ECONOMIC GROWTH & PRODUCTIVITY R&D (AE)</li>
         <li>EDUCATION R&D (AF)</li>
         <li>ENERGY R&D (AG)</li>
-        <li>ENVIRONMENTAL PROTECTION R&D (AH</li>
+        <li>ENVIRONMENTAL PROTECTION R&D (AH)</li>
         <li>GEN. SCIENCE & TECHNOLOGY R&D (AJ)</li>
         <li>HOUSING R&D (AK)</li>
         <li>INCOME SECURITY R&D (AL)</li>

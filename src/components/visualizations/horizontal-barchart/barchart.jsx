@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 
 import * as d3 from 'd3v3';
 import numberFormatter from '../../../utils/number-formatter';
-import tooltipModule from '../../../components/tooltip/tooltip';
-import tooltipStyles from '../../../components/tooltip/tooltip.module.scss';
+import tooltipModule from '../../tooltip-legacy/tooltip';
+import tooltipStyles from '../../tooltip-legacy/tooltip.module.scss';
 
 function Barchart(props) {
   const data = props.data;

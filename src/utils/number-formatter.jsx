@@ -29,8 +29,10 @@ export default function formatNumber(type, number) {
     case 'dollars suffix':
       return (
         '$' + formatDollarsText(Math.round(number))
-          .replace('k', ' T')
+          .replace('k', ' k')
           .replace('G', ' B')
+          .replace('M', ' M')
+          .replace('T', ' T')
       );
     default:
       return '';
