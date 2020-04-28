@@ -8,8 +8,8 @@ import dataSource from '../../components/visualizations/homelessness-analysis/ut
 import Downloads from '../../components/section-elements/downloads/downloads';
 import { Grid } from '@material-ui/core';
 import Search from 'src/components/chartpanels/search';
-import tooltipModule from '../../components/tooltip/tooltip';
-import tipStyles from '../../components/tooltip/tooltip.module.scss';
+import tooltipModule from '../../components/tooltip-legacy/tooltip';
+import tipStyles from '../../components/tooltip-legacy/tooltip.module.scss';
 import { graphql, useStaticQuery } from "gatsby";
 
 export default function FederalPrograms(props) {
