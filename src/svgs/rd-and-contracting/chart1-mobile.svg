@@ -6,24 +6,27 @@
       use#toggle-region:hover {
         pointer-events: all;
         fill: #1302D9;
-	fill-opacity: 12%;
-	cursor: pointer;
+	    fill-opacity: .12;
+	    cursor: pointer;
       }
       g#Show-Details-Text:hover {
         pointer-events: all;
-	fill: none;
-	cursor: pointer;
+	    fill: none;
+	    cursor: pointer;
       }
       #Detail-Icon:hover {
         pointer-events: all;
         fill: none;
-	cursor: pointer;
+	    cursor: pointer;
       }
       use#toggle-region {
       z-index: 100;
       fill: red;
-      fill-opacity: 0%;
+      fill-opacity: 0;
       };
+      rect#Rectangle {
+          fill: red;
+      }
     </style>
         <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
             <stop stop-color="#3455DB" offset="0%"></stop>

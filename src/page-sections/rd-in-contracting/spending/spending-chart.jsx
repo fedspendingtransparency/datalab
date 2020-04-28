@@ -134,7 +134,6 @@ export default class SpendingChart extends React.Component {
     
   };
 
-
   /* We have to layer the popup over the svg 
     with position absolute. This can get a bit messy.
     We want to offset the chart where it doesn't overlay the axis
@@ -143,8 +142,8 @@ export default class SpendingChart extends React.Component {
 
   /* Tablet Checker */
   tabletChecker = () => {
-    if (this.state.bWidth <= 900) {
-      return '35%';
+    if (this.state.bWidth <= 780) {
+      return '33%';
     } else if (this.state.bWidth <= 675) {
       return '28%';
     };
@@ -152,9 +151,9 @@ export default class SpendingChart extends React.Component {
 
   /* Desktop Inline Style Checker */
   desktopChecker = () => {
-    if (this.state.bWidth <= 970) {
-      return '36%';
-    };
+    if (this.state.bWidth <= 1000) {
+      return '31%';
+    } 
   }
 
   render() {

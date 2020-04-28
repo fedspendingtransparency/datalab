@@ -32,16 +32,16 @@ export default class Legend extends React.Component {
 
     if (isMobile) {
       return(
-        <div className={styles.chartLegend}>
-          <p className={`${legendTextwrap ? styles.legendItemSmall : styles.legendItem}`}><Devotion/> R&D Devotion</p>
-          <p className={`${legendTextwrap ? styles.legendItemSmall : styles.legendItem}`}><Percentage/> R&D to Total Contract Spending %</p>
+        <div className={styles.chartLegendMobile}>
+          <p className={`${legendTextwrap ? styles.legendItemSmall : styles.legendItem}`}><Devotion/> <span>R&D Devotion</span></p>
+          <p className={`${legendTextwrap ? styles.legendItemSmallSpending : styles.legendItemSpending}`}><Percentage/> <span>Percentage of R&D to Total Contract Spending </span></p>
         </div>
       );
     } else {
       return(
         <div className={styles.chartLegend}>
-          <p className={`${legendTextwrap ? styles.legendItemSmall : styles.legendItem}`}><Devotion/> R&D Devotion</p>
-          <p className={`${legendTextwrap ? styles.legendItemSmall : styles.legendItem}`}><Percentage/> Percentage of R&D to Total Contract Spending</p>
+          <p className={`${legendTextwrap ? styles.legendItemSmall : styles.legendItem}`}><Devotion/> <span>Research and Development Devotion</span></p>
+          <p className={`${legendTextwrap ? styles.legendItemSmallSpending : styles.legendItemSpending}`}><Percentage/> <span>Percentage of R&D to Total Contract Spending</span></p>
         </div>
       );
     };
