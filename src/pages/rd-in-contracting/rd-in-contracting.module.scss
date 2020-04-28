@@ -78,6 +78,11 @@ $bullet-size: 1.5rem;
   }
 }
 
+.ext-link {
+  font-size: 1rem !important;
+  margin-left: 0.25rem;
+}
+
 @media (min-width: $phone) and (max-width: $desktop-xl - 1) {
   .title {
     margin: 6rem auto 3rem;

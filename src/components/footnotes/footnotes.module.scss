@@ -1,8 +1,16 @@
 @import "../../styles/variables.scss";
 
 #footnotes {
-  a:hover {
-    text-decoration: underline;
+  a {
+    color: $legacyBlue;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  
+    &:active {
+      color: $specialState-active;
+    }
   }
 
   .header-spacer {
@@ -29,7 +37,6 @@
 
     a {
       color: currentColor;
-      text-decoration: none;
     }
   }
 
