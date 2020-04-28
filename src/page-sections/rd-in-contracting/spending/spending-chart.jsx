@@ -32,7 +32,7 @@ export default class SpendingChart extends React.Component {
 
     window.addEventListener('resize', this.handleWindowSizeChange);
     document.addEventListener('click', this.detailsListener);
-    this.detailsClose();
+    // this.detailsClose();
     this.detailsKeyup();
     this.closeDetailResize();
   }
@@ -53,20 +53,20 @@ export default class SpendingChart extends React.Component {
     this.setState({ bWidth: window.innerWidth });
   };
 
-  detailsClose = () => {
-    let that = this;
-    document.getElementById('clear-24px').addEventListener('click', function () {
-      that.setState({ showDetails: false });
-    });
+  // detailsClose = () => {
+  //   let that = this;
+  //   document.getElementById('clear-24px').addEventListener('click', function () {
+  //     that.setState({ showDetails: false });
+  //   });
 
-    /* add keyboard enter click support */
-    document.getElementById('clear-24px').addEventListener('keyup', function (event) {
-      event.preventDefault();
-      if (event.keyCode === 13) {
-        that.setState({ showDetails: false });
-      };
-    });
-  };
+  //   /* add keyboard enter click support */
+  //   document.getElementById('clear-24px').addEventListener('keyup', function (event) {
+  //     event.preventDefault();
+  //     if (event.keyCode === 13) {
+  //       that.setState({ showDetails: false });
+  //     };
+  //   });
+  // };
 
   detailsKeyup = () => {
     let that = this;
