@@ -88,6 +88,21 @@ export default class SpendingChart extends React.Component {
   */
   detailsListener = (e) => {
     let element = e.target;
+    console.log(element);
+    console.log(element.correspondingElement);
+
+    /* selectors for IE11... */
+    if (element.correspondingElement.id === 'path-10') {
+      this.setState({ showDetails: !this.state.showDetails });
+    }
+
+    if (element.correspondingElement.id === 'Show-Details-Text') {
+      this.setState({ showDetails: !this.state.showDetails });
+    }
+
+    if (element.correspondingElement.id === 'Detail-Icon') {
+      this.setState({ showDetails: !this.state.showDetails });
+    }
 
     if (element.id === 'Show-Details-Text') {
       this.setState({ showDetails: !this.state.showDetails });
@@ -99,6 +114,7 @@ export default class SpendingChart extends React.Component {
     };
 
     /* Region bounded by dotted lines */
+    /* This region is covered in IE11... */
     if (element.id === 'toggle-region') {
       this.setState({ showDetails: !this.state.showDetails });
     };
@@ -133,7 +149,6 @@ export default class SpendingChart extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     let bWidth = this.state.bWidth;
     let isTabletSvg = bWidth <= 768 && bWidth >= 576;
     let isMobileSvg = bWidth <= 576;
