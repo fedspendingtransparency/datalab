@@ -1,6 +1,10 @@
 @import "../../styles/variables.scss";
 
 #footnotes {
+  a:hover {
+    text-decoration: underline;
+  }
+
   .header-spacer {
     padding-bottom: 1rem;
   }
@@ -30,7 +34,7 @@
   }
 
   .content {
-    margin-left: 0.25rem
+    margin-left: 0.25rem;
   }
 
   @media (min-width: $desktop) {
