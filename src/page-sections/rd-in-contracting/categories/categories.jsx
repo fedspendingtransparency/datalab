@@ -161,7 +161,6 @@ export default function Categories(props) {
   }
 
   function clearSelection(el) {
-    console.log(el);
     el = el.getElementsByTagName('circle')[0];
     el.setAttribute('fill', 'white')
     el.setAttribute('fill-opacity', '1')
