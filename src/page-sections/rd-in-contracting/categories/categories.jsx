@@ -6,7 +6,7 @@ import Downloads from 'src/components/section-elements/downloads/downloads';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import data from '../../../../static/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318_with_keys.csv';
-import Tooltip from "src/components/tooltip/tooltip";
+import Tooltip from "src/components/popover/tooltip";
 import numberFormatter from 'src/utils/number-formatter';
 import variables from 'src/styles/variables.scss';
 import Desktop from '../../../svgs/rd-and-contracting/categories/desktop.svg';
