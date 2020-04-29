@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from 'react';
 import './categories.scss';
 import 'src/styles/index.scss';
 import AccordionList from 'src/components/accordion-list/accordion-list';
@@ -12,7 +12,6 @@ import variables from 'src/styles/variables.scss';
 import Desktop from '../../../svgs/rd-and-contracting/categories/desktop.svg';
 import Tablet from '../../../svgs/rd-and-contracting/categories/tablet.svg';
 import Mobile from '../../../svgs/rd-and-contracting/categories/mobile.svg';
-
 
 export default function Categories(props) {
   const [windowWidth, setWindowWidth] = useState(null);
@@ -108,13 +107,11 @@ export default function Categories(props) {
         .forEach((item) => {
           if(typeof document !== 'undefined') {
             const el = document.getElementById(item);
-
             el.removeEventListener('mouseover', e => onFocus(e, item));
             el.removeEventListener('keyup', e => onFocus(e, item));
             el.removeEventListener('click', e => onFocus(e, item));
             el.removeEventListener('mouseout', e => onBlur(e, item));
           }
-
         });
 
       if(typeof window !== 'undefined') {
@@ -125,13 +122,10 @@ export default function Categories(props) {
 
   useEffect(() => {
     if(typeof document !== 'undefined') {
-      const svg = document.getElementsByTagName('svg')[0];
-      svg.setAttribute('id', 'vizSvg');
+      const svg = document.getElementById('catSvg');
       svg.setAttribute('role', 'img');
-      svg.setAttribute('aria-labelledby', 'desc');
-      svg.setAttribute('desc', altText);
+      svg.setAttribute('aria-label', altText);
     }
-
   });
 
   function onPopoverOpen(event, id, ref) {
@@ -151,7 +145,6 @@ export default function Categories(props) {
     if (ref && ref.current) {
       isOpen = ref.current.isOpen(id);
     }
-
     return isOpen;
   }
 
@@ -201,6 +194,5 @@ export default function Categories(props) {
 
   </>);
 }
-
 
 const altText = `Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.`;
