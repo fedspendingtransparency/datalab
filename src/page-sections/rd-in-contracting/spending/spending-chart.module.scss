@@ -16,6 +16,13 @@
   height: 100%;
 }
 
+.close-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 .svg-popout {
   display: none;
   position: relative;
