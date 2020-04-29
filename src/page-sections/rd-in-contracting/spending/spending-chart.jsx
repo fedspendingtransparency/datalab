@@ -73,7 +73,7 @@ export default class SpendingChart extends React.Component {
     Use "e.target" and not element directly as some are not drawn
     on the DOM yet. 
   */
-  detailsListener = (e) => {
+  detailsListener = e => {
     let element = e.target;
 
     if (element.id === 'Show-Details-Text') {
@@ -89,11 +89,11 @@ export default class SpendingChart extends React.Component {
     if (element.id === 'toggle-region') {
       this.setState({ showDetails: !this.state.showDetails });
     };
-
-    if (element.id === 'close-popup') {
-      this.setState({ showDetails: false });
-    }
   };
+
+  closePopup = () => {
+    this.setState({ showDetails: false });
+  }
 
 
   /* We have to layer the popup over the svg 
@@ -173,7 +173,7 @@ export default class SpendingChart extends React.Component {
           </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={tabletPopupStyle}>
             <SectionOneChartPopupTablet />
-            <CloseIcon id='close-popup' className={styles.closeIcon} />
+            <CloseIcon className={styles.closeIcon} onClick={this.closePopup}/>
           </div>
           <SectionOneChartTablet />
           <Legend />
@@ -199,7 +199,7 @@ export default class SpendingChart extends React.Component {
           </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`}>
             <SectionOneChartPopupMobile />
-            <CloseIcon id='close-popup' className={styles.closeIcon} />
+            <CloseIcon className={styles.closeIcon} onClick={this.closePopup}/>
           </div>
           <SectionOneChartMobile />
           <Legend />
@@ -225,7 +225,7 @@ export default class SpendingChart extends React.Component {
           </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={desktopPopupStyle}>
             <SectionOneChartPopupDesktop />
-            <CloseIcon id='close-popup' className={styles.closeIcon} />
+            <CloseIcon className={styles.closeIcon} onClick={this.closePopup}/>
           </div>
           <SectionOneChartDesktop />
           <Legend />
