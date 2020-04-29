@@ -1,5 +1,6 @@
 import React from 'react';
 import './opioid-crisis.module.scss';
+import cssVars from 'src/styles/variables.scss';
 
 import SectionOne from '../../page-sections/opioid-crisis/sectionOne/sectionOne';
 import SectionTwo from '../../page-sections/opioid-crisis/sectionTwo/sectionTwo';
@@ -20,14 +21,16 @@ import { Grid } from "@material-ui/core";
   dynamic component for all story templates (C&U...) 
 */
 
-const primaryColors = {opioidOrange: '#FC5A20'};
+const primaryColors = { opioidOrange: '#FC5A20' };
 
 export default class OpioidCrisisPage extends React.Component {
   render = () =>
-    <StoryLayout isCustomHeader={true}
-                 hwctaLink={this.props.location.pathname + '/methodologies'}>
+    <StoryLayout
+      isCustomHeader={true}
+      hwctaLink={this.props.location.pathname + '/methodologies'}
+      pageColor={cssVars.opioidOrange}
+    >
       <SEO title='Opioid Crisis' keywords={[`gatsby`, `application`, `react`]} />
-
 
       <CustomOpioidHeader
         subtext={'opioid crisis'}
@@ -44,48 +47,48 @@ export default class OpioidCrisisPage extends React.Component {
             subtext: 'The Crisis',
             blurb: 'HOW DOES THE OPIOID CRISIS LOOK ACROSS THE NATION?',
           },
-           {
-             section: 'two',
-             number: '02',
-             subtext: 'Societal Effects',
-             blurb: 'HOW DOES THE OPIOID CRISIS AFFECT EVERYDAY LIFE?',
-           },
-           {
-             section: 'three',
-             number: '03',
-             subtext: 'Major Players',
-             blurb: 'WHAT ORGANIZATIONS RECIEVED THE MOST FUNDING TO FIGHT THE OPIOID CRISIS?',
-           },
-           {
-             section: 'four',
-             number: '04',
-             subtext: 'A State Response',
-             blurb: 'HOW A STATE RESPONDS TO THE OPIOID CRISIS?',
-           },
-           {
-             section: 'five',
-             number: '05',
-             subtext: 'Mitigating and Solving?',
-             blurb: 'WHERE TO GET TREATMENT?',
-           },
+          {
+            section: 'two',
+            number: '02',
+            subtext: 'Societal Effects',
+            blurb: 'HOW DOES THE OPIOID CRISIS AFFECT EVERYDAY LIFE?',
+          },
+          {
+            section: 'three',
+            number: '03',
+            subtext: 'Major Players',
+            blurb: 'WHAT ORGANIZATIONS RECIEVED THE MOST FUNDING TO FIGHT THE OPIOID CRISIS?',
+          },
+          {
+            section: 'four',
+            number: '04',
+            subtext: 'A State Response',
+            blurb: 'HOW A STATE RESPONDS TO THE OPIOID CRISIS?',
+          },
+          {
+            section: 'five',
+            number: '05',
+            subtext: 'Mitigating and Solving?',
+            blurb: 'WHERE TO GET TREATMENT?',
+          },
           ]}
       />
 
       <Grid container justify='center'>
         <Grid item xs={10}>
-          <SectionOne/>
+          <SectionOne />
         </Grid>
         <Grid item xs={10}>
-          <SectionTwo/>
+          <SectionTwo />
         </Grid>
         <Grid item xs={10}>
-          <SectionThree/>
+          <SectionThree />
         </Grid>
         <Grid item xs={10}>
-          <SectionFour/>
+          <SectionFour />
         </Grid>
         <Grid item xs={10}>
-          <SectionFive/>
+          <SectionFive />
         </Grid>
       </Grid>
 

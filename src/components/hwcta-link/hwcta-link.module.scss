@@ -6,6 +6,11 @@
   font-size: 2rem;
   font-weight: 300;
 
+  .link-text {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
   .icon {
     line-height: 0;
     padding-right: 1rem;
@@ -18,7 +23,7 @@
 
 .hwcta:hover {
   text-decoration: underline;
-};
+}
 
 @media (max-width: $tablet - 1) {
   .hwcta {

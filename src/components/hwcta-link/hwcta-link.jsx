@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import hwctaLinkStyles from './hwcta-link.module.scss';
+import styles from './hwcta-link.module.scss';
+import cssVars from 'src/styles/variables.scss';
 
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,21 +11,26 @@ import { Link } from 'gatsby';
 
 const HWCTALink = (props) => {
   return (
-    <div className={hwctaLinkStyles.hwcta + ' ' + props._mainClass}>
+    <div
+      className={styles.hwcta + ' ' + props._mainClass}
+      style={{ color: props.pageColor }}
+    >
       <Link to={props.url.replace(/\/\//g, '/')}>
         <Grid container alignItems='center'>
-          <Grid item className={hwctaLinkStyles.icon}>
-            <Sources fillColor={props.fillColor} />
+          <Grid item className={styles.icon}>
+            <Sources fillColor={props.pageColor} />
           </Grid>
           <Grid item>
-            Data Sources and{' '}
-            <Hidden mdUp>
-              <br />
-            </Hidden>
+            <span className={styles.linkText}>
+              Data Sources and{' '}
+              <Hidden mdUp>
+                <br />
+              </Hidden>
             Methodologies
+            </span>
           </Grid>
-          <Grid item className={hwctaLinkStyles.arrow}>
-            <FontAwesomeIcon icon={faChevronRight} width={20} color={props.fillColor} />
+          <Grid item className={styles.arrow}>
+            <FontAwesomeIcon icon={faChevronRight} width={20} color={props.pageColor} />
           </Grid>
         </Grid>
       </Link>
@@ -33,11 +39,11 @@ const HWCTALink = (props) => {
 };
 
 HWCTALink.propTypes = {
-  fillColor: PropTypes.string
+  pageColor: PropTypes.string
 };
 
 HWCTALink.defaultProps = {
-  fillColor: '#881E3D'
+  pageColor: cssVars.legacyBlue
 };
 
 export default HWCTALink;

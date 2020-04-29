@@ -9,6 +9,7 @@ import { Grid } from "@material-ui/core";
 import loadable from "@loadable/component";
 import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
 import styles from './cu.module.scss';
+import cssVars from 'src/styles/variables.scss';
 
 const Agencies = loadable(() => import('../../page-sections/colleges-and-universities/agencies/agencies'),
   {
@@ -24,13 +25,13 @@ const Categories = loadable(() => import('../../page-sections/colleges-and-unive
     </div>
   });
 
-const Institutions = loadable(() => import('../../page-sections/colleges-and-universities/institutions'),  {
+const Institutions = loadable(() => import('../../page-sections/colleges-and-universities/institutions'), {
   fallback: <div className='progress_wrapper'>
     <CircularProgress className='progress' size={70} color='inherit' />
   </div>
 });
 
-const sections=
+const sections =
   [{
     section: 'Investment Overview',
     number: '01',
@@ -63,12 +64,15 @@ const sections=
 export default class CollegesAndUniversitiesPage extends React.Component {
 
   render = () =>
-    <StoryLayout isCustomHeader={true}
-                 hwctaLink={this.props.location.pathname + '/methodologies'} >
+    <StoryLayout
+      isCustomHeader={true}
+      hwctaLink={this.props.location.pathname + '/methodologies'}
+      pageColor={cssVars.cuRed}
+    >
       <SEO title='U.S. Treasury Data Lab – Federal Funding in Colleges and Universities'
-           description="The U.S. Treasury’s Data Lab presents an analysis on federal funding in colleges and universities. In 2018 the Federal government invested over $149 billion, affecting over 3,000 schools, 15 million undergraduate students and over 2.5 million graduate students."
-           keywords={[`universities`, `colleges`, `higher education`, `funding`, `government spending`, `federal funding`, `government funding`,
-						 `federal grants`, `research grants`, `federal contracts`, `bubble chart`, `sunburst`]} />
+        description="The U.S. Treasury’s Data Lab presents an analysis on federal funding in colleges and universities. In 2018 the Federal government invested over $149 billion, affecting over 3,000 schools, 15 million undergraduate students and over 2.5 million graduate students."
+        keywords={[`universities`, `colleges`, `higher education`, `funding`, `government spending`, `federal funding`, `government funding`,
+          `federal grants`, `research grants`, `federal contracts`, `bubble chart`, `sunburst`]} />
 
       <CustomHeader
         subtext={'Federal Investment in Higher Education'}
@@ -81,8 +85,8 @@ export default class CollegesAndUniversitiesPage extends React.Component {
       />
 
       <Grid container
-            justify="center"
-            className={styles.cu}>
+        justify="center"
+        className={styles.cu}>
         <Grid item xs={10} className={styles.section} id={"section-overview"}>
           <Overview location={this.props.location} />
         </Grid>

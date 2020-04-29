@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './rd-in-contracting.module.scss';
+import cssVars from 'src/styles/variables.scss';
 
 import Accordion from 'src/components/accordion/accordion';
 import Categories from 'src/page-sections/rd-in-contracting/categories/categories.jsx';
@@ -133,6 +134,7 @@ export default class RdInContractingPage extends React.Component {
       title='Research & Development in Contract Spending'
       introSentence='How much did the federal government invest in Research & Development with FY 2019 Contract Spending?'
       hwctaLink={this.props.location.pathname + '/methodologies'}
+      pageColor={cssVars.rdBlue}
     >
       <SEO
         description='How much does the federal government invest in Research & Development? In FY 2019, $41.5 billion was contracted to R&D initiatives.'
