@@ -36,8 +36,8 @@ export default class RDHWCTA extends React.Component {
         <li>INTERNATIONAL AFFAIRS & COOPERATION R&D (AM)</li>
         <li>MEDICAL R&D (AN)</li>
         <li>MINING R&D (AV)</li>
-        <li>OTHER R&D (AZ)</li>
         <li>NATURAL RESOURCES R&D (AP)</li>
+        <li>OTHER R&D (AZ)</li>
         <li>SOCIAL SERVICES R&D (AQ)</li>
         <li>SPACE R&D (AR)</li>
         <li>TRANSPORTATION (MODAL) R&D (AS)</li>
