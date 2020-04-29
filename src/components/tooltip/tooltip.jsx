@@ -37,15 +37,15 @@ class MouseOverPopover extends React.Component {
     window.removeEventListener('resize', this.handlePopoverClose);
   }
 
-  handlePopoverOpen = (event, popoverId) => {
+  handlePopoverOpen = (event, popoverId, ref2) => {
     this.setState({
       openedPopoverId: popoverId,
-      anchorEl: event.currentTarget
+      anchorEl: event.currentTarget,
+      ref: ref2
     });
   };
 
   handlePopoverClose = () => {
-    console.log('close');
     this.setState({
       openedPopoverId: null,
       anchorEl: null
@@ -60,7 +60,7 @@ class MouseOverPopover extends React.Component {
   keyUpHandler = (e) => {
     if(e.keyCode === 13) {
       this.handlePopoverClose()
-      // need to call a function from the parent component to set focus to the correct element
+      this.props.clearSelection(this.state.anchorEl);
     }
   }
 
@@ -86,7 +86,6 @@ class MouseOverPopover extends React.Component {
             horizontal: 'center',
           }}
           onClose={this.handlePopoverClose}
-          disableRestoreFocus
         >
 
           <Grid container direction='row'>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import './categories.scss';
 import 'src/styles/index.scss';
 import AccordionList from 'src/components/accordion-list/accordion-list';
@@ -12,7 +12,6 @@ import variables from 'src/styles/variables.scss';
 import Desktop from '../../../svgs/rd-and-contracting/categories/desktop.svg';
 import Tablet from '../../../svgs/rd-and-contracting/categories/tablet.svg';
 import Mobile from '../../../svgs/rd-and-contracting/categories/mobile.svg';
-
 
 export default function Categories(props) {
   const [windowWidth, setWindowWidth] = useState(null);
@@ -87,6 +86,12 @@ export default function Categories(props) {
   useEffect(() => {
     handleResize();
 
+    const groups = document.getElementsByClassName('category-icon');
+
+    for (let i = 0; i < groups.length; i++) {
+      groups[i].setAttribute('autoFocus', 'true');
+    }
+
     Object.keys(tooltipData)
       .forEach((item) => {
         if(typeof document !== 'undefined') {
@@ -155,6 +160,14 @@ export default function Categories(props) {
     return isOpen;
   }
 
+  function clearSelection(el) {
+    console.log(el);
+    el = el.getElementsByTagName('circle')[0];
+    el.setAttribute('fill', 'white')
+    el.setAttribute('fill-opacity', '1')
+    el.setAttribute('stroke', '#555555')
+  }
+
   function Chart() {
     switch(device) {
       case 'tablet':
@@ -196,7 +209,7 @@ export default function Categories(props) {
     {Object.keys(tooltipData)
       .map((i) => {
         const item = tooltipData[i];
-        return <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows}/>
+        return <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows} clearSelection={clearSelection}/>
       })}
 
   </>);
