@@ -33,3 +33,13 @@
   justify-content: center;
   padding-left: 6rem;
 }
+
+/* mobile/phone */
+@media (max-width: 576px) {
+  .legend-item-small {
+    margin: 0;
+  }
+  .legend-item-small-spending {
+    margin: 0;
+  }
+}
