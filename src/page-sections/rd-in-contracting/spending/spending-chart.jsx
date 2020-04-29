@@ -154,7 +154,7 @@ export default class SpendingChart extends React.Component {
   /* Desktop Inline Style Checker */
   desktopChecker = () => {
     if (this.state.bWidth <= 1000) {
-      return '31%';
+      return '35%';
     } 
   }
 

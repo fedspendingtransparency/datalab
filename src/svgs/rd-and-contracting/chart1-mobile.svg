@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="100%" height="207px" viewBox="0 0 389 207" aria-label="Bar chart of FY 2019 federal agency contract spending in billions overlaid with a line chart charting the percentage of total contract spending by each agency. DoD and NASA have the highest spend and the highest proportion of spend." version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="100%" height="100%" viewBox="0 0 389 207" aria-label="Bar chart of FY 2019 federal agency contract spending in billions overlaid with a line chart charting the percentage of total contract spending by each agency. DoD and NASA have the highest spend and the highest proportion of spend." version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Chart1 Mobile-Version</title>
     <defs>
     <style>
@@ -24,9 +24,6 @@
       fill: red;
       fill-opacity: 0;
       };
-      rect#Rectangle {
-          fill: red;
-      }
     </style>
         <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
             <stop stop-color="#3455DB" offset="0%"></stop>
