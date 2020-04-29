@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import * as d3 from 'd3v3';
 import styles from './mapviz.module.scss';
 
-import tooltipModule from "../../../../components/tooltip/tooltip";
-import tipStyles from '../../../../components/tooltip/tooltip.module.scss';
+import tooltipModule from "../../../tooltip-legacy/tooltip";
+import tipStyles from '../../../tooltip-legacy/tooltip.module.scss';
 
 /* Extracted and adapted from fedscope.js an trreemap-module.js */
 
