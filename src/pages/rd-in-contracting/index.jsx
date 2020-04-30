@@ -21,6 +21,12 @@ import bulb from 'src/images/rd-in-contracting/bulb.svg';
 export default class RdInContractingPage extends React.Component {
   constructor(props) {
     super(props);
+
+
+    console.log(JSON.stringify(cssVars));
+
+
+
   }
 
   whatIsContents = () =>

@@ -9,21 +9,40 @@ import { Grid, Hidden } from '@material-ui/core';
 import Sources from '../logos/sources';
 import { Link } from 'gatsby';
 
-const HWCTALink = (props) => {
+export default class HWCTALink extends React.Component {
+  static propTypes = {
+    pageColor: PropTypes.string
+  };
+  static defaultProps = {
+    pageColor: cssVars.legacyBlue
+  };
 
-  console.log(props.pageColor);
-  console.log(typeof props.pageColor);
+  constructor(props) {
+    super(props);
 
 
-  return (
+    console.log(props.pageColor);
+    console.log(typeof props.pageColor);
+
+
+    this.divStyles = { 'color': `${this.props.pageColor}` };
+
+
+    console.log(this.divStyles);
+
+
+
+  }
+
+  render = () => (
     <div
-      className={styles.hwcta + ' ' + props._mainClass}
-      style={{ color: '#1302D9' }}
+      className={styles.hwcta + ' ' + (this.props._mainClass || '')}
+      style={this.divStyles}
     >
-      <Link to={props.url.replace(/\/\//g, '/')}>
+      <Link to={this.props.url.replace(/\/\//g, '/')}>
         <Grid container alignItems='center'>
           <Grid item className={styles.icon}>
-            <Sources fillColor={props.pageColor} />
+            <Sources fillColor={this.props.pageColor} />
           </Grid>
           <Grid item>
             <span className={styles.linkText}>
@@ -31,24 +50,14 @@ const HWCTALink = (props) => {
               <Hidden mdUp>
                 <br />
               </Hidden>
-            Methodologies
+              Methodologies
             </span>
           </Grid>
           <Grid item className={styles.arrow}>
-            <FontAwesomeIcon icon={faChevronRight} width={20} color={props.pageColor} />
+            <FontAwesomeIcon icon={faChevronRight} width={20} color={this.props.pageColor} />
           </Grid>
         </Grid>
       </Link>
-    </div>
+    </div >
   );
 };
-
-HWCTALink.propTypes = {
-  pageColor: PropTypes.string
-};
-
-HWCTALink.defaultProps = {
-  pageColor: cssVars.legacyBlue
-};
-
-export default HWCTALink;

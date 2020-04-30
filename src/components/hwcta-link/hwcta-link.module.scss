@@ -19,10 +19,10 @@
   .arrow {
     padding-left: 1rem;
   }
-}
 
-.hwcta:hover {
-  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 @media (max-width: $tablet - 1) {
@@ -30,9 +30,9 @@
     margin-top: $margin-30;
     margin-bottom: $margin-30;
     font-size: 1.7rem;
-  }
 
-  .icon {
-    display: none;
+    .icon {
+      display: none;
+    }
   }
 }
