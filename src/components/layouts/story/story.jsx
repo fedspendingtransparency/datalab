@@ -30,7 +30,6 @@ const StoryLayout = (props) => {
         </Grid>
       </Grid>;
 
-
     toc = props.sectionToc ? <Toc sections={props.sectionToc} /> : <></>;
   }
 

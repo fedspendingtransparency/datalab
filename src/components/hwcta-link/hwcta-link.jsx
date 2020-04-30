@@ -10,10 +10,15 @@ import Sources from '../logos/sources';
 import { Link } from 'gatsby';
 
 const HWCTALink = (props) => {
+
+  console.log(props.pageColor);
+  console.log(typeof props.pageColor);
+
+
   return (
     <div
       className={styles.hwcta + ' ' + props._mainClass}
-      style={{ color: props.pageColor }}
+      style={{ color: '#1302D9' }}
     >
       <Link to={props.url.replace(/\/\//g, '/')}>
         <Grid container alignItems='center'>
