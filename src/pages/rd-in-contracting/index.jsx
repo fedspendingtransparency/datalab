@@ -100,7 +100,8 @@ export default class RdInContractingPage extends React.Component {
     <>
       <p>The federal government is one of the largest and most consistent funding sources of R&D in the United States,<a id='fr2' href='#fn2' className='footnoteref'>2</a> where total R&D obligations had only a net 1% change over the last decade. In total, the National Science Foundation reports that the federal government obligated $146B to R&D initiatives in its 2019 budget, which includes contracts as well as other key funding sources such as grants.<a id='fr3' href='#fn3' className='footnoteref'>3</a></p>
       <p><span className={styles.bold}>Why does the government invest in R&D?</span>
-        <br />A common rationale for federal R&D spending is that many socially beneficial research projects would not be attempted if society depended on the private sector alone for funding.<a id='fr4' href='#fn4' className='footnoteref'>4</a></p>
+        <br />A common rationale for federal R&D spending is that many socially beneficial research projects would not be attempted if society depended on the private sector alone for funding.<a id='fr4' href='#fn4' className='footnoteref'>4</a>
+      </p>
     </>
   ];
 
@@ -111,14 +112,14 @@ export default class RdInContractingPage extends React.Component {
       header: <div className={styles.title} key={'spending-header'}>2019 Agency Spending</div>,
       sectionTeaser: <>What <span className={styles.subtitleHighlight}>portion of federal agency contract spending</span> goes to R&D initiatives?</>,
       introBlurb: <>
-        <Hidden smDown>
+        {/* <Hidden smDown> */}
           {this.secBlurbs[0]}
-        </Hidden>
+        {/* </Hidden>
         <Hidden mdUp>
-          <ReadMore pageColor={cssVars.rdBlue}>
+          <ReadMore maxHeight={1000} linkColor={cssVars.rdBlue}>
             {this.secBlurbs[0]}
           </ReadMore>
-        </Hidden>
+        </Hidden> */}
       </>,
       viztitle: 'R&D as a Portion of Total Federal Contract Spending by Agency',
       tagName: 'spending'
@@ -133,7 +134,7 @@ export default class RdInContractingPage extends React.Component {
           {this.secBlurbs[1]}
         </Hidden>
         <Hidden mdUp>
-          <ReadMore pageColor={cssVars.rdBlue}>
+          <ReadMore maxHeight={450} linkColor={cssVars.rdBlue}>
             {this.secBlurbs[1]}
           </ReadMore>
         </Hidden>
@@ -151,7 +152,7 @@ export default class RdInContractingPage extends React.Component {
           {this.secBlurbs[2]}
         </Hidden>
         <Hidden mdUp>
-          <ReadMore pageColor={cssVars.rdBlue}>
+          <ReadMore maxHeight={650} linkColor={cssVars.rdBlue}>
             {this.secBlurbs[2]}
           </ReadMore>
         </Hidden>

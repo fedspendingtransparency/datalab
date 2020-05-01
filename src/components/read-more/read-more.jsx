@@ -4,18 +4,28 @@ import styles from './read-more.module.scss';
 import cssVars from 'src/styles/variables.scss';
 
 export default class ReadMore extends React.Component {
+  /*
+    Notes on props:
+    maxHeight: height in px for absolute maximum container size; used for CSS transition
+    linkColor: color of link text (defaults to legacy blue)
+    expandText: text to indicate expandible
+    collapseText: replacement text when expanded
+    collapsedHeight: total container height when collapsed
+    animation: expand/collapse CSS transition rule
+  */
+
   static propTypes = {
     children: PropTypes.node.isRequired,
-    pageColor: PropTypes.string,
+    maxHeight: PropTypes.number.isRequired,
+    linkColor: PropTypes.string,
     expandText: PropTypes.string,
     collapseText: PropTypes.string,
-    toggleColor: PropTypes.string,
     collapsedHeight: PropTypes.string,
     animation: PropTypes.string
-  }
+  };
 
   static defaultProps = {
-    pageColor: cssVars.legacyBlue,
+    linkColor: cssVars.legacyBlue,
     expandText: 'Read more...',
     collapseText: 'Read less...',
     collapsedHeight: '6rem',
@@ -26,25 +36,18 @@ export default class ReadMore extends React.Component {
     super(props);
 
     this.state = {
-      clientHeight: 'auto',
+      clientHeight: `${this.props.maxHeight}px`,
       isOpen: false
     };
-
-
-    console.log(this.props.pageColor);
-    console.log(typeof this.props.pageColor);
-
-
-
   }
 
   toggleReadMore = () => this.setState(prevState => ({ isOpen: !prevState.isOpen }));
 
   render = () => {
     const inlineStyle = {
-      'height': this.state.isOpen ? this.state.clientHeight : this.props.collapsedHeight,
+      'maxHeight': this.state.isOpen ? this.state.clientHeight : this.props.collapsedHeight,
       'overflow-y': 'hidden',
-      'transition': 'height ' + this.props.animation
+      'transition': 'max-height ' + this.props.animation
     };
     return (
       <div>
@@ -53,7 +56,7 @@ export default class ReadMore extends React.Component {
         </div>
         <button
           className={styles.button}
-          style={{ color: this.props.pageColor }}
+          style={{ color: this.props.linkColor }}
           onClick={() => { this.toggleReadMore() }}
         >
           {this.state.isOpen ? this.props.collapseText : this.props.expandText}
