@@ -148,7 +148,7 @@ export default class RdInContractingPage extends React.Component {
         );
       })}
 
-      <Grid container justify='center'>
+      <Grid container className = {styles.footnotes}>
         <Grid item xs={10}>
           <Footnotes footnotes={[
             <>
