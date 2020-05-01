@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useState } from "react"
 import './categories.scss';
 import 'src/styles/index.scss';
 import AccordionList from 'src/components/accordion-list/accordion-list';
@@ -9,9 +9,9 @@ import data from '../../../../static/unstructured-data/rd-in-contracting/r&d_spe
 import Tooltip from "src/components/tooltip/tooltip";
 import numberFormatter from 'src/utils/number-formatter';
 import variables from 'src/styles/variables.scss';
-import Desktop from '../../../svgs/rd-and-contracting/categories/desktop.svg';
-import Tablet from '../../../svgs/rd-and-contracting/categories/tablet.svg';
-import Mobile from '../../../svgs/rd-and-contracting/categories/mobile.svg';
+import Desktop from 'src/svgs/rd-and-contracting/categories/desktop.svg';
+import Tablet from 'src/svgs/rd-and-contracting/categories/tablet.svg';
+import Mobile from 'src/svgs/rd-and-contracting/categories/mobile.svg';
 
 export default function Categories(props) {
   const [windowWidth, setWindowWidth] = useState(null);
@@ -52,11 +52,25 @@ export default function Categories(props) {
     }
   }
 
+  function onEsc(e) {
+    if (e.keyCode === 27) {
+      Object.keys(tooltipData)
+        .forEach((index) => {
+          const item = tooltipData[index];
+          if (isOpen(item.id, item.tooltipRef)) {
+            const el = document.getElementById(index).getElementsByTagName('circle')[0];
+            el.setAttribute('fill', 'white')
+            el.setAttribute('fill-opacity', '1')
+            el.setAttribute('stroke', '#555555')
+            onPopoverClose(item.tooltipRef);
+          }
+        });
+    }
+  }
+
   function onKeyUp(e, key, item) {
     if (e.keyCode === 13) {
       toggle(e, key, item);
-      // remove the outline if toggle on
-      // remove the outline if toggle off
     }
 
     if (e.keyCode === 9) {
@@ -68,12 +82,11 @@ export default function Categories(props) {
             el.setAttribute('fill', 'white')
             el.setAttribute('fill-opacity', '1')
             el.setAttribute('stroke', '#555555')
-            // add the outline back
             onPopoverClose(item.tooltipRef);
           }
         });
     }
-}
+  }
 
   function onHover(e) {
     const el = e.currentTarget.getElementsByTagName('circle')[0];
@@ -150,12 +163,11 @@ export default function Categories(props) {
             el.addEventListener('keyup', e => onKeyUp(e, key, tooltipData[key]));
             el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
             el.addEventListener('mouseout', e => clearSelection(e));
-
         });
     }
 
     window.addEventListener('resize', handleResize);
-    window.addEventListener('keyup', closeAll);
+    window.addEventListener('keyup', e => onEsc(e));
 
     return _ => {
       Object.keys(tooltipData)
@@ -172,7 +184,7 @@ export default function Categories(props) {
         });
 
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('keyup', closeAll);
+      window.removeEventListener('keyup', e => onEsc(e));
     };
   });
 
