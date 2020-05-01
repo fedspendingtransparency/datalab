@@ -22,7 +22,6 @@
       }
       #Show-Details-Text:hover {
       pointer-events: all;
-      fill: none;
       cursor: pointer;
       }
     </style>

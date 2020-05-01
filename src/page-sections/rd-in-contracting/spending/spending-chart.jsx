@@ -3,7 +3,7 @@ import styles from './spending-chart.module.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Downloads from '../../../components/section-elements/downloads/downloads';
-import ControlBar from "../../../components/control-bar/control-bar"
+import ControlBar from "../../../components/control-bar/control-bar";
 import Share from '../../../components/share/share';
 
 import SectionOneChartDesktop from '../../../svgs/rd-and-contracting/chart1.svg';
