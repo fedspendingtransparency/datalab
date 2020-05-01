@@ -68,7 +68,7 @@ export default class RdInContractingPage extends React.Component {
           <div className={styles.flexContainer}>
             <img src={bulb} role='presentation' className={styles.leftImg} />
             <div>
-              <p>EXAMPLE: The Department of Energy developed a long-term solution for storing spent nuclear fuel and is studying its impact on licensing and operations of nuclear plants.</p>
+              <p>EXAMPLE: The Department of Energy developed a long-term solution for storing spent nuclear fuel and studied its impact on licensing and operations of nuclear plants.</p>
               <a href='https://www.usaspending.gov/#/award/CONT_AWD_DENE0000593_8900_-NONE-_-NONE-' target='_blank' rel='noopener noreferrer'>
                 Contract Summary <LaunchOutlinedIcon fontSize='inherit' />
               </a>
