@@ -1,6 +1,6 @@
 import React from 'react';
-import Percentage from '../../../svgs/rd-and-contracting/Percentage.svg';
-import Devotion from '../../../svgs/rd-and-contracting/Devotion.svg';
+import Percentage from '../../../svgs/rd-and-contracting/spending/Percentage.svg';
+import Devotion from '../../../svgs/rd-and-contracting/spending/Devotion.svg';
 
 import styles from '../spending/legend.module.scss';
 

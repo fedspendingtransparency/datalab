@@ -6,14 +6,14 @@ import Downloads from '../../../components/section-elements/downloads/downloads'
 import ControlBar from "../../../components/control-bar/control-bar";
 import Share from '../../../components/share/share';
 
-import SectionOneChartDesktop from '../../../svgs/rd-and-contracting/chart1.svg';
-import SectionOneChartTablet from '../../../svgs/rd-and-contracting/chart1-tablet.svg';
-import SectionOneChartMobile from '../../../svgs/rd-and-contracting/chart1-mobile.svg';
+import SectionOneChartDesktop from '../../../svgs/rd-and-contracting/spending/desktop.svg';
+import SectionOneChartTablet from '../../../svgs/rd-and-contracting/spending/tablet.svg';
+import SectionOneChartMobile from '../../../svgs/rd-and-contracting/spending/mobile.svg';
+import SectionOneChartPopupDesktop from '../../../svgs/rd-and-contracting/spending/chart1-desktop-popup.svg';
+import SectionOneChartPopupTablet from '../../../svgs/rd-and-contracting/spending/chart1-tablet-popup.svg';
+import SectionOneChartPopupMobile from '../../../svgs/rd-and-contracting/spending/chart1-mobile-popup.svg';
 
 import CloseIcon from '@material-ui/icons/Close';
-import SectionOneChartPopupDesktop from '../../../svgs/rd-and-contracting/chart1-desktop-popup.svg';
-import SectionOneChartPopupTablet from '../../../svgs/rd-and-contracting/chart1-tablet-popup.svg';
-import SectionOneChartPopupMobile from '../../../svgs/rd-and-contracting/chart1-mobile-popup.svg';
 
 import Legend from './legend.jsx';
 
@@ -77,6 +77,10 @@ export default class SpendingChart extends React.Component {
     let element = e.target;
 
     if (element.id === 'Show-Details-Text') {
+      this.setState({ showDetails: !this.state.showDetails });
+    };
+
+    if (element.id === 'Show-Details') {
       this.setState({ showDetails: !this.state.showDetails });
     };
 
