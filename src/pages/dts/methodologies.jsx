@@ -7,111 +7,61 @@ function DTSHWCTA(props) {
   const dataSources = [
     {
       content:
-        <ul>
-          <li>
-            Bureau of the Fiscal Service’s Daily Treasury Statement
-          </li>
-        </ul>
+      <ul>
+        <li>
+          Bureau of the Fiscal Service’s Daily Treasury Statement
+        </li>
+      </ul>
     }
   ];
 
   const methodologies = [
     {
       content:
-        <>
-          <p>
-            The data used to create the Daily Spending Tracker is sourced from the Bureau of the Fiscal Service’s Daily
-            Treasury Statement (DTS) archive. The download and transformation scripts come from the Federal Treasury
-            API, developed for the treasury.io tool. The data goes through three stages of cleaning prior to reaching
-            its completed state: download, parse, and aggregate.
-          </p>
-          <p>
-            On our first download, our team downloaded each text file from the DTS archive and stored them in a local
-            folder. Each subsequent pull downloads only the most recently posted DTS. Once each file is downloaded, we
-            run a parsing script, which parses each DTS into eight comma-separated value (CSV) files – one for each
-            table in the DTS. (Table III was broken into three separate files.) The CSV files were then aggregated
-            based on their table, creating eight lifetime CSV files. The Table II lifetime CSV file is the backbone
-            of our tool, as it holds the federal government’s daily deposit and withdrawal data.
-          </p>
-          <p>
-            Once the lifetime CSV file was aggregated, we transformed and filtered the data in order to ensure data
-            fidelity while reducing the file size. The transformation we performed changed all categories within the
-            DTS to Title Case, which eliminated reporting differences from the original DTS files. We then filtered out
-            deposits, which established the final file on which we built our spending tool.
-          </p>
-          <p>
-            To create the DTS visualization, we first parsed the aggregated CSV file with Javascript and used the d3
-            data visualization library to render it to the screen. All daily, month-to-date (MTD), and fiscal
-            year-to-date (FYTD) values were multiplied by 1,000,000, since the DTS archives are rounded to millions of
-            dollars.
-          </p>
-          <p>
-            In our parse step, we identified categories that had not been active within a year since the last recorded
-            date entry (LRDE), and transferred them to the Inactive Categories section of the Categories dropdown. The
-            remaining categories are included in the Active Categories section.
-          </p>
-          <p>
-            We also summed daily spending for all entries between the start and end of the previous fiscal year to
-            calculate the top 10 categories. These 10 categories are designated under the Top 10 section of the
-            Category dropdown.
-          </p>
-          <p>
-            Finally, we created the All Categories by taking Total Withdrawals (excluding transfers) and subtracting
-            Public Debt Cash Redemp (Table III B) from it for each corresponding entry. Since we display withdrawal
-            spending from Table II in our tool, it would be misleading to display the money going out for public debt
-            cash redemption (withdrawals) without the money coming in from public debt cash issues (deposits).
-          </p>
-          <p>
-            To focus on visualizing federal government spending, we chose to remove public debt cash redemption from
-            our total spending amount, and from the visualization. For more information, see Public Debt Cash Issues
-            (Table III B) and Public Debt Cash Redemp. (Table III B) can be found in Table II of the DTS under Deposits
-            and Withdrawals, respectively. As noted in the line items' name, Table III B provides more information on
-            public debt transactions.
-          </p>
-          <p>
-            For each category change on the graph, the range (y-axis) was updated to reflect the minimum and maximum
-            values for that category's value over all time. Thus, there may be circumstances where the starting value
-            is below $0 (in the event of a transfer or refund).
-          </p>
-          <p>
-            The domain for the graph is constant between category changes and begins on the earliest date in the DTS
-            archive: June 9th, 2005. For each category, the graph's domain ends on the LRDE currently in our dataset.
-          </p>
-          <p>
-            The bar chart and table view visible on the page is for total spending by fiscal year. These use the same
-            dataset as the larger visualization, and obtain their values from the aforementioned All Categories using
-            the maximum for the FYTD entries. Only the previous nine years are shown.
-          </p>
-          <p>
-            Lastly, we used the LRDE to update the text below the Page Title to communicate to the user when the
-            dataset was last updated. Below that, we also specify the total amount spent for the LRDE in the dataset.
-            This value is obtained from the most recent daily entry in All Categories.
-          </p>
-        </>
+      <>
+        <p>
+          The data used to create the Daily Spending Tracker is sourced from the Bureau of the Fiscal Service’s Daily Treasury Statement (DTS) archive. The download and transformation scripts come from the Federal Treasury API, developed for the treasury.io tool. The data goes through three stages of cleaning prior to reaching its completed state: download, parse, and aggregate.
+        </p>
+        <p>
+          On our first download, our team downloaded each text file from the DTS archive and stored them in a local folder. Each subsequent pull downloads only the most recently posted DTS. Once each file is downloaded, we run a parsing script, which parses each DTS into eight comma-separated value (CSV) files – one for each table in the DTS. (Table III was broken into three separate files.) The CSV files were then aggregated based on their table, creating eight lifetime CSV files. The Table II lifetime CSV file is the backbone of our tool, as it holds the federal government’s daily deposit and withdrawal data.
+        </p>
+        <p>
+          Once the lifetime CSV file was aggregated, we transformed and filtered the data in order to ensure data fidelity while reducing the file size. We then filtered out deposits, which established the final file on which we built our spending tool.
+        </p>
+        <p>
+          To create the DTS visualization, we first parsed the aggregated CSV file with Javascript and used the d3 data visualization library to render it to the screen. All daily, month-to-date (MTD), and fiscal year-to-date (FYTD) values were multiplied by 1,000,000, since the DTS archives are rounded to millions of dollars.
+        </p>
+        <p>
+          The bar chart and table view visible on the page is for total spending by fiscal year. These use the same dataset as the larger visualization. Only the previous nine years are shown.
+        </p>
+        <p>
+Lastly, we used the last recorded data entry to update the text below the page title to communicate to the user when the dataset was last updated. Below that, we also specify the total amount spent for the LRDE in the dataset.
+        </p>
+      </>
     }
   ];
 
   const notes = [
     {
       content:
-        <>
-          <p>
-            As in all datasets, there are some exceptions and edge-cases. There are currently two in this dataset:
-          </p>
-          <ul>
-            <li>
-              The Food Stamps program was renamed to Supple Nutrition Assist Program (SNAP) on 2010-03-31 (ISO 8601).
-              This prompted us to combine these two program names into a single view, accessible using either name. We
-              chose to use a combination of a shaded background along with dashed lines to indicate the old name.
-            </li>
-            <li>
-              Medicare split into Medicare Advantage Part C D Payments, Marketplace Payments, and Medicare and Other CMS
-              Payments on 2014-10-01. Consistent with Food Stamps, we demarcated the split through the use of dashed lines
-              and a shaded background for Medicare. We then further distinguished the three new categories with
-              differently colored lines, with voronoi tooltips to facilitate discrete analysis of these categories.
-            </li>
-          </ul>
-        </>
+      <>
+        <p>
+          As in all datasets, there are some exceptions and edge-cases. There are currently two in this dataset:
+        </p>
+        <ul>
+          <li>
+            The Food Stamps program was renamed to Supple Nutrition Assist Program (SNAP) on 2010-03-31 (ISO 8601).
+            This prompted us to combine these two program names into a single view, accessible using either name. We
+            chose to use a combination of a shaded background along with dashed lines to indicate the old name.
+          </li>
+          <li>
+            Medicare split into Medicare Advantage Part C D Payments, Marketplace Payments, and Medicare and Other CMS
+            Payments on 2014-10-01. Consistent with Food Stamps, we demarcated the split through the use of dashed lines
+            and a shaded background for Medicare. We then further distinguished the three new categories with
+            differently colored lines, with voronoi tooltips to facilitate discrete analysis of these categories.
+          </li>
+        </ul>
+      </>
     }
   ];
 
