@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './rd-in-contracting.module.scss';
+import cssVars from 'src/styles/variables.scss';
 
 import Categories from 'src/page-sections/rd-in-contracting/categories/categories.jsx';
 import ExpressLayout from 'src/components/layouts/express/express';
@@ -114,7 +115,7 @@ export default class RdInContractingPage extends React.Component {
           {this.secBlurbs[0]}
         </Hidden>
         <Hidden mdUp>
-          <ReadMore>
+          <ReadMore pageColor={cssVars.rdBlue}>
             {this.secBlurbs[0]}
           </ReadMore>
         </Hidden>
@@ -127,16 +128,16 @@ export default class RdInContractingPage extends React.Component {
       anchor: 'categories',
       header: <div className={styles.title} key={'categories-header'}>R&D Spending Categories</div>,
       sectionTeaser: <>20 <span className={styles.subtitleHighlight} key={'categories-teaser'}>categories of R&D</span> contract spending in FY 2019</>,
-      introBlurb:  <>
-      <Hidden smDown>
-        {this.secBlurbs[1]}
-      </Hidden>
-      <Hidden mdUp>
-        <ReadMore>
+      introBlurb: <>
+        <Hidden smDown>
           {this.secBlurbs[1]}
-        </ReadMore>
-      </Hidden>
-    </>,
+        </Hidden>
+        <Hidden mdUp>
+          <ReadMore pageColor={cssVars.rdBlue}>
+            {this.secBlurbs[1]}
+          </ReadMore>
+        </Hidden>
+      </>,
       viztitle: 'R&D Federal Spending in Contracting by Category',
       tagName: 'categories'
     },
@@ -145,16 +146,16 @@ export default class RdInContractingPage extends React.Component {
       anchor: 'studies',
       header: <span className={styles.title} key={'studies-header'}>The Big Picture for R&D</span>,
       sectionTeaser: <><span className={styles.subtitleHighlight} key={'studies-teaser'}>Long-term trends</span> in federal R&D spending</>,
-      introBlurb:  <>
-      <Hidden smDown>
-        {this.secBlurbs[2]}
-      </Hidden>
-      <Hidden mdUp>
-        <ReadMore>
+      introBlurb: <>
+        <Hidden smDown>
           {this.secBlurbs[2]}
-        </ReadMore>
-      </Hidden>
-    </>,
+        </Hidden>
+        <Hidden mdUp>
+          <ReadMore pageColor={cssVars.rdBlue}>
+            {this.secBlurbs[2]}
+          </ReadMore>
+        </Hidden>
+      </>,
       viztitle: 'Federal R&D Obligations 2009-2019',
       tagName: 'studies'
     }

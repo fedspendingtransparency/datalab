@@ -29,6 +29,13 @@ export default class ReadMore extends React.Component {
       clientHeight: 'auto',
       isOpen: false
     };
+
+
+    console.log(this.props.pageColor);
+    console.log(typeof this.props.pageColor);
+
+
+
   }
 
   toggleReadMore = () => this.setState(prevState => ({ isOpen: !prevState.isOpen }));
