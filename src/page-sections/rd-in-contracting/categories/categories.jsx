@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react"
 import './categories.scss';
 import 'src/styles/index.scss';
 import AccordionList from 'src/components/accordion-list/accordion-list';
@@ -9,9 +9,9 @@ import data from '../../../../static/unstructured-data/rd-in-contracting/r&d_spe
 import Tooltip from "src/components/tooltip/tooltip";
 import numberFormatter from 'src/utils/number-formatter';
 import variables from 'src/styles/variables.scss';
-import Desktop from '../../../svgs/rd-and-contracting/categories/desktop.svg';
-import Tablet from '../../../svgs/rd-and-contracting/categories/tablet.svg';
-import Mobile from '../../../svgs/rd-and-contracting/categories/mobile.svg';
+import Desktop from 'src/svgs/rd-and-contracting/categories/desktop.svg';
+import Tablet from 'src/svgs/rd-and-contracting/categories/tablet.svg';
+import Mobile from 'src/svgs/rd-and-contracting/categories/mobile.svg';
 
 export default function Categories(props) {
   const [windowWidth, setWindowWidth] = useState(null);
@@ -52,13 +52,58 @@ export default function Categories(props) {
     }
   }
 
-  function onKeydown(e, key) {
-    if (e.keyCode === 13) {
-      onFocus(e, key);
+  function onEsc(e) {
+    if (e.keyCode === 27) {
+      Object.keys(tooltipData)
+        .forEach((index) => {
+          const item = tooltipData[index];
+          if (isOpen(item.id, item.tooltipRef)) {
+            const el = document.getElementById(index).getElementsByTagName('circle')[0];
+            el.setAttribute('fill', 'white')
+            el.setAttribute('fill-opacity', '1')
+            el.setAttribute('stroke', '#555555')
+            onPopoverClose(item.tooltipRef);
+          }
+        });
     }
   }
 
+  function onKeyUp(e, key, item) {
+    if (e.keyCode === 13) {
+      toggle(e, key, item);
+    }
+
+    if (e.keyCode === 9) {
+      Object.keys(tooltipData)
+        .forEach((index) => {
+          const item = tooltipData[index];
+          if (isOpen(item.id, item.tooltipRef)) {
+            const el = document.getElementById(index).getElementsByTagName('circle')[0];
+            el.setAttribute('fill', 'white')
+            el.setAttribute('fill-opacity', '1')
+            el.setAttribute('stroke', '#555555')
+            onPopoverClose(item.tooltipRef);
+          }
+        });
+    }
+  }
+
+  function onHover(e) {
+    const el = e.currentTarget.getElementsByTagName('circle')[0];
+    el.setAttribute('fill', variables.rdBlue)
+    el.setAttribute('fill-opacity', '.12')
+    el.setAttribute('stroke', variables.rdBlue)
+  }
+
+  function clearSelection(e) {
+    const el = e.currentTarget.getElementsByTagName('circle')[0];
+    el.setAttribute('fill', 'white')
+    el.setAttribute('fill-opacity', '1')
+    el.setAttribute('stroke', '#555555')
+  }
+
   function onFocus(e, key) {
+    closeAll();
     const el = e.currentTarget.getElementsByTagName('circle')[0];
     const item = tooltipData[key];
 
@@ -68,8 +113,23 @@ export default function Categories(props) {
     el.setAttribute('aria-haspopup', true)
     el.setAttribute('aria-owns', isOpen(item.id, item.tooltipRef) ? "mouse-over-popover" : undefined);
 
-
     onPopoverOpen(e, item.id, item.tooltipRef);
+  }
+
+  function closeAll() {
+    const groups = document.getElementsByClassName('category-icon');
+
+    for (let i = 0; i < groups.length; i++) {
+      const el = groups[i].getElementsByTagName('circle')[0];
+      el.setAttribute('fill', 'white');
+      el.setAttribute('fill-opacity', '1');
+      el.setAttribute('stroke', '#555555');
+    }
+
+    Object.keys(tooltipData)
+      .forEach((key) => {
+        onPopoverClose(tooltipData[key].tooltipRef);
+      });
   }
 
   function onBlur(e, key) {
@@ -86,52 +146,73 @@ export default function Categories(props) {
   useEffect(() => {
     handleResize();
 
-    Object.keys(tooltipData)
-      .forEach((item) => {
-        if(typeof document !== 'undefined') {
-          const el = document.getElementById(item);
-          el.setAttribute('tabindex', '0');
-          el.addEventListener('mouseover', e => onFocus(e, item));
-          el.addEventListener('keyup', e => onKeydown(e, item));
-          el.addEventListener('click', e => onFocus(e, item));
-          el.addEventListener('mouseout', e => onBlur(e, item));
-        }
-      });
+    const groups = document.getElementsByClassName('category-icon');
 
-    if(typeof window !== 'undefined') {
-      window.addEventListener('resize', handleResize);
+    for (let i = 0; i < groups.length; i++) {
+      groups[i].setAttribute('autoFocus', 'true');
+      groups[i].setAttribute('ariaDescribedby', groups[i].id);
+      groups[i].setAttribute('cursor', 'pointer');
     }
+
+    if(typeof document !== 'undefined') {
+      Object.keys(tooltipData)
+        .forEach((key) => {
+            const el = document.getElementById(key);
+            el.setAttribute('tabindex', '0');
+            el.addEventListener('mouseover', e => onHover(e));
+            el.addEventListener('keyup', e => onKeyUp(e, key, tooltipData[key]));
+            el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
+            el.addEventListener('mouseout', e => clearSelection(e));
+        });
+    }
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('keyup', e => onEsc(e));
 
     return _ => {
       Object.keys(tooltipData)
-        .forEach((item) => {
+        .forEach((key) => {
           if(typeof document !== 'undefined') {
-            const el = document.getElementById(item);
-            el.removeEventListener('mouseover', e => onFocus(e, item));
-            el.removeEventListener('keyup', e => onFocus(e, item));
-            el.removeEventListener('click', e => onFocus(e, item));
-            el.removeEventListener('mouseout', e => onBlur(e, item));
+            const el = document.getElementById(key);
+
+            el.removeEventListener('mouseover', e => onHover(e));
+            el.removeEventListener('keyup', e => onKeyUp(e, key, tooltipData[key]));
+            el.removeEventListener('click', e => toggle(e, key, tooltipData[key]));
+            el.removeEventListener('mouseout', e => clearSelection(e));
           }
+
         });
 
-      if(typeof window !== 'undefined') {
-        window.addEventListener('resize', handleResize);
-      }
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('keyup', e => onEsc(e));
     };
   });
 
   useEffect(() => {
     if(typeof document !== 'undefined') {
-      const svg = document.getElementById('catSvg');
+      const svg = document.getElementsByTagName('svg')[0];
+      svg.setAttribute('id', 'vizSvg');
       svg.setAttribute('role', 'img');
-      svg.setAttribute('aria-label', altText);
+      svg.setAttribute('aria-labelledby', 'desc');
+      svg.setAttribute('desc', altText);
     }
+
   });
+
+  function toggle(e, key, item) {
+    if(isOpen(item.id, item.tooltipRef)) {
+      onBlur(e, key);
+    } else {
+      onFocus(e, key);
+    }
+  }
 
   function onPopoverOpen(event, id, ref) {
     if (ref && ref.current) {
       ref.current.handlePopoverOpen(event, id)
     }
+
+    // close all other popups
   }
 
   function onPopoverClose(ref) {
@@ -145,6 +226,7 @@ export default function Categories(props) {
     if (ref && ref.current) {
       isOpen = ref.current.isOpen(id);
     }
+
     return isOpen;
   }
 
@@ -158,6 +240,7 @@ export default function Categories(props) {
         return <Desktop />
     }
   }
+
 
   return (<>
     <h2 className='rd-viztitle'>{props.section.viztitle}</h2>
@@ -189,10 +272,14 @@ export default function Categories(props) {
     {Object.keys(tooltipData)
       .map((i) => {
         const item = tooltipData[i];
-        return <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows}/>
+        return (<>
+          <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows} />
+        </>)
       })}
+
 
   </>);
 }
+
 
 const altText = `Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.`;
