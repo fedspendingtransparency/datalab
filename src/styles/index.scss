@@ -254,6 +254,10 @@ h2.rd-viztitle {
   vertical-align: super;
   font-size: smaller;
   color: currentColor;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 /**

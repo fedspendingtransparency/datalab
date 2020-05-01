@@ -10,6 +10,7 @@ import SectionOneChartDesktop from '../../../svgs/rd-and-contracting/chart1.svg'
 import SectionOneChartTablet from '../../../svgs/rd-and-contracting/chart1-tablet.svg';
 import SectionOneChartMobile from '../../../svgs/rd-and-contracting/chart1-mobile.svg';
 
+import CloseIcon from '@material-ui/icons/Close';
 import SectionOneChartPopupDesktop from '../../../svgs/rd-and-contracting/chart1-desktop-popup.svg';
 import SectionOneChartPopupTablet from '../../../svgs/rd-and-contracting/chart1-tablet-popup.svg';
 import SectionOneChartPopupMobile from '../../../svgs/rd-and-contracting/chart1-mobile-popup.svg';
@@ -31,7 +32,6 @@ export default class SpendingChart extends React.Component {
 
     window.addEventListener('resize', this.handleWindowSizeChange);
     document.addEventListener('click', this.detailsListener);
-    this.detailsClose();
     this.detailsKeyup();
     this.closeDetailResize();
   }
@@ -50,21 +50,6 @@ export default class SpendingChart extends React.Component {
 
   handleWindowSizeChange = () => {
     this.setState({ bWidth: window.innerWidth });
-  };
-
-  detailsClose = () => {
-    let that = this;
-    document.getElementById('clear-24px').addEventListener('click', function () {
-      that.setState({ showDetails: false });
-    });
-
-    /* add keyboard enter click support */
-    document.getElementById('clear-24px').addEventListener('keyup', function (event) {
-      event.preventDefault();
-      if (event.keyCode === 13) {
-        that.setState({ showDetails: false });
-      };
-    });
   };
 
   detailsKeyup = () => {
@@ -88,7 +73,7 @@ export default class SpendingChart extends React.Component {
     Use "e.target" and not element directly as some are not drawn
     on the DOM yet. 
   */
-  detailsListener = (e) => {
+  detailsListener = e => {
     let element = e.target;
 
     if (element.id === 'Show-Details-Text') {
@@ -113,7 +98,7 @@ export default class SpendingChart extends React.Component {
     if (element.id === 'toggle-region') {
       this.setState({ showDetails: !this.state.showDetails });
     };
-
+    
     /* The 'x' on "popup-x.svg" to close! */
     if (element.id === 'x-icon') {
       this.setState({ showDetails: false });
@@ -135,6 +120,10 @@ export default class SpendingChart extends React.Component {
     }
     
   };
+
+  closePopup = () => {
+    this.setState({ showDetails: false });
+  }
 
   /* We have to layer the popup over the svg 
     with position absolute. This can get a bit messy.
@@ -213,6 +202,7 @@ export default class SpendingChart extends React.Component {
           </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={tabletPopupStyle}>
             <SectionOneChartPopupTablet />
+            <CloseIcon className={styles.closeIcon} onClick={this.closePopup}/>
           </div>
           <SectionOneChartTablet />
           <Legend />
@@ -238,6 +228,7 @@ export default class SpendingChart extends React.Component {
           </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`}>
             <SectionOneChartPopupMobile />
+            <CloseIcon className={styles.closeIcon} onClick={this.closePopup}/>
           </div>
           <SectionOneChartMobile />
           <Legend />
@@ -263,6 +254,7 @@ export default class SpendingChart extends React.Component {
           </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={desktopPopupStyle}>
             <SectionOneChartPopupDesktop />
+            <CloseIcon className={styles.closeIcon} onClick={this.closePopup}/>
           </div>
           <SectionOneChartDesktop />
           <Legend />
