@@ -41,31 +41,7 @@ Lastly, we used the last recorded data entry to update the text below the page t
     }
   ];
 
-  const notes = [
-    {
-      content:
-      <>
-        <p>
-          As in all datasets, there are some exceptions and edge-cases. There are currently two in this dataset:
-        </p>
-        <ul>
-          <li>
-            The Food Stamps program was renamed to Supple Nutrition Assist Program (SNAP) on 2010-03-31 (ISO 8601).
-            This prompted us to combine these two program names into a single view, accessible using either name. We
-            chose to use a combination of a shaded background along with dashed lines to indicate the old name.
-          </li>
-          <li>
-            Medicare split into Medicare Advantage Part C D Payments, Marketplace Payments, and Medicare and Other CMS
-            Payments on 2014-10-01. Consistent with Food Stamps, we demarcated the split through the use of dashed lines
-            and a shaded background for Medicare. We then further distinguished the three new categories with
-            differently colored lines, with voronoi tooltips to facilitate discrete analysis of these categories.
-          </li>
-        </ul>
-      </>
-    }
-  ];
-
-  return <HWCTA location={props.location} title={title} dataSources={dataSources} methodologies={methodologies} notes={notes} />
-}
+  return <HWCTA location={props.location} title={title} dataSources={dataSources} methodologies={methodologies}/>;
+};
 
 export default DTSHWCTA;
