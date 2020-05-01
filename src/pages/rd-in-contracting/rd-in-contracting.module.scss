@@ -75,6 +75,10 @@ $bullet-size: 1.5rem;
 
   a {
     color: $legacyBlue;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
