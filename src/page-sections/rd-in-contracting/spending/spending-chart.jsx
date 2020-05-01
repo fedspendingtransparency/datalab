@@ -33,20 +33,12 @@ export default class SpendingChart extends React.Component {
     window.addEventListener('resize', this.handleWindowSizeChange);
     document.addEventListener('click', this.detailsListener);
     this.detailsKeyup();
-    this.closeDetailResize();
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleWindowSizeChange);
     window.removeEventListener('resize', this.closeDetailResize);
   }
-
-  closeDetailResize = () => {
-    let that = this;
-    window.addEventListener('resize', function () {
-      that.setState({ showDetails: false });
-    });
-  };
 
   handleWindowSizeChange = () => {
     this.setState({ bWidth: window.innerWidth });
@@ -206,7 +198,7 @@ export default class SpendingChart extends React.Component {
           </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={tabletPopupStyle}>
             <SectionOneChartPopupTablet />
-            <CloseIcon className={styles.closeIcon} onClick={this.closePopup}/>
+            <CloseIcon className={styles.closeIconTablet} onClick={this.closePopup}/>
           </div>
           <SectionOneChartTablet />
           <Legend />
@@ -258,7 +250,7 @@ export default class SpendingChart extends React.Component {
           </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={desktopPopupStyle}>
             <SectionOneChartPopupDesktop />
-            <CloseIcon className={styles.closeIcon} onClick={this.closePopup}/>
+            <CloseIcon className={styles.closeIconDesktop} onClick={this.closePopup}/>
           </div>
           <SectionOneChartDesktop />
           <Legend />
