@@ -15,7 +15,7 @@ export default class ReadMore extends React.Component {
   static defaultProps = {
     expandText: 'Read more...',
     collapseText: 'Read less...',
-    collapsedHeight: '6em',
+    collapsedHeight: '6rem',
     animation: '1s ease'
   };
 
@@ -36,11 +36,13 @@ export default class ReadMore extends React.Component {
       'overflow-y': 'hidden',
       'transition': 'height ' + this.props.animation
     };
-    const className = this.props.className;
-    const baseClass = className + ' ' + className + '--' + (this.state.isOpen ? 'open' : 'closed');
+    // const className = this.props.className;
+    // const baseClass = className + ' ' + className + '--' + (this.state.isOpen ? 'open' : 'closed');
     return (
-      <div className={className + '__wrapper'}>
-        <div className={baseClass} style={inlineStyle}>
+      <div>
+        <div style={inlineStyle}>
+        {/* <div className={className + '__wrapper'}>
+        <div className={baseClass} style={inlineStyle}> */}
           {this.props.children}
         </div>
         <button

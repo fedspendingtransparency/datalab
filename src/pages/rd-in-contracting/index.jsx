@@ -1,16 +1,17 @@
 import React from 'react';
 import styles from './rd-in-contracting.module.scss';
 
-import Accordion from 'src/components/accordion/accordion';
 import Categories from 'src/page-sections/rd-in-contracting/categories/categories.jsx';
 import ExpressLayout from 'src/components/layouts/express/express';
 import Footnotes from "../../components/footnotes/footnotes"
+import { Hidden } from '@material-ui/core';
 import ReadMore from '../../components/read-more/read-more';
 import SEO from 'src/components/seo';
 import Spending from 'src/page-sections/rd-in-contracting/spending/spending-chart';
 import Studies from 'src/page-sections/rd-in-contracting/studies/studies';
 import StorySection from 'src/components/section-elements/story-section/story-section';
 
+import Accordion from 'src/components/accordion/accordion';
 import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
 import microscope from 'src/images/rd-in-contracting/microscope.svg';
 import science from 'src/images/rd-in-contracting/science.svg';
@@ -84,21 +85,40 @@ export default class RdInContractingPage extends React.Component {
     studies: Studies
   }
 
+  secBlurbs = [
+    <>
+      <p key={'si1'}>Investment in Research and Development, or R&D, is largely seen as a driver of innovation in both the public and private sectors.<a id='fr1' href='#fn1' className='footnoteref'>1</a> From medicine to autonomous vehicles, R&D investments lead to new products, technology advancements, and improved quality of life.  To fund R&D work, federal agencies can use grants, loans, and contracts. In this analysis we focus on contracts.</p>
+      <p key={'si2'}>Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts to perform R&D work in fiscal year 2019 (FY 2019), totaling $41.5B. Let’s take a look at the top ten CFO Act agencies by R&D contract spending.</p>
+      <aside>
+        <Accordion title='What is R&D?' color='#1302D9' backgroundColor='rgba(19, 2, 217, 0.1)'>
+          {this.whatIsContents()}
+        </Accordion>
+      </aside>
+    </>,
+    'Federal R&D contract spending supports a wide range of objectives, including agriculture, education, energy, housing, and national defense. When the government uses contracts to buy products and services, like leasing laboratory space or conducting field research, they use the General Services Administration’s Product and Services Codes (PSC).  Using PSCs, we grouped R&D contract spending into 20 spending categories.',
+    <>
+      <p>The federal government is one of the largest and most consistent funding sources of R&D in the United States,<a id='fr2' href='#fn2' className='footnoteref'>2</a> where total R&D obligations had only a net 1% change over the last decade. In total, the National Science Foundation reports that the federal government obligated $146B to R&D initiatives in its 2019 budget, which includes contracts as well as other key funding sources such as grants.<a id='fr3' href='#fn3' className='footnoteref'>3</a></p>
+      <p><span className={styles.bold}>Why does the government invest in R&D?</span>
+        <br />A common rationale for federal R&D spending is that many socially beneficial research projects would not be attempted if society depended on the private sector alone for funding.<a id='fr4' href='#fn4' className='footnoteref'>4</a></p>
+    </>
+  ];
+
   sections = [
     {
       section: 'Spending',
       anchor: 'spending',
       header: <div className={styles.title} key={'spending-header'}>2019 Agency Spending</div>,
       sectionTeaser: <>What <span className={styles.subtitleHighlight}>portion of federal agency contract spending</span> goes to R&D initiatives?</>,
-      introBlurb: <ReadMore>
-        <p key={'si1'}>Investment in Research and Development, or R&D, is largely seen as a driver of innovation in both the public and private sectors.<a id='fr1' href='#fn1' className='footnoteref'>1</a> From medicine to autonomous vehicles, R&D investments lead to new products, technology advancements, and improved quality of life.  To fund R&D work, federal agencies can use grants, loans, and contracts. In this analysis we focus on contracts.</p>
-        <p key={'si2'}>Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts to perform R&D work in fiscal year 2019 (FY 2019), totaling $41.5B. Let’s take a look at the top ten CFO Act agencies by R&D contract spending.</p>
-        <aside>
-          <Accordion title='What is R&D?' color='#1302D9' backgroundColor='rgba(19, 2, 217, 0.1)'>
-            {this.whatIsContents()}
-          </Accordion>
-        </aside>
-      </ReadMore>,
+      introBlurb: <>
+        <Hidden smDown>
+          {this.secBlurbs[0]}
+        </Hidden>
+        <Hidden mdUp>
+          <ReadMore>
+            {this.secBlurbs[0]}
+          </ReadMore>
+        </Hidden>
+      </>,
       viztitle: 'R&D as a Portion of Total Federal Contract Spending by Agency',
       tagName: 'spending'
     },
@@ -107,7 +127,16 @@ export default class RdInContractingPage extends React.Component {
       anchor: 'categories',
       header: <div className={styles.title} key={'categories-header'}>R&D Spending Categories</div>,
       sectionTeaser: <>20 <span className={styles.subtitleHighlight} key={'categories-teaser'}>categories of R&D</span> contract spending in FY 2019</>,
-      introBlurb: 'Federal R&D contract spending supports a wide range of objectives, including agriculture, education, energy, housing, and national defense. When the government uses contracts to buy products and services, like leasing laboratory space or conducting field research, they use the General Services Administration’s Product and Services Codes (PSC).  Using PSCs, we grouped R&D contract spending into 20 spending categories.',
+      introBlurb:  <>
+      <Hidden smDown>
+        {this.secBlurbs[1]}
+      </Hidden>
+      <Hidden mdUp>
+        <ReadMore>
+          {this.secBlurbs[1]}
+        </ReadMore>
+      </Hidden>
+    </>,
       viztitle: 'R&D Federal Spending in Contracting by Category',
       tagName: 'categories'
     },
@@ -116,11 +145,16 @@ export default class RdInContractingPage extends React.Component {
       anchor: 'studies',
       header: <span className={styles.title} key={'studies-header'}>The Big Picture for R&D</span>,
       sectionTeaser: <><span className={styles.subtitleHighlight} key={'studies-teaser'}>Long-term trends</span> in federal R&D spending</>,
-      introBlurb: <>
-        <p>The federal government is one of the largest and most consistent funding sources of R&D in the United States,<a id='fr2' href='#fn2' className='footnoteref'>2</a> where total R&D obligations had only a net 1% change over the last decade. In total, the National Science Foundation reports that the federal government obligated $146B to R&D initiatives in its 2019 budget, which includes contracts as well as other key funding sources such as grants.<a id='fr3' href='#fn3' className='footnoteref'>3</a></p>
-        <p><span className={styles.bold}>Why does the government invest in R&D?</span>
-          <br />A common rationale for federal R&D spending is that many socially beneficial research projects would not be attempted if society depended on the private sector alone for funding.<a id='fr4' href='#fn4' className='footnoteref'>4</a></p>
-      </>,
+      introBlurb:  <>
+      <Hidden smDown>
+        {this.secBlurbs[2]}
+      </Hidden>
+      <Hidden mdUp>
+        <ReadMore>
+          {this.secBlurbs[2]}
+        </ReadMore>
+      </Hidden>
+    </>,
       viztitle: 'Federal R&D Obligations 2009-2019',
       tagName: 'studies'
     }

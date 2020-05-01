@@ -45,7 +45,6 @@ class MouseOverPopover extends React.Component {
   };
 
   handlePopoverClose = () => {
-    console.log('close');
     this.setState({
       openedPopoverId: null,
       anchorEl: null
