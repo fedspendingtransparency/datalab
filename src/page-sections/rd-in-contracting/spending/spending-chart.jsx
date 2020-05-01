@@ -231,8 +231,8 @@ export default class SpendingChart extends React.Component {
             />
           </ControlBar>
           <div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`}>
+            <CloseIcon className={styles.closeIconMobile} onClick={this.closePopup}/>
             <SectionOneChartPopupMobile />
-            <CloseIcon className={styles.closeIcon} onClick={this.closePopup}/>
           </div>
           <SectionOneChartMobile />
           <Legend />

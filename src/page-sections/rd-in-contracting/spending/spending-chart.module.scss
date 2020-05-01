@@ -23,6 +23,14 @@
   top: 10px;
 }
 
+.close-icon-mobile {
+  cursor: pointer;
+  position: relative;
+  margin-left: auto;
+  font-size: 2rem !important;
+  padding-right: 10px;
+}
+
 .svg-popout {
   display: none;
   position: relative;
@@ -41,8 +49,8 @@
 
 .svg-popout-show-mobile {
   display: flex;
+  flex-direction: column;
   margin: auto;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 253, 253, 0.95);
