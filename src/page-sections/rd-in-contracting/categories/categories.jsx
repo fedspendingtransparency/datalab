@@ -6,7 +6,7 @@ import Downloads from 'src/components/section-elements/downloads/downloads';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import data from '../../../../static/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318_with_keys.csv';
-import Tooltip from "src/components/popover/tooltip";
+import Tooltip from "src/components/tooltip/tooltip";
 import numberFormatter from 'src/utils/number-formatter';
 import variables from 'src/styles/variables.scss';
 import Desktop from '../../../svgs/rd-and-contracting/categories/desktop.svg';
@@ -52,10 +52,41 @@ export default function Categories(props) {
     }
   }
 
-  function onKeydown(e, key) {
+  function onKeydown(e, key, item) {
     if (e.keyCode === 13) {
-      onFocus(e, key);
+      toggle(e, key, item);
+      // remove the outline if toggle on
+      // remove the outline if toggle off
     }
+
+    if (e.keyCode === 9) {
+      Object.keys(tooltipData)
+        .forEach((index) => {
+          const item = tooltipData[index];
+          if (isOpen(item.id, item.tooltipRef)) {
+            const el = document.getElementById(index).getElementsByTagName('circle')[0];
+            el.setAttribute('fill', 'white')
+            el.setAttribute('fill-opacity', '1')
+            el.setAttribute('stroke', '#555555')
+            // add the outline back
+            onPopoverClose(item.tooltipRef);
+          }
+        });
+    }
+}
+
+  function onHover(e) {
+    const el = e.currentTarget.getElementsByTagName('circle')[0];
+    el.setAttribute('fill', variables.rdBlue)
+    el.setAttribute('fill-opacity', '.12')
+    el.setAttribute('stroke', variables.rdBlue)
+  }
+
+  function clearSelection(e) {
+    const el = e.currentTarget.getElementsByTagName('circle')[0];
+    el.setAttribute('fill', 'white')
+    el.setAttribute('fill-opacity', '1')
+    el.setAttribute('stroke', '#555555')
   }
 
   function onFocus(e, key) {
@@ -67,7 +98,6 @@ export default function Categories(props) {
     el.setAttribute('stroke', variables.rdBlue)
     el.setAttribute('aria-haspopup', true)
     el.setAttribute('aria-owns', isOpen(item.id, item.tooltipRef) ? "mouse-over-popover" : undefined);
-
 
     onPopoverOpen(e, item.id, item.tooltipRef);
   }
@@ -90,17 +120,19 @@ export default function Categories(props) {
 
     for (let i = 0; i < groups.length; i++) {
       groups[i].setAttribute('autoFocus', 'true');
+      groups[i].setAttribute('ariaDescribedby', groups[i].id);
+      groups[i].setAttribute('cursor', 'pointer');
     }
 
     Object.keys(tooltipData)
-      .forEach((item) => {
+      .forEach((key) => {
         if(typeof document !== 'undefined') {
-          const el = document.getElementById(item);
+          const el = document.getElementById(key);
           el.setAttribute('tabindex', '0');
-          el.addEventListener('mouseover', e => onFocus(e, item));
-          el.addEventListener('keyup', e => onKeydown(e, item));
-          el.addEventListener('click', e => onFocus(e, item));
-          el.addEventListener('mouseout', e => onBlur(e, item));
+          el.addEventListener('mouseover', e => onHover(e));
+          el.addEventListener('keyup', e => onKeydown(e, key, tooltipData[key]));
+          el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
+          el.addEventListener('mouseout', e => clearSelection(e));
         }
       });
 
@@ -110,14 +142,14 @@ export default function Categories(props) {
 
     return _ => {
       Object.keys(tooltipData)
-        .forEach((item) => {
+        .forEach((key) => {
           if(typeof document !== 'undefined') {
-            const el = document.getElementById(item);
+            const el = document.getElementById(key);
 
-            el.removeEventListener('mouseover', e => onFocus(e, item));
-            el.removeEventListener('keyup', e => onFocus(e, item));
-            el.removeEventListener('click', e => onFocus(e, item));
-            el.removeEventListener('mouseout', e => onBlur(e, item));
+            el.removeEventListener('mouseover', e => onHover(e));
+            // el.removeEventListener('keyup', e => toggle(e, key, tooltipData[key]));
+            el.removeEventListener('click', e => toggle(e, key, tooltipData[key]));
+            el.removeEventListener('mouseout', e => clearSelection(e));
           }
 
         });
@@ -138,6 +170,14 @@ export default function Categories(props) {
     }
 
   });
+
+  function toggle(e, key, item) {
+    if(isOpen(item.id, item.tooltipRef)) {
+      onBlur(e, key);
+    } else {
+      onFocus(e, key);
+    }
+  }
 
   function onPopoverOpen(event, id, ref) {
     if (ref && ref.current) {
@@ -160,13 +200,6 @@ export default function Categories(props) {
     return isOpen;
   }
 
-  function clearSelection(el) {
-    el = el.getElementsByTagName('circle')[0];
-    el.setAttribute('fill', 'white')
-    el.setAttribute('fill-opacity', '1')
-    el.setAttribute('stroke', '#555555')
-  }
-
   function Chart() {
     switch(device) {
       case 'tablet':
@@ -177,6 +210,7 @@ export default function Categories(props) {
         return <Desktop />
     }
   }
+
 
   return (<>
     <h2 className='rd-viztitle'>{props.section.viztitle}</h2>
@@ -208,8 +242,11 @@ export default function Categories(props) {
     {Object.keys(tooltipData)
       .map((i) => {
         const item = tooltipData[i];
-        return <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows} clearSelection={clearSelection}/>
+        return (<>
+          <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows} />
+        </>)
       })}
+
 
   </>);
 }
