@@ -34,14 +34,14 @@ export default class Legend extends React.Component {
       return(
         <div className={styles.chartLegendMobile}>
           <p className={`${legendTextwrap ? styles.legendItemSmall : styles.legendItem}`}><Devotion/> <span>Research and Development Devotion</span></p>
-          <p className={`${legendTextwrap ? styles.legendItemSmallSpending : styles.legendItemSpending}`}><Percentage/> <span>Percentage of R&D to Total Contract Spending </span></p>
+          <p className={`${legendTextwrap ? styles.legendItemSmallSpending : styles.legendItemSpending}`}><Percentage/> <span> Percentage of Agency's Total Contract Spending  </span></p>
         </div>
       );
     } else {
       return(
         <div className={styles.chartLegend}>
           <p className={`${legendTextwrap ? styles.legendItemSmall : styles.legendItem}`}><Devotion/> <span>Research and Development Devotion</span></p>
-          <p className={`${legendTextwrap ? styles.legendItemSmallSpending : styles.legendItemSpending}`}><Percentage/> <span>Percentage of R&D to Total Contract Spending</span></p>
+          <p className={`${legendTextwrap ? styles.legendItemSmallSpending : styles.legendItemSpending}`}><Percentage/> <span> Percentage of Agency's Total Contract Spending </span></p>
         </div>
       );
     };
