@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './read-more.module.scss';
+import cssVars from 'src/styles/variables.scss';
 
 export default class ReadMore extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    pageColor: PropTypes.string,
     expandText: PropTypes.string,
     collapseText: PropTypes.string,
     toggleColor: PropTypes.string,
@@ -13,6 +15,7 @@ export default class ReadMore extends React.Component {
   }
 
   static defaultProps = {
+    pageColor: cssVars.legacyBlue,
     expandText: 'Read more...',
     collapseText: 'Read less...',
     collapsedHeight: '6rem',
@@ -36,18 +39,14 @@ export default class ReadMore extends React.Component {
       'overflow-y': 'hidden',
       'transition': 'height ' + this.props.animation
     };
-    // const className = this.props.className;
-    // const baseClass = className + ' ' + className + '--' + (this.state.isOpen ? 'open' : 'closed');
     return (
       <div>
         <div style={inlineStyle}>
-        {/* <div className={className + '__wrapper'}>
-        <div className={baseClass} style={inlineStyle}> */}
           {this.props.children}
         </div>
         <button
           className={styles.button}
-          style={{ color: this.props.toggleColor }}
+          style={{ color: this.props.pageColor }}
           onClick={() => { this.toggleReadMore() }}
         >
           {this.state.isOpen ? this.props.collapseText : this.props.expandText}
