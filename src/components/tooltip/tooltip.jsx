@@ -75,7 +75,11 @@ class MouseOverPopover extends React.Component {
 
     return (
       <>
-        <Popper id={id} open={this.isOpen(id)} anchorEl={anchorEl} transition>
+        <Popper id={id}
+                open={this.isOpen(id)}
+                anchorEl={anchorEl}
+                placement='bottom-end'
+                transition>
           {({ TransitionProps }) => (
             <Fade {...TransitionProps} timeout={350}>
               <Grid container direction='row' className={classes.paper}>
