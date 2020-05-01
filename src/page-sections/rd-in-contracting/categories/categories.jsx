@@ -52,7 +52,7 @@ export default function Categories(props) {
     }
   }
 
-  function onKeydown(e, key, item) {
+  function onKeyUp(e, key, item) {
     if (e.keyCode === 13) {
       toggle(e, key, item);
       // remove the outline if toggle on
@@ -90,6 +90,7 @@ export default function Categories(props) {
   }
 
   function onFocus(e, key) {
+    closeAll();
     const el = e.currentTarget.getElementsByTagName('circle')[0];
     const item = tooltipData[key];
 
@@ -100,6 +101,22 @@ export default function Categories(props) {
     el.setAttribute('aria-owns', isOpen(item.id, item.tooltipRef) ? "mouse-over-popover" : undefined);
 
     onPopoverOpen(e, item.id, item.tooltipRef);
+  }
+
+  function closeAll() {
+    const groups = document.getElementsByClassName('category-icon');
+
+    for (let i = 0; i < groups.length; i++) {
+      const el = groups[i].getElementsByTagName('circle')[0];
+      el.setAttribute('fill', 'white');
+      el.setAttribute('fill-opacity', '1');
+      el.setAttribute('stroke', '#555555');
+    }
+
+    Object.keys(tooltipData)
+      .forEach((key) => {
+        onPopoverClose(tooltipData[key].tooltipRef);
+      });
   }
 
   function onBlur(e, key) {
@@ -124,21 +141,21 @@ export default function Categories(props) {
       groups[i].setAttribute('cursor', 'pointer');
     }
 
-    Object.keys(tooltipData)
-      .forEach((key) => {
-        if(typeof document !== 'undefined') {
-          const el = document.getElementById(key);
-          el.setAttribute('tabindex', '0');
-          el.addEventListener('mouseover', e => onHover(e));
-          el.addEventListener('keyup', e => onKeydown(e, key, tooltipData[key]));
-          el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
-          el.addEventListener('mouseout', e => clearSelection(e));
-        }
-      });
+    if(typeof document !== 'undefined') {
+      Object.keys(tooltipData)
+        .forEach((key) => {
+            const el = document.getElementById(key);
+            el.setAttribute('tabindex', '0');
+            el.addEventListener('mouseover', e => onHover(e));
+            el.addEventListener('keyup', e => onKeyUp(e, key, tooltipData[key]));
+            el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
+            el.addEventListener('mouseout', e => clearSelection(e));
 
-    if(typeof window !== 'undefined') {
-      window.addEventListener('resize', handleResize);
+        });
     }
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('keyup', closeAll);
 
     return _ => {
       Object.keys(tooltipData)
@@ -147,16 +164,15 @@ export default function Categories(props) {
             const el = document.getElementById(key);
 
             el.removeEventListener('mouseover', e => onHover(e));
-            // el.removeEventListener('keyup', e => toggle(e, key, tooltipData[key]));
+            el.removeEventListener('keyup', e => onKeyUp(e, key, tooltipData[key]));
             el.removeEventListener('click', e => toggle(e, key, tooltipData[key]));
             el.removeEventListener('mouseout', e => clearSelection(e));
           }
 
         });
 
-      if(typeof window !== 'undefined') {
-        window.addEventListener('resize', handleResize);
-      }
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('keyup', closeAll);
     };
   });
 
@@ -183,6 +199,8 @@ export default function Categories(props) {
     if (ref && ref.current) {
       ref.current.handlePopoverOpen(event, id)
     }
+
+    // close all other popups
   }
 
   function onPopoverClose(ref) {

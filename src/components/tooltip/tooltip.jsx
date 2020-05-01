@@ -3,11 +3,9 @@ import { withStyles } from '@material-ui/styles';
 import PropTypes from "prop-types"
 import styles from './tooltip.module.scss';
 import CloseIcon from '@material-ui/icons/Close';
-import { makeStyles } from '@material-ui/core/styles';
 import Popper from '@material-ui/core/Popper';
 import Fade from '@material-ui/core/Fade';
 import { Grid } from "@material-ui/core";
-import { Button } from '@material-ui/core';
 
 const inlineStyles = () => ({
   paper: {
@@ -37,6 +35,12 @@ class MouseOverPopover extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handlePopoverClose);
+  }
+
+  escHandler = (e) => {
+    if(e.keyCode === 27) {
+      this.handlePopoverClose()
+    }
   }
 
   isOpen = (id) => {
@@ -77,7 +81,7 @@ class MouseOverPopover extends React.Component {
               <Grid container direction='row' className={classes.paper}>
                 <div className={styles.title} onClick={this.handlePopoverClose}>
                   <span>{title}</span>
-                  <CloseIcon className={styles.close} onClick={this.handlePopoverClose} onKeyUp={this.keyUpHandler} style={{'outline': 'rgb(229, 151, 0) auto 5px'}}/>
+                  <CloseIcon className={styles.close} onClick={this.handlePopoverClose} onKeyUp={this.keyUpHandler} />
                 </div>
                 {rows.map((item, key) => {
                   return (<>
