@@ -3,6 +3,22 @@ import PropTypes from 'prop-types';
 import styles from './read-more.module.scss';
 
 export default class ReadMore extends React.Component {
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+    expandText: PropTypes.string,
+    collapseText: PropTypes.string,
+    toggleColor: PropTypes.string,
+    collapsedHeight: PropTypes.string,
+    animation: PropTypes.string
+  }
+
+  static defaultProps = {
+    expandText: 'Read more...',
+    collapseText: 'Read less...',
+    collapsedHeight: '6em',
+    animation: '1s ease'
+  };
+
   constructor(props) {
     super(props);
 
@@ -29,7 +45,7 @@ export default class ReadMore extends React.Component {
         </div>
         <button
           className={styles.button}
-          style={{color: this.props.toggleColor}}
+          style={{ color: this.props.toggleColor }}
           onClick={() => { this.toggleReadMore() }}
         >
           {this.state.isOpen ? this.props.collapseText : this.props.expandText}
@@ -38,19 +54,3 @@ export default class ReadMore extends React.Component {
     );
   };
 }
-
-ReadMore.propTypes = {
-  children: PropTypes.node.isRequired,
-  expandText: PropTypes.string,
-  collapseText: PropTypes.string,
-  toggleColor: PropTypes.string,
-  collapsedHeight: PropTypes.string,
-  animation: PropTypes.string
-}
-
-ReadMore.defaultProps = {
-  expandText: 'Read more...',
-  collapseText: 'Read less...',
-  collapsedHeight: '6em',
-  animation: '1s ease'
-};
