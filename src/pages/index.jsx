@@ -11,7 +11,7 @@ import ResourcesRow from 'src/page-sections/home/resources-row/resources-row';
 import SecondaryTile from 'src/page-sections/home/secondary-tile/stacked-layout/secondary-tile';
 import SEO from 'src/components/seo';
 
-import cg from 'src/images/home/CG-GIF_sm_2019.gif';
+import afg from 'src/images/home/afg.png';
 import cu from 'src/images/home/collegehomepage.svg';
 import homelessImg from 'src/images/home/homelessness.png';
 import rd from 'src/images/home/rd-homepage-v4.gif';
@@ -52,7 +52,7 @@ function IndexPage() {
               heading='Fiscal Year 2019'
               subheading={`America's Finance Guide`}
               href='americas-finance-guide'
-              imgSrc={cg}
+              imgSrc={afg}
               imgAlt='The Department of Treasury building, in Washington, D.C., that includes a bronze statue of Albert Gallatin, the fourth Secretary of the Treasury.'
               body='Your guide to understanding the trillions of dollars that make up the federal balance sheet. Our interactive visualizations walk you through federal spending, revenue, the deficit, and debt.'
             />
