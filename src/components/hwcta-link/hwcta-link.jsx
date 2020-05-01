@@ -25,8 +25,7 @@ export default class HWCTALink extends React.Component {
     console.log(typeof props.pageColor);
 
 
-    this.divStyles = { 'color': `${this.props.pageColor}` };
-
+this.divStyles = {':hover': { color: this.props.pageColor }};
 
     console.log(this.divStyles);
 
@@ -45,13 +44,11 @@ export default class HWCTALink extends React.Component {
             <Sources fillColor={this.props.pageColor} />
           </Grid>
           <Grid item>
-            <span className={styles.linkText}>
               Data Sources and{' '}
               <Hidden mdUp>
                 <br />
               </Hidden>
               Methodologies
-            </span>
           </Grid>
           <Grid item className={styles.arrow}>
             <FontAwesomeIcon icon={faChevronRight} width={20} color={this.props.pageColor} />

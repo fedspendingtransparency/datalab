@@ -6,9 +6,8 @@
   font-size: 2rem;
   font-weight: 300;
 
-  .link-text {
-    font-size: 2rem;
-    font-weight: 300;
+  &:hover {
+    text-decoration: underline;
   }
 
   .icon {
@@ -18,10 +17,6 @@
 
   .arrow {
     padding-left: 1rem;
-  }
-
-  &:hover {
-    text-decoration: underline;
   }
 }
 
