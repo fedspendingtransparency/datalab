@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SEO from "../../components/seo";
 import "../../styles/index.scss";
 
-import Accordion from "../../components/accordion/accordion";
+import AccordionList from "../../components/accordion-list/accordion-list";
 import Reset from '../../components/reset/reset';
 import Share from "../../components/share/share";
 import ToolLayout from "../../components/layouts/tool/tool";
@@ -44,7 +44,7 @@ class FederalAccountExplorerPage extends Component {
           keywords={[`contracts`, `federal contracts`, `contractors`, `federal agencies`, `agencies`, `spending`, `federal account`, `dendrogram`]}
         />
 
-        <Accordion title="Instructions">
+        <AccordionList title="Instructions">
           <ul>
             <li>On the first branch, click any agency to reveal how that agency is organized into sub-agencies.</li>
             <li>On the second branch, click any sub-agency to reveal that sub-agency's federal accounts.</li>
@@ -52,7 +52,7 @@ class FederalAccountExplorerPage extends Component {
             <li>Click and drag the visualization to re-center.</li>
             <li>Use the reset button at the top left corner to reset the visualization.</li>
           </ul>
-        </Accordion>
+        </AccordionList>
 
         <ControlBar>
           <Reset id='resetBtn' />

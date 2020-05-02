@@ -11,6 +11,8 @@ import cu from 'src/images/more-analyses/cu.png';
 import homeless from 'src/images/more-analyses/homeless.png';
 import dts from 'src/images/more-analyses/dts.png';
 import explorer from 'src/images/more-analyses/explorer.png';
+import rd from 'src/images/more-analyses/rd.png';
+
 
 export default class MoreAnalyses extends React.Component {
   constructor(props) {
@@ -65,17 +67,25 @@ export default class MoreAnalyses extends React.Component {
     altText: 'A picture of a microscope with a sunburst image overlaid.',
     title: 'Contract Explorer',
     subtitle: 'Who receives federal contracts?'
+  },
+  {
+    href: 'rd-in-contracting',
+    imageSrc: rd,
+    altText: 'Abstract Brain with 4 categories: Aeronautics, Infectious Disease, Renewable Energy & Anti-Terrorism.',
+    title: 'R&D In Contracting',
+    subtitle: 'How does the government invest in research & development?'
   }];
 
   show = { // key is current page URL frag, value is array of analyses (above) to show
-    'federal-employees': [0, 4, 5, 2],
-    'colleges-and-universities': [5, 6, 1, 3],
-    'dts': [2, 0, 7, 4],
-    'federal-account-explorer': [6, 7, 2, 1],
-    'contract-explorer': [3, 0, 2, 6],
-    'homelessness-analysis': [1, 4, 3, 7],
-    'budget-function': [0, 6, 1, 7],
-    'competition-in-contracting': [7, 5, 4, 2]
+    'federal-employees': [8, 0, 4, 5],
+    'colleges-and-universities': [8, 5, 6, 1],
+    'dts': [8, 2, 0, 7],
+    'federal-account-explorer': [8, 6, 7, 2],
+    'contract-explorer': [8, 3, 0, 2],
+    'homelessness-analysis': [8, 1, 4, 3],
+    'budget-function': [8, 0, 6, 1],
+    'competition-in-contracting': [8, 7, 5, 4],
+    'rd-in-contracting': [5, 4, 7, 6],
   };
 
   showAnything = () => {

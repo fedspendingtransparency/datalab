@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 import SEO from "src/components/seo"
 import AfgData from "src/libs/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
-import Accordion from 'src/components/accordion/accordion'
+import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
@@ -89,7 +89,7 @@ function DebtAnalysisPage(props) {
                         <div className="clearfix"></div>
 
                         <section className="hwcta">
-                            <Accordion title="Data Sources and Methodology">
+                            <AccordionList title="Data Sources and Methodology">
                                 <p>
                                   <span>This analysis was created using the </span>
                                   <a href={AfgData.current_mspd.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a>
@@ -111,7 +111,7 @@ function DebtAnalysisPage(props) {
                                         <li><a href="/americas-finance-guide/afgData/who_owns_federal_debt.csv" download="who_owns_federal_debt.csv">who_owns_federal_debt.csv</a></li>
                                     </ul>
                                 </div>
-                            </Accordion>
+                            </AccordionList>
                         </section>
                     </div>
                 </div>

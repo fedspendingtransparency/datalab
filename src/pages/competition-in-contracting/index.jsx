@@ -3,7 +3,7 @@ import "src/styles/index.scss";
 
 /* components */
 import SEO from "src/components/seo";
-import Accordion from "src/components/accordion/accordion";
+import AccordionList from "src/components/accordion-list/accordion-list";
 import ToolLayout from "src/components/layouts/tool/tool";
 import loadable from "@loadable/component";
 import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
@@ -56,7 +56,7 @@ class CompetitionInContractingPage extends Component {
              keywords={[`federal contracts`, `competition`, `awards`, `federal procurement`, `1984 Competition in Contracting Act`,
 							 `federal agencies`, `government contracts`, `government procurement`, `government agencies`, `bar chart`]} />
 
-        <Accordion
+        <AccordionList
           title="Instructions">
           <ul>
             <li>Click the toggle to switch between raw numbers and percent for each agency</li>
@@ -65,7 +65,7 @@ class CompetitionInContractingPage extends Component {
               horizontal axis.
               </li>
           </ul>
-        </Accordion>
+        </AccordionList>
         <ControlBar>
           <Reset _resetClick={reset} />
           <Share location={this.props.location}

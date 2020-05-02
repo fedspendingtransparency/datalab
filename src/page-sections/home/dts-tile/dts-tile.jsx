@@ -161,7 +161,7 @@ function DtsTile(props) {
             <div className='dtsm-img'></div>
             <div className='dtsm-right-column'>
               <div className='dtsm-tas-container'>
-                <div className='dtsm-tas-header'>All categories</div>
+                <div className='dtsm-tas-header'>Total</div>
               </div>
               <div className='dtsm-dollars'>$</div>
             </div>

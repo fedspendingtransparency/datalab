@@ -1,0 +1,60 @@
+@import "../../../styles/variables.scss";
+
+.subtitle-highlight {
+  color: #1302d9;
+  font-size: 2.625rem;
+  font-weight: $bold;
+}
+
+.chart {
+  width: 100%;
+}
+
+.legend {
+  padding-left: 42px !important;
+}
+
+.legend-bar {
+  width: 30px;
+  height: 3px;
+  float: left;
+  margin: 0.5rem 0.25rem 0 0;
+
+  &.one {
+    background: #0332ff;
+  }
+
+  &.two {
+    background: #016dfd;
+  }
+
+  &.three {
+    background: #ff9300;
+  }
+
+  &.four {
+    background: #646668;
+  }
+
+  &.five {
+    background: #18cf1c;
+  }
+}
+
+.legend-text {
+  float: left;
+  font-size: 0.875rem;
+}
+
+@media (min-width: $tablet) {
+  .legend-tile > div {
+    margin: 0 auto;
+    display: table;
+  }
+}
+
+@media (max-width: $tablet - 1) {
+  .legend {
+    padding-left: 10% !important;
+  }
+}

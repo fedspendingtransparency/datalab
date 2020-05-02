@@ -5,7 +5,7 @@ import React from "react"
 import SEO from "../../components/seo"
 import AfgData from "../../libs/_data/object_mapping.yml"
 import Default from "../../components/layouts/default/default"
-import Accordion from '../../components/accordion/accordion'
+import AccordionList from '../../components/accordion-list/accordion-list'
 import ControlBar from '../../components/control-bar/control-bar'
 import Share from '../../components/share/share'
 import { Helmet } from 'react-helmet';
@@ -122,11 +122,11 @@ function OverviewPage(props) {
                                     <p className="chapter__paragraph--tightened">The federal government collects revenue from a variety of sources, including individual income taxes, payroll taxes, corporate income taxes, and excise taxes. It also collects revenue from services like admission to national parks and customs duties.</p>
 
                                     <section className="accordion">
-                                        <Accordion title="What makes federal revenue increase or decrease?">
+                                        <AccordionList title="What makes federal revenue increase or decrease?">
                                             <div className="accordion__content">
                                                 <p>The majority of federal revenue comes from individual and corporate income taxes as well as social insurance taxes. When individuals and corporations earn more money, they pay more in taxes, and thus federal revenue increases. Alternatively, if they make the same amount, but tax rates increase, the federal revenue will also increase. Decreases in federal revenue are largely due to either individuals or corporations making less money or a decrease in tax rates.</p>
                                             </div>
-                                        </Accordion>
+                                        </AccordionList>
                                     </section>
 
                                     <a href="/americas-finance-guide/revenue/" className="link-button chapter__cta" >
@@ -208,11 +208,11 @@ function OverviewPage(props) {
                                     <p className="chapter__paragraph--tightened">The federal government funds a variety of programs and services that support the American public. The federal government also spends money on interest it has incurred on outstanding federal debt, including Treasury notes and bonds.</p>
 
                                     <section className="accordion">
-                                        <Accordion title="Who controls government spending anyway?">
+                                        <AccordionList title="Who controls government spending anyway?">
                                             <div className="accordion__content">
                                                 <p>Government spending can be broken down into two categories: mandatory and discretionary. Mandatory spending is determined by previous law and includes spending for programs like Social Security and Medicare. Discretionary spending is determined by the President and Congress each year in the budget and appropriations process. First, the President puts together a budget proposal and sends it to Congress. Then, the House and Senate both draft budget resolutions. Congress can change funding levels, as well as add or eliminate programs, taxes, and other sources of revenue. Once the budget resolutions have been finalized in the House and Senate, Congress reconciles the differences and votes on a final budget. The discretionary spending levels in the budget are divided among the twelve Appropriations Subcommittees, who then draft bills providing funding levels for the Departments, bureaus and agencies within their jurisdiction. After the House and Senate agree to a final funding level for each bill, they are sent to the President for approval or veto.</p>
                                             </div>
-                                        </Accordion>
+                                        </AccordionList>
                                     </section>
 
                                     <a href="/americas-finance-guide/spending/" className="link-button chapter__cta">
@@ -296,11 +296,11 @@ function OverviewPage(props) {
                                     <p className="chapter__paragraph--tightened">A deficit occurs when money going out exceeds the money coming in. In {AfgData.current_fy.value}, the federal government spent more than it collected.</p>
 
                                     <section className="accordion">
-                                        <Accordion title="What happens when there is a surplus?">
+                                        <AccordionList title="What happens when there is a surplus?">
                                             <div className="accordion__content">
                                                 <p>A surplus occurs when the government collects more money than it spends. The last federal surplus occurred in {AfgData.last_surplus.value}. The government primarily uses surpluses to reduce the federal debt.</p>
                                             </div>
-                                        </Accordion>
+                                        </AccordionList>
                                     </section>
 
                                     <a href="/americas-finance-guide/deficit/" className="link-button chapter__cta">
@@ -375,11 +375,11 @@ function OverviewPage(props) {
                                     <p className="chapter__paragraph--tightened">Are federal debt and deficit the same thing? No, but they do affect one another.</p>
 
                                     <section className="accordion">
-                                        <Accordion title="Why can’t the government just print more money?">
+                                        <AccordionList title="Why can’t the government just print more money?">
                                             <div className="accordion__content">
                                                 <p>It can, and does. While the Department of the Treasury prints actual dollars, “printing money” is also a term that is sometimes used to describe a means of <a href={AfgData.monetary_policy.value} rel="noopener noreferrer" target="_blank">monetary policy</a>, which is conducted by the Federal Reserve. Monetary policy involves controlling the supply of money and the cost of borrowing. The Federal Reserve uses monetary policy to promote maximum employment, stable prices, and moderate long-term interest rates on the behalf of the Congress. The federal government uses fiscal policy, or the control of taxation and government spending, to promote economic activity.</p>
                                             </div>
-                                        </Accordion>
+                                        </AccordionList>
                                     </section>
 
                                     <a href="/americas-finance-guide/debt/" className="link-button chapter__cta">
@@ -401,7 +401,7 @@ function OverviewPage(props) {
                     </section>
 
                     <section className="hwcta">
-                        <Accordion title="Data Sources and Methodology">
+                        <AccordionList title="Data Sources and Methodology">
                             <p>This analysis was conducted using the <a href={AfgData.mts_homepage.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue and spending of the United States and the <a href={AfgData.mspd_homepage.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source for federal debt.</p>
                             <p>U.S. Census Bureau data was used for <a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">population</a> and <a href={AfgData.census_household.value} rel="noopener noreferrer" target="_blank">household</a> estimates. <a href={AfgData.census_median_home.value} rel="noopener noreferrer" target="_blank">Median home price estimates</a> are also provided by the U.S. Census Bureau. Rent estimates come from the <a href={AfgData.hud_median_rent.value} rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development (HUD)</a>. The Bureau of Labor Statistics (BLS) <a href={AfgData.bls_occ_employment.value} rel="noopener noreferrer" target="_blank">Occupational Employment Statistics</a> was used for wage estimates. Information on the amount of credit card debt added by Americans comes from the Federal Reserve Bank of New York’s <a href={AfgData.frbny_microecon.value} rel="noopener noreferrer" target="_blank">Center for Microeconomic Data</a>. The annual 10-K reports of the top S&P 500 companies were compiled in order to find the equivalent revenue from companies to match the federal government’s revenue for the year. The <a href={AfgData.artba_road_cost.value} rel="noopener noreferrer" target="_blank">American Road and Transportation Builders Association</a> provides information about the cost of building new roads derived from the cost models of different states.</p>
                             <div className="afg__download--div">
@@ -413,7 +413,7 @@ function OverviewPage(props) {
                                     <li><a href="/americas-finance-guide/afgData/overview_federal_debt.csv" download="overview_federal_debt.csv">overview_federal_debt.csv</a></li>
                                 </ul>
                             </div>
-                        </Accordion>
+                        </AccordionList>
                     </section>
 
                     <div className="historical-quote">

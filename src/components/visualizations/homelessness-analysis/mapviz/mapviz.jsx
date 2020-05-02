@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import * as d3 from 'd3v3';
 import styles from './mapviz.module.scss';
 
-import tooltipModule from "../../../../components/tooltip/tooltip";
-import tipStyles from '../../../../components/tooltip/tooltip.module.scss';
+import tooltipModule from "../../../tooltip-legacy/tooltip";
+import tipStyles from '../../../tooltip-legacy/tooltip.module.scss';
 
 /* Extracted and adapted from fedscope.js an trreemap-module.js */
 
@@ -22,13 +22,21 @@ export default function Mapviz(props) {
     bottom: 15,
     left: 100
   };
-  const OtherformatNumber = d3.format(',.0f');
+  const getformattedNumber = d3.format(',.0f');
+
   const width = 1000;
   const height = 600;
-  let mapHeight = null; 
+  let mapHeight = null;
   let map1Centered = null;
   let path, g;
 
+  function OtherformatNumber (number) {
+    if(isNaN(number)) {
+      return 'NA';
+    } else {
+      return getformattedNumber(number);
+    }
+  }
 
   function GenMap() {
     d3.select('#container').append('div').attr('id', 'viz_container');

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg tabindex="0" width="100%" height="100%" aria-label="Bar chart of the 5 CFO Act agencies with the smallest amount of contract spending shown in millions of dollars. A line chart overlays the bars showing percentage of total contract spending by each agency. All are 3% or less." viewBox="0 0 444 270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Viz 1 Pop Out Outline_Desktop</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+      <style text="text/css">
+	#clear-24px:hover {
+	  cursor: pointer;
+ 	}
+     #Graph-Title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #555555;
+     }
+      </style>
+    </defs>
+    <g id="Viz-1-Pop-Out-Outline_Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Background" transform="translate(65.000000, 64.000000)">
+            <g id="Background-fill" transform="translate(0.000000, 19.000000)" fill="#FAFAFA" fill-rule="nonzero">
+                <polygon id="Rectangle-16" points="0 110 340 110 340 128 0 128"></polygon>
+                <polygon id="Rectangle-16-Copy-2" points="0 73 340 73 340 91 0 91"></polygon>
+                <polygon id="Rectangle-16-Copy-3" points="0 37 340 37 340 55 0 55"></polygon>
+                <polygon id="Rectangle-16-Copy-4" points="0 0 340 0 340 18 0 18"></polygon>
+            </g>
+            <g id="Horizontal-Lines" opacity="0.3" stroke="#DDDDDD" stroke-linecap="square" stroke-width="0.525">
+                <line x1="0.350784973" y1="1.05269608" x2="339.6974" y2="1.55269608" id="Line"></line>
+                <line x1="0.350784973" y1="18.0526961" x2="339.6974" y2="18.5526961" id="Line-Copy-7"></line>
+                <line x1="0.350784973" y1="37.0526961" x2="339.6974" y2="37.5526961" id="Line-Copy-8"></line>
+                <line x1="0.350784973" y1="55.0526961" x2="339.6974" y2="55.5526961" id="Line-Copy-9"></line>
+                <line x1="0.350784973" y1="74.0526961" x2="339.6974" y2="74.5526961" id="Line-Copy-10"></line>
+                <line x1="0.350784973" y1="93.0526961" x2="339.6974" y2="93.5526961" id="Line-Copy-11"></line>
+                <line x1="0.350784973" y1="110.052696" x2="339.6974" y2="110.552696" id="Line-Copy-12"></line>
+                <line x1="0.350784973" y1="130.052696" x2="339.6974" y2="130.552696" id="Line-Copy-13"></line>
+                <line x1="0.350784973" y1="147.052696" x2="339.6974" y2="147.552696" id="Line-Copy-14"></line>
+            </g>
+            <polyline id="Scale" stroke="#C7C7C7" points="0 1 0 165.380859 339.691406 165.380859 339.691406 1"></polyline>
+            <g id="Vertical-Lines" transform="translate(65.000000, 3.000000)" fill-rule="nonzero" opacity="0.5" stroke="#DDDDDD" stroke-linecap="square" stroke-width="0.525">
+                <line x1="1.40853132" y1="163.581281" x2="0.919006479" y2="0.5" id="Line-9-Copy-9"></line>
+                <line x1="68.4085313" y1="163.581281" x2="67.9190065" y2="0.5" id="Line-9-Copy-13"></line>
+                <line x1="136.408531" y1="163.581281" x2="135.919006" y2="0.5" id="Line-9-Copy-14"></line>
+                <line x1="204.408531" y1="163.581281" x2="203.919006" y2="0.5" id="Line-9-Copy-15"></line>
+            </g>
+        </g>
+        <g id="Bar-Chart" transform="translate(87.000000, 83.000000)" fill="#0332FF" stroke="#0332FF" stroke-width="0.525">
+            <path d="M21.16,0.2625 L0.2625,0.84 L0.2625,145.7375 L21.7375,145.7375 L21.16,0.2625 Z" id="Rectangle"></path>
+            <path d="M90.16,81.2625 L69.2625,81.84 L69.2625,145.7375 L90.7375,145.7375 L90.16,81.2625 Z" id="Rectangle-Copy-2"></path>
+            <path d="M158.16,115.2625 L137.2625,115.84 L137.2625,145.7375 L158.7375,145.7375 L158.16,115.2625 Z" id="Rectangle-Copy-3"></path>
+            <path d="M225.16,128.2625 L204.2625,128.84 L204.2625,145.7375 L225.7375,145.7375 L225.16,128.2625 Z" id="Rectangle-Copy-4"></path>
+            <path d="M292.16,128.2625 L271.2625,128.84 L271.2625,145.7375 L292.7375,145.7375 L292.16,128.2625 Z" id="Rectangle-Copy-5"></path>
+        </g>
+        <path d="M98,137.771484 L169.731066,92 L236.4581,99 L302.782965,186 L371,222" id="Percent-Line" stroke="#FF9300" stroke-width="2" stroke-dasharray="3,2"></path>
+        <g id="Circles" transform="translate(94.000000, 87.000000)" fill="#FFFFFF" stroke="#FF9300" stroke-width="2.6752">
+            <circle id="Oval-Copy-9" cx="4.5" cy="46.5" r="4.5"></circle>
+            <circle id="Oval-Copy-19" cx="73.5" cy="4.5" r="4.5"></circle>
+            <circle id="Oval-Copy-20" cx="142.5" cy="10.5" r="4.5"></circle>
+            <circle id="Oval-Copy-21" cx="209.5" cy="96.5" r="4.5"></circle>
+            <circle id="Oval-Copy-22" cx="275.5" cy="135.5" r="4.5"></circle>
+        </g>
+        <g id="Percents" transform="translate(87.000000, 58.000000)" fill="#555555" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="19.823232" font-weight="500">
+            <text id="2%">
+                <tspan x="0" y="20">2%</tspan>
+            </text>
+            <text id="3%">
+                <tspan x="71" y="22">3%</tspan>
+            </text>
+            <text id="3%">
+                <tspan x="139" y="22">3%</tspan>
+            </text>
+            <text id="1%">
+                <tspan x="205" y="105">1%</tspan>
+            </text>
+            <text id="1%">
+                <tspan x="262" y="135">&lt; 1%</tspan>
+            </text>
+        </g>
+        <g id="Bottom-Labels" transform="translate(82.000000, 233.000000)" fill="#666666" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+            <text id="DHS">
+                <tspan x="0" y="16">DHS</tspan>
+            </text>
+            <text id="AID">
+                <tspan x="75" y="16">AID</tspan>
+            </text>
+            <text id="DOC">
+                <tspan x="207" y="16">DOC</tspan>
+            </text>
+            <text id="DoEd">
+                <tspan x="135" y="16">DoEd</tspan>
+            </text>
+            <text id="VA">
+                <tspan x="279" y="16">VA</tspan>
+            </text>
+        </g>
+        <g id="Right-axis" transform="translate(411.000000, 79.000000)" fill="#666666" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+            <text id="1%">
+                <tspan x="0" y="121">1%</tspan>
+            </text>
+            <text id="2%">
+                <tspan x="0" y="69">2%</tspan>
+            </text>
+            <text id="3%">
+                <tspan x="0" y="16">3%</tspan>
+            </text>
+        </g>
+        <g id="Left-axis" transform="translate(9.000000, 53.000000)" fill="#666666" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+            <text id="$-50-M">
+                <tspan x="8" y="165">$ 50 M</tspan>
+            </text>
+            <text id="$-100-M">
+                <tspan x="0" y="144">$ 100 M</tspan>
+            </text>
+            <text id="$-150-M">
+                <tspan x="0" y="122">$ 150 M</tspan>
+            </text>
+            <text id="$-200-M">
+                <tspan x="0" y="101">$ 200 M</tspan>
+            </text>
+            <text id="$-250-M">
+                <tspan x="0" y="80">$ 250 M</tspan>
+            </text>
+            <text id="$-300-M">
+                <tspan x="0" y="59">$ 300 M</tspan>
+            </text>
+            <text id="$-350-M">
+                <tspan x="0" y="37">$ 350 M</tspan>
+            </text>
+            <text id="$-400-M">
+                <tspan x="0" y="16">$ 400 M</tspan>
+            </text>
+        </g>
+        <text id="Graph-Title" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="16" font-weight="500" fill="#5A5A5A">
+            <tspan x="131" y="33">In Focus: DHS, AID, DoEd, DOC, VA</tspan>
+        </text>
+        <g id="street-view-solid" transform="translate(91.000000, 13.000000)" fill="#0332FF" fill-rule="nonzero">
+            <path d="M18.6824219,16.745625 C18.4478125,17.0147656 18.1857813,17.2585156 17.875,17.4387891 L17.875,18.6037109 C21.2529688,19.0780078 23.5625,20.028125 23.5625,21.125 C23.5625,22.6956641 18.83375,23.96875 13,23.96875 C7.16625,23.96875 2.4375,22.6956641 2.4375,21.125 C2.4375,20.028125 4.74703125,19.0785156 8.125,18.6037109 L8.125,17.4387891 C7.81421875,17.2585156 7.5521875,17.0147656 7.31757812,16.745625 C2.98949219,17.5367969 0,19.1978516 0,21.125 C0,23.8174219 5.82054687,26 13,26 C20.1794531,26 26,23.8174219 26,21.125 C26,19.1978516 23.0105078,17.5367969 18.6824219,16.745625 Z M13,6.5 C14.7951172,6.5 16.25,5.04511719 16.25,3.25 C16.25,1.45488281 14.7951172,0 13,0 C11.2048828,0 9.75,1.45488281 9.75,3.25 C9.75,5.04511719 11.2048828,6.5 13,6.5 Z M9.75,16.25 L9.75,21.125 C9.75,22.0223047 10.4776953,22.75 11.375,22.75 L14.625,22.75 C15.5223047,22.75 16.25,22.0223047 16.25,21.125 L16.25,16.25 C17.1473047,16.25 17.875,15.5223047 17.875,14.625 L17.875,9.75 C17.875,8.40378906 16.7837109,7.3125 15.4375,7.3125 L14.8382812,7.3125 C14.2761328,7.56792969 13.6571094,7.71875 13,7.71875 C12.3428906,7.71875 11.7238672,7.56792969 11.1617188,7.3125 L10.5625,7.3125 C9.21628906,7.3125 8.125,8.40378906 8.125,9.75 L8.125,14.625 C8.125,15.5223047 8.85269531,16.25 9.75,16.25 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

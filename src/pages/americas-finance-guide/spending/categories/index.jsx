@@ -6,7 +6,7 @@ import SEO from "src/components/seo"
 import AfgData from "src/libs/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
 import { AFGHeader } from 'src/components/headers/headers';
-import Accordion from 'src/components/accordion/accordion'
+import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import AfgNav from 'src/components/afg-nav/afg-nav';
@@ -83,30 +83,30 @@ function SpendingCategoriesPage(props) {
                             <p>In this section, you can explore federal spending either by category or by agency. Curious to find out more? Dive deeper to see spending details by subcategory and other options.</p>
 
                             <section className="accordion">
-                                <Accordion title="What does the government buy?" className="accordion__heading">
+                                <AccordionList title="What does the government buy?" className="accordion__heading">
                                     <div className="accordion__content">
                                         <p>Well, a lot. The government buys a variety of products and services used to serve the public &mdash; everything from military aircraft, construction and highway maintenance equipment, buildings, and livestock, to research, education, and training. These purchases are classified by Object Classes, a classification system that describes the types of goods and services purchased by the government.</p>
                                         <p>Our partner site, <a href={AfgData.usaspending_home.value} rel="noopener noreferrer" target="_blank">USASpending.gov</a> allows visitors to explore federal spending by the types of items and services purchased by the federal government. Go explore federal spending by <a href={AfgData.usaspending_object_class.value} rel="noopener noreferrer" target="_blank">Object Class</a>.</p>
                                     </div>
-                                </Accordion>
+                                </AccordionList>
                             </section>
 
                             <section className="accordion">
-                                <Accordion title="What are mandatory and discretionary spending?" className="accordion__heading">
+                                <AccordionList title="What are mandatory and discretionary spending?" className="accordion__heading">
                                     <div className="accordion__content">
                                         <p>The difference between mandatory and discretionary spending relates to whether spending is dictated by prior law or voted on in the annual appropriations process. Programs like Social Security, Medicare, and various income security programs, are based on laws previously established that dictate the money budgeted for spending each year, which is why spending for those programs is referred to as mandatory.</p>
                                         <p>Discretionary spending is money formally approved by the President and voted on by Congress during the appropriations process each year. Generally, a majority of the discretionary spending is budgeted towards national defense. The rest of discretionary spending is budgeted to other federal agency programs ranging from transportation, education, housing, social service programs, as well as science and environmental organizations.</p>
                                     </div>
-                                </Accordion>
+                                </AccordionList>
                             </section>
 
                             <section className="accordion">
-                                <Accordion title="What does the future of Social Security and Medicare look like?" className="accordion__heading">
+                                <AccordionList title="What does the future of Social Security and Medicare look like?" className="accordion__heading">
                                     <div className="accordion__content">
                                         <p>Each year, the Social Security and Medicare Boards of Trustees publish their <a href={AfgData.trustees_report.value} rel="noopener noreferrer" target="_blank">Annual Report</a> on the financial status of Social Security and Medicare. The Boards’ projections indicate that spending will continue to increase. As the average age of Americans increases, more funding is needed to support entitlement programs like Social Security, Medicare, and retirement and disability services for both military and civil servants. In {AfgData.trustees_fy.value}, the cost of the Social Security and Medicare programs was {AfgData.ss_med_cost.value}.</p>
                                         <p>The majority of Social Security and Medicare funding comes from tax revenue and interest on trust fund reserves. For {AfgData.trustees_fy.value}, income for these programs was {AfgData.ss_med_income.value}. However, costs are expected to exceed revenue starting in {AfgData.med_deficit_year.value} for Medicare Part A and {AfgData.ss_deficit_year.value} for Social Security, and will require the federal government to begin drawing down trust fund balances in order to continue paying full benefits. While Medicare Parts B and D are largely funded by general revenues and beneficiary premiums, the Boards project that Medicare Part A trust fund will be depleted by {AfgData.med_deplete_year.value} and the Social Security trust fund will be depleted by {AfgData.ss_deplete_year.value}.</p>
                                     </div>
-                                </Accordion>
+                                </AccordionList>
                             </section>
 
                             <section className="tour">
@@ -119,7 +119,7 @@ function SpendingCategoriesPage(props) {
                         </div>
 
                         <section className="hwcta">
-                            <Accordion title="Data Sources and Methodology">
+                            <AccordionList title="Data Sources and Methodology">
                                 <p>
                                     This visualization was created using the <a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. Some categories from the MTS have been renamed in order to be more easily understood.
                                 </p>
@@ -132,7 +132,7 @@ function SpendingCategoriesPage(props) {
                                         <li><a href="/americas-finance-guide/afgData/federal_spending_categories.csv" download="federal_spending_categories.csv">federal_spending_categories.csv</a></li>
                                     </ul>
                                 </div>
-                            </Accordion>
+                            </AccordionList>
                         </section>
                     </div>
                 </div>

@@ -12,10 +12,12 @@
 
   .heading {
     @include homepageTitle();
+    text-align: left;
   }
 
   .subheading {
     @include homepageSubtitle();
+    text-align: left;
     margin-bottom: 0;
   }
 

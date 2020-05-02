@@ -1,19 +1,45 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
-#footnotes,
-.number,
-.text {
-  font-size: 1rem !important;
-  color: $darkGrey;
-}
+#footnotes {
+  a:hover {
+    text-decoration: underline;
+  }
 
-.header {
-  margin-bottom: 0.5rem;
-}
+  .header-spacer {
+    padding-bottom: 1rem;
+  }
+  .header {
+    border-bottom: solid currentColor 2px;
+    padding-bottom: 0.5rem;
+  }
 
-@media (min-width: $desktop) {
-  #footnotes {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+  .footnote {
+    margin-top: 1rem;
+    display: flex;
+  }
+
+  .number,
+  .content {
+    font-size: 1rem;
+    color: $darkGrey;
+  }
+
+  .number {
+    font-size: smaller;
+
+    a {
+      color: currentColor;
+    }
+  }
+
+  .content {
+    margin-left: 0.25rem;
+  }
+
+  @media (min-width: $desktop) {
+    #footnotes {
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
   }
 }

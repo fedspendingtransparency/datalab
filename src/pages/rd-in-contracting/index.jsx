@@ -1,81 +1,196 @@
 import React from 'react';
 import styles from './rd-in-contracting.module.scss';
 
-import Accordion from '../../components/accordion/accordion';
-import ControlBar from '../../components/control-bar/control-bar';
-import ExpressLayout from '../../components/layouts/express/express';
-import ExpressSection from '../../page-sections/express/express-section';
-import Reset from '../../components/reset/reset';
-import SEO from '../../components/seo';
+import Accordion from 'src/components/accordion/accordion';
+import Categories from 'src/page-sections/rd-in-contracting/categories/categories.jsx';
+import ExpressLayout from 'src/components/layouts/express/express';
+import Footnotes from "../../components/footnotes/footnotes"
+import SEO from 'src/components/seo';
+import Spending from 'src/page-sections/rd-in-contracting/spending/spending-chart';
+import Studies from 'src/page-sections/rd-in-contracting/studies/studies';
+import StorySection from 'src/components/section-elements/story-section/story-section';
+
+import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
+import microscope from 'src/images/rd-in-contracting/microscope.svg';
+import science from 'src/images/rd-in-contracting/science.svg';
+import bottle from 'src/images/rd-in-contracting/bottle.svg';
+import bulb from 'src/images/rd-in-contracting/bulb.svg';
+import Grid from '@material-ui/core/Grid';
+
 
 export default class RdInContractingPage extends React.Component {
   constructor(props) {
     super(props);
   }
 
+  whatIsContents = () =>
+    <div className={styles.accordionContents}>
+      <img src={microscope} role='presentation' className={styles.centerImg} />
+      <p className={styles.extraSpace}>Research and development are part of a process to help us find solutions to problems using science, engineering, and technology.</p>
+      <div className={styles.flexContainer}>
+        <div className={styles.bullet}></div>
+        <div>
+          <span className={`${styles.bold} ${styles.highlight} ${styles.bulletSize}`}>Basic Research</span>
+          <p>The intent of basic research is to study more about a subject, to expand upon what we already know about it. This type of research usually doesn't result in solving a specific problem.</p>
+          <div className={styles.flexContainer}>
+            <img src={science} role='presentation' className={styles.leftImg} />
+            <div>
+              <p>EXAMPLE: NASA's International Space Station is using a platform to gather data on temperature, light cycle, humidity control, and more.</p>
+              <a href='https://www.usaspending.gov/#/award/CONT_AWD_NNJ15GU47T_8000_NNJ15GU31B_8000' target='_blank' rel='noopener noreferrer'>
+                Contract Summary <LaunchOutlinedIcon fontSize='inherit' />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.flexContainer}>
+        <div className={styles.bullet}></div>
+        <div>
+          <span className={`${styles.bold} ${styles.highlight} ${styles.bulletSize}`}>Applied Research</span>
+          <p>Applied research has a more specific goal of finding solutions to current problems using the accumulated knowledge from basic research.</p>
+          <div className={styles.flexContainer}>
+            <img src={bottle} role='presentation' className={styles.leftImg} />
+            <div>
+              <p>EXAMPLE: The Department of Health and Human Services is researching a drug that could counteract damage caused by radiation exposure.</p>
+              <a href='https://www.usaspending.gov/#/award/CONT_AWD_HHSO100201700026C_7505_-NONE-_-NONE-' target='_blank' rel='noopener noreferrer'>
+                Contract Summary <LaunchOutlinedIcon fontSize='inherit' />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.flexContainer}>
+        <div className={styles.bullet}></div>
+        <div>
+          <span className={`${styles.bold} ${styles.highlight} ${styles.bulletSize}`}>Development</span>
+          <p>Development refers to the innovative process of using applied research to create prototypes of potential solutions to real-world problems.</p>
+          <div className={styles.flexContainer}>
+            <img src={bulb} role='presentation' className={styles.leftImg} />
+            <div>
+              <p>EXAMPLE: The Department of Energy developed a long-term solution for storing spent nuclear fuel and studied its impact on licensing and operations of nuclear plants.</p>
+              <a href='https://www.usaspending.gov/#/award/CONT_AWD_DENE0000593_8900_-NONE-_-NONE-' target='_blank' rel='noopener noreferrer'>
+                Contract Summary <LaunchOutlinedIcon fontSize='inherit' />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  sectionComponents = {
+    spending: Spending,
+    categories: Categories,
+    studies: Studies
+  }
+
+  sections = [
+    {
+      section: 'Spending',
+      anchor: 'spending',
+      header: <div className={styles.title} key={'spending-header'}>2019 Agency Spending</div>,
+      sectionTeaser: <>What <span className={styles.subtitleHighlight}>portion of federal agency contract spending</span> goes to R&D initiatives?</>,
+      introBlurb: <>
+        <p key={'si1'}>Investment in Research and Development, or R&D, is largely seen as a driver of innovation in both the public and private sectors.<a id='fr1' href='#fn1' className='footnoteref'>1</a> From medicine to autonomous vehicles, R&D investments lead to new products, technology advancements, and improved quality of life.  To fund R&D work, federal agencies can use grants, loans, and contracts. In this analysis we focus on contracts.</p>
+        <p key={'si2'}>Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts to perform R&D work in fiscal year 2019 (FY 2019), totaling $41.5B. Let’s take a look at the top ten CFO Act agencies by R&D contract spending.</p>
+        <aside>
+          <Accordion title='What is R&D?' color='#1302D9' backgroundColor='rgba(19, 2, 217, 0.1)'>
+            {this.whatIsContents()}
+          </Accordion>
+        </aside>
+      </>,
+      viztitle: 'R&D as a Portion of Total Federal Contract Spending by Agency',
+      tagName: 'spending'
+    },
+    {
+      section: 'Categories',
+      anchor: 'categories',
+      header: <div className={styles.title} key={'categories-header'}>R&D Spending Categories</div>,
+      sectionTeaser: <>20 <span className={styles.subtitleHighlight} key={'categories-teaser'}>categories of R&D</span> contract spending in FY 2019</>,
+      introBlurb: 'Federal R&D contract spending supports a wide range of objectives, including agriculture, education, energy, housing, and national defense. When the government uses contracts to buy products and services, like leasing laboratory space or conducting field research, they use the General Services Administration’s Product and Services Codes (PSC).  Using PSCs, we grouped R&D contract spending into 20 spending categories.',
+      viztitle: 'R&D Federal Spending in Contracting by Category',
+      tagName: 'categories'
+    },
+    {
+      section: 'Studies',
+      anchor: 'studies',
+      header: <span className={styles.title} key={'studies-header'}>The Big Picture for R&D</span>,
+      sectionTeaser: <><span className={styles.subtitleHighlight} key={'studies-teaser'}>Long-term trends</span> in federal R&D spending</>,
+      introBlurb: <>
+        <p>The federal government is one of the largest and most consistent funding sources of R&D in the United States,<a id='fr2' href='#fn2' className='footnoteref'>2</a> where total R&D obligations had only a net 1% change over the last decade. In total, the National Science Foundation reports that the federal government obligated $146B to R&D initiatives in its 2019 budget, which includes contracts as well as other key funding sources such as grants.<a id='fr3' href='#fn3' className='footnoteref'>3</a></p>
+        <p><span className={styles.bold}>Why does the government invest in R&D?</span>
+          <br />A common rationale for federal R&D spending is that many socially beneficial research projects would not be attempted if society depended on the private sector alone for funding.<a id='fr4' href='#fn4' className='footnoteref'>4</a></p>
+      </>,
+      viztitle: 'Federal R&D Obligations 2009-2019',
+      tagName: 'studies'
+    }
+  ];
+
   render = () =>
     <ExpressLayout
-      title='Research & Development in Contracting'
-      topic='How much did the federal government invest in Research & Development with FY18 Contract Spending?'
+      title='Research & Development in Contract Spending'
+      introSentence='How much did the federal government invest in Research & Development with FY 2019 Contract Spending?'
+      hwctaLink={this.props.location.pathname + '/methodologies'}
     >
-      <SEO title='Federal R&D in Contracting' keywords={['gatsby', 'application', 'react']} />
-      <ExpressSection
-        title='Amount Spent in FY2018'
-        subtitle={<>In Fiscal Year 2018, <span className={styles.subtitleHighlight}>$119 billion were devoted</span> to contracted R&D initiatives.</>}
-        description={<><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</p></>}
-        viztitle='R&D as a Part of Total Contract Spending by Agency'
-      >
-        <Accordion title='Instructions'>
-          <ul>
-            <li>instructions here</li>
-          </ul>
-        </Accordion>
+      <SEO
+        description='How much does the federal government invest in Research & Development? In FY 2019, $41.5 billion was contracted to R&D initiatives.'
+        keywords={['research and development', 'federal research contracts', 'federal spending', 'R&D funding', 'R&D', 'federal contract spending']}
+        title='U.S. Treasury Data Lab – Research & Development in Contract Spending'
+      />
 
-        <ControlBar>
-          <Reset id='resetBtn' />
-        </ControlBar>
+      {this.sections.map((item, key) => {
+        const SectionTag = this.sectionComponents[item.tagName];
+        return (
+          <StorySection key={key} header={item}>
+            <SectionTag sectionId={`section-${item.anchor}`} section={item} location={this.props.location} />
+          </StorySection>
+        );
+      })}
 
-        chart
-
-      </ExpressSection>
-
-      <ExpressSection
-        title='Types of R&D in Contracting'
-        subtitle={<>What are the types of <span className={styles.subtitleHighlight}>categories that R&D funded?</span></>}
-        description={<><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</p></>}
-        viztitle='R&D in Contracting by Category'
-      >
-        <Accordion title='Instructions'>
-          <ul>
-            <li>instructions here</li>
-          </ul>
-        </Accordion>
-
-        <ControlBar>
-          <Reset id='resetBtn' />
-        </ControlBar>
-
-        chart
-
-      </ExpressSection>
-      <ExpressSection
-        title='Non R&D Studies'
-        subtitle={<>What types of studies were funded that are <span className={styles.subtitleHighlight}>classified as non-R&D?</span></>}
-        description={<><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</p></>}
-        viztitle='Non-R&D Studies and Analyses Spending'
-      >
-        <Accordion title='Instructions'>
-          <ul>
-            <li>instructions here</li>
-          </ul>
-        </Accordion>
-
-        <ControlBar>
-          <Reset id='resetBtn' />
-        </ControlBar>
-
-        chart
-
-      </ExpressSection>
+      <Grid container className = {styles.footnotes}>
+        <Grid item xs={10}>
+          <Footnotes footnotes={[
+            <>
+              Global R&D: One Measure of Commitment to Innovation, Global R&D: One Measure of Commitment to Innovation § (2018).<br />
+              <a href='https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation'
+                rel='noreferrer noopener' target='_blank'
+                className={styles.link}
+              >
+                https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation
+                <LaunchOutlinedIcon className={styles.extLink} />
+              </a>
+            </>,
+            <>
+              Sargent, John F. "Federal Research and Development (R&D) Funding: FY2019." Federal Research and Development (R&D) Funding: FY2019, October 4, 2018.<br />
+              <a href='https://fas.org/sgp/crs/misc/R45150.pdf'
+                rel='noreferrer noopener' target='_blank'
+                className={styles.link}
+              >
+                https://fas.org/sgp/crs/misc/R45150.pdf
+                <LaunchOutlinedIcon className={styles.extLink} />
+              </a>
+            </>,
+            <>National Center for Science and Engineering Statistics, National Science Foundation. 2019. Federal R&D Funding, by Budget Function: Fiscal Years 2018–20. Detailed Statistical Tables NSF 20-305. Alexandria, VA. Available at{' '}
+              <a href='https://ncses.nsf.gov/pubs/nsf20305/'
+                rel='noreferrer noopener' target='_blank'
+                className={styles.link}
+              >
+                https://ncses.nsf.gov/pubs/nsf20305/
+                <LaunchOutlinedIcon className={styles.extLink} />
+              </a>.</>,
+            <>
+              Maloney, Carolyn B, and Charles E Schumer. “The Pivotal Role of Government Investment in Basic Research.” U.S. Congress Joint Economic Committee. U.S. Congress Joint Economic Committee, May 2010.<br />
+              <a href='https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf'
+                rel='noreferrer noopener' target='_blank'
+                className={styles.link}
+              >
+                https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf
+                <LaunchOutlinedIcon className={styles.extLink} />
+              </a>
+            </>
+          ]} />
+        </Grid>
+      </Grid>
     </ExpressLayout>
 }
