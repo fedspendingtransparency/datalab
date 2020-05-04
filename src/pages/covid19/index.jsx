@@ -14,6 +14,52 @@ export default class Covid19 extends React.Component {
     super(props);
   }
 
+  sectionComponents = {
+    Funding: Funding,
+    Overview: Overview,
+    Resources: Resources,
+    Tracking: Tracking
+  };
+
+  sections = [
+    {
+      section: 'Funding',
+      anchor: 'funding',
+      header: 'Funding header',
+      sectionTeaser: 'Funding teaser',
+      introBlurb: 'Funding intro blurb',
+      viztitle: 'Title for Funding viz',
+      tagName: 'Funding'
+    },
+    {
+      section: 'Overview',
+      anchor: 'overview',
+      header: 'Overview header',
+      sectionTeaser: 'Overview teaser',
+      introBlurb: 'Overview intro blurb',
+      viztitle: 'Title for Overview viz',
+      tagName: 'Overview'
+    },
+    {
+      section: 'Resources',
+      anchor: 'resources',
+      header: 'Resources header',
+      sectionTeaser: 'Resources teaser',
+      introBlurb: 'Resources intro blurb',
+      viztitle: 'Title for Resources viz',
+      tagName: 'Resources'
+    },
+    {
+      section: 'Tracking',
+      anchor: 'tracking',
+      header: 'Tracking header',
+      sectionTeaser: 'Tracking teaser',
+      introBlurb: 'Tracking intro blurb',
+      viztitle: 'Title for Tracking viz',
+      tagName: 'Tracking'
+    }
+  ];
+
   render = () =>
     <StoryLayout
       title='required title'
@@ -26,21 +72,14 @@ export default class Covid19 extends React.Component {
         keywords={['SEO keyword 1', 'SEO keyword 2']}
       />
 
-      <StorySection header='header'>
-        <Overview />
-      </StorySection>
-
-      <StorySection header='header'>
-        <Funding />
-      </StorySection>
-
-      <StorySection header='header'>
-        <Tracking />
-      </StorySection>
-
-      <StorySection header='header'>
-        <Resources />
-      </StorySection>
+      {this.sections.map((item, key) => {
+        const SectionTag = this.sectionComponents[item.tagName];
+        return (
+          <StorySection key={key} header={item}>
+            <SectionTag sectionId={`section-${item.anchor}`} section={item} location={this.props.location} />
+          </StorySection>
+        );
+      })}
 
     </StoryLayout>
 }
