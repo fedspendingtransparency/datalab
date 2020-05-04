@@ -6,7 +6,6 @@ import Accordion from 'src/components/accordion/accordion';
 import Categories from 'src/page-sections/rd-in-contracting/categories/categories.jsx';
 import ExpressLayout from 'src/components/layouts/express/express';
 import Footnotes from "../../components/footnotes/footnotes"
-import { Hidden } from '@material-ui/core';
 import SEO from 'src/components/seo';
 import Spending from 'src/page-sections/rd-in-contracting/spending/spending-chart';
 import Studies from 'src/page-sections/rd-in-contracting/studies/studies';
@@ -17,6 +16,8 @@ import microscope from 'src/images/rd-in-contracting/microscope.svg';
 import science from 'src/images/rd-in-contracting/science.svg';
 import bottle from 'src/images/rd-in-contracting/bottle.svg';
 import bulb from 'src/images/rd-in-contracting/bulb.svg';
+import Grid from '@material-ui/core/Grid';
+
 
 export default class RdInContractingPage extends React.Component {
   constructor(props) {
@@ -75,7 +76,7 @@ export default class RdInContractingPage extends React.Component {
           <div className={styles.flexContainer}>
             <img src={bulb} role='presentation' className={styles.leftImg} />
             <div>
-              <p>EXAMPLE: The Department of Energy developed a long-term solution for storing spent nuclear fuel and is studying its impact on licensing and operations of nuclear plants.</p>
+              <p>EXAMPLE: The Department of Energy developed a long-term solution for storing spent nuclear fuel and studied its impact on licensing and operations of nuclear plants.</p>
               <a href='https://www.usaspending.gov/#/award/CONT_AWD_DENE0000593_8900_-NONE-_-NONE-' target='_blank' rel='noopener noreferrer'>
                 Contract Summary <LaunchOutlinedIcon fontSize='inherit' />
               </a>
@@ -100,13 +101,11 @@ export default class RdInContractingPage extends React.Component {
       introBlurb: <>
         <p key={'si1'}>Investment in Research and Development, or R&D, is largely seen as a driver of innovation in both the public and private sectors.<a id='fr1' href='#fn1' className='footnoteref'>1</a> From medicine to autonomous vehicles, R&D investments lead to new products, technology advancements, and improved quality of life.  To fund R&D work, federal agencies can use grants, loans, and contracts. In this analysis we focus on contracts.</p>
         <p key={'si2'}>Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts to perform R&D work in fiscal year 2019 (FY 2019), totaling $41.5B. Let’s take a look at the top ten CFO Act agencies by R&D contract spending.</p>
-        <Hidden smDown key={'si3'}>
-          <aside>
-            <Accordion title='What is R&D?' color='#1302D9' backgroundColor='rgba(19, 2, 217, 0.1)'>
-              {this.whatIsContents()}
-            </Accordion>
-          </aside>
-        </Hidden>
+        <aside>
+          <Accordion title='What is R&D?' color='#1302D9' backgroundColor='rgba(19, 2, 217, 0.1)'>
+            {this.whatIsContents()}
+          </Accordion>
+        </aside>
       </>,
       viztitle: 'R&D as a Portion of Total Federal Contract Spending by Agency',
       tagName: 'spending'
@@ -157,45 +156,49 @@ export default class RdInContractingPage extends React.Component {
         );
       })}
 
-      <Footnotes footnotes={[
-        <>
-          Global R&D: One Measure of Commitment to Innovation, Global R&D: One Measure of Commitment to Innovation § (2018).<br />
-          <a href='https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation'
-            rel='noreferrer noopener' target='_blank'
-            className={styles.link}
-          >
-            https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation
-            <LaunchOutlinedIcon className={styles.extLink} />
-          </a>
-        </>,
-        <>
-          Sargent, John F. "Federal Research and Development (R&D) Funding: FY2019." Federal Research and Development (R&D) Funding: FY2019, October 4, 2018.<br />
-          <a href='https://fas.org/sgp/crs/misc/R45150.pdf'
-            rel='noreferrer noopener' target='_blank'
-            className={styles.link}
-          >
-            https://fas.org/sgp/crs/misc/R45150.pdf
-            <LaunchOutlinedIcon className={styles.extLink} />
-          </a>
-        </>,
-        <>National Center for Science and Engineering Statistics, National Science Foundation. 2019. Federal R&D Funding, by Budget Function: Fiscal Years 2018–20. Detailed Statistical Tables NSF 20-305. Alexandria, VA. Available at{' '}
-          <a href='https://ncses.nsf.gov/pubs/nsf20305/'
-            rel='noreferrer noopener' target='_blank'
-            className={styles.link}
-          >
-            https://ncses.nsf.gov/pubs/nsf20305/
-            <LaunchOutlinedIcon className={styles.extLink} />
-          </a>.</>,
-        <>
-          Maloney, Carolyn B, and Charles E Schumer. “The Pivotal Role of Government Investment in Basic Research.” U.S. Congress Joint Economic Committee. U.S. Congress Joint Economic Committee, May 2010.<br />
-          <a href='https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf'
-            rel='noreferrer noopener' target='_blank'
-            className={styles.link}
-          >
-            https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf
-            <LaunchOutlinedIcon className={styles.extLink} />
-          </a>
-        </>
-      ]} />
+      <Grid container className = {styles.footnotes}>
+        <Grid item xs={10}>
+          <Footnotes footnotes={[
+            <>
+              Global R&D: One Measure of Commitment to Innovation, Global R&D: One Measure of Commitment to Innovation § (2018).<br />
+              <a href='https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation'
+                rel='noreferrer noopener' target='_blank'
+                className={styles.link}
+              >
+                https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation
+                <LaunchOutlinedIcon className={styles.extLink} />
+              </a>
+            </>,
+            <>
+              Sargent, John F. "Federal Research and Development (R&D) Funding: FY2019." Federal Research and Development (R&D) Funding: FY2019, October 4, 2018.<br />
+              <a href='https://fas.org/sgp/crs/misc/R45150.pdf'
+                rel='noreferrer noopener' target='_blank'
+                className={styles.link}
+              >
+                https://fas.org/sgp/crs/misc/R45150.pdf
+                <LaunchOutlinedIcon className={styles.extLink} />
+              </a>
+            </>,
+            <>National Center for Science and Engineering Statistics, National Science Foundation. 2019. Federal R&D Funding, by Budget Function: Fiscal Years 2018–20. Detailed Statistical Tables NSF 20-305. Alexandria, VA. Available at{' '}
+              <a href='https://ncses.nsf.gov/pubs/nsf20305/'
+                rel='noreferrer noopener' target='_blank'
+                className={styles.link}
+              >
+                https://ncses.nsf.gov/pubs/nsf20305/
+                <LaunchOutlinedIcon className={styles.extLink} />
+              </a>.</>,
+            <>
+              Maloney, Carolyn B, and Charles E Schumer. “The Pivotal Role of Government Investment in Basic Research.” U.S. Congress Joint Economic Committee. U.S. Congress Joint Economic Committee, May 2010.<br />
+              <a href='https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf'
+                rel='noreferrer noopener' target='_blank'
+                className={styles.link}
+              >
+                https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf
+                <LaunchOutlinedIcon className={styles.extLink} />
+              </a>
+            </>
+          ]} />
+        </Grid>
+      </Grid>
     </ExpressLayout>
 }

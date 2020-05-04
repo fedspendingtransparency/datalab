@@ -16,6 +16,29 @@
   height: 100%;
 }
 
+.close-icon-desktop {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+
+.close-icon-tablet {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.close-icon-mobile {
+  cursor: pointer;
+  position: relative;
+  margin-left: auto;
+  font-size: 2rem !important;
+  padding-right: 10px;
+  top: 11px;
+}
+
 .svg-popout {
   display: none;
   position: relative;
@@ -23,15 +46,32 @@
 }
 
 .svg-popout-show {
+  width: 400px;
   display: visible;
   position: absolute;
-  left: 45%;
+  left: 47%;
+  background-color: rgba(255, 253, 253, 0.95);
+  box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.16);
   z-index: 10;
 }
 
 .svg-popout-show-mobile {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  margin: auto;
   justify-content: center;
   align-items: center;
+  background-color: rgba(255, 253, 253, 0.95);
+  box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.16);
+  width: 300px;
+}
+
+#mobile-svg-popup {
+  margin-top: -30px;
+}
+
+@media(max-width: 700px) {
+  .svg-popout-show {
+    width: 300px;
+  }
 }

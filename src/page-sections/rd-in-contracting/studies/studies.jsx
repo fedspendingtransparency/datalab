@@ -28,7 +28,7 @@ export default function Studies(props) {
 
 	});
 
-	const chartAltText = 'Line graph showing federal obligations for R&D from 2009 to 2019 broken out into categories for Basic research, applied research, development, R&D plant, and total R&D.';
+	const chartAltText = 'Line graph showing federal obligations for R&D. Values for 2009: total R&D 144 billion, development 77 billion, basic research 32 billion (continue) applied research 30 billion, R&D plant 3 billion. Values for 2019: total R&D 146 billion, development 58 billion, basic research 43 billion (continue) applied research 39 billion, R&D plant 4 billion.';
 
 	return (<>
 		<h2 className='rd-viztitle'>{props.section.viztitle}</h2>
