@@ -1,4 +1,5 @@
 https://datalab.usaspending.gov/
+https://datalab.usaspending.gov/covid19/
 https://datalab.usaspending.gov/federal-account-explorer/
 https://datalab.usaspending.gov/contract-explorer/
 https://datalab.usaspending.gov/homelessness-analysis/
