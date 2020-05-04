@@ -4,9 +4,9 @@ import styles from './styles.module.scss';
 import StoryLayout from '../../components/layouts/story/story';
 import SEO from '../../components/seo';
 import StorySection from 'src/components/section-elements/story-section/story-section';
-import Funding from '../../page-sections/covid19/funding';
-import Overview from '../../page-sections/covid19/overview';
 import Function from '../../page-sections/covid19/function';
+import Overview from '../../page-sections/covid19/overview';
+import Funding from '../../page-sections/covid19/funding';
 import Tracking from '../../page-sections/covid19/tracking';
 
 export default class Covid19 extends React.Component {
