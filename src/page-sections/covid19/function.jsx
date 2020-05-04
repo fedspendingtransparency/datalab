@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default class Resources extends React.Component {
+export default class Function extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render = () => <>
-    Where to find more resources
+    Breakdown of allocation by function
   </>;
 }

@@ -6,7 +6,7 @@ import SEO from '../../components/seo';
 import StorySection from 'src/components/section-elements/story-section/story-section';
 import Funding from '../../page-sections/covid19/funding';
 import Overview from '../../page-sections/covid19/overview';
-import Resources from '../../page-sections/covid19/resources';
+import Function from '../../page-sections/covid19/function';
 import Tracking from '../../page-sections/covid19/tracking';
 
 export default class Covid19 extends React.Component {
@@ -17,21 +17,21 @@ export default class Covid19 extends React.Component {
   sectionComponents = {
     Funding: Funding,
     Overview: Overview,
-    Resources: Resources,
+    Function: Function,
     Tracking: Tracking
   };
 
   sections = [
     {
-      section: 'Funding',
-      anchor: 'funding',
+      section: 'Function',
+      anchor: 'function',
       number: '01',
-      subtext: 'Funding subtext',
-      subblurb: 'Funding subblurb',
-      sectionTeaser: 'Funding teaser',
+      subtext: 'Function subtext',
+      subblurb: 'Function subblurb',
+      sectionTeaser: 'Function teaser',
       introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
-      viztitle: 'Title for Funding viz',
-      tagName: 'Funding'
+      viztitle: 'Title for Function viz',
+      tagName: 'Function'
     },
     {
       section: 'Overview',
@@ -43,19 +43,17 @@ export default class Covid19 extends React.Component {
       introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
       viztitle: 'Title for Overview viz',
       tagName: 'Overview'
-    },
-    {
-      section: 'Resources',
-      anchor: 'resources',
+    },    {
+      section: 'Funding',
+      anchor: 'funding',
       number: '03',
-      subtext: 'Resources subtext',
-      subblurb: 'Resources subblurb',
-      sectionTeaser: 'Resources teaser',
+      subtext: 'Funding subtext',
+      subblurb: 'Funding subblurb',
+      sectionTeaser: 'Funding teaser',
       introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
-      viztitle: 'Title for Resources viz',
-      tagName: 'Resources'
-    },
-    {
+      viztitle: 'Title for Funding viz',
+      tagName: 'Funding'
+    },    {
       section: 'Tracking',
       anchor: 'tracking',
       number: '04',
@@ -70,9 +68,9 @@ export default class Covid19 extends React.Component {
 
   render = () =>
     <StoryLayout
-      title={'required title'}
-      introSentence={'required intro'}
-			contextStatement={'context statement'}
+      title='required title'
+      introSentence='required intro'
+			contextStatement='context statement'
       sectionToc={this.sections}
       hwctaLink={this.props.location.pathname + '/methodologies'}
     >
@@ -90,6 +88,5 @@ export default class Covid19 extends React.Component {
           </StorySection>
         );
       })}
-
     </StoryLayout>
 }
