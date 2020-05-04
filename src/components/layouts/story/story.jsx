@@ -42,7 +42,6 @@ const StoryLayout = (props) => {
 
         <div className={styles.hwcta}>
         <HwctaLink url={props.hwctaLink || '#'} pageColor={props.pageColor} />
-        <HwctaLink url={props.hwctaLink || '#'} pageColor='#1302D9' />
         </div>
         <MoreAnalyses />
       </div>

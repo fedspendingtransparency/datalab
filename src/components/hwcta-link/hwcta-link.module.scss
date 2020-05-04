@@ -6,8 +6,13 @@
   font-size: 2rem;
   font-weight: 300;
 
-  &:hover {
+  a:hover div {
     text-decoration: underline;
+    color: currentColor;
+  }
+
+  a:visited {
+    color: currentColor;
   }
 
   .icon {
