@@ -55,13 +55,11 @@ $bullet-size: 1.5rem;
       }
     }
 
-    .bullet-size {
+    .heading {
+      font-weight: $bold;
+      color: $highlightColor;
       line-height: $bullet-size;
     }
-  }
-
-  .highlight {
-    color: $highlightColor;
   }
 
   .center-img {
@@ -102,10 +100,8 @@ $bullet-size: 1.5rem;
   }
 }
 
-
 @media screen and (min-width: tablet - 1) {
   .footnotes {
     justify-content: start;
   }
 }
-
