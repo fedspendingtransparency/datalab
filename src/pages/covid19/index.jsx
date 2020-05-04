@@ -6,7 +6,7 @@ import SEO from '../../components/seo';
 import StorySection from 'src/components/section-elements/story-section/story-section';
 import Funding from '../../page-sections/covid19/funding';
 import Overview from '../../page-sections/covid19/overview';
-import Resources from '../../page-sections/covid19/resources';
+import Function from '../../page-sections/covid19/function';
 import Tracking from '../../page-sections/covid19/tracking';
 
 export default class Covid19 extends React.Component {
@@ -17,52 +17,45 @@ export default class Covid19 extends React.Component {
   sectionComponents = {
     Funding: Funding,
     Overview: Overview,
-    Resources: Resources,
+    Function: Function,
     Tracking: Tracking
   };
 
   sections = [
     {
-      section: 'Funding',
-      anchor: 'funding',
+      section: 'Function',
+      anchor: 'function',
       number: '01',
-      subtext: 'Funding subtext',
-      subblurb: 'Funding subblurb',
-      header: 'Funding header',
-      sectionTeaser: 'Funding teaser',
-      introBlurb: 'Funding intro blurb',
-      viztitle: 'Title for Funding viz',
-      tagName: 'Funding'
-    },
-    {
+      subtext: 'Function subtext',
+      subblurb: 'Function subblurb',
+      sectionTeaser: 'Function teaser',
+      introBlurb: 'Function intro blurb',
+      viztitle: 'Title for Function viz',
+      tagName: 'Function'
+    },    {
       section: 'Overview',
       anchor: 'overview',
       number: '02',
-      header: 'Overview header',
       subtext: 'Overview subtext',
       subblurb: 'Overview subblurb',
       sectionTeaser: 'Overview teaser',
       introBlurb: 'Overview intro blurb',
       viztitle: 'Title for Overview viz',
       tagName: 'Overview'
-    },
-    {
-      section: 'Resources',
-      anchor: 'resources',
+    },    {
+      section: 'Funding',
+      anchor: 'funding',
       number: '03',
-      header: 'Resources header',
-      subtext: 'Resources subtext',
-      subblurb: 'Resources subblurb',
-      sectionTeaser: 'Resources teaser',
-      introBlurb: 'Resources intro blurb',
-      viztitle: 'Title for Resources viz',
-      tagName: 'Resources'
-    },
-    {
+      subtext: 'Funding subtext',
+      subblurb: 'Funding subblurb',
+      sectionTeaser: 'Funding teaser',
+      introBlurb: 'Funding intro blurb',
+      viztitle: 'Title for Funding viz',
+      tagName: 'Funding'
+    },    {
       section: 'Tracking',
       anchor: 'tracking',
       number: '04',
-      header: 'Tracking header',
       subtext: 'Tracking subtext',
       subblurb: 'Tracking subblurb',
       sectionTeaser: 'Tracking teaser',
@@ -94,6 +87,5 @@ export default class Covid19 extends React.Component {
           </StorySection>
         );
       })}
-
     </StoryLayout>
 }
