@@ -25,6 +25,9 @@ export default class Covid19 extends React.Component {
     {
       section: 'Funding',
       anchor: 'funding',
+      number: '01',
+      subtext: 'Funding subtext',
+      subblurb: 'Funding subblurb',
       header: 'Funding header',
       sectionTeaser: 'Funding teaser',
       introBlurb: 'Funding intro blurb',
@@ -34,7 +37,10 @@ export default class Covid19 extends React.Component {
     {
       section: 'Overview',
       anchor: 'overview',
+      number: '02',
       header: 'Overview header',
+      subtext: 'Overview subtext',
+      subblurb: 'Overview subblurb',
       sectionTeaser: 'Overview teaser',
       introBlurb: 'Overview intro blurb',
       viztitle: 'Title for Overview viz',
@@ -43,7 +49,10 @@ export default class Covid19 extends React.Component {
     {
       section: 'Resources',
       anchor: 'resources',
+      number: '03',
       header: 'Resources header',
+      subtext: 'Resources subtext',
+      subblurb: 'Resources subblurb',
       sectionTeaser: 'Resources teaser',
       introBlurb: 'Resources intro blurb',
       viztitle: 'Title for Resources viz',
@@ -52,7 +61,10 @@ export default class Covid19 extends React.Component {
     {
       section: 'Tracking',
       anchor: 'tracking',
+      number: '04',
       header: 'Tracking header',
+      subtext: 'Tracking subtext',
+      subblurb: 'Tracking subblurb',
       sectionTeaser: 'Tracking teaser',
       introBlurb: 'Tracking intro blurb',
       viztitle: 'Title for Tracking viz',
@@ -64,6 +76,8 @@ export default class Covid19 extends React.Component {
     <StoryLayout
       title='required title'
       introSentence='required intro'
+			contextStatement='context statement'
+      sectionToc={this.sections}
       hwctaLink={this.props.location.pathname + '/methodologies'}
     >
       <SEO
