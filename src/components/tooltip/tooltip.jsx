@@ -1,21 +1,19 @@
 import React from 'react';
-import Popover from '@material-ui/core/Popover';
 import { withStyles } from '@material-ui/styles';
 import PropTypes from "prop-types"
 import styles from './tooltip.module.scss';
-import { Grid, Hidden } from "@material-ui/core";
 import CloseIcon from '@material-ui/icons/Close';
-
+import Popper from '@material-ui/core/Popper';
+import Fade from '@material-ui/core/Fade';
+import { Grid } from "@material-ui/core";
 
 const inlineStyles = () => ({
-  popover: {
-    pointerEvents: 'none',
-  },
   paper: {
     padding: '20px',
-    'background-color': 'rgba(255,255,255,.95)',
-    'border-radius': '0'
-  }
+    borderRadius: '0',
+    boxShadow: '0 2px 30px 0 rgba(0, 0, 0, 0.16)',
+    backgroundColor: 'rgba(255, 253, 253, 0.95)'
+  },
 });
 
 class MouseOverPopover extends React.Component {
@@ -24,90 +22,84 @@ class MouseOverPopover extends React.Component {
 
     this.state = {
       anchorEl: null,
-      openedPopoverId: null
+      openedPopperId: null
     }
+
+    this.button = {0: React.createRef()};
+
   }
 
   componentDidMount() {
     window.addEventListener('resize', this.handlePopoverClose);
-
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handlePopoverClose);
   }
 
-  handlePopoverOpen = (event, popoverId) => {
+  escHandler = (e) => {
+    if(e.keyCode === 27) {
+      this.handlePopoverClose()
+    }
+  }
+
+  isOpen = (id) => {
+    const { openedPopperId } = this.state;
+    return (openedPopperId === id);
+  }
+
+  handlePopoverOpen = (event, popperId) => {
     this.setState({
-      openedPopoverId: popoverId,
+      openedPopperId: popperId,
       anchorEl: event.currentTarget
     });
+
   };
 
   handlePopoverClose = () => {
-    console.log('close');
     this.setState({
-      openedPopoverId: null,
+      openedPopperId: null,
       anchorEl: null
     });
   };
 
-  isOpen = (id) => {
-    const { openedPopoverId } = this.state;
-    return (openedPopoverId === id);
-  }
-
   keyUpHandler = (e) => {
     if(e.keyCode === 13) {
       this.handlePopoverClose()
-      // need to call a function from the parent component to set focus to the correct element
     }
   }
 
   render() {
-    const { classes, title, id } = this.props;
-    const { anchorEl, openedPopoverId } = this.state;
+    const { classes, title, rows, id } = this.props;
+    const { anchorEl } = this.state;
 
     return (
-      <div className={styles.tooltip}>
-        <Popover
-          className={`mouse-over-popover ${classes.popover}`}
-          classes={{
-            paper: classes.paper
-          }}
-          open={this.isOpen(id)}
-          anchorEl={anchorEl}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'center',
-          }}
-          onClose={this.handlePopoverClose}
-          disableRestoreFocus
-        >
-
-          <Grid container direction='row'>
-          <div className={styles.title} onClick={this.handlePopoverClose}>
-            <span>{title}</span>
-            <span id="closeButton">
-              <CloseIcon tabIndex="0" className={styles.close} onClick={this.handlePopoverClose} onKeyUp={this.keyUpHandler} />
-            </span>
-          </div>
-          {this.props.rows.map((item, key) => {
-            return (
-              <Grid item key={`grid-item-${key}`} className={styles.container}>
-                <div className={styles.label}>{Object.keys(item)}</div>
-                <div className={styles.value}>{item[Object.keys(item)]}</div>
+      <>
+        <Popper id={id}
+                open={this.isOpen(id)}
+                anchorEl={anchorEl}
+                placement='bottom-end'
+                transition>
+          {({ TransitionProps }) => (
+            <Fade {...TransitionProps} timeout={350}>
+              <Grid container direction='row' className={classes.paper}>
+                <div className={styles.title} onClick={this.handlePopoverClose}>
+                  <span>{title}</span>
+                  <CloseIcon className={styles.close} onClick={this.handlePopoverClose} onKeyUp={this.keyUpHandler} />
+                </div>
+                {rows.map((item, key) => {
+                  return (<>
+                    <Grid item key={`grid-item-${key}`} className={styles.container}>
+                      <div className={styles.label} >{Object.keys(item)}</div>
+                      <div className={styles.value}>{item[Object.keys(item)]}</div>
+                    </Grid>
+                 </>)
+                })}
               </Grid>
-            )
-          })}
-          </Grid>
-
-        </Popover>
-      </div>
+            </Fade>
+          )}
+        </Popper>
+      </>
     );
   }
 }
