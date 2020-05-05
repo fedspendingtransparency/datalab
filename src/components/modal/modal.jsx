@@ -11,13 +11,15 @@ const inlineStyles = () => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: '5px'
   },
   paper: {
     padding: '20px',
     boxShadow: '0 2px 30px 0 rgba(0, 0, 0, 0.16)',
     backgroundColor: 'rgba(255, 253, 253, 0.95)',
-    width: 800,
-    height: 600
+    maxWidth: window.innerWidth * .70,
+    maxHeight: window.innerHeight * .80,
+    borderRadius: '5px'
   },
 });
 
@@ -27,8 +29,28 @@ class ModalReference extends React.Component {
 
     this.state = {
       open: false,
-      agency: null
+      agency: null,
+      width: window.innerWidth * .70,
+      height: window.innerHeight * .80
     }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  handleResize = () => {
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+
+    this.setState({
+      width: window.innerWidth * .70,
+      height: window.innerHeight * .80
+    })
   }
 
   handleOpen = (agencyName) => {
@@ -56,10 +78,12 @@ class ModalReference extends React.Component {
           timeout: 500,
         }}>
         <Fade in={open}>
-          <div className={classes.paper}>
+          <div className={classes.paper} style={{'max-width': this.state.width, 'max-height': this.state.height}}>
             <div onClick={this.handleClose}>X</div>
             <h2 id="transition-modal-title">{title}</h2>
-            {children}
+            <div style={{'overflow-y': 'scroll', 'max-height': this.state.height - 100, 'overflow-x': 'hidden'}}>
+              {children}
+            </div>
           </div>
         </Fade>
       </Modal>

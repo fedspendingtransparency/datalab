@@ -94,7 +94,6 @@ export default function Funding(props) {
       <div>Legend 2 placeholder</div>
 
       <ModalReference ref={myModal} title={agencyName}>
-        <div style={{'overflow-y': 'scroll'}}>
           <svg width='800' height='600'>
           {Object.keys(federalAccountsByAgency).length > 0 && agencyName && federalAccountsByAgency[agencyName].map((account, key) => {
             const yPos = key * 30 + (key + 1) * 15;
@@ -105,7 +104,6 @@ export default function Funding(props) {
                     </g>)
           })}
           </svg>
-        </div>
       </ModalReference>
 
       <Downloads
