@@ -1,42 +1,14 @@
 import React from 'react';
 import { graphql, useStaticQuery } from "gatsby";
 import { Grid } from '@material-ui/core';
-import Modal from '@material-ui/core/Modal';
-import { makeStyles } from '@material-ui/core/styles';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
 
 import AccordionList from "../../../components/accordion-list/accordion-list"
 import ControlBar from "../../../components/control-bar/control-bar"
 import Share from "../../../components/share/share"
 import Downloads from "../../../components/section-elements/downloads/downloads"
 import waffle from '../../../../static/images/waffle-placeholder.png'
+import ModalReference from 'src/components/modal/modal'
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: 'absolute',
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
 
 
 export default function Funding(props) {
@@ -52,26 +24,14 @@ export default function Funding(props) {
   `);
 
   const agencies = _data.allFundingAgencyAppropriationsCsv.nodes;
-  const classes = useStyles();
 
-  const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
-
-  const ModalRef = React.createRef();
+  const myModal = React.createRef();
 
   const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const onKeyUp = (e) => {
-    if(e.keyCode === 13) {
-      handleOpen();
+    if (myModal && myModal.current) {
+      myModal.current.handleOpen();
     }
-  }
+  };
 
   return (<>
       <h2 className='rd-viztitle'>{props.section.viztitle}</h2>
@@ -94,12 +54,12 @@ export default function Funding(props) {
         />
       </ControlBar>
 
-      <p>Legend</p>
+      <div>Legend placeholder</div>
 
       <Grid container spacing={3}>
         {agencies.map((agency, key) => {
           return (
-            <Grid item xs={6} md={3} lg={2} key={`agency-${key}`} tabIndex='0' onClick={handleOpen} onKeyUp={e => onKeyUp(e)}>
+            <Grid item xs={6} md={3} lg={2} key={`agency-${key}`} tabIndex='0' style={{'cursor': 'pointer'}} onClick={handleOpen}>
               <div style={{'height': '2.5rem'}}>{agency.Agency}</div>
               <img src={waffle} style={{'width': '100%'}} />
             </Grid>
@@ -107,27 +67,9 @@ export default function Funding(props) {
         })}
       </Grid>
 
-      <p>Legend 2</p>
+      <div>Legend 2 placeholder</div>
 
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
-            <p id="transition-modal-description">react-transition-group animates me.</p>
-          </div>
-        </Fade>
-      </Modal>
+      <ModalReference ref={myModal} />
 
       <Downloads
         href={'/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv'}
