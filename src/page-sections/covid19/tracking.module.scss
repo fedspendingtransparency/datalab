@@ -1,5 +1,42 @@
 @import "src/styles/variables.scss";
 
-.chartRow{
-  
+.bar-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: center;
+
+  .label {
+    flex-basis: 15%;
+  }
+
+  .bars {
+    flex-basis: 75%;
+
+    .obligated-bar {
+      display: inline-block;
+      background: purple;
+    }
+
+    .unobligated-bar {
+      display: inline-block;
+      background: lavender;
+    }
+
+    .bar-labels {
+      font-size: 1rem;
+      font-weight: bold;
+      position: relative;
+
+      .unobligation {
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+  .budget {
+    flex-basis: 10%;
+    text-align: right;
+  }
 }
