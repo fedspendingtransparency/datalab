@@ -4,7 +4,6 @@ import Backdrop from "@material-ui/core/Backdrop/Backdrop"
 import Fade from "@material-ui/core/Fade/Fade"
 import { withStyles } from "@material-ui/styles"
 import CloseIcon from "@material-ui/core/SvgIcon/SvgIcon"
-import styles from "../tooltip/tooltip.module.scss"
 
 const inlineStyles = () => ({
   modal: {
@@ -79,7 +78,7 @@ class ModalReference extends React.Component {
         }}>
         <Fade in={open}>
           <div className={classes.paper} style={{'max-width': this.state.width, 'max-height': this.state.height}}>
-            <div onClick={this.handleClose}>X</div>
+            <div onClick={this.handleClose}><CloseIcon/></div>
             <h2 id="transition-modal-title">{title}</h2>
             <div style={{'overflow-y': 'scroll', 'max-height': this.state.height - 100, 'overflow-x': 'hidden'}}>
               {children}
