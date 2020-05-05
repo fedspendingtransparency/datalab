@@ -22,12 +22,6 @@ import Grid from '@material-ui/core/Grid';
 export default class RdInContractingPage extends React.Component {
   constructor(props) {
     super(props);
-
-
-    console.log(JSON.stringify(cssVars));
-
-
-
   }
 
   whatIsContents = () =>
