@@ -30,8 +30,8 @@ export default function Tracking(props) {
 				<span className={styles.obligatedBar} style={{ width: `${i.Percent_Obligated}%` }}>&nbsp;</span>
 				<span className={styles.unobligatedBar} style={{ width: `${i.Percent_Unobligated}%` }}>&nbsp;</span>
 				<div className={styles.barLabels}>
-					{i.Percent_Obligated}%
-					<span className={styles.unobligation}>{i.Percent_Unobligated}%</span>
+					Obligated ({i.Percent_Obligated}%)
+					<span className={styles.unobligation}>Unobligated ({i.Percent_Unobligated}%)</span>
 				</div>
 			</div>
 			<div className={styles.budget}>{numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}</div>

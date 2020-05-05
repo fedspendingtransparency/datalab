@@ -1,17 +1,33 @@
 @import "src/styles/variables.scss";
 
+$chartBorder: thin solid;
+
 .bar-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-content: center;
 
+  & > * {
+    padding-top: 1rem;
+  }
+
   .label {
-    flex-basis: 15%;
+    flex-basis: 20%;
+    padding-right: 0.5rem;
+    border-right: $chartBorder;
   }
 
   .bars {
     flex-basis: 75%;
+
+    &:nth-child(2) {
+      border-top: $chartBorder;
+    }
+
+    &:nth-last-child(2) {
+      border-bottom: $chartBorder;
+    }
 
     .obligated-bar {
       display: inline-block;
@@ -23,9 +39,10 @@
       background: lavender;
     }
 
-    .bar-labels {
-      font-size: 1rem;
-      font-weight: bold;
+    .bar-labels,
+    .bar-labels span {
+      font-size: 0.75rem;
+      margin: 0 0.25rem;
       position: relative;
 
       .unobligation {
@@ -36,7 +53,9 @@
   }
 
   .budget {
-    flex-basis: 10%;
+    flex-basis: 5%;
     text-align: right;
+    white-space: nowrap;
+    border-left: $chartBorder;
   }
 }
