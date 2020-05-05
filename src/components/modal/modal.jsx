@@ -3,7 +3,8 @@ import Modal from "@material-ui/core/Modal/Modal"
 import Backdrop from "@material-ui/core/Backdrop/Backdrop"
 import Fade from "@material-ui/core/Fade/Fade"
 import { withStyles } from "@material-ui/styles"
-import CloseIcon from "@material-ui/core/SvgIcon/SvgIcon"
+import CloseIcon from '@material-ui/icons/Close'
+import styles from 'src/components/tooltip/tooltip.module.scss'
 
 const inlineStyles = () => ({
   modal: {
@@ -60,6 +61,12 @@ class ModalReference extends React.Component {
     this.setState({open: false});
   };
 
+  keyUpHandler = (e) => {
+    if(e.keyCode === 13) {
+      this.handleClose()
+    }
+  }
+
   render() {
     const { classes, children, title } = this.props;
     const { open } = this.state;
@@ -77,10 +84,13 @@ class ModalReference extends React.Component {
           timeout: 500,
         }}>
         <Fade in={open}>
-          <div className={classes.paper} style={{'max-width': this.state.width, 'max-height': this.state.height}}>
-            <div onClick={this.handleClose}><CloseIcon/></div>
-            <h2 id="transition-modal-title">{title}</h2>
-            <div style={{'overflow-y': 'scroll', 'max-height': this.state.height - 100, 'overflow-x': 'hidden'}}>
+          <div className={classes.paper} style={{'maxWidth': this.state.width, 'maxHeight': this.state.height}}>
+            <div className={styles.title}>
+              <span>{title}</span>
+              <CloseIcon className={styles.close} tabIndex='0' onClick={this.handleClose} onKeyUp={e => this.keyUpHandler(e)} />
+            </div>
+
+            <div style={{'overflowY': 'scroll', 'maxHeight': this.state.height - 120, 'overflowX': 'hidden'}}>
               {children}
             </div>
           </div>
