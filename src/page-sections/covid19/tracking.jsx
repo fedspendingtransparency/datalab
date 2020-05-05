@@ -16,7 +16,8 @@ export default function Tracking(props) {
         nodes {
           Agency
           Total_Budgetary_Authority
-          Percent_Obligated
+          Percent_Outlay
+					Percent_Obligated
           Percent_Unobligated
         }
       }
@@ -27,21 +28,23 @@ export default function Tracking(props) {
 		const table = data.main.nodes.map(i => <>
 			<div className={styles.label}>{i.Agency}</div>
 			<div className={styles.bars}>
-				<span className={styles.obligatedBar} style={{ width: `${i.Percent_Obligated}%` }}>&nbsp;</span>
+			<span className={styles.outlayBar} style={{ width: `${i.Percent_Outlay}%` }}>&nbsp;</span>
+			<span className={styles.obligatedBar} style={{ width: `${i.Percent_Obligated}%` }}>&nbsp;</span>
 				<span className={styles.unobligatedBar} style={{ width: `${i.Percent_Unobligated}%` }}>&nbsp;</span>
 				<div className={styles.barLabels}>
-					Obligated ({i.Percent_Obligated}%)
-					<span className={styles.unobligation}>Unobligated ({i.Percent_Unobligated}%)</span>
+					<div>Outlay ({i.Percent_Outlay}%)</div>
+					<div>Obligated ({i.Percent_Obligated}%)</div>
+					<div>Unobligated ({i.Percent_Unobligated}%)</div>
 				</div>
 			</div>
 			<div className={styles.budget}>{numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}</div>
 		</>);
 
-		return <div>
+		return (
 			<div className={styles.barContainer}>
 				{table}
 			</div>
-		</div>;
+		);
 	}
 
 	return <>

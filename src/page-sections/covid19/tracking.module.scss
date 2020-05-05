@@ -29,9 +29,14 @@ $chartBorder: thin solid;
       border-bottom: $chartBorder;
     }
 
-    .obligated-bar {
+    .outlay-bar {
       display: inline-block;
       background: purple;
+    }
+
+    .obligated-bar {
+      display: inline-block;
+      background: pink;
     }
 
     .unobligated-bar {
@@ -39,16 +44,11 @@ $chartBorder: thin solid;
       background: lavender;
     }
 
-    .bar-labels,
-    .bar-labels span {
+    .bar-labels {
+      display: flex;
+      justify-content: space-between;
       font-size: 0.75rem;
       margin: 0 0.25rem;
-      position: relative;
-
-      .unobligation {
-        position: absolute;
-        right: 0;
-      }
     }
   }
 
