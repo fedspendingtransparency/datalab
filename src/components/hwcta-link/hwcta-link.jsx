@@ -28,13 +28,16 @@ export default class HWCTALink extends React.Component {
   hoverStyle = hovering => this.setState({ linkStyle: (hovering ? { color: this.props.pageColor } : {}) });
 
   render = () => (
-    <div className={`${styles.hwcta} ${(this.props._mainClass || '')}`}>
+    <div
+      className={`${styles.hwcta} ${(this.props._mainClass || '')}`}
+      onMouseOver={() => this.hoverStyle(true)} onMouseOut={() => this.hoverStyle(false)}
+    >
       <Link to={this.props.url.replace(/\/\//g, '/')}>
         <Grid container alignItems='center'>
           <Grid item className={styles.icon}>
             <Sources fillColor={this.props.pageColor} />
           </Grid>
-          <Grid item style={this.state.linkStyle} onMouseOver={() => this.hoverStyle(true)} onMouseOut={() => this.hoverStyle(false)}>
+          <Grid item style={this.state.linkStyle}>
             Data Sources and{' '}
             <Hidden mdUp>
               <br />
