@@ -121,28 +121,6 @@ export default class SpendingChart extends React.Component {
     this.setState({ showDetails: false });
   }
 
-  /* We have to layer the popup over the svg 
-    with position absolute. This can get a bit messy.
-    We want to offset the chart where it doesn't overlay the axis
-    so we'll use these checkers to shift it over on certain sizes.
-  */
-
-  /* Tablet Checker */
-  tabletChecker = () => {
-    if (this.state.bWidth <= 780) {
-      return '33%';
-    } else if (this.state.bWidth <= 675) {
-      return '28%';
-    };
-  }
-
-  /* Desktop Inline Style Checker */
-  desktopChecker = () => {
-    if (this.state.bWidth <= 1000) {
-      return '35%';
-    } 
-  }
-
   instructions = () => (
     <AccordionList title='Instructions'>
       <ul>
@@ -166,21 +144,20 @@ export default class SpendingChart extends React.Component {
   );
 
   render() {
-    let bWidth = this.state.bWidth;
-    let isTabletSvg = bWidth <= 768 && bWidth >= 576;
-    let isMobileSvg = bWidth <= 576;
-    let largestSvg = bWidth >= 769;
+    const { bWidth } = this.state;
+    const isTabletSvg = bWidth <= 768 && bWidth >= 576;
+    const isMobileSvg = bWidth <= 576;
+    const largestSvg = bWidth >= 769;
 
-    let tabletVal = this.tabletChecker();
-    let desktopVal = this.desktopChecker();
+    const tabletPopupStyle = {
+      width: 350,
+      right: '7.5%',
+      top: '10%'
+    }
 
-    let tabletPopupStyle = {
-      left: tabletVal
-    };
+    const desktopPopupStyle = {};
 
-    let desktopPopupStyle = {
-      left: desktopVal
-    };
+    if (bWidth <= 1000) desktopPopupStyle.top = '18%'
 
     if (isTabletSvg) {
       return (<>
