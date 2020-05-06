@@ -25,10 +25,22 @@ class ModalReference extends React.Component {
   constructor(props) {
     super(props);
 
+    const windowWidth = function() {
+      if (typeof window !== 'undefined') {
+        return window.innerWidth * .70;
+      }
+    };
+
+    const windowHeight = function() {
+      if (typeof window !== 'undefined') {
+        return window.innerHeight * .80 - 120;
+      }
+    };
+
     this.state = {
       open: false,
-      maxWidth: this.props.maxWidth ? window.innerWidth * .70 : null,
-      maxHeight: this.props.maxHeight ? window.innerHeight * .80 - 120 : null
+      maxWidth: this.props.maxWidth ? windowWidth : null,
+      maxHeight: this.props.maxHeight ? windowHeight : null
     }
   }
 

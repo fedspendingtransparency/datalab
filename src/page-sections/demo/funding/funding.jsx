@@ -59,15 +59,20 @@ export default function Funding(props) {
 
   const BarChart = () => {
 
+    const windowWidth = function() {
+      if (typeof window !== 'undefined') {
+        return window.innerWidth || 1000;
+      }
+    }
     const container = {
       overflowX: 'hidden',
-      width: window.innerWidth * .7,
+      width: windowWidth * .7,
       marginRight: '20px'
     }
 
     const barContainerStyles = {
       marginBottom: '16px',
-      width: window.innerWidth * .8,
+      width: windowWidth * .8,
     }
 
     const faStyles = {
@@ -88,7 +93,7 @@ export default function Funding(props) {
         const width = account.Total_Budgetary_Authority / maxTotal;
 
         const barStyles = {
-          width: window.innerWidth * .7 * width * .6,
+          width: windowWidth * .7 * width * .6,
           float: 'left',
           height: '2.5rem',
           backgroundColor: 'lightblue',
