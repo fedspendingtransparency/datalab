@@ -4,7 +4,7 @@ import Backdrop from "@material-ui/core/Backdrop/Backdrop"
 import Fade from "@material-ui/core/Fade/Fade"
 import { withStyles } from "@material-ui/styles"
 import CloseIcon from '@material-ui/icons/Close'
-import styles from 'src/components/tooltip/tooltip.module.scss'
+import styles from './modal.module.scss'
 
 const inlineStyles = () => ({
   modal: {
@@ -17,8 +17,6 @@ const inlineStyles = () => ({
     padding: '20px',
     boxShadow: '0 2px 30px 0 rgba(0, 0, 0, 0.16)',
     backgroundColor: 'rgba(255, 253, 253, 0.95)',
-    maxWidth: window.innerWidth * .70,
-    maxHeight: window.innerHeight * .80,
     borderRadius: '5px'
   },
 });
@@ -29,9 +27,8 @@ class ModalReference extends React.Component {
 
     this.state = {
       open: false,
-      agency: null,
-      width: window.innerWidth * .70,
-      height: window.innerHeight * .80
+      maxWidth: this.props.maxWidth ? window.innerWidth * .70 : null,
+      maxHeight: this.props.maxHeight ? window.innerHeight * .80 - 120 : null
     }
   }
 
@@ -44,17 +41,14 @@ class ModalReference extends React.Component {
   }
 
   handleResize = () => {
-    console.log(window.innerWidth);
-    console.log(window.innerHeight);
-
     this.setState({
-      width: window.innerWidth * .70,
-      height: window.innerHeight * .80
+      maxWidth: window.innerWidth * .70,
+      maxHeight: window.innerHeight * .80
     })
   }
 
-  handleOpen = (agencyName) => {
-    this.setState({open: true, agency: agencyName});
+  handleOpen = () => {
+    this.setState({open: true});
   };
 
   handleClose = () => {
@@ -82,15 +76,15 @@ class ModalReference extends React.Component {
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
-        }}>
+        }}
+      >
         <Fade in={open}>
-          <div className={classes.paper} style={{'maxWidth': this.state.width, 'maxHeight': this.state.height}}>
+          <div className={classes.paper}>
             <div className={styles.title}>
               <span>{title}</span>
               <CloseIcon className={styles.close} tabIndex='0' onClick={this.handleClose} onKeyUp={e => this.keyUpHandler(e)} />
             </div>
-
-            <div style={{'overflowY': 'scroll', 'maxHeight': this.state.height - 120, 'overflowX': 'hidden'}}>
+            <div className={styles.content} style={{'maxWidth': this.state.maxWidth, 'maxHeight': this.state.maxHeight}}>
               {children}
             </div>
           </div>

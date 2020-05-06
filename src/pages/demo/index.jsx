@@ -1,14 +1,12 @@
 import React from 'react';
-import styles from './styles.module.scss';
 
 import StoryLayout from '../../components/layouts/story/story';
 import SEO from '../../components/seo';
 import StorySection from 'src/components/section-elements/story-section/story-section';
-import Function from '../../page-sections/covid19/function';
-import Overview from '../../page-sections/covid19/overview';
-import Funding from '../../page-sections/covid19/funding/funding';
-import Tracking from '../../page-sections/covid19/tracking';
-import { graphql } from "gatsby"
+import Function from '../../page-sections/demo/function';
+import Overview from '../../page-sections/demo/overview';
+import Funding from '../../page-sections/demo/funding/funding';
+import Tracking from '../../page-sections/demo/tracking';
 
 export default class Covid19 extends React.Component {
   constructor(props) {

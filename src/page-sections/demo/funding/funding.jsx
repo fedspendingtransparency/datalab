@@ -8,6 +8,8 @@ import Share from "../../../components/share/share"
 import Downloads from "../../../components/section-elements/downloads/downloads"
 import waffle from '../../../../static/images/waffle-placeholder.png'
 import ModalReference from 'src/components/modal/modal'
+import NumberFormatter from 'src/utils/number-formatter'
+import './funding.scss'
 
 export default function Funding(props) {
 
@@ -18,7 +20,7 @@ export default function Funding(props) {
           Agency
         }
       },
-      allFundingFederalAccountAppropriationsCsv(sort: {order: DESC, fields: Total_Budgetary_Authority}) {
+      allFundingFederalAccountAppropriationsCsv {
         group(field: Agency) {
             fieldValue
             nodes {
@@ -37,10 +39,8 @@ export default function Funding(props) {
   const federalAccountsByAgency = {};
 
   federalAccounts.forEach((item) => {
-    federalAccountsByAgency[item.fieldValue] = item.nodes;
+    federalAccountsByAgency[item.fieldValue] = item.nodes.sort(function(a, b){return b.Total_Budgetary_Authority - a.Total_Budgetary_Authority});
   })
-
-  console.log(federalAccountsByAgency);
 
   const myModal = React.createRef();
 
@@ -56,6 +56,57 @@ export default function Funding(props) {
       myModal.current.handleOpen(agencyName);
     }
   };
+
+  const BarChart = () => {
+
+    const container = {
+      overflowX: 'hidden',
+      width: window.innerWidth * .7
+    }
+
+    const barContainerStyles = {
+      marginBottom: '16px',
+      width: window.innerWidth * .8,
+    }
+
+    const faStyles = {
+      fontSize: '16px',
+      margin: '0',
+      lineHeight: '16px'
+    }
+
+    const amountStyles = {
+      fontSize: '12px',
+      margin: '0',
+      lineHeight: '12px'
+    }
+
+    return (<div style={container}>
+      <h2>Federal Account Breakdown in Agency</h2>
+      {Object.keys(federalAccountsByAgency).length > 0 && agencyName && federalAccountsByAgency[agencyName].map((account, key) => {
+        const width = account.Total_Budgetary_Authority / maxTotal;
+
+        const barStyles = {
+          width: window.innerWidth * .7 * width * .6,
+          float: 'left',
+          height: '2.5rem',
+          backgroundColor: 'lightblue',
+          marginRight: '8px'
+        }
+
+        return (<div className='barContainer' key={key} style={barContainerStyles}>
+          <div style={barStyles}></div>
+          <div className='text'>
+            <p style={faStyles}>{account.Account_Name.substring(0, 100)} </p>
+            <p style={amountStyles}>
+              <span>{NumberFormatter('dollars suffix', account.Total_Budgetary_Authority)} </span>
+              <span>({NumberFormatter('percent', width)})</span>
+            </p>
+          </div>
+        </div>)
+      })}
+    </div>);
+  }
 
   return (<>
       <h2 className='rd-viztitle'>{props.section.viztitle}</h2>
@@ -78,8 +129,6 @@ export default function Funding(props) {
         />
       </ControlBar>
 
-      <div>Legend placeholder</div>
-
       <Grid container spacing={3}>
         {agencies.map((agency, key) => {
           return (
@@ -91,19 +140,8 @@ export default function Funding(props) {
         })}
       </Grid>
 
-      <div>Legend 2 placeholder</div>
-
-      <ModalReference ref={myModal} title={agencyName}>
-          <svg width='800' height='600'>
-          {Object.keys(federalAccountsByAgency).length > 0 && agencyName && federalAccountsByAgency[agencyName].map((account, key) => {
-            const yPos = key * 30 + (key + 1) * 15;
-            const width = account.Total_Budgetary_Authority / maxTotal * 100;
-            return (<g key={key}>
-                      <text x='0' y={yPos} font="16px sans-serif">{account.Account_Name} | {account.Total_Budgetary_Authority}</text>
-                      <rect fill="lightblue" height='30' width={width} x='0' y={yPos}></rect>
-                    </g>)
-          })}
-          </svg>
+      <ModalReference ref={myModal} title={agencyName} maxWidth={false} maxHeight={true}>
+        <BarChart />
       </ModalReference>
 
       <Downloads
