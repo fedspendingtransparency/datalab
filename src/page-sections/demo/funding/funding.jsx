@@ -61,7 +61,8 @@ export default function Funding(props) {
 
     const container = {
       overflowX: 'hidden',
-      width: window.innerWidth * .7
+      width: window.innerWidth * .7,
+      marginRight: '20px'
     }
 
     const barContainerStyles = {
