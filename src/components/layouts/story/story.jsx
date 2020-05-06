@@ -30,6 +30,7 @@ const StoryLayout = (props) => {
         </Grid>
       </Grid>;
 
+
     toc = props.sectionToc ? <Toc sections={props.sectionToc} /> : <></>;
   }
 
@@ -41,7 +42,7 @@ const StoryLayout = (props) => {
         {props.children}
 
         <div className={styles.hwcta}>
-        <HwctaLink url={props.hwctaLink || '#'} pageColor={props.pageColor} />
+          <HwctaLink url={props.hwctaLink || '#'} />
         </div>
         <MoreAnalyses />
       </div>
@@ -55,7 +56,6 @@ StoryLayout.propTypes = {
   title: PropTypes.string.isRequired,
   introSentence: PropTypes.string.isRequired,
   hwctaLink: PropTypes.string.isRequired,
-  pageColor: PropTypes.string,
   contextStatement: PropTypes.string,
   toc: PropTypes.array
 }

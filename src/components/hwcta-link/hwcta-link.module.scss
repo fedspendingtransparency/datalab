@@ -6,15 +6,6 @@
   font-size: 2rem;
   font-weight: 300;
 
-  a:hover div {
-    text-decoration: underline;
-    color: currentColor;
-  }
-
-  a:visited {
-    color: currentColor;
-  }
-
   .icon {
     line-height: 0;
     padding-right: 1rem;
@@ -25,14 +16,18 @@
   }
 }
 
+.hwcta:hover {
+  text-decoration: underline;
+};
+
 @media (max-width: $tablet - 1) {
   .hwcta {
     margin-top: $margin-30;
     margin-bottom: $margin-30;
     font-size: 1.7rem;
+  }
 
-    .icon {
-      display: none;
-    }
+  .icon {
+    display: none;
   }
 }
