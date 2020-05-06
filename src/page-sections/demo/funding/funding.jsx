@@ -59,11 +59,14 @@ export default function Funding(props) {
 
   const BarChart = () => {
 
-    const windowWidth = function() {
+    const windowWidth = (function() {
       if (typeof window !== 'undefined') {
-        return window.innerWidth || 1000;
+        return window.innerWidth;
       }
-    }
+
+      return 1000;
+    })();
+
     const container = {
       overflowX: 'hidden',
       width: windowWidth * .7,
@@ -86,7 +89,7 @@ export default function Funding(props) {
       margin: '0',
       lineHeight: '12px'
     }
-
+    
     return (<div style={container}>
       <h2>Federal Account Breakdown in Agency</h2>
       {Object.keys(federalAccountsByAgency).length > 0 && agencyName && federalAccountsByAgency[agencyName].map((account, key) => {
