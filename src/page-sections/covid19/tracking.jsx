@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styles from './tracking.module.scss';
 
@@ -25,12 +25,13 @@ export default function Tracking(props) {
   `);
 
 	const mainChart = () => {
-		const table = data.main.nodes.map(i => <>
+		const table = data.main.nodes.map((i, key) => <>
 			<div className={styles.label}>{i.Agency}</div>
 			<div className={styles.bars}>
 				<span className={styles.outlayBar} style={{ width: `${i.Percent_Outlay}%` }}>&nbsp;</span>
 				<span className={styles.obligatedBar} style={{ width: `${i.Percent_Obligated}%` }}>&nbsp;</span>
 				<span className={styles.unobligatedBar} style={{ width: `${i.Percent_Unobligated}%` }}>&nbsp;</span>
+				<canvas id={`callout-${key}`} height={5} width='100%'></canvas>
 				<div className={styles.barLabels}>
 					<div className={styles.outlayLabel} style={{ width: `${i.Percent_Outlay}%` }}>Outlay ({i.Percent_Outlay}%)</div>
 					<div className={styles.obligatedLabel}>Obligated ({i.Percent_Obligated}%)</div>
@@ -46,6 +47,18 @@ export default function Tracking(props) {
 			</div>
 		);
 	}
+
+	useEffect(() => {
+		const ctx = document.getElementById('callout-0').getContext('2d');
+		ctx.lineWidth = 1;
+		ctx.strokeStyle = 'black';
+		ctx.beginPath();
+		ctx.moveTo(10, 0);
+		ctx.lineTo(10, 3);
+		ctx.lineTo(10, 20);
+		ctx.lineTo(20, 5);
+		ctx.stroke();
+	});
 
 	return <>
 		<AccordionList title='Instructions'>
