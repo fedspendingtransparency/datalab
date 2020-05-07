@@ -117,7 +117,7 @@ export default class RdInContractingPage extends React.Component {
           {this.secBlurbs[0]}
         {/* </Hidden>
         <Hidden mdUp>
-          <ReadMore maxHeight={1000} linkColor={cssVars.rdBlue}>
+          <ReadMore maxHeight={1000} toggleColor={cssVars.rdBlue}>
             {this.secBlurbs[0]}
           </ReadMore>
         </Hidden> */}
@@ -135,7 +135,7 @@ export default class RdInContractingPage extends React.Component {
           {this.secBlurbs[1]}
         </Hidden>
         <Hidden mdUp>
-          <ReadMore maxHeight={450} linkColor={cssVars.rdBlue}>
+          <ReadMore maxHeight={450} toggleColor={cssVars.rdBlue}>
             {this.secBlurbs[1]}
           </ReadMore>
         </Hidden>
@@ -153,7 +153,7 @@ export default class RdInContractingPage extends React.Component {
           {this.secBlurbs[2]}
         </Hidden>
         <Hidden mdUp>
-          <ReadMore maxHeight={650} linkColor={cssVars.rdBlue}>
+          <ReadMore maxHeight={650} toggleColor={cssVars.rdBlue}>
             {this.secBlurbs[2]}
           </ReadMore>
         </Hidden>

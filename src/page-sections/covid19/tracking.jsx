@@ -6,6 +6,7 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter';
+import ReadMore from 'src/components/read-more/read-more'
 import Share from 'src/components/share/share';
 
 export default function Tracking(props) {
@@ -42,7 +43,14 @@ export default function Tracking(props) {
 
 		return (
 			<div className={styles.barContainer}>
-				{table}
+				<ReadMore
+					maxHeight={2500}
+					collapsedHeight={575}
+					expandText='See More'
+					collapseText='Show Less'
+				>
+					{table}
+				</ReadMore>
 			</div>
 		);
 	}

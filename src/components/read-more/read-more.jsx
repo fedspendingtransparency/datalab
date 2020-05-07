@@ -7,7 +7,7 @@ export default class ReadMore extends React.Component {
   /*
     Notes on props:
     maxHeight: height in px for absolute maximum container size; used for CSS transition
-    linkColor: color of link text (defaults to legacy blue)
+    toggleColor: color of toggle link (defaults to legacy blue)
     expandText: text to indicate expandible
     collapseText: replacement text when expanded
     collapsedHeight: total container height when collapsed
@@ -17,15 +17,15 @@ export default class ReadMore extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     maxHeight: PropTypes.number.isRequired,
-    linkColor: PropTypes.string,
+    collapsedHeight: PropTypes.number,
+    toggleColor: PropTypes.string,
     expandText: PropTypes.string,
     collapseText: PropTypes.string,
-    collapsedHeight: PropTypes.string,
     animation: PropTypes.string
   };
 
   static defaultProps = {
-    linkColor: cssVars.legacyBlue,
+    toggleColor: cssVars.legacyBlue,
     expandText: 'Read more...',
     collapseText: 'Read less...',
     collapsedHeight: '6rem',
@@ -46,7 +46,7 @@ export default class ReadMore extends React.Component {
   render = () => {
     const inlineStyle = {
       'maxHeight': this.state.isOpen ? this.state.clientHeight : this.props.collapsedHeight,
-      'overflow-y': 'hidden',
+      'overflowY': 'hidden',
       'transition': 'max-height ' + this.props.animation
     };
     return (
@@ -56,7 +56,7 @@ export default class ReadMore extends React.Component {
         </div>
         <button
           className={styles.button}
-          style={{ color: this.props.linkColor }}
+          style={{ color: this.props.toggleColor }}
           onClick={() => { this.toggleReadMore() }}
         >
           {this.state.isOpen ? this.props.collapseText : this.props.expandText}
