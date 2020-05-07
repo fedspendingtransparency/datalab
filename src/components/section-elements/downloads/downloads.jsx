@@ -38,6 +38,11 @@ const Downloads = (props) => {
       ':hover': {
         color: styleVariables.studentToolboxBlue
       }
+    },
+    'covid19': {
+      ':hover': {
+        color: styleVariables.covidPurple
+      }
     }
   };
 
@@ -74,7 +79,7 @@ const Downloads = (props) => {
     <Grid
       container
       alignItems="flex-start"
-      justify="flex-end"
+      justify={props.justify || "flex-end"}
       direction="row"
       className={downloadsStyles.download}
     >

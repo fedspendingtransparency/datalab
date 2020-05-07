@@ -5,6 +5,7 @@ import covidStyles from './covid.module.scss';
 
 import { Grid } from "@material-ui/core";
 import Share from '../../components/share/share';
+import Downloads from '../../components/section-elements/downloads/downloads';
 
 import DesktopXLChart from '../../svgs/covid19/overview/desktop-xl-chart.svg';
 import DesktopChart from '../../svgs/covid19/overview/desktop-chart.svg';
@@ -75,13 +76,9 @@ const Overview = (props) => {
             <MobileChartC />
           </Grid>
         </Grid>
-        <Grid container justify='center'>
-          <Grid item>
-            <div className={covidStyles.updatedDate}>
-              Updated as of May 2020
-            </div>
-          </Grid>
-        </Grid>
+        <div className={covidStyles.updatedDate}>
+          <Downloads justify='center' date='May 2020' />
+        </div>
       </>
     ) : (
       <>
@@ -91,13 +88,9 @@ const Overview = (props) => {
           {outlaysSection}
         </Grid>
         {chartComponent}
-        <Grid container justify='flex-end'>
-          <Grid item>
-            <div className={covidStyles.updatedDate}>
-              Updated as of May 2020
-            </div>
-          </Grid>
-        </Grid>
+        <div className={covidStyles.updatedDate}>
+          <Downloads date='May 2020' />
+        </div>
       </>
     )
 
