@@ -15,12 +15,14 @@ import MobileChartB from '../../svgs/covid19/overview/mobile-chart-b.svg';
 import MobileChartC from '../../svgs/covid19/overview/mobile-chart-c.svg';
 
 const Overview = (props) => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
 
   useEffect(() => {
-    const handleResize = () => setScreenWidth(window.innerWidth)
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    if (typeof window !== 'undefined') {
+      const handleResize = () => setScreenWidth(window.innerWidth)
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }
   })
 
   const appropriationsSection = (

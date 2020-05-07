@@ -4,12 +4,14 @@ import { Grid, Hidden } from '@material-ui/core';
 import ReadMore from '../../read-more/read-more';
 
 const StorySectionHeading = (props) => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
 
   useEffect(() => {
-    const handleResize = () => setScreenWidth(window.innerWidth)
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    if (typeof window !== 'undefined') {
+      const handleResize = () => setScreenWidth(window.innerWidth)
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }
   })
 
   function NumberItem () {
