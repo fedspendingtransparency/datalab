@@ -50,7 +50,7 @@ export default class ReadMore extends React.Component {
       'transition': 'max-height ' + this.props.animation
     };
     return (
-      <div>
+      <>
         <div style={inlineStyle}>
           {this.props.children}
         </div>
@@ -61,7 +61,7 @@ export default class ReadMore extends React.Component {
         >
           {this.state.isOpen ? this.props.collapseText : this.props.expandText}
         </button>
-      </div>
+      </>
     );
   };
 }
