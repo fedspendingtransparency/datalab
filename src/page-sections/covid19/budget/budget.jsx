@@ -21,23 +21,28 @@ export default function Budget(props) {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-    document.getElementById('Less-than-$2-B').addEventListener('click', function() {
-      console.log('click')
-      togglePopup();
+    window.addEventListener('click', function() {
+      closePopup();
+    });
 
-
-    })
+    document.getElementById('Less-than-$2-B').addEventListener('click', e => togglePopup(e));
     // window.addEventListener('keyup', e => onEsc(e));
+
+    document.getElementById('covid19-pop-up').addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
 
     return () => {
       window.removeEventListener('resize', handleResize);
       document.getElementById('Less-than-$2-B').removeEventListener('click', function() {
         console.log('click')
       })
+
     }
   });
 
-  function togglePopup() {
+  function togglePopup(e) {
+    e.stopPropagation();
     // save is open as state
     const isOpen = document.getElementsByClassName('active');
     if(isOpen.length > 0) {
@@ -45,6 +50,10 @@ export default function Budget(props) {
     } else {
       document.getElementById('pop-up').classList.add('active');
     }
+  }
+
+  function closePopup() {
+    document.getElementById('pop-up').classList.remove('active');
   }
 
   function handleResize() {
@@ -104,7 +113,7 @@ export default function Budget(props) {
     <div className="chart-container">
       <Chart />
       <div id="pop-up">
-        <div className={tooltipStyles.title}>Blah blah<CloseIcon onClick={togglePopup} onKeyUp={e => onKeyup(e)} /></div>
+        <div className={tooltipStyles.title} onClick={e => togglePopup(e)} onKeyUp={e => onKeyup(e)}>Blah blah<CloseIcon  /></div>
         <Popup />
       </div>
     </div>
