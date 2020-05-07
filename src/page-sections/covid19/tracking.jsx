@@ -42,16 +42,16 @@ export default function Tracking(props) {
 		</>);
 
 		return (
-			<div className={styles.barContainer}>
-				<ReadMore
-					maxHeight={2500}
-					collapsedHeight={575}
-					expandText='See More'
-					collapseText='Show Less'
-				>
+			<ReadMore
+				maxHeight={2500}
+				collapsedHeight={575} // top 10 bars
+				expandText='See More'
+				collapseText='Show Less'
+			>
+				<div className={styles.barContainer}>
 					{table}
-				</ReadMore>
-			</div>
+				</div>
+			</ReadMore>
 		);
 	}
 
