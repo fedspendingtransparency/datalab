@@ -41,12 +41,18 @@ export default function Tracking(props) {
 			<div className={styles.budget}>{numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}</div>
 		</>);
 
+		const readMoreStyle = {
+			width: '100%',
+			color: 'purple'
+		};
+
 		return (
 			<ReadMore
 				maxHeight={2500}
 				collapsedHeight={575} // top 10 bars
 				expandText='See More'
 				collapseText='Show Less'
+				buttonStyle={readMoreStyle}
 			>
 				<div className={styles.barContainer}>
 					{table}
