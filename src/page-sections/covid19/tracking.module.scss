@@ -31,17 +31,17 @@ $budget-width: 4rem;
 
     .outlay-bar {
       display: inline-block;
-      background: purple;
+      background: darken($color: $covidColor, 50%);
     }
 
     .obligated-bar {
       display: inline-block;
-      background: pink;
+      background: $covidColor;
     }
 
     .unobligated-bar {
       display: inline-block;
-      background: lavender;
+      background: lighten($color: $covidColor, 50%);
     }
 
     .bar-labels {
