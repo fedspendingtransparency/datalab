@@ -4,9 +4,8 @@ import styles from './styles.module.scss';
 import StoryLayout from '../../components/layouts/story/story';
 import SEO from '../../components/seo';
 import StorySection from 'src/components/section-elements/story-section/story-section';
-import Function from '../../page-sections/covid19/function';
+import Function from '../../page-sections/covid19/budget/budget';
 import Overview from '../../page-sections/covid19/overview';
-import Funding from '../../page-sections/covid19/funding';
 import Tracking from '../../page-sections/covid19/tracking';
 
 export default class Covid19 extends React.Component {
@@ -15,7 +14,6 @@ export default class Covid19 extends React.Component {
   }
 
   sectionComponents = {
-    Funding: Funding,
     Overview: Overview,
     Function: Function,
     Tracking: Tracking
@@ -43,20 +41,11 @@ export default class Covid19 extends React.Component {
       introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
       viztitle: 'Title for Overview viz',
       tagName: 'Overview'
-    },    {
-      section: 'Funding',
-      anchor: 'funding',
-      number: '03',
-      subtext: 'Funding subtext',
-      subblurb: 'Funding subblurb',
-      sectionTeaser: 'Funding teaser',
-      introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
-      viztitle: 'Title for Funding viz',
-      tagName: 'Funding'
-    },    {
+    },
+    {
       section: 'Tracking',
       anchor: 'tracking',
-      number: '04',
+      number: '03',
       subtext: 'Tracking subtext',
       subblurb: 'Tracking subblurb',
       sectionTeaser: 'Tracking teaser',

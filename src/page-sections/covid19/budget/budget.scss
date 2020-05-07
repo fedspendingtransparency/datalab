@@ -1,0 +1,26 @@
+.chart-container {
+  position: relative;
+
+  .budgetSvg {
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  #pop-up {
+    position: absolute;
+    box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.16);
+    background-color: rgba(255, 253, 253, 0.95);
+    z-index: 10;
+    top: 0;
+    right: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.25s linear;
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
