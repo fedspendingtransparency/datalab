@@ -63,20 +63,24 @@ const Overview = (props) => {
       <>
         <Grid container>
           {appropriationsSection}
-          <div className={covidStyles.overviewMobileSvgContainer}>
+          <Grid item className={covidStyles.overviewMobileSvgContainer}>
             <MobileChartA />
-          </div>
+          </Grid>
           {obligationsSection}
-          <div className={covidStyles.overviewMobileSvgContainer}>
+          <Grid item className={covidStyles.overviewMobileSvgContainer}>
             <MobileChartB />
-          </div>
+          </Grid>
           {outlaysSection}
-          <div className={covidStyles.overviewMobileSvgContainer}>
+          <Grid item className={covidStyles.overviewMobileSvgContainer}>
             <MobileChartC />
-          </div>
+          </Grid>
         </Grid>
-        <Grid xs={12} container justify='center'>
-          <div className={covidStyles.updatedDate}>Updated as of May 2020</div>
+        <Grid container justify='center'>
+          <Grid item>
+            <div className={covidStyles.updatedDate}>
+              Updated as of May 2020
+            </div>
+          </Grid>
         </Grid>
       </>
     ) : (
@@ -87,8 +91,12 @@ const Overview = (props) => {
           {outlaysSection}
         </Grid>
         {chartComponent}
-        <Grid xs={12} container justify='flex-end'>
-          <div className={covidStyles.updatedDate}>Updated as of May 2020</div>
+        <Grid container justify='flex-end'>
+          <Grid item>
+            <div className={covidStyles.updatedDate}>
+              Updated as of May 2020
+            </div>
+          </Grid>
         </Grid>
       </>
     )
