@@ -1,8 +1,15 @@
 @import "src/styles/variables.scss";
 
-$chart-border: thin solid;
-$label-width: 11.5rem;
-$budget-width: 4rem;
+$chartBorder: thin solid;
+$labelWidth: 11.5rem;
+$budgetWidth: 4rem;
+
+.percent-label {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin: 0 calc(#{$budgetWidth} - 1.5rem) .5rem calc(#{$labelWidth} - .5rem);
+}
 
 .bar-container {
   display: flex;
@@ -15,18 +22,18 @@ $budget-width: 4rem;
   }
 
   .label {
-    flex-basis: $label-width;
+    flex-basis: $labelWidth;
     padding-right: 0.5rem;
-    border-right: $chart-border;
+    border-right: $chartBorder;
   }
 
   .bars {
     &:nth-child(2) {
-      border-top: $chart-border;
+      border-top: $chartBorder;
     }
 
     &:nth-last-child(2) {
-      border-bottom: $chart-border;
+      border-bottom: $chartBorder;
     }
 
     .outlay-bar {
@@ -68,35 +75,33 @@ $budget-width: 4rem;
   }
 
   .budget {
-    flex-basis: $budget-width;
-    text-align: right;
+    flex-basis: $budgetWidth;
+    padding-left: 0.5rem;
     white-space: nowrap;
-    border-left: $chart-border;
+    border-left: $chartBorder;
   }
 }
 
 @media (min-width: $desktop-xl) {
   .bars {
-    flex-basis: calc(950px - #{$label-width} - #{$budget-width});
+    flex-basis: calc(950px - #{$labelWidth} - #{$budgetWidth});
   }
 }
 
 @media (min-width: $desktop) and (max-width: $desktop-xl - 1) {
   .bars {
-    flex-basis: calc(#{$desktop-mcw} - #{$label-width} - #{$budget-width});
+    flex-basis: calc(#{$desktop-mcw} - #{$labelWidth} - #{$budgetWidth});
   }
 }
 
 @media (min-width: $tablet) and (max-width: $desktop - 1) {
   .bars {
-    flex-basis: calc(#{$tablet-mcw} - #{$label-width} - #{$budget-width});
+    flex-basis: calc(#{$tablet-mcw} - #{$labelWidth} - #{$budgetWidth});
   }
 }
 
 @media (max-width: $tablet - 1) {
   .bars {
-    flex-basis: calc(
-      100% - #{$label-width} - #{$budget-width}
-    );
+    flex-basis: calc(100% - #{$labelWidth} - #{$budgetWidth});
   }
 }

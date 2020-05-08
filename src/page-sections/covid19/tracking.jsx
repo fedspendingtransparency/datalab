@@ -41,11 +41,14 @@ export default function Tracking(props) {
 			<div className={styles.budget}>{numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}</div>
 		</>);
 
-		return (
+		return (<>
+		<div className={styles.percentLabel}>
+			<span>0%</span> <span>50%</span> <span>100%</span>
+			</div>
 			<div className={styles.barContainer}>
 				{table}
 			</div>
-		);
+		</>);
 	}
 
 	useEffect(() => {
