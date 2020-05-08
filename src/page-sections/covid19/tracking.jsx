@@ -12,13 +12,16 @@ export default function Tracking(props) {
 
 	const data = useStaticQuery(graphql`
     query {
-      main: allSf133Viz4Main20200501Csv {
+      main: allSf133Viz3FunctionMain20200506Csv {
         nodes {
-          Agency
+          Function_Description
           Total_Budgetary_Authority
-          Percent_Outlay
+					Percent_Outlaid
+					Amount_Outlaid
 					Percent_Obligated
-          Percent_Unobligated
+					Amount_Obligated
+					Percent_Unobligated
+					Amount_Unobligated
         }
       }
     }
@@ -42,8 +45,16 @@ export default function Tracking(props) {
 		</>);
 
 		return (<>
-		<div className={styles.percentLabel}>
-			<span>0%</span> <span>50%</span> <span>100%</span>
+			<div className={styles.legend}>
+				<div></div>
+				<div className={styles.blockContainer}>
+					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlay</span>
+					<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligated</span>
+					<span className={`${styles.block} ${styles.unobligatedBar}`}></span><span>Unobligated</span>
+				</div>
+			</div>
+			<div className={styles.percentLegend}>
+				<span>0%</span><span>50%</span><span>100%</span>
 			</div>
 			<div className={styles.barContainer}>
 				{table}
