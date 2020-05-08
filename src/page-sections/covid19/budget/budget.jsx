@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import variables from "src/styles/variables.scss"
-import Desktop from 'src/svgs/covid19/Viz1-Desktop-Outline.svg'
-import Tablet from 'src/svgs/covid19/Viz1-Tablet-Outline.svg'
-import Mobile from 'src/svgs/covid19/Viz1-Mobile-Outline.svg'
-import Popup from 'src/svgs/covid19/Viz1-Pop-out.svg'
+import Desktop from 'src/svgs/covid19/budget/Viz1-Desktop-Outline.svg'
+import Tablet from 'src/svgs/covid19/budget/Viz1-Tablet-Outline.svg'
+import Mobile from 'src/svgs/covid19/budget/Viz1-Mobile-Outline.svg'
+import Popup from 'src/svgs/covid19/budget/Viz1-Pop-out.svg'
 import './budget.scss'
 import AccordionList from "../../../components/accordion-list/accordion-list"
 import ControlBar from "../../../components/control-bar/control-bar"
@@ -25,7 +25,7 @@ export default function Budget(props) {
       closePopup();
     });
 
-    document.getElementById('Less-than-$2-B').addEventListener('click', e => togglePopup(e));
+    // document.getElementById('Less-than-$2-B').addEventListener('click', e => togglePopup(e));
     // window.addEventListener('keyup', e => onEsc(e));
 
     document.getElementById('covid19-pop-up').addEventListener('click', function(e) {
@@ -115,6 +115,9 @@ export default function Budget(props) {
       <div id="pop-up">
         <div className={tooltipStyles.title} onClick={e => togglePopup(e)} onKeyUp={e => onKeyup(e)}>Blah blah<CloseIcon  /></div>
         <Popup />
+      </div>
+      <div id='hover-rect'>
+
       </div>
     </div>
 
