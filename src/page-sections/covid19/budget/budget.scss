@@ -1,3 +1,5 @@
+@import '../../../styles/index.scss';
+
 .chart-container {
   position: relative;
 
@@ -15,10 +17,51 @@
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.25s linear;
+    padding: 1.5rem;
 
     &.active {
       visibility: visible;
       opacity: 1;
     }
+
+    #innerTitle {
+      float: left;
+      width: 95%;
+    }
+
+    .title {
+      display: flex;
+      font-size: 18px;
+      font-weight: 600;
+      color: #555555;
+      padding-bottom: 10px;
+      border-bottom: solid 1px #ddd;
+    }
+
+    #close {
+      float: right;
+    }
+
+    svg {
+      height: unset;
+    }
+  }
+
+  #hover-rect {
+    position: absolute;
+    bottom: 129px;
+    right: 0;
+
+    svg {
+      background-color: lightblue;
+    }
   }
 }
+
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  #hover-rect {
+    bottom: 74px !important;
+  }
+
+}
+

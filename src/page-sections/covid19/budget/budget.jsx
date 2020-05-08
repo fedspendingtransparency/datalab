@@ -10,14 +10,14 @@ import ControlBar from "../../../components/control-bar/control-bar"
 import Share from "../../../components/share/share"
 import Downloads from "../../../components/section-elements/downloads/downloads"
 import tooltipStyles from 'src/components/tooltip/tooltip.module.scss'
-import CloseIcon from '@material-ui/icons/Close';
+import CloseIcon from '@material-ui/icons/Close'
+import HoverRect from 'src/svgs/covid19/budget/Hover-Rectangle.svg'
 
 
 export default function Budget(props) {
   const [windowWidth, setWindowWidth] = useState(null);
   const [device, setDevice] = useState('desktop');
-  // add the image
-  // change the image at
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
@@ -25,35 +25,48 @@ export default function Budget(props) {
       closePopup();
     });
 
-    // document.getElementById('Less-than-$2-B').addEventListener('click', e => togglePopup(e));
-    // window.addEventListener('keyup', e => onEsc(e));
+    document.getElementById('hover-rect').addEventListener('click', e => togglePopup(e));
+    window.addEventListener('keyup', e => onEsc(e));
 
-    document.getElementById('covid19-pop-up').addEventListener('click', function(e) {
+    document.getElementById('close').addEventListener('click', function(e) {
+      togglePopup(e);
+    });
+
+    document.getElementById('close').addEventListener('keyup', function(e) {
+      onKeyup(e);
+    });
+
+    document.getElementById('pop-up').addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+
+    document.getElementById('innerTitle').addEventListener('click', function(e) {
       e.stopPropagation();
     });
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      document.getElementById('Less-than-$2-B').removeEventListener('click', function() {
-        console.log('click')
-      })
+      document.getElementById('hover-rect').removeEventListener('click', e => togglePopup(e));
+      window.removeEventListener('keyup', e => onEsc(e));
 
     }
   });
 
   function togglePopup(e) {
     e.stopPropagation();
-    // save is open as state
-    const isOpen = document.getElementsByClassName('active');
-    if(isOpen.length > 0) {
-      document.getElementById('pop-up').classList.remove('active');
-    } else {
-      document.getElementById('pop-up').classList.add('active');
-    }
+    isOpen ? closePopup() : openPopup();
+  }
+
+  function openPopup() {
+    document.getElementById('close').setAttribute('tabindex', '0');
+    document.getElementById('pop-up').classList.add('active');
+    setIsOpen(true);
   }
 
   function closePopup() {
+    document.getElementById('close').removeAttribute('tabindex');
     document.getElementById('pop-up').classList.remove('active');
+    setIsOpen(false);
   }
 
   function handleResize() {
@@ -73,9 +86,15 @@ export default function Budget(props) {
     }
   }
 
+  function onEsc(e) {
+    if(isOpen && e.keyCode === 27) {
+      closePopup();
+    }
+  }
+
   function onKeyup(e) {
-    if(e.keyCode === 13) {
-      togglePopup();
+    if(isOpen && e.keyCode === 13) {
+      closePopup();
     }
   }
 
@@ -113,11 +132,14 @@ export default function Budget(props) {
     <div className="chart-container">
       <Chart />
       <div id="pop-up">
-        <div className={tooltipStyles.title} onClick={e => togglePopup(e)} onKeyUp={e => onKeyup(e)}>Blah blah<CloseIcon  /></div>
+        <div className='title'>
+          <div id='innerTitle'>Blah blah</div>
+          <div id='close'><CloseIcon  /></div>
+        </div>
         <Popup />
       </div>
-      <div id='hover-rect'>
-
+      <div id='hover-rect' tabIndex='0'>
+        <HoverRect/>
       </div>
     </div>
 
