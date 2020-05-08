@@ -31,7 +31,7 @@ $budget-width: 4rem;
 
     .outlay-bar {
       display: inline-block;
-      background: darken($color: $covidColor, 50%);
+      background: darken($covidColor, 50%);
     }
 
     .obligated-bar {
@@ -41,7 +41,7 @@ $budget-width: 4rem;
 
     .unobligated-bar {
       display: inline-block;
-      background: lighten($color: $covidColor, 50%);
+      background: lighten($covidColor, 50%);
     }
 
     .bar-labels {
