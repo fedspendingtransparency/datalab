@@ -29,8 +29,8 @@ export default function Tracking(props) {
 
 	const mainChart = () => {
 		const table = data.main.nodes.map((i, key) => <>
-			<div className={styles.label}>{i.Agency}</div>
-			<div className={styles.bars}>
+			<div className={styles.label}>{i.Function_Description}</div>
+			<div className={styles.bars} onClick={() => clickHandler(i.Function_Description)}>
 				<span className={styles.outlayBar} style={{ width: `${i.Percent_Outlaid}%` }}>&nbsp;</span>
 				<span className={styles.obligatedBar} style={{ width: `${i.Percent_Obligated}%` }}>&nbsp;</span>
 				<span className={styles.unobligatedBar} style={{ width: `${i.Percent_Unobligated}%` }}>&nbsp;</span>
@@ -43,6 +43,10 @@ export default function Tracking(props) {
 			</div>
 			<div className={styles.budget}>{numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}</div>
 		</>);
+
+		const clickHandler = (item) => {
+			alert(item + ' clicked');
+		}
 
 		return (<>
 			<div className={styles.legend}>
