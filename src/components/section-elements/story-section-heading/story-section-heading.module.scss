@@ -90,6 +90,12 @@ $fedEmpBlue: #2272ce;
   font-size: inherit;
 }
 
+.heading-purple {
+  color: $covidPurple;
+  font-weight: 600;
+  font-size: inherit;
+}
+
 @media (min-width: $phone) {
   .introContainer {
     .intro {
