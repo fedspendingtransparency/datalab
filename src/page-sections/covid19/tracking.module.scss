@@ -28,7 +28,7 @@ $budgetWidth: 4rem;
     font-size: 0.8rem;
   }
 
-  .block-container{
+  .block-container {
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
@@ -54,7 +54,7 @@ $budgetWidth: 4rem;
   margin: 0 calc(#{$budgetWidth} - 1.5rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
 
   span {
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -62,7 +62,6 @@ $budgetWidth: 4rem;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-content: center;
 
   & > * {
     padding-top: 1rem;
@@ -81,26 +80,28 @@ $budgetWidth: 4rem;
 
     &:nth-last-child(2) {
       border-bottom: $chartBorder;
+      padding-bottom: 1rem;
     }
 
     .bar-labels {
       display: flex;
       justify-content: space-between;
       font-size: 0.75rem;
+      white-space: nowrap;
       margin: 0 0.25rem;
 
       .outlay-label {
-        min-width: 4rem;
+        min-width: 5.5rem;
         text-align: left;
       }
 
       .obligated-label {
-        min-width: 5rem;
+        min-width: 6.5rem;
         text-align: center;
       }
 
       .unobligated-label {
-        min-width: 6rem;
+        min-width: 7.5rem;
         text-align: right;
       }
     }

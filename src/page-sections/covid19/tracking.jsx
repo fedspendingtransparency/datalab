@@ -36,9 +36,9 @@ export default function Tracking(props) {
 				<span className={styles.unobligatedBar} style={{ width: `${i.Percent_Unobligated}%` }}>&nbsp;</span>
 				<canvas id={`callout-${key}`} height={5} width='100%'></canvas>
 				<div className={styles.barLabels}>
-					<div className={styles.outlayLabel} style={{ width: `${i.Percent_Outlaid}%` }}>Outlay ({i.Percent_Outlaid}%)</div>
-					<div className={styles.obligatedLabel}>Obligated ({i.Percent_Obligated}%)</div>
-					<div className={styles.unobligatedLabel} style={{ width: `${i.Percent_Unobligated}%` }}>Unobligated ({i.Percent_Unobligated}%)</div>
+					<div className={styles.outlayLabel} style={{ width: `${i.Percent_Outlaid}%` }}>Outlay ({numberFormatter('dollars suffix', i.Amount_Outlaid)})</div>
+					<div className={styles.obligatedLabel}>Obligated ({numberFormatter('dollars suffix', i.Amount_Obligated)})</div>
+					<div className={styles.unobligatedLabel} style={{ width: `${i.Percent_Unobligated}%` }}>Unobligated ({numberFormatter('dollars suffix', i.Amount_Unobligated)})</div>
 				</div>
 			</div>
 			<div className={styles.budget}>{numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}</div>
@@ -68,9 +68,9 @@ export default function Tracking(props) {
 		ctx.strokeStyle = 'black';
 		ctx.beginPath();
 		ctx.moveTo(10, 0);
-		ctx.lineTo(10, 3);
-		ctx.lineTo(10, 20);
-		ctx.lineTo(20, 5);
+		ctx.lineTo(10, 2);
+		ctx.lineTo(200, 2);
+		ctx.lineTo(200, 5);
 		ctx.stroke();
 	});
 
