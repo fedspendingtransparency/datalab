@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import '../../styles/index.scss';
 import covidStyles from './covid.module.scss';
 
 import { Grid } from "@material-ui/core";
@@ -15,7 +14,11 @@ import MobileChartB from '../../svgs/covid19/overview/mobile-chart-b.svg';
 import MobileChartC from '../../svgs/covid19/overview/mobile-chart-c.svg';
 
 const Overview = (props) => {
-  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
+  const [screenWidth, setScreenWidth] = useState(0)
+
+  useEffect(() => {
+    setScreenWidth(window.innerWidth)
+  }, [])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
