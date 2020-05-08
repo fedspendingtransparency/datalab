@@ -31,12 +31,12 @@ export default function Tracking(props) {
 		const table = data.main.nodes.map((i, key) => <>
 			<div className={styles.label}>{i.Agency}</div>
 			<div className={styles.bars}>
-				<span className={styles.outlayBar} style={{ width: `${i.Percent_Outlay}%` }}>&nbsp;</span>
+				<span className={styles.outlayBar} style={{ width: `${i.Percent_Outlaid}%` }}>&nbsp;</span>
 				<span className={styles.obligatedBar} style={{ width: `${i.Percent_Obligated}%` }}>&nbsp;</span>
 				<span className={styles.unobligatedBar} style={{ width: `${i.Percent_Unobligated}%` }}>&nbsp;</span>
 				<canvas id={`callout-${key}`} height={5} width='100%'></canvas>
 				<div className={styles.barLabels}>
-					<div className={styles.outlayLabel} style={{ width: `${i.Percent_Outlay}%` }}>Outlay ({i.Percent_Outlay}%)</div>
+					<div className={styles.outlayLabel} style={{ width: `${i.Percent_Outlaid}%` }}>Outlay ({i.Percent_Outlaid}%)</div>
 					<div className={styles.obligatedLabel}>Obligated ({i.Percent_Obligated}%)</div>
 					<div className={styles.unobligatedLabel} style={{ width: `${i.Percent_Unobligated}%` }}>Unobligated ({i.Percent_Unobligated}%)</div>
 				</div>
