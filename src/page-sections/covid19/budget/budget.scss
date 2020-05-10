@@ -56,6 +56,17 @@
   cursor: pointer;
 }
 
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  #pop-up {
+    width: 50%;
+
+    svg#covid19-pop-up {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
 @media (max-width: $tablet - 1) {
   #pop-up {
     top: unset !important;
