@@ -42,26 +42,28 @@
       float: right;
     }
 
-    svg {
+    svg.MuiSvgIcon-root {
       height: unset;
     }
-  }
 
-  #hover-rect {
-    position: absolute;
-    bottom: 129px;
-    right: 0;
-
-    svg {
-      background-color: lightblue;
+    svg.budgetSvg {
+      width: 100%;
     }
   }
 }
 
-@media (min-width: $tablet) and (max-width: $desktop - 1) {
-  #hover-rect {
-    bottom: 74px !important;
-  }
-
+#Hover-Rectangle-Text, #Hover-Rectangle, #close  {
+  cursor: pointer;
 }
 
+@media (max-width: $tablet - 1) {
+  #pop-up {
+    top: unset !important;
+    bottom: 120px;
+
+    svg#covid19-pop-up {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

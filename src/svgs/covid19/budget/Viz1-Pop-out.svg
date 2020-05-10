@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="520px" height="254px" viewBox="0 0 520 254" id="covid19-pop-up" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Group 3</title>
+    <defs>
+        <style type="text/css">
+            @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600');
+        </style>
+    </defs>
     <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Desktop-HD" transform="translate(-394.000000, -1428.000000)">
             <g id="Group-3" transform="translate(394.000000, 1428.000000)">

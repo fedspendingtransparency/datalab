@@ -4378,7 +4378,7 @@
                 <line x1="0.586956522" y1="940.5" x2="350.413043" y2="940.5" id="Line-Copy-10" stroke-opacity="0.273492133" stroke="#6F41A7"></line>
                 <line x1="0.586956522" y1="1034.5" x2="350.413043" y2="1034.5" id="Line-Copy-11" stroke-opacity="0.273492133" stroke="#6F41A7"></line>
             </g>
-            <use id="Hover-Rectangle" stroke="#6F41A7" mask="url(#mask-48)" stroke-width="4" stroke-dasharray="5,3" xlink:href="#path-47"></use>
+            <use id="Hover-Rectangle" stroke="#6F41A7" tabindex="0" fill="#6f41a7" fill-opacity="0.0" mask="url(#mask-48)" stroke-width="4" stroke-dasharray="5,3" xlink:href="#path-47"></use>
         </g>
     </g>
 </svg>
