@@ -14,19 +14,33 @@ import CloseIcon from '@material-ui/icons/Close'
 
 export default function Budget(props) {
   const [windowWidth, setWindowWidth] = useState(null);
-  const [device, setDevice] = useState(null);
+  const [device, setDevice] = useState();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     handleResize()
-    Chart()
   }, [])
 
   useEffect(() => {
-    if(device) {
-      window.addEventListener('resize', handleResize);
-      window.addEventListener('click', e => closePopup(e));
-      window.addEventListener('keyup', e => onEsc(e));
+
+    window.addEventListener('click', e => closePopup(e));
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('keyup', e => onEsc(e));
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('click', e => closePopup(e));
+      window.removeEventListener('keyup', e => onEsc(e));
+    }
+
+  })
+
+  function handleResize() {
+    setWindowWidth(typeof window !== 'undefined' ? window.innerWidth : '');
+  }
+
+  useEffect(() => {
+    if(windowWidth) {
 
       document.getElementById('Hover-Rectangle')
         .addEventListener('click', e => togglePopup(e));
@@ -55,11 +69,7 @@ export default function Budget(props) {
     }
 
     return () => {
-      if (device) {
-        window.removeEventListener('resize', handleResize);
-        window.removeEventListener('click', e => closePopup(e));
-        window.removeEventListener('keyup', e => onEsc(e));
-
+      if (windowWidth) {
         document.getElementById('Hover-Rectangle')
           .removeEventListener('click', e => togglePopup(e));
         document.getElementById('close')
@@ -113,27 +123,6 @@ export default function Budget(props) {
     e.stopPropagation();
   }
 
-  function handleResize() {
-    setWindowWidth(typeof window !== 'undefined' ? window.innerWidth : '');
-
-    if (windowWidth) {
-      if (windowWidth >= parseInt(variables.lg)) {
-        setDevice('desktop');
-        return 'desktop';
-
-      } else if (windowWidth >= parseInt(variables.md)) {
-        setDevice('tablet');
-        return 'tablet';
-
-      } else {
-        setDevice('mobile');
-        return 'mobile';
-
-
-      }
-    }
-  }
-
   function onEsc(e) {
     if(isOpen && e.keyCode === 27) {
       closePopup(e);
@@ -153,16 +142,16 @@ export default function Budget(props) {
   }
 
   function Chart() {
-    let currentDevice = device ? device : handleResize();
-    switch(currentDevice) {
-      case 'desktop':
+    if (windowWidth) {
+      if (windowWidth >= parseInt(variables.lg)) {
         return <Desktop />
-      case 'tablet':
+      } else if (windowWidth >= parseInt(variables.md)) {
         return <Desktop />
-      case 'mobile':
+      } else {
         return <Mobile />
-      default:
-        return <></>
+      }
+    } else {
+      return <></>
     }
   }
 
@@ -201,7 +190,7 @@ export default function Budget(props) {
 
     <Downloads
       href={''}
-      date={'Updated as of May 2020'}
+      date={'May 2020'}
     />
   </>);
 }
