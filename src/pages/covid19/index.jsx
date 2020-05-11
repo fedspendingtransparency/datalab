@@ -50,19 +50,9 @@ export default class Covid19 extends React.Component {
       readMoreOnMobile: true,
       toggleColor: '#6f41a7'
     },    {
-      section: 'Funding',
-      anchor: 'funding',
-      number: '03',
-      subtext: 'Funding subtext',
-      subblurb: 'Funding subblurb',
-      sectionTeaser: 'Funding teaser',
-      introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
-      viztitle: 'Title for Funding viz',
-      tagName: 'Funding'
-    },    {
       section: 'Tracking',
       anchor: 'tracking',
-      number: '04',
+      number: '03',
       subtext: 'Tracking subtext',
       subblurb: 'Tracking subblurb',
       sectionTeaser: 'Tracking teaser',
