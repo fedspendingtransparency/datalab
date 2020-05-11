@@ -40,11 +40,6 @@ export default function Tracking(props) {
 				>&nbsp;</span>
 				<span className={styles.unobligatedBar} style={{ width: `${i.Percent_Unobligated}%` }}>&nbsp;</span>
 				<div style={{ height: calloutHeight, position: 'relative' }}>
-					<canvas id={`callout-${key}`}
-						name='callouts'
-						className={styles.callouts}
-						height={calloutHeight}
-					></canvas>
 				</div>
 				<div className={styles.barLabels}>
 					<div className={styles.outlayLabel} style={{ width: `${i.Percent_Outlaid}%` }}>Outlay ({numberFormatter('dollars suffix', i.Amount_Outlaid)})</div>
@@ -78,34 +73,6 @@ export default function Tracking(props) {
 			</div>
 		</>);
 	}
-
-	useEffect(() => {
-		Array.prototype.forEach.call(document.getElementsByName('callouts'), i => {
-
-			// adjust canvas element to full width of parent div
-			i.setAttribute('width', i.parentElement.offsetWidth);
-		});
-
-		const bar = document.getElementById('obligated-bar-1').getBoundingClientRect();
-		const barMidpoint = (bar.right + bar.left) / 2 - bar.left;
-		const label = document.getElementById('obligated-label-1').getBoundingClientRect();
-		const labelMidpoint = (label.right + label.left) / 2 - label.left;
-		const ctx = document.getElementById('callout-1').getContext('2d');
-		ctx.lineWidth = 1;
-		ctx.strokeStyle = 'black';
-		ctx.beginPath();
-		ctx.moveTo(barMidpoint, 0);
-		ctx.lineTo(barMidpoint, calloutHeight / 2);
-		ctx.lineTo(labelMidpoint, calloutHeight / 2);
-		ctx.lineTo(labelMidpoint, calloutHeight);
-		ctx.stroke();
-
-
-		console.log(bar, barMidpoint, label, labelMidpoint);
-
-
-
-	});
 
 	return <>
 		<AccordionList title='Instructions'>
