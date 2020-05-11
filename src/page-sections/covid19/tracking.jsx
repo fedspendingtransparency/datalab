@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { ScreenModeEnum } from 'src/utils/enums.js';
 import styles from './tracking.module.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
@@ -9,6 +10,7 @@ import numberFormatter from 'src/utils/number-formatter';
 import Share from 'src/components/share/share';
 
 export default function Tracking(props) {
+	const [screenMode, setScreenMode] = useState(ScreenModeEnum.desktop);
 
 	const data = useStaticQuery(graphql`
     query {
@@ -72,6 +74,19 @@ export default function Tracking(props) {
 				{table}
 			</div>
 		</>);
+	}
+
+
+
+	useEffect(() => {
+		window.addEventListener('resize', resizeWindow);
+		return _ => {
+			window.removeEventListener('resize', resizeWindow);
+		}
+	});
+
+	const resizeWindow = () => {
+
 	}
 
 	return <>
