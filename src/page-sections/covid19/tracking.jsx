@@ -80,37 +80,31 @@ export default function Tracking(props) {
 	}
 
 	useEffect(() => {
+		Array.prototype.forEach.call(document.getElementsByName('callouts'), i => {
 
-		// adjust all callout canvas elements to full width of parent div
-		document.getElementsByName('callouts').map(i => {
+			// adjust canvas element to full width of parent div
 			i.setAttribute('width', i.parentElement.offsetWidth);
 		});
 
-
-
-
-		
-		const bar = document.getElementById('obligated-bar-0').getBoundingClientRect();
-
-		console.log(bar);
-
-
-		const barMidpoint = bar.left + (bar.right - bar.left) / 2;
-		const label = document.getElementById('obligated-label-0').getBoundingClientRect();
-
-		console.log(label);
-
-
-		const labelMidpoint = label.left + (label.right - label.left) / 2;
-		const callout = document.getElementById('callout-0').getContext('2d');
+		const bar = document.getElementById('obligated-bar-1').getBoundingClientRect();
+		const barMidpoint = (bar.right + bar.left) / 2 - bar.left;
+		const label = document.getElementById('obligated-label-1').getBoundingClientRect();
+		const labelMidpoint = (label.right + label.left) / 2 - label.left;
+		const ctx = document.getElementById('callout-1').getContext('2d');
 		ctx.lineWidth = 1;
 		ctx.strokeStyle = 'black';
 		ctx.beginPath();
 		ctx.moveTo(barMidpoint, 0);
-		ctx.lineTo(barMidpoint, 5);
-		ctx.lineTo(labelMidpoint, 5);
-		ctx.lineTo(labelMidpoint, 10);
+		ctx.lineTo(barMidpoint, calloutHeight / 2);
+		ctx.lineTo(labelMidpoint, calloutHeight / 2);
+		ctx.lineTo(labelMidpoint, calloutHeight);
 		ctx.stroke();
+
+
+		console.log(bar, barMidpoint, label, labelMidpoint);
+
+
+
 	});
 
 	return <>
