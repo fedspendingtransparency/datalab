@@ -105,6 +105,10 @@ $budgetWidth: 4rem;
         text-align: right;
       }
     }
+
+    .callouts {
+      position: absolute;
+    }
   }
 
   .budget {
@@ -117,7 +121,7 @@ $budgetWidth: 4rem;
 
 @media (min-width: $desktop-xl) {
   .bars {
-    flex-basis: calc(950px - #{$labelWidth} - #{$budgetWidth});
+    flex-basis: calc(950px - 1px - #{$labelWidth} - #{$budgetWidth}); // "-1" is for Edge, no clue why it almost spans the full width
   }
 }
 

@@ -27,17 +27,30 @@ export default function Tracking(props) {
     }
   `);
 
+	const calloutHeight = 10;
+
 	const mainChart = () => {
 		const table = data.main.nodes.map((i, key) => <>
 			<div className={styles.label}>{i.Function_Description}</div>
 			<div className={styles.bars} onClick={() => clickHandler(i.Function_Description)}>
 				<span className={styles.outlayBar} style={{ width: `${i.Percent_Outlaid}%` }}>&nbsp;</span>
-				<span className={styles.obligatedBar} style={{ width: `${i.Percent_Obligated}%` }}>&nbsp;</span>
+				<span id={`obligated-bar-${key}`}
+					className={styles.obligatedBar}
+					style={{ width: `${i.Percent_Obligated}%` }}
+				>&nbsp;</span>
 				<span className={styles.unobligatedBar} style={{ width: `${i.Percent_Unobligated}%` }}>&nbsp;</span>
-				<canvas id={`callout-${key}`} height={5} width='100%'></canvas>
+				<div style={{ height: calloutHeight, position: 'relative' }}>
+					<canvas id={`callout-${key}`}
+						name='callouts'
+						className={styles.callouts}
+						height={calloutHeight}
+					></canvas>
+				</div>
 				<div className={styles.barLabels}>
 					<div className={styles.outlayLabel} style={{ width: `${i.Percent_Outlaid}%` }}>Outlay ({numberFormatter('dollars suffix', i.Amount_Outlaid)})</div>
-					<div className={styles.obligatedLabel}>Obligated ({numberFormatter('dollars suffix', i.Amount_Obligated)})</div>
+					<div id={`obligated-label-${key}`} className={styles.obligatedLabel}>
+						Obligated ({numberFormatter('dollars suffix', i.Amount_Obligated)})
+					</div>
 					<div className={styles.unobligatedLabel} style={{ width: `${i.Percent_Unobligated}%` }}>Unobligated ({numberFormatter('dollars suffix', i.Amount_Unobligated)})</div>
 				</div>
 			</div>
@@ -67,14 +80,36 @@ export default function Tracking(props) {
 	}
 
 	useEffect(() => {
-		const ctx = document.getElementById('callout-0').getContext('2d');
+
+		// adjust all callout canvas elements to full width of parent div
+		document.getElementsByName('callouts').map(i => {
+			i.setAttribute('width', i.parentElement.offsetWidth);
+		});
+
+
+
+
+		
+		const bar = document.getElementById('obligated-bar-0').getBoundingClientRect();
+
+		console.log(bar);
+
+
+		const barMidpoint = bar.left + (bar.right - bar.left) / 2;
+		const label = document.getElementById('obligated-label-0').getBoundingClientRect();
+
+		console.log(label);
+
+
+		const labelMidpoint = label.left + (label.right - label.left) / 2;
+		const callout = document.getElementById('callout-0').getContext('2d');
 		ctx.lineWidth = 1;
 		ctx.strokeStyle = 'black';
 		ctx.beginPath();
-		ctx.moveTo(10, 0);
-		ctx.lineTo(10, 2);
-		ctx.lineTo(200, 2);
-		ctx.lineTo(200, 5);
+		ctx.moveTo(barMidpoint, 0);
+		ctx.lineTo(barMidpoint, 5);
+		ctx.lineTo(labelMidpoint, 5);
+		ctx.lineTo(labelMidpoint, 10);
 		ctx.stroke();
 	});
 
