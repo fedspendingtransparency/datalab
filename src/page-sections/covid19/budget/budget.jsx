@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import variables from "src/styles/variables.scss"
 import Desktop from 'src/svgs/covid19/budget/Viz1-Desktop-Outline.svg'
-import Tablet from 'src/svgs/covid19/budget/Viz1-Tablet-Outline.svg'
 import Mobile from 'src/svgs/covid19/budget/Viz1-Mobile-Outline.svg'
 import Popup from 'src/svgs/covid19/budget/Viz1-Pop-out.svg'
 import './budget.scss'
@@ -158,14 +157,6 @@ export default function Budget(props) {
 
   return (<>
     <h2 className='rd-viztitle'>{props.section.viztitle}</h2>
-    <AccordionList title='Instructions'>
-      <p>In this visualization, categories are represented by icons.</p>
-      <ul>
-        <li>Click or tap on an icon to see the category name, total dollars contracted for this category, and the percentage this total accounts for within R&D contract spending</li>
-        <li>To exit the pop-up, click or tap the X</li>
-      </ul>
-    </AccordionList>
-
     <ControlBar>
       <Share
         siteUrl={props.location.origin}

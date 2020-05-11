@@ -18,6 +18,7 @@
     opacity: 0;
     transition: visibility 0s, opacity 0.25s linear;
     padding: 1.5rem;
+    width: 554px;
 
     &.active {
       visibility: visible;
