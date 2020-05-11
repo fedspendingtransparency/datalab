@@ -80,7 +80,7 @@ export default function Tracking(props) {
 
 	useEffect(() => {
 		window.addEventListener('resize', resizeWindow);
-		return _ => {
+		return () => {
 			window.removeEventListener('resize', resizeWindow);
 		}
 	});
