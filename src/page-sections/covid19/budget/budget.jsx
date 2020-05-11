@@ -14,7 +14,6 @@ import CloseIcon from '@material-ui/icons/Close'
 
 export default function Budget(props) {
   const [windowWidth, setWindowWidth] = useState(null);
-  const [device, setDevice] = useState();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
