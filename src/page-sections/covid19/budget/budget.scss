@@ -12,20 +12,18 @@
     box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.16);
     background-color: rgba(255, 253, 253, 0.95);
     z-index: 10;
-    top: 0;
     right: 0;
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.25s linear;
     padding: 1.5rem;
-    width: 554px;
 
     &.active {
       visibility: visible;
       opacity: 1;
     }
 
-    #innerTitle {
+    #inner-title {
       float: left;
       width: 95%;
     }
@@ -57,9 +55,17 @@
   cursor: pointer;
 }
 
+@media (min-width: $desktop) {
+  #pop-up {
+    width: 554px;
+    top: 0;
+  }
+}
+
 @media (min-width: $tablet) and (max-width: $desktop - 1) {
   #pop-up {
-    width: 50%;
+    width: 65%;
+    top: 0;
 
     svg#covid19-pop-up {
       width: 100%;
@@ -70,7 +76,6 @@
 
 @media (max-width: $tablet - 1) {
   #pop-up {
-    top: unset !important;
     bottom: 120px;
 
     svg#covid19-pop-up {

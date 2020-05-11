@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react"
-import variables from "src/styles/variables.scss"
+import ControlBar from "src/components/control-bar/control-bar"
+import Share from "src/components/share/share"
+import Downloads from "src/components/section-elements/downloads/downloads"
+import CloseIcon from '@material-ui/icons/Close'
 import Desktop from 'src/svgs/covid19/budget/Viz1-Desktop-Outline.svg'
 import Mobile from 'src/svgs/covid19/budget/Viz1-Mobile-Outline.svg'
 import Popup from 'src/svgs/covid19/budget/Viz1-Pop-out.svg'
+import variables from "src/styles/variables.scss"
 import './budget.scss'
-import AccordionList from "../../../components/accordion-list/accordion-list"
-import ControlBar from "../../../components/control-bar/control-bar"
-import Share from "../../../components/share/share"
-import Downloads from "../../../components/section-elements/downloads/downloads"
-import CloseIcon from '@material-ui/icons/Close'
 
 
 export default function Budget(props) {
@@ -46,7 +45,7 @@ export default function Budget(props) {
         .addEventListener('click', e => togglePopup(e));
       document.getElementById('pop-up')
         .addEventListener('click', e => e.stopPropagation());
-      document.getElementById('innerTitle')
+      document.getElementById('inner-title')
         .addEventListener('click', e => e.stopPropagation());
 
 
@@ -74,7 +73,7 @@ export default function Budget(props) {
           .removeEventListener('click', e => togglePopup(e));
         document.getElementById('pop-up')
           .removeEventListener('click', e => e.stopPropagation());
-        document.getElementById('innerTitle')
+        document.getElementById('inner-title')
           .removeEventListener('click', e => e.stopPropagation());
 
         document.getElementById('Hover-Rectangle')
@@ -156,7 +155,7 @@ export default function Budget(props) {
   const title = 'Budget Functions under $2 B';
 
   return (<>
-    <h2 className='rd-viztitle'>{props.section.viztitle}</h2>
+    <h2 className="rd-viztitle">{props.section.viztitle}</h2>
     <ControlBar>
       <Share
         siteUrl={props.location.origin}
@@ -170,9 +169,9 @@ export default function Budget(props) {
     <div className="chart-container">
       <Chart />
       <div id="pop-up">
-        <div className='title'>
-          <div id='innerTitle'>{title}</div>
-          <div id='close'><CloseIcon  /></div>
+        <div className="title">
+          <div id="inner-title">{title}</div>
+          <div id="close"><CloseIcon  /></div>
         </div>
         <Popup />
       </div>
