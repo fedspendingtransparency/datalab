@@ -1,4 +1,4 @@
-@import "src/styles/variables.scss";
+@import "bar.module.scss";
 
 $chartBorder: thin solid;
 $labelWidth: 11.5rem;
@@ -13,7 +13,7 @@ $budgetWidth: 4rem;
     font-size: 0.8rem;
   }
 
-  .block-container {
+  .blockContainer {
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
@@ -32,7 +32,7 @@ $budgetWidth: 4rem;
   }
 }
 
-.percent-legend {
+.percentLegend {
   display: flex;
   justify-content: space-between;
   align-content: center;

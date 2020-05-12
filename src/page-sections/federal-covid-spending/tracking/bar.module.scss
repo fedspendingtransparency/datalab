@@ -3,7 +3,7 @@
 $labelWidth: 11.5rem;
 $budgetWidth: 4rem;
 
-.barContainer {
+.container {
   display: flex;
   justify-content: space-between;
 
@@ -12,62 +12,67 @@ $budgetWidth: 4rem;
     padding-right: 0.5rem;
   }
 
-  // & > * {
-  //   padding-top: 1rem;
-  // }
+  .barContainer {
+    display: flex;
+    flex-flow: row wrap;
 
-  .bar {
-    border-left: 1px solid;
-    border-right: 1px solid;
-
-    // &:nth-child(2) {
-    //   border-top: $chartBorder;
+    // & > * {
+    //   padding-top: 1rem;
     // }
 
-    // &:nth-last-child(2) {
-    //   border-bottom: $chartBorder;
-    //   padding-bottom: 1rem;
-    // }
+    .bar {
+      border-left: 1px solid;
+      border-right: 1px solid;
 
-  .outlayBar {
-    display: inline-block;
-    background: darken($covidColor, 50%);
-  }
+      // &:nth-child(2) {
+      //   border-top: $chartBorder;
+      // }
 
-  .obligatedBar {
-    display: inline-block;
-    background: $covidColor;
-  }
+      // &:nth-last-child(2) {
+      //   border-bottom: $chartBorder;
+      //   padding-bottom: 1rem;
+      // }
 
-  .unobligatedBar {
-    display: inline-block;
-    background: lighten($covidColor, 50%);
-  }
-
-    .barLabels {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      white-space: nowrap;
-      margin: 0 0.25rem;
-
-      .outlayLabel {
-        min-width: 5.5rem;
-        text-align: left;
+      .outlayBar {
+        display: inline-block;
+        background: darken($covidColor, 50%);
       }
 
-      .obligatedLabel {
-        min-width: 6.5rem;
-        text-align: center;
+      .obligatedBar {
+        display: inline-block;
+        background: $covidColor;
       }
 
-      .unobligatedLabel {
-        min-width: 7.5rem;
-        text-align: right;
+      .unobligatedBar {
+        display: inline-block;
+        background: lighten($covidColor, 50%);
+      }
+
+      .barLabels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        margin: 0 0.25rem;
+
+        .outlayLabel {
+          min-width: 5.5rem;
+          text-align: left;
+        }
+
+        .obligatedLabel {
+          min-width: 6.5rem;
+          text-align: center;
+        }
+
+        .unobligatedLabel {
+          min-width: 7.5rem;
+          text-align: right;
+        }
       }
     }
   }
-
+  
   .sideBudget {
     flex-basis: $budgetWidth;
     padding-left: 0.5rem;
