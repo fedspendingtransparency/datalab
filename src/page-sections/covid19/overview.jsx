@@ -58,11 +58,11 @@ const Overview = (props) => {
     </Grid>
   )
 
-  let chartComponent = <DesktopXLChart />
+  let chartComponent = <DesktopXLChart aria-labelledby="section-2-desktop-xl-svg" />
   if (screenWidth < 992 && screenWidth >= 768) {
-    chartComponent = <DesktopChart />
+    chartComponent = <DesktopChart aria-labelledby="section-2-desktop-svg" />
   } else if (screenWidth < 768) {
-    chartComponent = <TabletChart />
+    chartComponent = <TabletChart aria-labelledby="section-2-tablet-svg" />
   }
 
   const visualizationComponent = screenWidth < 576 ? (
@@ -70,15 +70,15 @@ const Overview = (props) => {
         <Grid container>
           {appropriationsSection}
           <Grid item className={covidStyles.overviewMobileSvgContainer}>
-            <MobileChartA />
+            <MobileChartA aria-labelledby="section-2-mobile-svg-a" />
           </Grid>
           {obligationsSection}
           <Grid item className={covidStyles.overviewMobileSvgContainer}>
-            <MobileChartB />
+            <MobileChartB aria-labelledby="section-2-mobile-svg-b" />
           </Grid>
           {outlaysSection}
           <Grid item className={covidStyles.overviewMobileSvgContainer}>
-            <MobileChartC />
+            <MobileChartC aria-labelledby="section-2-mobile-svg-c" />
           </Grid>
         </Grid>
         <div className={covidStyles.updatedDate}>
