@@ -10,7 +10,7 @@ import Overview from '../../page-sections/federal-covid-spending/overview';
 import Funding from '../../page-sections/federal-covid-spending/funding';
 import Tracking from '../../page-sections/federal-covid-spending/tracking';
 
-export default class Covid19 extends React.Component {
+export default class FederalCovidSpending extends React.Component {
   constructor(props) {
     super(props);
   }
