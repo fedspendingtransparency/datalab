@@ -42,7 +42,7 @@ const BudgetAccordionContent = () => (
   </div>
 )
 
-export default class Covid19 extends React.Component {
+export default class FederalCovidSpending extends React.Component {
   constructor(props) {
     super(props);
   }

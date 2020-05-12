@@ -3,9 +3,9 @@ import ControlBar from "src/components/control-bar/control-bar"
 import Share from "src/components/share/share"
 import Downloads from "src/components/section-elements/downloads/downloads"
 import CloseIcon from '@material-ui/icons/Close'
-import Desktop from 'src/svgs/covid19/budget/Viz1-Desktop-Outline.svg'
-import Mobile from 'src/svgs/covid19/budget/Viz1-Mobile-Outline.svg'
-import Popup from 'src/svgs/covid19/budget/Viz1-Pop-out.svg'
+import Desktop from 'src/svgs/federal-covid-spending/budget/Viz1-Desktop-Outline.svg'
+import Mobile from 'src/svgs/federal-covid-spending/budget/Viz1-Mobile-outline.svg'
+import Popup from 'src/svgs/federal-covid-spending/budget/Viz1-Pop-out.svg'
 import variables from "src/styles/variables.scss"
 import './budget.scss'
 
