@@ -11,8 +11,6 @@ import numberFormatter from 'src/utils/number-formatter';
 import Share from 'src/components/share/share';
 
 export default function Tracking(props) {
-	const [screenMode, setScreenMode] = useState(ScreenModeEnum.desktop);
-
 	const data = useStaticQuery(graphql`
     query {
       main: allSf133Viz3FunctionMain20200506Csv {
@@ -77,7 +75,10 @@ export default function Tracking(props) {
 		</>);
 	}
 
+	const [screenMode, setScreenMode] = useState(0);
+
 	useEffect(() => {
+		updateScreenMode(window.innerWidth);
 		window.addEventListener('resize', resizeWindow);
 		return () => {
 			window.removeEventListener('resize', resizeWindow);
@@ -85,19 +86,37 @@ export default function Tracking(props) {
 	});
 
 	const updateScreenMode = currentWidth => {
-
-		console.log(currentWidth);
-
-
 		if (currentWidth < globals.md) {
 			setScreenMode(ScreenModeEnum.mobile);
+		} else if (currentWidth < globals.lg) {
+			setScreenMode(ScreenModeEnum.tablet);
+		} else if (currentWidth < globals.xl) {
+			setScreenMode(ScreenModeEnum.desktop);
+		} else {
+			setScreenMode(ScreenModeEnum.desktop_xl);
 		}
 	}
 
+	// update state & redraw ONLY if mode changes
 	const resizeWindow = () => {
 		switch (screenMode) {
 			case ScreenModeEnum.mobile:
 				if (window.innerWidth >= globals.md) {
+					updateScreenMode(window.innerWidth);
+				}
+				break;
+			case ScreenModeEnum.tablet:
+				if (window.innerWidth < globals.md || window.innerWidth >= globals.lg) {
+					updateScreenMode(window.innerWidth);
+				}
+				break;
+			case ScreenModeEnum.desktop:
+				if (window.innerWidth < globals.lg || window.innerWidth >= globals.xl) {
+					updateScreenMode(window.innerWidth);
+				}
+				break;
+			case ScreenModeEnum.desktop_xl:
+				if (window.innerWidth < globals.xl) {
 					updateScreenMode(window.innerWidth);
 				}
 		}
