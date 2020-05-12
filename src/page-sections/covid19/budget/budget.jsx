@@ -166,8 +166,8 @@ export default function Budget(props) {
   const title = 'Budget Functions under $2 B';
 
   return (<>
+    <h2 className="rd-viztitle">{props.section.viztitle}</h2>
     <ControlBar>
-      <h2 className="rd-viztitle">{props.section.viztitle}</h2>
       <Share
         siteUrl={props.location.origin}
         pageUrl={props.location.pathname + '#' + props.sectionId}
