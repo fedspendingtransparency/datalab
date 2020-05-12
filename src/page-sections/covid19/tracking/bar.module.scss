@@ -1,0 +1,100 @@
+@import "src/styles/variables.scss";
+
+$chartBorder: thin solid;
+$labelWidth: 11.5rem;
+$budgetWidth: 4rem;
+
+.outlay-bar {
+  display: inline-block;
+  background: darken($covidColor, 50%);
+}
+
+.obligated-bar {
+  display: inline-block;
+  background: $covidColor;
+}
+
+.unobligated-bar {
+  display: inline-block;
+  background: lighten($covidColor, 50%);
+}
+
+  .label {
+    flex-basis: $labelWidth;
+    padding-right: 0.5rem;
+    border-right: $chartBorder;
+  }
+
+.bar-container {
+  display: flex;
+  justify-content: space-between;
+
+  // & > * {
+  //   padding-top: 1rem;
+  // }
+
+  .bars {
+    // &:nth-child(2) {
+    //   border-top: $chartBorder;
+    // }
+
+    // &:nth-last-child(2) {
+    //   border-bottom: $chartBorder;
+    //   padding-bottom: 1rem;
+    // }
+
+    .bar-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      margin: 0 0.25rem;
+
+      .outlay-label {
+        min-width: 5.5rem;
+        text-align: left;
+      }
+
+      .obligated-label {
+        min-width: 6.5rem;
+        text-align: center;
+      }
+
+      .unobligated-label {
+        min-width: 7.5rem;
+        text-align: right;
+      }
+    }
+  }
+
+  .budget {
+    flex-basis: $budgetWidth;
+    padding-left: 0.5rem;
+    white-space: nowrap;
+    border-left: $chartBorder;
+  }
+}
+
+@media (min-width: $desktop-xl) {
+  .bars {
+    flex-basis: calc(950px - 1px - #{$labelWidth} - #{$budgetWidth}); // "-1" is for Edge, no clue why it almost spans the full width
+  }
+}
+
+@media (min-width: $desktop) and (max-width: $desktop-xl - 1) {
+  .bars {
+    flex-basis: calc(#{$desktop-mcw} - #{$labelWidth} - #{$budgetWidth});
+  }
+}
+
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  .bars {
+    flex-basis: calc(#{$tablet-mcw} - #{$labelWidth} - #{$budgetWidth});
+  }
+}
+
+@media (max-width: $tablet - 1) {
+  .bars {
+    flex-basis: calc(100% - #{$labelWidth} - #{$budgetWidth});
+  }
+}

@@ -5,6 +5,7 @@ import styles from './tracking.module.scss';
 import globals from 'src/styles/variables.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
+import Bar from './bar';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter';
@@ -78,31 +79,19 @@ export default function Tracking(props) {
 	const calloutHeight = 10;
 
 	const mainChart = () => {
-		const table = data.main.nodes.map((i, key) => <>
-			<div className={styles.label}>{i.Function_Description}</div>
-			<div className={styles.bars} onClick={() => clickHandler(i.Function_Description)}>
-				<span className={styles.outlayBar} style={{ width: `${i.Percent_Outlaid}%` }}>&nbsp;</span>
-				<span id={`obligated-bar-${key}`}
-					className={styles.obligatedBar}
-					style={{ width: `${i.Percent_Obligated}%` }}
-				>&nbsp;</span>
-				<span className={styles.unobligatedBar} style={{ width: `${i.Percent_Unobligated}%` }}>&nbsp;</span>
-				<div style={{ height: calloutHeight, position: 'relative' }}>
-				</div>
-				<div className={styles.barLabels}>
-					<div className={styles.outlayLabel} style={{ width: `${i.Percent_Outlaid}%` }}>Outlay ({numberFormatter('dollars suffix', i.Amount_Outlaid)})</div>
-					<div id={`obligated-label-${key}`} className={styles.obligatedLabel}>
-						Obligated ({numberFormatter('dollars suffix', i.Amount_Obligated)})
-					</div>
-					<div className={styles.unobligatedLabel} style={{ width: `${i.Percent_Unobligated}%` }}>Unobligated ({numberFormatter('dollars suffix', i.Amount_Unobligated)})</div>
-				</div>
-			</div>
-			<div className={styles.budget}>{numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}</div>
-		</>);
-
-		const clickHandler = (item) => {
-			alert(item + ' clicked');
-		}
+		const table = data.main.nodes.map((i, key) => {
+			const data = [{
+				'amount': i.Amount_Outlaid,
+				'percent': i.Percent_Outlaid
+			}, {
+				'amount': i.Amount_Obligated,
+				'percent': i.Percent_Obligated
+			}, {
+				'amount': i.Amount_Unobligated,
+				'percent': i.Percent_Unobligated
+			}];
+			return <Bar key={key} data={data} barLabel={i.Function_Description} total={i.Total_Budgetary_Authority} />;
+		});
 
 		return (<>
 			<div className={styles.legend}>
