@@ -22,7 +22,7 @@ export default class Tracking extends React.Component {
       text={'Who watches the Watchmen? Anyone with HBO...'}
     />
 
-    Look! Here's a chart...
+
 
     <Downloads
       href={''}

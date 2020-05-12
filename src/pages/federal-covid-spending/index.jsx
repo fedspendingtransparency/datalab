@@ -5,9 +5,8 @@ import storyHeadingStyles from '../../components/section-elements/story-section-
 import StoryLayout from '../../components/layouts/story/story';
 import SEO from '../../components/seo';
 import StorySection from 'src/components/section-elements/story-section/story-section';
-import Function from '../../page-sections/federal-covid-spending/function';
+import Budget from '../../page-sections/federal-covid-spending/budget/budget';
 import Overview from '../../page-sections/federal-covid-spending/overview';
-import Funding from '../../page-sections/federal-covid-spending/funding';
 import Tracking from '../../page-sections/federal-covid-spending/tracking';
 
 export default class FederalCovidSpending extends React.Component {
@@ -16,23 +15,22 @@ export default class FederalCovidSpending extends React.Component {
   }
 
   sectionComponents = {
-    Funding: Funding,
     Overview: Overview,
-    Function: Function,
+    Budget: Budget,
     Tracking: Tracking
   };
 
   sections = [
     {
-      section: 'Function',
-      anchor: 'function',
+      section: 'Budget',
+      anchor: 'budget',
       number: '01',
       subtext: 'Function subtext',
       subblurb: 'Function subblurb',
       sectionTeaser: 'Function teaser',
       introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
       viztitle: 'Title for Function viz',
-      tagName: 'Function'
+      tagName: 'Budget'
     },
     {
       section: 'Overview',
@@ -49,7 +47,8 @@ export default class FederalCovidSpending extends React.Component {
       tagName: 'Overview',
       readMoreOnMobile: true,
       toggleColor: '#6f41a7'
-    },    {
+    },
+    {
       section: 'Tracking',
       anchor: 'tracking',
       number: '03',
