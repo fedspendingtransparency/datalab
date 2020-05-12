@@ -76,8 +76,6 @@ export default function Tracking(props) {
 		}
 	}
 
-	const calloutHeight = 10;
-
 	const mainChart = () => {
 		const table = data.main.nodes.map((i, key) => {
 			const data = [{
@@ -90,7 +88,7 @@ export default function Tracking(props) {
 				'amount': i.Amount_Unobligated,
 				'percent': i.Percent_Unobligated
 			}];
-			return <Bar key={key} data={data} barLabel={i.Function_Description} total={i.Total_Budgetary_Authority} />;
+			return <Bar key={key} data={data} barLabel={i.Function_Description} total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)} />;
 		});
 
 		return (<>
