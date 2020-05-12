@@ -5,10 +5,10 @@ import storyHeadingStyles from '../../components/section-elements/story-section-
 import StoryLayout from '../../components/layouts/story/story';
 import SEO from '../../components/seo';
 import StorySection from 'src/components/section-elements/story-section/story-section';
-import Function from '../../page-sections/covid19/function';
-import Overview from '../../page-sections/covid19/overview';
-import Funding from '../../page-sections/covid19/funding';
-import Tracking from '../../page-sections/covid19/tracking';
+import Function from '../../page-sections/federal-covid-spending/function';
+import Overview from '../../page-sections/federal-covid-spending/overview';
+import Funding from '../../page-sections/federal-covid-spending/funding';
+import Tracking from '../../page-sections/federal-covid-spending/tracking';
 
 export default class Covid19 extends React.Component {
   constructor(props) {
