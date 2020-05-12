@@ -13,6 +13,7 @@ import './budget.scss'
 export default function Budget(props) {
   const [windowWidth, setWindowWidth] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  let debounce;
 
   useEffect(() => {
     handleResize()
@@ -21,11 +22,11 @@ export default function Budget(props) {
   useEffect(() => {
 
     window.addEventListener('click', e => closePopup(e));
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', e => handleResize());
     window.addEventListener('keyup', e => onEsc(e));
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', e => handleResize(e));
       window.removeEventListener('click', e => closePopup(e));
       window.removeEventListener('keyup', e => onEsc(e));
     }
@@ -42,7 +43,7 @@ export default function Budget(props) {
       document.getElementById('Hover-Rectangle')
         .addEventListener('click', e => togglePopup(e));
       document.getElementById('close')
-        .addEventListener('click', e => togglePopup(e));
+        .addEventListener('click', e => closePopup(e));
       document.getElementById('pop-up')
         .addEventListener('click', e => e.stopPropagation());
       document.getElementById('inner-title')
@@ -70,7 +71,7 @@ export default function Budget(props) {
         document.getElementById('Hover-Rectangle')
           .removeEventListener('click', e => togglePopup(e));
         document.getElementById('close')
-          .removeEventListener('click', e => togglePopup(e));
+          .removeEventListener('click', e => closePopup(e));
         document.getElementById('pop-up')
           .removeEventListener('click', e => e.stopPropagation());
         document.getElementById('inner-title')
@@ -105,19 +106,29 @@ export default function Budget(props) {
   }
 
   function openPopup(e) {
-    document.getElementById('close').setAttribute('tabindex', '0');
-    document.getElementById('pop-up').classList.add('active');
-    setIsOpen(true);
-    addOverlay();
-    e.stopPropagation();
+    if(!isOpen) {
+      document.getElementById('close')
+        .setAttribute('tabindex', '0');
+      document.getElementById('pop-up')
+        .classList
+        .add('active');
+      setIsOpen(true);
+      addOverlay();
+      e.stopPropagation();
+    }
   }
 
   function closePopup(e) {
-    document.getElementById('close').removeAttribute('tabindex');
-    document.getElementById('pop-up').classList.remove('active');
-    setIsOpen(false);
-    removeOverlay();
-    e.stopPropagation();
+    if(isOpen) {
+      document.getElementById('close')
+        .removeAttribute('tabindex');
+      document.getElementById('pop-up')
+        .classList
+        .remove('active');
+      setIsOpen(false);
+      removeOverlay();
+      e.stopPropagation();
+    }
   }
 
   function onEsc(e) {
@@ -155,8 +166,8 @@ export default function Budget(props) {
   const title = 'Budget Functions under $2 B';
 
   return (<>
-    <h2 className="rd-viztitle">{props.section.viztitle}</h2>
     <ControlBar>
+      <h2 className="rd-viztitle">{props.section.viztitle}</h2>
       <Share
         siteUrl={props.location.origin}
         pageUrl={props.location.pathname + '#' + props.sectionId}
