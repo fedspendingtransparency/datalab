@@ -5,11 +5,11 @@ import storyHeadingStyles from '../../components/section-elements/story-section-
 import StoryLayout from '../../components/layouts/story/story';
 import SEO from '../../components/seo';
 import StorySection from 'src/components/section-elements/story-section/story-section';
-import Budget from '../../page-sections/covid19/budget/budget';
-import Overview from '../../page-sections/covid19/overview';
-import Tracking from '../../page-sections/covid19/tracking';
+import Budget from '../../page-sections/federal-covid-spending/budget/budget';
+import Overview from '../../page-sections/federal-covid-spending/overview';
+import Tracking from '../../page-sections/federal-covid-spending/tracking';
 
-export default class Covid19 extends React.Component {
+export default class FederalCovidSpending extends React.Component {
   constructor(props) {
     super(props);
   }

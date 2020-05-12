@@ -39,7 +39,7 @@ const Downloads = (props) => {
         color: styleVariables.studentToolboxBlue
       }
     },
-    'covid19': {
+    'federal-covid-spending': {
       ':hover': {
         color: styleVariables.covidPurple
       }

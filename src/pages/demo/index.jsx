@@ -8,7 +8,7 @@ import Overview from '../../page-sections/demo/overview';
 import Funding from '../../page-sections/demo/funding/funding';
 import Tracking from '../../page-sections/demo/tracking';
 
-export default class Covid19 extends React.Component {
+export default class FederalCovidSpending extends React.Component {
   constructor(props) {
     super(props);
   }
