@@ -13,7 +13,6 @@ import './budget.scss'
 export default function Budget(props) {
   const [windowWidth, setWindowWidth] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-  let debounce;
 
   useEffect(() => {
     handleResize()
