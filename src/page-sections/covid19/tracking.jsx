@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { ScreenModeEnum } from 'src/utils/enums.js';
 import styles from './tracking.module.scss';
+import globals from 'src/styles/variables.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
@@ -76,8 +77,6 @@ export default function Tracking(props) {
 		</>);
 	}
 
-
-
 	useEffect(() => {
 		window.addEventListener('resize', resizeWindow);
 		return () => {
@@ -85,8 +84,23 @@ export default function Tracking(props) {
 		}
 	});
 
-	const resizeWindow = () => {
+	const updateScreenMode = currentWidth => {
 
+		console.log(currentWidth);
+
+
+		if (currentWidth < globals.md) {
+			setScreenMode(ScreenModeEnum.mobile);
+		}
+	}
+
+	const resizeWindow = () => {
+		switch (screenMode) {
+			case ScreenModeEnum.mobile:
+				if (window.innerWidth >= globals.md) {
+					updateScreenMode(window.innerWidth);
+				}
+		}
 	}
 
 	return <>
