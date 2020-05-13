@@ -16,7 +16,7 @@ $budgetWidth: 4rem;
 
 .unobligatedBar {
   display: inline-block;
-  background: lighten($covidPurple, 50%);
+  background: #f3e9ff;
 }
 
 .container {
@@ -28,6 +28,7 @@ $budgetWidth: 4rem;
   }
   .sideLabel {
     flex-basis: $labelWidth;
+    min-width: $labelWidth;
     padding-right: 0.5rem;
   }
 
