@@ -1,5 +1,6 @@
 @import "src/styles/variables.scss";
 
+$chartBorder: 1px solid;
 $labelWidth: 11.5rem;
 $budgetWidth: 4rem;
 
@@ -20,17 +21,17 @@ $budgetWidth: 4rem;
       position: relative;
       width: 100%;
       padding-top: 1rem;
-      border-left: 1px solid;
-      border-right: 1px solid;
+      border-left: $chartBorder;
+      border-right: $chartBorder;
 
-      // &:nth-child(2) {
-      //   border-top: $chartBorder;
-      // }
+      &.firstBar {
+        border-top: $chartBorder;
+      }
 
-      // &:nth-last-child(2) {
-      //   border-bottom: $chartBorder;
-      //   padding-bottom: 1rem;
-      // }
+      &.lastBar {
+        border-bottom: $chartBorder;
+        padding-bottom: 1rem;
+      }
 
       .outlayBar {
         display: inline-block;

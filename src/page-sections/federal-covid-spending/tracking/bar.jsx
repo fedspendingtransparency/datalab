@@ -11,12 +11,16 @@ export default class Bar extends React.Component {
 		data: outlay, obligated and unobligated as {'amount': amount [in desired format], 'percent': percentage value}
 		barLabel: words to left or top of bar
 		total: bar total amount (not necessarily sum of data amounts) in desired format
+		firstBar: should this bar have a top border?
+		lastBar: should this bar have a bottom border?
 	*/
 	static propTypes = {
 		'narrow': PropTypes.bool,
 		'data': PropTypes.arrayOf(PropTypes.object).isRequired,
 		'barLabel': PropTypes.string.isRequired,
-		'total': PropTypes.string.isRequired
+		'total': PropTypes.string.isRequired,
+		'firstBar': PropTypes.bool,
+		'lastBar': PropTypes.bool
 	};
 	// static defaultProps = {
 	// };
@@ -39,7 +43,10 @@ export default class Bar extends React.Component {
 		<div className={styles.container}>
 			<div className={styles.sideLabel}>{this.props.barLabel}</div>
 			<div className={styles.barContainer}>
-				<div className={styles.bar} onClick={() => clickHandler(this.props.barLabel)}>
+				<div
+					className={`${styles.bar} ${this.props.firstBar ? styles.firstBar : ''} ${this.props.lastBar ? styles.lastBar : ''}`}
+					onClick={() => clickHandler(this.props.barLabel)}
+				>
 					<span className={styles.outlayBar} style={{ width: `${this.barPercents[0]}%` }}>&nbsp;</span>
 					<span className={styles.obligatedBar} style={{ width: `${this.barPercents[1]}%` }}>&nbsp;</span>
 					<span className={styles.unobligatedBar} style={{ width: `${this.barPercents[2]}%` }}>&nbsp;</span>
