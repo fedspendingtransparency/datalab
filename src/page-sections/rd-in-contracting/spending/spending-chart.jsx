@@ -185,7 +185,7 @@ export default class SpendingChart extends React.Component {
                       hoverColor='#1302d9'
                     />
                   </ControlBar>
-                  <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={tabletPopupStyle} id='svg-popup-container'>
+                  <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={tabletPopupStyle}>
                     <SectionOneChartPopupTablet />
                     <CloseIcon className={styles.closeIconTablet} onClick={this.closePopup}/>
                   </div>
@@ -211,7 +211,7 @@ export default class SpendingChart extends React.Component {
                       hoverColor='#1302d9'
                     />
                   </ControlBar>
-                  <div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`} id='svg-popout-container'>
+                  <div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`}>
                     <CloseIcon className={styles.closeIconMobile} onClick={this.closePopup}/>
                     <SectionOneChartPopupMobile />
                   </div>
@@ -237,7 +237,7 @@ export default class SpendingChart extends React.Component {
                       hoverColor='#1302d9'
                     />
                   </ControlBar>
-                  <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={desktopPopupStyle} id='svg-popout-container'>
+                  <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={desktopPopupStyle}>
                     <SectionOneChartPopupDesktop />
                     <CloseIcon className={styles.closeIconDesktop} onClick={this.closePopup}/>
                   </div>
