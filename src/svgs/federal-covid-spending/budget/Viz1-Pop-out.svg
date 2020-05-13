@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="520px" height="254px" viewBox="0 0 520 254" id="covid19-pop-up" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Group 3</title>
+<svg width="520px" height="254px" viewBox="0 0 520 254"
+     id="covid19-pop-up" version="1.1"
+     aria-labelledby="covid-budget-pop-up"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <desc id="covid-budget-pop-up"></desc>
+
     <defs>
         <style type="text/css">
             @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600');
