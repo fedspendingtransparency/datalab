@@ -32,16 +32,28 @@ export default class SpendingChart extends React.Component {
 
     window.addEventListener('resize', this.handleWindowSizeChange);
     document.addEventListener('click', this.detailsListener);
+    window.addEventListener('keyup', this.detailsEsc);
     this.detailsKeyup();
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleWindowSizeChange);
     window.removeEventListener('resize', this.closeDetailResize);
+    document.removeEventListener('click', this.detailsListener);
+    window.removeEventListener('keyup', this.detailsEsc);
   }
 
   handleWindowSizeChange = () => {
     this.setState({ bWidth: window.innerWidth });
+  };
+
+  detailsEsc = (event) => {
+    let that = this;
+    if (that.state.showDetails) {
+      if (event.keyCode === 27) {
+        that.setState({showDetails: false});
+      };
+    };
   };
 
   detailsKeyup = () => {
@@ -105,11 +117,11 @@ export default class SpendingChart extends React.Component {
       if (element.correspondingElement.id === 'path-10') {
         this.setState({ showDetails: !this.state.showDetails });
       }
-  
+      
       if (element.correspondingElement.id === 'Show-Details-Text') {
         this.setState({ showDetails: !this.state.showDetails });
       }
-  
+      
       if (element.correspondingElement.id === 'Detail-Icon') {
         this.setState({ showDetails: !this.state.showDetails });
       }  
@@ -153,90 +165,90 @@ export default class SpendingChart extends React.Component {
       width: 350,
       right: '7.5%',
       top: '10%'
-    }
+    };
 
     const desktopPopupStyle = {};
 
-    if (bWidth <= 1000) desktopPopupStyle.top = '18%'
+    if (bWidth <= 1000) desktopPopupStyle.top = '18%';
 
     if (isTabletSvg) {
       return (<>
-        <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
-        {this.instructions()}
-        <div className={styles.svgContainerTablet}>
-          <ControlBar>
-            <Share
-              siteUrl={this.props.location.origin}
-              pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
-              title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-              text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
-              hoverColor='#1302d9'
-            />
-          </ControlBar>
-          <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={tabletPopupStyle}>
-            <SectionOneChartPopupTablet />
-            <CloseIcon className={styles.closeIconTablet} onClick={this.closePopup}/>
-          </div>
-          <SectionOneChartTablet />
-          <Legend />
-          <Downloads
-            href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
-            date={'December 2019'}
-          />
-        </div>
-      </>);
+                <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
+                {this.instructions()}
+                <div className={styles.svgContainerTablet}>
+                  <ControlBar>
+                    <Share
+                      siteUrl={this.props.location.origin}
+                      pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
+                      title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+                      text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+                      hoverColor='#1302d9'
+                    />
+                  </ControlBar>
+                  <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={tabletPopupStyle} id='svg-popup-container'>
+                    <SectionOneChartPopupTablet />
+                    <CloseIcon className={styles.closeIconTablet} onClick={this.closePopup}/>
+                  </div>
+                  <SectionOneChartTablet />
+                  <Legend />
+                  <Downloads
+                    href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
+                    date={'December 2019'}
+                  />
+                </div>
+              </>);
     } else if (isMobileSvg) {
       return (<>
-        <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
-        {this.instructions()}
-        <div className={styles.svgContainerMobile}>
-          <ControlBar>
-            <Share
-              siteUrl={this.props.location.origin}
-              pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
-              title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-              text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
-              hoverColor='#1302d9'
-            />
-          </ControlBar>
-          <div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`}>
-            <CloseIcon className={styles.closeIconMobile} onClick={this.closePopup}/>
-            <SectionOneChartPopupMobile />
-          </div>
-          <SectionOneChartMobile />
-          <Legend />
-          <Downloads
-            href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
-            date={'December 2019'}
-          />
-        </div>
-      </>);
+                <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
+                {this.instructions()}
+                <div className={styles.svgContainerMobile}>
+                  <ControlBar>
+                    <Share
+                      siteUrl={this.props.location.origin}
+                      pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
+                      title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+                      text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+                      hoverColor='#1302d9'
+                    />
+                  </ControlBar>
+                  <div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`} id='svg-popout-container'>
+                    <CloseIcon className={styles.closeIconMobile} onClick={this.closePopup}/>
+                    <SectionOneChartPopupMobile />
+                  </div>
+                  <SectionOneChartMobile />
+                  <Legend />
+                  <Downloads
+                    href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
+                    date={'December 2019'}
+                  />
+                </div>
+              </>);
     } else if (largestSvg) {
       return (<>
-        <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
-        {this.instructions()}
-        <div className={styles.svgContainerDesktop}>
-          <ControlBar>
-            <Share
-              siteUrl={this.props.location.origin}
-              pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
-              title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-              text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
-              hoverColor='#1302d9'
-            />
-          </ControlBar>
-          <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={desktopPopupStyle}>
-            <SectionOneChartPopupDesktop />
-            <CloseIcon className={styles.closeIconDesktop} onClick={this.closePopup}/>
-          </div>
-          <SectionOneChartDesktop />
-          <Legend />
-          <Downloads
-            href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
-            date={'December 2019'}
-          />
-        </div>
-      </>);
+                <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
+                {this.instructions()}
+                <div className={styles.svgContainerDesktop}>
+                  <ControlBar>
+                    <Share
+                      siteUrl={this.props.location.origin}
+                      pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
+                      title='Data Lab - R&D in Contract Spending - U.S. Treasury'
+                      text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+                      hoverColor='#1302d9'
+                    />
+                  </ControlBar>
+                  <div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`} style={desktopPopupStyle} id='svg-popout-container'>
+                    <SectionOneChartPopupDesktop />
+                    <CloseIcon className={styles.closeIconDesktop} onClick={this.closePopup}/>
+                  </div>
+                  <SectionOneChartDesktop />
+                  <Legend />
+                  <Downloads
+                    href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
+                    date={'December 2019'}
+                  />
+                </div>
+              </>);
     } else {
       return null;
     }
