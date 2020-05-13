@@ -6,17 +6,17 @@ $budgetWidth: 4rem;
 
 .outlayBar {
   display: inline-block;
-  background: darken($covidColor, 50%);
+  background: darken($covidPurple, 50%);
 }
 
 .obligatedBar {
   display: inline-block;
-  background: $covidColor;
+  background: $covidPurple;
 }
 
 .unobligatedBar {
   display: inline-block;
-  background: lighten($covidColor, 50%);
+  background: lighten($covidPurple, 50%);
 }
 
 .container {
