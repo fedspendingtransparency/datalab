@@ -92,6 +92,7 @@ export default function Tracking(props) {
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
 				firstBar={key === 0}
 				lastBar={key === data.main.nodes.length - 1}
+				// narrow={true}
 			/>;
 		});
 

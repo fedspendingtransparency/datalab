@@ -4,6 +4,21 @@ $chartBorder: 1px solid;
 $labelWidth: 11.5rem;
 $budgetWidth: 4rem;
 
+.outlayBar {
+  display: inline-block;
+  background: darken($covidColor, 50%);
+}
+
+.obligatedBar {
+  display: inline-block;
+  background: $covidColor;
+}
+
+.unobligatedBar {
+  display: inline-block;
+  background: lighten($covidColor, 50%);
+}
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -14,6 +29,7 @@ $budgetWidth: 4rem;
   }
 
   .barContainer {
+    flex-basis: 100%;
     display: flex;
     flex-flow: row wrap;
 
@@ -31,21 +47,6 @@ $budgetWidth: 4rem;
       &.lastBar {
         border-bottom: $chartBorder;
         padding-bottom: 1rem;
-      }
-
-      .outlayBar {
-        display: inline-block;
-        background: darken($covidColor, 50%);
-      }
-
-      .obligatedBar {
-        display: inline-block;
-        background: $covidColor;
-      }
-
-      .unobligatedBar {
-        display: inline-block;
-        background: lighten($covidColor, 50%);
       }
 
       .callout {
@@ -85,28 +86,28 @@ $budgetWidth: 4rem;
   }
 }
 
-@media (min-width: $desktop-xl) {
-  .barContainer {
-    flex-basis: calc(
-      950px - 1px - #{$labelWidth} - #{$budgetWidth}
-    ); // "-1" is for Edge, no clue why container falls short
-  }
-}
+// @media (min-width: $desktop-xl) {
+//   .barContainer {
+//     flex-basis: calc(
+//       950px - 1px - #{$labelWidth} - #{$budgetWidth}
+//     ); // "-1" is for Edge, no clue why container falls short
+//   }
+// }
 
-@media (min-width: $desktop) and (max-width: $desktop-xl - 1) {
-  .barContainer {
-    flex-basis: calc(#{$desktop-mcw} - #{$labelWidth} - #{$budgetWidth});
-  }
-}
+// @media (min-width: $desktop) and (max-width: $desktop-xl - 1) {
+//   .barContainer {
+//     flex-basis: calc(#{$desktop-mcw} - #{$labelWidth} - #{$budgetWidth});
+//   }
+// }
 
-@media (min-width: $tablet) and (max-width: $desktop - 1) {
-  .barContainer {
-    flex-basis: calc(#{$tablet-mcw} - #{$labelWidth} - #{$budgetWidth});
-  }
-}
+// @media (min-width: $tablet) and (max-width: $desktop - 1) {
+//   .barContainer {
+//     flex-basis: calc(#{$tablet-mcw} - #{$labelWidth} - #{$budgetWidth});
+//   }
+// }
 
-@media (max-width: $tablet - 1) {
-  .barContainer {
-    flex-basis: calc(100% - #{$labelWidth} - #{$budgetWidth});
-  }
-}
+// @media (max-width: $tablet - 1) {
+//   .barContainer {
+//     flex-basis: calc(100% - #{$labelWidth} - #{$budgetWidth});
+//   }
+// }

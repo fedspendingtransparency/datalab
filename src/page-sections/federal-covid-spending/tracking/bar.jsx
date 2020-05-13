@@ -22,8 +22,6 @@ export default class Bar extends React.Component {
 		'firstBar': PropTypes.bool,
 		'lastBar': PropTypes.bool
 	};
-	// static defaultProps = {
-	// };
 
 	constructor(props) {
 		super(props);
@@ -32,7 +30,7 @@ export default class Bar extends React.Component {
 			Number.parseFloat(this.props.data[0].percent).toFixed(1),
 			Number.parseFloat(this.props.data[1].percent).toFixed(1),
 			Number.parseFloat(this.props.data[2].percent).toFixed(1),
-		]
+		];
 	}
 
 	clickHandler = item => {
@@ -41,7 +39,7 @@ export default class Bar extends React.Component {
 
 	render = () =>
 		<div className={styles.container}>
-			<div className={styles.sideLabel}>{this.props.barLabel}</div>
+			{this.props.narrow ? '' : <div className={styles.sideLabel}>{this.props.barLabel}</div>}
 			<div className={styles.barContainer}>
 				<div
 					className={`${styles.bar} ${this.props.firstBar ? styles.firstBar : ''} ${this.props.lastBar ? styles.lastBar : ''}`}
@@ -59,7 +57,7 @@ export default class Bar extends React.Component {
 					</div>
 				</div>
 			</div>
-			<div className={styles.sideBudget}>{this.props.total}</div>
+			{this.props.narrow ? '' : <div className={styles.sideBudget}>{this.props.total}</div>}
 		</div>
 		;
 }
