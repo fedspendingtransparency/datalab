@@ -23,6 +23,9 @@ $budgetWidth: 4rem;
   display: flex;
   justify-content: space-between;
 
+  .topPad {
+    padding-top: 1rem;
+  }
   .sideLabel {
     flex-basis: $labelWidth;
     padding-right: 0.5rem;

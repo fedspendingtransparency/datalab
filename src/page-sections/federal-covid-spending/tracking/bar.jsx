@@ -41,7 +41,7 @@ export default class Bar extends React.Component {
 		const labelBreak = this.props.narrow ? <br /> : ' ';
 
 		return <div className={styles.container}>
-			{this.props.narrow ? '' : <div className={styles.sideLabel}>{this.props.barLabel}</div>}
+			{this.props.narrow ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>}
 			<div className={styles.barContainer}>
 				<div
 					className={`${styles.bar} ${this.props.firstBar ? styles.firstBar : ''} ${this.props.lastBar ? styles.lastBar : ''}`}
@@ -59,7 +59,7 @@ export default class Bar extends React.Component {
 					</div>
 				</div>
 			</div>
-			{this.props.narrow ? '' : <div className={styles.sideBudget}>{this.props.total}</div>}
+			{this.props.narrow ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div>}
 		</div>
 	};
 }
