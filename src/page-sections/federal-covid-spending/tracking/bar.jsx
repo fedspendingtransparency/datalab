@@ -43,14 +43,13 @@ export default class Bar extends React.Component {
 					<span className={styles.outlayBar} style={{ width: `${this.barPercents[0]}%` }}>&nbsp;</span>
 					<span className={styles.obligatedBar} style={{ width: `${this.barPercents[1]}%` }}>&nbsp;</span>
 					<span className={styles.unobligatedBar} style={{ width: `${this.barPercents[2]}%` }}>&nbsp;</span>
-				</div>
-				<div style={{ height: calloutHeight, position: 'relative' }}>
-				</div>
-				<div className={styles.barLabels}>
-					<div className={styles.outlayLabel} style={{ width: `${this.barPercents[0]}%` }}>Outlay ({this.props.data[0].amount})</div>
-					<div className={styles.obligatedLabel}>Obligated ({this.props.data[1].amount})</div>
-					<div className={styles.unobligatedLabel} style={{ width: `${this.barPercents[2]}%` }}>Unobligated ({this.props.data[2].amount})</div>
-					<div className={styles.budget}>{this.props.total}</div>
+					<div className={styles.callout} style={{ height: calloutHeight }} />
+					<div className={styles.barLabels}>
+						<div className={styles.outlayLabel} style={{ width: `${this.barPercents[0]}%` }}>Outlay ({this.props.data[0].amount})</div>
+						<div className={styles.obligatedLabel}>Obligated ({this.props.data[1].amount})</div>
+						<div className={styles.unobligatedLabel} style={{ width: `${this.barPercents[2]}%` }}>Unobligated ({this.props.data[2].amount})</div>
+						<div className={styles.budget}>{this.props.total}</div>
+					</div>
 				</div>
 			</div>
 			<div className={styles.sideBudget}>{this.props.total}</div>

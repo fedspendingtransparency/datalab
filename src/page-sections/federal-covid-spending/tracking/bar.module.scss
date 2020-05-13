@@ -16,11 +16,10 @@ $budgetWidth: 4rem;
     display: flex;
     flex-flow: row wrap;
 
-    // & > * {
-    //   padding-top: 1rem;
-    // }
-
     .bar {
+      position: relative;
+      width: 100%;
+      padding-top: 1rem;
       border-left: 1px solid;
       border-right: 1px solid;
 
@@ -48,6 +47,11 @@ $budgetWidth: 4rem;
         background: lighten($covidColor, 50%);
       }
 
+      .callout {
+        position: absolute;
+        width: 100%;
+      }
+
       .barLabels {
         display: flex;
         justify-content: space-between;
@@ -72,7 +76,7 @@ $budgetWidth: 4rem;
       }
     }
   }
-  
+
   .sideBudget {
     flex-basis: $budgetWidth;
     padding-left: 0.5rem;
@@ -81,7 +85,7 @@ $budgetWidth: 4rem;
 }
 
 @media (min-width: $desktop-xl) {
-  .bar {
+  .barContainer {
     flex-basis: calc(
       950px - 1px - #{$labelWidth} - #{$budgetWidth}
     ); // "-1" is for Edge, no clue why container falls short
@@ -89,19 +93,19 @@ $budgetWidth: 4rem;
 }
 
 @media (min-width: $desktop) and (max-width: $desktop-xl - 1) {
-  .bar {
+  .barContainer {
     flex-basis: calc(#{$desktop-mcw} - #{$labelWidth} - #{$budgetWidth});
   }
 }
 
 @media (min-width: $tablet) and (max-width: $desktop - 1) {
-  .bar {
+  .barContainer {
     flex-basis: calc(#{$tablet-mcw} - #{$labelWidth} - #{$budgetWidth});
   }
 }
 
 @media (max-width: $tablet - 1) {
-  .bar {
+  .barContainer {
     flex-basis: calc(100% - #{$labelWidth} - #{$budgetWidth});
   }
 }
