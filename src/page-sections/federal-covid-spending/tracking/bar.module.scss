@@ -6,7 +6,7 @@ $budgetWidth: 4rem;
 
 .outlayBar {
   display: inline-block;
-  background: darken($covidPurple, 35%);
+  background: darken($covidPurple, 25%);
 }
 
 .obligatedBar {
@@ -16,7 +16,7 @@ $budgetWidth: 4rem;
 
 .unobligatedBar {
   display: inline-block;
-  background: lighten($covidPurple, 35%);
+  background: lighten($covidPurple, 50%);
 }
 
 .container {
