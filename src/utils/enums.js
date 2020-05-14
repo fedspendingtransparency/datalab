@@ -1,0 +1,1 @@
+export const ScreenModeEnum = Object.freeze({ 'mobile': 0, 'tablet': 1, 'desktop': 2, 'desktop_xl': 3 });
