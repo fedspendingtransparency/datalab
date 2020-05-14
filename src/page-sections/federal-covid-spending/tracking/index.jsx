@@ -6,6 +6,7 @@ import globals from 'src/styles/variables.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Bar from './bar';
+import { Button } from '@material-ui/core';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter';
@@ -28,6 +29,8 @@ export default function Tracking(props) {
       }
     }
   `);
+
+	const [showBars, setShowBars] = useState(10);
 
 	const [screenMode, setScreenMode] = useState(0);
 
@@ -92,7 +95,6 @@ export default function Tracking(props) {
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
 				firstBar={key === 0}
 				lastBar={key === data.main.nodes.length - 1}
-				// narrow={true}
 			/>;
 		});
 
@@ -129,6 +131,8 @@ export default function Tracking(props) {
 		</ControlBar>
 
 		{mainChart()}
+
+		<Button fullWidth>See More</Button>
 
 		<Downloads
 			href={''}
