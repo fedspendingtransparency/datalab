@@ -6,12 +6,12 @@ import { Grid } from "@material-ui/core";
 import Share from '../../../components/share/share';
 import Downloads from '../../../components/section-elements/downloads/downloads';
 
-import DesktopXLChart from '../../../svgs/covid19/overview/desktop-xl-chart.svg';
-import DesktopChart from '../../../svgs/covid19/overview/desktop-chart.svg';
-import TabletChart from '../../../svgs/covid19/overview/tablet-chart.svg';
-import MobileChartA from '../../../svgs/covid19/overview/mobile-chart-a.svg';
-import MobileChartB from '../../../svgs/covid19/overview/mobile-chart-b.svg';
-import MobileChartC from '../../../svgs/covid19/overview/mobile-chart-c.svg';
+import DesktopXLChart from '../../svgs/federal-covid-spending/overview/desktop-xl-chart.svg';
+import DesktopChart from '../../svgs/federal-covid-spending/overview/desktop-chart.svg';
+import TabletChart from '../../svgs/federal-covid-spending/overview/tablet-chart.svg';
+import MobileChartA from '../../svgs/federal-covid-spending/overview/mobile-chart-a.svg';
+import MobileChartB from '../../svgs/federal-covid-spending/overview/mobile-chart-b.svg';
+import MobileChartC from '../../svgs/federal-covid-spending/overview/mobile-chart-c.svg';
 
 const Overview = (props) => {
   const [screenWidth, setScreenWidth] = useState(0)

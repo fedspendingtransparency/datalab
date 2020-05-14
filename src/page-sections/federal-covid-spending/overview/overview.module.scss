@@ -1,0 +1,65 @@
+@import "../../../styles/variables";
+
+.overviewTitle {
+	font-size: 2rem;
+	font-weight: 300;
+}
+
+.overviewNumber {
+	font-size: 2rem;
+	font-weight: 600;
+	text-align: center;
+	margin-top: 15px;
+}
+
+.overviewSubtitle {
+	font-size: 1.125rem;
+	color: $covidPurple;
+	text-align: center;
+}
+
+.overviewText {
+	color: $darkGrey;
+	font-size: 1rem;
+	font-weight: 300;
+	padding: 12px 20px; 
+	margin-bottom: 12px;
+	text-align: center;
+}
+
+.updatedDate {
+	color: $darkGrey;
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+.overviewMobileSvgContainer {
+	display: flex;
+	width: 100%;
+	margin: 15px 0px 0px 0px;
+	justify-content: center;
+}
+
+@media (max-width: $phone) {
+	.overviewTitle {
+		font-size: 1.25rem;
+		font-weight: 300;
+	}
+
+	.textContainer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.overviewText {
+		text-align: center;
+		max-width: 352px;
+	}
+}
+
+@media (min-width: $phone) {
+	.updatedDate {
+		margin-top: 50px;
+	}
+}
