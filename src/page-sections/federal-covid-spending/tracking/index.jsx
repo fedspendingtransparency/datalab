@@ -13,19 +13,33 @@ import Share from 'src/components/share/share';
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
     query {
-      main: allSf133Viz3FunctionMain20200506Csv {
-        nodes {
-          Function_Description
-          Total_Budgetary_Authority
+			agencies: allSf133Viz3AgencyPopout20200506Csv {
+				nodes {
+					Agency
+					Account_Name
 					Percent_Outlaid
 					Amount_Outlaid
 					Percent_Obligated
 					Amount_Obligated
 					Percent_Unobligated
 					Amount_Unobligated
-        }
-      }
-    }
+					Total_Budgetary_Authority
+				}
+			}
+			functions: allSf133Viz3FunctionPopout20200506Csv {
+				nodes {
+					Function_Description
+					Account_Name
+					Percent_Outlaid
+					Amount_Outlaid
+					Percent_Obligated
+					Amount_Obligated
+					Percent_Unobligated
+					Amount_Unobligated
+					Total_Budgetary_Authority
+				}
+			}
+		}
   `);
 
 	const [screenMode, setScreenMode] = useState(0);
@@ -47,7 +61,7 @@ export default function Tracking(props) {
 	}
 
 	const mainChart = () => {
-		const table = data.main.nodes.map((i, key) => {
+		const table = data.functions.nodes.map((i, key) => {
 			const _data = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
 				'percent': i.Percent_Outlaid
@@ -61,7 +75,7 @@ export default function Tracking(props) {
 			return <Bar key={key} data={_data} barLabel={i.Function_Description}
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
 				firstBar={key === 0}
-				lastBar={key === data.main.nodes.length - 1}
+				lastBar={key === data.functions.nodes.length - 1}
 			/>;
 		});
 
