@@ -4,54 +4,165 @@ import React from 'react';
 export default function Bar(props) {
   console.log(props);
 
-  const connector = {
-    startingPointer: 35,
-    endPointer: 10,
-    lineWidth: 2
+  const callout = {
+    starterHeight: 30,
+    endingHeight: 10,
+    lineStroke: 1,
+    lineHeight: 20,
+    lineColor: '#ddd'
   }
 
-  console.log(props)
   const threshold = {
-    left: 1,
-    outlayWidth: 10,
+    outlayLabelOffset: 1,
+    outlayLabelWidth: 5,
+    padding: 2,
+    obligatedLabelWidth: 10,
     unobligatedWidth: 80,
     right: 90
+  }
+
+  /* props
+    lineColor = hex value for line color
+    xStart = x position of starting vertical line, start of the horizontal line (pointing to bar)
+    xEnd = x position of ending vertical line, end of the horizontal line (pointing to label)
+  */
+  function ElbowCallout(props) {
+    return (<>
+      <rect fill={props.lineColor} x={`${props.xStart}%`}
+            y='0'
+            width={callout.lineStroke}
+            height={callout.starterHeight}/>
+
+      <rect fill={props.lineColor}
+            x={`${props.xStart}%`}
+            y={callout.starterHeight}
+            width={`${props.xEnd - props.xStart}%`}
+            height={callout.lineStroke}/>
+
+      <rect fill={props.lineColor}
+            x={`${props.xEnd}%`}
+            y={callout.starterHeight}
+            width={callout.lineStroke}
+            height={callout.endingHeight}/>
+    </>)
+  }
+
+  /* props
+    lineColor = hex value for line color
+    xStart = x position of starting vertical line, start of the horizontal line (pointing to bar)
+    xMid = x position of midpoint vertical line (pointing to label #1)
+    xEnd = x position of ending vertical line, end of the horizontal line (pointing to label #2)
+  */
+  function JoinedCallout(props) {
+    return(<>
+      <rect fill={props.lineColor} x={`${props.xStart}%`}
+            y='0'
+            width={callout.lineStroke}
+            height={callout.starterHeight} />
+
+      <rect fill={props.lineColor}
+            x={`${props.xStart}%`}
+            y={callout.starterHeight}
+            width={`${props.xEnd - props.xStart}%`}
+            height={callout.lineStroke} />
+
+      <rect fill={props.lineColor}
+            x={`${props.xMid}%`}
+            y={callout.starterHeight}
+            width={callout.lineStroke}
+            height={callout.endingHeight} />
+
+      <rect fill={props.lineColor}
+            x={`${props.xEnd}%`}
+            y={callout.starterHeight}
+            width={callout.lineStroke}
+            height={callout.endingHeight} />
+    </>)
+  }
+
+  /* props
+    lineColor = hex value for line color
+    xStart = x position vertical line
+  */
+  function straightCallout(props) {
+    <rect fill={props.lineColor} x={`${props.xStart}%`}
+          y='0'
+          width={callout.lineStroke}
+          height={callout.starterHeight} />
   }
 
   const items = props.data.allSf133Viz3AgencyPopout20200506Csv.nodes;
 
   function LeftLegend(props) {
-    if(props.outlaid + props.obligated < threshold.outlayWidth) {
-      // joined outlay and obligation
+    const calloutBeginning = threshold.outlayLabelOffset / 2;
+    const calloutMidpoint = threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2;
+    const obligatedLabelMidPoint = threshold.outlayLabelOffset / 2 + threshold.outlayLabelWidth + threshold.padding + threshold.obligatedLabelWidth / 2;
+    const textPosition = callout.starterHeight + callout.lineStroke + callout.endingHeight + callout.lineHeight;
+    const obligatedLabelOffset = threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding;
+
+    // joined outlay and obligation callout
+    if(props.outlaid + props.obligated < threshold.outlayLabelOffset) {
       return(<>
         <g className='outlay-connector'>
-          <rect fill='red' x={`${threshold.left}%`} y='0' width={connector.lineWidth} height={connector.startingPointer}></rect>
-          <text fill='black' x={`${threshold.left}%`} y='60' fontSize='14px'>Outlays / Obligated</text>
+          <JoinedCallout
+            lineColor='#ddd'
+            xStart={calloutBeginning}
+            xMid={calloutMidpoint}
+            xEnd={obligatedLabelMidPoint} />
+          <text fill='black' x={`${threshold.outlayLabelOffset}%`} y={textPosition} fontSize='14px'>Outlays</text>
+          <text fill='black' x={`${obligatedLabelOffset}%`} y={textPosition} fontSize='14px'>Obligated</text>
         </g>
         </>)
-    } else if (props.outlaid < threshold.outlayWidth) {
-          return(<>
+
+    } else if (props.outlaid < threshold.outlayLabelOffset) {
+      if (props.outlaid + props.obligated < threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding + threshold.obligatedLabelWidth) {
+        return (<>
           <g className='outlay-connector'>
-          <rect fill='red' x={`${threshold.left}%`} y='0' width={connector.lineWidth} height={connector.startingPointer}></rect>
-          {/*<rect fill='red' x='50%' y={connector.startingPointer} width='10%' height={connector.lineWidth}></rect>*/}
-          {/*<rect fill='red' x='60%' y={connector.startingPointer} width={connector.lineWidth} height={connector.endPointer}></rect>*/}
-          <text fill='black' x={`${threshold.left}%`} y='60' fontSize='14px'>Outlays</text>
+            <JoinedCallout
+              lineColor='#ddd'
+              xStart={calloutBeginning}
+              xMid={calloutMidpoint}
+              xEnd={obligatedLabelMidPoint}/>
+            <text fill='black' x={`${threshold.outlayLabelOffset}%`} y={textPosition}
+                  fontSize='14px'>Outlays
+            </text>
+            <text fill='black' x={`${obligatedLabelOffset}%`} y={textPosition}
+                  fontSize='14px'>Obligated
+            </text>
           </g>
-          <g className='obligated-connector'>
-          <rect fill='red' x={props.obligatedMidPoint} y='0' width={connector.lineWidth} height={connector.startingPointer}></rect>
-          {/*<rect fill='red' x='50%' y={connector.startingPointer} width='10%' height={connector.lineWidth}></rect>*/}
-          {/*<rect fill='red' x='60%' y={connector.startingPointer} width={connector.lineWidth} height={connector.endPointer}></rect>*/}
-          <text fill='black' x={props.obligatedMidPoint} y='60' fontSize='14px'>Obligated</text>
-          </g>
-          </>)
+        </>)
+      }
     }
+
+    //   else {
+    //
+    //   }
+    //   return (<>
+    //     {/*<g className='outlay-connector'>*/}
+    //       {/*<rect fill='red' x={`${threshold.outlayLabelOffset}%`} y='0' width={callout.lineStroke}*/}
+    //             {/*height={connector.starterHeight}></rect>*/}
+    //       {/*/!*<rect fill='red' x='50%' y={connector.startingPointer} width='10%' height={connector.lineWidth}></rect>*!/*/}
+    //       {/*/!*<rect fill='red' x='60%' y={connector.startingPointer} width={connector.lineWidth} height={connector.endPointer}></rect>*!/*/}
+    //       {/*<text fill='black' x={`${threshold.outlayLabelOffset}%`} y='60' fontSize='14px'>Outlays</text>*/}
+    //     {/*</g>*/}
+    //     {/*<g className='obligated-connector'>*/}
+    //       {/*<rect fill='red' x={props.obligatedMidPoint} y='0' width={callout.lineStroke}*/}
+    //             {/*height={callout.starterHeight}></rect>*/}
+    //       {/*/!*<rect fill='red' x='50%' y={connector.startingPointer} width='10%' height={connector.lineWidth}></rect>*!/*/}
+    //       {/*/!*<rect fill='red' x='60%' y={connector.startingPointer} width={connector.lineWidth} height={connector.endPointer}></rect>*!/*/}
+    //       {/*<text fill='black' x={props.obligatedMidPoint} y='60' fontSize='14px'>Obligated</text>*/}
+    //     {/*</g>*/}
+    //   </>)
+    // }
+
+    return<></>
   }
 
   function RightLegend(props) {
     return (<>
         {/* this should right aligned */}
         <g className='unobligated-connector'>
-          <rect fill='red' x={`${threshold.right}%`} y='0' width={connector.lineWidth} height={connector.startingPointer}></rect>
+          <rect fill='red' x={`${threshold.right}%`} y='0' width={callout.lineStroke} height={callout.starterHeight}></rect>
           {/*<rect fill='red' x='50%' y={connector.startingPointer} width='10%' height={connector.lineWidth}></rect>*/}
           {/*<rect fill='red' x='60%' y={connector.startingPointer} width={connector.lineWidth} height={connector.endPointer}></rect>*/}
           <text fill='black' x={`${threshold.right}%`} y='60' fontSize='14px'>UnObligated</text>
