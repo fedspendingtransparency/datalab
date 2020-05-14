@@ -272,9 +272,7 @@ export default function Categories(props) {
     {Object.keys(tooltipData)
       .map((i) => {
         const item = tooltipData[i];
-        return (<>
-          <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows} />
-        </>)
+        return <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows} />
       })}
 
 

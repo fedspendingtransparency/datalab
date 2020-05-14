@@ -113,15 +113,14 @@ export default class RdInContractingPage extends React.Component {
       header: <div className={styles.title} key={'spending-header'}>2019 Agency Spending</div>,
       sectionTeaser: <>What <span className={styles.subtitleHighlight}>portion of federal agency contract spending</span> goes to R&D initiatives?</>,
       introBlurb: <>
-        {/* <Hidden smDown> */}
-          {this.secBlurbs[0]}
-        {/* </Hidden>
-        <Hidden mdUp>
-          <ReadMore maxHeight={1000} toggleColor={cssVars.rdBlue}>
-            {this.secBlurbs[0]}
-          </ReadMore>
-        </Hidden> */}
+        <p key={'si1'}>Investment in Research and Development, or R&D, is largely seen as a driver of innovation in both the public and private sectors.<a id='fr1' href='#fn1' className='footnoteref'>1</a> From medicine to autonomous vehicles, R&D investments lead to new products, technology advancements, and improved quality of life.  To fund R&D work, federal agencies can use grants, loans, and contracts. In this analysis we focus on contracts.</p>
+        <p key={'si2'}>Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts to perform R&D work in fiscal year 2019 (FY 2019), totaling $41.5B. Let’s take a look at the top ten CFO Act agencies by R&D contract spending.</p>
       </>,
+      accordion: <aside>
+        <Accordion title='What is R&D?' color='#1302D9' backgroundColor='rgba(19, 2, 217, 0.1)'>
+          {this.whatIsContents()}
+        </Accordion>
+      </aside>,
       viztitle: 'R&D as a Portion of Total Federal Contract Spending by Agency',
       tagName: 'spending'
     },
