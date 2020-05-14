@@ -10,6 +10,7 @@ import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter';
 import Share from 'src/components/share/share';
+import ModalReference from "../../../components/modal/modal"
 
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
@@ -30,6 +31,8 @@ export default function Tracking(props) {
   `);
 
 	const [screenMode, setScreenMode] = useState(0);
+	const [isModalOpen, setModalState] = useState(false);
+  const [agency, setAgency] = useState(null);
 
 	useEffect(() => {
 		updateScreenMode(window.innerWidth);
@@ -76,6 +79,16 @@ export default function Tracking(props) {
 		}
 	}
 
+  const openModal = (agencyName) => {
+		console.log(agencyName);
+		setModalState(true);
+		setAgency(agencyName);
+  }
+
+  const closeModal = () => {
+    setModalState(false);
+  }
+
 	const mainChart = () => {
 		const table = data.main.nodes.map((i, key) => {
 			const _data = [{
@@ -92,6 +105,7 @@ export default function Tracking(props) {
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
 				firstBar={key === 0}
 				lastBar={key === data.main.nodes.length - 1}
+        openModal={openModal}
 				// narrow={true}
 			/>;
 		});
@@ -129,6 +143,10 @@ export default function Tracking(props) {
 		</ControlBar>
 
 		{mainChart()}
+
+    <ModalReference open={isModalOpen} close={closeModal} title={agency} maxWidth={false} maxHeight={true}>
+      testing
+    </ModalReference>
 
 		<Downloads
 			href={''}

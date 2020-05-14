@@ -38,7 +38,7 @@ class ModalReference extends React.Component {
     };
 
     this.state = {
-      open: false,
+      open: this.props.open,
       maxWidth: this.props.maxWidth ? windowWidth() : null,
       maxHeight: this.props.maxHeight ? windowHeight() : null
     }
@@ -50,6 +50,11 @@ class ModalReference extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize);
+  }
+
+  componentWillReceiveProps({open}) {
+    console.log(open);
+    this.setState({open: open});
   }
 
   handleResize = () => {
@@ -64,6 +69,7 @@ class ModalReference extends React.Component {
   };
 
   handleClose = () => {
+    this.props.close();
     this.setState({open: false});
   };
 
