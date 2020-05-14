@@ -23,8 +23,8 @@ const StyledSwitch = withStyles(() => ({
       '& + $track': {
         opacity: 1,
         backgroundColor: '#e6e6e6'
-      },
-    },
+      }
+    }
   },
   thumb: {
     width: 20,
@@ -36,22 +36,23 @@ const StyledSwitch = withStyles(() => ({
     opacity: 1,
     backgroundColor: '#e6e6e6',
     borderRadius: 12
-  },
-  checked: {},
+  }
 }))(Switch);
 
-const Toggle = ({ first, second, handleToggle, checked }) => (
-  <div className={toggleStyles.toggleContainer}>
-    <div className={checked ? toggleStyles.toggleLabelInactive : toggleStyles.toggleLabelActive}>
-      <FontAwesomeIcon icon={first.icon} className={toggleStyles.toggleIcon} />
-      <p>{first.name}</p>
+const Toggle = ({ first, second, handleToggle, checked }) => {
+  return (
+    <div className={toggleStyles.toggleContainer}>
+      <div className={checked ? toggleStyles.toggleLabelInactive : toggleStyles.toggleLabelActive}>
+        <FontAwesomeIcon icon={first.icon} className={toggleStyles.toggleIcon} />
+        <p>{first.name}</p>
+      </div>
+      <StyledSwitch checked={checked} onChange={handleToggle} color='default' />
+      <div className={checked ? toggleStyles.toggleLabelActive : toggleStyles.toggleLabelInactive}>
+        <FontAwesomeIcon icon={second.icon} className={toggleStyles.toggleIcon} />
+        <p>{second.name}</p>
+      </div>
     </div>
-    <StyledSwitch checked={checked} onChange={handleToggle} color='default' />
-    <div className={checked ? toggleStyles.toggleLabelActive : toggleStyles.toggleLabelInactive}>
-      <FontAwesomeIcon icon={second.icon} className={toggleStyles.toggleIcon} />
-      <p>{second.name}</p>
-    </div>
-  </div>
-);
+  )
+};
  
 export default Toggle;

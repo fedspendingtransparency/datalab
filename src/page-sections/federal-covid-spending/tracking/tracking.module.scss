@@ -13,6 +13,12 @@ $budgetWidth: 4rem;
     font-size: 0.8rem;
   }
 
+  .toggleContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
   .blockContainer {
     display: flex;
     align-items: center;
