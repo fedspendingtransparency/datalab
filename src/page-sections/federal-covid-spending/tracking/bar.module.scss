@@ -1,6 +1,6 @@
 @import "src/styles/variables.scss";
 
-$chartBorder: 1px solid;
+$chartBorder: 1px solid #ddd;
 $labelWidth: 11.5rem;
 $budgetWidth: 4rem;
 
@@ -33,6 +33,15 @@ $budgetWidth: 4rem;
   }
 
   .barContainer {
+    background-image: linear-gradient(
+      to right,
+      #fff,
+      #fff 33%,
+      #fafafa 33%,
+      #fafafa 67%,
+      #fff 67%
+    );
+
     flex-basis: 100%;
     display: flex;
     flex-flow: row wrap;
