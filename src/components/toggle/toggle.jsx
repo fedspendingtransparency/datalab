@@ -40,14 +40,22 @@ const StyledSwitch = withStyles(() => ({
 }))(Switch);
 
 const Toggle = ({ first, second, handleToggle, checked }) => {
+  // Simulate click here because StyledSwitch shouldn't change from uncontrolled to controlled when you click on either of the labels
+  const handleLabelClick = (e) => {
+    e.preventDefault();
+    const s = document.getElementById('toggle-switch');
+    if ((e.currentTarget.id === 'toggle-label-first' && checked) || (e.currentTarget.id === 'toggle-label-second' && !checked)) {
+      s.click();
+    }
+  }
   return (
     <div className={toggleStyles.toggleContainer}>
-      <div className={checked ? toggleStyles.toggleLabelInactive : toggleStyles.toggleLabelActive}>
+      <div id='toggle-label-first' className={checked ? toggleStyles.toggleLabelInactive : toggleStyles.toggleLabelActive} onClick={handleLabelClick}>
         <FontAwesomeIcon icon={first.icon} className={toggleStyles.toggleIcon} />
         <p>{first.name}</p>
       </div>
-      <StyledSwitch checked={checked} onChange={handleToggle} color='default' />
-      <div className={checked ? toggleStyles.toggleLabelActive : toggleStyles.toggleLabelInactive}>
+      <StyledSwitch id='toggle-switch' checked={checked} onChange={handleToggle} color='default' />
+      <div id='toggle-label-second' className={checked ? toggleStyles.toggleLabelActive : toggleStyles.toggleLabelInactive} onClick={handleLabelClick}>
         <FontAwesomeIcon icon={second.icon} className={toggleStyles.toggleIcon} />
         <p>{second.name}</p>
       </div>
