@@ -17,6 +17,13 @@ $budgetWidth: 4rem;
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
+  
+    .toggle-icon {
+      height: 22px;
+      width: 22px;
+      margin-right: 0.5rem;
+      cursor: pointer;
+    }
   }
 
   .blockContainer {

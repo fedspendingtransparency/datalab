@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Switch } from '@material-ui/core';
 import { withStyles } from "@material-ui/styles"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import toggleStyles from './toggle.module.scss';
 
@@ -51,12 +50,12 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
   return (
     <div className={toggleStyles.toggleContainer}>
       <div id='toggle-label-first' className={checked ? toggleStyles.toggleLabelInactive : toggleStyles.toggleLabelActive} onClick={handleLabelClick}>
-        <FontAwesomeIcon icon={first.icon} className={toggleStyles.toggleIcon} />
+        {first.icon}
         <p>{first.name}</p>
       </div>
       <StyledSwitch id='toggle-switch' checked={checked} onChange={handleToggle} color='default' />
       <div id='toggle-label-second' className={checked ? toggleStyles.toggleLabelActive : toggleStyles.toggleLabelInactive} onClick={handleLabelClick}>
-        <FontAwesomeIcon icon={second.icon} className={toggleStyles.toggleIcon} />
+        {second.icon}
         <p>{second.name}</p>
       </div>
     </div>

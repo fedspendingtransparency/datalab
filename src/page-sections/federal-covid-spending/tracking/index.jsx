@@ -12,7 +12,11 @@ import numberFormatter from 'src/utils/number-formatter';
 import Share from 'src/components/share/share';
 import Toggle from 'src/components/toggle/toggle';
 
-import { faUniversity, faListAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUniversity } from '@fortawesome/free-solid-svg-icons';
+import ListAltIcon from '@material-ui/icons/ListAlt';
+
+
 
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
@@ -34,12 +38,12 @@ export default function Tracking(props) {
 	
 	const first = {
     name: 'Budget Function',
-    icon: faListAlt
+    icon: <ListAltIcon className={styles.toggleIcon} />
   }
 
   const second = {
     name: 'Agency',
-    icon: faUniversity
+    icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
   }
 
   const [checked, toggleChecked] = useState(false);
