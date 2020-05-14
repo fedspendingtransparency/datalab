@@ -6,8 +6,8 @@ import StoryLayout from '../../components/layouts/story/story';
 import SEO from '../../components/seo';
 import StorySection from 'src/components/section-elements/story-section/story-section';
 import Budget from '../../page-sections/covid19/budget/budget';
-import Overview from '../../page-sections/covid19/overview';
-import Tracking from '../../page-sections/covid19/tracking';
+import Overview from '../../page-sections/covid19/overview/overview';
+import Tracking from '../../page-sections/covid19/tracking/tracking';
 
 export default class Covid19 extends React.Component {
   constructor(props) {
