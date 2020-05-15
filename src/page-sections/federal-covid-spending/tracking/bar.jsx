@@ -30,9 +30,10 @@ export default class Bar extends React.Component {
 
 		this.barPercents = [
 			Number.parseFloat(this.props.data[0].percent),
-			Number.parseFloat(this.props.data[1].percent),
-			Number.parseFloat(this.props.data[2].percent)
+			Number.parseFloat(this.props.data[1].percent)
 		];
+		// final bar calculated, removing rounding errors
+		this.barPercents[2] = 100 - this.barPercents[0] - this.barPercents[1];
 	}
 
 	clickHandler = item => {
