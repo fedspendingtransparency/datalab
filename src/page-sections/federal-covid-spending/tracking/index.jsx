@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 // import { checkScreenMode } from 'src/utils/screen-mode.js';
 import styles from './tracking.module.scss';
@@ -13,37 +13,31 @@ import Share from 'src/components/share/share';
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
     query {
-			agencies: allSf133Viz3AgencyPopout20200506Csv {
-					group(field: Agency) {
-						nodes {
-							Agency
-							Account_Name
-							Percent_Outlaid
-							Amount_Outlaid
-							Percent_Obligated
-							Amount_Obligated
-							Percent_Unobligated
-							Amount_Unobligated
-							Total_Budgetary_Authority
-						}
-					}
-				}
-				functions: allSf133Viz3FunctionPopout20200506Csv {
-					group(field: Function_Description) {
-						nodes {
-							Function_Description
-							Account_Name
-							Percent_Outlaid
-							Amount_Outlaid
-							Percent_Obligated
-							Amount_Obligated
-							Percent_Unobligated
-							Amount_Unobligated
-							Total_Budgetary_Authority
-						}
-					}
-				}
-			}
+      agencies: allSf133Viz3AgencyMain20200514Csv {
+        nodes {
+					Agency
+					Percent_Outlaid
+					Amount_Outlaid
+					Percent_Obligated
+					Amount_Obligated
+					Percent_Unobligated
+					Amount_Unobligated
+					Total_Budgetary_Resources
+        }
+      }
+			functions: allSf133Viz3FunctionMain20200514Csv {
+        nodes {
+					Function_Description
+					Percent_Outlaid
+					Amount_Outlaid
+					Percent_Obligated
+					Amount_Obligated
+					Percent_Unobligated
+					Amount_Unobligated
+					Total_Budgetary_Resources
+        }
+      }
+    }
   `);
 
 	// const [screenMode, setScreenMode] = useState(0);
@@ -65,35 +59,21 @@ export default function Tracking(props) {
 	// }
 
 	const mainChart = () => {
-		const table = data.functions.group.map((g, key) => {
-			let total = 0;
-			const _data = [
-				{ 'amount': 0, 'percent': 0 },
-				{ 'amount': 0, 'percent': 0 },
-				{ 'amount': 0, 'percent': 0 },
-			];
-
-			g.nodes.map(i => {
-				_data[0].amount += parseFloat(i.Amount_Outlaid);
-				_data[1].amount += parseFloat(i.Amount_Obligated);
-				_data[2].amount += parseFloat(i.Amount_Unobligated);
-				total += parseFloat(i.Total_Budgetary_Authority);
-			});
-			_data[0].percent += numberFormatter('percent', _data[0].amount / total);
-			_data[1].percent += numberFormatter('percent', _data[1].amount / total);
-			_data[2].percent += numberFormatter('percent', _data[2].amount / total);
-			_data[0].amount = numberFormatter('dollars suffix', _data[0].amount);
-			_data[1].amount = numberFormatter('dollars suffix', _data[1].amount);
-			_data[2].amount = numberFormatter('dollars suffix', _data[2].amount);
-
-			console.log(_data);
-
-
-
-			return <Bar key={key} data={_data} barLabel={g.nodes[0].Function_Description}
-				total={numberFormatter('dollars suffix', total)}
+		const table = data.functions.nodes.map((i, key) => {
+			const _data = [{
+				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
+				'percent': i.Percent_Outlaid
+			}, {
+				'amount': numberFormatter('dollars suffix', i.Amount_Obligated),
+				'percent': i.Percent_Obligated
+			}, {
+				'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
+				'percent': i.Percent_Unobligated
+			}];
+			return <Bar key={key} data={_data} barLabel={i.Function_Description}
+				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
-				lastBar={key === data.functions.group.length - 1}
+				lastBar={key === data.functions.nodes.length - 1}
 			/>;
 		});
 
