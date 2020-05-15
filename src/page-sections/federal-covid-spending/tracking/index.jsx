@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-// import { checkScreenMode } from 'src/utils/screen-mode.js';
+import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import styles from './tracking.module.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
@@ -40,23 +40,23 @@ export default function Tracking(props) {
     }
   `);
 
-	// const [screenMode, setScreenMode] = useState(0);
+	const [screenMode, setScreenMode] = useState(0);
 
-	// useEffect(() => {
-	// 	resizeWindow();
-	// 	window.addEventListener('resize', resizeWindow);
-	// 	return () => {
-	// 		window.removeEventListener('resize', resizeWindow);
-	// 	}
-	// });
+	useEffect(() => {
+		resizeWindow();
+		window.addEventListener('resize', resizeWindow);
+		return () => {
+			window.removeEventListener('resize', resizeWindow);
+		}
+	});
 
-	// // update state & redraw ONLY if mode changes
-	// const resizeWindow = () => {
-	// 	const newMode = checkScreenMode(window.innerWidth);
-	// 	if (newMode !== screenMode) {
-	// 		setScreenMode(newMode);
-	// 	}
-	// }
+	// update state & redraw ONLY if mode changes
+	const resizeWindow = () => {
+		const newMode = checkScreenMode(window.innerWidth);
+		if (newMode !== screenMode) {
+			setScreenMode(newMode);
+		}
+	}
 
 	const mainChart = () => {
 		const table = data.functions.nodes.map((i, key) => {
@@ -72,6 +72,7 @@ export default function Tracking(props) {
 			}];
 			return <Bar key={key} data={barData} barLabel={i.Function_Description}
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
+				hideBarLabels={screenMode === ScreenModeEnum.mobile}
 				firstBar={key === 0}
 				lastBar={key === data.functions.nodes.length - 1}
 			/>;
