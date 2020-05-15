@@ -3,6 +3,7 @@
 $chartBorder: 1px solid #ddd;
 $labelWidth: 11.5rem;
 $budgetWidth: 5.5rem;
+$lightBackground: #fafafa;
 
 .outlayBar {
   display: inline-block;
@@ -41,8 +42,8 @@ $budgetWidth: 5.5rem;
       to right,
       #fff,
       #fff 33%,
-      #fafafa 33%,
-      #fafafa 67%,
+      $lightBackground 33%,
+      $lightBackground 67%,
       #fff 67%
     );
 
