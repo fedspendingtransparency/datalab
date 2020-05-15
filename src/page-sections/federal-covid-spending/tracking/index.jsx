@@ -78,7 +78,7 @@ export default function Tracking(props) {
 	});
 
 	const [limitBars, setLimitBars] = useState(showLess);
-	const handleShowMore = () => {
+	const handleSeeMore = () => {
 		if (limitBars) {
 			setLimitBars(0);
 		} else {
@@ -89,7 +89,7 @@ export default function Tracking(props) {
 	const mainChart = () => {
 		const dataToShow = limitBars ? data.functions.nodes.slice(limitBars) : data.functions.nodes;
 		const table = dataToShow.map((i, key) => {
-			const _data = [{
+			const barData = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
 				'percent': i.Percent_Outlaid
 			}, {
@@ -103,7 +103,7 @@ export default function Tracking(props) {
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				hideBarLabels={screenMode === ScreenModeEnum.mobile}
 				firstBar={key === 0}
-				lastBar={key === data.functions.nodes.length - 1}
+				lastBar={key === dataToShow.length - 1}
 			/>;
 		});
 
@@ -148,7 +148,7 @@ export default function Tracking(props) {
 
 		{mainChart()}
 
-		<Button fullWidth>See More</Button>
+		<Button fullWidth onClick={handleSeeMore}>See More</Button>
 
 		<Downloads
 			href={''}
