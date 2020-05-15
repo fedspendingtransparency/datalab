@@ -60,6 +60,7 @@ export default class FederalCovidSpending extends React.Component {
       number: '01',
       subtext: 'Function subtext',
       subblurb: 'Function subblurb',
+      blurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada.',
       sectionTeaser: 'Function teaser',
       introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
       viztitle: 'Title for Function viz',
@@ -76,6 +77,7 @@ export default class FederalCovidSpending extends React.Component {
       number: '02',
       subtext: 'The Flow of Funds',
       subblurb: 'Overview subblurb',
+      blurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada.',
       sectionTeaser: ['How do federal dollars ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>move from congress to the American people?</span>],
       introBlurb: [
         <p key="p1">Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met. Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met.</p>,
@@ -92,6 +94,7 @@ export default class FederalCovidSpending extends React.Component {
       number: '03',
       subtext: 'Tracking subtext',
       subblurb: 'Tracking subblurb',
+      blurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada.',
       sectionTeaser: 'Tracking teaser',
       introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
       viztitle: 'Title for Tracking viz',
