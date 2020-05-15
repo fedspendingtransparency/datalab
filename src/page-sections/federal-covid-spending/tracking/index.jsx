@@ -5,7 +5,8 @@ import styles from './tracking.module.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Bar from './bar';
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter';
@@ -128,6 +129,16 @@ export default function Tracking(props) {
 		</>);
 	}
 
+	const SeeMoreButton = withStyles(() => ({
+		root: {
+			'color': 'inherit',
+			'text-transform': 'capitalize',
+			'&:hover': {
+				color: 'inherit'
+			}
+		}
+	}))(Button);
+
 	return <>
 		<AccordionList title='Instructions'>
 			<p>Actual instructions are larger than they appear</p>
@@ -144,9 +155,9 @@ export default function Tracking(props) {
 
 		{mainChart()}
 
-		<Button fullWidth onClick={handleSeeMore}>
-			{limitBars ? `See More(${data.functions.nodes.length - showLess})` : 'Show Less'}
-		</Button>
+		<SeeMoreButton fullWidth onClick={handleSeeMore}>
+			{limitBars ? `See More (${data.functions.nodes.length - limitBars})` : 'Show Less'}
+		</SeeMoreButton>
 
 		<Downloads
 			href={''}
