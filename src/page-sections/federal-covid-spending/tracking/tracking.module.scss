@@ -55,3 +55,26 @@ $budgetWidth: 4rem;
     font-size: 0.75rem;
   }
 }
+
+@media screen and (min-width: $phone) and (max-width: $desktop - 1) {
+  .legend {
+    flex-direction: column;
+    align-items: flex-end;
+
+    .toggleContainer {
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (max-width: $phone - 1) {
+  .legend {
+    flex-direction: column;
+    align-items: center;
+
+    .toggleContainer {
+      margin-bottom: 0;
+    }
+  }
+}
