@@ -1,9 +1,5 @@
 @import "bar.module.scss";
 
-$chartBorder: thin solid;
-$labelWidth: 11.5rem;
-$budgetWidth: 4rem;
-
 .legend {
   display: flex;
   justify-content: space-between;
@@ -30,7 +26,7 @@ $budgetWidth: 4rem;
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
-    background: $background-gray-warm-light;
+    background: $lightBackground;
     padding: 6px;
   }
 
@@ -49,7 +45,7 @@ $budgetWidth: 4rem;
   display: flex;
   justify-content: space-between;
   align-content: center;
-  margin: 0 calc(#{$budgetWidth} - 1.5rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
+  margin: 0 calc(#{$budgetWidth} - 2.5rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
 
   span {
     font-size: 0.75rem;

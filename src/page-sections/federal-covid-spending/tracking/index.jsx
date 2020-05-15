@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { checkScreenMode } from 'src/utils/screen-mode.js';
+import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import styles from './tracking.module.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
@@ -21,16 +21,28 @@ const showLess = 10; // bars to show when collapsed
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
     query {
-      main: allSf133Viz3FunctionMain20200506Csv {
+      agencies: allSf133Viz3AgencyMain20200514Csv {
         nodes {
-          Function_Description
-          Total_Budgetary_Authority
+					Agency
 					Percent_Outlaid
 					Amount_Outlaid
 					Percent_Obligated
 					Amount_Obligated
 					Percent_Unobligated
 					Amount_Unobligated
+					Total_Budgetary_Resources
+        }
+      }
+			functions: allSf133Viz3FunctionMain20200514Csv {
+        nodes {
+					Function_Description
+					Percent_Outlaid
+					Amount_Outlaid
+					Percent_Obligated
+					Amount_Obligated
+					Percent_Unobligated
+					Amount_Unobligated
+					Total_Budgetary_Resources
         }
       }
     }
@@ -75,7 +87,7 @@ export default function Tracking(props) {
 	}
 
 	const mainChart = () => {
-		const dataToShow = limitBars ? data.main.nodes.slice(limitBars) : data.main.nodes;
+		const dataToShow = limitBars ? data.functions.nodes.slice(limitBars) : data.functions.nodes;
 		const table = dataToShow.map((i, key) => {
 			const _data = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
@@ -87,10 +99,11 @@ export default function Tracking(props) {
 				'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
 				'percent': i.Percent_Unobligated
 			}];
-			return <Bar key={key} data={_data} barLabel={i.Function_Description}
-				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
+			return <Bar key={key} data={barData} barLabel={i.Function_Description}
+				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
+				hideBarLabels={screenMode === ScreenModeEnum.mobile}
 				firstBar={key === 0}
-				lastBar={key === data.main.nodes.length - 1}
+				lastBar={key === data.functions.nodes.length - 1}
 			/>;
 		});
 
@@ -139,7 +152,7 @@ export default function Tracking(props) {
 
 		<Downloads
 			href={''}
-			date={'Flovember 1922'}
+			date={'MMMM YY'}
 		/>
 	</>;
 }

@@ -1,12 +1,13 @@
 @import "src/styles/variables.scss";
 
-$chartBorder: 1px solid;
+$chartBorder: 1px solid #ddd;
 $labelWidth: 11.5rem;
-$budgetWidth: 4rem;
+$budgetWidth: 5.5rem;
+$lightBackground: #fafafa;
 
 .outlayBar {
   display: inline-block;
-  background: darken($covidPurple, 35%);
+  background: darken($covidPurple, 25%);
 }
 
 .obligatedBar {
@@ -16,22 +17,36 @@ $budgetWidth: 4rem;
 
 .unobligatedBar {
   display: inline-block;
-  background: lighten($covidPurple, 35%);
+  background: #f3e9ff;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
 
+  &:hover {
+    font-weight: $bold;
+  }
+
   .topPad {
     padding-top: 1rem;
   }
   .sideLabel {
     flex-basis: $labelWidth;
+    min-width: $labelWidth;
     padding-right: 0.5rem;
   }
 
   .barContainer {
+    background-image: linear-gradient(
+      to right,
+      #fff,
+      #fff 33%,
+      $lightBackground 33%,
+      $lightBackground 67%,
+      #fff 67%
+    );
+
     flex-basis: 100%;
     display: flex;
     flex-flow: row wrap;
@@ -42,6 +57,10 @@ $budgetWidth: 4rem;
       padding-top: 1rem;
       border-left: $chartBorder;
       border-right: $chartBorder;
+
+      &:hover {
+        font-weight: initial;
+      }
 
       &.firstBar {
         border-top: $chartBorder;
