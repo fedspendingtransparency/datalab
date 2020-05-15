@@ -15,8 +15,6 @@ export default function Budget(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const title = 'Budget Functions under $2 B';
-  const altText = 'Alt text placeholder';
-  const popUpAltText = 'Pop up Alt text placeholder';
 
   useEffect(() => {
     handleResize()
@@ -41,13 +39,6 @@ export default function Budget(props) {
   }
 
   useEffect(() => {
-    const svgs = document.getElementsByClassName('budgetSvg');
-
-    for(let i = 0; i < svgs.length; i++) {
-      const desc = svgs[i].getElementsByTagName('desc');
-      desc[0].textContent = altText;
-    }
-
     if(windowWidth) {
       document.getElementById('Hover-Rectangle')
         .addEventListener('click', e => togglePopup(e));
@@ -118,7 +109,6 @@ export default function Budget(props) {
     if(!isOpen) {
       document.getElementById('close')
         .setAttribute('tabindex', '0');
-      document.getElementById('covid19-pop-up').getElementsByTagName('desc')[0].textContent = popUpAltText;
       document.getElementById('pop-up')
         .classList
         .add('active');

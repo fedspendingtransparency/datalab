@@ -3,7 +3,7 @@
      id="covid19-pop-up" version="1.1"
      aria-labelledby="covid-budget-pop-up"
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <desc id="covid-budget-pop-up"></desc>
+    <desc id="covid-budget-pop-up">alt text goes here</desc>
 
     <defs>
         <style type="text/css">
