@@ -79,15 +79,11 @@ export default function Tracking(props) {
 
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
-		if (limitBars) {
-			setLimitBars(0);
-		} else {
-			setLimitBars(showLess);
-		}
+		setLimitBars(limitBars ? 0 : showLess);
 	}
 
 	const mainChart = () => {
-		const dataToShow = limitBars ? data.functions.nodes.slice(limitBars) : data.functions.nodes;
+		const dataToShow = limitBars ? data.functions.nodes.slice(0, limitBars) : data.functions.nodes;
 		const table = dataToShow.map((i, key) => {
 			const barData = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
@@ -148,7 +144,9 @@ export default function Tracking(props) {
 
 		{mainChart()}
 
-		<Button fullWidth onClick={handleSeeMore}>See More</Button>
+		<Button fullWidth onClick={handleSeeMore}>
+			{limitBars ? 'See More(data.functions.nodes - showLess)' : 'Show Less'}
+		</Button>
 
 		<Downloads
 			href={''}
