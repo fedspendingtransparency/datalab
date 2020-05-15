@@ -42,6 +42,8 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
   // Simulate click here because StyledSwitch shouldn't change from uncontrolled to controlled when you click on either of the labels
   const handleLabelClick = (e) => {
     e.preventDefault();
+    // Only keys that should trigger the click are Enter and Space
+    if (e.charCode && e.charCode !== 13 && e.charCode !== 32) return;
     const s = document.getElementById('toggle-switch');
     if ((e.currentTarget.id === 'toggle-label-first' && checked) || (e.currentTarget.id === 'toggle-label-second' && !checked)) {
       s.click();
@@ -49,12 +51,24 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
   }
   return (
     <div className={toggleStyles.toggleContainer}>
-      <div id='toggle-label-first' className={checked ? toggleStyles.toggleLabelInactive : toggleStyles.toggleLabelActive} onClick={handleLabelClick}>
+      <div
+        id='toggle-label-first'
+        className={checked ? toggleStyles.toggleLabelInactive : toggleStyles.toggleLabelActive}
+        onClick={handleLabelClick}
+        onKeyPress={handleLabelClick}
+        tabIndex={0}
+      >
         {first.icon}
         <p>{first.name}</p>
       </div>
       <StyledSwitch id='toggle-switch' checked={checked} onChange={handleToggle} color='default' />
-      <div id='toggle-label-second' className={checked ? toggleStyles.toggleLabelActive : toggleStyles.toggleLabelInactive} onClick={handleLabelClick}>
+      <div
+        id='toggle-label-second'
+        className={checked ? toggleStyles.toggleLabelActive : toggleStyles.toggleLabelInactive}
+        onClick={handleLabelClick}
+        onKeyPress={handleLabelClick}
+        tabIndex={0}
+      >
         {second.icon}
         <p>{second.name}</p>
       </div>
