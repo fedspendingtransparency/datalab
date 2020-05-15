@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { ScreenModeEnum } from 'src/utils/enums.js';
+import { checkScreenMode } from 'src/utils/screen-mode.js';
 import styles from './tracking.module.scss';
-import globals from 'src/styles/variables.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Bar from './bar';
@@ -50,7 +49,7 @@ export default function Tracking(props) {
 	const [screenMode, setScreenMode] = useState(0);
 	
 	useEffect(() => {
-		updateScreenMode(window.innerWidth);
+		resizeWindow();
 		window.addEventListener('resize', resizeWindow);
 		return () => {
 			window.removeEventListener('resize', resizeWindow);
@@ -75,26 +74,9 @@ export default function Tracking(props) {
 
 	// update state & redraw ONLY if mode changes
 	const resizeWindow = () => {
-		switch (screenMode) {
-			case ScreenModeEnum.mobile:
-				if (window.innerWidth >= globals.md) {
-					updateScreenMode(window.innerWidth);
-				}
-				break;
-			case ScreenModeEnum.tablet:
-				if (window.innerWidth < globals.md || window.innerWidth >= globals.lg) {
-					updateScreenMode(window.innerWidth);
-				}
-				break;
-			case ScreenModeEnum.desktop:
-				if (window.innerWidth < globals.lg || window.innerWidth >= globals.xl) {
-					updateScreenMode(window.innerWidth);
-				}
-				break;
-			case ScreenModeEnum.desktop_xl:
-				if (window.innerWidth < globals.xl) {
-					updateScreenMode(window.innerWidth);
-				}
+		const newMode = checkScreenMode(window.innerWidth);
+		if (newMode !== screenMode) {
+			setScreenMode(newMode);
 		}
 	}
 
@@ -114,7 +96,6 @@ export default function Tracking(props) {
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
 				firstBar={key === 0}
 				lastBar={key === data.main.nodes.length - 1}
-				// narrow={true}
 			/>;
 		});
 
