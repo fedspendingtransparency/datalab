@@ -45,10 +45,6 @@ $mdGrey: #555555;
     margin-top: $margin-75;
     margin-bottom: $margin-100;
     
-    .number {
-      min-width: 60px;
-    }
-    
     .tile:not(:last-child) {
       border-right: 1px solid $font-lightGrey;
     }
