@@ -34,7 +34,7 @@ const StorySectionHeading = (props) => {
     return <></>;
   }
 
-  const blurb = props.readMoreOnMobile && screenWidth < 576
+  const blurb = props.readMoreOnMobile && screenWidth < 768
     ? (
       <ReadMore toggleColor={props.toggleColor}>
         <div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
