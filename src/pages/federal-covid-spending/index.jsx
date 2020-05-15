@@ -8,7 +8,7 @@ import StorySection from 'src/components/section-elements/story-section/story-se
 import Accordion from 'src/components/accordion/accordion';
 import Budget from '../../page-sections/federal-covid-spending/budget/budget';
 import Overview from '../../page-sections/federal-covid-spending/overview/overview';
-import Tracking from '../../page-sections/federal-covid-spending/tracking/tracking';
+import Tracking from '../../page-sections/federal-covid-spending/tracking';
 
 const BudgetAccordionContent = () => (
   <div className={styles.accordionContents}>

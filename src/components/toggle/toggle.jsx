@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Switch } from '@material-ui/core';
 import { withStyles } from "@material-ui/styles"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import toggleStyles from './toggle.module.scss';
 
@@ -23,8 +22,8 @@ const StyledSwitch = withStyles(() => ({
       '& + $track': {
         opacity: 1,
         backgroundColor: '#e6e6e6'
-      },
-    },
+      }
+    }
   },
   thumb: {
     width: 20,
@@ -36,22 +35,31 @@ const StyledSwitch = withStyles(() => ({
     opacity: 1,
     backgroundColor: '#e6e6e6',
     borderRadius: 12
-  },
-  checked: {},
+  }
 }))(Switch);
 
-const Toggle = ({ first, second, handleToggle, checked }) => (
-  <div className={toggleStyles.toggleContainer}>
-    <div className={checked ? toggleStyles.toggleLabelInactive : toggleStyles.toggleLabelActive}>
-      <FontAwesomeIcon icon={first.icon} className={toggleStyles.toggleIcon} />
-      <p>{first.name}</p>
+const Toggle = ({ first, second, handleToggle, checked }) => {
+  // Simulate click here because StyledSwitch shouldn't change from uncontrolled to controlled when you click on either of the labels
+  const handleLabelClick = (e) => {
+    e.preventDefault();
+    const s = document.getElementById('toggle-switch');
+    if ((e.currentTarget.id === 'toggle-label-first' && checked) || (e.currentTarget.id === 'toggle-label-second' && !checked)) {
+      s.click();
+    }
+  }
+  return (
+    <div className={toggleStyles.toggleContainer}>
+      <div id='toggle-label-first' className={checked ? toggleStyles.toggleLabelInactive : toggleStyles.toggleLabelActive} onClick={handleLabelClick}>
+        {first.icon}
+        <p>{first.name}</p>
+      </div>
+      <StyledSwitch id='toggle-switch' checked={checked} onChange={handleToggle} color='default' />
+      <div id='toggle-label-second' className={checked ? toggleStyles.toggleLabelActive : toggleStyles.toggleLabelInactive} onClick={handleLabelClick}>
+        {second.icon}
+        <p>{second.name}</p>
+      </div>
     </div>
-    <StyledSwitch checked={checked} onChange={handleToggle} color='default' />
-    <div className={checked ? toggleStyles.toggleLabelActive : toggleStyles.toggleLabelInactive}>
-      <FontAwesomeIcon icon={second.icon} className={toggleStyles.toggleIcon} />
-      <p>{second.name}</p>
-    </div>
-  </div>
-);
+  )
+};
  
 export default Toggle;

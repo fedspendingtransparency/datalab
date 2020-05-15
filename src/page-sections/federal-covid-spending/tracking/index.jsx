@@ -10,6 +10,13 @@ import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter';
 import Share from 'src/components/share/share';
+import Toggle from 'src/components/toggle/toggle';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUniversity } from '@fortawesome/free-solid-svg-icons';
+import ListAltIcon from '@material-ui/icons/ListAlt';
+
+
 
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
@@ -27,10 +34,21 @@ export default function Tracking(props) {
         }
       }
     }
-  `);
+	`);
+	
+	const first = {
+    name: 'Budget Function',
+    icon: <ListAltIcon className={styles.toggleIcon} />
+  }
 
+  const second = {
+    name: 'Agency',
+    icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
+  }
+
+  const [checked, toggleChecked] = useState(false);
 	const [screenMode, setScreenMode] = useState(0);
-
+	
 	useEffect(() => {
 		updateScreenMode(window.innerWidth);
 		window.addEventListener('resize', resizeWindow);
@@ -38,6 +56,10 @@ export default function Tracking(props) {
 			window.removeEventListener('resize', resizeWindow);
 		}
 	});
+
+	const handleToggle = (e) => {
+		toggleChecked(e.target.checked)
+	}
 
 	const updateScreenMode = currentWidth => {
 		if (currentWidth < globals.md) {
@@ -98,7 +120,14 @@ export default function Tracking(props) {
 
 		return (<>
 			<div className={styles.legend}>
-				<div></div>
+				<div className={styles.toggleContainer}>
+					<Toggle
+						first={first}
+						second={second}
+						checked={checked}
+						handleToggle={handleToggle}
+					/>
+				</div>
 				<div className={styles.blockContainer}>
 					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlay</span>
 					<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligated</span>
