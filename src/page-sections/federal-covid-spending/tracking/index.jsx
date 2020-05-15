@@ -16,6 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
+const showLess = 10; // bars to show when collapsed
 
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
@@ -34,21 +35,28 @@ export default function Tracking(props) {
       }
     }
 	`);
-	
-  const [checked, toggleChecked] = useState(false);
+
+	const [checked, toggleChecked] = useState(false);
 	const first = {
-    name: 'Budget Function',
-    icon: <ListAltIcon className={styles.toggleIcon} />
-  }
-  const second = {
-    name: 'Agency',
-    icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
-  }
+		name: 'Budget Function',
+		icon: <ListAltIcon className={styles.toggleIcon} />
+	}
+	const second = {
+		name: 'Agency',
+		icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
+	}
 	const handleToggle = e => {
 		toggleChecked(e.target.checked)
 	}
 
-	const [screenMode, setScreenMode] = useState(0);	
+	// update state & redraw ONLY if mode changes
+	const [screenMode, setScreenMode] = useState(0);
+	const resizeWindow = () => {
+		const newMode = checkScreenMode(window.innerWidth);
+		if (newMode !== screenMode) {
+			setScreenMode(newMode);
+		}
+	}
 	useEffect(() => {
 		resizeWindow();
 		window.addEventListener('resize', resizeWindow);
@@ -57,30 +65,18 @@ export default function Tracking(props) {
 		}
 	});
 
-	const updateScreenMode = currentWidth => {
-		if (currentWidth < globals.md) {
-			setScreenMode(ScreenModeEnum.mobile);
-		} else if (currentWidth < globals.lg) {
-			setScreenMode(ScreenModeEnum.tablet);
-		} else if (currentWidth < globals.xl) {
-			setScreenMode(ScreenModeEnum.desktop);
+	const [limitBars, setLimitBars] = useState(showLess);
+	const handleShowMore = () => {
+		if (limitBars) {
+			setLimitBars(0);
 		} else {
-			setScreenMode(ScreenModeEnum.desktop_xl);
+			setLimitBars(showLess);
 		}
 	}
-
-	// update state & redraw ONLY if mode changes
-	const resizeWindow = () => {
-		const newMode = checkScreenMode(window.innerWidth);
-		if (newMode !== screenMode) {
-			setScreenMode(newMode);
-		}
-	}
-
-	const [showBars, setShowBars] = useState(10);
 
 	const mainChart = () => {
-		const table = data.main.nodes.map((i, key) => {
+		const dataToShow = limitBars ? data.main.nodes.slice(limitBars) : data.main.nodes;
+		const table = dataToShow.map((i, key) => {
 			const _data = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
 				'percent': i.Percent_Outlaid
