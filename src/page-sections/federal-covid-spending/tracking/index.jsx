@@ -145,7 +145,7 @@ export default function Tracking(props) {
 		{mainChart()}
 
 		<Button fullWidth onClick={handleSeeMore}>
-			{limitBars ? 'See More(data.functions.nodes - showLess)' : 'Show Less'}
+			{limitBars ? `See More(${data.functions.nodes.length - showLess})` : 'Show Less'}
 		</Button>
 
 		<Downloads
