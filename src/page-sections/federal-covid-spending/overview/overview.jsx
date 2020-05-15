@@ -6,7 +6,6 @@ import { Grid } from "@material-ui/core";
 import Share from '../../../components/share/share';
 import Downloads from '../../../components/section-elements/downloads/downloads';
 
-import DesktopXLChart from '../../../svgs/federal-covid-spending/overview/desktop-xl-chart.svg';
 import DesktopChart from '../../../svgs/federal-covid-spending/overview/desktop-chart.svg';
 import TabletChart from '../../../svgs/federal-covid-spending/overview/tablet-chart.svg';
 import MobileChartA from '../../../svgs/federal-covid-spending/overview/mobile-chart-a.svg';
@@ -58,16 +57,14 @@ const Overview = (props) => {
     </Grid>
   )
 
-  let chartComponent = <DesktopXLChart aria-labelledby="section-2-desktop-xl-svg" />
+  let chartComponent = <DesktopChart aria-labelledby="section-2-desktop-svg" />
   if (screenWidth < 992 && screenWidth >= 768) {
-    chartComponent = <DesktopChart aria-labelledby="section-2-desktop-svg" />
-  } else if (screenWidth < 768) {
     chartComponent = <TabletChart aria-labelledby="section-2-tablet-svg" />
   }
 
-  const visualizationComponent = screenWidth < 576 ? (
+  const visualizationComponent = screenWidth < 768 ? (
       <>
-        <Grid container>
+        <Grid container className={overviewStyles.overviewMobileContainer}>
           {appropriationsSection}
           <Grid item className={overviewStyles.overviewMobileSvgContainer}>
             <MobileChartA aria-labelledby="section-2-mobile-svg-a" />
