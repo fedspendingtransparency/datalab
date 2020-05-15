@@ -8,7 +8,8 @@ import styleVariables from '../../styles/variables.scss';
 const Toc = (props) => {
   const inlineStyles = {
     legacy: styleVariables.legacyBlue,
-    'colleges-and-universities': styleVariables.cuRed
+    'colleges-and-universities': styleVariables.cuRed,
+    'federal-covid-spending': styleVariables.covidColor
   };
 
   let selectedStyle = inlineStyles.legacy;
