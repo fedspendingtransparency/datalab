@@ -60,7 +60,7 @@ export default function Tracking(props) {
 
 	const mainChart = () => {
 		const table = data.functions.nodes.map((i, key) => {
-			const _data = [{
+			const barData = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
 				'percent': i.Percent_Outlaid
 			}, {
@@ -70,7 +70,7 @@ export default function Tracking(props) {
 				'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
 				'percent': i.Percent_Unobligated
 			}];
-			return <Bar key={key} data={_data} barLabel={i.Function_Description}
+			return <Bar key={key} data={barData} barLabel={i.Function_Description}
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
 				lastBar={key === data.functions.nodes.length - 1}

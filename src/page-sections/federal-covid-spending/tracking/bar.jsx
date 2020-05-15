@@ -27,9 +27,9 @@ export default class Bar extends React.Component {
 		super(props);
 
 		this.barPercents = [
-			Number.parseFloat(this.props.data[0].percent).toFixed(1),
-			Number.parseFloat(this.props.data[1].percent).toFixed(1),
-			Number.parseFloat(this.props.data[2].percent).toFixed(1),
+			Number.parseFloat(this.props.data[0].percent),
+			Number.parseFloat(this.props.data[1].percent),
+			Number.parseFloat(this.props.data[2].percent)
 		];
 	}
 
