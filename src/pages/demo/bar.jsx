@@ -3,24 +3,30 @@ import React from 'react';
 
 export default function Bar(props) {
   console.log(props);
+  const items = props.data.allSf133Viz3AgencyPopout20200506Csv.nodes;
 
-  const callout = {
+  const defaults = {
     starterHeight: 30,
     endingHeight: 5,
     lineStroke: 1,
     lineHeight: 14,
-    lineColor: '#ddd'
+    lineColor: '#ddd',
+    textPosition: null
   }
+
+  defaults['textPosition'] = Number.parseFloat(defaults.starterHeight + defaults.lineStroke + defaults.endingHeight + defaults.lineHeight).toFixed(2);
 
   // threshold is an estimated percentage of the bar
   const threshold = {
     outlayLabelOffset: 1,
-    outlayLabelWidth: 3,
+    outlayLabelWidth: 7,
     padding: 5,
-    obligatedLabelWidth: 5,
-    unobligatedLabelOffset: 90,
-    right: 95
+    obligatedLabelWidth: 7,
+    unobligatedLabelOffset: 89,
+    rightOffset: 99,
   }
+
+  threshold['obligatedLabelOffset'] = Number.parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding);
 
   /* props
     lineColor = hex value for line color
@@ -29,22 +35,56 @@ export default function Bar(props) {
   */
   function ElbowCallout(props) {
     return (<>
-      <rect fill={props.lineColor} x={`${props.xStart}%`}
+      <rect fill={defaults.lineColor} x={`${props.xStart}%`}
             y='0'
-            width={callout.lineStroke}
-            height={callout.starterHeight}/>
+            width={defaults.lineStroke}
+            height={defaults.starterHeight}/>
 
-      <rect fill={props.lineColor}
+      <rect fill={defaults.lineColor}
             x={`${props.xStart}%`}
-            y={callout.starterHeight}
+            y={defaults.starterHeight}
             width={`${props.xEnd - props.xStart}%`}
-            height={callout.lineStroke}/>
+            height={defaults.lineStroke}/>
 
-      <rect fill={props.lineColor}
+      <rect fill={defaults.lineColor}
             x={`${props.xEnd}%`}
-            y={callout.starterHeight}
-            width={callout.lineStroke}
-            height={callout.endingHeight}/>
+            y={defaults.starterHeight}
+            width={defaults.lineStroke}
+            height={defaults.endingHeight}/>
+
+      <text fill='black' x={`${props.labelOffset}%`} y={defaults.textPosition} fontSize='14px'>
+        {props.label}
+      </text>
+    </>)
+  }
+
+  /* props
+  lineColor = hex value for line color
+  xStart = x position of starting vertical line, start of the horizontal line (pointing to bar)
+  xEnd = x position of ending vertical line, end of the horizontal line (pointing to label)
+*/
+  function ReverseElbowCallout(props) {
+    return (<>
+      <rect fill={defaults.lineColor} x={`${props.xStart}%`}
+            y='0'
+            width={defaults.lineStroke}
+            height={defaults.starterHeight}/>
+
+      <rect fill={defaults.lineColor}
+            x={`${props.xEnd}%`}
+            y={defaults.starterHeight}
+            width={`${props.xStart - props.xEnd}%`}
+            height={defaults.lineStroke}/>
+
+      <rect fill={defaults.lineColor}
+            x={`${props.xEnd}%`}
+            y={defaults.starterHeight}
+            width={defaults.lineStroke}
+            height={defaults.endingHeight}/>
+
+      <text fill='black' x={`${props.labelOffset}%`} y={defaults.textPosition} fontSize='14px'>
+        {props.label}
+      </text>
     </>)
   }
 
@@ -56,32 +96,32 @@ export default function Bar(props) {
   */
   function JoinedCallout(props) {
     return(<g className='outlay-connector'>
-    <rect fill={props.lineColor}
+    <rect fill={defaults.lineColor}
             x={`${props.xStart}%`}
             y='0'
-            width={callout.lineStroke}
-            height={callout.starterHeight} />
+            width={defaults.lineStroke}
+            height={defaults.starterHeight} />
 
-      <rect fill={props.lineColor}
+      <rect fill={defaults.lineColor}
             x={`${props.xStart}%`}
-            y={callout.starterHeight}
+            y={defaults.starterHeight}
             width={`${props.xEnd - props.xStart}%`}
-            height={callout.lineStroke} />
+            height={defaults.lineStroke} />
 
-      <rect fill={props.lineColor}
+      <rect fill={defaults.lineColor}
             x={`${props.xMid}%`}
-            y={callout.starterHeight}
-            width={callout.lineStroke}
-            height={callout.endingHeight} />
+            y={defaults.starterHeight}
+            width={defaults.lineStroke}
+            height={defaults.endingHeight} />
 
-      <rect fill={props.lineColor}
+      <rect fill={defaults.lineColor}
             x={`${props.xEnd}%`}
-            y={callout.starterHeight}
-            width={callout.lineStroke}
-            height={callout.endingHeight} />
+            y={defaults.starterHeight}
+            width={defaults.lineStroke}
+            height={defaults.endingHeight} />
 
-      <text fill='black' x={`${props.label1Offset}%`} y={props.textPosition} fontSize='14px'>{props.label1}</text>
-      <text fill='black' x={`${props.label2Offset}%`} y={props.textPosition} fontSize='14px'>{props.label2}</text>
+      <text fill='black' x={`${props.label1Offset}%`} y={defaults.textPosition} fontSize='14px'>{props.label1}</text>
+      <text fill='black' x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize='14px'>{props.label2}</text>
     </g>)
   }
 
@@ -91,154 +131,180 @@ export default function Bar(props) {
   */
   function StraightCallout(props) {
     return(<g className='outlay-connector'>
-      <rect fill={props.lineColor}
+      <rect fill={defaults.lineColor}
           x={`${props.xStart}%`}
           y='0'
-          width={callout.lineStroke}
-          height={callout.starterHeight + callout.endingHeight} />
+          width={defaults.lineStroke}
+          height={defaults.starterHeight + defaults.endingHeight} />
 
-        <text fill='black' x={`${props.labelOffset}%`} y={props.textPosition} fontSize='14px'>
+        <text fill='black' x={`${props.labelOffset}%`} y={defaults.textPosition} fontSize='14px'>
           {props.label}
         </text>
       </g>)
   }
 
-  const items = props.data.allSf133Viz3AgencyPopout20200506Csv.nodes;
-
   function CalloutBar(props) {
-    const calloutBeginning = Number.parseFloat(threshold.outlayLabelOffset / 2).toFixed(2);
-    const calloutMidpoint = Number.parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2).toFixed(2);
-    const obligatedLabelMidPoint = Number.parseFloat(threshold.outlayLabelOffset / 2 + threshold.outlayLabelWidth + threshold.padding + threshold.obligatedLabelWidth / 2).toFixed(2);
-    const textPosition = Number.parseFloat(callout.starterHeight + callout.lineStroke + callout.endingHeight + callout.lineHeight).toFixed(2);
-    const obligatedLabelOffset = Number.parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding).toFixed(2);
-    const unObligatedMidpoint = Number.parseFloat(props.outlaid + props.obligated + props.unobligated / 2).toFixed(2);
-
-
+    // set bar state
     // joined outlay and obligation callout
-    if(props.outlaid + props.obligated < threshold.outlayLabelOffset) {
-      return(<>
-          <JoinedCallout
-              lineColor='#ddd'
-              xStart={calloutBeginning}
-              xMid={calloutMidpoint}
-              xEnd={obligatedLabelMidPoint}
-              label1Offset={threshold.outlayLabelOffset}
-              label2Offset={obligatedLabelOffset}
-              textPosition={textPosition}
-              label1={'Outlays ($XX B)'}
-              label2={'Obligated ($XX B)'} />
+    const barState = ['spaced', 'elbow', 'joined'];
 
-          <StraightCallout
-            lineColor='#ddd'
-            xStart={unObligatedMidpoint}
-            labelOffset={threshold.unobligatedLabelOffset}
-            textPosition={textPosition}
-            label={'Unobligated ($XX B)'} />
-      </>)
+    const barStatus = {
+      outlay: barState[0],
+      obligated: barState[0],
+      unobligated: barState[0]
+    };
 
-    // could be missing the following condition, but not sure how important
-    } else if (props.outlaid + props.obligated < threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding + threshold.obligatedLabelWidth) {
-        return (<>
-          <JoinedCallout
-            lineColor='#ddd'
-            xStart={calloutBeginning}
-            xMid={calloutMidpoint}
-            xEnd={obligatedLabelMidPoint}
-            label1Offset={threshold.outlayLabelOffset}
-            label2Offset={obligatedLabelOffset}
-            textPosition={textPosition}
-            label1={'Outlays ($XX B)'}
-            label2={'Obligated ($XX B)'}  />
+    const outlayLabelMidPoint = Number.parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2).toFixed(2);
+    const obligatedLabelMidPoint = Number.parseFloat(threshold.outlayLabelOffset / 2 + threshold.outlayLabelWidth + threshold.padding + threshold.obligatedLabelWidth / 2).toFixed(2);
 
-          <StraightCallout
-            lineColor='#ddd'
-            xStart={unObligatedMidpoint}
-            labelOffset={threshold.unobligatedLabelOffset}
-            textPosition={textPosition}
-            label={'Unobligated ($XX B)'} />
-        </>)
+    // joined
+    if (props.outlaid + props.obligated < threshold.outlayLabelOffset) {
+      barStatus.outlay = barState[2];
+      barStatus.obligated = barState[2];
 
-    } else if (props.outlaid > threshold.outlayLabelOffset && props.obligated > obligatedLabelOffset) {
-      const outlaidMidpoint = Number.parseFloat(props.outlaid / 2).toFixed(2);
-      const outlaidTextPosition = Number.parseFloat(outlaidMidpoint + threshold.outlayLabelOffset).toFixed(2);
-      const obligatedMidpoint = Number.parseFloat(props.outlaid + props.obligated / 2).toFixed(2);
-      const obligatedTextPosition = Number.parseFloat(obligatedMidpoint - threshold.obligatedLabelWidth / 2).toFixed(2); // minus half of the text width
+    } else if (props.outlaid <= outlayLabelMidPoint) {
 
+        if (props.outlaid + props.obligated / 2 <= outlayLabelMidPoint) {
+          barStatus.outlay = barState[2];
+          barStatus.obligated = barState[2];
 
-      return (<>
-          <StraightCallout
-            lineColor='#ddd'
-            xStart={outlaidMidpoint}
-            labelOffset={threshold.outlayLabelOffset}
-            textPosition={textPosition}
-            label={'Outlays ($XX B)'} />
+        } else if (props.outlaid + props.obligated / 2 > obligatedLabelMidPoint) {
+          barStatus.outlay = barState[1];
+          barStatus.obligated = barState[0];
 
-          <StraightCallout
-            lineColor='#ddd'
-            xStart={obligatedMidpoint}
-            labelOffset={obligatedTextPosition}
-            textPosition={textPosition}
-            label={'Obligated ($XX B)'} />
+        } else if (props.outlaid + props.obligated / 2 > outlayLabelMidPoint) {
+          barStatus.outlay = barState[1];
+          barStatus.obligated = barState[1];
 
-          <StraightCallout
-            lineColor='#ddd'
-            xStart={unObligatedMidpoint}
-            labelOffset={threshold.unobligatedLabelOffset}
-            textPosition={textPosition}
-            label={'Unobligated ($XX B)'} />
+          // not sure about this state
+        } else if (props.outlaid + props.obligated / 2 <= obligatedLabelMidPoint) {
+          barStatus.outlay = barState[2];
+          barStatus.obligated = barState[2];
 
-      </>)
+        } else {
+          console.error("shouldnt be here")
+          barStatus.outlay = barState[1];
+          barStatus.obligated = barState[1];
+        }
+
+    } else if (props.outlaid > outlayLabelMidPoint) {
+      barStatus.outlay = barState[0];
+
+      if (props.outlaid + props.obligated * .75 > obligatedLabelMidPoint) {
+        barStatus.obligated = barState[0];
+
+      } else {
+        barStatus.obligated = barState[1];
+      }
+    } else {
+      // this should be an error!!
+      console.error('I think we have an error here', props.agency);
     }
 
-    //   else {
-    //
-    //   }
-    //   return (<>
-    //     {/*<g className='outlay-connector'>*/}
-    //       {/*<rect fill='red' x={`${threshold.outlayLabelOffset}%`} y='0' width={callout.lineStroke}*/}
-    //             {/*height={connector.starterHeight}></rect>*/}
-    //       {/*/!*<rect fill='red' x='50%' y={connector.startingPointer} width='10%' height={connector.lineWidth}></rect>*!/*/}
-    //       {/*/!*<rect fill='red' x='60%' y={connector.startingPointer} width={connector.lineWidth} height={connector.endPointer}></rect>*!/*/}
-    //       {/*<text fill='black' x={`${threshold.outlayLabelOffset}%`} y='60' fontSize='14px'>Outlays</text>*/}
-    //     {/*</g>*/}
-    //     {/*<g className='obligated-connector'>*/}
-    //       {/*<rect fill='red' x={props.obligatedMidPoint} y='0' width={callout.lineStroke}*/}
-    //             {/*height={callout.starterHeight}></rect>*/}
-    //       {/*/!*<rect fill='red' x='50%' y={connector.startingPointer} width='10%' height={connector.lineWidth}></rect>*!/*/}
-    //       {/*/!*<rect fill='red' x='60%' y={connector.startingPointer} width={connector.lineWidth} height={connector.endPointer}></rect>*!/*/}
-    //       {/*<text fill='black' x={props.obligatedMidPoint} y='60' fontSize='14px'>Obligated</text>*/}
-    //     {/*</g>*/}
-    //   </>)
-    // }
+    if(props.unobligated < 100 - threshold.rightOffset) {
+      barStatus.unobligated = barState[1];
 
-    return<></>
+    } else {
+      barStatus.unobligated = barState[0];
+    }
+
+    let calloutComponent = [];
+
+    // joined label
+    if(barStatus.outlay === barState[2]) {
+      const outlaySettings = {
+        start: Number.parseFloat(threshold.outlayLabelOffset / 2).toFixed(2),
+        labelMidpoint: Number.parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2).toFixed(2),
+      }
+
+      const obligatedSettings = {
+        labelOffset: Number.parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding).toFixed(2),
+        labelMidpoint: Number.parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding + threshold.obligatedLabelWidth / 2).toFixed(2),
+      }
+
+      calloutComponent.push(<JoinedCallout
+        xStart={props.outlaid / 2}
+        xMid={outlaySettings.labelMidpoint}
+        xEnd={obligatedSettings.labelMidpoint}
+        label1Offset={threshold.outlayLabelOffset}
+        label2Offset={obligatedSettings.labelOffset}
+        label1={'Outlays ($XX B)'}
+        label2={'Obligated ($XX B)'}/>)
+
+    } else if(barStatus.outlay === barState[0]) {
+      calloutComponent.push(<StraightCallout
+        xStart={2}
+        labelOffset={threshold.outlayLabelOffset}
+        label={'Outlays ($XX B)'}/>)
+
+    } else {
+      calloutComponent.push(<ElbowCallout
+        xStart={props.outlaid / 2}
+        xEnd={threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2}
+        labelOffset={threshold.outlayLabelOffset}
+        label={'Outlays ($XX B)'} />)
+    }
+
+    if(barStatus.obligated === barState[0]) {
+      console.log(props);
+      console.log(props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2)
+      calloutComponent.push(<StraightCallout
+        xStart={parseFloat(props.outlaid + props.obligated / 2)}
+        labelOffset={parseFloat(props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2)}
+        label={'Obligated ($XX B)'}/>)
+
+    } else if(barStatus.obligated === barState[1]) {
+    calloutComponent.push(<ElbowCallout
+        xStart={props.outlaid + props.obligated / 2}
+        xEnd={threshold.obligatedLabelOffset + threshold.outlayLabelWidth / 2}
+        labelOffset={threshold.obligatedLabelOffset}
+        label={'Obligated ($XX B)'} />)
+    } else {
+      console.log('should never get here1-', props.agency)
+    }
+
+    if(barStatus.unobligated === barState[0]) {
+      calloutComponent.push(<StraightCallout
+        xStart={threshold.rightOffset - 2}
+        labelOffset={threshold.unobligatedLabelOffset}
+        label={'Unobligated ($XX B)'}/>)
+
+    } else if(barStatus.unobligated === barState[1]) {
+      calloutComponent.push(<ReverseElbowCallout
+        xStart={props.outlaid + props.obligated + props.unobligated / 2}
+        xEnd={95}
+        labelOffset={threshold.unobligatedLabelOffset}
+        label={'Unobligated ($XX B)'}/>)
+    } else {
+      console.error('should never get here2', props.agency)
+    }
+
+    return(<>
+      {calloutComponent[0]}
+      {calloutComponent[1]}
+      {calloutComponent[2]}
+    </>)
   }
 
   function PercentBar(props) {
-    return(<>
-        <g  className='bar'>
+    return(<g  className='bar'>
           <rect fill='#0074d9' x='0' width={`${props.outlaid}%`} height='25'></rect>
           <rect fill='lightblue' x={`${props.outlaid}%`} width={`${props.obligated}%`} height='25'></rect>
-          <rect fill='#ccc' x={`${props.obligated}%`} width={`${props.unobligated}%`} height='25'></rect>
-        </g>
-      </>)
+          <rect fill='#ccc' x={`${props.outlaid + props.obligated}%`} width={`${props.unobligated}%`} height='25'></rect>
+        </g>)
   }
 
 
   return (<>
     {items.map(function(item, key) {
-      const outlaid = parseInt(item.Percent_Outlaid);
-      const obligated = parseInt(item.Percent_Obligated);
-      const unobligated = parseInt(item.Percent_Unobligated);
-
-      const outlayMidPoint = `${Math.round(outlaid / 2)}%`;
-      const obligatedMidPoint = `${Math.round(10 + obligated / 2)}%`;
-      const unobligatedMidPoint = `${Math.round(outlaid + obligated + unobligated / 2)}%`;
+      const outlaid = parseFloat(item.Percent_Outlaid);
+      const obligated = parseFloat(item.Percent_Obligated);
+      const unobligated = parseFloat(item.Percent_Unobligated);
 
       return(<div key={key}>
         <p>{item.Agency}: {item.Account_Name}</p>
         <svg width='100%' height='65px'>
-          <CalloutBar obligatedMidPoint={obligatedMidPoint} outlaid={outlaid} obligated={obligated} />
+          <CalloutBar outlaid={outlaid} obligated={obligated} unobligated={unobligated} agency={item.Agency}/>
           <PercentBar outlaid={outlaid} obligated={obligated} unobligated={unobligated} />
         </svg>
       </div>);

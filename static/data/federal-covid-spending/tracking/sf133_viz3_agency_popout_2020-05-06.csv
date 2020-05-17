@@ -1,15 +1,20 @@
 Agency,federal_account_code,Account_Name,Percent_Obligated,Percent_Outlaid,Percent_Unobligated,Amount_Obligated,Amount_Outlaid,Amount_Unobligated,Total_Budgetary_Authority
-Department of Defense,057-3400,"Operation and Maintenance, Air Force",2.31,0.12,97.57,3580336.73,193403.12,151266260.2,155040000
-Department of Defense,057-3840,"Operation and Maintenance, Air National Guard",0.12,0,99.88,94612.18,0,75659387.82,75754000
-Department of Health & Human Services,075-0140,"Public Health and Social Services Emergency Fund, Office of the Secretary, Health and Human Services",1.07,0.02,98.91,1400672714,21810375.88,1.2959E+11,1.31013E+11
-Department of Health & Human Services,075-0142,"Aging and Disability Services Programs, Administration for Community Living, Health and Human Services",20.69,0.06,79.25,249261374.6,738625.4,955000000,1205000000
-Department of Health & Human Services,075-0360,"Primary Health Care, Health Resources and Services Administration, Health and Human Services",93.38,6.62,0,93383627.87,6616372.13,0,100000000
-Department of Health & Human Services,075-0390,"Indian Health Services, Indian Health Service, Health and Human Services",0.56,3.26,96.18,6113903.96,35715945.31,1054170151,1096000000
-Department of Health & Human Services,075-0885,"National Institute of Allergy and Infectious Diseases, National Institutes of Health, Health and Human Services",1.05,0,98.95,16058245.68,448.65,1515941306,1532000000
-Department of Health & Human Services,075-0898,"National Institute of Biomedical Imaging and Bioengineering, National Institutes of Health, Health and Human Services  ",0,0,100,0,0,60000000,60000000
-Department of Health & Human Services,075-0943,"CDC-Wide Activities and Program Support, Centers for Disease Control and Prevention, Health and Human Services",10.04,0.51,89.45,592403696.1,29817216,5277779088,5900000000
-Department of State,019-0113,"Diplomatic and Consular Programs, State",2.66,0.06,97.28,13481187.31,293000,493225812.7,507000000
-General Services Administration,047-4542,"Federal Buildings Fund, General Services Administration",0.19,0,99.81,535444.37,0,274464555.6,275000000
-Judiciary Branch,010-0920,"Salaries and Expenses, Courts of Appeals, District Courts, and Other Judicial Services, The Judiciary",6.58,0.17,93.25,395006.75,10359.67,5600040.21,6005406.63
-Small Business Administration,073-0100,"Salaries and Expenses, Small Business Administration",12.72,0.01,87.28,85833000.57,59915.48,589107084,675000000
-Small Business Administration,073-0200,"Office of Inspector General, Small Business Administration",0,0,100,0,0,25000000,25000000
+1,057-3400,"Operation and Maintenance, Air Force",99,0.25,0.75,3580336.73,193403.12,151266260.2,155040000
+2,057-3840,"Operation and Maintenance, Air National Guard",0.5,0.5,99,94612.18,0,75659387.82,75754000
+3,075-0140,"Public Health and Social Services Emergency Fund, Office of the Secretary, Health and Human Services",0.75,0.75,98.5,1400672714,21810375.88,1.30E+11,1.31E+11
+4,075-0142,"Aging and Disability Services Programs, Administration for Community Living, Health and Human Services",1,1,98,249261374.6,738625.4,955000000,1205000000
+5,075-0360,"Primary Health Care, Health Resources and Services Administration, Health and Human Services",1.5,1.5,97,93383627.87,6616372.13,0,100000000
+6,075-0390,"Indian Health Services, Indian Health Service, Health and Human Services",2,2,96,6113903.96,35715945.31,1054170151,1096000000
+7,075-0885,"National Institute of Allergy and Infectious Diseases, National Institutes of Health, Health and Human Services",10,15,75,16058245.68,448.65,1515941306,1532000000
+8,075-0898,"National Institute of Biomedical Imaging and Bioengineering, National Institutes of Health, Health and Human Services  ",10,5,85,0,0,60000000,60000000
+9,075-0943,"CDC-Wide Activities and Program Support, Centers for Disease Control and Prevention, Health and Human Services",10,6,84,592403696.1,29817216,5277779088,5900000000
+10,019-0113,"Diplomatic and Consular Programs, State",10,7,83,13481187.31,293000,493225812.7,507000000
+11,047-4542,"Federal Buildings Fund, General Services Administration",10,8,82,535444.37,0,274464555.6,275000000
+12,010-0920,"Salaries and Expenses, Courts of Appeals, District Courts, and Other Judicial Services, The Judiciary",10,9,81,395006.75,10359.67,5600040.21,6005406.63
+13,073-0100,"Salaries and Expenses, Small Business Administration",10,10,80,85833000.57,59915.48,589107084,675000000
+14,073-0200,"Office of Inspector General, Small Business Administration",10,11,79,0,0,25000000,25000000
+15,057-3400,"Operation and Maintenance, Air Force",10,12,78,3580336.73,193403.12,151266260.2,155040000
+16,057-3400,"Operation and Maintenance, Air Force",10,13,77,3580336.73,193403.12,151266260.2,155040000
+17,057-3400,"Operation and Maintenance, Air Force",10,14,76,3580336.73,193403.12,151266260.2,155040000
+18,057-3400,"Operation and Maintenance, Air Force",10,15,75,3580336.73,193403.12,151266260.2,155040000
+19,057-3400,"Operation and Maintenance, Air Force",10,16,74,3580336.73,193403.12,151266260.2,155040000
