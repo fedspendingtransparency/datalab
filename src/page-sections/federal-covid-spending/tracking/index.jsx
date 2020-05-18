@@ -15,21 +15,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
-
-
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
     query {
-      main: allSf133Viz3FunctionMain20200506Csv {
+      agencies: allSf133Viz3AgencyMain20200514Csv {
         nodes {
-          Function_Description
-          Total_Budgetary_Authority
+					Agency
 					Percent_Outlaid
 					Amount_Outlaid
 					Percent_Obligated
 					Amount_Obligated
 					Percent_Unobligated
 					Amount_Unobligated
+					Total_Budgetary_Resources
+        }
+      }
+			functions: allSf133Viz3FunctionMain20200514Csv {
+        nodes {
+					Function_Description
+					Percent_Outlaid
+					Amount_Outlaid
+					Percent_Obligated
+					Amount_Obligated
+					Percent_Unobligated
+					Amount_Unobligated
+					Total_Budgetary_Resources
         }
       }
     }
@@ -45,7 +55,6 @@ export default function Tracking(props) {
     icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
   }
 
-  const [checked, toggleChecked] = useState(false);
 	const [screenMode, setScreenMode] = useState(0);
 	
 	useEffect(() => {
@@ -56,7 +65,8 @@ export default function Tracking(props) {
 		}
 	});
 
-	const handleToggle = (e) => {
+  const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
+	const handleToggle = e => {
 		toggleChecked(e.target.checked)
 	}
 
@@ -81,7 +91,7 @@ export default function Tracking(props) {
 	}
 
 	const mainChart = () => {
-		const table = data.main.nodes.map((i, key) => {
+		const table = data.functions.nodes.map((i, key) => {
 			const _data = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
 				'percent': i.Percent_Outlaid
@@ -95,7 +105,7 @@ export default function Tracking(props) {
 			return <Bar key={key} data={_data} barLabel={i.Function_Description}
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
 				firstBar={key === 0}
-				lastBar={key === data.main.nodes.length - 1}
+				lastBar={key === data.functions.nodes.length - 1}
 			/>;
 		});
 
