@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { checkScreenMode } from 'src/utils/screen-mode.js';
+import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import styles from './tracking.module.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Bar from './bar';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter';
@@ -14,6 +16,8 @@ import Toggle from 'src/components/toggle/toggle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import ListAltIcon from '@material-ui/icons/ListAlt';
+
+const showLess = 10; // bars to show when collapsed
 
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
@@ -49,14 +53,19 @@ export default function Tracking(props) {
 		name: 'Budget Function',
 		icon: <ListAltIcon className={styles.toggleIcon} />
 	}
-
 	const second = {
 		name: 'Agency',
 		icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
 	}
 
+	// update state & redraw ONLY if mode changes
 	const [screenMode, setScreenMode] = useState(0);
-
+	const resizeWindow = () => {
+		const newMode = checkScreenMode(window.innerWidth);
+		if (newMode !== screenMode) {
+			setScreenMode(newMode);
+		}
+	}
 	useEffect(() => {
 		resizeWindow();
 		window.addEventListener('resize', resizeWindow);
@@ -72,29 +81,15 @@ export default function Tracking(props) {
 		barData = checked ? data.agencies.nodes : data.functions.nodes;
 	}
 
-	const updateScreenMode = currentWidth => {
-		if (currentWidth < globals.md) {
-			setScreenMode(ScreenModeEnum.mobile);
-		} else if (currentWidth < globals.lg) {
-			setScreenMode(ScreenModeEnum.tablet);
-		} else if (currentWidth < globals.xl) {
-			setScreenMode(ScreenModeEnum.desktop);
-		} else {
-			setScreenMode(ScreenModeEnum.desktop_xl);
-		}
-	}
-
-	// update state & redraw ONLY if mode changes
-	const resizeWindow = () => {
-		const newMode = checkScreenMode(window.innerWidth);
-		if (newMode !== screenMode) {
-			setScreenMode(newMode);
-		}
+	const [limitBars, setLimitBars] = useState(showLess);
+	const handleSeeMore = () => {
+		setLimitBars(limitBars ? 0 : showLess);
 	}
 
 	const mainChart = () => {
-		const table = barData.map((i, key) => {
-			const _data = [{
+		const dataToShow = limitBars ? barData.slice(0, limitBars) : barData;
+		const table = dataToShow.map((i, key) => {
+			const barData = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
 				'percent': i.Percent_Outlaid
 			}, {
@@ -105,7 +100,7 @@ export default function Tracking(props) {
 				'percent': i.Percent_Unobligated
 			}];
 			return <Bar key={key}
-				data={_data}
+				data={barData}
 				barLabel={i.Function_Description}
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
 				firstBar={key === 0}
@@ -138,6 +133,16 @@ export default function Tracking(props) {
 		</>);
 	}
 
+	const SeeMoreButton = withStyles(() => ({
+		root: {
+			'color': 'inherit',
+			'text-transform': 'capitalize',
+			'&:hover': {
+				color: 'inherit'
+			}
+		}
+	}))(Button);
+
 	return <>
 		<AccordionList title='Instructions'>
 			<p>Actual instructions are larger than they appear</p>
@@ -154,9 +159,10 @@ export default function Tracking(props) {
 
 		{mainChart()}
 
-		<Downloads
-			href={''}
-			date={'Flovember 1922'}
-		/>
+		<SeeMoreButton fullWidth onClick={handleSeeMore}>
+			{limitBars ? `See More (${data.functions.nodes.length - limitBars})` : 'Show Less'}
+		</SeeMoreButton>
+
+		<Downloads href={''} date={'MMMM YY'} />
 	</>;
 }
