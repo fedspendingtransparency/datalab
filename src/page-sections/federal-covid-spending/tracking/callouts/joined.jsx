@@ -46,7 +46,7 @@ export default function JoinedCallout(props) {
           width={defaults.lineStroke}
           height={defaults.endingHeight} />
 
-    <text fill='black' x={`${props.label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>{props.label1}</text>
-    <text fill='black' x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>{props.label2}</text>
+    <text fill={defaults.fontColor} x={`${props.label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>{props.label1}</text>
+    <text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>{props.label2}</text>
   </g>)
   }

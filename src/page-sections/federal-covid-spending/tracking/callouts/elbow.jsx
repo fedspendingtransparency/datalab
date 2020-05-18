@@ -34,7 +34,7 @@ export default function ElbowCallout(props) {
           width={defaults.lineStroke}
           height={defaults.endingHeight}/>
 
-    <text fill='black' x={`${props.labelOffset}%`} y={defaults.textPosition} fontSize={defaults.fontSize} >
+    <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition} fontSize={defaults.fontSize} >
       {props.label}
     </text>
   </>)

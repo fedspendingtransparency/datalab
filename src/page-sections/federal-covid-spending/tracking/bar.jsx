@@ -52,31 +52,18 @@ export default function Bar(props) {
 	return (
     <div className={styles.container}>
       {props.narrow ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{props.barLabel}</div>}
-			<svg width='100%' height='65px'>
-				<CalloutBar outlaid={barPercents[0]} obligated={barPercents[1]} unobligated={barPercents[2]} data={props.data} />
-				<PercentBar outlaid={barPercents[0]} obligated={barPercents[1]} unobligated={barPercents[2]} {...props} />
-			</svg>
-      {props.narrow ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{props.total}</div>}
-		</div>)
-  //   <div className={styles.container}>
-	// 	<div className={styles.barContainer}>
-	// 		<div
-	// 			className={`${styles.bar} ${props.firstBar ? styles.firstBar : ''} ${props.lastBar ? styles.lastBar : ''}`}
-	// 			onClick={() => clickHandler(props.barLabel)}
-	// 		>
-	// 			{props.narrow ? <div className={styles.sideLabel}>{props.barLabel} ({props.total})</div> : ''}
-	// 			<span className={styles.outlayBar} style={{ width: `${barPercents[0]}%` }}>&nbsp;</span>
-	// 			<span className={styles.obligatedBar} style={{ width: `${barPercents[1]}%` }}>&nbsp;</span>
-	// 			<span className={styles.unobligatedBar} style={{ width: `${barPercents[2]}%` }}>&nbsp;</span>
-	// 			<div className={styles.callout} style={{ height: calloutHeight }} />
-	// 			<div className={styles.barLabels}>
-	// 				<div className={styles.outlayLabel} style={{ width: `${barPercents[0]}%` }}>Outlay{labelBreak}({props.data[0].amount})</div>
-	// 				<div className={styles.obligatedLabel}>Obligated{labelBreak}({props.data[1].amount})</div>
-	// 				<div className={styles.unobligatedLabel} style={{ width: `${barPercents[2]}%` }}>Unobligated{labelBreak}({props.data[2].amount})</div>
-	// 			</div>
-	// 		</div>
-	// 	</div>
-	// 	{props.narrow ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{props.total}</div>}
-	// </div>)
+			<div className={styles.barContainer}>
+			<div
+				className={`${styles.bar} ${styles.topPad} ${props.firstBar ? styles.firstBar : ''} ${props.lastBar ? styles.lastBar : ''}`}
+      	onClick={() => clickHandler(props.barLabel)}>
 
+
+						<svg width='100%' height='65px'>
+							<CalloutBar outlaid={barPercents[0]} obligated={barPercents[1]} unobligated={barPercents[2]} data={props.data} />
+							<PercentBar outlaid={barPercents[0]} obligated={barPercents[1]} unobligated={barPercents[2]} {...props} />
+						</svg>
+				</div>
+			</div>
+			{props.narrow ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{props.total}</div>}
+		</div>)
 }

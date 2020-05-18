@@ -5,7 +5,8 @@ const defaults = {
   lineHeight: 14,
   lineColor: '#ddd',
   textPosition: null,
-  fontSize: '12px'
+  fontSize: '12px',
+  fontColor: '#666'
 }
 
 defaults['textPosition'] = Number.parseFloat(defaults.starterHeight + defaults.lineStroke + defaults.endingHeight + defaults.lineHeight).toFixed(2);

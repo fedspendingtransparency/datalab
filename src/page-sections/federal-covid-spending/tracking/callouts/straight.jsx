@@ -20,7 +20,7 @@ export default function StraightCallout (props){
           width={defaults.lineStroke}
           height={defaults.starterHeight + defaults.endingHeight} />
 
-    <text fill='black' x={`${props.labelOffset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
+    <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
       {props.label}
     </text>
   </g>)
