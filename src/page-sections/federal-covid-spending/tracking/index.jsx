@@ -102,7 +102,7 @@ export default function Tracking(props) {
 			return <Bar key={key}
 				data={barData}
 				barLabel={i.Function_Description}
-				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
+				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
 				lastBar={key === barData.length - 1}
 			/>;
