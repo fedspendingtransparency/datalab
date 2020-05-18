@@ -17,7 +17,7 @@ $budgetWidth: 4rem;
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
-  
+
     .toggle-icon {
       height: 22px;
       width: 22px;
@@ -49,7 +49,7 @@ $budgetWidth: 4rem;
   display: flex;
   justify-content: space-between;
   align-content: center;
-  margin: 0 calc(#{$budgetWidth} - 1.5rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
+  margin: 0 calc(#{$budgetWidth} - 1.5rem) 0.5rem calc(#{$labelWidth} - 2.5rem);
 
   span {
     font-size: 0.75rem;

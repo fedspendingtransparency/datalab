@@ -4,7 +4,7 @@ import styles from './bar.module.scss';
 import CalloutBar from "./callouts/callout-bar"
 // import globals from 'src/styles/variables.scss';
 
-const calloutHeight = 10;
+const barHeight = 20;
 
 Bar.propTypes = {
   'narrow': PropTypes.bool,
@@ -43,9 +43,9 @@ export default function Bar(props) {
   function PercentBar(props) {
   	console.log(props);
     return(<g  className='bar'>
-      <rect className={styles.outlayBar} x='0' width={`${props.outlaid}%`} height='22'></rect>
-      <rect className={styles.obligatedBar} x={`${props.outlaid}%`} width={`${props.obligated}%`} height='22'></rect>
-      <rect className={styles.unobligatedBar} x={`${props.outlaid + props.obligated}%`} width={`${props.unobligated}%`} height='22'></rect>
+      <rect className={styles.outlayBar} x='0' width={`${props.outlaid}%`} height={barHeight}></rect>
+      <rect className={styles.obligatedBar} x={`${props.outlaid}%`} width={`${props.obligated}%`} height={barHeight}></rect>
+      <rect className={styles.unobligatedBar} x={`${props.outlaid + props.obligated}%`} width={`${props.unobligated}%`} height={barHeight}></rect>
     </g>)
   }
 
@@ -58,9 +58,9 @@ export default function Bar(props) {
       	onClick={() => clickHandler(props.barLabel)}>
 
 
-						<svg width='100%' height='65px'>
+						<svg width='100%' height='56px'>
 							<CalloutBar outlaid={barPercents[0]} obligated={barPercents[1]} unobligated={barPercents[2]} data={props.data} />
-							<PercentBar outlaid={barPercents[0]} obligated={barPercents[1]} unobligated={barPercents[2]} {...props} />
+							<PercentBar outlaid={barPercents[0]} obligated={barPercents[1]} unobligated={barPercents[2]} />
 						</svg>
 				</div>
 			</div>
