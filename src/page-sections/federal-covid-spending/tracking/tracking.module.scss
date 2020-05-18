@@ -31,6 +31,7 @@
   }
 
   .block {
+    display: inline-block;
     height: 1rem;
     width: 1rem;
     margin: 0 0.5rem 0 2rem;
@@ -38,6 +39,18 @@
     &:first-child {
       margin-left: 0;
     }
+  }
+
+  .outlayBar {
+    background: darken($covidPurple, 25%);
+  }
+
+  .obligatedBar {
+    background: $covidPurple;
+  }
+
+  .unobligatedBar {
+    background: #f3e9ff;
   }
 }
 

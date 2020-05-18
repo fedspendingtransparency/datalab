@@ -5,24 +5,9 @@ $labelWidth: 11.5rem;
 $budgetWidth: 5.5rem;
 $lightBackground: #fafafa;
 
-.outlayBar {
-  display: inline-block;
-  background: darken($covidPurple, 25%);
-}
-
-.obligatedBar {
-  display: inline-block;
-  background: $covidPurple;
-}
-
-.unobligatedBar {
-  display: inline-block;
-  background: #f3e9ff;
-}
-
 svg {
   .outlayBar {
-    fill: darken($covidPurple, 35%);
+    fill: darken($covidPurple, 25%);
   }
 
   .obligatedBar {
@@ -30,7 +15,7 @@ svg {
   }
 
   .unobligatedBar {
-    fill: lighten($covidPurple, 35%);
+    fill: #f3e9ff;
   }
 }
 
