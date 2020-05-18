@@ -20,6 +20,20 @@ $lightBackground: #fafafa;
   background: #f3e9ff;
 }
 
+svg {
+  .outlayBar {
+    fill: darken($covidPurple, 35%);
+  }
+
+  .obligatedBar {
+    fill: $covidPurple;
+  }
+
+  .unobligatedBar {
+    fill: lighten($covidPurple, 35%);
+  }
+}
+
 .container {
   display: flex;
   justify-content: space-between;
