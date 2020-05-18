@@ -77,8 +77,8 @@ export default function Tracking(props) {
 	let barData = data.functions.nodes;
 	const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
 	const handleToggle = e => {
+		barData = checked ? data.functions.nodes : data.agencies.nodes;
 		toggleChecked(e.target.checked);
-		barData = checked ? data.agencies.nodes : data.functions.nodes;
 	}
 
 	const [limitBars, setLimitBars] = useState(showLess);

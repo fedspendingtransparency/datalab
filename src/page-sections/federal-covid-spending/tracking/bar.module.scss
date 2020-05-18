@@ -57,7 +57,7 @@ svg {
       border-left: $chartBorder;
       border-right: $chartBorder;
 
-      &:hover {
+      svg text {
         font-weight: initial;
         // color: rgba(111, 65, 167, 0.7);
       }
