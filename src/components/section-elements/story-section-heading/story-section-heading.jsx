@@ -23,8 +23,8 @@ const StorySectionHeading = (props) => {
     }
   })
 
-  function NumberItem () {
-    if(props.number) {
+  function NumberItem() {
+    if (props.number) {
       return (
         <Grid item xs={1} sm={12} xl={1} className={storySectionHeadingStyles.headerNumber}>
           <h2>{props.number}</h2>
@@ -36,7 +36,7 @@ const StorySectionHeading = (props) => {
 
   const blurb = props.readMoreOnMobile && screenWidth < 768
     ? (
-      <ReadMore buttonStyle={{color: props.toggleColor}}>
+      <ReadMore buttonStyle={props.readMoreStyle}>
         <div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
       </ReadMore>
     ) :

@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import storyHeadingStyles from '../../components/section-elements/story-section-heading/story-section-heading.module.scss';
+import globalStyles from 'src/styles/variables.scss';
 
 import StoryLayout from '../../components/layouts/story/story';
 import SEO from '../../components/seo';
@@ -21,7 +22,7 @@ const BudgetAccordionContent = () => (
     </p>
     <div className={styles.heading}>Community and Regional Development</div>
     <p>
-    Funding for the development of physical facilities or financial infrastructures designed to promote viable community economies. Includes transportation facilities developed as an integral part of a community development program (rather than a transportation program).
+      Funding for the development of physical facilities or financial infrastructures designed to promote viable community economies. Includes transportation facilities developed as an integral part of a community development program (rather than a transportation program).
     </p>
     <div className={styles.heading}>Education, Training, Employment, and Social Services</div>
     <p>
@@ -60,16 +61,17 @@ export default class FederalCovidSpending extends React.Component {
       number: '01',
       subtext: 'Function subtext',
       subblurb: 'Function subblurb',
-      blurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada.',
       sectionTeaser: 'Function teaser',
+      readMoreOnMobile: true,
+      readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
       viztitle: 'Title for Function viz',
       tagName: 'Budget',
       accordion: <aside>
-      <Accordion title='Budget Function Descriptions' color='#6F41A7' backgroundColor='#F3EAFF'>
-        {BudgetAccordionContent()}
-      </Accordion>
-    </aside>
+        <Accordion title='Budget Function Descriptions' color={globalStyles.covidColor} backgroundColor='#F3EAFF'>
+          {BudgetAccordionContent()}
+        </Accordion>
+      </aside>
     },
     {
       section: 'Overview',
@@ -77,16 +79,15 @@ export default class FederalCovidSpending extends React.Component {
       number: '02',
       subtext: 'The Flow of Funds',
       subblurb: 'Overview subblurb',
-      blurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada.',
       sectionTeaser: ['How do federal dollars ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>move from congress to the American people?</span>],
+      readMoreOnMobile: true,
+      readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: [
         <p key="p1">Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met. Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met.</p>,
         <p key="p2">Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met.</p>
       ],
       viztitle: 'Title for Overview viz',
-      tagName: 'Overview',
-      readMoreOnMobile: true,
-      toggleColor: '#6f41a7'
+      tagName: 'Overview'
     },
     {
       section: 'Tracking',
@@ -94,8 +95,9 @@ export default class FederalCovidSpending extends React.Component {
       number: '03',
       subtext: 'Tracking subtext',
       subblurb: 'Tracking subblurb',
-      blurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada.',
       sectionTeaser: 'Tracking teaser',
+      readMoreOnMobile: true,
+      readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
       viztitle: 'Title for Tracking viz',
       tagName: 'Tracking'
