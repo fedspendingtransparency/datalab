@@ -24,7 +24,7 @@ export default function Tracking(props) {
     query {
       agencies: allSf133Viz3AgencyMain20200514Csv {
         nodes {
-					Agency
+					label: Agency
 					Percent_Outlaid
 					Amount_Outlaid
 					Percent_Obligated
@@ -36,7 +36,7 @@ export default function Tracking(props) {
       }
 			functions: allSf133Viz3FunctionMain20200514Csv {
         nodes {
-					Function_Description
+					label: Function_Description
 					Percent_Outlaid
 					Amount_Outlaid
 					Percent_Obligated
@@ -88,8 +88,9 @@ export default function Tracking(props) {
 
 	const mainChart = () => {
 		const dataToShow = limitBars ? barData.slice(0, limitBars) : barData;
+
 		const table = dataToShow.map((i, key) => {
-			const barData = [{
+			const thisBar = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
 				'percent': i.Percent_Outlaid
 			}, {
@@ -100,11 +101,11 @@ export default function Tracking(props) {
 				'percent': i.Percent_Unobligated
 			}];
 			return <Bar key={key}
-				data={barData}
-				barLabel={i.Function_Description}
+				data={thisBar}
+				barLabel={i.label}
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
-				lastBar={key === barData.length - 1}
+				lastBar={key === dataToShow.length - 1}
 			/>;
 		});
 
