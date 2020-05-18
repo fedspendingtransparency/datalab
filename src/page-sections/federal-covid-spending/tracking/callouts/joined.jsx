@@ -12,8 +12,8 @@ JoinedCallout.propTypes = {
   'xStart': PropTypes.number.isRequired,
   'xMid': PropTypes.number.isRequired,
   'xEnd': PropTypes.number.isRequired,
-  'labelOffset1': PropTypes.number.isRequired,
-  'labelOffset2': PropTypes.number.isRequired,
+  'label1Offset': PropTypes.number.isRequired,
+  'label2Offset': PropTypes.number.isRequired,
   'label1': PropTypes.string.isRequired,
   'label2': PropTypes.string.isRequired,
 };
