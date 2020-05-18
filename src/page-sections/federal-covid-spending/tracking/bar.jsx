@@ -6,6 +6,14 @@ import CalloutBar from "./callouts/callout-bar"
 
 const barHeight = 20;
 
+/* props notes
+  narrow set if label & total should be above bar, not in line
+  data: outlay, obligated and unobligated as {'amount': amount [in desired format], 'percent': percentage value}
+  barLabel: words to left or top of bar
+  total: bar total amount (not necessarily sum of data amounts) in desired format
+  firstBar: should this bar have a top border?
+  lastBar: should this bar have a bottom border?
+*/
 Bar.propTypes = {
   'narrow': PropTypes.bool,
   'data': PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -16,32 +24,17 @@ Bar.propTypes = {
 };
 
 export default function Bar(props) {
-	/* props notes
-		narrow set if label & total should be above bar, not in line
-		data: outlay, obligated and unobligated as {'amount': amount [in desired format], 'percent': percentage value}
-		barLabel: words to left or top of bar
-		total: bar total amount (not necessarily sum of data amounts) in desired format
-		firstBar: should this bar have a top border?
-		lastBar: should this bar have a bottom border?
-	*/
-
-
 	const barPercents = [
 		parseFloat(props.data[0].percent),
 		parseFloat(props.data[1].percent),
 		parseFloat(props.data[2].percent),
 	];
 
-	console.log(typeof barPercents[0]);
-
 	const clickHandler = item => {
 		alert(item + ' clicked');
 	}
 
-	const labelBreak = props.narrow ? <br /> : ' ';
-
   function PercentBar(props) {
-  	console.log(props);
     return(<g  className='bar'>
       <rect className={styles.outlayBar} x='0' width={`${props.outlaid}%`} height={barHeight}></rect>
       <rect className={styles.obligatedBar} x={`${props.outlaid}%`} width={`${props.obligated}%`} height={barHeight}></rect>
@@ -56,8 +49,6 @@ export default function Bar(props) {
 			<div
 				className={`${styles.bar} ${styles.topPad} ${props.firstBar ? styles.firstBar : ''} ${props.lastBar ? styles.lastBar : ''}`}
       	onClick={() => clickHandler(props.barLabel)}>
-
-
 						<svg width='100%' height='56px'>
 							<CalloutBar outlaid={barPercents[0]} obligated={barPercents[1]} unobligated={barPercents[2]} data={props.data} />
 							<PercentBar outlaid={barPercents[0]} obligated={barPercents[1]} unobligated={barPercents[2]} />

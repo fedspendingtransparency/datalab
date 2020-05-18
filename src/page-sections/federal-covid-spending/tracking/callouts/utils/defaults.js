@@ -9,7 +9,7 @@ const defaults = {
   fontColor: '#666'
 }
 
-defaults['textPosition'] = Number.parseFloat(defaults.starterHeight + defaults.lineStroke + defaults.endingHeight + defaults.lineHeight).toFixed(2);
+defaults['textPosition'] = parseFloat(defaults.starterHeight + defaults.lineStroke + defaults.endingHeight + defaults.lineHeight);
 
 
 export default defaults;

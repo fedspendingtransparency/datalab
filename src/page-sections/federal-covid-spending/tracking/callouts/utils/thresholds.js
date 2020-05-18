@@ -4,11 +4,11 @@ const threshold = {
   outlayLabelWidth: 7,
   padding: 12,
   obligatedLabelWidth: 7,
-  unobligatedLabelOffset: 80,
+  unobligatedLabelOffset: 75,
   rightOffset: 90,
 }
 
-threshold['obligatedLabelOffset'] = Number.parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding);
+threshold['obligatedLabelOffset'] = parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding);
 
 
 export default threshold;
