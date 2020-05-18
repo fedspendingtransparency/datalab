@@ -1,9 +1,16 @@
 import React from "react"
 import defaults from './utils/defaults'
+import PropTypes from "prop-types"
 /* props
-  lineColor = hex value for line color
   xStart = x position vertical line
 */
+
+StraightCallout.propTypes = {
+  'xStart': PropTypes.number.isRequired,
+  'labelOffset': PropTypes.number.isRequired,
+  'label': PropTypes.string.isRequired,
+};
+
 export default function StraightCallout (props){
 
   return(<g className='outlay-connector'>

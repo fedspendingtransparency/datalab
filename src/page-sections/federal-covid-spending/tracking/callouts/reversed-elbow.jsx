@@ -1,10 +1,20 @@
 import React from "react"
 import defaults from './utils/defaults'
+import PropTypes from "prop-types"
 /* props
 lineColor = hex value for line color
 xStart = x position of starting vertical line, start of the horizontal line (pointing to bar)
 xEnd = x position of ending vertical line, end of the horizontal line (pointing to label)
 */
+
+ReversedElbowCallout.propTypes = {
+  'xStart': PropTypes.number.isRequired,
+  'xEnd': PropTypes.number.isRequired,
+  'labelOffset': PropTypes.number.isRequired,
+  'label': PropTypes.string.isRequired,
+};
+
+
 export default function ReversedElbowCallout(props) {
 
   return (<>

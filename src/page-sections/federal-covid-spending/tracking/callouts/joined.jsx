@@ -1,7 +1,6 @@
 import React from "react"
 import defaults from './utils/defaults'
 import PropTypes from "prop-types"
-import ElbowCallout from "./elbow"
 
 /* props
   xStart = x position of starting vertical line, start of the horizontal line (pointing to bar)
