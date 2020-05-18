@@ -44,19 +44,19 @@ export default function Tracking(props) {
       }
     }
 	`);
-	
-	const first = {
-    name: 'Budget Function',
-    icon: <ListAltIcon className={styles.toggleIcon} />
-  }
 
-  const second = {
-    name: 'Agency',
-    icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
-  }
+	const first = {
+		name: 'Budget Function',
+		icon: <ListAltIcon className={styles.toggleIcon} />
+	}
+
+	const second = {
+		name: 'Agency',
+		icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
+	}
 
 	const [screenMode, setScreenMode] = useState(0);
-	
+
 	useEffect(() => {
 		resizeWindow();
 		window.addEventListener('resize', resizeWindow);
@@ -65,9 +65,11 @@ export default function Tracking(props) {
 		}
 	});
 
-  const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
+	let barData = data.functions.nodes;
+	const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
 	const handleToggle = e => {
-		toggleChecked(e.target.checked)
+		toggleChecked(e.target.checked);
+		barData = checked ? data.agencies.nodes : data.functions.nodes;
 	}
 
 	const updateScreenMode = currentWidth => {
@@ -91,7 +93,7 @@ export default function Tracking(props) {
 	}
 
 	const mainChart = () => {
-		const table = data.functions.nodes.map((i, key) => {
+		const table = barData.map((i, key) => {
 			const _data = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
 				'percent': i.Percent_Outlaid
@@ -102,10 +104,12 @@ export default function Tracking(props) {
 				'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
 				'percent': i.Percent_Unobligated
 			}];
-			return <Bar key={key} data={_data} barLabel={i.Function_Description}
+			return <Bar key={key}
+				data={_data}
+				barLabel={i.Function_Description}
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
 				firstBar={key === 0}
-				lastBar={key === data.functions.nodes.length - 1}
+				lastBar={key === barData.length - 1}
 			/>;
 		});
 
