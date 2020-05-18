@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Grid, Hidden } from '@material-ui/core';
 import storySectionHeadingStyles from './story-section-heading.module.scss';
 import ReadMore from '../../read-more/read-more';
+import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 
 const propTypes = {
   accordion: PropTypes.element,
@@ -12,16 +13,23 @@ const defaultProps = {
   accordion: null,
 };
 
-const StorySectionHeading = (props) => {
-  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
+const StorySectionHeading = props => {
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const handleResize = () => setScreenWidth(window.innerWidth)
-      window.addEventListener('resize', handleResize)
-      return () => window.removeEventListener('resize', handleResize)
+  // update state & redraw ONLY if mode changes
+  const [screenMode, setScreenMode] = useState(0);
+  const resizeWindow = () => {
+    const newMode = checkScreenMode(window.innerWidth);
+    if (newMode !== screenMode) {
+      setScreenMode(newMode);
     }
-  })
+  }
+  useEffect(() => {
+    resizeWindow();
+    window.addEventListener('resize', resizeWindow);
+    return () => {
+      window.removeEventListener('resize', resizeWindow);
+    }
+  });
 
   function NumberItem() {
     if (props.number) {
@@ -34,13 +42,13 @@ const StorySectionHeading = (props) => {
     return <></>;
   }
 
-  const blurb = props.readMoreOnMobile && screenWidth < 768
-    ? (
-      <ReadMore buttonStyle={props.readMoreStyle}>
-        <div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
-      </ReadMore>
-    ) :
-    <div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>;
+  const blurb = props.readMoreOnMobile && screenMode < ScreenModeEnum.tablet ? (
+    <ReadMore buttonStyle={props.readMoreStyle}>
+      <div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
+    </ReadMore>
+  ) :
+    <div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
+  ;
 
   return (
     <header>
