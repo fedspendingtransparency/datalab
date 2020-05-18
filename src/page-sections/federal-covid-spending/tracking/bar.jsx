@@ -4,7 +4,7 @@ import styles from './bar.module.scss';
 import CalloutBar from "./callouts/callout-bar"
 // import globals from 'src/styles/variables.scss';
 
-const barHeight = 20;
+const barHeight = 30;
 
 /* props notes
   narrow set if label & total should be above bar, not in line

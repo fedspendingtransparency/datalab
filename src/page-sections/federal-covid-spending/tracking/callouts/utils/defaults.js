@@ -1,9 +1,9 @@
 const defaults = {
-  starterHeight: 30,
-  endingHeight: 5,
+  starterHeight: 34,
+  endingHeight: 4,
   lineStroke: 1,
   lineHeight: 14,
-  lineColor: '#ddd',
+  lineColor: '#666',
   textPosition: null,
   fontSize: '12px',
   fontColor: '#666'
