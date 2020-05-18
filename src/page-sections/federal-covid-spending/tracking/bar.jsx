@@ -1,11 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './bar.module.scss';
+import CalloutBar from "./callouts/callout-bar"
 // import globals from 'src/styles/variables.scss';
 
 const calloutHeight = 10;
 
-export default class Bar extends React.Component {
+Bar.propTypes = {
+  'narrow': PropTypes.bool,
+  'data': PropTypes.arrayOf(PropTypes.object).isRequired,
+  'barLabel': PropTypes.string.isRequired,
+  'total': PropTypes.string.isRequired,
+  'firstBar': PropTypes.bool,
+  'lastBar': PropTypes.bool
+};
+
+export default function Bar(props) {
 	/* props notes
 		narrow set if label & total should be above bar, not in line
 		data: outlay, obligated and unobligated as {'amount': amount [in desired format], 'percent': percentage value}
@@ -14,52 +24,59 @@ export default class Bar extends React.Component {
 		firstBar: should this bar have a top border?
 		lastBar: should this bar have a bottom border?
 	*/
-	static propTypes = {
-		'narrow': PropTypes.bool,
-		'data': PropTypes.arrayOf(PropTypes.object).isRequired,
-		'barLabel': PropTypes.string.isRequired,
-		'total': PropTypes.string.isRequired,
-		'firstBar': PropTypes.bool,
-		'lastBar': PropTypes.bool
-	};
 
-	constructor(props) {
-		super(props);
 
-		this.barPercents = [
-			Number.parseFloat(this.props.data[0].percent).toFixed(1),
-			Number.parseFloat(this.props.data[1].percent).toFixed(1),
-			Number.parseFloat(this.props.data[2].percent).toFixed(1),
-		];
-	}
+	const barPercents = [
+		parseFloat(props.data[0].percent),
+		parseFloat(props.data[1].percent),
+		parseFloat(props.data[2].percent),
+	];
 
-	clickHandler = item => {
+	console.log(typeof barPercents[0]);
+
+	const clickHandler = item => {
 		alert(item + ' clicked');
 	}
 
-	render = () => {
-		const labelBreak = this.props.narrow ? <br /> : ' ';
+	const labelBreak = props.narrow ? <br /> : ' ';
 
-		return <div className={styles.container}>
-			{this.props.narrow ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>}
-			<div className={styles.barContainer}>
-				<div
-					className={`${styles.bar} ${this.props.firstBar ? styles.firstBar : ''} ${this.props.lastBar ? styles.lastBar : ''}`}
-					onClick={() => clickHandler(this.props.barLabel)}
-				>
-					{this.props.narrow ? <div className={styles.sideLabel}>{this.props.barLabel} ({this.props.total})</div> : ''}
-					<span className={styles.outlayBar} style={{ width: `${this.barPercents[0]}%` }}>&nbsp;</span>
-					<span className={styles.obligatedBar} style={{ width: `${this.barPercents[1]}%` }}>&nbsp;</span>
-					<span className={styles.unobligatedBar} style={{ width: `${this.barPercents[2]}%` }}>&nbsp;</span>
-					<div className={styles.callout} style={{ height: calloutHeight }} />
-					<div className={styles.barLabels}>
-						<div className={styles.outlayLabel} style={{ width: `${this.barPercents[0]}%` }}>Outlay{labelBreak}({this.props.data[0].amount})</div>
-						<div className={styles.obligatedLabel}>Obligated{labelBreak}({this.props.data[1].amount})</div>
-						<div className={styles.unobligatedLabel} style={{ width: `${this.barPercents[2]}%` }}>Unobligated{labelBreak}({this.props.data[2].amount})</div>
-					</div>
-				</div>
-			</div>
-			{this.props.narrow ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div>}
-		</div>
-	};
+  function PercentBar(props) {
+  	console.log(props);
+    return(<g  className='bar'>
+      <rect className={styles.outlayBar} x='0' width={`${props.outlaid}%`} height='22'></rect>
+      <rect className={styles.obligatedBar} x={`${props.outlaid}%`} width={`${props.obligated}%`} height='22'></rect>
+      <rect className={styles.unobligatedBar} x={`${props.outlaid + props.obligated}%`} width={`${props.unobligated}%`} height='22'></rect>
+    </g>)
+  }
+
+	return (
+    <div className={styles.container}>
+      {props.narrow ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{props.barLabel}</div>}
+			<svg width='100%' height='65px'>
+				<CalloutBar outlaid={barPercents[0]} obligated={barPercents[1]} unobligated={barPercents[2]} data={props.data} />
+				<PercentBar outlaid={barPercents[0]} obligated={barPercents[1]} unobligated={barPercents[2]} {...props} />
+			</svg>
+      {props.narrow ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{props.total}</div>}
+		</div>)
+  //   <div className={styles.container}>
+	// 	<div className={styles.barContainer}>
+	// 		<div
+	// 			className={`${styles.bar} ${props.firstBar ? styles.firstBar : ''} ${props.lastBar ? styles.lastBar : ''}`}
+	// 			onClick={() => clickHandler(props.barLabel)}
+	// 		>
+	// 			{props.narrow ? <div className={styles.sideLabel}>{props.barLabel} ({props.total})</div> : ''}
+	// 			<span className={styles.outlayBar} style={{ width: `${barPercents[0]}%` }}>&nbsp;</span>
+	// 			<span className={styles.obligatedBar} style={{ width: `${barPercents[1]}%` }}>&nbsp;</span>
+	// 			<span className={styles.unobligatedBar} style={{ width: `${barPercents[2]}%` }}>&nbsp;</span>
+	// 			<div className={styles.callout} style={{ height: calloutHeight }} />
+	// 			<div className={styles.barLabels}>
+	// 				<div className={styles.outlayLabel} style={{ width: `${barPercents[0]}%` }}>Outlay{labelBreak}({props.data[0].amount})</div>
+	// 				<div className={styles.obligatedLabel}>Obligated{labelBreak}({props.data[1].amount})</div>
+	// 				<div className={styles.unobligatedLabel} style={{ width: `${barPercents[2]}%` }}>Unobligated{labelBreak}({props.data[2].amount})</div>
+	// 			</div>
+	// 		</div>
+	// 	</div>
+	// 	{props.narrow ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{props.total}</div>}
+	// </div>)
+
 }

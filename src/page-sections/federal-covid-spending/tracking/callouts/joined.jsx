@@ -1,37 +1,26 @@
 import React from "react"
+import defaults from './utils/defaults'
+import PropTypes from "prop-types"
+import ElbowCallout from "./elbow"
 
 /* props
-  lineColor = hex value for line color
   xStart = x position of starting vertical line, start of the horizontal line (pointing to bar)
   xMid = x position of midpoint vertical line (pointing to label #1)
   xEnd = x position of ending vertical line, end of the horizontal line (pointing to label #2)
 */
 
+JoinedCallout.propTypes = {
+  'xStart': PropTypes.number.isRequired,
+  'xMid': PropTypes.number.isRequired,
+  'xEnd': PropTypes.number.isRequired,
+  'labelOffset1': PropTypes.number.isRequired,
+  'labelOffset2': PropTypes.number.isRequired,
+  'label1': PropTypes.string.isRequired,
+  'label2': PropTypes.string.isRequired,
+};
+
+
 export default function JoinedCallout(props) {
-
-  const defaults = {
-    starterHeight: 30,
-    endingHeight: 5,
-    lineStroke: 1,
-    lineHeight: 14,
-    lineColor: '#ddd',
-    textPosition: null
-  }
-
-  defaults['textPosition'] = Number.parseFloat(defaults.starterHeight + defaults.lineStroke + defaults.endingHeight + defaults.lineHeight).toFixed(2);
-
-  // threshold is an estimated percentage of the bar
-  const threshold = {
-    outlayLabelOffset: 1,
-    outlayLabelWidth: 7,
-    padding: 5,
-    obligatedLabelWidth: 7,
-    unobligatedLabelOffset: 89,
-    rightOffset: 99,
-  }
-
-  threshold['obligatedLabelOffset'] = Number.parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding);
-
 
   return(<g className='outlay-connector'>
     <rect fill={defaults.lineColor}
@@ -58,7 +47,7 @@ export default function JoinedCallout(props) {
           width={defaults.lineStroke}
           height={defaults.endingHeight} />
 
-    <text fill='black' x={`${props.label1Offset}%`} y={defaults.textPosition} fontSize='14px'>{props.label1}</text>
-    <text fill='black' x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize='14px'>{props.label2}</text>
+    <text fill='black' x={`${props.label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>{props.label1}</text>
+    <text fill='black' x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>{props.label2}</text>
   </g>)
   }
