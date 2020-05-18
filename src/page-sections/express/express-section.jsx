@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './express-section.module.scss';
+import globalStyles from 'src/styles/variables.scss';
 
 import { Grid, Hidden } from '@material-ui/core';
 import ReadMore from '../../components/read-more/read-more';
@@ -25,7 +26,7 @@ export default class ExpressSection extends React.Component {
             <div className={styles.description}>{this.props.description}</div>
           </Hidden>
           <Hidden smUp>
-            <ReadMore toggleColor='#1302D9' className={styles.description}>
+            <ReadMore buttonStyle={{ color: globalStyles.dlExpressBlue }}>
               {this.props.description}
             </ReadMore>
           </Hidden>

@@ -1,23 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './read-more.module.scss';
-import cssVars from 'src/styles/variables.scss';
+import globalStyles from 'src/styles/variables.scss';
 
 export default class ReadMore extends React.Component {
   /*
     Notes on props:
-    maxHeight: height in px for absolute maximum container size; used for CSS transition
     collapsedHeight: total container height when collapsed
     expandText: text to indicate expandible
     collapseText: replacement text when expanded
     animation: expand/collapse CSS transition rule
-    buttonStyle: color of toggle link (defaults to legacy blue)
+    buttonStyle: style of toggle link (defaults to simply legacy blue)
   */
 
   static propTypes = {
     children: PropTypes.node.isRequired,
-    maxHeight: PropTypes.number.isRequired,
-    collapsedHeight: PropTypes.number,
+    collapsedHeight: PropTypes.string,
     expandText: PropTypes.string,
     collapseText: PropTypes.string,
     animation: PropTypes.string,
@@ -29,14 +27,14 @@ export default class ReadMore extends React.Component {
     expandText: 'Read more...',
     collapseText: 'Read less...',
     animation: '1s ease',
-    buttonStyle: { color: cssVars.legacyBlue }
+    buttonStyle: { color: globalStyles.legacyBlue }
   };
 
   constructor(props) {
     super(props);
 
     this.state = {
-      clientHeight: `${this.props.maxHeight}px`,
+      clientHeight: 'auto',
       isOpen: false
     };
   }
@@ -45,9 +43,9 @@ export default class ReadMore extends React.Component {
 
   render = () => {
     const inlineStyle = {
-      'maxHeight': this.state.isOpen ? this.state.clientHeight : this.props.collapsedHeight,
+      'height': this.state.isOpen ? this.state.clientHeight : this.props.collapsedHeight,
       'overflowY': 'hidden',
-      'transition': 'max-height ' + this.props.animation
+      'transition': 'height ' + this.props.animation
     };
     return (
       <div>
@@ -61,7 +59,7 @@ export default class ReadMore extends React.Component {
         >
           {this.state.isOpen ? this.props.collapseText : this.props.expandText}
         </button>
-      </div >
+      </div>
     );
   };
 }

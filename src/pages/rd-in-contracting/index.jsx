@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './rd-in-contracting.module.scss';
+import globalStyles from 'src/styles/variables.scss';
 
 import Categories from 'src/page-sections/rd-in-contracting/categories/categories.jsx';
 import ExpressLayout from 'src/components/layouts/express/express';
@@ -134,7 +135,7 @@ export default class RdInContractingPage extends React.Component {
           {this.secBlurbs[1]}
         </Hidden>
         <Hidden mdUp>
-          <ReadMore maxHeight={450} toggleColor={cssVars.rdBlue}>
+          <ReadMore buttonStyle={{ color: globalStyles.rdBlue }}>
             {this.secBlurbs[1]}
           </ReadMore>
         </Hidden>
@@ -152,7 +153,7 @@ export default class RdInContractingPage extends React.Component {
           {this.secBlurbs[2]}
         </Hidden>
         <Hidden mdUp>
-          <ReadMore maxHeight={650} toggleColor={cssVars.rdBlue}>
+          <ReadMore buttonStyle={{ color: globalStyles.rdBlue }}>
             {this.secBlurbs[2]}
           </ReadMore>
         </Hidden>
