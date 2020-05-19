@@ -22,7 +22,7 @@ const showLess = 10; // bars to show when collapsed
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
     query {
-      agencies: allSf133Viz3AgencyMain20200514Csv {
+      agencies: allCovid19ResponseViz3AgencyMain20200519Csv {
         nodes {
 					label: Agency
 					Percent_Outlaid
@@ -34,7 +34,7 @@ export default function Tracking(props) {
 					Total_Budgetary_Resources
         }
       }
-			functions: allSf133Viz3FunctionMain20200514Csv {
+			functions: allCovid19ResponseViz3FunctionMain20200519Csv {
         nodes {
 					label: Function_Description
 					Percent_Outlaid
