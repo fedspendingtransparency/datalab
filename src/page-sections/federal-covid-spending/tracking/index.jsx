@@ -105,6 +105,7 @@ export default function Tracking(props) {
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
 				lastBar={key === chartData.length - 1}
+				narrow={screenMode === ScreenModeEnum.mobile}
 			/>;
 		});
 
