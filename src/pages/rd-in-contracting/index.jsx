@@ -17,11 +17,33 @@ import bottle from 'src/images/rd-in-contracting/bottle.svg';
 import bulb from 'src/images/rd-in-contracting/bulb.svg';
 import Grid from '@material-ui/core/Grid';
 
+// Coming Soon only!
+import Home from 'src/components/layouts/home/home';
+import Desktop from 'src/svgs/rd-and-contracting/comingsoon/desktop.svg';
+import Tablet from 'src/svgs/rd-and-contracting/comingsoon/tablet.svg';
+import Mobile from 'src/svgs/rd-and-contracting/comingsoon/mobile.svg';
+import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 
 export default class RdInContractingPage extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = { screenMode: 0 };
   }
+  componentDidMount() {
+    this.resizeWindow();
+    window.addEventListener('resize', this.resizeWindow);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', rthis.esizeWindow);
+  }
+  resizeWindow = () => {
+    const newMode = checkScreenMode(window.innerWidth);
+    if (newMode !== this.state.screenMode) {
+      this.setState({ screenMode: newMode });
+    }
+  }
+
 
   whatIsContents = () =>
     <div className={styles.accordionContents}>
@@ -128,69 +150,80 @@ export default class RdInContractingPage extends React.Component {
   ];
 
   render = () =>
-    <ExpressLayout
-      title='Research & Development in Contract Spending'
-      introSentence='How much did the federal government invest in Research & Development with FY 2019 Contract Spending?'
-      hwctaLink={this.props.location.pathname + '/methodologies'}
-    >
-      <SEO
-        description='How much does the federal government invest in Research & Development? In FY 2019, $41.5 billion was contracted to R&D initiatives.'
-        keywords={['research and development', 'federal research contracts', 'federal spending', 'R&D funding', 'R&D', 'federal contract spending']}
-        title='U.S. Treasury Data Lab – Research & Development in Contract Spending'
-      />
-
-      {this.sections.map((item, key) => {
-        const SectionTag = this.sectionComponents[item.tagName];
-        return (
-          <StorySection key={key} header={item}>
-            <SectionTag sectionId={`section-${item.anchor}`} section={item} location={this.props.location} />
-          </StorySection>
-        );
-      })}
-
-      <Grid container className={styles.footnotes}>
-        <Grid item xs={10}>
-          <Footnotes footnotes={[
-            <>
-              Global R&D: One Measure of Commitment to Innovation, Global R&D: One Measure of Commitment to Innovation § (2018).<br />
-              <a href='https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation'
-                rel='noreferrer noopener' target='_blank'
-                className={styles.link}
-              >
-                https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation
-                <LaunchOutlinedIcon className={styles.extLink} />
-              </a>
-            </>,
-            <>
-              Sargent, John F. "Federal Research and Development (R&D) Funding: FY2019." Federal Research and Development (R&D) Funding: FY2019, October 4, 2018.<br />
-              <a href='https://fas.org/sgp/crs/misc/R45150.pdf'
-                rel='noreferrer noopener' target='_blank'
-                className={styles.link}
-              >
-                https://fas.org/sgp/crs/misc/R45150.pdf
-                <LaunchOutlinedIcon className={styles.extLink} />
-              </a>
-            </>,
-            <>National Center for Science and Engineering Statistics, National Science Foundation. 2019. Federal R&D Funding, by Budget Function: Fiscal Years 2018–20. Detailed Statistical Tables NSF 20-305. Alexandria, VA. Available at{' '}
-              <a href='https://ncses.nsf.gov/pubs/nsf20305/'
-                rel='noreferrer noopener' target='_blank'
-                className={styles.link}
-              >
-                https://ncses.nsf.gov/pubs/nsf20305/
-                <LaunchOutlinedIcon className={styles.extLink} />
-              </a>.</>,
-            <>
-              Maloney, Carolyn B, and Charles E Schumer. “The Pivotal Role of Government Investment in Basic Research.” U.S. Congress Joint Economic Committee. U.S. Congress Joint Economic Committee, May 2010.<br />
-              <a href='https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf'
-                rel='noreferrer noopener' target='_blank'
-                className={styles.link}
-              >
-                https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf
-                <LaunchOutlinedIcon className={styles.extLink} />
-              </a>
-            </>
-          ]} />
-        </Grid>
-      </Grid>
-    </ExpressLayout>
+    <Home>
+      {
+        this.state.screenMode === ScreenModeEnum.mobile ?
+          <Mobile /> :
+          this.state.screenMode === ScreenModeEnum.tablet ?
+            <Tablet /> :
+            <Desktop />
+      }
+    </Home>
 }
+{/* // <ExpressLayout
+  // title='Research & Development in Contract Spending'
+  //     introSentence='How much did the federal government invest in Research & Development with FY 2019 Contract Spending?'
+  //     hwctaLink={this.props.location.pathname + '/methodologies'}
+  //   >
+  //     <SEO
+  //       description='How much does the federal government invest in Research & Development? In FY 2019, $41.5 billion was contracted to R&D initiatives.'
+  //       keywords={['research and development', 'federal research contracts', 'federal spending', 'R&D funding', 'R&D', 'federal contract spending']}
+  //       title='U.S. Treasury Data Lab – Research & Development in Contract Spending'
+  //     />
+
+  //     {this.sections.map((item, key) => {
+  //       const SectionTag = this.sectionComponents[item.tagName];
+  //       return (
+  //         <StorySection key={key} header={item}>
+  //           <SectionTag sectionId={`section-${item.anchor}`} section={item} location={this.props.location} />
+  //         </StorySection>
+  //       );
+  //     })}
+
+  //     <Grid container className={styles.footnotes}>
+  //       <Grid item xs={10}>
+  //         <Footnotes footnotes={[
+  //           <>
+  //             Global R&D: One Measure of Commitment to Innovation, Global R&D: One Measure of Commitment to Innovation § (2018).<br />
+  //             <a href='https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation'
+  //               rel='noreferrer noopener' target='_blank'
+  //               className={styles.link}
+  //             >
+  //               https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation
+  //               <LaunchOutlinedIcon className={styles.extLink} />
+  //             </a>
+  //           </>,
+  //           <>
+  //             Sargent, John F. "Federal Research and Development (R&D) Funding: FY2019." Federal Research and Development (R&D) Funding: FY2019, October 4, 2018.<br />
+  //             <a href='https://fas.org/sgp/crs/misc/R45150.pdf'
+  //               rel='noreferrer noopener' target='_blank'
+  //               className={styles.link}
+  //             >
+  //               https://fas.org/sgp/crs/misc/R45150.pdf
+  //               <LaunchOutlinedIcon className={styles.extLink} />
+  //             </a>
+  //           </>,
+  //           <>National Center for Science and Engineering Statistics, National Science Foundation. 2019. Federal R&D Funding, by Budget Function: Fiscal Years 2018–20. Detailed Statistical Tables NSF 20-305. Alexandria, VA. Available at{' '}
+  //             <a href='https://ncses.nsf.gov/pubs/nsf20305/'
+  //               rel='noreferrer noopener' target='_blank'
+  //               className={styles.link}
+  //             >
+  //               https://ncses.nsf.gov/pubs/nsf20305/
+  //               <LaunchOutlinedIcon className={styles.extLink} />
+  //             </a>.</>,
+  //           <>
+  //             Maloney, Carolyn B, and Charles E Schumer. “The Pivotal Role of Government Investment in Basic Research.” U.S. Congress Joint Economic Committee. U.S. Congress Joint Economic Committee, May 2010.<br />
+  //             <a href='https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf'
+  //               rel='noreferrer noopener' target='_blank'
+  //               className={styles.link}
+  //             >
+  //               https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf
+  //               <LaunchOutlinedIcon className={styles.extLink} />
+  //             </a>
+  //           </>
+  //         ]} />
+  //       </Grid>
+  //     </Grid>
+  //   </ExpressLayout>
+; */}
+
