@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './bar.module.scss';
 import CalloutBar from './callouts/callout-bar';
 
-const barHeight = 20;
+const barHeight = 30;
 
 export default class Bar extends React.Component {
 	/* props notes

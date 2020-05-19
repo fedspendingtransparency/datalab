@@ -15,6 +15,8 @@ export default function Budget(props) {
   const [windowWidth, setWindowWidth] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
+  const title = 'Budget Functions under $2 B';
+
   useEffect(() => {
     handleResize();
   }, []);
@@ -39,7 +41,6 @@ export default function Budget(props) {
 
   useEffect(() => {
     if(windowWidth) {
-
       document.getElementById('Hover-Rectangle')
         .addEventListener('click', e => togglePopup(e));
       document.getElementById('close')
@@ -162,8 +163,6 @@ export default function Budget(props) {
       return <></>;
     }
   }
-
-  const title = 'Budget Functions under $2 B';
 
   return (<>
             <h2 className="rd-viztitle">{props.section.viztitle}</h2>
