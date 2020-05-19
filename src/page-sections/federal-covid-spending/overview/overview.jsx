@@ -13,19 +13,19 @@ import MobileChartB from '../../../svgs/federal-covid-spending/overview/mobile-c
 import MobileChartC from '../../../svgs/federal-covid-spending/overview/mobile-chart-c.svg';
 
 const Overview = (props) => {
-  const [screenWidth, setScreenWidth] = useState(0)
+  const [screenWidth, setScreenWidth] = useState(0);
 
   useEffect(() => {
-    setScreenWidth(window.innerWidth)
-  }, [])
+    setScreenWidth(window.innerWidth);
+  }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const handleResize = () => setScreenWidth(window.innerWidth)
-      window.addEventListener('resize', handleResize)
-      return () => window.removeEventListener('resize', handleResize)
+      const handleResize = () => setScreenWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
     }
-  })
+  });
 
   const appropriationsSection = (
     <Grid xs={12} sm={4} item className={overviewStyles.textContainer}>
@@ -35,7 +35,7 @@ const Overview = (props) => {
         After an appropriation law is passed, The Treasury issues funds to specific agency spending accounts. 
       </div>
     </Grid>
-  )
+  );
 
   const obligationsSection = (
     <Grid xs={12} sm={4} item className={overviewStyles.textContainer}>
@@ -45,7 +45,7 @@ const Overview = (props) => {
         Federal agencies obligate funds towards contracts, loans, grants, direct payments, and other financial assistance.  
       </div>
     </Grid>
-  )
+  );
 
   const outlaysSection = (
     <Grid xs={12} sm={4} item className={overviewStyles.textContainer}>
@@ -55,46 +55,46 @@ const Overview = (props) => {
         Federal agencies authorize payments, called outlays, indicating that the money has been paid. 
       </div>
     </Grid>
-  )
+  );
 
-  let chartComponent = <DesktopChart aria-labelledby="section-2-desktop-svg" />
+  let chartComponent = <DesktopChart aria-labelledby="section-2-desktop-svg" />;
   if (screenWidth < 992 && screenWidth >= 768) {
-    chartComponent = <TabletChart aria-labelledby="section-2-tablet-svg" />
+    chartComponent = <TabletChart aria-labelledby="section-2-tablet-svg" />;
   }
 
   const visualizationComponent = screenWidth < 768 ? (
-      <>
-        <Grid container className={overviewStyles.overviewMobileContainer}>
-          {appropriationsSection}
-          <Grid item className={overviewStyles.overviewMobileSvgContainer}>
-            <MobileChartA aria-labelledby="section-2-mobile-svg-a" />
-          </Grid>
-          {obligationsSection}
-          <Grid item className={overviewStyles.overviewMobileSvgContainer}>
-            <MobileChartB aria-labelledby="section-2-mobile-svg-b" />
-          </Grid>
-          {outlaysSection}
-          <Grid item className={overviewStyles.overviewMobileSvgContainer}>
-            <MobileChartC aria-labelledby="section-2-mobile-svg-c" />
-          </Grid>
+    <>
+      <Grid container className={overviewStyles.overviewMobileContainer}>
+        {appropriationsSection}
+        <Grid item className={overviewStyles.overviewMobileSvgContainer}>
+          <MobileChartA aria-labelledby="section-2-mobile-svg-a" />
         </Grid>
-        <div className={overviewStyles.updatedDate}>
-          <Downloads justify='center' date='May 2020' />
-        </div>
-      </>
-    ) : (
-      <>
-        <Grid container>
-          {appropriationsSection}
-          {obligationsSection}
-          {outlaysSection}
+        {obligationsSection}
+        <Grid item className={overviewStyles.overviewMobileSvgContainer}>
+          <MobileChartB aria-labelledby="section-2-mobile-svg-b" />
         </Grid>
-        {chartComponent}
-        <div className={overviewStyles.updatedDate}>
-          <Downloads date='May 2020' />
-        </div>
-      </>
-    )
+        {outlaysSection}
+        <Grid item className={overviewStyles.overviewMobileSvgContainer}>
+          <MobileChartC aria-labelledby="section-2-mobile-svg-c" />
+        </Grid>
+      </Grid>
+      <div className={overviewStyles.updatedDate}>
+        <Downloads justify='center' date='May 2020' />
+      </div>
+    </>
+  ) : (
+    <>
+      <Grid container>
+        {appropriationsSection}
+        {obligationsSection}
+        {outlaysSection}
+      </Grid>
+      {chartComponent}
+      <div className={overviewStyles.updatedDate}>
+        <Downloads date='May 2020' />
+      </div>
+    </>
+  );
 
   return (
     <>
@@ -117,5 +117,5 @@ const Overview = (props) => {
     </>
   );
 }
- 
+
 export default Overview;

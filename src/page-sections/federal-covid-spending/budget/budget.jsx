@@ -10,10 +10,11 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import variables from "src/styles/variables.scss";
 import './budget.scss';
 
-
 export default function Budget(props) {
   const [windowWidth, setWindowWidth] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+
+  const title = 'Budget Functions under $2 B';
 
   useEffect(() => {
     handleResize();
@@ -39,7 +40,6 @@ export default function Budget(props) {
 
   useEffect(() => {
     if(windowWidth) {
-
       document.getElementById('Hover-Rectangle')
         .addEventListener('click', e => togglePopup(e));
       document.getElementById('close')
@@ -163,10 +163,11 @@ export default function Budget(props) {
     }
   }
 
-  const title = 'Budget Functions under $2 B';
-
   return (<>
             <h2 className="rd-viztitle">{props.section.viztitle}</h2>
+	    <AccordionList title='Instructions'>
+	      <p>Actual instructions are larger than they appear</p>
+	    </AccordionList>
             <ControlBar>
               <Share
                 siteUrl={props.location.origin}
@@ -176,11 +177,6 @@ export default function Budget(props) {
                 hoverColor='#1302d9'
               />
             </ControlBar>
-
-	    <AccordionList title='Instructions'>
-	      <p>Actual instructions are larger than they appear</p>
-	    </AccordionList>
-
 
             <div className="chart-container">
               <Chart />
