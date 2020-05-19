@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { ScreenModeEnum } from 'src/utils/enums.js';
+import { checkScreenMode } from 'src/utils/screen-mode.js';
 import styles from './tracking.module.scss';
-import globals from 'src/styles/variables.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Bar from './bar';
@@ -10,6 +9,13 @@ import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter';
 import Share from 'src/components/share/share';
+import Toggle from 'src/components/toggle/toggle';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUniversity } from '@fortawesome/free-solid-svg-icons';
+import ListAltIcon from '@material-ui/icons/ListAlt';
+
+
 import ModalReference from "../../../components/modal/modal"
 
 export default function Tracking(props) {
@@ -28,19 +34,35 @@ export default function Tracking(props) {
         }
       }
     }
-  `);
+	`);
 
+	const first = {
+    name: 'Budget Function',
+    icon: <ListAltIcon className={styles.toggleIcon} />
+  }
+
+  const second = {
+    name: 'Agency',
+    icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
+  }
+
+  const [checked, toggleChecked] = useState(false);
 	const [screenMode, setScreenMode] = useState(0);
 	const [isModalOpen, setModalState] = useState(false);
   const [agency, setAgency] = useState(null);
 
+
 	useEffect(() => {
-		updateScreenMode(window.innerWidth);
+		resizeWindow();
 		window.addEventListener('resize', resizeWindow);
 		return () => {
 			window.removeEventListener('resize', resizeWindow);
 		}
 	});
+
+	const handleToggle = (e) => {
+		toggleChecked(e.target.checked)
+	}
 
 	const updateScreenMode = currentWidth => {
 		if (currentWidth < globals.md) {
@@ -56,26 +78,9 @@ export default function Tracking(props) {
 
 	// update state & redraw ONLY if mode changes
 	const resizeWindow = () => {
-		switch (screenMode) {
-			case ScreenModeEnum.mobile:
-				if (window.innerWidth >= globals.md) {
-					updateScreenMode(window.innerWidth);
-				}
-				break;
-			case ScreenModeEnum.tablet:
-				if (window.innerWidth < globals.md || window.innerWidth >= globals.lg) {
-					updateScreenMode(window.innerWidth);
-				}
-				break;
-			case ScreenModeEnum.desktop:
-				if (window.innerWidth < globals.lg || window.innerWidth >= globals.xl) {
-					updateScreenMode(window.innerWidth);
-				}
-				break;
-			case ScreenModeEnum.desktop_xl:
-				if (window.innerWidth < globals.xl) {
-					updateScreenMode(window.innerWidth);
-				}
+		const newMode = checkScreenMode(window.innerWidth);
+		if (newMode !== screenMode) {
+			setScreenMode(newMode);
 		}
 	}
 
@@ -112,7 +117,14 @@ export default function Tracking(props) {
 
 		return (<>
 			<div className={styles.legend}>
-				<div></div>
+				<div className={styles.toggleContainer}>
+					<Toggle
+						first={first}
+						second={second}
+						checked={checked}
+						handleToggle={handleToggle}
+					/>
+				</div>
 				<div className={styles.blockContainer}>
 					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlay</span>
 					<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligated</span>

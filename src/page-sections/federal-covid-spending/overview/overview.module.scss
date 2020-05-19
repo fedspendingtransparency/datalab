@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import "../../../styles/variables";
 
 .overviewTitle {
 	font-size: 2rem;
@@ -40,25 +40,30 @@
 	justify-content: center;
 }
 
-@media (max-width: $phone) {
-	.overviewTitle {
-		font-size: 1.25rem;
-		font-weight: 300;
-	}
+@media (max-width: $tablet - 1) {
+	.overviewMobileContainer {
+		justify-content: center;
 
-	.textContainer {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.overviewText {
-		text-align: center;
-		max-width: 352px;
+		.overviewTitle {
+			font-size: 1.25rem;
+			font-weight: 300;
+		}
+		
+		.textContainer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			min-width: 352px;
+		}
+		
+		.overviewText {
+			text-align: center;
+			max-width: 352px;
+		}
 	}
 }
 
-@media (min-width: $phone) {
+@media (min-width: $tablet) {
 	.updatedDate {
 		margin-top: 50px;
 	}
