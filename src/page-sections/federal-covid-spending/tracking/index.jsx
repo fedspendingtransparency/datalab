@@ -16,7 +16,6 @@ import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
 import ModalReference from "src/components/modal/modal"
-import MobileModal from "./modal/mobile-modal"
 import Modal from "./modal/modal"
 
 

@@ -7,7 +7,6 @@ export default function CovidModal(props) {
     query {
       allSf133Viz3AgencyPopout20200506Csv {
         group(field: Agency) {
-          fieldValue
           nodes {
             Account_Name
             Agency
@@ -29,15 +28,11 @@ export default function CovidModal(props) {
 
 
   agencies.forEach((item) => {
-    federalAccountsByAgency[item.fieldValue] = item.nodes.sort(function(a, b){return b.Total_Budgetary_Authority - a.Total_Budgetary_Authority});
+    console.log(item.nodes[0]['Agency'])
+    // federalAccountsByAgency[item.nodes[0]['Agency']] = item.nodes;
   })
 
-  const content = Object.keys(federalAccountsByAgency).forEach(key => {
-    console.log(key);
-    if(key.indexOf(props.agency) > -1) { return federalAccountsByAgency[key]; }
-  })
-
-  console.log(content);
+  console.log(federalAccountsByAgency);
 
   return(<>{props.agency}</>)
 }
