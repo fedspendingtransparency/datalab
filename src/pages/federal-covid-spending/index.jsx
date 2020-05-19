@@ -13,34 +13,26 @@ import Tracking from '../../page-sections/federal-covid-spending/tracking';
 const BudgetAccordionContent = () => (
   <div className={styles.accordionContents}>
     <p>
-      Some kind of text about top 5 and to see full list please go to the Data Sources and Methodologies.
+      $2.4 trillion dollars breaks down to about $7,300 per person living in the U.S.
     </p>
-    <div className={styles.heading}>Commercial and Housing Credit</div>
     <p>
-      Funding for commerce and the housing credit and deposit insurance industries, including business tax refunds; Housing and Urban Development’s loan guarantees; and collection and dissemination of social and economic data by the Census Bureau. However, in the case of the COVID-19 appropriations, this category mainly consists of small business loans, as well as emergency lending programs for businesses.
+      $2.4 trillion dollars is roughly 11% of fiscal year 2019's gross domestic product
+      or GDP for the U.S. ($21.3 trillion).
     </p>
-    <div className={styles.heading}>Community and Regional Development</div>
+    <div className={styles.heading}>What is Gross Domestic Product?</div>
     <p>
-    Funding for the development of physical facilities or financial infrastructures designed to promote viable community economies. Includes transportation facilities developed as an integral part of a community development program (rather than a transportation program).
+      Gross domestic product (GDP) measures the size of the nation's econmy by the total value of
+      final goods and services that are produced in a year. Gross domestic product is used to compare
+      the economies of different countries, measure growth in the economy, and determine the right monetary
+      policies to address inflation and unemployment.
     </p>
-    <div className={styles.heading}>Education, Training, Employment, and Social Services</div>
     <p>
-      Funding for the Department of Education; social services programs within the Department of Health and Human Services; and employment and training programs within the Department of Labor. Also includes funding for the Library of Congress and independent research and art agencies, such as the Corporation for Public Broadcasting, the Smithsonian, the National Gallery of Art, the Kennedy Center, the National Endowment for the Arts, and the National Endowment for the Humanities.
-    </p>
-    <div className={styles.heading}>General Government</div>
-    <p>
-      Funding for the activities of the Executive Office of the President; programs designed to carry out the legislative and administrative responsibilities of the federal government, including personnel management, fiscal operations, and property control.
-    </p>
-    <div className={styles.heading}>Health</div>
-    <p>
-      Funding for health care service programs and mandatory programs such as Medicaid, Children's Health Insurance Program (CHIP), and federal and retiree's health benefits. Other programs include anti-bioterrorism activities, national biomedical research, providing health services for under-served populations, and promoting training for the health care workforce.
-    </p>
-    <div className={styles.heading}>Income Security</div>
-    <p>
-      Funding for programs that provide cash or assistance (e.g. housing, nutrition, and energy assistance) to low-income persons, and benefits to certain retirees, persons with disabilities, and the unemployed. Also includes entitlement programs such as unemployment insurance, trade adjustment assistance income support, Supplemental Nutrition Assistance Program (SNAP - formerly food stamps), Temporary Assistance for Needy Families (TANF), foster care, and Supplemental Security Income (SSI).
+      If you stacked 2.4 trillion $1 bills, it would be
+      162,878.40 miles high and reach more than two-thirds
+      of the way to the moon.
     </p>
   </div>
-)
+);
 
 export default class FederalCovidSpending extends React.Component {
   constructor(props) {
@@ -58,18 +50,21 @@ export default class FederalCovidSpending extends React.Component {
       section: 'Budget',
       anchor: 'budget',
       number: '01',
-      subtext: 'Function subtext',
-      subblurb: 'Function subblurb',
+      subtext: 'Budget',
+      subblurb: 'Blurb',
       blurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada.',
-      sectionTeaser: 'Function teaser',
-      introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
-      viztitle: 'Title for Function viz',
+      sectionTeaser: ['How is the federal government', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> allocating emergency funds of COVID-19</span>],
+      introBlurb: [
+        <p key="p1">Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met. Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus.</p>,
+        <p key="p2">Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada.</p>
+      ],
+      viztitle: 'Covid-19 Supplemental Funding by Budget Function',
       tagName: 'Budget',
       accordion: <aside>
-      <Accordion title='Budget Function Descriptions' color='#6F41A7' backgroundColor='#F3EAFF'>
-        {BudgetAccordionContent()}
-      </Accordion>
-    </aside>
+                   <Accordion title='What does $2 trillion look like?' color='#6F41A7' backgroundColor='#F3EAFF'>
+                     {BudgetAccordionContent()}
+                   </Accordion>
+                 </aside>
     },
     {
       section: 'Overview',
@@ -80,7 +75,7 @@ export default class FederalCovidSpending extends React.Component {
       blurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada.',
       sectionTeaser: ['How do federal dollars ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>move from congress to the American people?</span>],
       introBlurb: [
-        <p key="p1">Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met. Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met.</p>,
+        <p key="p1">Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met. Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus.</p>,
         <p key="p2">Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met.</p>
       ],
       viztitle: 'Title for Overview viz',
@@ -104,8 +99,8 @@ export default class FederalCovidSpending extends React.Component {
 
   render = () =>
     <StoryLayout
-      title='required title'
-      introSentence='required intro'
+      title='The Federal Response To COVID-19'
+      introSentence='Tracking emergency funding through the federal financial system'
       contextStatement='Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met'
       sectionToc={this.sections}
       hwctaLink={this.props.location.pathname + '/methodologies'}
