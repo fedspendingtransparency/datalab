@@ -3,7 +3,7 @@ const defaults = {
   endingHeight: 4,
   lineStroke: 1,
   lineHeight: 14,
-  lineColor: '#666',
+  lineColor: '#B2B2B2',
   textPosition: null,
   fontSize: '14px',
   fontColor: '#666'
