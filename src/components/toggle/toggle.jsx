@@ -45,7 +45,7 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
     // Only keys that should trigger the click are Enter and Space
     if (e.charCode && e.charCode !== 13 && e.charCode !== 32) return;
     const s = document.getElementById('toggle-switch');
-    if ((e.currentTarget.id === 'toggle-label-first' && checked) || (e.currentTarget.id === 'toggle-label-second' && !checked)) {
+    if ((e.currentTarget.id === 'toggle-label-first' && checked) || (e.currentTarget.id === 'toggle-label-second' && !checked) || (e.target.id === 'toggle-switch')) {
       s.click();
     }
   }
@@ -61,7 +61,7 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
         {first.icon}
         <p>{first.name}</p>
       </div>
-      <StyledSwitch id='toggle-switch' checked={checked} onChange={handleToggle} color='default' />
+      <StyledSwitch id='toggle-switch' checked={checked} onChange={handleToggle} onKeyPress={handleLabelClick} color='default' />
       <div
         id='toggle-label-second'
         className={checked ? toggleStyles.toggleLabelActive : toggleStyles.toggleLabelInactive}
