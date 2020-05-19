@@ -15,8 +15,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
+import ModalReference from "src/components/modal/modal"
+import MobileModal from "./modal/mobile-modal"
+import Modal from "./modal/modal"
 
-import ModalReference from "../../../components/modal/modal"
 
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
@@ -157,7 +159,7 @@ export default function Tracking(props) {
 		{mainChart()}
 
     <ModalReference open={isModalOpen} close={closeModal} title={agency} maxWidth={false} maxHeight={true}>
-      testing
+       <Modal agency={agency} />
     </ModalReference>
 
 		<Downloads
