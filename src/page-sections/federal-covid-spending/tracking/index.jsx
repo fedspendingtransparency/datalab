@@ -22,10 +22,10 @@ import Modal from "./modal/modal"
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
     query {
-      main: allSf133Viz3FunctionMain20200506Csv {
+      main: allCovid19ResponseViz3FunctionMain20200519Csv {
         nodes {
           Function_Description
-          Total_Budgetary_Authority
+          Total_Budgetary_Resources
 					Percent_Outlaid
 					Amount_Outlaid
 					Percent_Obligated
@@ -51,6 +51,7 @@ export default function Tracking(props) {
 	const [screenMode, setScreenMode] = useState(0);
 	const [isModalOpen, setModalState] = useState(false);
   const [agency, setAgency] = useState(null);
+  const [functionDesc, setFunction] = useState(null);
 
 
 	useEffect(() => {
@@ -85,10 +86,10 @@ export default function Tracking(props) {
 		}
 	}
 
-  const openModal = (agencyName) => {
-		console.log(agencyName);
+  const openModal = (functionDesc) => {
+		console.log(functionDesc);
 		setModalState(true);
-		setAgency(agencyName);
+		setFunction(functionDesc);
   }
 
   const closeModal = () => {
@@ -108,10 +109,10 @@ export default function Tracking(props) {
 				'percent': i.Percent_Unobligated
 			}];
 			return <Bar key={key} data={_data} barLabel={i.Function_Description}
-				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
+				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
 				lastBar={key === data.main.nodes.length - 1}
-        openModal={openModal}
+        openModal={() => openModal(i.Function_Description)}
 				// narrow={true}
 			/>;
 		});
@@ -157,8 +158,8 @@ export default function Tracking(props) {
 
 		{mainChart()}
 
-    <ModalReference open={isModalOpen} close={closeModal} title={agency} maxWidth={false} maxHeight={true}>
-       <Modal agency={agency} />
+    <ModalReference open={isModalOpen} close={closeModal} title={functionDesc} maxWidth={false} maxHeight={true}>
+       <Modal agency={agency} functionDesc={functionDesc} />
     </ModalReference>
 
 		<Downloads
