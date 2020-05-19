@@ -87,7 +87,6 @@ export default function Tracking(props) {
 	}
 
   const openModal = (functionDesc) => {
-		console.log(functionDesc);
 		setModalState(true);
 		setFunction(functionDesc);
   }
@@ -159,7 +158,7 @@ export default function Tracking(props) {
 		{mainChart()}
 
     <ModalReference open={isModalOpen} close={closeModal} title={functionDesc} maxWidth={false} maxHeight={true}>
-       <Modal agency={agency} functionDesc={functionDesc} />
+       <Modal agency={agency} functionDesc={functionDesc} isMobile={screenMode === 0} />
     </ModalReference>
 
 		<Downloads

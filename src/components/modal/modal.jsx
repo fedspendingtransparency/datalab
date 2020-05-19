@@ -53,7 +53,6 @@ class ModalReference extends React.Component {
   }
 
   componentWillReceiveProps({open}) {
-    console.log(open);
     this.setState({open: open});
   }
 
