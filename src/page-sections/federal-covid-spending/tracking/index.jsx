@@ -20,10 +20,10 @@ import ListAltIcon from '@material-ui/icons/ListAlt';
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
     query {
-      main: allSf133Viz3FunctionMain20200506Csv {
+      main: allCovid19ResponseViz3FunctionMain20200519Csv {
         nodes {
           Function_Description
-          Total_Budgetary_Authority
+          Total_Budgetary_Resources
 					Percent_Outlaid
 					Amount_Outlaid
 					Percent_Obligated
@@ -93,7 +93,7 @@ export default function Tracking(props) {
 				'percent': i.Percent_Unobligated
 			}];
 			return <Bar key={key} data={_data} barLabel={i.Function_Description}
-				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
+				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
 				lastBar={key === data.main.nodes.length - 1}
 			/>;
