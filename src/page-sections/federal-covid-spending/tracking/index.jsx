@@ -49,15 +49,6 @@ export default function Tracking(props) {
     }
 	`);
 
-	const first = {
-		name: 'Budget Function',
-		icon: <ListAltIcon className={styles.toggleIcon} />
-	}
-	const second = {
-		name: 'Agency',
-		icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
-	}
-
 	const [screenMode, setScreenMode] = useState(0);
 	const resizeWindow = () => {
 		const newMode = checkScreenMode(window.innerWidth);
@@ -72,11 +63,6 @@ export default function Tracking(props) {
 			window.removeEventListener('resize', resizeWindow);
 		}
 	});
-
-	const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
-	const handleToggle = e => {
-		toggleChecked(e.target.checked);
-	}
 
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
@@ -108,6 +94,20 @@ export default function Tracking(props) {
 			/>;
 		});
 
+		const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
+		const handleToggle = e => {
+			toggleChecked(e.target.checked);
+		}
+	
+		const first = {
+			name: 'Budget Function',
+			icon: <ListAltIcon className={styles.toggleIcon} />
+		}
+		const second = {
+			name: 'Agency',
+			icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
+		}
+	
 		return (<>
 			<div className={styles.legend}>
 				<div className={styles.toggleContainer}>
