@@ -48,7 +48,6 @@ export default function Tracking(props) {
       }
     }
 	`);
-	const [barData, setBarData] = useState(data.functions.nodes);
 
 	const first = {
 		name: 'Budget Function',
@@ -76,7 +75,6 @@ export default function Tracking(props) {
 
 	const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
 	const handleToggle = e => {
-		setBarData(checked ? data.functions.nodes : data.agencies.nodes);
 		toggleChecked(e.target.checked);
 	}
 
@@ -86,6 +84,7 @@ export default function Tracking(props) {
 	}
 
 	const mainChart = () => {
+		const barData = checked ? data.agencies.nodes : data.functions.nodes;
 		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
@@ -161,7 +160,7 @@ export default function Tracking(props) {
 		{mainChart()}
 
 		<SeeMoreButton fullWidth onClick={handleSeeMore}>
-			{limitBars ? `See More (${data.functions.nodes.length - limitBars})` : 'Show Less'}
+			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'Show Less'}
 		</SeeMoreButton>
 
 		<Downloads href={''} date={'MMMM YY'} />

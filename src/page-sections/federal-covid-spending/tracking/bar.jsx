@@ -27,13 +27,25 @@ export default class Bar extends React.Component {
 
 	constructor(props) {
 		super(props);
+	}
 
+	componentWillMount() {
+		this.updateBars();
+	}
+	componentDidUpdate() {
+		this.updateBars();
+	}
+
+	updateBars = () => {
 		this.barPercents = [
 			parseFloat(this.props.data[0].percent),
 			parseFloat(this.props.data[1].percent)
 		];
-		// final bar length calculated, removing rounding errors
+		// final segment length calculated, removing rounding errors
 		this.barPercents[2] = 100 - this.barPercents[0] - this.barPercents[1];
+
+		console.log(this.barPercents);
+		
 	}
 
 	clickHandler = item => {
