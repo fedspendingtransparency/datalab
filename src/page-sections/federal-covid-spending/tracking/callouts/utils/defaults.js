@@ -5,7 +5,7 @@ const defaults = {
   lineHeight: 14,
   lineColor: '#666',
   textPosition: null,
-  fontSize: '12px',
+  fontSize: '14px',
   fontColor: '#666'
 }
 
