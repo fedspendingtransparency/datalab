@@ -1,5 +1,7 @@
  import React from 'react';
  import { graphql, useStaticQuery } from "gatsby"
+ import numberFormatter from "../../../../utils/number-formatter"
+ import Bar from "../bar"
 
 
 export default function CovidModal(props) {
@@ -35,13 +37,26 @@ export default function CovidModal(props) {
     accountsByFunction[item.fieldValue] = item.nodes;
   })
 
-  console.log(accountsByFunction[props.functionDesc]);
-  console.log(accountsByFunction);
-
   return(<>
-    <h1>{props.functionDesc}</h1>
-    {accountsByFunction[props.functionDesc].map(item => {
-      return <p>{item.Account_Name}</p>
+    <h2>Federal Account Breakdown within Budget Function</h2>
+    {accountsByFunction[props.functionDesc].map((i, key) => {
+        const _data = [{
+          'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
+          'percent': i.Percent_Outlaid
+        }, {
+          'amount': numberFormatter('dollars suffix', i.Amount_Obligated),
+          'percent': i.Percent_Obligated
+        }, {
+          'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
+          'percent': i.Percent_Unobligated
+        }];
+        return (<div style={{border: 'none !important', background: 'none !important'}}>
+          <p style={{marginBottom: '-1rem'}}>{i.Account_Name} ({numberFormatter('dollars suffix', i.Total_Budgetary_Resources)})</p>
+          <Bar key={key} data={_data} barLabel={i.Function_Description}
+              total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
+              narrow={true}
+          />
+        </div>)
     })}
   </>)
 }

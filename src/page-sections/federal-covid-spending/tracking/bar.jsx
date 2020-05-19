@@ -47,7 +47,7 @@ export default function Bar(props) {
       {props.narrow ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{props.barLabel}</div>}
 			<div className={styles.barContainer}>
 			<div
-				className={`${styles.bar} ${styles.topPad} ${props.firstBar ? styles.firstBar : ''} ${props.lastBar ? styles.lastBar : ''}`}
+				className={`${styles.bar} ${styles.topPad} ${props.narrow ? '' : styles.barBorder} ${props.firstBar ? styles.firstBar : ''} ${props.lastBar ? styles.lastBar : ''}`}
       	onClick={() => clickHandler(props.barLabel)}>
 						<svg width='100%' height='56px'>
 							<CalloutBar outlaid={barPercents[0]} obligated={barPercents[1]} unobligated={barPercents[2]} data={props.data} />
