@@ -43,7 +43,7 @@ const StorySectionHeading = props => {
   }
 
   const blurb = props.readMoreOnMobile && screenMode < ScreenModeEnum.tablet ? (
-    <ReadMore buttonStyle={props.readMoreStyle}>
+    <ReadMore buttonStyle={props.readMoreStyle} collapsedHeight='76px'>
       <div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
     </ReadMore>
   ) :
