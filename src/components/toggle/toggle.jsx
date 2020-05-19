@@ -61,7 +61,9 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
         {first.icon}
         <p>{first.name}</p>
       </div>
-      <StyledSwitch id='toggle-switch' checked={checked} onChange={handleToggle} onKeyPress={handleLabelClick} color='default' />
+      <div id={toggleStyles.toggleSwitchContainer}>
+        <StyledSwitch id='toggle-switch' checked={checked} onChange={handleToggle} onKeyPress={handleLabelClick} color='default' />
+      </div>
       <div
         id='toggle-label-second'
         className={checked ? toggleStyles.toggleLabelActive : toggleStyles.toggleLabelInactive}
