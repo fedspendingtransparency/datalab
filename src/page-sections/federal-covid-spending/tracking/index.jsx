@@ -74,10 +74,10 @@ export default function Tracking(props) {
 		}
 	});
 
-	let barData = data.functions.nodes;
+	const [barData, setBarData] = useState(data.functions.nodes);
 	const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
 	const handleToggle = e => {
-		barData = checked ? data.functions.nodes : data.agencies.nodes;
+		setBarData(checked ? data.functions.nodes : data.agencies.nodes);
 		toggleChecked(e.target.checked);
 	}
 
