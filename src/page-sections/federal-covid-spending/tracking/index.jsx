@@ -48,6 +48,7 @@ export default function Tracking(props) {
       }
     }
 	`);
+	const [barData, setBarData] = useState(data.functions.nodes);
 
 	const first = {
 		name: 'Budget Function',
@@ -58,7 +59,6 @@ export default function Tracking(props) {
 		icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
 	}
 
-	// update state & redraw ONLY if mode changes
 	const [screenMode, setScreenMode] = useState(0);
 	const resizeWindow = () => {
 		const newMode = checkScreenMode(window.innerWidth);
@@ -74,7 +74,6 @@ export default function Tracking(props) {
 		}
 	});
 
-	const [barData, setBarData] = useState(data.functions.nodes);
 	const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
 	const handleToggle = e => {
 		setBarData(checked ? data.functions.nodes : data.agencies.nodes);
@@ -87,9 +86,8 @@ export default function Tracking(props) {
 	}
 
 	const mainChart = () => {
-		const dataToShow = limitBars ? barData.slice(0, limitBars) : barData;
-
-		const table = dataToShow.map((i, key) => {
+		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
+		const table = chartData.map((i, key) => {
 			const thisBar = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
 				'percent': i.Percent_Outlaid
@@ -100,12 +98,13 @@ export default function Tracking(props) {
 				'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
 				'percent': i.Percent_Unobligated
 			}];
+
 			return <Bar key={key}
 				data={thisBar}
 				barLabel={i.label}
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
-				lastBar={key === dataToShow.length - 1}
+				lastBar={key === chartData.length - 1}
 			/>;
 		});
 
