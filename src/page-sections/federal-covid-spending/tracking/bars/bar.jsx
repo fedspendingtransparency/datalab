@@ -34,6 +34,12 @@ export default class Bar extends React.Component {
 		this.props.openModal(item);
 	}
 
+  keyUpHandler = (e, item) => {
+		if(e.keyCode === 13) {
+      this.props.openModal(item);
+    }
+  }
+
 	render = () =>
 		<div className={styles.container}>
 			{this.props.narrow ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>}
@@ -44,7 +50,9 @@ export default class Bar extends React.Component {
 					${this.props.narrow ? '' : styles.barBorder}
 					${this.props.firstBar ? styles.firstBar : ''}
 					${this.props.lastBar ? styles.lastBar : ''}`}
+          tabIndex='0'
 					onClick={() => this.props.narrow ? '' : this.clickHandler(this.props.barLabel)}
+					onKeyUp={e => this.props.narrow ? '' : this.keyUpHandler(e, this.props.barLabel)}
 				>
 					<svg width='100%' height='56px'>
 						<CalloutBar
