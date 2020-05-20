@@ -160,7 +160,7 @@ export default function Tracking(props) {
 		{mainChart()}
 
 		<SeeMoreButton fullWidth onClick={handleSeeMore}>
-			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'Show Less'}
+			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
 		</SeeMoreButton>
 
 		<Downloads href={''} date={'MMMM YY'} />
