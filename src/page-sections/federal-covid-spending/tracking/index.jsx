@@ -64,6 +64,20 @@ export default function Tracking(props) {
 		}
 	});
 
+	const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
+	const handleToggle = e => {
+		toggleChecked(e.target.checked);
+	}
+
+	const first = {
+		name: 'Budget Function',
+		icon: <ListAltIcon className={styles.toggleIcon} />
+	}
+	const second = {
+		name: 'Agency',
+		icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
+	}
+
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
 		setLimitBars(limitBars ? 0 : showLess);
@@ -93,20 +107,6 @@ export default function Tracking(props) {
 				narrow={screenMode === ScreenModeEnum.mobile}
 			/>;
 		});
-
-		const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
-		const handleToggle = e => {
-			toggleChecked(e.target.checked);
-		}
-	
-		const first = {
-			name: 'Budget Function',
-			icon: <ListAltIcon className={styles.toggleIcon} />
-		}
-		const second = {
-			name: 'Agency',
-			icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
-		}
 	
 		return (<>
 			<div className={styles.legend}>
