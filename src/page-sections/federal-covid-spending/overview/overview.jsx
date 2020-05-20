@@ -6,11 +6,11 @@ import { Grid } from "@material-ui/core";
 import Share from '../../../components/share/share';
 import Downloads from '../../../components/section-elements/downloads/downloads';
 
-import DesktopChart from '../../../svgs/federal-covid-spending/overview/desktop-chart.svg';
-import TabletChart from '../../../svgs/federal-covid-spending/overview/tablet-chart.svg';
-import MobileChartA from '../../../svgs/federal-covid-spending/overview/mobile-chart-a.svg';
-import MobileChartB from '../../../svgs/federal-covid-spending/overview/mobile-chart-b.svg';
-import MobileChartC from '../../../svgs/federal-covid-spending/overview/mobile-chart-c.svg';
+import DesktopChart from '../../../images/covid/overview/desktop-chart.svg';
+import TabletChart from '../../../images/covid/overview/tablet-chart.svg';
+import MobileChartA from '../../../images/covid/overview/mobile-chart-a.svg';
+import MobileChartB from '../../../images/covid/overview/mobile-chart-b.svg';
+import MobileChartC from '../../../images/covid/overview/mobile-chart-c.svg';
 
 const Overview = (props) => {
   const [screenWidth, setScreenWidth] = useState(0);
@@ -57,9 +57,9 @@ const Overview = (props) => {
     </Grid>
   );
 
-  let chartComponent = <DesktopChart aria-labelledby="section-2-desktop-svg" />;
+  let chartComponent = <img src={DesktopChart} alt="section-2-desktop-svg" />
   if (screenWidth < 992 && screenWidth >= 768) {
-    chartComponent = <TabletChart aria-labelledby="section-2-tablet-svg" />;
+    chartComponent = <img src={TabletChart} alt="section-2-tablet-svg" />;
   }
 
   const visualizationComponent = screenWidth < 768 ? (
@@ -67,15 +67,15 @@ const Overview = (props) => {
       <Grid container className={overviewStyles.overviewMobileContainer}>
         {appropriationsSection}
         <Grid item className={overviewStyles.overviewMobileSvgContainer}>
-          <MobileChartA aria-labelledby="section-2-mobile-svg-a" />
+          <img src={MobileChartA} alt="section-2-mobile-svg-a" />
         </Grid>
         {obligationsSection}
         <Grid item className={overviewStyles.overviewMobileSvgContainer}>
-          <MobileChartB aria-labelledby="section-2-mobile-svg-b" />
+          <img src={MobileChartB} alt="section-2-mobile-svg-b" />
         </Grid>
         {outlaysSection}
         <Grid item className={overviewStyles.overviewMobileSvgContainer}>
-          <MobileChartC aria-labelledby="section-2-mobile-svg-c" />
+          <img src={MobileChartC} alt="section-2-mobile-svg-c" />
         </Grid>
       </Grid>
       <div className={overviewStyles.updatedDate}>

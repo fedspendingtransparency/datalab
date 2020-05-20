@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import storyHeadingStyles from '../../components/section-elements/story-section-heading/story-section-heading.module.scss';
+import globalStyles from 'src/styles/variables.scss';
 
 import StoryLayout from '../../components/layouts/story/story';
 import SEO from '../../components/seo';
@@ -64,7 +65,7 @@ export default class FederalCovidSpending extends React.Component {
           </p>
         </>
       ],
-      viztitle: 'Title for Function viz',
+      viztitle: 'Covid-19 Supplemental Funding by Budget Function',
       tagName: 'Budget',
       accordion: <aside>
                    <Accordion title='What does $2 trillion look like?' color='#6F41A7' backgroundColor='#F3EAFF'>
@@ -99,7 +100,10 @@ export default class FederalCovidSpending extends React.Component {
       viztitle: 'Title for Overview viz',
       tagName: 'Overview',
       readMoreOnMobile: true,
-      toggleColor: '#6f41a7'
+      readMoreStyle: { color: globalStyles.covidColor },
+      introBlurb: 'Nam quis nulla.Integer malesuada.In in enim a arcu imperdiet malesuada.Sed vel lectus.Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem.Phasellus rhoncus.Aenean id metus id velit ullamcorper pulvinar.Vestibulum fermentum tortor id mi.Pellentesque ipsum.Nulla non arcu lacinia neque faucibus fringilla.Nulla non lectus sed nisl molestie malesuada.Proin in tellus sit amet nibh dignissim sagittis.Vivamus luctus egestas leo.Maecenas sollicitudin.Nullam rhoncus aliquam met.Nam quis nulla.Integer malesuada.In in enim a arcu imperdiet malesuada.Sed vel lectus.Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem.Phasellus rhoncus.Aenean id metus id velit ullamcorper pulvinar.Vestibulum fermentum tortor id mi.Pellentesque ipsum.Nulla non arcu lacinia neque faucibus fringilla.Nulla non lectus sed nisl molestie malesuada.Proin in tellus sit amet nibh dignissim sagittis.Vivamus luctus egestas leo.Maecenas sollicitudin.Nullam rhoncus aliquam met.',
+      viztitle: 'Title for Overview viz',
+      tagName: 'Overview'
     },
     {
       section: 'Tracking',
@@ -109,6 +113,8 @@ export default class FederalCovidSpending extends React.Component {
       subblurb: '',
       blurb: 'How much emergency funding has been spent?',
       sectionTeaser: ['How much emergency funding ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>has been spent?</span>],
+      readMoreOnMobile: true,
+      readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: [
         <>
           <p key="tracking-p1">

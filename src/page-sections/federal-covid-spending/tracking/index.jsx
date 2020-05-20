@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { checkScreenMode } from 'src/utils/screen-mode.js';
+import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import styles from './tracking.module.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Bar from './bar';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter';
@@ -15,39 +17,45 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
-
+const showLess = 10; // bars to show when collapsed
 
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
     query {
-      main: allSf133Viz3FunctionMain20200506Csv {
+      agencies: allCovid19ResponseViz3AgencyMain20200519Csv {
         nodes {
-          Function_Description
-          Total_Budgetary_Authority
+					label: Agency
 					Percent_Outlaid
 					Amount_Outlaid
 					Percent_Obligated
 					Amount_Obligated
 					Percent_Unobligated
 					Amount_Unobligated
+					Total_Budgetary_Resources
+        }
+      }
+			functions: allCovid19ResponseViz3FunctionMain20200519Csv {
+        nodes {
+					label: Function_Description
+					Percent_Outlaid
+					Amount_Outlaid
+					Percent_Obligated
+					Amount_Obligated
+					Percent_Unobligated
+					Amount_Unobligated
+					Total_Budgetary_Resources
         }
       }
     }
 	`);
-	
-	const first = {
-    name: 'Budget Function',
-    icon: <ListAltIcon className={styles.toggleIcon} />
-  }
 
-  const second = {
-    name: 'Agency',
-    icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
-  }
-
-  const [checked, toggleChecked] = useState(false);
 	const [screenMode, setScreenMode] = useState(0);
-	
+	const resizeWindow = () => {
+		const newMode = checkScreenMode(window.innerWidth);
+		if (newMode !== screenMode) {
+			setScreenMode(newMode);
+		}
+	}
 	useEffect(() => {
 		resizeWindow();
 		window.addEventListener('resize', resizeWindow);
@@ -56,33 +64,30 @@ export default function Tracking(props) {
 		}
 	});
 
-	const handleToggle = (e) => {
-		toggleChecked(e.target.checked)
+	const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
+	const handleToggle = e => {
+		toggleChecked(e.target.checked);
 	}
 
-	const updateScreenMode = currentWidth => {
-		if (currentWidth < globals.md) {
-			setScreenMode(ScreenModeEnum.mobile);
-		} else if (currentWidth < globals.lg) {
-			setScreenMode(ScreenModeEnum.tablet);
-		} else if (currentWidth < globals.xl) {
-			setScreenMode(ScreenModeEnum.desktop);
-		} else {
-			setScreenMode(ScreenModeEnum.desktop_xl);
-		}
+	const first = {
+		name: 'Budget Function',
+		icon: <ListAltIcon className={styles.toggleIcon} />
+	}
+	const second = {
+		name: 'Agency',
+		icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
 	}
 
-	// update state & redraw ONLY if mode changes
-	const resizeWindow = () => {
-		const newMode = checkScreenMode(window.innerWidth);
-		if (newMode !== screenMode) {
-			setScreenMode(newMode);
-		}
+	const [limitBars, setLimitBars] = useState(showLess);
+	const handleSeeMore = () => {
+		setLimitBars(limitBars ? 0 : showLess);
 	}
 
 	const mainChart = () => {
-		const table = data.main.nodes.map((i, key) => {
-			const _data = [{
+		const barData = checked ? data.agencies.nodes : data.functions.nodes;
+		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
+		const table = chartData.map((i, key) => {
+			const thisBar = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
 				'percent': i.Percent_Outlaid
 			}, {
@@ -92,13 +97,17 @@ export default function Tracking(props) {
 				'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
 				'percent': i.Percent_Unobligated
 			}];
-			return <Bar key={key} data={_data} barLabel={i.Function_Description}
-				total={numberFormatter('dollars suffix', i.Total_Budgetary_Authority)}
+
+			return <Bar key={key}
+				data={thisBar}
+				barLabel={i.label}
+				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
-				lastBar={key === data.main.nodes.length - 1}
+				lastBar={key === chartData.length - 1}
+				narrow={screenMode === ScreenModeEnum.mobile}
 			/>;
 		});
-
+	
 		return (<>
 			<div className={styles.legend}>
 				<div className={styles.toggleContainer}>
@@ -124,6 +133,16 @@ export default function Tracking(props) {
 		</>);
 	}
 
+	const SeeMoreButton = withStyles(() => ({
+		root: {
+			'color': 'inherit',
+			'text-transform': 'capitalize',
+			'&:hover': {
+				color: 'inherit'
+			}
+		}
+	}))(Button);
+
 	return <>
 		<AccordionList title='Instructions'>
 			<p>Actual instructions are larger than they appear</p>
@@ -140,9 +159,10 @@ export default function Tracking(props) {
 
 		{mainChart()}
 
-		<Downloads
-			href={''}
-			date={'Flovember 1922'}
-		/>
+		<SeeMoreButton fullWidth onClick={handleSeeMore}>
+			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'Show Less'}
+		</SeeMoreButton>
+
+		<Downloads href={''} date={'MMMM YY'} />
 	</>;
 }

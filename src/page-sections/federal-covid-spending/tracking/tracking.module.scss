@@ -1,9 +1,5 @@
 @import "bar.module.scss";
 
-$chartBorder: thin solid;
-$labelWidth: 11.5rem;
-$budgetWidth: 4rem;
-
 .legend {
   display: flex;
   justify-content: space-between;
@@ -30,11 +26,12 @@ $budgetWidth: 4rem;
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
-    background: $background-gray-warm-light;
+    background: $lightBackground;
     padding: 6px;
   }
 
   .block {
+    display: inline-block;
     height: 1rem;
     width: 1rem;
     margin: 0 0.5rem 0 2rem;
@@ -43,13 +40,25 @@ $budgetWidth: 4rem;
       margin-left: 0;
     }
   }
+
+  .outlayBar {
+    background: darken($covidPurple, 25%);
+  }
+
+  .obligatedBar {
+    background: $covidPurple;
+  }
+
+  .unobligatedBar {
+    background: #f3e9ff;
+  }
 }
 
 .percentLegend {
   display: flex;
   justify-content: space-between;
   align-content: center;
-  margin: 0 calc(#{$budgetWidth} - 1.5rem) 0.5rem calc(#{$labelWidth} - 2.5rem);
+  margin: 0 calc(#{$budgetWidth} - 2.5rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
 
   span {
     font-size: 0.75rem;
