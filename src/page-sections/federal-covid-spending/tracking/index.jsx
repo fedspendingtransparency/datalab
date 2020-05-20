@@ -145,10 +145,7 @@ export default function Tracking(props) {
 
 	return <>
 		<AccordionList title='Instructions'>
-			<p>Use the toggle to switch between budget function and agency spending progress.</p>
-			<p>To expand the list of budget functions or agencies click or tap See More.</p>
-			<p>By clicking on a single bar within the chart, you can see the Federal Account Breakdown within a Budget Function or Federal Account Breakdown within an Agency.</p>
-			<p>To exit the pop-up, click or tap the X.</p>
+			<p>Actual instructions are larger than they appear</p>
 		</AccordionList>
 
 		<ControlBar>

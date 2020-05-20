@@ -32,7 +32,7 @@ const Overview = (props) => {
       <div className={overviewStyles.overviewNumber}>1</div>
       <div className={overviewStyles.overviewSubtitle}>Appropriations</div>
       <div className={overviewStyles.overviewText}>
-        After an appropriation law is passed, The Treasury issues funds to specific agency spending accounts. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. (123 characters)
       </div>
     </Grid>
   );
@@ -42,7 +42,7 @@ const Overview = (props) => {
       <div className={overviewStyles.overviewNumber}>2</div>
       <div className={overviewStyles.overviewSubtitle}>Obligations</div>
       <div className={overviewStyles.overviewText}>
-        Federal agencies obligate funds towards contracts, loans, grants, direct payments, and other financial assistance.  
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. (123 characters)
       </div>
     </Grid>
   );
@@ -52,7 +52,7 @@ const Overview = (props) => {
       <div className={overviewStyles.overviewNumber}>3</div>
       <div className={overviewStyles.overviewSubtitle}>Outlays</div>
       <div className={overviewStyles.overviewText}>
-        Federal agencies authorize payments, called outlays, indicating that the money has been paid. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. (123 characters)
       </div>
     </Grid>
   );
@@ -101,7 +101,7 @@ const Overview = (props) => {
       <Grid container alignItems='center' style={{ marginBottom: 30 }}>
         <Grid item xs={10}>
           <div className={overviewStyles.overviewTitle}>
-            The Process of COVID-19 Emergency Spending
+            The Flow of Emergency Supplemental Funding
           </div>
         </Grid>
         <Grid item xs={2}>
