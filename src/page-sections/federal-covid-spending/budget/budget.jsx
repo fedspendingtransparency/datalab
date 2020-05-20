@@ -167,7 +167,8 @@ export default function Budget(props) {
   return (<>
             <h2 className="rd-viztitle">{props.section.viztitle}</h2>
 	    <AccordionList title='Instructions'>
-	      <p>Actual instructions are larger than they appear</p>
+	      <p>To better view the values for Budget Functions under $2.0B, click or tap on the dashed rectangle to see amounts.</p>
+        <p>To exit the pop-up, click or tap the X.</p>
 	    </AccordionList>
             <ControlBar>
               <Share
