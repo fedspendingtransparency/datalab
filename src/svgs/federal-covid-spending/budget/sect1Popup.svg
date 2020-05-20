@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="509px" height="212px" aria-labelledby="covid-budget-pop-up" id="covid19-pop-up" viewBox="0 0 509 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <desc id="covid-budget-pop-up">alt text goes here</desc>
+  <title>Viz 1 Pop-out-Desktop</title>
+  <defs>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600');
+    </style>
+  </defs>
+  <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Desktop-HD" transform="translate(-149.000000, -954.000000)">
+      <g id="Viz-1-Pop-out-Desktop" transform="translate(149.000000, 954.000000)">
+        <text id="y-axis-numbers-copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="15" font-weight="normal" line-spacing="26" fill="#666666">
+          <tspan x="6.08" y="26">$1.2 B</tspan>
+          <tspan x="6.08" y="52">$1.0 B</tspan>
+          <tspan x="0.275" y="78">$800 M</tspan>
+          <tspan x="0.275" y="104">$600 M</tspan>
+          <tspan x="0.275" y="130">$400 M</tspan>
+          <tspan x="0.275" y="156">$200 M</tspan>
+        </text>
+        <g id="axis-copy" transform="translate(51.000000, 25.000000)" fill-rule="nonzero" stroke="#666666" stroke-linecap="round" stroke-width="1.35">
+          <line x1="2.01315789" y1="0.544811321" x2="2.01315789" y2="153.818396" id="Line-35-Copy"></line>
+          <line x1="2" y1="154.5" x2="456.5" y2="154.5" id="Line-36-Copy"></line>
+        </g>
+        <text id="Admin-of-Justice-Copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+          <tspan x="65.97" y="194">Admin of </tspan>
+          <tspan x="70.872" y="209">Justice</tspan>
+        </text>
+        <text id="Natural-Resources-Copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+          <tspan x="144.894" y="194">Natural </tspan>
+          <tspan x="138.018" y="209">Resources</tspan>
+        </text>
+        <text id="Social-Security-Copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+          <tspan x="225.278" y="194">Social </tspan>
+          <tspan x="219.932" y="209">Security</tspan>
+        </text>
+        <text id="General-Science-Copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+          <tspan x="294.572" y="194">General </tspan>
+          <tspan x="294.74" y="209">Science</tspan>
+        </text>
+        <text id="Agriculture-Copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+          <tspan x="360.334" y="194">Agriculture</tspan>
+        </text>
+        <text id="Energy-Copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+          <tspan x="448.642" y="194">Energy</tspan>
+        </text>
+        <text id="$1.2-B-Copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="16" font-weight="normal" fill="#4A1D7A">
+          <tspan x="68.276" y="16">$1.2 B</tspan>
+        </text>
+        <text id="$340-M-Copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="16" font-weight="normal" fill="#4A1D7A">
+          <tspan x="140.18" y="127">$340 M</tspan>
+        </text>
+        <text id="$338-M-Copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="16" font-weight="normal" fill="#4A1D7A">
+          <tspan x="216.18" y="129">$338 M</tspan>
+        </text>
+        <text id="$236-M-Copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="16" font-weight="normal" fill="#4A1D7A">
+          <tspan x="288.18" y="143">$236 M</tspan>
+        </text>
+        <text id="$103-M-Copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="16" font-weight="normal" fill="#4A1D7A">
+          <tspan x="363.18" y="160">$103 M</tspan>
+        </text>
+        <text id="$31-M-Copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="16" font-weight="normal" fill="#4A1D7A">
+          <tspan x="444.156" y="168">$31 M</tspan>
+        </text>
+        <rect id="Rectangle-Copy-37" fill="#6F41A7" opacity="0.34312221" x="70" y="24" width="37" height="155"></rect>
+        <rect id="Rectangle-Copy-38" fill="#6F41A7" opacity="0.34312221" x="145.4" y="135" width="37" height="44"></rect>
+        <rect id="Rectangle-Copy-39" fill="#6F41A7" opacity="0.34312221" x="220.8" y="136" width="37" height="43"></rect>
+        <rect id="Rectangle-Copy-40" fill="#6F41A7" opacity="0.34312221" x="296.2" y="150" width="37" height="29"></rect>
+        <rect id="Rectangle-Copy-41" fill="#6F41A7" opacity="0.34312221" x="371.6" y="168" width="37" height="11"></rect>
+        <rect id="Rectangle-Copy-42" fill="#6F41A7" opacity="0.34312221" x="447" y="176" width="37" height="3"></rect>
+      </g>
+    </g>
+  </g>
+</svg>

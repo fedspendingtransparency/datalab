@@ -1,6 +1,6 @@
 @import "../../styles/variables.scss";
 
-$highlightColor: #1302d9;
+$pageColor: #1302d9;
 $left-indent: 32px;
 $bullet-size: 1.5rem;
 
@@ -9,7 +9,7 @@ $bullet-size: 1.5rem;
 }
 
 .subtitle-highlight {
-  color: $highlightColor;
+  color: $pageColor;
   font-size: inherit;
   font-weight: $bold;
 }
@@ -47,7 +47,7 @@ $bullet-size: 1.5rem;
     .bullet {
       font-size: $bullet-size;
       font-weight: $bold;
-      color: $highlightColor;
+      color: $pageColor;
       padding-right: 26px;
 
       &::before {
@@ -57,7 +57,7 @@ $bullet-size: 1.5rem;
 
     .heading {
       font-weight: $bold;
-      color: $highlightColor;
+      color: $pageColor;
       line-height: $bullet-size;
     }
   }

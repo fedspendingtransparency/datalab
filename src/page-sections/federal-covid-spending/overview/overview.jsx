@@ -6,26 +6,26 @@ import { Grid } from "@material-ui/core";
 import Share from '../../../components/share/share';
 import Downloads from '../../../components/section-elements/downloads/downloads';
 
-import DesktopChart from '../../../svgs/federal-covid-spending/overview/desktop-chart.svg';
-import TabletChart from '../../../svgs/federal-covid-spending/overview/tablet-chart.svg';
-import MobileChartA from '../../../svgs/federal-covid-spending/overview/mobile-chart-a.svg';
-import MobileChartB from '../../../svgs/federal-covid-spending/overview/mobile-chart-b.svg';
-import MobileChartC from '../../../svgs/federal-covid-spending/overview/mobile-chart-c.svg';
+import DesktopChart from '../../../images/covid/overview/desktop-chart.svg';
+import TabletChart from '../../../images/covid/overview/tablet-chart.svg';
+import MobileChartA from '../../../images/covid/overview/mobile-chart-a.svg';
+import MobileChartB from '../../../images/covid/overview/mobile-chart-b.svg';
+import MobileChartC from '../../../images/covid/overview/mobile-chart-c.svg';
 
 const Overview = (props) => {
-  const [screenWidth, setScreenWidth] = useState(0)
+  const [screenWidth, setScreenWidth] = useState(0);
 
   useEffect(() => {
-    setScreenWidth(window.innerWidth)
-  }, [])
+    setScreenWidth(window.innerWidth);
+  }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const handleResize = () => setScreenWidth(window.innerWidth)
-      window.addEventListener('resize', handleResize)
-      return () => window.removeEventListener('resize', handleResize)
+      const handleResize = () => setScreenWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
     }
-  })
+  });
 
   const appropriationsSection = (
     <Grid xs={12} sm={4} item className={overviewStyles.textContainer}>
@@ -35,7 +35,7 @@ const Overview = (props) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. (123 characters)
       </div>
     </Grid>
-  )
+  );
 
   const obligationsSection = (
     <Grid xs={12} sm={4} item className={overviewStyles.textContainer}>
@@ -45,7 +45,7 @@ const Overview = (props) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. (123 characters)
       </div>
     </Grid>
-  )
+  );
 
   const outlaysSection = (
     <Grid xs={12} sm={4} item className={overviewStyles.textContainer}>
@@ -55,46 +55,46 @@ const Overview = (props) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. (123 characters)
       </div>
     </Grid>
-  )
+  );
 
-  let chartComponent = <DesktopChart aria-labelledby="section-2-desktop-svg" />
+  let chartComponent = <img src={DesktopChart} alt="section-2-desktop-svg" />
   if (screenWidth < 992 && screenWidth >= 768) {
-    chartComponent = <TabletChart aria-labelledby="section-2-tablet-svg" />
+    chartComponent = <img src={TabletChart} alt="section-2-tablet-svg" />;
   }
 
   const visualizationComponent = screenWidth < 768 ? (
-      <>
-        <Grid container className={overviewStyles.overviewMobileContainer}>
-          {appropriationsSection}
-          <Grid item className={overviewStyles.overviewMobileSvgContainer}>
-            <MobileChartA aria-labelledby="section-2-mobile-svg-a" />
-          </Grid>
-          {obligationsSection}
-          <Grid item className={overviewStyles.overviewMobileSvgContainer}>
-            <MobileChartB aria-labelledby="section-2-mobile-svg-b" />
-          </Grid>
-          {outlaysSection}
-          <Grid item className={overviewStyles.overviewMobileSvgContainer}>
-            <MobileChartC aria-labelledby="section-2-mobile-svg-c" />
-          </Grid>
+    <>
+      <Grid container className={overviewStyles.overviewMobileContainer}>
+        {appropriationsSection}
+        <Grid item className={overviewStyles.overviewMobileSvgContainer}>
+          <img src={MobileChartA} alt="section-2-mobile-svg-a" />
         </Grid>
-        <div className={overviewStyles.updatedDate}>
-          <Downloads justify='center' date='May 2020' />
-        </div>
-      </>
-    ) : (
-      <>
-        <Grid container>
-          {appropriationsSection}
-          {obligationsSection}
-          {outlaysSection}
+        {obligationsSection}
+        <Grid item className={overviewStyles.overviewMobileSvgContainer}>
+          <img src={MobileChartB} alt="section-2-mobile-svg-b" />
         </Grid>
-        {chartComponent}
-        <div className={overviewStyles.updatedDate}>
-          <Downloads date='May 2020' />
-        </div>
-      </>
-    )
+        {outlaysSection}
+        <Grid item className={overviewStyles.overviewMobileSvgContainer}>
+          <img src={MobileChartC} alt="section-2-mobile-svg-c" />
+        </Grid>
+      </Grid>
+      <div className={overviewStyles.updatedDate}>
+        <Downloads justify='center' date='May 2020' />
+      </div>
+    </>
+  ) : (
+    <>
+      <Grid container>
+        {appropriationsSection}
+        {obligationsSection}
+        {outlaysSection}
+      </Grid>
+      {chartComponent}
+      <div className={overviewStyles.updatedDate}>
+        <Downloads date='May 2020' />
+      </div>
+    </>
+  );
 
   return (
     <>
@@ -117,5 +117,5 @@ const Overview = (props) => {
     </>
   );
 }
- 
+
 export default Overview;
