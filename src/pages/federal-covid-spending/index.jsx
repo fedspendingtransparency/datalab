@@ -97,13 +97,10 @@ export default class FederalCovidSpending extends React.Component {
           </p>
         </>
       ],
-      viztitle: 'Title for Overview viz',
+      viztitle: 'The Process of COVID-19 Emergency Spending',
       tagName: 'Overview',
       readMoreOnMobile: true,
-      readMoreStyle: { color: globalStyles.covidColor },
-      introBlurb: 'Nam quis nulla.Integer malesuada.In in enim a arcu imperdiet malesuada.Sed vel lectus.Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem.Phasellus rhoncus.Aenean id metus id velit ullamcorper pulvinar.Vestibulum fermentum tortor id mi.Pellentesque ipsum.Nulla non arcu lacinia neque faucibus fringilla.Nulla non lectus sed nisl molestie malesuada.Proin in tellus sit amet nibh dignissim sagittis.Vivamus luctus egestas leo.Maecenas sollicitudin.Nullam rhoncus aliquam met.Nam quis nulla.Integer malesuada.In in enim a arcu imperdiet malesuada.Sed vel lectus.Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem.Phasellus rhoncus.Aenean id metus id velit ullamcorper pulvinar.Vestibulum fermentum tortor id mi.Pellentesque ipsum.Nulla non arcu lacinia neque faucibus fringilla.Nulla non lectus sed nisl molestie malesuada.Proin in tellus sit amet nibh dignissim sagittis.Vivamus luctus egestas leo.Maecenas sollicitudin.Nullam rhoncus aliquam met.',
-      viztitle: 'Title for Overview viz',
-      tagName: 'Overview'
+      readMoreStyle: { color: globalStyles.covidColor }
     },
     {
       section: 'Tracking',
@@ -128,7 +125,7 @@ export default class FederalCovidSpending extends React.Component {
           </p>
         </>
       ],
-      viztitle: 'Title for Tracking viz',
+      viztitle: 'Progress of COVID-19 spending',
       tagName: 'Tracking'
     }
   ];
@@ -136,8 +133,8 @@ export default class FederalCovidSpending extends React.Component {
   render = () =>
     <StoryLayout
       title='The Federal Response To COVID-19'
-      introSentence='Tracking emergency funding through the federal financial system'
-      contextStatement='Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met'
+      introSentence='How is the federal government funding relief efforts for COVID-19?'
+      contextStatement='Data Lab explores how emergency funding for COVID-19 makes its way from Congress into the economy. We break down the $2 trillion in funds into categories, show the steps taken by federal agencies to use it, and track the status so you can see how much has been spent.'
       sectionToc={this.sections}
       hwctaLink={this.props.location.pathname + '/methodologies'}
     >
