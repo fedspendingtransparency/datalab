@@ -7,7 +7,7 @@ $lightBackground: #fafafa;
 
 svg {
   .outlayBar {
-    fill: darken($covidPurple, 25%);
+    fill: #331e4d;
   }
 
   .obligatedBar {
@@ -25,11 +25,26 @@ svg {
 
   &:hover {
     font-weight: $bold;
+
+    svg {
+      .outlayBar {
+        fill: #5d368b;
+      }
+
+      .obligatedBar {
+        fill: #6f41a6;
+      }
+
+      .unobligatedBar {
+        fill: #9673c1;
+      }
+    }
   }
 
   .topPad {
     padding-top: 1rem;
   }
+
   .sideLabel {
     flex-basis: $labelWidth;
     min-width: $labelWidth;
@@ -37,6 +52,10 @@ svg {
   }
 
   .barContainer {
+    flex-basis: 100%;
+    display: flex;
+    flex-flow: row wrap;
+
     background-image: linear-gradient(
       to right,
       #fff,
@@ -45,10 +64,6 @@ svg {
       $lightBackground 67%,
       #fff 67%
     );
-
-    flex-basis: 100%;
-    display: flex;
-    flex-flow: row wrap;
 
     .bar {
       position: relative;
@@ -59,7 +74,6 @@ svg {
 
       svg text {
         font-weight: initial;
-        // color: rgba(111, 65, 167, 0.7);
       }
 
       &.firstBar {

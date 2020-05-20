@@ -29,17 +29,13 @@ export default function CalloutBar(props) {
   if (props.outlaid + props.obligated < threshold.outlayLabelOffset) {
     barStatus.outlay = barState[2];
     barStatus.obligated = barState[2];
-
   } else if (props.outlaid <= outlayLabelMidPoint) {
-
     if (props.outlaid + props.obligated / 2 <= outlayLabelMidPoint) {
       barStatus.outlay = barState[2];
       barStatus.obligated = barState[2];
-
     } else if (props.outlaid + props.obligated / 2 > obligatedLabelMidPoint) {
       barStatus.outlay = barState[1];
       barStatus.obligated = barState[0];
-
     } else if (props.outlaid + props.obligated / 2 > outlayLabelMidPoint) {
       barStatus.outlay = barState[1];
       barStatus.obligated = barState[1];
@@ -49,7 +45,7 @@ export default function CalloutBar(props) {
       barStatus.outlay = barState[2];
       barStatus.obligated = barState[2];
     } else {
-      console.error('Uncaught condition 1 in callout bar')
+      console.error('Uncaught condition 1 in callout bar');
     }
 
   } else if (props.outlaid > outlayLabelMidPoint) {
@@ -61,12 +57,11 @@ export default function CalloutBar(props) {
       barStatus.obligated = barState[1];
     }
   } else {
-    console.error('Uncaught condition 2 in callout bar')
+    console.error('Uncaught condition 2 in callout bar');
   }
 
   if (props.unobligated < 100 - threshold.rightOffset) {
     barStatus.unobligated = barState[1];
-
   } else {
     barStatus.unobligated = barState[0];
   }
@@ -82,12 +77,12 @@ export default function CalloutBar(props) {
       defaultStartingPoint: 2,
       outlaidBarMidpoint: props.outlaid / 2,
       labelMidpoint: threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2,
-    }
+    };
 
     const obligatedSettings = {
       labelOffset: threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding,
       labelMidpoint: threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding + threshold.obligatedLabelWidth / 2,
-    }
+    };
 
     // joined label
     if (barStatus.outlay === barState[2]) {
@@ -99,22 +94,20 @@ export default function CalloutBar(props) {
         label2Offset={obligatedSettings.labelOffset}
         label1={`Outlays (${props.data[0].amount})`}
         label2={`Obligated (${props.data[1].amount})`}
-      />)
-
+      />);
     } else if (barStatus.outlay === barState[0]) {
       calloutComponent.push(<StraightCallout
         xStart={outlaySettings.defaultStartingPoint}
         labelOffset={threshold.outlayLabelOffset}
         label={`Outlays (${props.data[0].amount})`}
-      />)
-
+      />);
     } else {
       calloutComponent.push(<ElbowCallout
         xStart={outlaySettings.outlaidBarMidpoint}
         xEnd={outlaySettings.labelMidpoint}
         labelOffset={threshold.outlayLabelOffset}
         label={`Outlays (${props.data[0].amount})`}
-      />)
+      />);
     }
   }
 
@@ -124,15 +117,14 @@ export default function CalloutBar(props) {
         xStart={parseFloat(props.outlaid + props.obligated / 2)}
         labelOffset={parseFloat(props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2)}
         label={`Obligated (${props.data[1].amount})`}
-      />)
-
+      />);
     } else if (barStatus.obligated === barState[1]) {
       calloutComponent.push(<ElbowCallout
         xStart={props.outlaid + props.obligated / 2}
         xEnd={threshold.obligatedLabelOffset + threshold.outlayLabelWidth / 2}
         labelOffset={threshold.obligatedLabelOffset}
         label={`Obligated (${props.data[1].amount})`}
-      />)
+      />);
     }
   }
 
@@ -142,15 +134,14 @@ export default function CalloutBar(props) {
         xStart={threshold.rightOffset}
         labelOffset={threshold.unobligatedLabelOffset}
         label={`Unobligated (${props.data[2].amount})`}
-      />)
-
+      />);
     } else if (barStatus.unobligated === barState[1]) {
       calloutComponent.push(<ReversedElbowCallout
         xStart={props.outlaid + props.obligated + props.unobligated / 2}
         xEnd={90}
         labelOffset={threshold.unobligatedLabelOffset}
         label={`Unobligated (${props.data[2].amount})`}
-      />)
+      />);
     }
   }
 
