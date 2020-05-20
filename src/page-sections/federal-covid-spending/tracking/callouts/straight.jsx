@@ -9,9 +9,37 @@ StraightCallout.propTypes = {
   'xStart': PropTypes.number.isRequired,
   'labelOffset': PropTypes.number.isRequired,
   'label': PropTypes.string.isRequired,
+  'labelAmount': PropTypes.string.isRequired
 };
 
 export default function StraightCallout(props) {
+  const shiftLabel = props.label === 'Unobligated' ? 10 : 0;
+  const shiftAmount = props.label === 'Unobligated' ? 12 : 0;
+
+  function TextBlock() {
+    if(props.narrow) {
+      return (<>
+        <text fill={defaults.fontColor}
+              x={`${props.labelOffset + shiftLabel}%`}
+              y={defaults.textPosition}
+              fontSize={defaults.fontSize}
+              fontWeight='bold'>
+          {props.label}
+        </text>
+        <text fill={defaults.fontColor}
+              x={`${props.labelOffset + shiftAmount}%`}
+              y={defaults.textPosition + defaults.lineHeight}
+              fontSize={defaults.smFontSize}>
+          &nbsp;&nbsp;&nbsp;&nbsp;{props.labelAmount}
+        </text>
+      </>)
+    } else {
+      return <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition}
+        fontSize={defaults.fontSize}>
+        {props.label} ({props.labelAmount})
+      </text>
+    }
+  }
 
   return (<g className='outlay-connector'>
     <rect
@@ -22,8 +50,6 @@ export default function StraightCallout(props) {
       height={defaults.starterHeight + defaults.endingHeight}
     />
 
-    <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-      {props.label}
-    </text>
+    <TextBlock/>
   </g>)
 }

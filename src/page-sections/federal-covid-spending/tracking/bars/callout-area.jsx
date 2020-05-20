@@ -97,15 +97,20 @@ export default function CalloutBar(props) {
         xEnd={obligatedSettings.labelMidpoint}
         label1Offset={threshold.outlayLabelOffset}
         label2Offset={obligatedSettings.labelOffset}
-        label1={`Outlays (${props.data[0].amount})`}
-        label2={`Obligated (${props.data[1].amount})`}
+        label1={'Outlays'}
+        label2={'Obligated'}
+        label1Amount={props.data[0].amount}
+        label2Amount={props.data[1].amount}
+        narrow={props.narrow}
       />)
 
     } else if (barStatus.outlay === barState[0]) {
       calloutComponent.push(<StraightCallout
         xStart={outlaySettings.defaultStartingPoint}
         labelOffset={threshold.outlayLabelOffset}
-        label={`Outlays (${props.data[0].amount})`}
+        label={`Outlays`}
+        labelAmount={props.data[0].amount}
+        narrow={props.narrow}
       />)
 
     } else {
@@ -113,7 +118,9 @@ export default function CalloutBar(props) {
         xStart={outlaySettings.outlaidBarMidpoint}
         xEnd={outlaySettings.labelMidpoint}
         labelOffset={threshold.outlayLabelOffset}
-        label={`Outlays (${props.data[0].amount})`}
+        label={`Outlays`}
+        labelAmount={props.data[0].amount}
+        narrow={props.narrow}
       />)
     }
   }
@@ -123,7 +130,9 @@ export default function CalloutBar(props) {
       calloutComponent.push(<StraightCallout
         xStart={parseFloat(props.outlaid + props.obligated / 2)}
         labelOffset={parseFloat(props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2)}
-        label={`Obligated (${props.data[1].amount})`}
+        label={`Obligated`}
+        labelAmount={props.data[1].amount}
+        narrow={props.narrow}
       />)
 
     } else if (barStatus.obligated === barState[1]) {
@@ -131,7 +140,9 @@ export default function CalloutBar(props) {
         xStart={props.outlaid + props.obligated / 2}
         xEnd={threshold.obligatedLabelOffset + threshold.outlayLabelWidth / 2}
         labelOffset={threshold.obligatedLabelOffset}
-        label={`Obligated (${props.data[1].amount})`}
+        label={`Obligated`}
+        labelAmount={props.data[1].amount}
+        narrow={props.narrow}
       />)
     }
   }
@@ -141,7 +152,9 @@ export default function CalloutBar(props) {
       calloutComponent.push(<StraightCallout
         xStart={threshold.rightOffset}
         labelOffset={threshold.unobligatedLabelOffset}
-        label={`Unobligated (${props.data[2].amount})`}
+        label={`Unobligated`}
+        labelAmount={props.data[2].amount}
+        narrow={props.narrow}
       />)
 
     } else if (barStatus.unobligated === barState[1]) {
@@ -149,7 +162,9 @@ export default function CalloutBar(props) {
         xStart={props.outlaid + props.obligated + props.unobligated / 2}
         xEnd={90}
         labelOffset={threshold.unobligatedLabelOffset}
-        label={`Unobligated (${props.data[2].amount})`}
+        label={`Unobligated`}
+        labelAmount={props.data[2].amount}
+        narrow={props.narrow}
       />)
     }
   }

@@ -4,7 +4,6 @@
  import Bar from "./bars/bar"
 
 export default function CovidModal(props) {
-  console.log(props.data);
 
   // This should go in tracking/index
   function Content() {
@@ -29,7 +28,7 @@ export default function CovidModal(props) {
 
         } else {
           return (<div key={key}>
-            <p style={{marginBottom: '0'}}>{i.Account_Name} ({numberFormatter('dollars suffix', i.Total_Budgetary_Resources)})</p>
+            <p style={{marginBottom: '0', marginTop: '0.5rem', fontWeight: 'bold'}}>{i.Account_Name} ({numberFormatter('dollars suffix', i.Total_Budgetary_Resources)})</p>
 
             <Bar key={key}
                  data={_data}

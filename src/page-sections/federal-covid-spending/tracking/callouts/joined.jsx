@@ -20,6 +20,33 @@ JoinedCallout.propTypes = {
 
 
 export default function JoinedCallout(props) {
+  function TextBlock() {
+    if(props.narrow) {
+			return <>
+				<text fill={defaults.fontColor} x={`${props.label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight='bold'>
+					{props.label1}
+				</text>
+        <text fill={defaults.fontColor} x={`${props.label1Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
+          &nbsp;&nbsp;{props.label1Amount}
+        </text>
+
+				<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight='bold'>
+					{props.label2}
+				</text>
+				<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.label2Amount}
+				</text>
+			</>
+    } else {
+      return <>
+				<text fill={defaults.fontColor} x={`${props.label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
+					{props.label1} ({props.label1Amount})
+				</text>
+				<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
+					{props.label2} ({props.label2Amount})
+				</text></>
+    }
+  }
 
 	return (<g className='outlay-connector'>
 		<rect
@@ -54,7 +81,6 @@ export default function JoinedCallout(props) {
 			height={defaults.endingHeight}
 		/>
 
-		<text fill={defaults.fontColor} x={`${props.label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>{props.label1}</text>
-		<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>{props.label2}</text>
+		<TextBlock />
 	</g>)
 }

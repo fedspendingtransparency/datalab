@@ -54,18 +54,9 @@ svg {
       position: relative;
       width: 100%;
 
-      &.barPadding {
-        padding-top: 1rem;
-      }
-
       &.barBorder {
         border-left: $chartBorder;
         border-right: $chartBorder;
-      }
-
-      svg text {
-        font-weight: initial;
-        // color: rgba(111, 65, 167, 0.7);
       }
 
       &.firstBar {
