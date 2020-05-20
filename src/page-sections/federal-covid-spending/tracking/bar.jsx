@@ -28,7 +28,7 @@ export default class Bar extends React.Component {
 
 	constructor(props) {
 		super(props);
-  }
+	}
 
 	clickHandler = item => {
 		alert(item + ' clicked');
@@ -48,12 +48,14 @@ export default class Bar extends React.Component {
 							outlaid={parseFloat(this.props.data[0].percent)}
 							obligated={parseFloat(this.props.data[1].percent)}
 							unobligated={parseFloat(this.props.data[2].percent)}
-							data={this.props.data} />
-            <PercentBar
+							data={this.props.data}
+						/>
+						<PercentBar
 							outlaid={parseFloat(this.props.data[0].percent)}
 							obligated={parseFloat(this.props.data[1].percent)}
 							unobligated={parseFloat(this.props.data[2].percent)}
-							barHeight={barHeight} />
+							barHeight={barHeight}
+						/>
 					</svg>
 				</div>
 			</div>

@@ -11,5 +11,4 @@ const defaults = {
 
 defaults['textPosition'] = parseFloat(defaults.starterHeight + defaults.lineStroke + defaults.endingHeight + defaults.lineHeight);
 
-
 export default defaults;
