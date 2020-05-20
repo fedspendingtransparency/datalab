@@ -206,6 +206,19 @@ export default function Tracking(props) {
 		}
 	}))(Button);
 
+	const findTitle = () => {
+		let dataType = 'functions'
+
+		if(checked) {
+      dataType = 'agencies';
+    }
+
+		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
+
+		return `${selectedBar} (${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''})`
+
+	}
+
 	return <>
 		<AccordionList title='Instructions'>
 			<p>Actual instructions are larger than they appear</p>
@@ -222,7 +235,10 @@ export default function Tracking(props) {
 
 		{mainChart()}
 
-    <ModalReference open={isModalOpen} close={closeModal} title={selectedBar} maxWidth={false} maxHeight={true}>
+    <ModalReference open={isModalOpen}
+										close={closeModal}
+										title={findTitle()}
+										maxWidth={false} maxHeight={true}>
       <Modal
 				bar={selectedBar}
 				mode={checked ? 'Agency' : 'Budget Function'}

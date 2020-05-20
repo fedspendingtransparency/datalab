@@ -10,7 +10,7 @@
   <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
     <g id="Desktop-HD" transform="translate(-149.000000, -954.000000)">
       <g id="Viz-1-Pop-out-Desktop" transform="translate(149.000000, 954.000000)">
-        <text id="y-axis-numbers-copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="15" font-weight="normal" line-spacing="26" fill="#666666">
+        <text id="y-axis-numbers-copy" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="15" font-weight="normal" lineSpacing="26" fill="#666666">
           <tspan x="6.08" y="26">$1.2 B</tspan>
           <tspan x="6.08" y="52">$1.0 B</tspan>
           <tspan x="0.275" y="78">$800 M</tspan>
