@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './bar.module.scss';
 import CalloutBar from './callouts/callout-bar';
+import PercentBar from './percent-bar';
 
 const barHeight = 30;
 
@@ -27,26 +28,7 @@ export default class Bar extends React.Component {
 
 	constructor(props) {
 		super(props);
-	}
-
-	componentWillMount() {
-		this.updateBars();
-	}
-	componentDidUpdate() {
-		this.updateBars();
-	}
-
-	updateBars = () => {
-		this.barPercents = [
-			parseFloat(this.props.data[0].percent),
-			parseFloat(this.props.data[1].percent)
-		];
-		// final segment length calculated, removing rounding errors
-		this.barPercents[2] = 100 - this.barPercents[0] - this.barPercents[1];
-
-		console.log(this.barPercents);
-		
-	}
+  }
 
 	clickHandler = item => {
 		alert(item + ' clicked');
@@ -62,12 +44,16 @@ export default class Bar extends React.Component {
 				>
 					{this.props.narrow ? <div className={styles.sideLabel}>{this.props.barLabel} ({this.props.total})</div> : ''}
 					<svg width='100%' height='56px'>
-						<CalloutBar outlaid={this.barPercents[0]} obligated={this.barPercents[1]} unobligated={this.barPercents[2]} data={this.props.data} />
-						<g className='bar'>
-							<rect className={styles.outlayBar} x='0' width={`${this.barPercents[0]}%`} height={barHeight}></rect>
-							<rect className={styles.obligatedBar} x={`${this.barPercents[0]}%`} width={`${this.barPercents[1]}%`} height={barHeight}></rect>
-							<rect className={styles.unobligatedBar} x={`${this.barPercents[0] + this.barPercents[1]}%`} width={`${this.barPercents[2]}%`} height={barHeight}></rect>
-						</g>
+						<CalloutBar
+							outlaid={parseFloat(this.props.data[0].percent)}
+							obligated={parseFloat(this.props.data[1].percent)}
+							unobligated={parseFloat(this.props.data[2].percent)}
+							data={this.props.data} />
+            <PercentBar
+							outlaid={parseFloat(this.props.data[0].percent)}
+							obligated={parseFloat(this.props.data[1].percent)}
+							unobligated={parseFloat(this.props.data[2].percent)}
+							barHeight={barHeight} />
 					</svg>
 				</div>
 			</div>
