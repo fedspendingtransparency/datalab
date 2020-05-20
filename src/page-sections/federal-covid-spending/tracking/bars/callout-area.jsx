@@ -3,7 +3,7 @@ import ElbowCallout from 'src/page-sections/federal-covid-spending/tracking/call
 import ReversedElbowCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/reversed-elbow';
 import JoinedCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/joined';
 import StraightCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/straight';
-import threshold from './utils/thresholds';
+import threshold from '../callouts/utils/thresholds';
 import PropTypes from 'prop-types';
 
 CalloutBar.propTypes = {

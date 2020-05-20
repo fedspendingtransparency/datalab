@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './bar.module.scss';
-import CalloutBar from './callouts/callout-bar';
-import PercentBar from './percent-bar';
+import CalloutBar from './callout-area';
+import PercentBar from './percent-area';
 
 const barHeight = 30;
 
@@ -19,8 +19,8 @@ export default class Bar extends React.Component {
 	static propTypes = {
 		'narrow': PropTypes.bool,
 		'data': PropTypes.arrayOf(PropTypes.object).isRequired,
-		'barLabel': PropTypes.string.isRequired,
-		'total': PropTypes.string.isRequired,
+		'barLabel': PropTypes.string,
+		'total': PropTypes.string,
 		'hideBarLabels': PropTypes.bool,
 		'firstBar': PropTypes.bool,
 		'lastBar': PropTypes.bool
@@ -39,10 +39,13 @@ export default class Bar extends React.Component {
 			{this.props.narrow ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>}
 			<div className={styles.barContainer}>
 				<div
-					className={`${styles.bar} ${styles.topPad} ${this.props.firstBar ? styles.firstBar : ''} ${this.props.lastBar ? styles.lastBar : ''}`}
-					onClick={() => this.clickHandler(this.props.barLabel)}
+					className={`${styles.bar}
+					${this.props.narrow ? '' : styles.topPad}
+					${this.props.narrow ? '' : styles.barBorder}
+					${this.props.firstBar ? styles.firstBar : ''}
+					${this.props.lastBar ? styles.lastBar : ''}`}
+					onClick={() => this.props.narrow ? '' : this.clickHandler(this.props.barLabel)}
 				>
-					{this.props.narrow ? <div className={styles.sideLabel}>{this.props.barLabel} ({this.props.total})</div> : ''}
 					<svg width='100%' height='56px'>
 						<CalloutBar
 							outlaid={parseFloat(this.props.data[0].percent)}

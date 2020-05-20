@@ -1,9 +1,11 @@
  import React, { useEffect, useState } from "react"
  import { graphql, useStaticQuery } from "gatsby"
  import numberFormatter from "src/utils/number-formatter"
- import Bar from "../bar"
+ import Bar from "./bars/bar"
 
 export default function CovidModal(props) {
+  console.log(props.data);
+
   // This should go in tracking/index
   function Content() {
     if(props.data) {
@@ -27,12 +29,10 @@ export default function CovidModal(props) {
 
         } else {
           return (<div key={key}>
-            <p
-              style={{ marginBottom: '-1rem' }}>{i.Account_Name} ({numberFormatter('dollars suffix', i.Total_Budgetary_Resources)})</p>
+            <p style={{marginBottom: '0'}}>{i.Account_Name} ({numberFormatter('dollars suffix', i.Total_Budgetary_Resources)})</p>
 
-            <Bar key={key} data={_data}
-                 barLabel={props.mode === 'Agency' ? i.Agency : i.Function_Description}
-                 total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
+            <Bar key={key}
+                 data={_data}
                  narrow={true}
             />
           </div>)

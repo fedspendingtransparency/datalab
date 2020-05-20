@@ -4,7 +4,7 @@ import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import styles from './tracking.module.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
-import Bar from './bar';
+import Bar from './bars/bar';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import ControlBar from 'src/components/control-bar/control-bar';
@@ -18,7 +18,7 @@ import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
 import ModalReference from "src/components/modal/modal"
-import Modal from "./modal/modal"
+import Modal from "./modal"
 
 const showLess = 10; // bars to show when collapsed
 
