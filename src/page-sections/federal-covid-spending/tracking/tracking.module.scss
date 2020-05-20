@@ -1,5 +1,10 @@
 @import "bar.module.scss";
 
+h1 {
+  font-size: 2rem;
+  margin-top: 1.25rem;
+}
+
 .legend {
   display: flex;
   justify-content: space-between;

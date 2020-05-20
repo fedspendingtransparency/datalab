@@ -124,9 +124,6 @@ $fedEmpBlue: #2272ce;
 }
 
 @media (max-width: $tablet - 1) {
-  .heading {
-    padding: 25px 0;
-  }
 }
 
 @media (min-width: $desktop-xl) {
@@ -142,7 +139,7 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-@media (min-width: $phone) and (max-width: $desktop-xl) {
+@media (min-width: $tablet) {
   .header {
     text-align: center;
   }
@@ -155,7 +152,7 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-@media (max-width: $phone - 1) {
+@media (max-width: $tablet - 1) {
   .introContainer {
     margin: 0 0 25px 0 !important;
     .intro {
@@ -164,6 +161,9 @@ $fedEmpBlue: #2272ce;
       color: $darkGrey;
       margin: 1rem 0;
     }
+  }
+  .heading {
+    padding: 25px 0;
   }
   .header {
     .headerTitle {

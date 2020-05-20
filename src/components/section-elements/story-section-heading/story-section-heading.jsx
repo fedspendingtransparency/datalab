@@ -5,15 +5,15 @@ import storySectionHeadingStyles from './story-section-heading.module.scss';
 import ReadMore from '../../read-more/read-more';
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 
-const propTypes = {
-  accordion: PropTypes.element,
+StorySectionHeading.propTypes = {
+  accordion: PropTypes.element
 };
 
-const defaultProps = {
-  accordion: null,
+StorySectionHeading.defaultProps = {
+  accordion: null
 };
 
-const StorySectionHeading = props => {
+export default function StorySectionHeading(props) {
 
   // update state & redraw ONLY if mode changes
   const [screenMode, setScreenMode] = useState(0);
@@ -34,7 +34,7 @@ const StorySectionHeading = props => {
   function NumberItem() {
     if (props.number) {
       return (
-        <Grid item xs={1} sm={12} xl={1} className={storySectionHeadingStyles.headerNumber}>
+        <Grid item xs={1} md={12} xl={1} className={storySectionHeadingStyles.headerNumber}>
           <h2>{props.number}</h2>
         </Grid>
       )
@@ -43,12 +43,12 @@ const StorySectionHeading = props => {
   }
 
   const blurb = props.readMoreOnMobile && screenMode < ScreenModeEnum.tablet ? (
-    <ReadMore buttonStyle={props.readMoreStyle} collapsedHeight='76px'>
+    <ReadMore buttonStyle={props.readMoreStyle} collapsedHeight='72px'>
       <div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
     </ReadMore>
   ) :
     <div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
-  ;
+    ;
 
   return (
     <header>
@@ -59,7 +59,7 @@ const StorySectionHeading = props => {
           <Hidden smUp>
             <Grid item xs={1} />
           </Hidden>
-          <Grid item xs={10} sm={12} xl={11} className={storySectionHeadingStyles.headerTitle}>
+          <Grid item xs={10} md={12} xl={11} className={storySectionHeadingStyles.headerTitle}>
             {props.title}
           </Grid>
         </Grid>
@@ -74,8 +74,3 @@ const StorySectionHeading = props => {
     </header>
   );
 };
-
-StorySectionHeading.propTypes = propTypes;
-StorySectionHeading.defaultProps = defaultProps;
-
-export default StorySectionHeading;
