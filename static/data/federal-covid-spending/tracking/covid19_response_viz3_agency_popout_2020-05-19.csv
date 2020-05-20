@@ -1,0 +1,189 @@
+"Agency","federal_account_code","Account_Name","Percent_Obligated","Percent_Outlaid","Percent_Unobligated","Amount_Outlaid","Amount_Obligated_Not_Outlaid","Amount_Unobligated","Amount_Obligated","Total_Budgetary_Resources"
+"AGENCY FOR INTERNATIONAL DEV.","072-1035","International Disaster Assistance, Funds Appropriated to the President, US Agency for International Development",1.45,0,98.55,0,8089521,549910479,8089521,558000000
+"AGENCY FOR INTERNATIONAL DEV.","019-1031","Global Health Programs, State",19.34,0.34,80.32,1458516.39,84141483.61,349400000,85600000,435000000
+"AGENCY FOR INTERNATIONAL DEV.","072-1037","Economic Support Fund, Funds Appropriated to the President",12.35,0,87.65,0,30000000,213000000,30000000,243000000
+"AGENCY FOR INTERNATIONAL DEV.","072-1000","Operating Expenses of the United States Agency for International Development, Funds Appropriated to the President",7.55,0.19,92.25,198332.04,7703517.78,94098150.18,7901849.82,102000000
+"AGENCY FOR INTERNATIONAL DEV.","072-1007","Operating Expenses of the United States Agency for International Development, Office of Inspector General, Funds Appropriated to the President",0,0,100,0,0,1000000,0,1000000
+"DEPT OF AGRICULTURE","012-3505","Supplemental Nutrition Assistance Program, Food and Nutrition Service, Agriculture",0,0,100,0,0,24668371642,0,24668371642
+"DEPT OF AGRICULTURE","012-3539","Child Nutrition Programs, Food and Nutrition Service",66.63,0.37,32.99,32924459.01,5863819365.61,2903256175.38,5896743824.62,8800000000
+"DEPT OF AGRICULTURE","012-3507","Commodity Assistance Program, Food and Nutrition Service, Agriculture",9.75,0.57,89.68,4871197.38,82863814.62,762264988,87735012,850000000
+"DEPT OF AGRICULTURE","012-3510","Special Supplemental Nutrition Program for Women, Infants and Children (WIC), Food and Nutrition Service",0,0,100,0,0,500000000,0,500000000
+"DEPT OF AGRICULTURE","012-1232","Distance Learning, Telemedicine and Broadband Program, Rural Utilities Service, Agriculture",0,3,97,3750000,0,121250000,3750000,125000000
+"DEPT OF AGRICULTURE","012-1600","Salaries and Expenses, Animal and Plant Health Inspection Service, Agriculture",0,0,100,0,0,55000000,0,55000000
+"DEPT OF AGRICULTURE","012-2500","Marketing Services, Agricultural Marketing Service, Agriculture",0,0,100,0,0,45000000,0,45000000
+"DEPT OF AGRICULTURE","012-1106","National Forest System, Forest Service, Agriculture",0.13,0,99.87,224.48,44966,33954809.52,45190.48,34000000
+"DEPT OF AGRICULTURE","012-3700","Food Safety and Inspection Service, Agriculture",3.28,0.51,96.21,167549.73,1082073.97,31750376.3,1249623.7,33000000
+"DEPT OF AGRICULTURE","012-1103","Capital Improvement and Maintenance, Forest Service, Agriculture",0,0.01,99.99,2804.96,0,26797195.04,2804.96,26800000
+"DEPT OF AGRICULTURE","012-1902","Rural Business Program Account, Rural Business-Cooperative Service, Agriculture",0,3,97,615000,0,19885000,615000,20500000
+"DEPT OF AGRICULTURE","012-0600","Salaries and Expenses, Farm Service Agency, Agriculture",0,0,100,0,0,3000000,0,3000000
+"DEPT OF AGRICULTURE","012-1104","Forest and Rangeland Research, Forest Service, Agriculture",0,0,100,0,0,3000000,0,3000000
+"DEPT OF COMMERCE","013-2050","Economic Development Assistance Programs, Economic Development Administration, Commerce",0,0,100,0,0,1487000000,0,1487000000
+"DEPT OF COMMERCE","013-0525","Industrial Technology Services, National Institute of Standards and Technology, Commerce",0,0,100,0,0,60000000,0,60000000
+"DEPT OF COMMERCE","013-2055","Fishery Disaster Assistance, National Oceanic and Atmospheric Administration, Commerce",0,0,100,0,0,49131147.54,0,49131147.54
+"DEPT OF COMMERCE","013-1450","Operations, Research and Facilities, National Oceanic and Atmospheric Administration, Commerce",0,0,100,0,0,20300000,0,20300000
+"DEPT OF COMMERCE","013-0125","Salaries and Expenses, Economic Development Administration, Commerce",0,0,100,0,0,10000000,0,10000000
+"DEPT OF COMMERCE","013-0201","Minority Business Development, Minority Business Development Agency, Commerce",0,0,100,0,0,10000000,0,10000000
+"DEPT OF COMMERCE","013-0500","Scientific and Technical Research and Services, National Institute of Standards and Technology, Commerce ",0.51,0.55,98.93,33173.49,30878.6,5935947.91,64052.09,6000000
+"DEPT OF COMMERCE","013-0126","Office of the Inspector General, Departmental Management, Commerce",0,0,75,0,0,3000000,0,4000000
+"DEPT OF DEFENSE","097-0130","Defense Health Program, Defense",3.65,0.32,96.03,12282581.49,142086402.68,3733231015.83,154368984.17,3887600000
+"DEPT OF DEFENSE","097-4930","Defense Working Capital Fund, Navy",0,0,100,0,0,1450000000,0,1450000000
+"DEPT OF DEFENSE","021-2060","National Guard Personnel, Army",0,0,100,0,0,746591000,0,746591000
+"DEPT OF DEFENSE","057-3850","National Guard Personnel, Air Force",0.06,0,99.94,595.42,306298.53,481818106.05,306893.95,482125000
+"DEPT OF DEFENSE","017-1804","Operation and Maintenance, Navy",0,0,100,0,0,360308000,0,360308000
+"DEPT OF DEFENSE","021-2065","Operation and Maintenance, Army National Guard",7.05,0,92.95,0,13164955.41,173531044.59,13164955.41,186696000
+"DEPT OF DEFENSE","021-2020","Operation and Maintenance, Army",85.68,1.14,13.19,1820857.32,137337650.59,21141492.09,139158507.91,160300000
+"DEPT OF DEFENSE","057-3400","Operation and Maintenance, Air Force",32.97,4.1,62.93,5047556.76,40554124.82,77398318.42,45601681.58,123000000
+"DEPT OF DEFENSE","017-1106","Operation and Maintenance, Marine Corps",0,0,100,0,0,90000000,0,90000000
+"DEPT OF DEFENSE","057-3840","Operation and Maintenance, Air National Guard",0.32,0.03,99.65,20778.47,244047.89,75489173.64,264826.36,75754000
+"DEPT OF DEFENSE","021-2080","Operation and Maintenance, Army Reserve",8.19,0,91.81,0,3931226.92,44068773.08,3931226.92,48000000
+"DEPT OF DEFENSE","057-3080","Other Procurement, Air Force",0,0,100,0,0,32000000,0,32000000
+"DEPT OF EDUCATION","091-0251","Education Stabilization Fund, Department of Education",22.24,2.63,75.14,807373041.96,6837531331.04,23105095627,7644904373,30750000000
+"DEPT OF EDUCATION","091-0231","Federal Family Education Loan Program Account, Education",0,0,100,0,0,13259764211,0,13259764211
+"DEPT OF EDUCATION","091-0202","Student and Administration, Education",32.88,26.43,40.69,478243732.87,594832509.42,736066757.71,1073076242.29,1809143000
+"DEPT OF EDUCATION","091-0203","Safe Schools and Citizenship Education,  Education",0,0,100,0,0,100000000,0,100000000
+"DEPT OF EDUCATION","091-1901","Historically Black College and University Capital Financing, Program Account, Department of Education",0.05,30,69.95,13946498.3,23775.24,32513726.46,13970273.54,46484000
+"DEPT OF EDUCATION","091-0603","Howard University, Education",0,100,0,13000000,0,0,13000000,13000000
+"DEPT OF EDUCATION","091-0800","Program Administration, Departmental Management, Education",0.43,0,99.57,0,34238.8,7965761.2,34238.8,8000000
+"DEPT OF EDUCATION","091-0602","Gallaudet University, Special Institutions for Persons with Disabilities, Education",100,0,0,0,7000000,0,7000000,7000000
+"DEPT OF EDUCATION","091-1400","Office of the Inspector General, Departmental Management, Education",0,0,100,0,0,7000000,0,7000000
+"DEPT OF ENERGY","089-0222","Science, Energy Programs, Energy",63.88,2.66,33.45,2649535.79,63565464.21,33285000,66215000,99500000
+"DEPT OF ENERGY","089-0228","Departmental Administration, Energy Programs, Energy",0.46,0.08,99.46,21539.88,128436.39,27850023.73,149976.27,28000000
+"DEPT OF HOMELAND SECURITY","070-0702","Disaster Relief Fund, Federal Emergency Management Agency, Homeland Security",0,0,100,0,0,44997000000,0,44997000000
+"DEPT OF HOMELAND SECURITY","070-0413","Federal Assistance, Federal Emergency Management Agency, Homeland Security",74.51,0,25.49,0,298032637,101967363,298032637,400000000
+"DEPT OF HOMELAND SECURITY","070-0112","Operations and Support, Management Directorate, Departmental Management, Operations, Intelligence, and Oversight, Homeland Security",0,0,100,0,0,178300000,0,178300000
+"DEPT OF HOMELAND SECURITY","070-0610","Operations and Support, Coast Guard, Homeland Security ",1.35,0,98.65,0,1893910.26,138906089.74,1893910.26,140800000
+"DEPT OF HOMELAND SECURITY","070-0550","Operations and Support, Transportation Security Administration, Homeland Security",0,0.11,99.89,109005.5,0,99890994.5,109005.5,100000000
+"DEPT OF HOMELAND SECURITY","070-0700","Operations and Support, Federal Emergency Management Agency, Homeland Security",0.25,0,99.75,0,113871.76,44873128.24,113871.76,44987000
+"DEPT OF HOMELAND SECURITY","070-0566","Operations and Support, National Protection and Programs Directorate, Homeland Security",0,0,100,0,0,9100000,0,9100000
+"DEPT OF JUSTICE","015-0404","State and Local Law Enforcement Assistance, Office of Justice Programs, Office of Justice Programs, Justice",31.6,10.15,58.24,86305775.9,268624334.1,495069890,354930110,850000000
+"DEPT OF JUSTICE","015-0200","Salaries and Expenses, Federal Bureau of Investigation, Justice",9.33,0,90.67,0,1865696,18134304,1865696,20000000
+"DEPT OF JUSTICE","015-0324","Salaries and Expenses, United States Marshals Service, Justice",17.69,1.36,80.95,203315.1,2653764.93,12142919.97,2857080.03,15000000
+"DEPT OF JUSTICE","015-0322","Salaries and Expenses, United States Attorneys, Justice",0,0,100,0,0,3000000,0,3000000
+"DEPT OF JUSTICE","015-0134","Justice Information Sharing Technology, General Administration, Justice",30.8,0.57,68.64,11312.62,615927.8,1372759.58,627240.42,2000000
+"DEPT OF JUSTICE","015-0328","Office of Inspector General, Justice",1.56,0.17,98.27,3479.79,31128.93,1965391.28,34608.72,2000000
+"DEPT OF JUSTICE","015-1060","Salaries and Expenses, Federal Prison System, Justice",0,0,0,16016724.76,69239830.86,-85256555.62,85256555.62,0
+"DEPT OF LABOR","016-1801","Federal Unemployment Compensation Program, Employment and Training Administration, Labor",0,32.76,67.24,26908364589.55,0,55231635410.45,26908364589.55,82140000000
+"DEPT OF LABOR","016-8042","Unemployment Trust Fund - Treasury Managed, Labor",1.2,4.07,94.73,2668622501.77,784148333.2,62035194165.03,3452770834.97,65487965000
+"DEPT OF LABOR","016-0174","Training and Employment Service, Employment and Training Administration, Labor",38.05,0,61.95,0,131286863,213713137,131286863,345000000
+"DEPT OF LABOR","016-0168","Short Time Compensation Programs, Employment and Training Administration, Labor",0,0,100,0,0,129000000,0,129000000
+"DEPT OF LABOR","016-0106","Office of the Inspector General, Departmental Management, Labor",0,0,100,0,0,25000000,0,25000000
+"DEPT OF STATE","019-0113","Diplomatic and Consular Programs, State",4.54,4.55,90.92,23053882.96,23001646.76,460944470.28,46055529.72,507000000
+"DEPT OF STATE","019-1143","Migration and Refugee Assistance, State",10.11,8.38,81.51,29341729.93,35388270.07,285270000,64730000,350000000
+"DEPT OF STATE","019-5713","Consular and Border Security Programs, Administration of Foreign Affairs, State",2.6,35.43,61.97,28699802.23,2104381.02,50195816.75,30804183.25,81000000
+"DEPT OF STATE","019-1031","Global Health Programs, State",0,0,0,0,0,0,0,0
+"DEPT OF THE INTERIOR","014-2100","Operation of Indian Programs, Bureau of Indian Affairs and Bureau of Indian Education, Interior",30.33,45.64,24.03,206734031.96,137407528.37,108858439.67,344141560.33,453000000
+"DEPT OF THE INTERIOR","014-2106","Operation of Indian Education Programs, Bureau of Indian Affairs and Bureau of Indian Education, Interior",1.87,6.82,91.32,15204230,4162680,203633090,19366910,223000000
+"DEPT OF THE INTERIOR","014-0102","Departmental Operations, Office of the Secretary, Interior",1.22,0,98.78,0,1927000,155473000,1927000,157400000
+"DEPT OF THE INTERIOR","014-0412","Assistance to Territories, Insular Affairs, Interior",75,0,25,0,41250001,13749999,41250001,55000000
+"DEPT OF THE INTERIOR","075-1515","Payment to States for the Child Care and Development Block Grant, Administration for Children and Families, Health and Human Services",0,0,100,0,0,33461097,0,33461097
+"DEPT OF THE INTERIOR","014-0680","Water and Related Resources, Bureau of Reclamation, Interior",0.22,0.77,99,92900,26548.64,11880551.36,119448.64,12000000
+"DEPT OF THE INTERIOR","014-5065","Policy and Administration, Bureau of Reclamation, Interior",0,0.43,99.57,34945.7,0,8065054.3,34945.7,8100000
+"DEPT OF THE INTERIOR","014-0104","Salaries and Expenses, Office of the Inspector General, Interior",0,0,100,0,0,1000000,0,1000000
+"DEPT OF THE INTERIOR","014-0787","Central Utah Project Completion Account, Central Utah Project, Interior",0,0,100,0,0,500000,0,500000
+"DEPT OF THE TREASURY","020-1889","Economic Stabilization Program Account, Departmental Offices, Treasury",0,0,100,150248.5,1563713.7,499973286037.8,1713962.2,499975000000
+"DEPT OF THE TREASURY","020-0905","U.S. Coronavirus Payments, Internal Revenue Service, Treasury",0,76.84,23.16,216674840966.64,0,65325159033.36,216674840966.64,282000000000
+"DEPT OF THE TREASURY","020-1892","Coronavirus Relief Fund, Departmental Offices, Treasury",0.06,94.61,5.33,141911624716.1,88375283.9,8000000000,142000000000,150000000000
+"DEPT OF THE TREASURY","020-1894","Air Carrier Worker Support, Departmental Offices, Department of Treasury",33.77,39.21,27.02,12547279007.32,10807764093.69,8644956898.99,23355043101.01,32000000000
+"DEPT OF THE TREASURY","020-0936","U.S. Coronavirus Refundable Credits, Internal Revenue Service, Treasury",0,0.01,99.99,1088322,0,9998911678,1088322,10000000000
+"DEPT OF THE TREASURY","020-0912","Taxpayer Services, Internal Revenue Service, Treasury",10.58,0,89.42,0,38070000,321830000,38070000,359900000
+"DEPT OF THE TREASURY","020-0919","Operations Support, Internal Revenue Service, Treasury",7.71,0.23,92.06,752072.4,25190681.25,300657246.35,25942753.65,326600000
+"DEPT OF THE TREASURY","020-0520","Salaries and Expenses, Bureau of the Fiscal Service, Treasury",5.29,0,94.71,0,6645777.44,119004222.56,6645777.44,125650000
+"DEPT OF THE TREASURY","020-0913","Enforcement, Internal Revenue Service",0,0,100,0,0,79200000,0,79200000
+"DEPT OF THE TREASURY","020-0151","Public Broadcasting Fund, Corporation for Public Broadcasting, Treasury",0,100,0,75000000,0,0,75000000,75000000
+"DEPT OF THE TREASURY","020-0501","Payment to the Legal Services Corporation, Legal Services Corporation",0,100,0,50000000,0,0,50000000,50000000
+"DEPT OF THE TREASURY","020-0101","Salaries and Expenses, Departmental Offices, Treasury",0,0,100,0,0,25000000,0,25000000
+"DEPT OF THE TREASURY","020-1893","Special Inspector General for Pandemic Recovery, Treasury",0,0,100,0,0,25000000,0,25000000
+"DEPT OF THE TREASURY","020-1771","Federal Payment for Emergency Planning and Security Costs in the District of Columbia, Treasury",0,100,0,5000000,0,0,5000000,5000000
+"DEPT OF THE TREASURY","020-1802","Financial Agent Services, Bureau of the Fiscal Service, Treasury",100,0,0,0,1560000,0,1560000,1560000
+"DEPT OF TRANSPORTATION","069-2812","Transit Infrastructure Grants, Federal Transit Administration, Transportation",5.05,0.14,94.81,34339902,1263335105,23702324993,1297675007,25000000000
+"DEPT OF TRANSPORTATION","069-8106","Grants-In-Aid for Airports, Liquidation of Contract Authorization, Airport and Airway Trust Fund, Federal Aviation Administration, Transportation",4,0,96,0,400222145,9599777855,400222145,10000000000
+"DEPT OF TRANSPORTATION","069-1775","National Network Grants to the National Railroad Passenger Corporation, Transportation",0,100,0,526000000,0,0,526000000,526000000
+"DEPT OF TRANSPORTATION","069-1774","Northeast Corridor Grants to the National Railroad Passenger Corporation, Transportation",0,100,0,492000000,0,0,492000000,492000000
+"DEPT OF TRANSPORTATION","069-5423","Essential Air Service and Rural Airport Improvement Fund, Office of the Secretary, Transportation",0,0,100,0,0,56000000,0,56000000
+"DEPT OF TRANSPORTATION","069-0130","Salaries and Expenses, Office of the Inspector General, Transportation",0,0,100,0,0,5000000,0,5000000
+"DEPT OF TRANSPORTATION","069-1750","Operations and Training, Maritime Administration, Transportation",58.86,1.27,39.87,39915.29,1844566.81,1249517.9,1884482.1,3134000
+"DEPT OF TRANSPORTATION","069-0102","Salaries and Expenses, Office of the Secretary, Transportation",0,0,100,0,0,1753000,0,1753000
+"DEPT OF TRANSPORTATION","069-1712","State Maritime Academy Operations, Maritime Administration, Transportation",0,100,0,1000000,0,0,1000000,1000000
+"DEPT OF TRANSPORTATION","069-0700","Safety and Operations, Federal Railroad Administration, Transportation",0,0,100,0,0,250000,0,250000
+"DEPT OF VETERANS AFFAIRS","036-0160","Medical Services, Veterans Health Administration, Veterans Affairs",3.29,1.88,94.83,271400068.63,476248102.75,13714351828.62,747648171.38,14462000000
+"DEPT OF VETERANS AFFAIRS","036-0167","Information Technology Systems, Departmental Administration, Veterans Affairs",13.37,1.97,84.66,42353213.78,287457200.25,1820189585.97,329810414.03,2150000000
+"DEPT OF VETERANS AFFAIRS","036-0140","Medical Community Care, Veterans Health Administration, Veterans Affairs ",0,1.6,98.4,34144705.18,0,2095855294.82,34144705.18,2130000000
+"DEPT OF VETERANS AFFAIRS","036-0162","Expenses, Medical Facilities, Veterans Health Administration, Veterans Affairs",0.78,2,97.21,12142973.52,4752485.03,589104541.45,16895458.55,606000000
+"DEPT OF VETERANS AFFAIRS","036-0181","Grants for Construction of State Extended Care Facilities, Departmental Administration, Veterans Affairs",0,0,100,0,0,150000000,0,150000000
+"DEPT OF VETERANS AFFAIRS","036-0152","Medical Support and Compliance, Veterans Health Administration, Veterans Affairs",4.23,7.94,87.83,7942216.83,4225025.34,87832757.83,12167242.17,100000000
+"DEPT OF VETERANS AFFAIRS","036-0151","General Operating Expenses, Veterans Benefits Administration, Veterans Affairs",2.11,0.98,96.91,127437.76,274908.3,12597653.94,402346.06,13000000
+"DEPT OF VETERANS AFFAIRS","036-0170","Office of Inspector General, Departmental Administration, Veterans Affairs",0,0,100,0,0,12500000,0,12500000
+"DEPT OF VETERANS AFFAIRS","036-0142","General Administration, Departmental Administration, Veterans Affairs",0,0,100,0,0,6000000,0,6000000
+"ELECTION ASSISTANCE COMMISSION","525-1651","Election Reform Programs, Election Assistance Commission",18.17,81.83,0,327316236,72683764,0,400000000,400000000
+"FED. COMMUNICATIONS COMMISSION","027-0100","Salaries and Expenses, Federal Communications Commission",6.85,0,93.15,0,13700581,186299419,13700581,200000000
+"GENERAL SERVICES ADMIN.","047-4542","Federal Buildings Fund, General Services Administration",0.64,0.66,98.7,1824511.18,1753121.35,271422367.47,3577632.53,275000000
+"GENERAL SERVICES ADMIN.","047-4549","Federal Citizen Services Fund, General Services Administration",4.3,0.02,95.68,2973.43,802660.46,17844366.11,805633.89,18650000
+"GENERAL SERVICES ADMIN.","047-4540","Working Capital Fund, General Services Administration",0,0,100,0,0,1500000,0,1500000
+"HEALTH & HUMAN SERVICES","075-0140","Public Health and Social Services Emergency Fund, Office of the Secretary, Health and Human Services",2.97,17.31,79.72,39336157822.52,6760499072.99,181188843104.49,46096656895.51,227285500000
+"HEALTH & HUMAN SERVICES","075-0943","CDC-Wide Activities and Program Support, Centers for Disease Control and Prevention, Health and Human Services",22.65,1.59,75.76,109441696.8,1562893389.92,5227664913.28,1672335086.72,6900000000
+"HEALTH & HUMAN SERVICES","075-1515","Payment to States for the Child Care and Development Block Grant, Administration for Children and Families, Health and Human Services",99.19,0.52,0.29,18133627.68,3438293275.32,10112000,3456426903,3466538903
+"HEALTH & HUMAN SERVICES","075-0360","Primary Health Care, Health Resources and Services Administration, Health and Human Services",65.06,5.07,29.87,102438282.26,1314271827.92,603289889.82,1416710110.18,2020000000
+"HEALTH & HUMAN SERVICES","075-1536","Children and Families Services Programs, Administration for Children and Families, Health and Human Services",3.81,0.01,96.18,207363.29,71409429.71,1802383207,71616793,1874000000
+"HEALTH & HUMAN SERVICES","075-0885","National Institute of Allergy and Infectious Diseases, National Institutes of Health, Health and Human Services",7.18,0.24,92.59,3620222.96,109968826.84,1418410950.2,113589049.8,1532000000
+"HEALTH & HUMAN SERVICES","075-0142","Aging and Disability Services Programs, Administration for Community Living, Health and Human Services",95.66,3.33,1.01,40069039.66,1152701549.34,12229411,1192770589,1205000000
+"HEALTH & HUMAN SERVICES","075-0846","Office of the Director, National Institutes of Health, Health and Human Services",0,0,100,0,0,1030000000,0,1030000000
+"HEALTH & HUMAN SERVICES","075-0390","Indian Health Services, Indian Health Service, Health and Human Services",2.76,45.71,51.53,443805467.62,26791731.23,500402801.15,470597198.85,971000000
+"HEALTH & HUMAN SERVICES","075-1502","Low Income Home Energy Assistance, Administration for Children and Families, Health and Human Services",0,0,100,0,0,900000000,0,900000000
+"HEALTH & HUMAN SERVICES","075-0945","Infectious Diseases Rapid Response Reserve Fund, Centers for Disease Control, Health and Human Services",0,0,100,0,0,600000000,0,600000000
+"HEALTH & HUMAN SERVICES","075-0898","National Institute of Biomedical Imaging and Bioengineering, National Institutes of Health, Health and Human Services  ",0.02,0,99.98,0,95394.85,559904605.15,95394.85,560000000
+"HEALTH & HUMAN SERVICES","075-1362","Health Surveillance and Program Support, Substance Abuse and Mental Health Services Administration, Health and Human Services",84.58,0,15.42,0,359449551,65550449,359449551,425000000
+"HEALTH & HUMAN SERVICES","075-0849","National Cancer Institute, National Institutes of Health, Health and Human Services",0,0,100,0,0,306000000,0,306000000
+"HEALTH & HUMAN SERVICES","075-0511","Program Management, Centers for Medicare and Medicaid Services",1.24,0,98.76,0,2475958.52,197524041.48,2475958.52,200000000
+"HEALTH & HUMAN SERVICES","075-0600","Salaries and Expenses, Food and Drug Administration, Health and Human Services",0.61,0,99.39,75,1000964.19,161998960.81,1001039.19,163000000
+"HEALTH & HUMAN SERVICES","075-0391","Indian Health Facilities, Indian Health Service, Health and Human Services",5.41,0,94.59,0,6758461,118241539,6758461,125000000
+"HEALTH & HUMAN SERVICES","075-0872","National Heart, Lung, and Blood Institute, National Institutes of Health, Health and Human Services",9.65,0,90.35,0,9977421,93422579,9977421,103400000
+"HEALTH & HUMAN SERVICES","075-0356","Ryan White HIV/AIDS Program, Health Resources and Services Administration, Health and Human Services",99.39,0.12,0.49,106903.97,89453332.03,439764,89560236,90000000
+"HEALTH & HUMAN SERVICES","075-0875","National Center for Advancing Translational Sciences, National Institutes of Health, Health and Human Services ",0,0,100,0,0,36000000,0,36000000
+"HEALTH & HUMAN SERVICES","075-0944","Toxic Substances and Environmental Public Health, Agency for Toxic Substances and Disease Registry, Health and Human Services  ",0,0,100,0,0,12500000,0,12500000
+"HEALTH & HUMAN SERVICES","075-0128","Office of the Inspector General, Office of the Secretary, Health and Human Services",0,0,100,0,0,12000000,0,12000000
+"HEALTH & HUMAN SERVICES","075-0807","National Library of Medicine, National Institutes of Health",0,0,100,0,0,10000000,0,10000000
+"HEALTH & HUMAN SERVICES","075-0862","National Institute of Environmental Health Sciences, National Institutes of Health, Health and Human Services",2.51,0,97.49,0,250955.05,9749044.95,250955.05,10000000
+"HEALTH & HUMAN SERVICES","075-0357","Health Care Systems, Health Resources and Services Administration, Health and Human Services",96.68,0,3.32,0,4834000,166000,4834000,5000000
+"HOUSING & URBAN DEVELOPMENT","086-0162","Community Development Fund, Community Planning and Development, Housing and Urban Development",0,0,100,0,0,5000000000,0,5000000000
+"HOUSING & URBAN DEVELOPMENT","086-0192","Homeless Assistance Grants, Community Planning and Development, Housing and Urban Development",0.5,0,99.5,0,20000000,3980000000,20000000,4000000000
+"HOUSING & URBAN DEVELOPMENT","086-0302","Tenant-Based Rental Assistance, Public and Indian Housing, Housing and Urban Development",0,0,100,0,0,1250000000,0,1250000000
+"HOUSING & URBAN DEVELOPMENT","086-0303","Project-Based Rental Assistance, Housing Programs, Housing and Urban Development",0,0,100,0,0,1000000000,0,1000000000
+"HOUSING & URBAN DEVELOPMENT","086-0163","Public Housing Operating Fund, Public and Indian Housing, Housing and Urban Development",100,0,0,0,684999986,14,684999986,685000000
+"HOUSING & URBAN DEVELOPMENT","086-0313","Native American Programs, Public and Indian Housing, Housing and Urban Development",0,0,100,0,0,300000000,0,300000000
+"HOUSING & URBAN DEVELOPMENT","086-0308","Housing Opportunities for Persons with AIDS, Community Planning and Development, Housing and Urban Development",0,0,100,0,0,65000000,0,65000000
+"HOUSING & URBAN DEVELOPMENT","086-0320","Housing for the Elderly, Housing Programs, Housing and Urban Development",0,0,100,0,0,50000000,0,50000000
+"HOUSING & URBAN DEVELOPMENT","086-0335","Administrative Support Offices, Management and Administration, Housing and Urban Development",2.86,0,97.14,0,1000866.1,33999133.9,1000866.1,35000000
+"HOUSING & URBAN DEVELOPMENT","086-0237","Housing for Persons with Disabilities, Housing Programs, Housing and Urban Development",0,0,100,0,0,15000000,0,15000000
+"HOUSING & URBAN DEVELOPMENT","086-0479","Program Offices, Management and Administration, Housing and Urban Development",0,0,100,0,0,15000000,0,15000000
+"HOUSING & URBAN DEVELOPMENT","086-0189","Office of Inspector General, Management and Administration, Housing and Urban Development",0,0.11,99.89,5367.21,0,4994632.79,5367.21,5000000
+"HOUSING & URBAN DEVELOPMENT","086-0144","Fair Housing Activities, Fair Housing and Equal Opportunity, Housing and Urban Development",0,0,100,0,0,2500000,0,2500000
+"OTHER AGENCIES","011-0100","Peace Corps, Funds Appropriated to the President",0.02,11.73,88.25,10321500,16500,77662000,10338000,88000000
+"OTHER AGENCIES","418-0200","Grants and Administration, National Endowment for the Humanities, National Foundation on the Arts and Humanities ",39.46,0,60.54,0,29594300,45405700,29594300,75000000
+"OTHER AGENCIES","417-0100","Grants and Administration, National Endowment for the Arts, National Foundation on the Arts and Humanities",39.22,0.38,60.4,285017,29414983,45300000,29700000,75000000
+"OTHER AGENCIES","049-0100","Research and Related Activities, National Science Foundation",34.34,0.01,65.66,4000,24036042,45959958,24040042,70000000
+"OTHER AGENCIES","080-0122","Safety, Security and Missions Services, National Aeronautics and Space Administration",10.44,0.52,89.05,310995.09,6261938.65,53427066.26,6572933.74,60000000
+"OTHER AGENCIES","096-3123","Operation and Maintenance, Corps of Engineers-Civil",0.17,1.87,97.96,936783.41,82588.68,48980627.91,1019372.09,50000000
+"OTHER AGENCIES","474-0301","Office of Museum and Library Services: Grants and Administration, Institute of Museum and Library Services ",60.05,0,39.95,0,30025000,19975000,30025000,50000000
+"OTHER AGENCIES","033-0302","Operations and Maintenance, John F. Kennedy Center for the Performing Arts",92,0,8,0,23000000,2000000,23000000,25000000
+"OTHER AGENCIES","005-0107","Salaries and Expenses, Government Accountability Office",0,0.21,99.79,41213.66,0,19958786.34,41213.66,20000000
+"OTHER AGENCIES","096-3124","Expenses, Corps of Engineers-Civil",1.7,0.58,97.71,116537.72,340550.34,19542911.94,457088.06,20000000
+"OTHER AGENCIES","024-0100","Salaries and Expenses, Office of Personnel Management",0,0,100,0,0,12100000,0,12100000
+"OTHER AGENCIES","088-0300","Operating Expenses, National Archives and Records Administration",31.11,0,68.89,0,2520010.56,5579989.44,2520010.56,8100000
+"OTHER AGENCIES","033-0100","Salaries and Expenses, Smithsonian Institution",19.77,7.32,72.91,549192.63,1482612.27,5468195.1,2031804.9,7500000
+"OTHER AGENCIES","049-0106","Education and Human Resources, National Science Foundation",62.86,0,37.14,0,3143013,1856987,3143013,5000000
+"OTHER AGENCIES","068-0108","Environmental Programs and Management, Environmental Protection Agency",0,4.6,95.4,180000,0,3730000,180000,3910000
+"OTHER AGENCIES","031-0200","Salaries and Expenses, Nuclear Regulatory Commission",8.2,0,91.8,0,270600,3029400,270600,3300000
+"OTHER AGENCIES","084-8522","Armed Forces Retirement Home Trust Fund, Armed Forces Retirement Home",2.03,0,97.97,0,56880,2743120,56880,2800000
+"OTHER AGENCIES","068-0107","Science and Technology, Environmental Protection Agency",0,0,100,0,0,2250000,0,2250000
+"OTHER AGENCIES","049-0180","Agency Operations and Award Management, National Science Foundation",0,0,100,0,0,1000000,0,1000000
+"OTHER AGENCIES","068-0110","Buildings and Facilities, Environmental Protection Agency ",0,0,100,0,0,300000,0,300000
+"OTHER AGENCIES","373-2900","Payment to the Institute, Institute of American Indian and Alaska Native Culture and Arts Development",0,100,0,78000,0,0,78000,78000
+"RAILROAD RETIREMENT BOARD","060-0117","Railroad Unemployment Insurance Extended Benefits Payments, Railroad Retirement Board",3.3,0,96.7,0,4407792.2,129009030,4407792.2,133416822.2
+"RAILROAD RETIREMENT BOARD","060-8237","Limitation on Administration, Railroad Retirement Board",0,0,100,0,0,5000000,0,5000000
+"SMALL BUSINESS ADMINISTRATION","073-1154","Business Loans Program Account, Small Business Administration",66.62,1.14,32.24,7824042809,457909628995.28,221601328195.72,465733671804.28,687335000000
+"SMALL BUSINESS ADMINISTRATION","073-1152","Disaster Loans Program Account, Small Business Administration",0.12,1.19,98.69,594211201.68,59765186.52,49346023611.8,653976388.2,50000000000
+"SMALL BUSINESS ADMINISTRATION","073-0500","Emergency EIDL Grants, Small Business Administration",10.22,66.58,23.2,6657762000,1022355000,2319883000,7680117000,10000000000
+"SMALL BUSINESS ADMINISTRATION","073-0100","Salaries and Expenses, Small Business Administration",7.82,0.04,92.14,1166582.55,216897260.49,2556936156.96,218063843.04,2775000000
+"SMALL BUSINESS ADMINISTRATION","073-0400","Entrepreneurial Development Programs, Small Business Administration",31.61,0,68.39,0,83758567.92,181241432.08,83758567.92,265000000
+"SMALL BUSINESS ADMINISTRATION","073-0200","Office of Inspector General, Small Business Administration",0,0,0,1884.89,464.13,-2349.02,2349.02,0
+"SOCIAL SECURITY ADMIN.","028-8704","Salaries and Expenses, Social Security Administration",3.04,0,96.96,0,10258610.57,327741389.43,10258610.57,338000000
