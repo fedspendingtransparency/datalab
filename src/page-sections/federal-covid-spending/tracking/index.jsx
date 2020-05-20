@@ -135,7 +135,6 @@ export default function Tracking(props) {
 	}
 
   const openModal = (e) => {
-		console.log(e);
 		setModalState(true);
 		setSelectedBar(e);
   }
