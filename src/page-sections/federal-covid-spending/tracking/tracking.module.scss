@@ -71,7 +71,7 @@ h1 {
   }
 }
 
-@media screen and (min-width: $phone) and (max-width: $desktop - 1) {
+@media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
   .legend {
     flex-direction: column;
     align-items: flex-end;
@@ -83,7 +83,7 @@ h1 {
   }
 }
 
-@media screen and (max-width: $phone - 1) {
+@media screen and (max-width: $tablet - 1) {
   .legend {
     flex-direction: column;
     align-items: center;
