@@ -22,6 +22,7 @@ import Grid from '@material-ui/core/Grid';
 
 // Coming Soon only!
 import Home from 'src/components/layouts/home/home';
+import ToolLayout from 'src/components/layouts/tool/tool';
 import Desktop from 'src/svgs/rd-and-contracting/comingsoon/desktop.svg';
 import Tablet from 'src/svgs/rd-and-contracting/comingsoon/tablet.svg';
 import Mobile from 'src/svgs/rd-and-contracting/comingsoon/mobile.svg';
@@ -187,13 +188,20 @@ export default class RdInContractingPage extends React.Component {
 
   render = () =>
     <Home>
-      {
-        this.state.screenMode === ScreenModeEnum.mobile ?
-          <Mobile /> :
-          this.state.screenMode === ScreenModeEnum.tablet ?
-            <Tablet /> :
-            <Desktop />
-      }
+      <div className={styles.comingSoon}>
+        <h1 className={styles.title}>
+          <Hidden mdDown>
+            <br /><br /><br />
+          </Hidden>
+          Research & Development in Contract Spending</h1>
+        {
+          this.state.screenMode === ScreenModeEnum.mobile ?
+            <Mobile /> :
+            this.state.screenMode === ScreenModeEnum.tablet ?
+              <Tablet /> :
+              <Desktop />
+        }
+      </div>
     </Home>
 }
 {/* // <ExpressLayout
