@@ -131,6 +131,9 @@ export default function Tracking(props) {
 
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
+		if (!limitBars) {
+			location.hash = '#topofchart';
+		}
 		setLimitBars(limitBars ? 0 : showLess);
 	}
 
@@ -142,7 +145,6 @@ export default function Tracking(props) {
 	const closeModal = () => {
 		setModalState(false);
 		setSelectedBar(null);
-
 	}
 
 	const mainChart = () => {
@@ -233,6 +235,7 @@ export default function Tracking(props) {
 			/>
 		</ControlBar>
 
+		<a id='topofchart' />
 		{mainChart()}
 
 		<ModalReference
@@ -249,9 +252,13 @@ export default function Tracking(props) {
 			/>
 		</ModalReference>
 
-		<SeeMoreButton fullWidth onClick={handleSeeMore}>
-			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
-		</SeeMoreButton>
+		{(checked ? data.agencies.nodes : data.functions.nodes).length <= limitBars ?
+			''
+			:
+			<SeeMoreButton fullWidth onClick={handleSeeMore}>
+				{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
+			</SeeMoreButton>
+		}
 
 		<Downloads href={''} date={'May 2020'} />
 	</>;
