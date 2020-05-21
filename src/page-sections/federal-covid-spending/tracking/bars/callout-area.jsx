@@ -127,7 +127,9 @@ export default function CalloutBar(props) {
         label1={'Outlays'}
         label2={'Obligated'}
         label1Amount={props.data[0].amount}
+        label1Percent={props.outlaid}
         label2Amount={props.data[1].amount}
+        label2Percent={props.obligated}
         narrow={props.narrow}
       />)
 
@@ -137,6 +139,7 @@ export default function CalloutBar(props) {
         labelOffset={threshold.outlayLabelOffset}
         label={`Outlays`}
         labelAmount={props.data[0].amount}
+        labelPercent={props.outlaid}
         narrow={props.narrow}
       />)
 
@@ -147,6 +150,7 @@ export default function CalloutBar(props) {
         labelOffset={threshold.outlayLabelOffset}
         label={`Outlays`}
         labelAmount={props.data[0].amount}
+        labelPercent={props.outlaid}
         narrow={props.narrow}
       />)
     }
@@ -159,6 +163,7 @@ export default function CalloutBar(props) {
         labelOffset={parseFloat(props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2)}
         label={`Obligated`}
         labelAmount={props.data[1].amount}
+        labelPercent={props.obligated}
         narrow={props.narrow}
       />)
 
@@ -169,6 +174,7 @@ export default function CalloutBar(props) {
         labelOffset={threshold.obligatedLabelOffset}
         label={`Obligated`}
         labelAmount={props.data[1].amount}
+        labelPercent={props.obligated}
         narrow={props.narrow}
       />)
     } else if(barStatus.obligated === barState[3]) {
@@ -178,6 +184,7 @@ export default function CalloutBar(props) {
         labelOffset={threshold.obligatedLabelOffset}
         label={`Obligated`}
         labelAmount={props.data[1].amount}
+        labelPercent={props.obligated}
         narrow={props.narrow}
       />)
     } else if(barStatus.obligated === barState[4]) {
@@ -191,7 +198,9 @@ export default function CalloutBar(props) {
         label1={'Obligated'}
         label2={'Unobligated'}
         label1Amount={props.data[1].amount}
+        label1Percent={props.obligated}
         label2Amount={props.data[2].amount}
+        label2Percent={props.unobligated}
         narrow={props.narrow}
       />)
     }
@@ -205,6 +214,7 @@ export default function CalloutBar(props) {
         labelOffset={threshold.unobligatedLabelOffset}
         label={`Unobligated`}
         labelAmount={props.data[2].amount}
+        labelPercent={props.unobligated}
         narrow={props.narrow}
       />)
 
@@ -215,6 +225,7 @@ export default function CalloutBar(props) {
         labelOffset={threshold.unobligatedLabelOffset}
         label={`Unobligated`}
         labelAmount={props.data[2].amount}
+        labelPercent={props.unobligated}
         narrow={props.narrow}
       />)
     }
