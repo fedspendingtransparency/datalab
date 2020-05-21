@@ -34,7 +34,7 @@ export default function StorySectionHeading(props) {
   function NumberItem() {
     if (props.number) {
       return (
-        <Grid item xs={1} md={12} xl={1} className={storySectionHeadingStyles.headerNumber}>
+        <Grid item xs={1} sm={12} xl={1} className={storySectionHeadingStyles.headerNumber}>
           <h2>{props.number}</h2>
         </Grid>
       )
@@ -59,7 +59,7 @@ export default function StorySectionHeading(props) {
           <Hidden smUp>
             <Grid item xs={1} />
           </Hidden>
-          <Grid item xs={10} md={12} xl={11} className={storySectionHeadingStyles.headerTitle}>
+          <Grid item xs={10} sm={12} xl={11} className={storySectionHeadingStyles.headerTitle}>
             {props.title}
           </Grid>
         </Grid>

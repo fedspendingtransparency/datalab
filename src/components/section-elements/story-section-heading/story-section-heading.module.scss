@@ -124,6 +124,9 @@ $fedEmpBlue: #2272ce;
 }
 
 @media (max-width: $tablet - 1) {
+  .heading {
+    padding: 25px 0;
+  }
 }
 
 @media (min-width: $desktop-xl) {
@@ -139,20 +142,23 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-@media (min-width: $tablet) {
+@media (min-width: $phone) and (max-width: $desktop-xl) {
   .header {
     text-align: center;
   }
-  .headerNumber h2 {
-    border: none;
-    text-decoration: underline;
-  }
-  .headerTitle {
-    margin-top: $margin-25;
-  }
 }
 
-@media (max-width: $tablet - 1) {
+
+//  .headerNumber h2 {
+//    border: none;
+//    text-decoration: underline;
+//  }
+//  .headerTitle {
+//    margin-top: $margin-25;
+//  }
+//}
+
+@media (max-width: $phone - 1) {
   .introContainer {
     margin: 0 0 25px 0 !important;
     .intro {
@@ -162,9 +168,7 @@ $fedEmpBlue: #2272ce;
       margin: 1rem 0;
     }
   }
-  .heading {
-    padding: 25px 0;
-  }
+
   .header {
     .headerTitle {
       margin-top: 0;
