@@ -61,7 +61,7 @@ export default class FederalCovidSpending extends React.Component {
       viztitle: 'Covid-19 Supplemental Funding by Budget Function',
       tagName: 'Budget',
       accordion: <aside>
-                   <Accordion title='What does $2 trillion look like?' color='#6F41A7' backgroundColor='#F3EAFF'>
+                   <Accordion title='What does $2.4 trillion look like?' color='#6F41A7' backgroundColor='#F3EAFF'>
                      {BudgetAccordionContent()}
                    </Accordion>
                  </aside>
