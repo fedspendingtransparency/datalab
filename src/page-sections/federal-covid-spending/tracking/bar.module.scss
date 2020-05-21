@@ -1,27 +1,13 @@
 @import "src/styles/variables.scss";
 
-$chartBorder: 1px solid;
+$chartBorder: 1px solid #ddd;
 $labelWidth: 11.5rem;
-$budgetWidth: 4rem;
-
-.outlayBar {
-  display: inline-block;
-  background: darken($covidPurple, 35%);
-}
-
-.obligatedBar {
-  display: inline-block;
-  background: $covidPurple;
-}
-
-.unobligatedBar {
-  display: inline-block;
-  background: lighten($covidPurple, 35%);
-}
+$budgetWidth: 5.5rem;
+$lightBackground: #fafafa;
 
 svg {
   .outlayBar {
-    fill: darken($covidPurple, 35%);
+    fill: #331e4d;
   }
 
   .obligatedBar {
@@ -29,7 +15,7 @@ svg {
   }
 
   .unobligatedBar {
-    fill: lighten($covidPurple, 35%);
+    fill: #f3e9ff;
   }
 }
 
@@ -37,11 +23,31 @@ svg {
   display: flex;
   justify-content: space-between;
 
+  &:hover {
+    font-weight: $bold;
+
+    svg {
+      .outlayBar {
+        fill: #5d368b;
+      }
+
+      .obligatedBar {
+        fill: #6f41a6;
+      }
+
+      .unobligatedBar {
+        fill: #9673c1;
+      }
+    }
+  }
+
   .topPad {
     padding-top: 1rem;
   }
+
   .sideLabel {
     flex-basis: $labelWidth;
+    min-width: $labelWidth;
     padding-right: 0.5rem;
   }
 
@@ -50,12 +56,25 @@ svg {
     display: flex;
     flex-flow: row wrap;
 
+    background-image: linear-gradient(
+      to right,
+      #fff,
+      #fff 33%,
+      $lightBackground 33%,
+      $lightBackground 67%,
+      #fff 67%
+    );
+
     .bar {
       position: relative;
       width: 100%;
       padding-top: 1rem;
       border-left: $chartBorder;
       border-right: $chartBorder;
+
+      svg text {
+        font-weight: initial;
+      }
 
       &.firstBar {
         border-top: $chartBorder;
