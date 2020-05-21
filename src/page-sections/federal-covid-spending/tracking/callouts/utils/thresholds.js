@@ -2,7 +2,7 @@
 const threshold = {
   outlayLabelOffset: 1,
   outlayLabelWidth: 7,
-  padding: 12,
+  padding: 14,
   obligatedLabelWidth: 7,
   unobligatedLabelOffset: 75,
   rightOffset: 90,

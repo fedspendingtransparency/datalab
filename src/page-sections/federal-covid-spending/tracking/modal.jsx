@@ -1,5 +1,4 @@
- import React, { useEffect, useState } from "react"
- import { graphql, useStaticQuery } from "gatsby"
+ import React from "react"
  import numberFormatter from "src/utils/number-formatter"
  import Bar from "./bars/bar"
 
@@ -23,7 +22,7 @@ export default function CovidModal(props) {
         if (props.isMobile) {
           return (<div key={key}>
             <p>{props.mode === 'Agency' ? i.Agency : i.Function_Description}</p>
-            <p>{i.Account_Name} ({numberFormatter('dollars suffix', i.Total_Budgetary_Resources)})</p>
+            <p>{i.Account_Name} {numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}</p>
           </div>)
 
         } else {

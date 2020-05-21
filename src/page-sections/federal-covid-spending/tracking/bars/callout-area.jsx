@@ -65,7 +65,7 @@ export default function CalloutBar(props) {
   } else if (props.outlaid > outlayLabelMidPoint) {
     barStatus.outlay = barState[0];
 
-    if (props.outlaid + props.obligated * .75 > obligatedLabelMidPoint) {
+    if (props.outlaid + props.obligated * .5 > obligatedLabelMidPoint) {
       if(props.outlaid + props.obligated > threshold.rightOffset) {
         barStatus.obligated = barState[4];
         barStatus.unobligated = barState[4];
