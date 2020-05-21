@@ -107,7 +107,7 @@ export default function Tracking(props) {
 				narrow={screenMode === ScreenModeEnum.mobile}
 			/>;
 		});
-	
+
 		return (<>
 			<div className={styles.legend}>
 				<div className={styles.toggleContainer}>
@@ -144,6 +144,8 @@ export default function Tracking(props) {
 	}))(Button);
 
 	return <>
+		<h1>Progress of COVID-19 Spending</h1>
+
 		<AccordionList title='Instructions'>
 			<p>Actual instructions are larger than they appear</p>
 		</AccordionList>
@@ -160,7 +162,7 @@ export default function Tracking(props) {
 		{mainChart()}
 
 		<SeeMoreButton fullWidth onClick={handleSeeMore}>
-			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'Show Less'}
+			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
 		</SeeMoreButton>
 
 		<Downloads href={''} date={'MMMM YY'} />
