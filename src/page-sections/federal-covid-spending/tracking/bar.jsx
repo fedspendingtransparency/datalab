@@ -15,7 +15,7 @@ export default class Bar extends React.Component {
 		narrow set if label & total should be above bar, not in line
 		data: outlay, obligated and unobligated as {'amount': amount [in pennies, to prevent rounding errors], 'percent': percentage value}
 		barLabel: words to left or top of bar
-		total: bar total amount (not necessarily sum of data amounts) in desired format
+		total: bar total amount (not necessarily sum of data amounts) in pennies, to prevent rounding errors
 		hideBarLabels: don't show details labels below bar segments
 		firstBar: should this bar have a top border?
 		lastBar: should this bar have a bottom border?
@@ -84,7 +84,7 @@ export default class Bar extends React.Component {
 
 				</div>
 			</div>
-			{this.props.narrow ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{numberFormatter('dollars suffix', this.props.total)}</div>}
+			{this.props.narrow ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{numberFormatter('dollars suffix', this.props.total / 100)}</div>}
 		</div >
 		;
 }

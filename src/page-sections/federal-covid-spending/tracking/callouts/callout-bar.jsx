@@ -3,6 +3,7 @@ import ElbowCallout from 'src/page-sections/federal-covid-spending/tracking/call
 import ReversedElbowCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/reversed-elbow';
 import JoinedCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/joined';
 import StraightCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/straight';
+import numberFormatter from 'src/utils/number-formatter';
 import threshold from './utils/thresholds';
 import PropTypes from 'prop-types';
 
@@ -13,6 +14,11 @@ CalloutBar.propTypes = {
 };
 
 export default function CalloutBar(props) {
+
+  // change props numbers to dollar values for display
+  props.data[0].amount = numberFormatter('dollars suffix', props.data[0].amount / 100);
+  props.data[1].amount = numberFormatter('dollars suffix', props.data[1].amount / 100);
+  props.data[2].amount = numberFormatter('dollars suffix', props.data[2].amount / 100);
 
   const barState = ['straight', 'elbow', 'joined'];
 
