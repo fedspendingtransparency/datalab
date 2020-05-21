@@ -9,7 +9,7 @@ const barHeight = 30;
 
 export default class Bar extends React.Component {
 	/* props notes
-		narrow set if label & total should be above bar, not in line
+		showDetails set if bar details (Outlay etc) should be shown
 		data: outlay, obligated and unobligated as {'amount': amount [in desired format], 'percent': percentage value}
 		barLabel: words to left or top of bar
 		total: bar total amount (not necessarily sum of data amounts) in desired format
@@ -18,7 +18,7 @@ export default class Bar extends React.Component {
 		lastBar: should this bar have a bottom border?
 	*/
 	static propTypes = {
-		'narrow': PropTypes.bool,
+		'showDetails': PropTypes.bool,
 		'data': PropTypes.arrayOf(PropTypes.object).isRequired,
 		'barLabel': PropTypes.string,
 		'total': PropTypes.string,
@@ -43,7 +43,7 @@ export default class Bar extends React.Component {
 
 	render = () =>
 		<div className={styles.container}>
-			{this.props.narrow ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>}
+			<div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>
 			<div className={styles.barContainer}>
 				<div
 					className={`${styles.bar}
