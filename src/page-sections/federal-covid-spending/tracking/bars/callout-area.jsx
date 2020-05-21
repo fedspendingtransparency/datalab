@@ -25,7 +25,7 @@ export default function CalloutBar(props) {
 
   const outlayLabelMidPoint = parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2);
   const obligatedLabelMidPoint = parseFloat(threshold.outlayLabelOffset / 2 + threshold.outlayLabelWidth + threshold.padding + threshold.obligatedLabelWidth / 2);
-  const unObligatedLabelMidPoint = parseFloat(100 - threshold.rightOffset - threshold.unobligatedLabelOffset / 2);
+  const unObligatedLabelMidPoint = parseFloat(100 - ((threshold.rightOffset - threshold.unobligatedLabelOffset) / 2));
 
 
   // joined
@@ -39,11 +39,11 @@ export default function CalloutBar(props) {
       barStatus.obligated = barState[2];
 
     } else if (props.outlaid + props.obligated / 2 > obligatedLabelMidPoint) {
-      if(props.outlaid + props.obligated > threshold.rightOffset) {
+      if(props.outlaid + props.obligated > unObligatedLabelMidPoint) {
         barStatus.obligated = barState[4];
         barStatus.unobligated = barState[4];
 
-      } else if (props.outlaid + props.obligated > unObligatedLabelMidPoint) {
+      } else if (props.outlaid + props.obligated > threshold.unobligatedLabelOffset) {
         barStatus.obligated = barState[3];
       } else {
         barStatus.outlay = barState[1];
@@ -183,15 +183,15 @@ export default function CalloutBar(props) {
     } else if(barStatus.obligated === barState[4]) {
       // reversed joined
       calloutComponent.push(<ReversedJoinedCallout
-        xStart={props.outlaid + props.obligated + props.unobligated / 2}
+        xStart={(props.outlaid + props.obligated + props.unobligated / 2) - 0.5}
         xMid={90}
         xEnd={60}
-        label2Offset={threshold.unobligatedLabelOffset}
         label1Offset={55}
+        label2Offset={threshold.unobligatedLabelOffset}
         label1={'Obligated'}
         label2={'Unobligated'}
-        label1Amount={props.data[0].amount}
-        label2Amount={props.data[1].amount}
+        label1Amount={props.data[1].amount}
+        label2Amount={props.data[2].amount}
         narrow={props.narrow}
       />)
     }

@@ -20,6 +20,9 @@ ReversedJoinedCallout.propTypes = {
 
 
 export default function ReversedJoinedCallout(props) {
+  const shiftLabel = 10;
+  const shiftAmount = 12;
+
   function TextBlock() {
     if(props.narrow) {
 			return <>
@@ -30,11 +33,11 @@ export default function ReversedJoinedCallout(props) {
           &nbsp;&nbsp;{props.label1Amount}
         </text>
 
-				<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight='bold'>
+				<text fill={defaults.fontColor} x={`${props.label2Offset + shiftLabel}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight='bold'>
 					{props.label2}
 				</text>
-				<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.label2Amount}
+				<text fill={defaults.fontColor} x={`${props.label2Offset + shiftAmount}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
+          {props.label2Amount}
 				</text>
 			</>
     } else {
