@@ -4,12 +4,15 @@ import storyHeadingStyles from '../../components/section-elements/story-section-
 import globalStyles from 'src/styles/variables.scss';
 
 import StoryLayout from '../../components/layouts/story/story';
+import { Grid } from "@material-ui/core";
+import Footnotes from "../../components/footnotes/footnotes";
 import SEO from '../../components/seo';
 import StorySection from 'src/components/section-elements/story-section/story-section';
 import Accordion from 'src/components/accordion/accordion';
 import Budget from '../../page-sections/federal-covid-spending/budget/budget';
 import Overview from '../../page-sections/federal-covid-spending/overview/overview';
 import Tracking from '../../page-sections/federal-covid-spending/tracking';
+
 
 const BudgetAccordionContent = () => (
   <div className={styles.accordionContents}>
@@ -117,5 +120,14 @@ export default class FederalCovidSpending extends React.Component {
           </StorySection>
         );
       })}
+      <Grid container justify="center">
+        <Grid item xl={10}>
+          <Footnotes footnotes={[<a href='https://www.usich.gov/resources/uploads/asset_library/2016_Budget_Fact_Sheet_on_Homelessness_Assistance.pdf' rel='noreferrer noopener' target='_blank'>United States Interagency Council on Homelessness.</a>,                                                                                                                                             <>West, Melanie. <a href='https://www.wsj.com/articles/new-york-citys-spending-on-homeless-hits-3-2-billion-this-year-11558562997' rel='noreferrer noopener' target='_blank'>"New York City’s Spending on Homelessness Hits $3.2 Billion this Year."</a> <i>The Wall Street Journal.</i></>,
+                                 <>Markovich, Matt, <a href='https://komonews.com/news/local/san-francisco-and-seattle-a-tale-of-two-cities-mired-in-a-homeless-crisis' rel='noreferrer noopener' target='_blank'>"San Francisco and Seattle: A tale of two cities mired in a homeless crisis."</a> KOMO News</>,
+                                 <>Federal, state, and local fiscal years do not always align.. blah blah blah teehee is to make a broad comparison.</>,
+                                 <>Walch, Tad. <a href="https://www.deseret.com/2017/4/6/20609792/over-a-decade-lds-church-has-given-42-million-to-homeless-relief-in-salt-lake" rel="noreferrer noopener" target="_blank">Over a decade, LDS Church has given $42 million to homeless relief in Salt Lake.</a> <i>Deseret News</i></>]}
+          />
+        </Grid>
+      </Grid>
     </StoryLayout>
 }
