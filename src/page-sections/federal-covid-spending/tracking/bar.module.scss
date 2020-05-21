@@ -112,6 +112,24 @@ svg {
           text-align: right;
         }
       }
+
+      .exceptionBar {
+        text-align: center;
+        font-style: italic;
+        font-weight: initial;
+        line-height: 30px;
+        background-image: linear-gradient(
+          135deg,
+          #eeeeee 42.86%,
+          #d3d3d3 42.86%,
+          #d3d3d3 50%,
+          #eeeeee 50%,
+          #eeeeee 92.86%,
+          #d3d3d3 92.86%,
+          #d3d3d3 100%
+        );
+        background-size: 15px 15px;
+      }
     }
   }
 

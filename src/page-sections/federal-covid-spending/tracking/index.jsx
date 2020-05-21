@@ -9,7 +9,6 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
-import numberFormatter from 'src/utils/number-formatter';
 import Share from 'src/components/share/share';
 import Toggle from 'src/components/toggle/toggle';
 
@@ -88,20 +87,20 @@ export default function Tracking(props) {
 		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
-				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
+				'amount': i.Amount_Outlaid,
 				'percent': i.Percent_Outlaid
 			}, {
-				'amount': numberFormatter('dollars suffix', i.Amount_Obligated),
+				'amount': i.Amount_Obligated,
 				'percent': i.Percent_Obligated
 			}, {
-				'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
+				'amount': i.Amount_Unobligated,
 				'percent': i.Percent_Unobligated
 			}];
 
 			return <Bar key={key}
 				data={thisBar}
 				barLabel={i.label}
-				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
+				total={i.Total_Budgetary_Resources}
 				firstBar={key === 0}
 				lastBar={key === chartData.length - 1}
 				narrow={screenMode === ScreenModeEnum.mobile}

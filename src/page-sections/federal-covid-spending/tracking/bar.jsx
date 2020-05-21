@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './bar.module.scss';
+
+import numberFormatter from 'src/utils/number-formatter';
 import CalloutBar from './callouts/callout-bar';
 import PercentBar from './percent-bar';
+import ExceptionBar from './exception-bar';
 import { Hidden } from '@material-ui/core';
-
-const barHeight = 30;
 
 export default class Bar extends React.Component {
 	/* props notes
@@ -31,6 +32,33 @@ export default class Bar extends React.Component {
 		super(props);
 	}
 
+	// check for known data anomalies (negative values, values don't add up)
+	dataAnomaly = () => {
+
+console.log(this.props.data, this.props.total);
+
+
+		if (this.props.data[0] < 0 || this.props.data[1] < 0 || this.props.data[2] < 0) {
+
+console.log('1');
+
+
+			return true;
+		}
+		if (this.props.data[0].amount + this.props.data[1].amount + this.props.data[2].amount !== this.props.total) {
+
+			console.log('2');
+
+
+			return true;
+		}
+
+		console.log('3');
+
+
+		return false;
+	}
+
 	clickHandler = item => {
 		alert(item + ' clicked');
 	}
@@ -44,25 +72,31 @@ export default class Bar extends React.Component {
 					onClick={() => clickHandler(this.props.barLabel)}
 				>
 					{this.props.narrow ? <div className={styles.sideLabel}>{this.props.barLabel} ({this.props.total})</div> : ''}
-					<svg width='100%' height='56px'>
-						<Hidden smDown>
-							<CalloutBar
+
+					{this.dataAnomaly() ?
+						<ExceptionBar data={this.props.data} />
+						:
+						<svg width='100%' height='56px'>
+							<Hidden smDown>
+								<CalloutBar
+									outlaid={parseFloat(this.props.data[0].percent)}
+									obligated={parseFloat(this.props.data[1].percent)}
+									unobligated={parseFloat(this.props.data[2].percent)}
+									data={this.props.data}
+								/>
+							</Hidden>
+							<PercentBar
 								outlaid={parseFloat(this.props.data[0].percent)}
 								obligated={parseFloat(this.props.data[1].percent)}
 								unobligated={parseFloat(this.props.data[2].percent)}
-								data={this.props.data}
+								barHeight={barHeight}
 							/>
-						</Hidden>
-						<PercentBar
-							outlaid={parseFloat(this.props.data[0].percent)}
-							obligated={parseFloat(this.props.data[1].percent)}
-							unobligated={parseFloat(this.props.data[2].percent)}
-							barHeight={barHeight}
-						/>
-					</svg>
+						</svg>
+					}
+
 				</div>
 			</div>
 			{this.props.narrow ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div>}
-		</div>
+		</div >
 		;
 }
