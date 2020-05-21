@@ -31,7 +31,6 @@ export default function CalloutBar(props) {
     barStatus.obligated = barState[2];
 
   } else if (props.outlaid <= outlayLabelMidPoint) {
-
     if (props.outlaid + props.obligated / 2 <= outlayLabelMidPoint) {
       barStatus.outlay = barState[2];
       barStatus.obligated = barState[2];
@@ -49,7 +48,7 @@ export default function CalloutBar(props) {
       barStatus.outlay = barState[2];
       barStatus.obligated = barState[2];
     } else {
-      console.error('Uncaught condition 1 in callout bar')
+      console.error('Uncaught condition 1 in callout bar');
     }
 
   } else if (props.outlaid > outlayLabelMidPoint) {
@@ -61,7 +60,7 @@ export default function CalloutBar(props) {
       barStatus.obligated = barState[1];
     }
   } else {
-    console.error('Uncaught condition 2 in callout bar')
+    console.error('Uncaught condition 2 in callout bar');
   }
 
   if (props.unobligated < 100 - threshold.rightOffset) {
@@ -82,12 +81,12 @@ export default function CalloutBar(props) {
       defaultStartingPoint: 2,
       outlaidBarMidpoint: props.outlaid / 2,
       labelMidpoint: threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2,
-    }
+    };
 
     const obligatedSettings = {
       labelOffset: threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding,
       labelMidpoint: threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding + threshold.obligatedLabelWidth / 2,
-    }
+    };
 
     // joined label
     if (barStatus.outlay === barState[2]) {

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './bar.module.scss';
 import CalloutBar from './callout-area';
 import PercentBar from './percent-area';
+import { Hidden } from '@material-ui/core';
 
 const barHeight = 30;
 
@@ -55,13 +56,15 @@ export default class Bar extends React.Component {
 					onKeyUp={e => this.props.narrow ? '' : this.keyUpHandler(e, this.props.barLabel)}
 				>
 					<svg width='100%' height={this.props.narrow ? '70px' : '56px'}>
-						<CalloutBar
-							outlaid={parseFloat(this.props.data[0].percent)}
-							obligated={parseFloat(this.props.data[1].percent)}
-							unobligated={parseFloat(this.props.data[2].percent)}
-							data={this.props.data}
-							narrow={this.props.narrow}
-						/>
+						<Hidden smDown>
+							<CalloutBar
+								outlaid={parseFloat(this.props.data[0].percent)}
+								obligated={parseFloat(this.props.data[1].percent)}
+								unobligated={parseFloat(this.props.data[2].percent)}
+								data={this.props.data}
+                narrow={this.props.narrow}
+							/>
+						</Hidden>
 						<PercentBar
 							outlaid={parseFloat(this.props.data[0].percent)}
 							obligated={parseFloat(this.props.data[1].percent)}

@@ -5,15 +5,15 @@ import storySectionHeadingStyles from './story-section-heading.module.scss';
 import ReadMore from '../../read-more/read-more';
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 
-const propTypes = {
-  accordion: PropTypes.element,
+StorySectionHeading.propTypes = {
+  accordion: PropTypes.element
 };
 
-const defaultProps = {
-  accordion: null,
+StorySectionHeading.defaultProps = {
+  accordion: null
 };
 
-const StorySectionHeading = props => {
+export default function StorySectionHeading(props) {
 
   // update state & redraw ONLY if mode changes
   const [screenMode, setScreenMode] = useState(0);
@@ -43,12 +43,12 @@ const StorySectionHeading = props => {
   }
 
   const blurb = props.readMoreOnMobile && screenMode < ScreenModeEnum.tablet ? (
-    <ReadMore buttonStyle={props.readMoreStyle} collapsedHeight='76px'>
+    <ReadMore buttonStyle={props.readMoreStyle} collapsedHeight='72px'>
       <div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
     </ReadMore>
   ) :
     <div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
-  ;
+    ;
 
   return (
     <header>
@@ -74,8 +74,3 @@ const StorySectionHeading = props => {
     </header>
   );
 };
-
-StorySectionHeading.propTypes = propTypes;
-StorySectionHeading.defaultProps = defaultProps;
-
-export default StorySectionHeading;

@@ -55,6 +55,8 @@ export default class FederalCovidSpending extends React.Component {
       subblurb: 'Blurb',
       blurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada.',
       sectionTeaser: ['How is the federal government', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> allocating emergency funds of COVID-19</span>],
+      readMoreOnMobile: true,
+      readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada.',
       viztitle: 'Covid-19 Supplemental Funding by Budget Function',
       tagName: 'Budget',

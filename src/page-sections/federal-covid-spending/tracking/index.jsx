@@ -220,6 +220,8 @@ export default function Tracking(props) {
 	}
 
 	return <>
+		<h1>Progress of COVID-19 Spending</h1>
+
 		<AccordionList title='Instructions'>
 			<p>Actual instructions are larger than they appear</p>
 		</AccordionList>
@@ -247,7 +249,7 @@ export default function Tracking(props) {
     </ModalReference>
 
 		<SeeMoreButton fullWidth onClick={handleSeeMore}>
-			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'Show Less'}
+			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
 		</SeeMoreButton>
 
 		<Downloads href={''} date={'May 2020'} />
