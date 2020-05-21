@@ -2,16 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './bar.module.scss';
 
-import numberFormatter from 'src/utils/number-formatter';
 import CalloutBar from './callouts/callout-bar';
-import PercentBar from './percent-bar';
-import ExceptionBar from './exception-bar';
 import { Hidden } from '@material-ui/core';
+import ExceptionBar from './exception-bar';
+import PercentBar from './percent-bar';
+import numberFormatter from 'src/utils/number-formatter';
+
+const barHeight = 30;
 
 export default class Bar extends React.Component {
 	/* props notes
 		narrow set if label & total should be above bar, not in line
-		data: outlay, obligated and unobligated as {'amount': amount [in desired format], 'percent': percentage value}
+		data: outlay, obligated and unobligated as {'amount': amount [in pennies, to prevent rounding errors], 'percent': percentage value}
 		barLabel: words to left or top of bar
 		total: bar total amount (not necessarily sum of data amounts) in desired format
 		hideBarLabels: don't show details labels below bar segments
@@ -32,30 +34,16 @@ export default class Bar extends React.Component {
 		super(props);
 	}
 
-	// check for known data anomalies (negative values, values don't add up)
+	// check for undisplayable data anomalies
 	dataAnomaly = () => {
-
-console.log(this.props.data, this.props.total);
-
-
+		// negative values
 		if (this.props.data[0] < 0 || this.props.data[1] < 0 || this.props.data[2] < 0) {
-
-console.log('1');
-
-
 			return true;
 		}
-		if (this.props.data[0].amount + this.props.data[1].amount + this.props.data[2].amount !== this.props.total) {
-
-			console.log('2');
-
-
+		// totals don't add up
+		if (this.props.data[1].amount + this.props.data[2].amount !== this.props.total) {
 			return true;
 		}
-
-		console.log('3');
-
-
 		return false;
 	}
 
@@ -96,7 +84,7 @@ console.log('1');
 
 				</div>
 			</div>
-			{this.props.narrow ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div>}
+			{this.props.narrow ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{numberFormatter('dollars suffix', this.props.total)}</div>}
 		</div >
 		;
 }

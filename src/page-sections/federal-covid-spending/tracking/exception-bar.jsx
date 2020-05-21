@@ -16,7 +16,7 @@ export default class ExceptionBar extends React.Component {
 	}
 
 	render = () => <>
-		<div className={styles.exceptionBar}>The reported values cannot be displayed</div>
+		<div className={styles.exceptionBar}>Reported values cannot be displayed.</div>
 		<svg width='100%' height='56px'>
 			<CalloutBar
 				outlaid={0}

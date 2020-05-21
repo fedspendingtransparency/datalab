@@ -87,20 +87,20 @@ export default function Tracking(props) {
 		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
-				'amount': i.Amount_Outlaid,
-				'percent': i.Percent_Outlaid
+				'amount': i.Amount_Outlaid * 100,
+				'percent': parseFloat(i.Percent_Outlaid)
 			}, {
-				'amount': i.Amount_Obligated,
-				'percent': i.Percent_Obligated
+				'amount': i.Amount_Obligated * 100,
+				'percent': parseFloat(i.Percent_Obligated)
 			}, {
-				'amount': i.Amount_Unobligated,
-				'percent': i.Percent_Unobligated
+				'amount': i.Amount_Unobligated * 100,
+				'percent': parseFloat(i.Percent_Unobligated)
 			}];
 
 			return <Bar key={key}
 				data={thisBar}
 				barLabel={i.label}
-				total={i.Total_Budgetary_Resources}
+				total={i.Total_Budgetary_Resources * 100}
 				firstBar={key === 0}
 				lastBar={key === chartData.length - 1}
 				narrow={screenMode === ScreenModeEnum.mobile}
