@@ -10,5 +10,4 @@ const threshold = {
 
 threshold['obligatedLabelOffset'] = parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding);
 
-
 export default threshold;

@@ -146,14 +146,17 @@ $fedEmpBlue: #2272ce;
   .header {
     text-align: center;
   }
-  .headerNumber h2 {
-    border: none;
-    text-decoration: underline;
-  }
-  .headerTitle {
-    margin-top: $margin-25;
-  }
 }
+
+
+//  .headerNumber h2 {
+//    border: none;
+//    text-decoration: underline;
+//  }
+//  .headerTitle {
+//    margin-top: $margin-25;
+//  }
+//}
 
 @media (max-width: $phone - 1) {
   .introContainer {
@@ -165,6 +168,7 @@ $fedEmpBlue: #2272ce;
       margin: 1rem 0;
     }
   }
+
   .header {
     .headerTitle {
       margin-top: 0;

@@ -16,7 +16,7 @@ function StorySection(props) {
             blurb={props.header.introBlurb}
             accordion={props.header.accordion}
             readMoreOnMobile={props.header.readMoreOnMobile}
-            toggleColor={props.header.toggleColor}
+            readMoreStyle={props.header.readMoreStyle}
           />
 
           <Grid container justify="center">

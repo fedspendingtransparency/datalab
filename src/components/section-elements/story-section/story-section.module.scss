@@ -8,6 +8,10 @@
   text-align: left;
 }
 
+.alignLeft h1 {
+  text-align: left;
+}
+
 @media (min-width: $desktop-xl){
   .storySection:not(:last-of-type) {
     margin-bottom: 50px;

@@ -6,10 +6,10 @@ const defaults = {
   lineColor: '#666',
   textPosition: null,
   fontSize: '14px',
-  fontColor: '#666'
+  fontColor: '#666',
+  smFontSize: '12px'
 }
 
 defaults['textPosition'] = parseFloat(defaults.starterHeight + defaults.lineStroke + defaults.endingHeight + defaults.lineHeight);
-
 
 export default defaults;
