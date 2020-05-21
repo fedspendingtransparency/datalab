@@ -11,10 +11,31 @@ ElbowCallout.propTypes = {
   'xStart': PropTypes.number.isRequired,
   'xEnd': PropTypes.number.isRequired,
   'labelOffset': PropTypes.number.isRequired,
-  'label': PropTypes.string.isRequired
+  'label': PropTypes.string.isRequired,
+  'labelAmount': PropTypes.string.isRequired
+
 };
 
 export default function ElbowCallout(props) {
+  function TextBlock() {
+    if(props.narrow) {
+      return (<>
+        <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition}
+              fontSize={defaults.fontSize} fontWeight='bold'>
+          {props.label}&nbsp;
+        </text>
+        <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition + defaults.lineHeight}
+              fontSize={defaults.smFontSize}>
+          &nbsp;&nbsp;&nbsp;{props.labelAmount}
+        </text>
+      </>)
+    } else {
+      return <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition}
+            fontSize={defaults.fontSize}>
+        {props.label} ({props.labelAmount})
+      </text>
+    }
+  }
 
   return (<>
     <rect
@@ -41,8 +62,7 @@ export default function ElbowCallout(props) {
       height={defaults.endingHeight}
     />
 
-    <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition} fontSize={defaults.fontSize} >
-      {props.label}
-    </text>
+    <TextBlock />
+
   </>)
 }

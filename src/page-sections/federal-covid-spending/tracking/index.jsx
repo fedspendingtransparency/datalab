@@ -4,7 +4,7 @@ import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import styles from './tracking.module.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
-import Bar from './bar';
+import Bar from './bars/bar';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import ControlBar from 'src/components/control-bar/control-bar';
@@ -16,6 +16,9 @@ import Toggle from 'src/components/toggle/toggle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import ListAltIcon from '@material-ui/icons/ListAlt';
+
+import ModalReference from "src/components/modal/modal"
+import Modal from "./modal"
 
 const showLess = 10; // bars to show when collapsed
 
@@ -45,9 +48,54 @@ export default function Tracking(props) {
 					Amount_Unobligated
 					Total_Budgetary_Resources
         }
+      },
+			agencyPopup: allCovid19ResponseViz3AgencyPopout20200519Csv {
+        group(field: Agency) {
+          fieldValue
+          nodes {
+						Account_Name
+						Agency
+						Amount_Obligated
+						Amount_Obligated_Not_Outlaid
+						Amount_Outlaid
+						Amount_Unobligated
+						Percent_Obligated
+						Percent_Outlaid
+						Percent_Unobligated
+						Total_Budgetary_Resources
+          }
+        }
+      },
+      functionPopup: allCovid19ResponseViz3FunctionPopout20200519Csv {
+        group(field: Function_Description) {
+          fieldValue
+          nodes {
+            Account_Name
+            Amount_Obligated
+            Amount_Outlaid
+            Amount_Obligated_Not_Outlaid
+            Amount_Unobligated
+            Function_Description
+            Percent_Obligated
+            Percent_Outlaid
+            Percent_Unobligated
+            Total_Budgetary_Resources
+          }
+        }
       }
     }
 	`);
+
+  const accountsByFunction = {};
+  const accountsByAgency = {};
+
+  data.agencyPopup.group.forEach((item) => {
+    accountsByAgency[item.fieldValue] = item.nodes;
+  })
+
+  data.functionPopup.group.forEach((item) => {
+    accountsByFunction[item.fieldValue] = item.nodes;
+  })
 
 	const [screenMode, setScreenMode] = useState(0);
 	const resizeWindow = () => {
@@ -65,7 +113,10 @@ export default function Tracking(props) {
 	});
 
 	const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
-	const handleToggle = e => {
+  const [isModalOpen, setModalState] = useState(false);
+  const [selectedBar, setSelectedBar] = useState(null);
+
+  const handleToggle = e => {
 		toggleChecked(e.target.checked);
 	}
 
@@ -82,6 +133,17 @@ export default function Tracking(props) {
 	const handleSeeMore = () => {
 		setLimitBars(limitBars ? 0 : showLess);
 	}
+
+  const openModal = (e) => {
+		setModalState(true);
+		setSelectedBar(e);
+  }
+
+  const closeModal = () => {
+    setModalState(false);
+    setSelectedBar(null);
+
+  }
 
 	const mainChart = () => {
 		const barData = checked ? data.agencies.nodes : data.functions.nodes;
@@ -105,6 +167,7 @@ export default function Tracking(props) {
 				firstBar={key === 0}
 				lastBar={key === chartData.length - 1}
 				narrow={screenMode === ScreenModeEnum.mobile}
+        openModal={e => openModal(e)}
 			/>;
 		});
 
@@ -143,6 +206,19 @@ export default function Tracking(props) {
 		}
 	}))(Button);
 
+	const findTitle = () => {
+		let dataType = 'functions'
+
+		if(checked) {
+      dataType = 'agencies';
+    }
+
+		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
+
+		return `${selectedBar} (${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''})`
+
+	}
+
 	return <>
 		<h1>Progress of COVID-19 Spending</h1>
 
@@ -161,10 +237,21 @@ export default function Tracking(props) {
 
 		{mainChart()}
 
+    <ModalReference open={isModalOpen}
+										close={closeModal}
+										title={findTitle()}
+										maxWidth={false} maxHeight={true}>
+      <Modal
+				bar={selectedBar}
+				mode={checked ? 'Agency' : 'Budget Function'}
+        data={checked ? accountsByAgency[selectedBar] : accountsByFunction[selectedBar]}
+        isMobile={screenMode === ScreenModeEnum.mobile} />
+    </ModalReference>
+
 		<SeeMoreButton fullWidth onClick={handleSeeMore}>
 			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
 		</SeeMoreButton>
 
-		<Downloads href={''} date={'MMMM YY'} />
+		<Downloads href={''} date={'May 2020'} />
 	</>;
 }

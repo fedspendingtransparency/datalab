@@ -16,7 +16,7 @@ const inlineStyles = () => ({
   paper: {
     padding: '20px',
     boxShadow: '0 2px 30px 0 rgba(0, 0, 0, 0.16)',
-    backgroundColor: 'rgba(255, 253, 253, 0.95)',
+    backgroundColor: 'rgba(255, 253, 253)',
     borderRadius: '5px'
   },
 });
@@ -38,7 +38,7 @@ class ModalReference extends React.Component {
     };
 
     this.state = {
-      open: false,
+      open: this.props.open,
       maxWidth: this.props.maxWidth ? windowWidth() : null,
       maxHeight: this.props.maxHeight ? windowHeight() : null
     }
@@ -50,6 +50,10 @@ class ModalReference extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize);
+  }
+
+  componentWillReceiveProps({open}) {
+    this.setState({open: open});
   }
 
   handleResize = () => {
@@ -64,6 +68,7 @@ class ModalReference extends React.Component {
   };
 
   handleClose = () => {
+    this.props.close();
     this.setState({open: false});
   };
 
