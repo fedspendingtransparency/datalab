@@ -147,9 +147,9 @@ export default class FederalCovidSpending extends React.Component {
       hwctaLink={this.props.location.pathname + '/methodologies'}
     >
       <SEO
-        title='SEO title'
+        title='Data Lab – The Federal Response to COVID-19 – U.S. Treasury'
         description='SEO description'
-        keywords={['SEO keyword 1', 'SEO keyword 2']}
+        keywords={['federal spending', 'government spending', 'economic relief', 'relief package', 'economic stimulus', 'obligations', 'appropriations', 'covid', 'coronavirus', 'COVID19']}
       />
 
       {this.sections.map((item, key) => {
