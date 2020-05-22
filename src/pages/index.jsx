@@ -15,6 +15,7 @@ import afg from 'src/images/home/afg.png';
 import cu from 'src/images/home/collegehomepage.svg';
 import homelessImg from 'src/images/home/homelessness.png';
 import rd from 'src/images/home/rd-homepage-v4.gif';
+import covid from 'src/images/home/covid.png';
 
 function IndexPage() {
   return (
@@ -32,13 +33,13 @@ function IndexPage() {
       >
         <Grid item md={12} lg={8} className={homeStyles.featuredTile}>
           <FeatureTile
-            href='rd-in-contracting'
-            imgSrc={rd}
+            href='federal-covid-spending'
+            imgSrc={covid}
             isMain={true}
             imgAlt=''
-            heading='R&D in Contract Spending'
-            body='R&D is often associated with the private sector, but in 2019 the federal government backed more than $40 billion in research initiatives through contracts. Our analysis looks at the top agencies by R&D contract spend and where the money is going. See how categories such as energy, education, and space flight stack up and how R&D spending has trended over the last decade.'
-            mobileBody='R&D is often associated with the private sector, but in 2019 the federal government backed more than $40 billion in research initiatives through contracts. Our analysis looks at the top agencies by R&D contract spend and where the money is going. See how categories such as energy, education, and space flight stack up and how R&D spending has trended over the last decade.'
+            heading='Federal Response to COVID-19'
+            body='To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress passed four special appropriations laws, making $2.4 trillion available for the federal government to use in relief efforts.  We break down the funding into categories, show the steps federal agencies take to use it, and track the status so you can see how much has been spent.'
+            mobileBody='Follow along as Data Lab tracks the flow of four emergency funding bills for COVID-19. As of May 1, the Treasury has tracked $XX billion in agency spending for COVID-19 related relief efforts.'
           />
         </Grid>
         <Grid item md={12} lg={4}>
