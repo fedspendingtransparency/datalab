@@ -17,7 +17,8 @@ const inlineStyles = () => ({
     padding: '20px',
     boxShadow: '0 2px 30px 0 rgba(0, 0, 0, 0.16)',
     backgroundColor: 'rgba(255, 253, 253)',
-    borderRadius: '5px'
+    borderRadius: '5px',
+    outline: 'white'
   },
 });
 
