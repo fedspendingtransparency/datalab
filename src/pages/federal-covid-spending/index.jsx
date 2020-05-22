@@ -48,16 +48,25 @@ export default class FederalCovidSpending extends React.Component {
 
   sections = [
     {
-      section: 'Budget',
+      section: 'Overview',
       anchor: 'budget',
       number: '01',
-      subtext: 'Budget',
-      subblurb: 'Blurb',
-      blurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada.',
-      sectionTeaser: ['How is the federal government', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> allocating emergency funds of COVID-19</span>],
+      subtext: 'Overview',
+      subblurb: '',
+      blurb: 'How is the federal government allocating emergency funds for COVID-19?',
+      sectionTeaser: ['How is the federal government', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> allocating emergency funds of COVID-19?</span>],
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor },
-      introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada.',
+      introBlurb: [
+        <>
+          <p key='section-1-p-1'>
+            To aid the nation’s recovery from the coronavirus disease 2019 (COVID-19) pandemic, the U.S. Congress passed four special appropriations laws, making $2.4 trillion available for the federal government to use in relief efforts.<sup>1</sup> The largest of these was the Coronavirus Aid, Relief, and Economic Security (CARES) Act, which provided almost $2 trillion and is the largest special appropriation in American history. It is the role of the Treasury Department (the Treasury) to review new legislation and issue funds to federal agencies. Agencies are then required to report how they are spending these funds to the Treasury’s governmentwide accounting system and certify its accuracy.
+          </p>
+          <p key='section-1-p-2'>
+            In this analysis of COVID-19 spending, Data Lab uses this certified data to track the progress of spending, starting with the distribution of special appropriations across federal agencies.
+          </p>
+        </>
+      ],
       viztitle: 'Covid-19 Supplemental Funding by Budget Function',
       tagName: 'Budget',
       accordion: <aside>
@@ -67,31 +76,63 @@ export default class FederalCovidSpending extends React.Component {
                  </aside>
     },
     {
-      section: 'Overview',
+      section: 'The Flow of Funds',
       anchor: 'overview',
       number: '02',
-      subtext: 'The Flow of Funds',
-      subblurb: 'Overview subblurb',
+      subtext: 'The Flow of Funds', // <a href='' target='_blank' rel='noopener noreferrer'>
+      subblurb: '',
+      blurb: 'How do federal dollars move from Congress to the American people?',
       sectionTeaser: ['How do federal dollars ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>move from congress to the American people?</span>],
-      introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met.',
+      introBlurb: [
+        <>
+          <p key='section-2-p-1'>
+            There are many steps to move federal dollars through the full budget lifecycle. Here, we focus on a few key parts of the process that help us track the progress of agency spending for COVID-19.
+          </p>
+          <p key='section-2-p-2'>
+            After COVID-19 special <a href='https://www.usaspending.gov/#/?glossary=appropriation' target='_blank' rel='noopener noreferrer'>appropriations</a> laws are passed, Treasury issues funding to different spending accounts so federal agencies can begin using it according to the purpose assigned in the law. Large federal agencies typically have multiple accounts that exist for different purposes.
+            Across the 100 agencies who routinely report data to <a href='https://www.usaspending.gov/#/' target='_blank' rel='noopener noreferrer'>USAspending.gov</a>, there are roughly 2,000 accounts that are used for regular spending. However, with the almost $2.4 trillion of emergency funding related to COVID-19, spending has been allocated to a targeted group of about 180 accounts.
+          </p>
+          <p key='section-2-p-3'>
+            The appropriations give agencies the authority to obligate the funds to different programs through contracts, direct payments, grants, or loans. This step, where agencies make a binding agreement to use funds for a particular purpose, is called an <a href='https://www.usaspending.gov/#/?glossary=obligation' target='_blank' rel='noopener noreferrer'>obligation. </a>
+            An example of an obligation is an agency setting aside adequate funds when it enters into a contract with a vendor to purchase <a href='https://www.usaspending.gov/#/award/CONT_AWD_75A50120C00030_7505_-NONE-_-NONE-' target='_blank' rel='noopener noreferrer'>personal protective equipment such as masks.</a>
+          </p>
+          <p key='section-2-p-4'>
+            Creating an obligation doesn’t mean the money has been paid, only that the federal agency has promised to pay the funds. In many cases, the recipients of funds may be required to do something before receiving payment, such as delivering equipment or supplies. 
+          </p>
+          <p key='section-2-p-5'>
+            The final step in the process is making a payment, which is called an <a href='https://www.usaspending.gov/#/?glossary=outlay' target='_blank' rel='noopener noreferrer'>outlay.</a> This is the step when the funds for a direct payment, grant, loan, or contract are received by individuals, businesses or other organizations.
+          </p>
+        </>
+      ],
       viztitle: 'Title for Overview viz',
       tagName: 'Overview',
       readMoreOnMobile: true,
-      readMoreStyle: { color: globalStyles.covidColor },
-      introBlurb: 'Nam quis nulla.Integer malesuada.In in enim a arcu imperdiet malesuada.Sed vel lectus.Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem.Phasellus rhoncus.Aenean id metus id velit ullamcorper pulvinar.Vestibulum fermentum tortor id mi.Pellentesque ipsum.Nulla non arcu lacinia neque faucibus fringilla.Nulla non lectus sed nisl molestie malesuada.Proin in tellus sit amet nibh dignissim sagittis.Vivamus luctus egestas leo.Maecenas sollicitudin.Nullam rhoncus aliquam met.Nam quis nulla.Integer malesuada.In in enim a arcu imperdiet malesuada.Sed vel lectus.Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem.Phasellus rhoncus.Aenean id metus id velit ullamcorper pulvinar.Vestibulum fermentum tortor id mi.Pellentesque ipsum.Nulla non arcu lacinia neque faucibus fringilla.Nulla non lectus sed nisl molestie malesuada.Proin in tellus sit amet nibh dignissim sagittis.Vivamus luctus egestas leo.Maecenas sollicitudin.Nullam rhoncus aliquam met.',
-      viztitle: 'Title for Overview viz',
-      tagName: 'Overview'
+      readMoreStyle: { color: globalStyles.covidColor }
     },
     {
       section: 'Tracking',
       anchor: 'tracking',
       number: '03',
-      subtext: 'Tracking subtext',
-      subblurb: 'Tracking subblurb',
-      sectionTeaser: 'Tracking teaser',
+      subtext: 'Tracking Spending',
+      subblurb: '',
+      blurb: 'How much emergency funding has been spent?',
+      sectionTeaser: ['How much emergency funding ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>has been spent?</span>],
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor },
-      introBlurb: 'Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met',
+      introBlurb: [
+        <>
+          <p key='section-3-p-1'>
+            As of May 1st, the Treasury has tracked $963 billion in obligations and $459 billion in outlays paid out by agencies related to COVID-19 relief.
+          </p>
+          <p key='section-3-p-2'>
+            Federal agencies report data in the Treasury’s governmentwide accounting systems each month, including how much funding they have obligated and outlaid from their spending accounts. Agencies also certify the accuracy of these reports. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for ensuring their data is correct. 
+          </p>
+          <p key='section-3-p-3'>
+            Under the normal reporting process, the data agencies report and certify on <a href='https://www.usaspending.gov/#/' target='_blank' rel='noopener noreferrer'>USAspending.gov</a> each quarter is not tracked by the specific appropriation bill by which it was initially authorized. With the COVID-19 appropriations, spending is tracked with a special field called the
+            Disaster Emergency Fund Code (DEFC). Using this code allows for funds to be followed through the spending lifecycle. Data Lab will continue to update this analysis on a monthly basis with each reporting window. In addition, agencies will begin reporting spending data using the DEFC to USAspending.gov in July 2020.
+          </p>
+        </>
+      ],
       viztitle: 'Title for Tracking viz',
       tagName: 'Tracking'
     }
@@ -100,15 +141,15 @@ export default class FederalCovidSpending extends React.Component {
   render = () =>
     <StoryLayout
       title='The Federal Response To COVID-19'
-      introSentence='Tracking emergency funding through the federal financial system'
-      contextStatement='Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nulla non lectus sed nisl molestie malesuada. Proin in tellus sit amet nibh dignissim sagittis. Vivamus luctus egestas leo. Maecenas sollicitudin. Nullam rhoncus aliquam met'
+      introSentence='How is the federal government funding relief efforts for COVID-19?'
+      contextStatement='Data Lab explores how emergency funding for COVID-19 makes its way from Congress into the economy. We break down the steps taken by federal agencies to use the $2.4 trillion and track the status so you can see how much has been spent.'
       sectionToc={this.sections}
       hwctaLink={this.props.location.pathname + '/methodologies'}
     >
       <SEO
-        title='SEO title'
+        title='Data Lab – The Federal Response to COVID-19 – U.S. Treasury'
         description='SEO description'
-        keywords={['SEO keyword 1', 'SEO keyword 2']}
+        keywords={['federal spending', 'government spending', 'economic relief', 'relief package', 'economic stimulus', 'obligations', 'appropriations', 'covid', 'coronavirus', 'COVID19']}
       />
 
       {this.sections.map((item, key) => {
