@@ -10,10 +10,10 @@ const C19HWTCA = ({ location }) => {
         sources: (
             <ul>
                 <li>
-                    Full text of each bill from the <a href='https://www.congress.gov/' target='_blank' rel='noopener noreferrer'>Library of Congress</a>
+                    Appropriation warrants for H.R. 6074, H.R. 6201, H.R. 748
                 </li>
                 <li>
-                    Appropriation warrants for H.R. 6074, H.R. 6201, H.R. 748
+                    Full text of each bill from the <a href='https://www.congress.gov/' target='_blank' rel='noopener noreferrer'>Library of Congress</a>
                 </li>
                 <li>
                     Estimated total budget authority of each bill from the <a href='https://www.cbo.gov/' target='_blank' rel='noopener noreferrer'>Congressional Budget Office (CBO)</a>
@@ -48,7 +48,7 @@ const C19HWTCA = ({ location }) => {
         sources: (
             <ul>
                 <li>
-                    The value of the four supplemental emergency bills passed by Congress is approximately $2.4 trillion. This value reflects the total value of appropriation warrants made to agency's TAS accounts for each of the four laws passed.<sup>2</sup>
+                    The value of the four supplemental emergency bills passed by Congress is approximately $2.4 trillion. This value reflects the total value of appropriation warrants made to agency's TAS accounts for each of the four laws passed.
                 </li>
                 <li>
                     Appropriation warrants reflect Congressional action to fund programs and provide each agency the amount of money they are authorized to withdraw from the General Fund of the U.S. Government and period of availability of those funds.
@@ -85,20 +85,14 @@ const C19HWTCA = ({ location }) => {
                 <li>
                     Emergency spending is tracked in the data reported in the extract of GTAS data using the Disaster Emergency Fund Code. All agencies are required per Office of Management and Budget
                     <a href='https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf' target='_blank' rel='noopener noreferrer'> Memo M-20-21: Implementation Guidance for Supplemental Funding Provided in Response to the Coronavirus Disease 2019 (COVID-19) </a>
-                    to track spending related to each of the emergency bills passed using the previously established Disaster Emergency Fund Code (DEFC) attribute, with newly provided values that link each transaction to the specific funding legislation.<sup>3</sup> Data for this analysis, published May 28, 2020, includes data reported through the close of April 2020. GTAS data is used in order to track spending using the emergency spending DEFC, which is currently not available in the data provided by agencies to
+                    to track spending related to each of the emergency bills passed using the previously established Disaster Emergency Fund Code (DEFC) attribute, with newly provided values that link each transaction to the specific funding legislation.<sup>2</sup> Data for this analysis, published May 28, 2020, includes data reported through the close of April 2020. GTAS data is used in order to track spending using the emergency spending DEFC, which is currently not available in the data provided by agencies to
                     <a href='https://www.usaspending.gov/#/' target='_blank' rel='noopener noreferrer'> USAspending.gov.</a> The DEFC will be added into <a href='https://www.usaspending.gov/#/' target='_blank' rel='noopener noreferrer'>USAspending.gov</a> to track agency data submitted starting in the July 2020 reporting period for agency data reported through June 2020.
                 </li>
                 <li>
-                    GTAS data was used to calculate total budgetary resources; new obligations and upwards adjustments; unobligated balance (end-of-year total) and gross outlays<sup>4</sup> of emergency spending executed as of the close of the reporting period<sup>5</sup> (using the reported DEFC) and aggregated by TAS account. 
+                    GTAS data was used to calculate total budgetary resources; new obligations and upwards adjustments; unobligated balance (end-of-year total) and gross outlays<sup>3</sup> of emergency spending executed as of the close of the reporting period<sup>4</sup> (using the reported DEFC) and aggregated by TAS account. Spending was aggregated to generate the overall budget function totals and percent of total funding values reported by budget function.
                 </li>
                 <li>
-                    The total values for each TAS account were merged with the account metadata obtained via the Central Accounting Reporting System (CARS), which allows for TAS account totals to be aggregated at the Federal Account (also referred to as ‘spending accounts’) and agency levels.
-                </li>
-                <li>
-                    Agency totals were aggregated using TAS account data at the agency-level using the Agency Identifier (AID), with a few exceptions. Agencies that use a shared AID were aggregated using the Financial Reporting Entity Code (FREC), and certain armed forces agencies were classified as Department of Defense following the logic used in classifying agencies in USAspending.gov.<sup>6</sup>
-                </li>
-                <li>
-                    Spending was also aggregated by budget function using the TAS account and CARS data to generate the overall budget function totals and percent of total funding values reported by budget function.
+                    Agency totals were aggregated using TAS account data at the Allocation Transfer Agency (ATA) identifier, in cases where the ATA is null the Agency Identifier (AID) is used, with a few exceptions. Agencies that use a shared AID were aggregated using the Financial Reporting Entity Code (FREC), and certain armed forces agencies were classified as Department of Defense following the logic used in classifying agencies in USAspending.gov.<sup>5</sup>
                 </li>
             </ul>
       )
@@ -108,19 +102,21 @@ const C19HWTCA = ({ location }) => {
         content: (
             <>
                 <p>
-                    <sup>2</sup> The value of spending expected for H.R. 266 was estimated by evaluating both the content of the law and referencing the CBO’s estimates of total budget authority.
+                    <sup>1</sup> Coronavirus Preparedness and Response Supplemental Appropriations Act (H.R. 6074) appropriated an estimated $7.8 billion; Families First Coronavirus Response Act (H.R. 6201) appropriated an estimated $3.4 billion; CARES Act (H.R. 748) appropriated an estimated $1.95 trillion of funding; and the Paycheck Protection Program and Health Care Enhancement Act (H.R. 266) appropriated an estimated $483 billion. 
                 </p>
                 <p>
-                    <sup>3</sup> OMB Guidance on reporting requirements and DEFC values provided for the four bills are provided in <a href='https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf' target='_blank' rel='noopener noreferrer'>OMB M20-21</a>
+                    <sup>2</sup> OMB Guidance on reporting requirements and DEFC values provided for the four bills are provided in OMB M20-21: <a href='https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf' target='_blank' rel='noopener noreferrer'>https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf</a>
                 </p>
                 <p>
-                    <sup>4</sup> Values were calculating according to the <a href='https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_2/sec5/sec5_sf133_schp_2020.xlsx' target='_blank' rel='noopener noreferrer'>USSGL Supplement of the Treasury Financial Manual - Section V: Crosswalks to Standard External Reports for FY 2020 GTAS Reporting, SF 133: Report on Budget Execution and Budgetary Resources & Schedule P Budget Program and Financing Schedule.</a>
+                    <sup>3</sup> Values were calculating according to the USSGL Supplement of the Treasury Financial Manual - Section V: Crosswalks to Standard External Reports for FY 2020 GTAS Reporting, SF 133: Report on Budget Execution and Budgetary Resources & Schedule P Budget Program and Financing Schedule.
+                    <a href='https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_2/sec5/sec5_sf133_schp_2020.xlsx' target='_blank' rel='noopener noreferrer'> https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_2/sec5/sec5_sf133_schp_2020.xlsx</a>
                 </p>
                 <p>
-                    <sup>5</sup> GTAS data is collected monthly, each month’s agencies report data for all transactions occurring through the end of the prior month. Data for this analysis published May 28, 2020 includes data reported through the close of April 2020.
+                    <sup>4</sup> GTAS data is collected monthly, each month’s agencies report data for all transactions occurring through the end of the prior month. Data for this analysis published May 28, 2020 includes data reported through the close of April 2020.
                 </p>
                 <p>
-                    <sup>6</sup> Detailed instructions on how agencies should be classified is provided here: <a href='https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker' target='_blank' rel='noopener noreferrer'>https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a>
+                    <sup>5</sup> Detailed instructions on how agencies should be classified is provided here: <a href='https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker' target='_blank' rel='noopener noreferrer'>https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a>.
+                    The list of shared agencies identified by FREC can be found here: <a href='https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker' target='_blank' rel='noopener noreferrer'>https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a>
                 </p>
             </>
         )
