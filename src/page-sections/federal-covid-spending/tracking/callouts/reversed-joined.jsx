@@ -1,7 +1,6 @@
 import React from 'react';
 import defaults from './utils/defaults';
 import PropTypes from 'prop-types';
-import numberFormatter from "src/utils/number-formatter"
 
 /* props
   xStart = x position of starting vertical line, start of the horizontal line (pointing to bar)
@@ -31,14 +30,14 @@ export default function ReversedJoinedCallout(props) {
 					{props.label1}
 				</text>
         <text fill={defaults.fontColor} x={`${props.label1Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
-          &nbsp;&nbsp;{props.label1Amount}&nbsp;({numberFormatter('percent', parseInt(props.label1Percent))})
+          {props.label1Amount}&nbsp;({`${props.label1Percent}%`})
         </text>
 
 				<text fill={defaults.fontColor} x={`${props.label2Offset + shiftLabel}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight='bold'>
 					{props.label2}
 				</text>
 				<text fill={defaults.fontColor} x={`${props.label2Offset + shiftAmount}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
-          {props.label2Amount}&nbsp;({numberFormatter('percent', parseInt(props.label2Percent))})
+          {props.label2Amount}&nbsp;({`${props.label2Percent}%`})
 				</text>
 			</>
     } else {

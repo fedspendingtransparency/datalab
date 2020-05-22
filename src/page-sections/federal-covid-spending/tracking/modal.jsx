@@ -26,7 +26,7 @@ export default function CovidModal(props) {
           </div>)
 
         } else {
-          return (<div key={key} style={{padding: '10px'}}>
+          return (<div key={key} style={{paddingRight: '10px'}}>
             <p style={{marginBottom: '0', marginTop: '0.5rem', fontWeight: 'bold'}}>{i.Account_Name} {numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}</p>
 
             <Bar key={key}

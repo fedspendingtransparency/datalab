@@ -28,14 +28,14 @@ export default function JoinedCallout(props) {
 					{props.label1}
 				</text>
         <text fill={defaults.fontColor} x={`${props.label1Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
-          {props.label1Amount}&nbsp;({numberFormatter('percent', parseInt(props.label1Percent))})
+          {props.label1Amount}&nbsp;({`${props.label1Percent}%`})
         </text>
 
 				<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight='bold'>
 					{props.label2}
 				</text>
 				<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
-          {props.label2Amount}&nbsp;({numberFormatter('percent', parseInt(props.label2Percent))})
+          {props.label2Amount}&nbsp;({`${props.label2Percent}%`})
 				</text>
 			</>
     } else {

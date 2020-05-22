@@ -1,7 +1,6 @@
 import React from 'react';
 import defaults from './utils/defaults';
 import PropTypes from 'prop-types';
-import numberFormatter from "src/utils/number-formatter"
 
 /* props
 lineColor = hex value for line color
@@ -19,16 +18,19 @@ ReversedElbowCallout.propTypes = {
 
 
 export default function ReversedElbowCallout(props) {
+  const shiftLabel = 10;
+  const shiftAmount = 12;
+
   function TextBlock() {
     if(props.narrow) {
       return (<>
-        <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition}
+        <text fill={defaults.fontColor} x={`${props.labelOffset + shiftLabel}%`} y={defaults.textPosition}
               fontSize={defaults.fontSize} fontWeight='bold'>
           {props.label}&nbsp;
         </text>
-        <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition + defaults.lineHeight}
+        <text fill={defaults.fontColor} x={`${props.labelOffset + shiftAmount}%`} y={defaults.textPosition + defaults.lineHeight}
               fontSize={defaults.smFontSize}>
-          {props.labelAmount}&nbsp;({numberFormatter('percent', parseInt(props.labelPercent))})
+          {props.labelAmount}&nbsp;({`${props.labelPercent}%`})
         </text>
       </>)
     } else {

@@ -27,7 +27,7 @@ export default function ElbowCallout(props) {
         </text>
         <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition + defaults.lineHeight}
               fontSize={defaults.smFontSize}>
-          {props.labelAmount}&nbsp;({numberFormatter('percent', parseInt(props.labelPercent))})
+          {props.labelAmount}&nbsp;({`${props.labelPercent}%`})
         </text>
       </>)
     } else {

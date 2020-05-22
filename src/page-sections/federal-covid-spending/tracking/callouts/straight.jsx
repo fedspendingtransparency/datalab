@@ -1,7 +1,6 @@
 import React from 'react';
 import defaults from './utils/defaults';
 import PropTypes from 'prop-types';
-import numberFormatter from "src/utils/number-formatter"
 
 /* props
   xStart = x position vertical line
@@ -16,7 +15,7 @@ StraightCallout.propTypes = {
 
 export default function StraightCallout(props) {
   const shiftLabel = props.label === 'Unobligated' ? 10 : 0;
-  const shiftAmount = props.label === 'Unobligated' ? 12 : 0;
+  const shiftAmount = props.label === 'Unobligated' ? 10 : 0;
 
   function TextBlock() {
     if(props.narrow) {
@@ -32,7 +31,7 @@ export default function StraightCallout(props) {
               x={`${props.labelOffset + shiftAmount}%`}
               y={defaults.textPosition + defaults.lineHeight}
               fontSize={defaults.smFontSize}>
-          {props.labelAmount}&nbsp;({numberFormatter('percent', parseInt(props.labelPercent))})
+          {props.labelAmount}&nbsp;({`${props.labelPercent}%`})
         </text>
       </>)
     } else {
