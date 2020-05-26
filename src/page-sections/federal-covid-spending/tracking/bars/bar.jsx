@@ -64,6 +64,7 @@ export default class Bar extends React.Component {
 								unobligated={parseFloat(this.props.data[2].percent)}
 								data={this.props.data}
                 narrow={this.props.narrow}
+								tablet={this.props.tablet}
 							/>
 						</Hidden>
 						<PercentBar

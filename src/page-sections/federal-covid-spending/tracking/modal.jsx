@@ -32,6 +32,7 @@ export default function CovidModal(props) {
             <Bar key={key}
                  data={_data}
                  narrow={true}
+                 tablet={props.tablet}
             />
           </div>)
 

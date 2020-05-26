@@ -167,6 +167,7 @@ export default function Tracking(props) {
 				firstBar={key === 0}
 				lastBar={key === chartData.length - 1}
 				narrow={screenMode === ScreenModeEnum.mobile}
+        tablet={screenMode === ScreenModeEnum.tablet}
         openModal={e => openModal(e)}
 			/>;
 		});
@@ -245,7 +246,8 @@ export default function Tracking(props) {
 				bar={selectedBar}
 				mode={checked ? 'Agency' : 'Budget Function'}
         data={checked ? accountsByAgency[selectedBar] : accountsByFunction[selectedBar]}
-        isMobile={screenMode === ScreenModeEnum.mobile} />
+        narrow={screenMode === ScreenModeEnum.mobile}
+				tablet={screenMode === ScreenModeEnum.tablet} />
     </ModalReference>
 
 		<SeeMoreButton fullWidth onClick={handleSeeMore}>
