@@ -35,14 +35,14 @@ export default class Bar extends React.Component {
 		this.props.openModal(item);
 	}
 
-  keyUpHandler = (e, item) => {
-		if(e.keyCode === 13) {
-      this.props.openModal(item);
-    }
-  }
+	keyUpHandler = (e, item) => {
+		if (e.keyCode === 13) {
+			this.props.openModal(item);
+		}
+	}
 
 	render = () =>
-		<div className={styles.container}>
+		<div className={this.props.narrow ? '' : styles.container}>
 			{this.props.narrow ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>}
 			<div className={styles.barContainer}>
 				<div
@@ -51,7 +51,8 @@ export default class Bar extends React.Component {
 					${this.props.narrow ? '' : styles.barBorder}
 					${this.props.firstBar ? styles.firstBar : ''}
 					${this.props.lastBar ? styles.lastBar : ''}`}
-          tabIndex='0'
+					style={{ cursor: this.props.narrow ? 'default' : 'pointer' }}
+					tabIndex='0'
 					onClick={() => this.props.narrow ? '' : this.clickHandler(this.props.barLabel)}
 					onKeyUp={e => this.props.narrow ? '' : this.keyUpHandler(e, this.props.barLabel)}
 				>
@@ -62,13 +63,14 @@ export default class Bar extends React.Component {
 								obligated={parseFloat(this.props.data[1].percent)}
 								unobligated={parseFloat(this.props.data[2].percent)}
 								data={this.props.data}
-                narrow={this.props.narrow}
+								narrow={this.props.narrow}
 							/>
 						</Hidden>
 						<PercentBar
 							outlaid={parseFloat(this.props.data[0].percent)}
 							obligated={parseFloat(this.props.data[1].percent)}
 							unobligated={parseFloat(this.props.data[2].percent)}
+							data={this.props.data}
 							barHeight={barHeight}
 						/>
 					</svg>

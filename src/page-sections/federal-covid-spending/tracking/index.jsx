@@ -24,7 +24,7 @@ const showLess = 10; // bars to show when collapsed
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
     query {
-      agencies: allCovid19ResponseViz3AgencyMain20200519Csv {
+      agencies: allCovid19ResponseViz3AgencyMain20200521Csv {
         nodes {
 					label: Agency
 					Percent_Outlaid
@@ -36,7 +36,7 @@ export default function Tracking(props) {
 					Total_Budgetary_Resources
         }
       }
-			agencyPopup: allCovid19ResponseViz3AgencyPopout20200519Csv {
+			agencyPopup: allCovid19ResponseViz3AgencyPopout20200521Csv {
         group(field: Agency) {
           fieldValue
           nodes {
@@ -90,6 +90,9 @@ export default function Tracking(props) {
 
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
+		if (!limitBars) {
+			location = `${window.location.pathname}#topofchart`;
+		}
 		setLimitBars(limitBars ? 0 : showLess);
 	}
 
@@ -97,11 +100,9 @@ export default function Tracking(props) {
 		setModalState(true);
 		setSelectedBar(e);
 	}
-
 	const closeModal = () => {
 		setModalState(false);
 		setSelectedBar(null);
-
 	}
 
 	const mainChart = () => {
@@ -109,14 +110,14 @@ export default function Tracking(props) {
 		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
-				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
-				'percent': i.Percent_Outlaid
+				'amount': i.Amount_Outlaid,
+				'percent': parseFloat(i.Percent_Outlaid).toFixed(2)
 			}, {
-				'amount': numberFormatter('dollars suffix', i.Amount_Obligated),
-				'percent': i.Percent_Obligated
+				'amount': i.Amount_Obligated,
+				'percent': parseFloat(i.Percent_Obligated).toFixed(2)
 			}, {
-				'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
-				'percent': i.Percent_Unobligated
+				'amount': i.Amount_Unobligated,
+				'percent': parseFloat(i.Percent_Unobligated).toFixed(2)
 			}];
 
 			return <Bar key={key}
@@ -180,6 +181,7 @@ export default function Tracking(props) {
 			/>
 		</ControlBar>
 
+		<a id='topofchart' />
 		{mainChart()}
 
 		<ModalReference
@@ -196,9 +198,17 @@ export default function Tracking(props) {
 			/>
 		</ModalReference>
 
-		<SeeMoreButton fullWidth onClick={handleSeeMore}>
-			{limitBars ? `See More (${data.agencies.nodes.length - limitBars})` : 'See Less'}
-		</SeeMoreButton>
+		{limitBars >= data.agencies.nodes.length ?
+			''
+			:
+			<SeeMoreButton fullWidth onClick={handleSeeMore}>
+				{limitBars ?
+					`See More (${data.agencies.nodes.length - limitBars})`
+					:
+					'See Less'
+				}
+			</SeeMoreButton>
+		}
 
 		<Downloads href={''} date={'May 2020'} />
 	</>;

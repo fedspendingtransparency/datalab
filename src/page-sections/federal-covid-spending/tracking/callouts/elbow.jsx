@@ -6,6 +6,7 @@
 import React from 'react';
 import defaults from './utils/defaults';
 import PropTypes from 'prop-types';
+import numberFormatter from "src/utils/number-formatter"
 
 ElbowCallout.propTypes = {
   'xStart': PropTypes.number.isRequired,
@@ -26,7 +27,7 @@ export default function ElbowCallout(props) {
         </text>
         <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition + defaults.lineHeight}
               fontSize={defaults.smFontSize}>
-          &nbsp;&nbsp;&nbsp;{props.labelAmount}
+          {props.labelAmount}&nbsp;({`${props.labelPercent}%`})
         </text>
       </>)
     } else {
