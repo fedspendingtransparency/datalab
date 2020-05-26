@@ -131,6 +131,9 @@ export default function Tracking(props) {
 
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
+		if (!limitBars) {
+			location = `${window.location.pathname}#topofchart`;
+		}
 		setLimitBars(limitBars ? 0 : showLess);
 	}
 
@@ -138,11 +141,9 @@ export default function Tracking(props) {
 		setModalState(true);
 		setSelectedBar(e);
 	}
-
 	const closeModal = () => {
 		setModalState(false);
 		setSelectedBar(null);
-
 	}
 
 	const mainChart = () => {
@@ -200,6 +201,8 @@ export default function Tracking(props) {
 		root: {
 			'color': 'inherit',
 			'text-transform': 'capitalize',
+			'margin-top': '2rem',
+			'border-top': 'solid thin #eee',
 			'&:hover': {
 				color: 'inherit'
 			}
@@ -207,16 +210,9 @@ export default function Tracking(props) {
 	}))(Button);
 
 	const findTitle = () => {
-		let dataType = 'functions'
-
-		if (checked) {
-			dataType = 'agencies';
-		}
-
+		const dataType = checked ? 'agencies' : 'functions';
 		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
-
-		return `${selectedBar} ${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}`
-
+		return `${selectedBar} ${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}`;
 	}
 
 	return <>
@@ -235,22 +231,34 @@ export default function Tracking(props) {
 			/>
 		</ControlBar>
 
+		<a id='topofchart' />
 		{mainChart()}
 
-		<ModalReference open={isModalOpen}
+		<ModalReference
+			open={isModalOpen}
 			close={closeModal}
 			title={findTitle()}
-			maxWidth={false} maxHeight={true}>
+			maxWidth={false} maxHeight={true}
+		>
 			<Modal
 				bar={selectedBar}
 				mode={checked ? 'Agency' : 'Budget Function'}
 				data={checked ? accountsByAgency[selectedBar] : accountsByFunction[selectedBar]}
-				isMobile={screenMode === ScreenModeEnum.mobile} />
+				isMobile={screenMode === ScreenModeEnum.mobile}
+			/>
 		</ModalReference>
 
-		<SeeMoreButton fullWidth onClick={handleSeeMore}>
-			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
-		</SeeMoreButton>
+		{limitBars >= (checked ? data.agencies.nodes : data.functions.nodes).length ?
+			''
+			:
+			<SeeMoreButton fullWidth onClick={handleSeeMore}>
+				{limitBars ?
+					`See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})`
+					:
+					'See Less'
+				}
+			</SeeMoreButton>
+		}
 
 		<Downloads href={''} date={'May 2020'} />
 	</>;
