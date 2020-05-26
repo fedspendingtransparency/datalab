@@ -49,6 +49,7 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
       s.click();
     }
   }
+
   return (
     <div className={toggleStyles.toggleContainer}>
       <div
@@ -62,7 +63,7 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
         <p>{first.name}</p>
       </div>
       <div id={toggleStyles.toggleSwitchContainer}>
-        <StyledSwitch id='toggle-switch' checked={checked} onChange={handleToggle} onKeyPress={handleLabelClick} color='default' />
+        <StyledSwitch id='toggle-switch' checked={checked} onChange={handleToggle} onKeyPress={handleLabelClick} color='default' focusVisibleClassName={toggleStyles.toggleSwitchFocused} />
       </div>
       <div
         id='toggle-label-second'

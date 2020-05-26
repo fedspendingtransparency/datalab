@@ -1,6 +1,7 @@
 import React from 'react';
 import defaults from './utils/defaults';
 import PropTypes from 'prop-types';
+
 /* props
 lineColor = hex value for line color
 xStart = x position of starting vertical line, start of the horizontal line (pointing to bar)
@@ -17,16 +18,19 @@ ReversedElbowCallout.propTypes = {
 
 
 export default function ReversedElbowCallout(props) {
+  const shiftLabel = 10;
+  const shiftAmount = 12;
+
   function TextBlock() {
     if(props.narrow) {
       return (<>
-        <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition}
+        <text fill={defaults.fontColor} x={`${props.labelOffset + shiftLabel}%`} y={defaults.textPosition}
               fontSize={defaults.fontSize} fontWeight='bold'>
           {props.label}&nbsp;
         </text>
-        <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition + defaults.lineHeight}
+        <text fill={defaults.fontColor} x={`${props.labelOffset + shiftAmount}%`} y={defaults.textPosition + defaults.lineHeight}
               fontSize={defaults.smFontSize}>
-          &nbsp;&nbsp;&nbsp;{props.labelAmount}
+          {props.labelAmount}&nbsp;({`${props.labelPercent}%`})
         </text>
       </>)
     } else {

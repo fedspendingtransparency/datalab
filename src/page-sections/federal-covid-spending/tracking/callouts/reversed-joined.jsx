@@ -1,7 +1,6 @@
 import React from 'react';
 import defaults from './utils/defaults';
 import PropTypes from 'prop-types';
-import numberFormatter from "src/utils/number-formatter"
 
 /* props
   xStart = x position of starting vertical line, start of the horizontal line (pointing to bar)
@@ -9,7 +8,7 @@ import numberFormatter from "src/utils/number-formatter"
   xEnd = x position of ending vertical line, end of the horizontal line (pointing to label #2)
 */
 
-JoinedCallout.propTypes = {
+ReversedJoinedCallout.propTypes = {
 	'xStart': PropTypes.number.isRequired,
 	'xMid': PropTypes.number.isRequired,
 	'xEnd': PropTypes.number.isRequired,
@@ -20,7 +19,10 @@ JoinedCallout.propTypes = {
 };
 
 
-export default function JoinedCallout(props) {
+export default function ReversedJoinedCallout(props) {
+  const shiftLabel = 10;
+  const shiftAmount = 12;
+
   function TextBlock() {
     if(props.narrow) {
 			return <>
@@ -31,10 +33,10 @@ export default function JoinedCallout(props) {
           {props.label1Amount}&nbsp;({`${props.label1Percent}%`})
         </text>
 
-				<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight='bold'>
+				<text fill={defaults.fontColor} x={`${props.label2Offset + shiftLabel}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight='bold'>
 					{props.label2}
 				</text>
-				<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
+				<text fill={defaults.fontColor} x={`${props.label2Offset + shiftAmount}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
           {props.label2Amount}&nbsp;({`${props.label2Percent}%`})
 				</text>
 			</>
@@ -60,9 +62,9 @@ export default function JoinedCallout(props) {
 
 		<rect
 			fill={defaults.lineColor}
-			x={`${props.xStart}%`}
+			x={`${props.xEnd}%`}
 			y={defaults.starterHeight}
-			width={`${props.xEnd - props.xStart}%`}
+			width={`${props.xStart - props.xEnd}%`}
 			height={defaults.lineStroke}
 		/>
 

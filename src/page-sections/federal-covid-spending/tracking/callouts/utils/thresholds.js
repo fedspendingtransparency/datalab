@@ -1,9 +1,9 @@
 // threshold is an estimated percentage of the bar
 const threshold = {
   outlayLabelOffset: 1,
-  outlayLabelWidth: 7,
-  padding: 12,
-  obligatedLabelWidth: 7,
+  outlayLabelWidth: 10,
+  padding: 5,
+  obligatedLabelWidth: 10,
   unobligatedLabelOffset: 75,
   rightOffset: 90,
 }
