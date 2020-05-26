@@ -86,16 +86,16 @@ export default function Tracking(props) {
     }
 	`);
 
-  const accountsByFunction = {};
-  const accountsByAgency = {};
+	const accountsByFunction = {};
+	const accountsByAgency = {};
 
-  data.agencyPopup.group.forEach((item) => {
-    accountsByAgency[item.fieldValue] = item.nodes;
-  })
+	data.agencyPopup.group.forEach((item) => {
+		accountsByAgency[item.fieldValue] = item.nodes;
+	})
 
-  data.functionPopup.group.forEach((item) => {
-    accountsByFunction[item.fieldValue] = item.nodes;
-  })
+	data.functionPopup.group.forEach((item) => {
+		accountsByFunction[item.fieldValue] = item.nodes;
+	})
 
 	const [screenMode, setScreenMode] = useState(0);
 	const resizeWindow = () => {
@@ -113,10 +113,10 @@ export default function Tracking(props) {
 	});
 
 	const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
-  const [isModalOpen, setModalState] = useState(false);
-  const [selectedBar, setSelectedBar] = useState(null);
+	const [isModalOpen, setModalState] = useState(false);
+	const [selectedBar, setSelectedBar] = useState(null);
 
-  const handleToggle = e => {
+	const handleToggle = e => {
 		toggleChecked(e.target.checked);
 	}
 
@@ -134,16 +134,16 @@ export default function Tracking(props) {
 		setLimitBars(limitBars ? 0 : showLess);
 	}
 
-  const openModal = (e) => {
+	const openModal = (e) => {
 		setModalState(true);
 		setSelectedBar(e);
-  }
+	}
 
-  const closeModal = () => {
-    setModalState(false);
-    setSelectedBar(null);
+	const closeModal = () => {
+		setModalState(false);
+		setSelectedBar(null);
 
-  }
+	}
 
 	const mainChart = () => {
 		const barData = checked ? data.agencies.nodes : data.functions.nodes;
@@ -151,13 +151,13 @@ export default function Tracking(props) {
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
 				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
-				'percent': parseFloat(i.Percent_Outlaid).toFixed(2)
+				'percent': i.Percent_Outlaid
 			}, {
 				'amount': numberFormatter('dollars suffix', i.Amount_Obligated),
-				'percent': parseFloat(i.Percent_Obligated).toFixed(2)
+				'percent': i.Percent_Obligated
 			}, {
 				'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
-				'percent': parseFloat(i.Percent_Unobligated).toFixed(2)
+				'percent': i.Percent_Unobligated
 			}];
 
 			return <Bar key={key}
@@ -167,7 +167,7 @@ export default function Tracking(props) {
 				firstBar={key === 0}
 				lastBar={key === chartData.length - 1}
 				narrow={screenMode === ScreenModeEnum.mobile}
-        openModal={e => openModal(e)}
+				openModal={e => openModal(e)}
 			/>;
 		});
 
@@ -200,6 +200,8 @@ export default function Tracking(props) {
 		root: {
 			'color': 'inherit',
 			'text-transform': 'capitalize',
+			'margin-top': '2rem',
+			'border-top': 'solid thin #eee',
 			'&:hover': {
 				color: 'inherit'
 			}
@@ -207,16 +209,12 @@ export default function Tracking(props) {
 	}))(Button);
 
 	const findTitle = () => {
-		let dataType = 'functions'
-
-		if(checked) {
-      dataType = 'agencies';
-    }
-
+		let dataType = 'functions';
+		if (checked) {
+			dataType = 'agencies';
+		}
 		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
-
-		return `${selectedBar} ${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}`
-
+		return `${selectedBar} ${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}`;
 	}
 
 	return <>
@@ -237,16 +235,19 @@ export default function Tracking(props) {
 
 		{mainChart()}
 
-    <ModalReference open={isModalOpen}
-										close={closeModal}
-										title={findTitle()}
-										maxWidth={false} maxHeight={true}>
-      <Modal
+		<ModalReference
+			open={isModalOpen}
+			close={closeModal}
+			title={findTitle()}
+			maxWidth={false} maxHeight={true}
+		>
+			<Modal
 				bar={selectedBar}
 				mode={checked ? 'Agency' : 'Budget Function'}
-        data={checked ? accountsByAgency[selectedBar] : accountsByFunction[selectedBar]}
-        isMobile={screenMode === ScreenModeEnum.mobile} />
-    </ModalReference>
+				data={checked ? accountsByAgency[selectedBar] : accountsByFunction[selectedBar]}
+				isMobile={screenMode === ScreenModeEnum.mobile}
+			/>
+		</ModalReference>
 
 		<SeeMoreButton fullWidth onClick={handleSeeMore}>
 			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
