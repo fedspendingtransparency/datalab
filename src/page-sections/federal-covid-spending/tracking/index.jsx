@@ -132,7 +132,7 @@ export default function Tracking(props) {
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
 		if (!limitBars) {
-			location.hash = '#topofchart';
+			location = `${window.location.pathname}#topofchart`;
 		}
 		setLimitBars(limitBars ? 0 : showLess);
 	}
