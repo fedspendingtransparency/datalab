@@ -53,7 +53,7 @@ export default function StorySectionHeading(props) {
   return (
     <header>
       <section className={storySectionHeadingStyles.header}>
-        <Grid container>
+        <Grid container className={storySectionHeadingStyles.headerTitleContainer}>
           {props.header}
           <NumberItem />
           <Hidden smUp>
