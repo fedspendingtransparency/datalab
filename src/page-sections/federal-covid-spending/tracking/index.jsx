@@ -17,13 +17,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
-import ModalReference from "src/components/modal/modal"
-import Modal from "./modal"
+import ModalReference from "src/components/modal/modal";
+import Modal from "./modal";
 
 const showLess = 10; // bars to show when collapsed
 
 export default function Tracking(props) {
-	const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query {
       agencies: allCovid19ResponseViz3AgencyMain20200521Csv {
         nodes {
@@ -97,46 +97,46 @@ export default function Tracking(props) {
     accountsByFunction[item.fieldValue] = item.nodes;
   })
 
-	const [screenMode, setScreenMode] = useState(0);
-	const resizeWindow = () => {
-		const newMode = checkScreenMode(window.innerWidth);
-		if (newMode !== screenMode) {
-			setScreenMode(newMode);
-		}
-	}
-	useEffect(() => {
-		resizeWindow();
-		window.addEventListener('resize', resizeWindow);
-		return () => {
-			window.removeEventListener('resize', resizeWindow);
-		}
-	});
+  const [screenMode, setScreenMode] = useState(0);
+  const resizeWindow = () => {
+    const newMode = checkScreenMode(window.innerWidth);
+    if (newMode !== screenMode) {
+      setScreenMode(newMode);
+    }
+  }
+  useEffect(() => {
+    resizeWindow();
+    window.addEventListener('resize', resizeWindow);
+    return () => {
+      window.removeEventListener('resize', resizeWindow);
+    }
+  });
 
-	const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
+  const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
   const [isModalOpen, setModalState] = useState(false);
   const [selectedBar, setSelectedBar] = useState(null);
 
   const handleToggle = e => {
-		toggleChecked(e.target.checked);
-	}
+    toggleChecked(e.target.checked);
+  }
 
-	const first = {
-		name: 'Budget Function',
-		icon: <ListAltIcon className={styles.toggleIcon} />
-	}
-	const second = {
-		name: 'Agency',
-		icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
-	}
+  const first = {
+    name: 'Budget Function',
+    icon: <ListAltIcon className={styles.toggleIcon} />
+  }
+  const second = {
+    name: 'Agency',
+    icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
+  }
 
-	const [limitBars, setLimitBars] = useState(showLess);
-	const handleSeeMore = () => {
-		setLimitBars(limitBars ? 0 : showLess);
-	}
+  const [limitBars, setLimitBars] = useState(showLess);
+  const handleSeeMore = () => {
+    setLimitBars(limitBars ? 0 : showLess);
+  }
 
   const openModal = (e) => {
-		setModalState(true);
-		setSelectedBar(e);
+    setModalState(true);
+    setSelectedBar(e);
   }
 
   const closeModal = () => {
@@ -145,113 +145,113 @@ export default function Tracking(props) {
 
   }
 
-	const mainChart = () => {
-		const barData = checked ? data.agencies.nodes : data.functions.nodes;
-		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
-		const table = chartData.map((i, key) => {
-			const thisBar = [{
-				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
-				'percent': parseFloat(i.Percent_Outlaid).toFixed(2)
-			}, {
-				'amount': numberFormatter('dollars suffix', i.Amount_Obligated),
-				'percent': parseFloat(i.Percent_Obligated).toFixed(2)
-			}, {
-				'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
-				'percent': parseFloat(i.Percent_Unobligated).toFixed(2)
-			}];
+  const mainChart = () => {
+    const barData = checked ? data.agencies.nodes : data.functions.nodes;
+    const chartData = limitBars ? barData.slice(0, limitBars) : barData;
+    const table = chartData.map((i, key) => {
+      const thisBar = [{
+	'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
+	'percent': parseFloat(i.Percent_Outlaid).toFixed(2)
+      }, {
+	'amount': numberFormatter('dollars suffix', i.Amount_Obligated),
+	'percent': parseFloat(i.Percent_Obligated).toFixed(2)
+      }, {
+	'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
+	'percent': parseFloat(i.Percent_Unobligated).toFixed(2)
+      }];
 
-			return <Bar key={key}
-				data={thisBar}
-				barLabel={i.label}
-				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
-				firstBar={key === 0}
-				lastBar={key === chartData.length - 1}
-				narrow={screenMode === ScreenModeEnum.mobile}
-        openModal={e => openModal(e)}
-			/>;
-		});
+      return <Bar key={key}
+		  data={thisBar}
+		  barLabel={i.label}
+		  total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
+		  firstBar={key === 0}
+		  lastBar={key === chartData.length - 1}
+		  narrow={screenMode === ScreenModeEnum.mobile}
+                  openModal={e => openModal(e)}
+	     />;
+    });
 
-		return (<>
-			<div className={styles.legend}>
-				<div className={styles.toggleContainer}>
-					<Toggle
-						first={first}
-						second={second}
-						checked={checked}
-						handleToggle={handleToggle}
-					/>
-				</div>
-				<div className={styles.blockContainer}>
-					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlay</span>
-					<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligated</span>
-					<span className={`${styles.block} ${styles.unobligatedBar}`}></span><span>Unobligated</span>
-				</div>
-			</div>
-			<div className={styles.percentLegend}>
-				<span>0%</span><span>50%</span><span>100%</span>
-			</div>
-			<div className={styles.barContainer}>
-				{table}
-			</div>
-		</>);
-	}
+    return (<>
+	      <div className={styles.legend}>
+		<div className={styles.toggleContainer}>
+		  <Toggle
+		    first={first}
+		    second={second}
+		    checked={checked}
+		    handleToggle={handleToggle}
+		  />
+		</div>
+		<div className={styles.blockContainer}>
+		  <span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlay</span>
+		  <span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligated</span>
+		  <span className={`${styles.block} ${styles.unobligatedBar}`}></span><span>Unobligated</span>
+		</div>
+	      </div>
+	      <div className={styles.percentLegend}>
+		<span>0%</span><span>50%</span><span>100%</span>
+	      </div>
+	      <div className={styles.barContainer}>
+		{table}
+	      </div>
+	    </>);
+  };
 
-	const SeeMoreButton = withStyles(() => ({
-		root: {
-			'color': 'inherit',
-			'text-transform': 'capitalize',
-			'&:hover': {
-				color: 'inherit'
-			}
-		}
-	}))(Button);
+  const SeeMoreButton = withStyles(() => ({
+    root: {
+      'color': 'inherit',
+      'text-transform': 'capitalize',
+      '&:hover': {
+	color: 'inherit'
+      }
+    }
+  }))(Button);
 
-	const findTitle = () => {
-		let dataType = 'functions'
+  const findTitle = () => {
+    let dataType = 'functions';
 
-		if(checked) {
+    if(checked) {
       dataType = 'agencies';
     }
 
-		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
+    const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
 
-		return `${selectedBar} ${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}`
+    return `${selectedBar} ${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}`;
 
-	}
+  };
 
-	return <>
-		<h1>Progress of COVID-19 Spending</h1>
+  return <>
+	   <h1>Progress of COVID-19 Spending</h1>
 
-		<AccordionList title='Instructions'>
-			<p>Actual instructions are larger than they appear</p>
-		</AccordionList>
+	   <AccordionList title='Instructions'>
+	     <p>Actual instructions are larger than they appear</p>
+	   </AccordionList>
 
-		<ControlBar>
-			<Share
-				siteUrl={props.location.origin}
-				pageUrl={props.location.pathname + '#' + props.sectionId}
-				title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-				text={'Who watches the Watchmen? Anyone with HBO...'}
-			/>
-		</ControlBar>
+	   <ControlBar>
+	     <Share
+	       siteUrl={props.location.origin}
+	       pageUrl={props.location.pathname + '#' + props.sectionId}
+	       title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+	       text={'Who watches the Watchmen? Anyone with HBO...'}
+	     />
+	   </ControlBar>
 
-		{mainChart()}
+	   {mainChart()}
 
-    <ModalReference open={isModalOpen}
-										close={closeModal}
-										title={findTitle()}
-										maxWidth={false} maxHeight={true}>
-      <Modal
-				bar={selectedBar}
-				mode={checked ? 'Agency' : 'Budget Function'}
-        data={checked ? accountsByAgency[selectedBar] : accountsByFunction[selectedBar]}
-        isMobile={screenMode === ScreenModeEnum.mobile} />
-    </ModalReference>
+           <ModalReference open={isModalOpen}
+			   close={closeModal}
+			   title={findTitle()}
+			   maxWidth={false} maxHeight={true}>
+             <Modal
+	       bar={selectedBar}
+	       mode={checked ? 'Agency' : 'Budget Function'}
+               data={checked ? accountsByAgency[selectedBar] : accountsByFunction[selectedBar]}
+               isMobile={screenMode === ScreenModeEnum.mobile} />
+           </ModalReference>
 
-		<SeeMoreButton fullWidth onClick={handleSeeMore}>
-			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
-		</SeeMoreButton>
+	   <SeeMoreButton fullWidth onClick={handleSeeMore}>
+	     {limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
+	   </SeeMoreButton>
 
-		<Downloads href={''} date={'May 2020'} />
-	</>;
+	   <Downloads href={'data/federal-covid-spending/overview/covid19_response_viz3_agency_main_2020-5-21.csv'} date={'May 2020'} />
+	 </>;
 }
