@@ -64,6 +64,7 @@ export default class Bar extends React.Component {
 							data={this.props.data}
 							narrow={this.props.narrow}
 							tablet={this.props.tablet}
+							mobile={this.props.mobile}
 						/>
 						<PercentBar
 							outlaid={parseFloat(this.props.data[0].percent)}

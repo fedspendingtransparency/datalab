@@ -60,11 +60,8 @@ export default function CovidModal(props) {
     if(props.mobile) {
       return <div style={{paddingRight: '8px'}}>
           <Bar data={props.barData}
-               firstBar={false}
-               lastBar={false}
                narrow={true}
-               tablet={false}
-               mobile={false}
+               mobile={true}
            />
           <Grid container className={styles.titles}>
             <Grid item xs={10}>Spending Account:</Grid>

@@ -25,10 +25,11 @@ export default function CalloutBar(props) {
     unobligated: barState[1]
   };
 
-  console.log(props.tablet);
+  const padding = props.tablet ? threshold.tabletPadding : props.mobile ? threshold.mobilePadding : threshold.padding;
+  const unobligatedLabelOffset = props.tablet ? threshold.tabletUnobligatedLabelOffset : props.mobile ? threshold.mobileUnobligatedLabelOffset : props.narrow ? threshold.modalUnobligatedLabelOffset : threshold.unobligatedLabelOffset;
 
-  const padding = props.tablet ? threshold.tabletPadding : threshold.padding;
-  const unobligatedLabelOffset = props.tablet ? threshold.tabletUnobligatedLabelOffset : props.narrow ? threshold.modalUnobligatedLabelOffset : threshold.unobligatedLabelOffset;
+  console.log(unobligatedLabelOffset);
+  console.log(threshold.mobileUnobligatedLabelOffset);
 
   const outlayLabelMidPoint = parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2);
   const obligatedLabelMidPoint = parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding + threshold.obligatedLabelWidth / 2);

@@ -172,6 +172,7 @@ export default function Tracking(props) {
 				lastBar={key === chartData.length - 1}
 				narrow={screenMode === ScreenModeEnum.mobile}
         tablet={screenMode === ScreenModeEnum.tablet}
+				mobile={screenMode === ScreenModeEnum.mobile}
         openModal={e => openModal(e, thisBar)}
 			/>;
 		});
