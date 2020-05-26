@@ -76,6 +76,14 @@ $fedEmpBlue: #2272ce;
   font-size: 1.0625rem;
   font-weight: 300;
   line-height: 24px;
+
+  a {
+    color: $legacyBlue;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 .heading-red {

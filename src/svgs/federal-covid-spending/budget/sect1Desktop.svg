@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg class="budgetSvg" aria-labelledby="covid-budget-desktop" width="1173px" height="627px" viewBox="0 0 1173 627" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <desc id="covid-budget-desktop">alt text goes here</desc>
-    <style>
+<svg class="budgetSvg" aria-labelledby="covid-budget-desktop" width="1173px" height="627px" viewBox="0 0 1173 627" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+    <defs>
+      <desc id="covid-budget-desktop">alt text goes here</desc>
+      <style>
 	#Hover-Rectangle {
 	fill: #6F41A7;
 	fill-opacity: 0;
@@ -10,8 +11,7 @@
 	fill: #6F41A7;
 	fill-opacity: .12;
 	}
-    </style>
-    <defs>
+      </style>
         <polygon id="path-1" points="0.2607 0.6392 133.689 0.6392 133.689 29.4522 0.2607 29.4522"></polygon>
         <polygon id="path-3" points="0.8522 0.6042 1.9002 0.6042 1.9002 6 0.8522 6"></polygon>
         <polygon id="path-5" points="0.5842 0.6007 5.753 0.6007 5.753 1.6057 0.5842 1.6057"></polygon>
@@ -29,9 +29,9 @@
         <g id="Desktop-HD" transform="translate(-134.000000, -119.000000)">
             <g id="Viz-1-Desktop" transform="translate(134.000000, 119.000000)">
                 <g id="Labels" transform="translate(60.000000, 552.000000)" fill="#666666" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal">
-                    <text id="Commercial-+-Housing">
-                        <tspan x="3.61" y="12">Commercial </tspan>
-                        <tspan x="9.094" y="27">+ Housing </tspan>
+                    <text id="Commerce-+-Housing-C">
+                        <tspan x="2.608" y="12">Commerce + </tspan>
+                        <tspan x="13.276" y="27">Housing </tspan>
                         <tspan x="18.742" y="42">Credit</tspan>
                     </text>
                     <text id="Income-Security">
@@ -502,7 +502,7 @@
                     <tspan x="1151.604" y="439" font-family="SourceSansPro-Bold, Source Sans Pro" font-weight="bold"></tspan>
                     <tspan x="1118.612" y="459" font-family="SourceSansPro-Bold, Source Sans Pro" font-weight="bold">$2 B</tspan>
                 </text>
-                <use id="Hover-Rectangle" stroke="#6F41A7" mask="url(#mask-18)" stroke-width="4" stroke-dasharray="5,3" xlink:href="#path-17"></use>
+                <use id="Hover-Rectangle" focusable="true" tabIndex="0" stroke="#6F41A7" mask="url(#mask-18)" stroke-width="4" stroke-dasharray="5,3" xlink:href="#path-17"></use>
                 <g id="Bars" transform="translate(67.000000, 23.000000)" fill="#6F41A7" opacity="0.645693824">
                     <rect id="Rectangle" x="0" y="0" width="52" height="521"></rect>
                     <rect id="Rectangle-Copy" x="105" y="309" width="52" height="212"></rect>

@@ -42,8 +42,8 @@ export default class Bar extends React.Component {
   }
 
 	render = () =>
-		<div className={styles.container}>
-			<div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>
+		<div className={this.props.narrow ? '' : styles.container}>
+			{this.props.narrow ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>}
 			<div className={styles.barContainer}>
 				<div
 					className={`${styles.bar}
@@ -51,6 +51,7 @@ export default class Bar extends React.Component {
 					${this.props.narrow ? '' : styles.barBorder}
 					${this.props.firstBar ? styles.firstBar : ''}
 					${this.props.lastBar ? styles.lastBar : ''}`}
+					style={{cursor: this.props.narrow ? 'default' : 'pointer'}}
           tabIndex='0'
 					onClick={() => this.props.narrow ? '' : this.clickHandler(this.props.barLabel)}
 					onKeyUp={e => this.props.narrow ? '' : this.keyUpHandler(e, this.props.barLabel)}
