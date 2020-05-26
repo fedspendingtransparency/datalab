@@ -24,21 +24,8 @@ svg {
   justify-content: space-between;
 
   &:hover {
+    cursor: pointer;
     font-weight: $bold;
-
-    svg {
-      .outlayBar {
-        fill: #5d368b;
-      }
-
-      .obligatedBar {
-        fill: #6f41a6;
-      }
-
-      .unobligatedBar {
-        fill: #9673c1;
-      }
-    }
   }
 
   .topPad {
