@@ -249,11 +249,15 @@ export default function Tracking(props) {
 			/>
 		</ModalReference>
 
-		{(checked ? data.agencies.nodes : data.functions.nodes).length <= limitBars ?
+		{limitBars >= (checked ? data.agencies.nodes : data.functions.nodes).length ?
 			''
 			:
 			<SeeMoreButton fullWidth onClick={handleSeeMore}>
-				{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
+				{limitBars ?
+					`See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})`
+					:
+					'See Less'
+				}
 			</SeeMoreButton>
 		}
 
