@@ -11,19 +11,19 @@ $fedEmpBlue: #2272ce;
 }
 
 .headerNumber h2 {
-  color: $darkGrey;
+  color: $mdGrey;
   font-size: 3rem;
   font-weight: 600;
   line-height: 3.125rem;
   margin: 0.1rem 0 0.3rem;
   text-align: center;
-  border-bottom: 1px solid $darkGrey;
+  border-bottom: 1px solid #ddd;
 }
 
 .headerTitle {
   color: $darkGrey;
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: bold;
   text-transform: uppercase;
 }
 
@@ -139,8 +139,17 @@ $fedEmpBlue: #2272ce;
 
 @media (min-width: $desktop-xl) {
   .header {
-    .headerTitle {
-      line-height: 60px;
+    .headerTitleContainer {
+      margin-bottom: 40px;
+
+      .headerNumber h2 {
+        padding-bottom: 8px;
+      }
+
+      .headerTitle {
+        line-height: 60px;
+        padding-left: 42px;
+      }
     }
   }
 
