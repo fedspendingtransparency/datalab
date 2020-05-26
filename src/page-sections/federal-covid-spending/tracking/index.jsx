@@ -131,6 +131,9 @@ export default function Tracking(props) {
 
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
+		if (!limitBars) {
+			location = `${window.location.pathname}#topofchart`;
+		}
 		setLimitBars(limitBars ? 0 : showLess);
 	}
 
@@ -138,11 +141,9 @@ export default function Tracking(props) {
 		setModalState(true);
 		setSelectedBar(e);
 	}
-
 	const closeModal = () => {
 		setModalState(false);
 		setSelectedBar(null);
-
 	}
 
 	const mainChart = () => {
@@ -150,14 +151,14 @@ export default function Tracking(props) {
 		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
-				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
-				'percent': i.Percent_Outlaid
+				'amount': i.Amount_Outlaid,
+				'percent': parseFloat(i.Percent_Outlaid).toFixed(2)
 			}, {
-				'amount': numberFormatter('dollars suffix', i.Amount_Obligated),
-				'percent': i.Percent_Obligated
+				'amount': i.Amount_Obligated,
+				'percent': parseFloat(i.Percent_Obligated).toFixed(2)
 			}, {
-				'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
-				'percent': i.Percent_Unobligated
+				'amount': i.Amount_Unobligated,
+				'percent': parseFloat(i.Percent_Unobligated).toFixed(2)
 			}];
 
 			return <Bar key={key}
@@ -209,10 +210,7 @@ export default function Tracking(props) {
 	}))(Button);
 
 	const findTitle = () => {
-		let dataType = 'functions';
-		if (checked) {
-			dataType = 'agencies';
-		}
+		const dataType = checked ? 'agencies' : 'functions';
 		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
 		return `${selectedBar} ${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}`;
 	}
@@ -233,6 +231,7 @@ export default function Tracking(props) {
 			/>
 		</ControlBar>
 
+		<a id='topofchart' />
 		{mainChart()}
 
 		<ModalReference
@@ -249,9 +248,17 @@ export default function Tracking(props) {
 			/>
 		</ModalReference>
 
-		<SeeMoreButton fullWidth onClick={handleSeeMore}>
-			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
-		</SeeMoreButton>
+		{limitBars >= (checked ? data.agencies.nodes : data.functions.nodes).length ?
+			''
+			:
+			<SeeMoreButton fullWidth onClick={handleSeeMore}>
+				{limitBars ?
+					`See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})`
+					:
+					'See Less'
+				}
+			</SeeMoreButton>
+		}
 
 		<Downloads href={''} date={'May 2020'} />
 	</>;

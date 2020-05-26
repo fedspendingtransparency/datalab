@@ -12,6 +12,8 @@ import homeless from 'src/images/more-analyses/homeless.png';
 import dts from 'src/images/more-analyses/dts.png';
 import explorer from 'src/images/more-analyses/explorer.png';
 import rd from 'src/images/more-analyses/rd.png';
+import covid from 'src/images/more-analyses/covid.png';
+import afg from 'src/images/more-analyses/afg.png';
 
 
 export default class MoreAnalyses extends React.Component {
@@ -69,11 +71,18 @@ export default class MoreAnalyses extends React.Component {
     subtitle: 'Who receives federal contracts?'
   },
   {
-    href: 'rd-in-contracting',
-    imageSrc: rd,
-    altText: 'Abstract Brain with 4 categories: Aeronautics, Infectious Disease, Renewable Energy & Anti-Terrorism.',
-    title: 'R&D In Contracting',
-    subtitle: 'How does the government invest in research & development?'
+    href: 'federal-covid-spending',
+    imageSrc: covid,
+    altText: 'Woman standing with medical face mask on, social distanced between two others, with a cartoon image of the U.S. Capitol in the background.',
+    title: 'The Federal Response to COVID-19',
+    subtitle: 'How is the federal government funding relief efforts for COVID-19?'
+  },
+  {
+    href: 'americas-finance-guide',
+    imageSrc: afg,
+    altText: 'The Department of Treasury building, in Washington, D.C., that includes a bronze statue of Albert Gallatin, the fourth Secretary of the Treasury.',
+    title: 'America\'s Finance Guide',
+    subtitle: 'How much does the government spend and collect?'
   }];
 
   show = { // key is current page URL frag, value is array of analyses (above) to show
@@ -86,7 +95,7 @@ export default class MoreAnalyses extends React.Component {
     'budget-function': [8, 0, 6, 1],
     'competition-in-contracting': [8, 7, 5, 4],
     'rd-in-contracting': [5, 4, 7, 6],
-    'federal-covid-spending': [8, 5, 7, 0]
+    'federal-covid-spending': [9, 5, 7, 0]
   };
 
   showAnything = () => {
