@@ -142,9 +142,9 @@ export default function CalloutBar(props) {
         label2Offset={obligatedSettings.labelOffset}
         label1={'Outlaid'}
         label2={'Obligated'}
-        label1Amount={numberFormatter('dollars suffix', props.data[0].amount)}
+        label1Amount={props.data[0].amount}
         label1Percent={props.outlaid}
-        label2Amount={numberFormatter('dollars suffix', props.data[1].amount)}
+        label2Amount={props.data[1].amount}
         label2Percent={props.obligated}
         narrow={props.narrow}
       />)
@@ -154,7 +154,7 @@ export default function CalloutBar(props) {
         xStart={outlaySettings.defaultStartingPoint}
         labelOffset={threshold.outlayLabelOffset}
         label={`Outlaid`}
-        labelAmount={numberFormatter('dollars suffix', props.data[0].amount)}
+        labelAmount={props.data[0].amount}
         labelPercent={props.outlaid}
         narrow={props.narrow}
       />)
@@ -165,7 +165,7 @@ export default function CalloutBar(props) {
         xEnd={outlaySettings.labelMidpoint}
         labelOffset={threshold.outlayLabelOffset}
         label={`Outlaid`}
-        labelAmount={numberFormatter('dollars suffix', props.data[0].amount)}
+        labelAmount={props.data[0].amount}
         labelPercent={props.outlaid}
         narrow={props.narrow}
       />)
@@ -184,7 +184,7 @@ export default function CalloutBar(props) {
         xStart={parseFloat(props.outlaid + props.obligated / 2)}
         labelOffset={parseFloat(props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2)}
         label={`Obligated`}
-        labelAmount={numberFormatter('dollars suffix', props.data[1].amount)}
+        labelAmount={props.data[1].amount}
         labelPercent={props.obligated}
         narrow={props.narrow}
       />)
@@ -195,7 +195,7 @@ export default function CalloutBar(props) {
         xEnd={obligatedSettings.labelOffset + threshold.outlayLabelWidth / 2}
         labelOffset={obligatedSettings.labelOffset}
         label={`Obligated`}
-        labelAmount={numberFormatter('dollars suffix', props.data[1].amount)}
+        labelAmount={props.data[1].amount}
         labelPercent={props.obligated}
         narrow={props.narrow}
       />)
@@ -205,7 +205,7 @@ export default function CalloutBar(props) {
         xEnd={threshold.obligatedLabelOffset + threshold.outlayLabelWidth / 2}
         labelOffset={threshold.obligatedLabelOffset}
         label={`Obligated`}
-        labelAmount={numberFormatter('dollars suffix', props.data[1].amount)}
+        labelAmount={props.data[1].amount}
         labelPercent={props.obligated}
         narrow={props.narrow}
       />)
@@ -219,9 +219,9 @@ export default function CalloutBar(props) {
         label2Offset={unobligatedLabelOffset}
         label1={'Obligated'}
         label2={'Unobligated'}
-        label1Amount={numberFormatter('dollars suffix', props.data[1].amount)}
+        label1Amount={props.data[1].amount}
         label1Percent={props.obligated}
-        label2Amount={numberFormatter('dollars suffix', props.data[2].amount)}
+        label2Amount={props.data[2].amount}
         label2Percent={props.unobligated}
         narrow={props.narrow}
       />)
@@ -235,7 +235,7 @@ export default function CalloutBar(props) {
         xStart={threshold.rightOffset}
         labelOffset={unobligatedLabelOffset}
         label={`Unobligated`}
-        labelAmount={numberFormatter('dollars suffix', props.data[2].amount)}
+        labelAmount={props.data[2].amount}
         labelPercent={props.unobligated}
         narrow={props.narrow}
       />)
@@ -246,7 +246,7 @@ export default function CalloutBar(props) {
         xEnd={90}
         labelOffset={unobligatedLabelOffset}
         label={`Unobligated`}
-        labelAmount={numberFormatter('dollars suffix', props.data[2].amount)}
+        labelAmount={props.data[2].amount}
         labelPercent={props.unobligated}
         narrow={props.narrow}
       />)

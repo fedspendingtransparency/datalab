@@ -18,7 +18,7 @@ import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
 import ModalReference from "src/components/modal/modal"
-import Modal from "./modal"
+import Modal from "./modal/modal"
 
 const showLess = 10; // bars to show when collapsed
 
@@ -115,6 +115,7 @@ export default function Tracking(props) {
 	const [checked, toggleChecked] = useState(false); // false = Budget Function, true = Agency
 	const [isModalOpen, setModalState] = useState(false);
 	const [selectedBar, setSelectedBar] = useState(null);
+  const [selectedBarData, setSelectedBarData] = useState(null);
 
 	const handleToggle = e => {
 		toggleChecked(e.target.checked);
@@ -131,18 +132,21 @@ export default function Tracking(props) {
 
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
+		if (!limitBars) {
+			location = `${window.location.pathname}#topofchart`;
+		}
 		setLimitBars(limitBars ? 0 : showLess);
 	}
 
-	const openModal = (e) => {
+	const openModal = (e, data) => {
 		setModalState(true);
 		setSelectedBar(e);
+    setSelectedBarData(data)
 	}
 
 	const closeModal = () => {
 		setModalState(false);
 		setSelectedBar(null);
-
 	}
 
 	const mainChart = () => {
@@ -168,7 +172,7 @@ export default function Tracking(props) {
 				lastBar={key === chartData.length - 1}
 				narrow={screenMode === ScreenModeEnum.mobile}
         tablet={screenMode === ScreenModeEnum.tablet}
-        openModal={e => openModal(e)}
+        openModal={e => openModal(e, thisBar)}
 			/>;
 		});
 
@@ -201,6 +205,8 @@ export default function Tracking(props) {
 		root: {
 			'color': 'inherit',
 			'text-transform': 'capitalize',
+			'margin-top': '2rem',
+			'border-top': 'solid thin #eee',
 			'&:hover': {
 				color: 'inherit'
 			}
@@ -208,16 +214,9 @@ export default function Tracking(props) {
 	}))(Button);
 
 	const findTitle = () => {
-		let dataType = 'functions'
-
-		if (checked) {
-			dataType = 'agencies';
-		}
-
+		const dataType = checked ? 'agencies' : 'functions';
 		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
-
-		return `${selectedBar} ${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}`
-
+		return `${selectedBar} ${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}`;
 	}
 
 	return <>
@@ -236,23 +235,37 @@ export default function Tracking(props) {
 			/>
 		</ControlBar>
 
+		<a id='topofchart' />
 		{mainChart()}
 
-		<ModalReference open={isModalOpen}
+		<ModalReference
+			open={isModalOpen}
 			close={closeModal}
 			title={findTitle()}
-			maxWidth={false} maxHeight={true}>
+			maxWidth={false} maxHeight={true}
+		>
 			<Modal
 				bar={selectedBar}
+				barData={selectedBarData}
 				mode={checked ? 'Agency' : 'Budget Function'}
         data={checked ? accountsByAgency[selectedBar] : accountsByFunction[selectedBar]}
         narrow={screenMode === ScreenModeEnum.mobile}
-				tablet={screenMode === ScreenModeEnum.tablet} />
-    </ModalReference>
+        tablet={screenMode === ScreenModeEnum.tablet}
+        mobile={screenMode === ScreenModeEnum.mobile}
+			/>
+		</ModalReference>
 
-		<SeeMoreButton fullWidth onClick={handleSeeMore}>
-			{limitBars ? `See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})` : 'See Less'}
-		</SeeMoreButton>
+		{limitBars >= (checked ? data.agencies.nodes : data.functions.nodes).length ?
+			''
+			:
+			<SeeMoreButton fullWidth onClick={handleSeeMore}>
+				{limitBars ?
+					`See More (${(checked ? data.agencies.nodes : data.functions.nodes).length - limitBars})`
+					:
+					'See Less'
+				}
+			</SeeMoreButton>
+		}
 
 		<Downloads href={''} date={'May 2020'} />
 	</>;

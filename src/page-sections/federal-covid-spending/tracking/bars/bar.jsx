@@ -53,20 +53,18 @@ export default class Bar extends React.Component {
 					${this.props.lastBar ? styles.lastBar : ''}`}
 					style={{ cursor: this.props.narrow ? 'default' : 'pointer' }}
 					tabIndex='0'
-					onClick={() => this.props.narrow ? '' : this.clickHandler(this.props.barLabel)}
+					onClick={() => this.clickHandler(this.props.barLabel)}
 					onKeyUp={e => this.props.narrow ? '' : this.keyUpHandler(e, this.props.barLabel)}
 				>
 					<svg width='100%' height={this.props.narrow ? '70px' : '56px'}>
-						<Hidden smDown>
-							<CalloutBar
-								outlaid={parseFloat(this.props.data[0].percent)}
-								obligated={parseFloat(this.props.data[1].percent)}
-								unobligated={parseFloat(this.props.data[2].percent)}
-								data={this.props.data}
-                narrow={this.props.narrow}
-								tablet={this.props.tablet}
-							/>
-						</Hidden>
+						<CalloutBar
+							outlaid={parseFloat(this.props.data[0].percent)}
+							obligated={parseFloat(this.props.data[1].percent)}
+							unobligated={parseFloat(this.props.data[2].percent)}
+							data={this.props.data}
+							narrow={this.props.narrow}
+							tablet={this.props.tablet}
+						/>
 						<PercentBar
 							outlaid={parseFloat(this.props.data[0].percent)}
 							obligated={parseFloat(this.props.data[1].percent)}
