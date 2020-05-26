@@ -58,9 +58,9 @@ const Overview = (props) => {
   );
 
   let chartComponent = <img src={DesktopChart} alt="section-2-desktop-svg" />;
-      if (screenWidth < 992 && screenWidth >= 768) {
-        chartComponent = <img src={TabletChart} alt="section-2-tablet-svg" />;
-      }
+  if (screenWidth < 992 && screenWidth >= 768) {
+    chartComponent = <img src={TabletChart} alt="section-2-tablet-svg" />;
+  }
 
   const visualizationComponent = screenWidth < 768 ? (
     <>
@@ -99,12 +99,13 @@ const Overview = (props) => {
           </div>
         </Grid>
         <ControlBar>
-          <Share
-            location={props.location}
-            title='Check out this analysis on Data Lab'
-            text='Did you know the federal government invested over $149 billion in higher education? Check out this analysis and discover how much your Alma Mater received in federal funds!'
-            twitter='Did you know the federal government invested over $149 billion in higher education? Check out this analysis and discover how much your Alma Mater received in federal funds! #DataLab #Treasury #DataTransparency #USAspending'
-          />
+	  <Share
+	    siteUrl={props.location.origin}
+	    pageUrl={props.location.pathname + '#' + props.sectionId}
+	    title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+	    text={'Who watches the Watchmen? Anyone with HBO...'}
+            hoverColor='#1302d9'
+	  />
         </ControlBar>
       </Grid>
       {visualizationComponent}
