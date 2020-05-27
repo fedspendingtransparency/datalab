@@ -4,6 +4,30 @@ $pageColor: #1302d9;
 $left-indent: 32px;
 $bullet-size: 1.5rem;
 
+// coming soon only
+.comingSoon {
+  text-align: center;
+}
+
+@media (min-width: $desktop) {
+  .comingSoon {
+    margin: 5rem 0 2rem 0;
+  }
+}
+
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  .comingSoon {
+    margin: 4rem 0 2rem 0;
+  }
+}
+
+@media (max-width: $tablet - 1) {
+  .comingSoon {
+    margin: 3.5rem 0 2rem 0;
+  }
+}
+// coming soon only
+
 .bold {
   font-weight: $bold;
 }
@@ -23,8 +47,6 @@ $bullet-size: 1.5rem;
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
   display: inline;
-  margin-top: 6rem;
-  margin-bottom: 3rem;
 }
 
 .accordion-contents {
