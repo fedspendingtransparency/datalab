@@ -27,11 +27,14 @@ $fedEmpBlue: #2272ce;
   text-transform: uppercase;
 }
 
-.intro-container {
+.introContainer {
   margin: 0 0 $margin-50 0;
 
   .intro {
     padding: 0 40px 0 0;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin: 1rem 0;
   }
 
   .blurb-text {
@@ -104,16 +107,6 @@ $fedEmpBlue: #2272ce;
   font-size: inherit;
 }
 
-@media (min-width: $phone) {
-  .introContainer {
-    .intro {
-      font-size: 2.5rem;
-      font-weight: 300;
-      margin: 0;
-    }
-  }
-}
-
 @media (max-width: $desktop-xl - 1) {
   .number {
     margin-bottom: 25px;
@@ -165,24 +158,15 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-
-//  .headerNumber h2 {
-//    border: none;
-//    text-decoration: underline;
-//  }
-//  .headerTitle {
-//    margin-top: $margin-25;
-//  }
-//}
-
-@media (max-width: $phone - 1) {
+@media (max-width: $tablet - 1) {
   .introContainer {
     margin: 0 0 25px 0 !important;
+    
     .intro {
       font-size: 1.125rem;
       font-weight: 600;
       color: $darkGrey;
-      margin: 1rem 0;
+      margin: 0;
     }
   }
 
@@ -198,4 +182,3 @@ $fedEmpBlue: #2272ce;
     margin: 0;
   }
 }
-
