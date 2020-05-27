@@ -91,7 +91,7 @@ const Overview = (props) => {
       </Grid>
       {chartComponent}
       <div className={overviewStyles.updatedDate}>
-        <Downloads date='May 2020' />
+        <span className={overviewStyles.fadedModifier}>Updated as of May 2020</span>
       </div>
     </>
   );

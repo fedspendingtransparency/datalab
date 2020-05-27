@@ -28,9 +28,12 @@
 }
 
 .updatedDate {
-	color: $darkGrey;
-	font-size: 1rem;
-	font-weight: 300;
+	text-align: right;
+
+	.fadedModifier {
+		opacity: 0.5;
+		line-height: 18pt;
+	}
 }
 
 .overviewMobileSvgContainer {
