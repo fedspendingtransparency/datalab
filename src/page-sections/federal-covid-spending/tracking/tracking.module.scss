@@ -71,25 +71,24 @@ h1 {
   }
 }
 
-@media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+@media (max-width: $desktop - 1) {
   .legend {
     flex-direction: column;
     align-items: flex-end;
+  }
 
-    .toggleContainer {
-      width: 100%;
-      margin-bottom: 0;
-    }
+  .toggleContainer {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .percentLegend {
+    margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
   }
 }
 
 @media screen and (max-width: $tablet - 1) {
   .legend {
-    flex-direction: column;
     align-items: center;
-
-    .toggleContainer {
-      margin-bottom: 0;
-    }
   }
 }

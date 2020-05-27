@@ -43,7 +43,7 @@ export default class Bar extends React.Component {
 
 	render = () =>
 		<div className={this.props.narrow ? '' : styles.container}>
-			{this.props.showDetails ? <div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div> : ''}
+			<div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>
 			<div className={styles.barContainer}>
 				<div
 					className={`${styles.bar}
@@ -76,7 +76,7 @@ export default class Bar extends React.Component {
 					</svg>
 				</div>
 			</div>
-			{this.props.showDetails ? <div className={`${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div> : ''}
+			<div className={`${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div>
 		</div>
 		;
 }
