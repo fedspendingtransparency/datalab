@@ -7,24 +7,10 @@ h1 {
 
 .legend {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: right;
 
   span {
     font-size: 0.8rem;
-  }
-
-  .toggleContainer {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-
-    .toggle-icon {
-      height: 22px;
-      width: 22px;
-      margin-right: 0.5rem;
-      cursor: pointer;
-    }
   }
 
   .blockContainer {
