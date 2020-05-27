@@ -22,7 +22,7 @@ import Modal from "./modal/modal"
 const showLess = 10; // bars to show when collapsed
 
 export default function Tracking(props) {
-	const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query {
       agencies: allCovid19ResponseViz3AgencyMain20200521Csv {
         nodes {
@@ -169,21 +169,21 @@ export default function Tracking(props) {
 		return `${selectedBar} ${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}`;
 	}
 
-	return <>
-		<h1>Progress of COVID-19 Spending</h1>
+  return <>
+	   <h1>Progress of COVID-19 Spending</h1>
 
-		<AccordionList title='Instructions'>
-			<p>Actual instructions are larger than they appear</p>
-		</AccordionList>
+	   <AccordionList title='Instructions'>
+	     <p>Actual instructions are larger than they appear</p>
+	   </AccordionList>
 
-		<ControlBar>
-			<Share
-				siteUrl={props.location.origin}
-				pageUrl={props.location.pathname + '#' + props.sectionId}
-				title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-				text={'Who watches the Watchmen? Anyone with HBO...'}
-			/>
-		</ControlBar>
+	   <ControlBar>
+	     <Share
+	       siteUrl={props.location.origin}
+	       pageUrl={props.location.pathname + '#' + props.sectionId}
+	       title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+	       text={'Who watches the Watchmen? Anyone with HBO...'}
+	     />
+	   </ControlBar>
 
 		<a id='topofchart' />
 		{mainChart()}
@@ -215,6 +215,6 @@ export default function Tracking(props) {
 			</SeeMoreButton>
 		}
 
-		<Downloads href={''} date={'May 2020'} />
+		<Downloads href={'/data/federal-covid-spending/tracking/covid19_response_viz3_agency_popout_2020-05-21.csv'} date={'May 2020'} />
 	</>;
 }
