@@ -210,6 +210,7 @@ export default function Tracking(props) {
 				}
 			</SeeMoreButton>
 		}
-	   <Downloads href={'data/federal-covid-spending/overview/covid19_response_viz3_agency_main_2020-5-21.csv'} date={'May 2020'} />
-	 </>;
+
+		<Downloads href={'/data/federal-covid-spending/tracking/covid19_response_viz3_agency_popout_2020-05-21.csv'} date={'May 2020'} />
+	</>;
 }
