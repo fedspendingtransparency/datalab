@@ -142,7 +142,7 @@ export default function CalloutBar(props) {
         label1Percent={props.outlaid}
         label2Amount={numberFormatter('dollars suffix', props.data[1].amount)}
         label2Percent={props.obligated}
-        narrow={props.narrow}
+        showDetails={props.showDetails}
       />)
 
     } else if (barStatus.outlay === barState[0]) {
@@ -152,7 +152,7 @@ export default function CalloutBar(props) {
         label={`Outlaid`}
         labelAmount={numberFormatter('dollars suffix', props.data[0].amount)}
         labelPercent={props.outlaid}
-        narrow={props.narrow}
+        showDetails={props.showDetails}
       />)
 
     } else {
@@ -163,7 +163,7 @@ export default function CalloutBar(props) {
         label={`Outlaid`}
         labelAmount={numberFormatter('dollars suffix', props.data[0].amount)}
         labelPercent={props.outlaid}
-        narrow={props.narrow}
+        showDetails={props.showDetails}
       />)
     }
   }
@@ -176,7 +176,7 @@ export default function CalloutBar(props) {
         label={`Obligated`}
         labelAmount={numberFormatter('dollars suffix', props.data[1].amount)}
         labelPercent={props.obligated}
-        narrow={props.narrow}
+        showDetails={props.showDetails}
       />)
 
     } else if (barStatus.obligated === barState[1]) {
@@ -187,7 +187,7 @@ export default function CalloutBar(props) {
         label={`Obligated`}
         labelAmount={numberFormatter('dollars suffix', props.data[1].amount)}
         labelPercent={props.obligated}
-        narrow={props.narrow}
+        showDetails={props.showDetails}
       />)
     } else if(barStatus.obligated === barState[3]) {
       calloutComponent.push(<ReversedElbowCallout
@@ -197,7 +197,7 @@ export default function CalloutBar(props) {
         label={`Obligated`}
         labelAmount={numberFormatter('dollars suffix', props.data[1].amount)}
         labelPercent={props.obligated}
-        narrow={props.narrow}
+        showDetails={props.showDetails}
       />)
     } else if(barStatus.obligated === barState[4]) {
       // reversed joined
@@ -213,7 +213,7 @@ export default function CalloutBar(props) {
         label1Percent={props.obligated}
         label2Amount={numberFormatter('dollars suffix', props.data[2].amount)}
         label2Percent={props.unobligated}
-        narrow={props.narrow}
+        showDetails={props.showDetails}
       />)
     }
 
@@ -227,7 +227,7 @@ export default function CalloutBar(props) {
         label={`Unobligated`}
         labelAmount={numberFormatter('dollars suffix', props.data[2].amount)}
         labelPercent={props.unobligated}
-        narrow={props.narrow}
+        showDetails={props.showDetails}
       />)
 
     } else if (barStatus.unobligated === barState[1]) {
@@ -238,7 +238,7 @@ export default function CalloutBar(props) {
         label={`Unobligated`}
         labelAmount={numberFormatter('dollars suffix', props.data[2].amount)}
         labelPercent={props.unobligated}
-        narrow={props.narrow}
+        showDetails={props.showDetails}
       />)
     }
   }
