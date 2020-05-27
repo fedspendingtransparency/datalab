@@ -3,9 +3,9 @@ import ControlBar from "src/components/control-bar/control-bar";
 import Share from "src/components/share/share";
 import Downloads from "src/components/section-elements/downloads/downloads";
 import CloseIcon from '@material-ui/icons/Close';
-import Desktop from 'src/svgs/federal-covid-spending/budget/sect1Desktop.svg';
-import Mobile from 'src/svgs/federal-covid-spending/budget/sect1Mobile.svg';
-import Popup from 'src/svgs/federal-covid-spending/budget/sect1Popup.svg';
+
+import Desktop from 'src/svgs/federal-covid-spending/budget/viz1Desktop.svg';
+import Mobile from 'src/svgs/federal-covid-spending/budget/viz1Mobile.svg';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import variables from "src/styles/variables.scss";
@@ -23,131 +23,17 @@ export default function Budget(props) {
 
   useEffect(() => {
 
-    window.addEventListener('click', e => closePopup(e));
     window.addEventListener('resize', e => handleResize());
-    window.addEventListener('keyup', e => onEsc(e));
+
 
     return () => {
       window.removeEventListener('resize', e => handleResize(e));
-      window.removeEventListener('click', e => closePopup(e));
-      window.removeEventListener('keyup', e => onEsc(e));
     };
 
   });
 
   function handleResize() {
     setWindowWidth(typeof window !== 'undefined' ? window.innerWidth : '');
-  }
-
-  useEffect(() => {
-    if(windowWidth) {
-      document.getElementById('Hover-Rectangle')
-        .addEventListener('click', e => togglePopup(e));
-      document.getElementById('close')
-        .addEventListener('click', e => closePopup(e));
-      document.getElementById('pop-up')
-        .addEventListener('click', e => e.stopPropagation());
-      document.getElementById('inner-title')
-        .addEventListener('click', e => e.stopPropagation());
-
-
-      document.getElementById('Hover-Rectangle')
-        .addEventListener('mouseover', e => addOverlay());
-
-      document.getElementById('Hover-Rectangle')
-        .addEventListener('mouseout', function(e) {
-          if (!isOpen) removeOverlay();
-        });
-
-      document.getElementById('close')
-        .addEventListener('keyup', e => onEnter(e));
-      document.getElementById('Hover-Rectangle')
-        .addEventListener('keyup', e => addOverlay());
-      document.getElementById('Hover-Rectangle')
-        .addEventListener('keyup', e => onEnter(e));
-    }
-
-    return () => {
-      if (windowWidth) {
-        document.getElementById('Hover-Rectangle')
-          .removeEventListener('click', e => togglePopup(e));
-        document.getElementById('close')
-          .removeEventListener('click', e => closePopup(e));
-        document.getElementById('pop-up')
-          .removeEventListener('click', e => e.stopPropagation());
-        document.getElementById('inner-title')
-          .removeEventListener('click', e => e.stopPropagation());
-
-        document.getElementById('Hover-Rectangle')
-          .removeEventListener('mouseover', e => addOverlay());
-
-        document.getElementById('Hover-Rectangle')
-          .removeEventListener('mouseout', function(e) {
-            if (!isOpen) removeOverlay();
-          });
-
-        document.getElementById('close')
-          .removeEventListener('keyup', e => onEnterClose(e));
-        document.getElementById('Hover-Rectangle')
-          .removeEventListener('mouseover', e => addOverlay());
-      }
-    };
-  });
-
-  function addOverlay() {
-    document.getElementById('Hover-Rectangle').setAttribute('fill-opacity', '.12');
-  }
-
-  function removeOverlay() {
-    document.getElementById('Hover-Rectangle').setAttribute('fill-opacity', '0.0');
-  }
-
-  function togglePopup(e) {
-    isOpen ? closePopup(e) : openPopup(e);
-  }
-
-  function openPopup(e) {
-    if(!isOpen) {
-      document.getElementById('close')
-        .setAttribute('tabindex', '0');
-      document.getElementById('pop-up')
-        .classList
-        .add('active');
-      setIsOpen(true);
-      addOverlay();
-      e.stopPropagation();
-    }
-  }
-
-  function closePopup(e) {
-    if(isOpen) {
-      document.getElementById('close')
-        .removeAttribute('tabindex');
-      document.getElementById('pop-up')
-        .classList
-        .remove('active');
-      setIsOpen(false);
-      removeOverlay();
-      e.stopPropagation();
-    }
-  }
-
-  function onEsc(e) {
-    if(isOpen && e.keyCode === 27) {
-      closePopup(e);
-    }
-  }
-
-  function onEnterClose(e) {
-    if(isOpen && e.keyCode === 13) {
-      closePopup(e);
-    }
-  }
-
-  function onEnter(e) {
-    if(e.keyCode === 13) {
-      togglePopup(e);
-    }
   }
 
   function Chart() {
@@ -186,7 +72,6 @@ export default function Budget(props) {
                   <div id="inner-title">{title}</div>
                   <div id="close"><CloseIcon  /></div>
                 </div>
-                <Popup />
               </div>
             </div>
 
