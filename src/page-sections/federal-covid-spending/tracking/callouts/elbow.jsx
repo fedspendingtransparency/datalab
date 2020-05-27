@@ -19,7 +19,7 @@ ElbowCallout.propTypes = {
 
 export default function ElbowCallout(props) {
   function TextBlock() {
-    if(props.narrow) {
+    if(props.isModal) {
       return (<>
         <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition}
               fontSize={defaults.fontSize} fontWeight='bold'>

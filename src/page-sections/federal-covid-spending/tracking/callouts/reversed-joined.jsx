@@ -24,7 +24,7 @@ export default function ReversedJoinedCallout(props) {
   const shiftAmount = 12;
 
   function TextBlock() {
-    if(props.narrow) {
+    if(props.isModal) {
 			return <>
 				<text fill={defaults.fontColor} x={`${props.label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight='bold'>
 					{props.label1}

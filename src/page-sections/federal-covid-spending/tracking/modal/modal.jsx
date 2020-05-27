@@ -3,7 +3,6 @@
  import Bar from "../bars/bar"
  import Grid from '@material-ui/core/Grid';
  import styles from './modal.module.scss';
- import { ScreenModeEnum } from "../../../../utils/screen-mode"
 
 export default function CovidModal(props) {
 
@@ -41,8 +40,8 @@ export default function CovidModal(props) {
                 {i.Account_Name} {numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}</p>
               <Bar key={key}
                    data={_data}
-                   narrow={true}
-                   tablet={props.tablet}
+                   isModal={true}
+                   showDetails={true}
               />
             </div>
           </>)
@@ -60,8 +59,8 @@ export default function CovidModal(props) {
     if(props.mobile) {
       return <div style={{paddingRight: '8px'}}>
           <Bar data={props.barData}
-               narrow={true}
-               mobile={true}
+               isModal={true}
+               showDetails={true}
            />
           <Grid container className={styles.titles}>
             <Grid item xs={10}>Spending Account:</Grid>
@@ -69,7 +68,7 @@ export default function CovidModal(props) {
           </Grid>
         </div>
     } else {
-      return <h2>Spending Account Breakdown within {props.mode}</h2>
+      return <h2>Spending Account Breakdown within Agency</h2>
     }
   }
   return(<div style={{maxWidth: '700px'}}>

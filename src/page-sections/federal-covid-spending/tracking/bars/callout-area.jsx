@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from "react"
 import PropTypes from 'prop-types';
-import numberFormatter from 'src/utils/number-formatter';
+import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 
 import ElbowCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/elbow';
 import ReversedElbowCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/reversed-elbow';
@@ -13,6 +13,7 @@ CalloutBar.propTypes = {
   'outlaid': PropTypes.number.isRequired,
   'obligated': PropTypes.number.isRequired,
   'unobligated': PropTypes.number.isRequired,
+  'isModal': PropTypes.bool
 };
 
 export default function CalloutBar(props) {
@@ -25,8 +26,24 @@ export default function CalloutBar(props) {
     unobligated: barState[1]
   };
 
-  const padding = props.tablet ? threshold.tabletPadding : props.mobile ? threshold.mobilePadding : threshold.padding;
-  const unobligatedLabelOffset = props.tablet ? threshold.tabletUnobligatedLabelOffset : props.mobile ? threshold.mobileUnobligatedLabelOffset : props.narrow ? threshold.modalUnobligatedLabelOffset : threshold.unobligatedLabelOffset;
+  const [screenMode, setScreenMode] = useState(0);
+
+  const resizeWindow = () => {
+    const newMode = checkScreenMode(window.innerWidth);
+    if (newMode !== screenMode) {
+      setScreenMode(newMode);
+    }
+  }
+  useEffect(() => {
+    resizeWindow();
+    window.addEventListener('resize', resizeWindow);
+    return () => {
+      window.removeEventListener('resize', resizeWindow);
+    }
+  });
+
+  const padding = screenMode === ScreenModeEnum.tablet ? threshold.tabletPadding : screenMode === ScreenModeEnum.mobile ? threshold.mobilePadding : threshold.padding;
+  const unobligatedLabelOffset = screenMode === ScreenModeEnum.tablet ? threshold.tabletUnobligatedLabelOffset : screenMode === ScreenModeEnum.mobile ? threshold.mobileUnobligatedLabelOffset : props.isModal ? threshold.modalUnobligatedLabelOffset : threshold.unobligatedLabelOffset;
 
   console.log(unobligatedLabelOffset);
   console.log(threshold.mobileUnobligatedLabelOffset);
@@ -147,7 +164,7 @@ export default function CalloutBar(props) {
         label1Percent={props.outlaid}
         label2Amount={props.data[1].amount}
         label2Percent={props.obligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
 
     } else if (barStatus.outlay === barState[0]) {
@@ -157,7 +174,7 @@ export default function CalloutBar(props) {
         label={`Outlaid`}
         labelAmount={props.data[0].amount}
         labelPercent={props.outlaid}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
 
     } else {
@@ -168,7 +185,7 @@ export default function CalloutBar(props) {
         label={`Outlaid`}
         labelAmount={props.data[0].amount}
         labelPercent={props.outlaid}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
     }
   }
@@ -187,7 +204,7 @@ export default function CalloutBar(props) {
         label={`Obligated`}
         labelAmount={props.data[1].amount}
         labelPercent={props.obligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
 
     } else if (barStatus.obligated === barState[1]) {
@@ -198,7 +215,7 @@ export default function CalloutBar(props) {
         label={`Obligated`}
         labelAmount={props.data[1].amount}
         labelPercent={props.obligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
     } else if(barStatus.obligated === barState[3]) {
       calloutComponent.push(<ReversedElbowCallout
@@ -208,7 +225,7 @@ export default function CalloutBar(props) {
         label={`Obligated`}
         labelAmount={props.data[1].amount}
         labelPercent={props.obligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
     } else if(barStatus.obligated === barState[4]) {
       // reversed joined
@@ -224,7 +241,7 @@ export default function CalloutBar(props) {
         label1Percent={props.obligated}
         label2Amount={props.data[2].amount}
         label2Percent={props.unobligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
     }
 
@@ -238,7 +255,7 @@ export default function CalloutBar(props) {
         label={`Unobligated`}
         labelAmount={props.data[2].amount}
         labelPercent={props.unobligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
 
     } else if (barStatus.unobligated === barState[1]) {
@@ -249,7 +266,7 @@ export default function CalloutBar(props) {
         label={`Unobligated`}
         labelAmount={props.data[2].amount}
         labelPercent={props.unobligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
     }
   }

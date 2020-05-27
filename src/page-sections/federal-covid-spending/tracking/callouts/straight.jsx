@@ -18,7 +18,7 @@ export default function StraightCallout(props) {
   const shiftAmount = props.label === 'Unobligated' ? 10 : 0;
 
   function TextBlock() {
-    if(props.narrow) {
+    if(props.isModal) {
       return (<>
         <text fill={defaults.fontColor}
               x={`${props.labelOffset + shiftLabel}%`}

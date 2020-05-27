@@ -100,7 +100,7 @@ export default function Tracking(props) {
 	const openModal = (e, data) => {
 		setModalState(true);
 		setSelectedBar(e);
-    setSelectedBarData(data)
+    setSelectedBarData(data);
 	}
 
 	const closeModal = () => {
@@ -129,17 +129,16 @@ export default function Tracking(props) {
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
 				lastBar={key === chartData.length - 1}
-				narrow={screenMode === ScreenModeEnum.mobile}
-        tablet={screenMode === ScreenModeEnum.tablet}
-				mobile={screenMode === ScreenModeEnum.mobile}
         openModal={e => openModal(e, thisBar)}
+				showDetails={screenMode !== ScreenModeEnum.mobile}
+				isModal={false}
 			/>;
 		});
 
 		return (<>
 			<div className={styles.legend}>
 				<div className={styles.blockContainer}>
-					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlay</span>
+					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlaid</span>
 					<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligated</span>
 					<span className={`${styles.block} ${styles.unobligatedBar}`}></span><span>Unobligated</span>
 				</div>
@@ -197,14 +196,11 @@ export default function Tracking(props) {
 		>
 			<Modal
 				bar={selectedBar}
-				mode='Agency'
 				data={accountsByAgency[selectedBar]}
-				isMobile={screenMode === ScreenModeEnum.mobile}
-				barData={selectedBarData}
-        narrow={screenMode === ScreenModeEnum.mobile}
-        tablet={screenMode === ScreenModeEnum.tablet}
+        barData={selectedBarData}
+        isModal={true}
         mobile={screenMode === ScreenModeEnum.mobile}
-			/>
+      />
 		</ModalReference>
 
 		{limitBars >= data.agencies.nodes.length ?

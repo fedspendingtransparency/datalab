@@ -22,7 +22,7 @@ JoinedCallout.propTypes = {
 
 export default function JoinedCallout(props) {
   function TextBlock() {
-    if(props.narrow) {
+    if(props.isModal) {
 			return <>
 				<text fill={defaults.fontColor} x={`${props.label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight='bold'>
 					{props.label1}

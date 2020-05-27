@@ -22,7 +22,7 @@ export default function ReversedElbowCallout(props) {
   const shiftAmount = 12;
 
   function TextBlock() {
-    if(props.narrow) {
+    if(props.isModal) {
       return (<>
         <text fill={defaults.fontColor} x={`${props.labelOffset + shiftLabel}%`} y={defaults.textPosition}
               fontSize={defaults.fontSize} fontWeight='bold'>
