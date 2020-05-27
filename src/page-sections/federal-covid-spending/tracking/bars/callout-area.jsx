@@ -45,13 +45,10 @@ export default function CalloutBar(props) {
   const padding = screenMode === ScreenModeEnum.tablet ? threshold.tabletPadding : screenMode === ScreenModeEnum.mobile ? threshold.mobilePadding : threshold.padding;
   const unobligatedLabelOffset = screenMode === ScreenModeEnum.tablet ? threshold.tabletUnobligatedLabelOffset : screenMode === ScreenModeEnum.mobile ? threshold.mobileUnobligatedLabelOffset : props.isModal ? threshold.modalUnobligatedLabelOffset : threshold.unobligatedLabelOffset;
 
-  console.log(unobligatedLabelOffset);
-  console.log(threshold.mobileUnobligatedLabelOffset);
-
-  const outlayLabelMidPoint = parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2);
-  const obligatedLabelMidPoint = parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding + threshold.obligatedLabelWidth / 2);
-  const obligatedLabelOffset = parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding);
-  const unObligatedLabelMidPoint = parseFloat(100 - ((threshold.rightOffset - unobligatedLabelOffset) / 2));
+  const outlayLabelMidPoint = threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2;
+  const obligatedLabelMidPoint = threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding + threshold.obligatedLabelWidth / 2;
+  const obligatedLabelOffset = threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding;
+  const unObligatedLabelMidPoint = 100 - ((threshold.rightOffset - unobligatedLabelOffset) / 2);
 
 
   // joined

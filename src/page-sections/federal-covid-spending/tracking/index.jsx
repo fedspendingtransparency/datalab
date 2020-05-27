@@ -113,13 +113,13 @@ export default function Tracking(props) {
 		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
-				'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
+				'amount': i.Amount_Outlaid,
 				'percent': parseFloat(i.Percent_Outlaid).toFixed(2)
 			}, {
-				'amount': numberFormatter('dollars suffix', i.Amount_Obligated),
+				'amount': i.Amount_Obligated,
 				'percent': parseFloat(i.Percent_Obligated).toFixed(2)
 			}, {
-				'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
+				'amount': i.Amount_Unobligated,
 				'percent': parseFloat(i.Percent_Unobligated).toFixed(2)
 			}];
 
