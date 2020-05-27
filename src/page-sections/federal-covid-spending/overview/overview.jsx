@@ -98,15 +98,15 @@ const Overview = (props) => {
             The Process of Spending COVID-19 Funds
           </div>
         </Grid>
-        <ControlBar>
-	  <Share
+        <Grid item xs={2}>
+          <Share
 	    siteUrl={props.location.origin}
 	    pageUrl={props.location.pathname + '#' + props.sectionId}
 	    title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
 	    text={'Who watches the Watchmen? Anyone with HBO...'}
             hoverColor='#1302d9'
 	  />
-        </ControlBar>
+        </Grid>
       </Grid>
       {visualizationComponent}
     </>
