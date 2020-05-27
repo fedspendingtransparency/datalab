@@ -126,15 +126,16 @@ export default function Tracking(props) {
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
 				lastBar={key === chartData.length - 1}
-				narrow={screenMode === ScreenModeEnum.mobile}
+				showDetails={screenMode !== ScreenModeEnum.mobile}
 				openModal={e => openModal(e)}
+				isModal={false}
 			/>;
 		});
 
 		return (<>
 			<div className={styles.legend}>
 				<div className={styles.blockContainer}>
-					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlay</span>
+					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlaid</span>
 					<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligated</span>
 					<span className={`${styles.block} ${styles.unobligatedBar}`}></span><span>Unobligated</span>
 				</div>
