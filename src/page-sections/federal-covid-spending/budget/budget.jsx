@@ -4,10 +4,6 @@ import Share from "src/components/share/share";
 import Downloads from "src/components/section-elements/downloads/downloads";
 import CloseIcon from '@material-ui/icons/Close';
 
-//import Desktop from 'src/svgs/federal-covid-spending/budget/sect1Desktop.svg';
-//import Mobile from 'src/svgs/federal-covid-spending/budget/sect1Mobile.svg';
-//import Popup from 'src/svgs/federal-covid-spending/budget/sect1Popup.svg';
-
 import Desktop from 'src/svgs/federal-covid-spending/budget/viz1Desktop.svg';
 import Mobile from 'src/svgs/federal-covid-spending/budget/viz1Mobile.svg';
 
