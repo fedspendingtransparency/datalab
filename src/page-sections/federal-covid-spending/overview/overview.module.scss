@@ -29,6 +29,7 @@
 
 .updatedDate {
 	text-align: right;
+	margin: 50px 0;
 
 	.fadedModifier {
 		opacity: 0.5;
@@ -64,10 +65,8 @@
 			max-width: 352px;
 		}
 	}
-}
 
-@media (min-width: $tablet) {
 	.updatedDate {
-		margin-top: 50px;
+		text-align: center;
 	}
 }
