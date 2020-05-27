@@ -1,6 +1,7 @@
 import React from 'react';
 import defaults from './utils/defaults';
 import PropTypes from 'prop-types';
+import numberFormatter from "../../../../utils/number-formatter"
 
 /* props
   xStart = x position vertical line
@@ -31,13 +32,13 @@ export default function StraightCallout(props) {
               x={`${props.labelOffset + shiftAmount}%`}
               y={defaults.textPosition + defaults.lineHeight}
               fontSize={defaults.smFontSize}>
-          {props.labelAmount}&nbsp;({`${props.labelPercent}%`})
+          {numberFormatter('dollars suffix', props.labelAmount)}&nbsp;({`${props.labelPercent}%`})
         </text>
       </>)
     } else {
       return <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition}
         fontSize={defaults.fontSize}>
-        {props.label} ({props.labelAmount})
+        {props.label} ({numberFormatter('dollars suffix', props.labelAmount)})
       </text>
     }
   }

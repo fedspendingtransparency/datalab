@@ -28,23 +28,23 @@ export default function JoinedCallout(props) {
 					{props.label1}
 				</text>
         <text fill={defaults.fontColor} x={`${props.label1Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
-          {props.label1Amount}&nbsp;({`${props.label1Percent}%`})
+          {numberFormatter('dollars suffix', props.label1Amount)}&nbsp;({`${props.label1Percent}%`})
         </text>
 
 				<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight='bold'>
 					{props.label2}
 				</text>
 				<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
-          {props.label2Amount}&nbsp;({`${props.label2Percent}%`})
+          {numberFormatter('dollars suffix', props.label2Amount)}&nbsp;({`${props.label2Percent}%`})
 				</text>
 			</>
     } else {
       return <>
 				<text fill={defaults.fontColor} x={`${props.label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-					{props.label1} ({props.label1Amount})
+					{props.label1} ({numberFormatter('dollars suffix', props.label1Amount)})
 				</text>
 				<text fill={defaults.fontColor} x={`${props.label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-					{props.label2} ({props.label2Amount})
+					{props.label2} ({numberFormatter('dollars suffix', props.label2Amount)})
 				</text></>
     }
   }
