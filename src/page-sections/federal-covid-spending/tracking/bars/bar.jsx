@@ -76,7 +76,7 @@ export default class Bar extends React.Component {
 					</svg>
 				</div>
 			</div>
-			{this.props.showDetails ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div>}
+			{this.props.showDetails ? <div className={`${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div> : ''}
 		</div>
 		;
 }
