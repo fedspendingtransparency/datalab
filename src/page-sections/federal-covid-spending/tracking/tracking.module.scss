@@ -7,7 +7,7 @@ h1 {
 
 .legend {
   display: flex;
-  justify-content: right;
+  flex-direction: row-reverse;
 
   span {
     font-size: 0.8rem;
