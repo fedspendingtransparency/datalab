@@ -64,8 +64,8 @@ export default function StorySectionHeading(props) {
           </Grid>
         </Grid>
         <Grid container className={storySectionHeadingStyles.introContainer}>
-          <Grid item xs={12} xl={5} className={storySectionHeadingStyles.intro}>{props.teaser}</Grid>
-          <Grid item xs={12} xl={7} className={storySectionHeadingStyles.intro}>
+          <Grid item xs={12} xl={5} className={`${storySectionHeadingStyles.intro} ${storySectionHeadingStyles.introTeaser}`}>{props.teaser}</Grid>
+          <Grid item xs={12} xl={7} className={`${storySectionHeadingStyles.intro} ${storySectionHeadingStyles.introBlurb}`}>
             {blurb}
             {props.accordion}
           </Grid>
