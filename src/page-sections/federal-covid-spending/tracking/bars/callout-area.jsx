@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import numberFormatter from 'src/utils/number-formatter';
+
 import ElbowCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/elbow';
 import ReversedElbowCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/reversed-elbow';
 import ReversedJoinedCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/reversed-joined';
 import JoinedCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/joined';
 import StraightCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/straight';
 import threshold from '../callouts/utils/thresholds';
-import PropTypes from 'prop-types';
 
 CalloutBar.propTypes = {
   'outlaid': PropTypes.number.isRequired,
@@ -136,11 +138,11 @@ export default function CalloutBar(props) {
         label2Offset={obligatedSettings.labelOffset}
         label1={'Outlaid'}
         label2={'Obligated'}
-        label1Amount={props.data[0].amount}
+        label1Amount={numberFormatter('dollars suffix', props.data[0].amount)}
         label1Percent={props.outlaid}
-        label2Amount={props.data[1].amount}
+        label2Amount={numberFormatter('dollars suffix', props.data[1].amount)}
         label2Percent={props.obligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
 
     } else if (barStatus.outlay === barState[0]) {
@@ -148,9 +150,9 @@ export default function CalloutBar(props) {
         xStart={outlaySettings.defaultStartingPoint}
         labelOffset={threshold.outlayLabelOffset}
         label={`Outlaid`}
-        labelAmount={props.data[0].amount}
+        labelAmount={numberFormatter('dollars suffix', props.data[0].amount)}
         labelPercent={props.outlaid}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
 
     } else {
@@ -159,9 +161,9 @@ export default function CalloutBar(props) {
         xEnd={outlaySettings.labelMidpoint}
         labelOffset={threshold.outlayLabelOffset}
         label={`Outlaid`}
-        labelAmount={props.data[0].amount}
+        labelAmount={numberFormatter('dollars suffix', props.data[0].amount)}
         labelPercent={props.outlaid}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
     }
   }
@@ -172,9 +174,9 @@ export default function CalloutBar(props) {
         xStart={parseFloat(props.outlaid + props.obligated / 2)}
         labelOffset={parseFloat(props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2)}
         label={`Obligated`}
-        labelAmount={props.data[1].amount}
+        labelAmount={numberFormatter('dollars suffix', props.data[1].amount)}
         labelPercent={props.obligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
 
     } else if (barStatus.obligated === barState[1]) {
@@ -183,9 +185,9 @@ export default function CalloutBar(props) {
         xEnd={threshold.obligatedLabelOffset + threshold.outlayLabelWidth / 2}
         labelOffset={threshold.obligatedLabelOffset}
         label={`Obligated`}
-        labelAmount={props.data[1].amount}
+        labelAmount={numberFormatter('dollars suffix', props.data[1].amount)}
         labelPercent={props.obligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
     } else if(barStatus.obligated === barState[3]) {
       calloutComponent.push(<ReversedElbowCallout
@@ -193,9 +195,9 @@ export default function CalloutBar(props) {
         xEnd={threshold.obligatedLabelOffset + threshold.outlayLabelWidth / 2}
         labelOffset={threshold.obligatedLabelOffset}
         label={`Obligated`}
-        labelAmount={props.data[1].amount}
+        labelAmount={numberFormatter('dollars suffix', props.data[1].amount)}
         labelPercent={props.obligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
     } else if(barStatus.obligated === barState[4]) {
       // reversed joined
@@ -207,11 +209,11 @@ export default function CalloutBar(props) {
         label2Offset={threshold.unobligatedLabelOffset}
         label1={'Obligated'}
         label2={'Unobligated'}
-        label1Amount={props.data[1].amount}
+        label1Amount={numberFormatter('dollars suffix', props.data[1].amount)}
         label1Percent={props.obligated}
-        label2Amount={props.data[2].amount}
+        label2Amount={numberFormatter('dollars suffix', props.data[2].amount)}
         label2Percent={props.unobligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
     }
 
@@ -223,9 +225,9 @@ export default function CalloutBar(props) {
         xStart={threshold.rightOffset}
         labelOffset={threshold.unobligatedLabelOffset}
         label={`Unobligated`}
-        labelAmount={props.data[2].amount}
+        labelAmount={numberFormatter('dollars suffix', props.data[2].amount)}
         labelPercent={props.unobligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
 
     } else if (barStatus.unobligated === barState[1]) {
@@ -234,9 +236,9 @@ export default function CalloutBar(props) {
         xEnd={90}
         labelOffset={threshold.unobligatedLabelOffset}
         label={`Unobligated`}
-        labelAmount={props.data[2].amount}
+        labelAmount={numberFormatter('dollars suffix', props.data[2].amount)}
         labelPercent={props.unobligated}
-        narrow={props.narrow}
+        isModal={props.isModal}
       />)
     }
   }

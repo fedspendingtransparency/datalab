@@ -28,9 +28,13 @@
 }
 
 .updatedDate {
-	color: $darkGrey;
-	font-size: 1rem;
-	font-weight: 300;
+	text-align: right;
+	margin: 50px 0;
+
+	.fadedModifier {
+		opacity: 0.5;
+		line-height: 18pt;
+	}
 }
 
 .overviewMobileSvgContainer {
@@ -61,10 +65,8 @@
 			max-width: 352px;
 		}
 	}
-}
 
-@media (min-width: $tablet) {
 	.updatedDate {
-		margin-top: 50px;
+		text-align: center;
 	}
 }
