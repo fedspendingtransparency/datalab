@@ -69,7 +69,7 @@ export default class FederalCovidSpending extends React.Component {
             In this analysis of COVID-19 spending, Data Lab uses this certified data to track the progress of spending, starting with the distribution of special appropriations across federal agencies.
           </p>
         </>
-      ],
+                                                                                                                                                                                          ],
       viztitle: 'Covid-19 Supplemental Funding by Budget Function',
       tagName: 'Budget',
       accordion: <aside>
@@ -106,7 +106,7 @@ export default class FederalCovidSpending extends React.Component {
             The final step in the process is making a payment, which is called an <a href='https://www.usaspending.gov/#/?glossary=outlay' target='_blank' rel='noopener noreferrer'>outlay.</a> This is the step when the funds for a direct payment, grant, loan, or contract are received by individuals, businesses or other organizations.
           </p>
         </>
-      ],
+                                                                                                                                                                                                ],
       viztitle: 'Title for Overview viz',
       tagName: 'Overview',
       readMoreOnMobile: true,
@@ -135,7 +135,7 @@ export default class FederalCovidSpending extends React.Component {
             Disaster Emergency Fund Code (DEFC). Using this code allows for funds to be followed through the spending lifecycle. Data Lab will continue to update this analysis on a monthly basis with each reporting window. In addition, agencies will begin reporting spending data using the DEFC to USAspending.gov in July 2020.
           </p>
         </>
-      ],
+                                                                                                                                                                                                                                                                                                                                                                                                                   ],
       viztitle: 'Title for Tracking viz',
       tagName: 'Tracking'
     }
@@ -165,10 +165,11 @@ export default class FederalCovidSpending extends React.Component {
       })}
       <Grid container justify="center">
         <Grid item xl={10}>
-          <Footnotes footnotes={[<a href='https://www.usich.gov/resources/uploads/asset_library/2016_Budget_Fact_Sheet_on_Homelessness_Assistance.pdf' rel='noreferrer noopener' target='_blank'>United States Interagency Council on Homelessness.</a>,                                                                                                                                             <>West, Melanie. <a href='https://www.wsj.com/articles/new-york-citys-spending-on-homeless-hits-3-2-billion-this-year-11558562997' rel='noreferrer noopener' target='_blank'>"New York City’s Spending on Homelessness Hits $3.2 Billion this Year."</a> <i>The Wall Street Journal.</i></>,
-                                 <>Markovich, Matt, <a href='https://komonews.com/news/local/san-francisco-and-seattle-a-tale-of-two-cities-mired-in-a-homeless-crisis' rel='noreferrer noopener' target='_blank'>"San Francisco and Seattle: A tale of two cities mired in a homeless crisis."</a> KOMO News</>,
-                                 <>Federal, state, and local fiscal years do not always align.. blah blah blah teehee is to make a broad comparison.</>,
-                                 <>Walch, Tad. <a href="https://www.deseret.com/2017/4/6/20609792/over-a-decade-lds-church-has-given-42-million-to-homeless-relief-in-salt-lake" rel="noreferrer noopener" target="_blank">Over a decade, LDS Church has given $42 million to homeless relief in Salt Lake.</a> <i>Deseret News</i></>]}
+          <Footnotes footnotes={['Coronavirus Preparedness and Response Supplemental Appropriations Act (H.R. 6074) appropriated an estimated $7.8 billion; Families First Coronavirus Response Act (H.R. 6201) appropriated an estimated $3.4 billion; CARES Act (H.R. 748) appropriated an estimated $1.95 trillion of funding; and the Paycheck Protection Program and Health Care Enhancement Act (H.R. 266) appropriated an estimated $483 billion.', <>OMB Guidance on reporting requirements and DEFC values provided for the four bills are provided in OMB M20-21:<a target='_blank' rel='noopener noreferrer' href="https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf"> https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf</a></>, <>Values were calculating according to the USSGL Supplement of the Treasury Financial Manual - Section V: Crosswalks to Standard External Reports for FY 2020 GTAS Reporting, SF 133: Report on Budget Execution and Budgetary Resources & Schedule P Budget Program and Financing Schedule. <a target='_blank' rel='noopener noreferrer' href="https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_2/sec5/sec5_sf133_schp_2020.xlsx">https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_2/sec5/sec5_sf133_schp_2020.xlsx</a></>, <>GTAS data is collected monthly, each month’s agencies report data for all transactions occurring through the end of the prior month. Data for this analysis published May 28, 2020 includes data reported through the close of April 2020.</>,  <>Detailed instructions on how agencies should be classified is provided here: <a target='_blank' rel='noopener noreferrer' href="https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md">https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md.</a> The list of shared agencies identified by FREC can be found here: <a target='_blank' rel='noopener noreferrer' href="https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker">https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a></>
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ]}
           />
         </Grid>
       </Grid>
