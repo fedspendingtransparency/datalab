@@ -9,13 +9,13 @@ export default function CovidModal(props) {
     if (props.data) {
       return props.data.map((i, key) => {
         const _data = [{
-          'amount': numberFormatter('dollars suffix', i.Amount_Outlaid),
+          'amount': i.Amount_Outlaid,
           'percent': i.Percent_Outlaid
         }, {
-          'amount': numberFormatter('dollars suffix', i.Amount_Obligated),
+          'amount': i.Amount_Obligated,
           'percent': i.Percent_Obligated
         }, {
-          'amount': numberFormatter('dollars suffix', i.Amount_Unobligated),
+          'amount': i.Amount_Unobligated,
           'percent': i.Percent_Unobligated
         }];
 
@@ -36,7 +36,7 @@ export default function CovidModal(props) {
               <Bar
                 key={key}
                 data={_data}
-                showDetails={false}
+                isModal={true}
               />
             </div>
           );

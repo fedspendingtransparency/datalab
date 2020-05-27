@@ -24,7 +24,8 @@ export default class Bar extends React.Component {
 		'total': PropTypes.string,
 		'hideBarLabels': PropTypes.bool,
 		'firstBar': PropTypes.bool,
-		'lastBar': PropTypes.bool
+		'lastBar': PropTypes.bool,
+		'isModal': PropTypes.bool
 	};
 
 	constructor(props) {
@@ -42,30 +43,30 @@ export default class Bar extends React.Component {
 	}
 
 	render = () =>
-		<div className={this.props.narrow ? '' : styles.container}>
+		<div className={this.props.isModal ? '' : styles.container}>
 			<div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>
 			<div className={styles.barContainer}>
 				<div
 					className={`${styles.bar}
-					${this.props.narrow ? '' : styles.topPad}
-					${this.props.narrow ? '' : styles.barBorder}
+					${this.props.isModal ? '' : styles.topPad}
+					${this.props.isModal ? '' : styles.barBorder}
 					${this.props.firstBar ? styles.firstBar : ''}
 					${this.props.lastBar ? styles.lastBar : ''}`}
-					style={{ cursor: this.props.narrow ? 'default' : 'pointer' }}
+					style={{ cursor: this.props.isModal ? 'default' : 'pointer' }}
 					tabIndex='0'
-					onClick={() => this.props.narrow ? '' : this.clickHandler(this.props.barLabel)}
-					onKeyUp={e => this.props.narrow ? '' : this.keyUpHandler(e, this.props.barLabel)}
+					onClick={() => this.props.isModal ? '' : this.clickHandler(this.props.barLabel)}
+					onKeyUp={e => this.props.isModal ? '' : this.keyUpHandler(e, this.props.barLabel)}
 				>
-					<svg width='100%' height={this.props.narrow ? '70px' : '56px'}>
-						<Hidden smDown>
+					<svg width='100%' height={this.props.isModal ? '70px' : '56px'}>
+						<g style={{display: this.props.isModal || this.props.showDetails ? 'block' : 'none' }}>
 							<CalloutBar
 								outlaid={parseFloat(this.props.data[0].percent)}
 								obligated={parseFloat(this.props.data[1].percent)}
 								unobligated={parseFloat(this.props.data[2].percent)}
 								data={this.props.data}
-								showDetails={this.props.showDetails}
+								isModal={this.props.isModal}
 							/>
-						</Hidden>
+						</g>
 						<PercentBar
 							outlaid={parseFloat(this.props.data[0].percent)}
 							obligated={parseFloat(this.props.data[1].percent)}
