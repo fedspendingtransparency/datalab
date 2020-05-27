@@ -150,7 +150,7 @@ export default function CalloutBar(props) {
     // joined label
     if (barStatus.outlay === barState[2]) {
       calloutComponent.push(<JoinedCallout
-        xStart={outlaySettings.outlaidBarMidpoint}
+        xStart={outlaySettings.outlaidBarMidpoint < threshold.outlayLabelOffset ? outlaySettings.outlaidBarMidpoint : threshold.outlayLabelOffset}
         xMid={outlaySettings.labelMidpoint}
         xEnd={obligatedSettings.labelMidpoint}
         label1Offset={threshold.outlayLabelOffset}
@@ -227,10 +227,10 @@ export default function CalloutBar(props) {
     } else if(barStatus.obligated === barState[4]) {
       // reversed joined
       calloutComponent.push(<ReversedJoinedCallout
-        xStart={(props.outlaid + props.obligated + props.unobligated / 2) - 0.5}
+        xStart={(props.outlaid + props.obligated + props.unobligated / 2) - 0.5 > 95 ? (props.outlaid + props.obligated + props.unobligated / 2) - 0.5 : 95}
         xMid={90}
         xEnd={60}
-        label1Offset={45}
+        label1Offset={55}
         label2Offset={unobligatedLabelOffset}
         label1={'Obligated'}
         label2={'Unobligated'}
