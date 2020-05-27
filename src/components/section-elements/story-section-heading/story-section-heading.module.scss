@@ -165,16 +165,6 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-
-//  .headerNumber h2 {
-//    border: none;
-//    text-decoration: underline;
-//  }
-//  .headerTitle {
-//    margin-top: $margin-25;
-//  }
-//}
-
 @media (max-width: $phone - 1) {
   .introContainer {
     margin: 0 0 25px 0 !important;
@@ -183,6 +173,12 @@ $fedEmpBlue: #2272ce;
       font-weight: 600;
       color: $darkGrey;
       margin: 1rem 0;
+    }
+    .introTeaser {
+      margin-bottom: 0;
+    }
+    .introBlurb {
+      margin-top: 0;
     }
   }
 

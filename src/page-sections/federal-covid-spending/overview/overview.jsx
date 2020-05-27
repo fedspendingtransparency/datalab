@@ -79,7 +79,7 @@ const Overview = (props) => {
         </Grid>
       </Grid>
       <div className={overviewStyles.updatedDate}>
-        <Downloads justify='center' date='May 2020' />
+        <span className={overviewStyles.fadedModifier}>Updated as of May 2020</span>
       </div>
     </>
   ) : (
