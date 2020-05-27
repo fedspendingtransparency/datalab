@@ -4,7 +4,7 @@ import overviewStyles from './overview.module.scss';
 
 import { Grid } from "@material-ui/core";
 import Share from '../../../components/share/share';
-import Downloads from '../../../components/section-elements/downloads/downloads';
+import ControlBar from 'src/components/control-bar/control-bar';
 
 import DesktopChart from '../../../images/covid/overview/desktop-chart.svg';
 import TabletChart from '../../../images/covid/overview/tablet-chart.svg';
@@ -57,7 +57,7 @@ const Overview = (props) => {
     </Grid>
   );
 
-  let chartComponent = <img src={DesktopChart} alt="section-2-desktop-svg" />
+  let chartComponent = <img src={DesktopChart} alt="section-2-desktop-svg" />;
   if (screenWidth < 992 && screenWidth >= 768) {
     chartComponent = <img src={TabletChart} alt="section-2-tablet-svg" />;
   }
@@ -78,9 +78,6 @@ const Overview = (props) => {
           <img src={MobileChartC} alt="section-2-mobile-svg-c" />
         </Grid>
       </Grid>
-      <div className={overviewStyles.updatedDate}>
-        <Downloads justify='center' date='May 2020' />
-      </div>
     </>
   ) : (
     <>
@@ -90,9 +87,6 @@ const Overview = (props) => {
         {outlaysSection}
       </Grid>
       {chartComponent}
-      <div className={overviewStyles.updatedDate}>
-        <span className={overviewStyles.fadedModifier}>Updated as of May 2020</span>
-      </div>
     </>
   );
 
@@ -104,18 +98,19 @@ const Overview = (props) => {
             The Process of Spending COVID-19 Funds
           </div>
         </Grid>
-        <Grid item xs={2}>
-          <Share
-            location={props.location}
-            title='Check out this analysis on Data Lab'
-            text='Did you know the federal government invested over $149 billion in higher education? Check out this analysis and discover how much your Alma Mater received in federal funds!'
-            twitter='Did you know the federal government invested over $149 billion in higher education? Check out this analysis and discover how much your Alma Mater received in federal funds! #DataLab #Treasury #DataTransparency #USAspending'
-          />
-        </Grid>
+        <ControlBar>
+	  <Share
+	    siteUrl={props.location.origin}
+	    pageUrl={props.location.pathname + '#' + props.sectionId}
+	    title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+	    text={'Who watches the Watchmen? Anyone with HBO...'}
+            hoverColor='#1302d9'
+	  />
+        </ControlBar>
       </Grid>
       {visualizationComponent}
     </>
   );
-}
+};
 
 export default Overview;
