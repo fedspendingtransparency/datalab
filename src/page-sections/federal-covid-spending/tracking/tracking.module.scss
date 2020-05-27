@@ -7,24 +7,10 @@ h1 {
 
 .legend {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: right;
 
   span {
     font-size: 0.8rem;
-  }
-
-  .toggleContainer {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-
-    .toggle-icon {
-      height: 22px;
-      width: 22px;
-      margin-right: 0.5rem;
-      cursor: pointer;
-    }
   }
 
   .blockContainer {
@@ -66,30 +52,13 @@ h1 {
   margin: 0 calc(#{$budgetWidth} - 2.5rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
 
   span {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: $bold;
-  }
-}
-
-@media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
-  .legend {
-    flex-direction: column;
-    align-items: flex-end;
-
-    .toggleContainer {
-      width: 100%;
-      margin-bottom: 0;
-    }
   }
 }
 
 @media screen and (max-width: $tablet - 1) {
   .legend {
-    flex-direction: column;
-    align-items: center;
-
-    .toggleContainer {
-      margin-bottom: 0;
-    }
+    justify-content: center;
   }
 }
