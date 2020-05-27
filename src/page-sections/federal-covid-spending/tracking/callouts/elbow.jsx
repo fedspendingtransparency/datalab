@@ -19,7 +19,7 @@ ElbowCallout.propTypes = {
 
 export default function ElbowCallout(props) {
   function TextBlock() {
-    if(props.narrow) {
+    if(props.isModal) {
       return (<>
         <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition}
               fontSize={defaults.fontSize} fontWeight='bold'>
@@ -27,13 +27,13 @@ export default function ElbowCallout(props) {
         </text>
         <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition + defaults.lineHeight}
               fontSize={defaults.smFontSize}>
-          {props.labelAmount}&nbsp;({`${props.labelPercent}%`})
+          {numberFormatter('dollars suffix', props.labelAmount)}&nbsp;({`${props.labelPercent}%`})
         </text>
       </>)
     } else {
       return <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition}
             fontSize={defaults.fontSize}>
-        {props.label} ({props.labelAmount})
+        {props.label} ({numberFormatter('dollars suffix', props.labelAmount)})
       </text>
     }
   }

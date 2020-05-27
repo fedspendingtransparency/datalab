@@ -16,8 +16,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
-import ModalReference from "src/components/modal/modal";
-import Modal from "./modal";
+import ModalReference from "src/components/modal/modal"
+import Modal from "./modal/modal"
 
 const showLess = 10; // bars to show when collapsed
 
@@ -78,6 +78,7 @@ export default function Tracking(props) {
 
 	const [isModalOpen, setModalState] = useState(false);
 	const [selectedBar, setSelectedBar] = useState(null);
+  const [selectedBarData, setSelectedBarData] = useState(null);
 
 	const first = {
 		name: 'Budget Function',
@@ -96,10 +97,12 @@ export default function Tracking(props) {
 		setLimitBars(limitBars ? 0 : showLess);
 	}
 
-	const openModal = (e) => {
+	const openModal = (e, data) => {
 		setModalState(true);
 		setSelectedBar(e);
+    setSelectedBarData(data);
 	}
+
 	const closeModal = () => {
 		setModalState(false);
 		setSelectedBar(null);
@@ -126,8 +129,8 @@ export default function Tracking(props) {
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
 				lastBar={key === chartData.length - 1}
+        openModal={e => openModal(e, thisBar)}
 				showDetails={screenMode !== ScreenModeEnum.mobile}
-				openModal={e => openModal(e)}
 				isModal={false}
 			/>;
 		});
@@ -193,10 +196,11 @@ export default function Tracking(props) {
 		>
 			<Modal
 				bar={selectedBar}
-				mode='Agency'
 				data={accountsByAgency[selectedBar]}
-				isMobile={screenMode === ScreenModeEnum.mobile}
-			/>
+        barData={selectedBarData}
+        isModal={true}
+        mobile={screenMode === ScreenModeEnum.mobile}
+      />
 		</ModalReference>
 
 		{limitBars >= data.agencies.nodes.length ?

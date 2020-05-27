@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './bar.module.scss';
 import CalloutBar from './callout-area';
 import PercentBar from './percent-area';
-import { Hidden } from '@material-ui/core';
 
 const barHeight = 30;
 
@@ -44,7 +43,7 @@ export default class Bar extends React.Component {
 
 	render = () =>
 		<div className={this.props.isModal ? '' : styles.container}>
-			<div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>
+      {this.props.isModal ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>}
 			<div className={styles.barContainer}>
 				<div
 					className={`${styles.bar}
@@ -58,15 +57,15 @@ export default class Bar extends React.Component {
 					onKeyUp={e => this.props.isModal ? '' : this.keyUpHandler(e, this.props.barLabel)}
 				>
 					<svg width='100%' height={this.props.isModal ? '70px' : '56px'}>
-						<g style={{display: this.props.isModal || this.props.showDetails ? 'block' : 'none' }}>
-							<CalloutBar
-								outlaid={parseFloat(this.props.data[0].percent)}
-								obligated={parseFloat(this.props.data[1].percent)}
-								unobligated={parseFloat(this.props.data[2].percent)}
-								data={this.props.data}
-								isModal={this.props.isModal}
-							/>
-						</g>
+            <g style={{display: this.props.isModal || this.props.showDetails ? 'block' : 'none' }}>
+              <CalloutBar
+                  outlaid={parseFloat(this.props.data[0].percent)}
+                  obligated={parseFloat(this.props.data[1].percent)}
+                  unobligated={parseFloat(this.props.data[2].percent)}
+                  data={this.props.data}
+                  isModal={this.props.isModal}
+                />
+            </g>
 						<PercentBar
 							outlaid={parseFloat(this.props.data[0].percent)}
 							obligated={parseFloat(this.props.data[1].percent)}
@@ -77,7 +76,7 @@ export default class Bar extends React.Component {
 					</svg>
 				</div>
 			</div>
-			<div className={`${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div>
+      {this.props.isModal ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div>}
 		</div>
 		;
 }
