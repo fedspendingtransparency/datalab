@@ -35,7 +35,7 @@ export default function StorySectionHeading(props) {
     if (props.number) {
       return (
         <Grid item xs={1} sm={12} xl={1} className={storySectionHeadingStyles.headerNumber}>
-          <h2>{props.number}</h2>
+          <span>{props.number}</span>
         </Grid>
       )
     }
