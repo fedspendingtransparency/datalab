@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 
 $left-indent: 32px;
-$vert-padding: 14px;
+$vert-padding: 20px;
 
 .container {
   position: relative;
@@ -39,6 +39,7 @@ $vert-padding: 14px;
 .expand-icon {
   font-size: 1.5rem;
   font-weight: 700;
+  line-height: 0.7; // adjust vertical to match heading
 }
 
 .content {
