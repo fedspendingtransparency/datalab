@@ -1,5 +1,5 @@
 https://datalab.usaspending.gov/
-https://datalab.usaspending.gov/covid19/
+https://datalab.usaspending.gov/federal-covid-spending/
 https://datalab.usaspending.gov/federal-account-explorer/
 https://datalab.usaspending.gov/contract-explorer/
 https://datalab.usaspending.gov/homelessness-analysis/
@@ -7,7 +7,6 @@ https://datalab.usaspending.gov/budget-function/
 https://datalab.usaspending.gov/competition-in-contracting/
 https://datalab.usaspending.gov/federal-employees/
 https://datalab.usaspending.gov/dts/
-https://datalab.usaspending.gov/rd-in-contracting/
 https://datalab.usaspending.gov/analyst-guide/
 https://datalab.usaspending.gov/student-innovators-toolbox/
 https://datalab.usaspending.gov/americas-finance-guide/

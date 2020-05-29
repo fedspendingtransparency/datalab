@@ -25,8 +25,6 @@ class MouseOverPopover extends React.Component {
       openedPopperId: null
     }
 
-    this.button = {0: React.createRef()};
-
   }
 
   componentDidMount() {
@@ -88,12 +86,10 @@ class MouseOverPopover extends React.Component {
                   <CloseIcon className={styles.close} onClick={this.handlePopoverClose} onKeyUp={this.keyUpHandler} />
                 </div>
                 {rows.map((item, key) => {
-                  return (<>
-                    <Grid item key={`grid-item-${key}`} className={styles.container}>
+                  return <Grid item key={`grid-item-${key}`} className={styles.container}>
                       <div className={styles.label} >{Object.keys(item)}</div>
                       <div className={styles.value}>{item[Object.keys(item)]}</div>
                     </Grid>
-                 </>)
                 })}
               </Grid>
             </Fade>

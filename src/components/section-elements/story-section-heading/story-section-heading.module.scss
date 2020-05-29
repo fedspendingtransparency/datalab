@@ -11,27 +11,30 @@ $fedEmpBlue: #2272ce;
 }
 
 .headerNumber h2 {
-  color: $darkGrey;
+  color: $mdGrey;
   font-size: 3rem;
   font-weight: 600;
   line-height: 3.125rem;
   margin: 0.1rem 0 0.3rem;
   text-align: center;
-  border-bottom: 1px solid $darkGrey;
+  border-bottom: 1px solid #ddd;
 }
 
 .headerTitle {
   color: $darkGrey;
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: bold;
   text-transform: uppercase;
 }
 
-.intro-container {
+.introContainer {
   margin: 0 0 $margin-50 0;
 
   .intro {
     padding: 0 40px 0 0;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin: 1rem 0;
   }
 
   .blurb-text {
@@ -76,6 +79,14 @@ $fedEmpBlue: #2272ce;
   font-size: 1.0625rem;
   font-weight: 300;
   line-height: 24px;
+
+  a {
+    color: $legacyBlue;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 .heading-red {
@@ -90,14 +101,10 @@ $fedEmpBlue: #2272ce;
   font-size: inherit;
 }
 
-@media (min-width: $phone) {
-  .introContainer {
-    .intro {
-      font-size: 2.5rem;
-      font-weight: 300;
-      margin: 0;
-    }
-  }
+.heading-purple {
+  color: $covidPurple;
+  font-weight: 600;
+  font-size: inherit;
 }
 
 @media (max-width: $desktop-xl - 1) {
@@ -125,8 +132,17 @@ $fedEmpBlue: #2272ce;
 
 @media (min-width: $desktop-xl) {
   .header {
-    .headerTitle {
-      line-height: 60px;
+    .headerTitleContainer {
+      margin-bottom: 40px;
+
+      .headerNumber h2 {
+        padding-bottom: 8px;
+      }
+
+      .headerTitle {
+        line-height: 60px;
+        padding-left: 42px;
+      }
     }
   }
 
@@ -140,25 +156,27 @@ $fedEmpBlue: #2272ce;
   .header {
     text-align: center;
   }
-  .headerNumber h2 {
-    border: none;
-    text-decoration: underline;
-  }
-  .headerTitle {
-    margin-top: $margin-25;
-  }
 }
 
-@media (max-width: $phone - 1) {
+
+@media (max-width: $tablet - 1) {
   .introContainer {
     margin: 0 0 25px 0 !important;
+    
     .intro {
       font-size: 1.125rem;
       font-weight: 600;
       color: $darkGrey;
-      margin: 1rem 0;
+      margin: 0;
+    }
+    .introTeaser {
+      margin-bottom: 0;
+    }
+    .introBlurb {
+      margin-top: 0;
     }
   }
+
   .header {
     .headerTitle {
       margin-top: 0;
@@ -171,4 +189,3 @@ $fedEmpBlue: #2272ce;
     margin: 0;
   }
 }
-

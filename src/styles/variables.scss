@@ -82,9 +82,6 @@ $legacyBlue: #2272CE;
 // DL Express
 $dlExpressBlue: #1302D9;
 
-// Homelessness
-$homelessMain: #544E89;
-
 // R & D
 $rdBlue: #1302D9;
 $rdMdBlue: #002aff;
@@ -94,6 +91,9 @@ $analystGuideBlue: #00C3C2;
 
 // Student Innovators Toolbox
 $studentToolboxBlue: #B2D7FF;
+
+// Covid-19
+$covidPurple: #6f41a7;
 
 $xl: 1200;
 $lg: 992;
@@ -140,10 +140,9 @@ $light: 200;
   opioidOrange: $opioidOrange;
   legacyBlue: $legacyBlue;
   dlExpressBlue: $dlExpressBlue;
-  homelessMain: $homelessMain;
   rdBlue: $rdBlue;
   analystGuideBlue: $analystGuideBlue;
   studentToolboxBlue: $studentToolboxBlue;
   rdMdBlue: $rdMdBlue;
-
+  covidColor: $covidPurple;
 }

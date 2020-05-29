@@ -1,0 +1,116 @@
+@import "src/styles/variables.scss";
+
+$chartBorder: 1px solid #ddd;
+$labelWidth: 11.5rem;
+$budgetWidth: 5.5rem;
+$lightBackground: #fafafa;
+
+svg {
+  .outlayBar {
+    fill: #331e4d;
+  }
+
+  .obligatedBar {
+    fill: $covidPurple;
+  }
+
+  .unobligatedBar {
+    fill: #f3e9ff;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    cursor: pointer;
+    font-weight: $bold;
+  }
+
+  .topPad {
+    padding-top: 1rem;
+  }
+
+  .sideLabel {
+    flex-basis: $labelWidth;
+    min-width: $labelWidth;
+    padding-right: 0.5rem;
+  }
+
+  .barContainer {
+    flex-basis: 100%;
+    display: flex;
+    flex-flow: row wrap;
+
+    background-image: linear-gradient(
+      to right,
+      #fff,
+      #fff 24.8%,
+      $background-gray-warm-light 24.8%,
+      $background-gray-warm-light 25%,
+      #fff 25%,
+      #fff 49.8%,
+      $background-gray-warm-light 49.8%,
+      $background-gray-warm-light 50%,
+      #fff 50%,
+      #fff 74.8%,
+      $background-gray-warm-light 74.8%,
+      $background-gray-warm-light 75%,
+      #fff 75%
+    );
+
+    .bar {
+      position: relative;
+      width: 100%;
+
+      &.barBorder {
+        border-left: $chartBorder;
+        border-right: $chartBorder;
+      }
+
+      &.firstBar {
+        border-top: $chartBorder;
+      }
+
+      &.lastBar {
+        border-bottom: $chartBorder;
+        padding-bottom: 1rem;
+      }
+
+      .callout {
+        position: absolute;
+        width: 100%;
+      }
+
+      .barLabels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        margin: 0 0.25rem;
+
+        .outlayLabel {
+          min-width: 5.5rem;
+          text-align: left;
+        }
+
+        .obligatedLabel {
+          min-width: 6.5rem;
+          text-align: center;
+        }
+
+        .unobligatedLabel {
+          min-width: 7.5rem;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .sideBudget {
+    flex-basis: $budgetWidth;
+    padding-left: 0.5rem;
+    white-space: nowrap;
+  }
+}

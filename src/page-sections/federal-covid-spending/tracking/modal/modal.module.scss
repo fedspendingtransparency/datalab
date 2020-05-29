@@ -1,0 +1,39 @@
+.titles {
+  font-size: 14px;
+  color: #666666;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.items {
+  margin-bottom: 30px;
+}
+
+.amount {
+  flex: 1;
+  display: flex;
+  width: 55px;
+  height: 36px;
+  background-color: #eeeeee;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555555;
+  }
+
+}
+
+.account {
+  height: 36px;
+  font-size: .875rem;
+  font-weight: 600;
+  color: #555555;
+  padding-right: 10px;
+}

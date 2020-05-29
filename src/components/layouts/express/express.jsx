@@ -7,9 +7,7 @@ export default function ExpressLayout(props) {
     <StoryLayout
       title={props.title}
       introSentence={props.introSentence}
-      hwctaLink={props.hwctaLink}
-      pageColor={props.pageColor}
-    >
+      hwctaLink={props.hwctaLink}>
       {props.children}
     </StoryLayout>
   )
@@ -18,6 +16,5 @@ export default function ExpressLayout(props) {
 ExpressLayout.propTypes = {
   children: PropTypes.node.isRequired,
   introSentence: PropTypes.string.isRequired,
-  hwctaLink: PropTypes.string,
-  pageColor: PropTypes.string
+  hwctaLink: PropTypes.string
 };
