@@ -22,7 +22,7 @@ import Modal from "./modal/modal"
 const showLess = 10; // bars to show when collapsed
 
 export default function Tracking(props) {
-  const data = useStaticQuery(graphql`
+	const data = useStaticQuery(graphql`
     query {
       agencies: allCovid19ResponseViz3AgencyMain20200521Csv {
         nodes {
@@ -78,7 +78,7 @@ export default function Tracking(props) {
 
 	const [isModalOpen, setModalState] = useState(false);
 	const [selectedBar, setSelectedBar] = useState(null);
-  const [selectedBarData, setSelectedBarData] = useState(null);
+	const [selectedBarData, setSelectedBarData] = useState(null);
 
 	const first = {
 		name: 'Budget Function',
@@ -100,7 +100,7 @@ export default function Tracking(props) {
 	const openModal = (e, data) => {
 		setModalState(true);
 		setSelectedBar(e);
-    setSelectedBarData(data);
+		setSelectedBarData(data);
 	}
 
 	const closeModal = () => {
@@ -129,7 +129,7 @@ export default function Tracking(props) {
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
 				lastBar={key === chartData.length - 1}
-        openModal={e => openModal(e, thisBar)}
+				openModal={e => openModal(e, thisBar)}
 				showDetails={screenMode !== ScreenModeEnum.mobile}
 				isModal={false}
 			/>;
@@ -146,7 +146,10 @@ export default function Tracking(props) {
 			<div className={styles.percentLegend}>
 				<span>0%</span><span>50%</span><span>100%</span>
 			</div>
-			<div className={styles.barContainer}>
+			<div
+				className={styles.barContainer}
+				aria-label='Horizontal stacked bar chart depicting the portion of total budgetary resources from the emergency funding that have been obligated and outlaid to date.'
+			>
 				{table}
 			</div>
 		</>);
@@ -169,21 +172,21 @@ export default function Tracking(props) {
 		return `${selectedBar} ${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}`;
 	}
 
-  return <>
-	   <h1>Progress of COVID-19 Spending</h1>
+	return <>
+		<h1>Progress of COVID-19 Spending</h1>
 
-	   <AccordionList title='Instructions'>
-	     <p>Actual instructions are larger than they appear</p>
-	   </AccordionList>
+		<AccordionList title='Instructions'>
+			<p>Actual instructions are larger than they appear</p>
+		</AccordionList>
 
-	   <ControlBar>
-	     <Share
-	       siteUrl={props.location.origin}
-	       pageUrl={props.location.pathname + '#' + props.sectionId}
-	       title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-	       text={'Who watches the Watchmen? Anyone with HBO...'}
-	     />
-	   </ControlBar>
+		<ControlBar>
+			<Share
+				siteUrl={props.location.origin}
+				pageUrl={props.location.pathname + '#' + props.sectionId}
+				title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+				text={'Who watches the Watchmen? Anyone with HBO...'}
+			/>
+		</ControlBar>
 
 		<a id='topofchart' />
 		{mainChart()}
@@ -197,10 +200,10 @@ export default function Tracking(props) {
 			<Modal
 				bar={selectedBar}
 				data={accountsByAgency[selectedBar]}
-        barData={selectedBarData}
-        isModal={true}
-        mobile={screenMode === ScreenModeEnum.mobile}
-      />
+				barData={selectedBarData}
+				isModal={true}
+				mobile={screenMode === ScreenModeEnum.mobile}
+			/>
 		</ModalReference>
 
 		{limitBars >= data.agencies.nodes.length ?
