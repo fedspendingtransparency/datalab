@@ -30,12 +30,10 @@ $fedEmpBlue: #2272ce;
 
 .introContainer {
   width: auto !important;
-  margin: 0 16% $margin-50;
 
   .intro {
     font-size: 2.5rem;
     font-weight: 300;
-    margin: 1rem 0;
   }
 
   .blurb-text {
@@ -114,19 +112,14 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-@media (min-width: $tablet) and (max-width: $desktop-xl - 1) {
-  .heading {
-    padding: 100px 0 30px;
-    text-align: center;
-
-    .number {
-      margin-right: 0;
-    }
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  .introContainer {
+    margin: 0 16%;
   }
 
   .headerTitle {
     margin-top: 25px;
-  }  
+  }
 }
 
 @media (max-width: $tablet - 1) {
@@ -135,10 +128,10 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-@media (min-width: $desktop-xl) {
+@media (min-width: $desktop) {
   .header {
     .headerTitleContainer {
-      margin-bottom: 40px;
+      margin-bottom: 50px;
 
       .headerNumber span {
         padding-bottom: 8px;
@@ -162,11 +155,10 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-
 @media (max-width: $tablet - 1) {
   .introContainer {
     margin: 0 0 25px 0 !important;
-    
+
     .intro {
       font-size: 1.125rem;
       font-weight: 600;
