@@ -2,6 +2,7 @@
 	This creates a set of formatted, hanging-indented, numbered footnotes starting with #1 (currently cannot support more than one per Web page)
 	To use: pass footnotes prop as array of strings or HTML/JSX elements, one for each footnote
 	Each footnote number is rendered as an anchor ("fn#") and hyperlink to referring text ("fr#")
+	Also there is a global style (footnoteref) to style fn links to footnotes
 */
 
 import React from 'react';
