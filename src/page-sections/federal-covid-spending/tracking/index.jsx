@@ -196,14 +196,15 @@ export default function Tracking(props) {
 			open={isModalOpen}
 			close={closeModal}
 			title={findTitle()}
-			maxWidth={false} maxHeight={true}
+			maxWidth={false}
+			maxHeight={true}
 		>
 			<Modal
 				bar={selectedBar}
 				data={accountsByAgency[selectedBar]}
 				barData={selectedBarData}
 				isModal={true}
-				mobile={screenMode === ScreenModeEnum.mobile}
+				mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet }
 			/>
 		</ModalReference>
 
