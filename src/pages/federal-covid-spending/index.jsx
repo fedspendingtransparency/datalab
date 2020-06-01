@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import storyHeadingStyles from '../../components/section-elements/story-section-heading/story-section-heading.module.scss';
-import globalStyles from 'src/styles/variables.scss';
+import styleVars from 'src/styles/variables.scss';
 
 import StoryLayout from '../../components/layouts/story/story';
 import { Grid } from "@material-ui/core";
@@ -59,7 +59,7 @@ export default class FederalCovidSpending extends React.Component {
       blurb: 'How is the federal government allocating emergency funds for COVID-19?',
       sectionTeaser: ['How is the federal government', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> allocating emergency funds of COVID-19?</span>],
       readMoreOnMobile: true,
-      readMoreStyle: { color: globalStyles.covidColor },
+      readMoreStyle: { color: styleVars.covidColor },
       introBlurb: [
         <>
           <p key='section-1-p-1'>
@@ -110,7 +110,7 @@ export default class FederalCovidSpending extends React.Component {
       viztitle: 'Title for Overview viz',
       tagName: 'Overview',
       readMoreOnMobile: true,
-      readMoreStyle: { color: globalStyles.covidColor }
+      readMoreStyle: { color: styleVars.covidColor }
     },
     {
       section: 'Tracking',
@@ -121,7 +121,7 @@ export default class FederalCovidSpending extends React.Component {
       blurb: 'How much emergency funding has been spent?',
       sectionTeaser: ['How much emergency funding ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>has been spent?</span>],
       readMoreOnMobile: true,
-      readMoreStyle: { color: globalStyles.covidColor },
+      readMoreStyle: { color: styleVars.covidColor },
       introBlurb: [
         <>
           <p key='section-3-p-1'>
@@ -148,6 +148,7 @@ export default class FederalCovidSpending extends React.Component {
       contextStatement='Data Lab explores how emergency funding for COVID-19 makes its way from Congress into the economy. We break down the steps taken by federal agencies to use the $2.4 trillion and track the status so you can see how much has been spent.'
       sectionToc={this.sections}
       hwctaLink={this.props.location.pathname + '/methodologies'}
+      pageColor={styleVars.covidColor}
     >
       <SEO
         title='Data Lab – The Federal Response to COVID-19 – U.S. Treasury'

@@ -42,7 +42,7 @@ const StoryLayout = (props) => {
         {props.children}
 
         <div className={styles.hwcta}>
-          <HwctaLink url={props.hwctaLink || '#'} />
+          <HwctaLink url={props.hwctaLink || '#'} pageColor={props.pageColor} />
         </div>
         <MoreAnalyses />
       </div>
@@ -57,5 +57,6 @@ StoryLayout.propTypes = {
   introSentence: PropTypes.string.isRequired,
   hwctaLink: PropTypes.string.isRequired,
   contextStatement: PropTypes.string,
-  toc: PropTypes.array
+  toc: PropTypes.array,
+  pageColor: PropTypes.string
 }
