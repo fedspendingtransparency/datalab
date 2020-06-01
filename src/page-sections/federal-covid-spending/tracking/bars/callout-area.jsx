@@ -200,8 +200,8 @@ export default function CalloutBar(props) {
 
     if (barStatus.obligated === barState[0]) {
       calloutComponent.push(<StraightCallout
-        xStart={parseFloat(props.outlaid + props.obligated / 2)}
-        labelOffset={parseFloat(props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2)}
+        xStart={props.outlaid + props.obligated / 2}
+        labelOffset={threshold.obligatedLabelOffset > props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2 ? threshold.obligatedLabelOffset : props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2}
         label={`Obligations`}
         labelAmount={props.data[1].amount}
         labelPercent={props.obligated}
@@ -230,12 +230,15 @@ export default function CalloutBar(props) {
       />)
     } else if(barStatus.obligated === barState[4]) {
       // reversed joined
-      // This needs to be customized for the modal (works desktop now, but the label offset for the modal is wrong
+      const joinedOffsets = {
+        end: props.isModal ?  50 : 45,
+      }
+
       calloutComponent.push(<ReversedJoinedCallout
         xStart={(props.outlaid + props.obligated + props.unobligated / 2) - 0.5 > 95 ? (props.outlaid + props.obligated + props.unobligated / 2) - 0.5 : 95}
-        xMid={90}
-        xEnd={55}
-        label1Offset={55 - threshold.obligatedLabelWidth / 2}
+        xMid={threshold.rightOffset}
+        xEnd={joinedOffsets.end}
+        label1Offset={joinedOffsets.end - threshold.obligatedLabelWidth / 2}
         label2Offset={unobligatedLabelOffset}
         label1={'Obligations'}
         label2={'Unobligated'}
@@ -263,7 +266,7 @@ export default function CalloutBar(props) {
     } else if (barStatus.unobligated === barState[1]) {
       calloutComponent.push(<ReversedElbowCallout
         xStart={props.outlaid + props.obligated + props.unobligated / 2 - 0.5}
-        xEnd={90}
+        xEnd={threshold.rightOffset}
         labelOffset={unobligatedLabelOffset}
         label={`Unobligated`}
         labelAmount={props.data[2].amount}

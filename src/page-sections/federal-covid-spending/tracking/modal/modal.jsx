@@ -67,8 +67,8 @@ export default function CovidModal(props) {
       return <h2>Spending Account Breakdown within Agency</h2>
     }
   }
-  return(<div style={{minWidth: window.innerWidth * .7, maxWidth: window.innerWidth * .95, overflowX: 'hidden'}}>
+  return(<div style={{minWidth: window.innerWidth * .5, maxWidth: window.innerWidth * .68, overflowX: 'hidden'}}>
     <ContentHeader />
-    <Content />
+    <Content style={{overflowX: 'hidden'}}/>
   </div>)
 }
