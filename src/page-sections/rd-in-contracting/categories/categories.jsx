@@ -155,15 +155,16 @@ export default function Categories(props) {
     }
 
     if(typeof document !== 'undefined') {
-      Object.keys(tooltipData)
-        .forEach((key) => {
-            const el = document.getElementById(key);
-            el.setAttribute('tabindex', '0');
-            el.addEventListener('mouseover', e => onHover(e));
-            el.addEventListener('keyup', e => onKeyUp(e, key, tooltipData[key]));
-            el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
-            el.addEventListener('mouseout', e => clearSelection(e));
-        });
+    Object.keys(tooltipData)
+      .forEach((key) => {
+          const el = document.getElementById(key);
+          el.setAttribute('tabindex', '0');
+          el.setAttribute('focusable', true);
+          el.addEventListener('mouseover', e => onHover(e));
+          el.addEventListener('keyup', e => onKeyUp(e, key, tooltipData[key]));
+          el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
+          el.addEventListener('mouseout', e => clearSelection(e));
+      });
     }
 
     window.addEventListener('resize', handleResize);
@@ -183,8 +184,8 @@ export default function Categories(props) {
 
         });
 
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('keyup', e => onEsc(e));
+        window.removeEventListener('resize', handleResize);
+        window.removeEventListener('keyup', e => onEsc(e));
     };
   });
 
