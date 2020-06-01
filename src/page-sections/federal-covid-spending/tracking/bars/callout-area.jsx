@@ -107,6 +107,9 @@ export default function CalloutBar(props) {
         barStatus.obligated = barState[0];
       }
 
+    } else if (props.outlaid + props.obligated / 2 > outlayLabelMidPoint) {
+      barStatus.obligated = barState[1];
+
     } else if (props.outlaid + props.obligated / 2 > outlayLabelMidPoint + padding) {
       barStatus.obligated = barState[0];
 
@@ -116,7 +119,8 @@ export default function CalloutBar(props) {
       barStatus.obligated = barState[2];
     }
      else {
-      barStatus.obligated = barState[0];
+      console.error('Uncaught condition 1.5 in callout bar');
+      // barStatus.obligated = barState[0];
     }
   } else {
     console.error('Uncaught condition 2 in callout bar');
@@ -226,11 +230,12 @@ export default function CalloutBar(props) {
       />)
     } else if(barStatus.obligated === barState[4]) {
       // reversed joined
+      // This needs to be customized for the modal (works desktop now, but the label offset for the modal is wrong
       calloutComponent.push(<ReversedJoinedCallout
         xStart={(props.outlaid + props.obligated + props.unobligated / 2) - 0.5 > 95 ? (props.outlaid + props.obligated + props.unobligated / 2) - 0.5 : 95}
         xMid={90}
-        xEnd={60}
-        label1Offset={55}
+        xEnd={55}
+        label1Offset={55 - threshold.obligatedLabelWidth / 2}
         label2Offset={unobligatedLabelOffset}
         label1={'Obligated'}
         label2={'Unobligated'}

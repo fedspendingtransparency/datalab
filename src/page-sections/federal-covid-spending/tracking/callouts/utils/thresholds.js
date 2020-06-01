@@ -4,7 +4,7 @@ const threshold = {
   outlayLabelWidth: 10,
   padding: 5,
   tabletPadding: 15,
-  mobilePadding: 20,
+  mobilePadding: 25,
   obligatedLabelWidth: 10,
   unobligatedLabelOffset: 80,
   mobileUnobligatedLabelOffset: 65,
