@@ -7,8 +7,6 @@
 export default function CovidModal(props) {
 
   function Content() {
-
-
     if(props.data) {
       return (<>
         {props.data.map((i, key) => {
@@ -16,7 +14,7 @@ export default function CovidModal(props) {
           'amount': i.Amount_Outlaid,
           'percent': i.Percent_Outlaid
         }, {
-          'amount': i.Amount_Obligated,
+          'amount': i.Amount_Obligated_Not_Outlaid,
           'percent': i.Percent_Obligated
         }, {
           'amount': i.Amount_Unobligated,
@@ -34,8 +32,7 @@ export default function CovidModal(props) {
             </Grid>)
 
         } else {
-          return (<>
-            <div key={key} style={{paddingRight: '10px'}}>
+          return (<div key={key} style={{paddingRight: '10px'}}>
               <p style={{marginBottom: '0', marginTop: '0.5rem', fontWeight: 'bold'}}>
                 {i.Account_Name} {numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}</p>
               <Bar key={key}
@@ -43,8 +40,7 @@ export default function CovidModal(props) {
                    isModal={true}
                    showDetails={true}
               />
-            </div>
-          </>)
+            </div>)
         }
         })}
       </>)
@@ -71,7 +67,7 @@ export default function CovidModal(props) {
       return <h2>Spending Account Breakdown within Agency</h2>
     }
   }
-  return(<div style={{maxWidth: '700px'}}>
+  return(<div style={{minWidth: window.innerWidth * .7, maxWidth: window.innerWidth * .95, overflowX: 'hidden'}}>
     <ContentHeader />
     <Content />
   </div>)
