@@ -28,7 +28,7 @@ const Toc = (props) => {
       <Grid container justify='space-around'>
         {props.sections.map((item, key) =>
 
-          <Grid item key={key} className={`${styles.tile}`} xs={12} md={6} xl>
+          <Grid item key={key} className={`${styles.tile}`} xs={12} md={6} lg={3}>
             <a href={`#section-${item.anchor}`} className='hover-color'>
               <Style
                 scopeSelector=".hover-color:hover .number, .hover-color:hover .section, .hover-color:hover .subtitle, .hover-color:hover .blurb"

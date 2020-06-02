@@ -1,4 +1,4 @@
-@import '../../../styles/index.scss';
+@import "../../../styles/index.scss";
 
 $darkGrey: #666666;
 $mdGrey: #555555;
@@ -10,12 +10,18 @@ h2 {
 .story-page {
   padding-top: $margin-50;
   margin: 0 auto $margin-75;
+
+  .header-container {
+    border-bottom: $darkGrey 1px solid;
+    margin: 0 1rem;
+    width: auto;
+  }
 }
 
 .header-hero {
-  margin: $margin-50 15% 0;
+  margin: $margin-50 8% 0;
   padding-bottom: $margin-30;
-  border-bottom: $darkGrey 1px solid;
+
   > * {
     text-align: center;
   }
@@ -84,24 +90,23 @@ h2 {
   }
 }
 
-@media (min-width: $phone) and (max-width: $tablet - 1) {
-  .story-page {
-    max-width: $tablet-portrait-mcw;
-  }
-}
-
-@media (max-width: $phone - 1) {
+@media (max-width: $tablet - 1) {
   .story-page {
     margin: 0 $margin-15 $margin-50;
-    max-width: none;
+
+    .header-container {
+      margin: 0;
+    }
   }
 
-  .title, .intro-sentence, .context-statement {
+  .title,
+  .intro-sentence,
+  .context-statement {
     text-align: left;
   }
 
   .header-hero {
-    margin-top: $margin-30;
+    margin: $margin-30 0 0;
     padding-bottom: $margin-25;
   }
 }
