@@ -138,8 +138,8 @@ export default function Tracking(props) {
 		return (<>
 			<div className={styles.legend}>
 				<div className={styles.blockContainer}>
-					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlaid</span>
-					<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligated</span>
+					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlays</span>
+					<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligations</span>
 					<span className={`${styles.block} ${styles.unobligatedBar}`}></span><span>Unobligated</span>
 				</div>
 			</div>
