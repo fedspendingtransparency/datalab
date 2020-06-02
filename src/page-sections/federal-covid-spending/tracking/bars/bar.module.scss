@@ -1,8 +1,8 @@
 @import "src/styles/variables.scss";
 
 $chartBorder: 1px solid #ddd;
-$labelWidth: 11.5rem;
-$budgetWidth: 5.5rem;
+$labelWidth: 11.5rem; // 28% for mobile
+$budgetWidth: 5.5rem; // 22% for mobile
 $lightBackground: #fafafa;
 
 svg {

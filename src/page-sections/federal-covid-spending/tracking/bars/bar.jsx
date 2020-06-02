@@ -1,8 +1,9 @@
-import React from 'react';
+import React from "react"
 import PropTypes from 'prop-types';
 import styles from './bar.module.scss';
 import CalloutBar from './callout-area';
 import PercentBar from './percent-area';
+import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 
 const barHeight = 30;
 
@@ -17,7 +18,6 @@ export default class Bar extends React.Component {
 		lastBar: should this bar have a bottom border?
 	*/
 	static propTypes = {
-		'showDetails': PropTypes.bool,
 		'data': PropTypes.arrayOf(PropTypes.object).isRequired,
 		'barLabel': PropTypes.string,
 		'total': PropTypes.string,
@@ -29,6 +29,11 @@ export default class Bar extends React.Component {
 
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			showDetails: false,
+			screenMode: null
+		}
 	}
 
 	clickHandler = item => {
@@ -41,6 +46,30 @@ export default class Bar extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+    this.resizeWindow();
+    window.addEventListener('resize', this.resizeWindow);
+  }
+
+	componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeWindow);
+	}
+
+  resizeWindow = () => {
+    const newMode = checkScreenMode(window.innerWidth);
+    if (newMode !== this.state.screenMode) {
+      this.setState({screenMode: newMode});
+    }
+  }
+
+	onHover = (e) => {
+		this.setState({showDetails: true})
+	}
+
+	onBlur = (e) => {
+    this.setState({showDetails: false})
+  }
+
 	render = () =>
 		<div className={this.props.isModal ? '' : styles.container}>
       {this.props.isModal ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>}
@@ -52,12 +81,15 @@ export default class Bar extends React.Component {
 					${this.props.firstBar ? styles.firstBar : ''}
 					${this.props.lastBar ? styles.lastBar : ''}`}
 					style={{ cursor: this.props.isModal ? 'default' : 'pointer' }}
-					tabIndex='0'
+					tabIndex={this.props.isModal ? '' : '0'}
 					onClick={() => this.props.isModal ? '' : this.clickHandler(this.props.barLabel)}
 					onKeyUp={e => this.props.isModal ? '' : this.keyUpHandler(e, this.props.barLabel)}
 				>
-					<svg width='100%' height={this.props.isModal ? '70px' : '56px'}>
-            <g style={{display: this.props.isModal || this.props.showDetails ? 'block' : 'none' }}>
+					<svg width='100%'
+							 height={this.props.isModal ? '70px' : '56px'}
+               onMouseOver={e => this.state.screenMode !== ScreenModeEnum.mobile ? this.onHover(e) : ''}
+               onMouseOut={e => this.state.screenMode !== ScreenModeEnum.mobile ? this.onBlur(e) : ''}>
+            <g style={{display: this.props.isModal || this.state.showDetails ? 'block' : 'none' }}>
               <CalloutBar
                   outlaid={parseFloat(this.props.data[0].percent)}
                   obligated={parseFloat(this.props.data[1].percent)}

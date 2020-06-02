@@ -33,8 +33,9 @@ export default function CovidModal(props) {
 
         } else {
           return (<div key={key} style={{paddingRight: '10px'}}>
-              <p style={{marginBottom: '0', marginTop: '0.5rem', fontWeight: 'bold'}}>
-                {i.Account_Name} {numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}</p>
+              <p style={{marginBottom: '0', marginTop: '0.5rem'}}>
+                <span><b>{i.Account_Name}</b></span>
+                <span>&nbsp;&nbsp;{numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}</span></p>
               <Bar key={key}
                    data={_data}
                    isModal={true}
@@ -67,7 +68,7 @@ export default function CovidModal(props) {
       return <h2>Spending Account Breakdown within Agency</h2>
     }
   }
-  return(<div style={{minWidth: window.innerWidth * .6, maxWidth: window.innerWidth * .7, overflowX: 'hidden'}}>
+  return(<div style={{minWidth: window.innerWidth * .6, maxWidth: window.innerWidth * .9, overflowX: 'hidden'}}>
     <ContentHeader />
     <Content style={{overflowX: 'hidden'}}/>
   </div>)

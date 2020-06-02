@@ -131,7 +131,6 @@ export default function Tracking(props) {
 				firstBar={key === 0}
 				lastBar={key === chartData.length - 1}
 				openModal={e => openModal(e, thisBar)}
-				showDetails={screenMode !== ScreenModeEnum.mobile}
 				isModal={false}
 			/>;
 		});

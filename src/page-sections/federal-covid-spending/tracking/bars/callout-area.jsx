@@ -43,7 +43,7 @@ export default function CalloutBar(props) {
   });
 
   const padding = screenMode === ScreenModeEnum.tablet ? threshold.tabletPadding : screenMode === ScreenModeEnum.mobile ? threshold.mobilePadding : threshold.padding;
-  const unobligatedLabelOffset = props.isModal ? threshold.modalUnobligatedLabelOffset : screenMode === ScreenModeEnum.tablet ? threshold.tabletUnobligatedLabelOffset : screenMode === ScreenModeEnum.mobile ? threshold.mobileUnobligatedLabelOffset : threshold.unobligatedLabelOffset;
+  const unobligatedLabelOffset = props.isModal && screenMode === ScreenModeEnum.mobile ? threshold.mobileUnobligatedLabelOffset : props.isModal? threshold.modalUnobligatedLabelOffset : screenMode === ScreenModeEnum.tablet ? threshold.tabletUnobligatedLabelOffset : threshold.unobligatedLabelOffset;
 
   const outlayLabelMidPoint = threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2;
   const obligatedLabelMidPoint = threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding + threshold.obligatedLabelWidth / 2;
