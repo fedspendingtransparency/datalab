@@ -70,23 +70,20 @@ export default class PageHeader extends React.Component {
     }
   };
 
-  handleMouseLeave = e => {
-    e.stopPropagation();
-    this.setState({ activeItem: ' ' });
-  };
-
   burgerClick = () => {
     this.setState({ showMobileMenu: !this.state.showMobileMenu });
   };
 
-
-///////////////   here!
-
-  handleItemHover = e => {
+  activateMenu = e => {
     if (!e.target.innerText) {
       return this.setState({ activeItem: ' ' });
     }
     this.setState({ activeItem: e.target.innerText });
+  };
+
+  deactivateMenu = e => {
+    e.stopPropagation();
+    this.setState({ activeItem: ' ' });
   };
 
   tagLineCheck = (isSticky) => {
@@ -122,13 +119,13 @@ export default class PageHeader extends React.Component {
                 <FontAwesomeIcon icon={faBars} />
               </span>
               <ul className={styles.ulNav} id={styles.burgerMenu}>
-                <li className={styles.item} onMouseOver={this.handleItemHover}>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
                   <button className={styles.anchor}>Analyses <span className={styles.arrow}><Arrow /></span></button>
                 </li>
-                <li className={styles.item} onMouseOver={this.handleItemHover}>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
                   <button className={styles.anchor}>America's Finance Guide <span className={styles.arrow}><Arrow /></span></button>
                 </li>
-                <li className={styles.item} onMouseOver={this.handleItemHover}>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
                   <button className={styles.anchor}>Resources <span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item}>
@@ -142,7 +139,7 @@ export default class PageHeader extends React.Component {
         <div className={`${styles.sub} ${isSticky ? ' ' + styles.tight : ``}`} style={{ top: this.props.isHome === true ? `` : `${this.state.skinnySub}px` }}>
           <Dropdown
             activeItem={this.state.activeItem}
-            mouseHandle={this.handleMouseLeave}
+            mouseHandle={this.deactivateMenu}
             data={this.props.megamenuItems}
           />
 
