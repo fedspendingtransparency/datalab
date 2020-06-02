@@ -1,0 +1,31 @@
+@import "../../styles/variables";
+
+$ltGrey: #ccc;
+
+.scroll-to-top-container {
+  position: sticky;
+  display: flex;
+  justify-content: flex-end;
+  top: 88%;
+  padding-right: 20px;
+  margin-bottom: 20px;
+}
+
+.scroll-to-top-button {
+  background-color: $ltGrey !important;
+  z-index: 1000;
+
+  span {
+    color: #fff;
+  }
+}
+
+.scroll-to-top-button:hover {
+  background-color: #ddd !important;
+}
+
+@media screen and (max-width: $desktop-xl - 1) {
+  .scroll-to-top-container {
+    top: 92%
+  }
+}
