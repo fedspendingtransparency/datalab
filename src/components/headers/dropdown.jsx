@@ -23,7 +23,7 @@ class Dropdown extends React.Component {
     if (!this.props.activeItem) {
       return null;
     }
-    let activeItem = this.props.activeItem.toString().trim();
+    const activeItem = this.props.activeItem.toString().trim();
 
     return (
       <div>
