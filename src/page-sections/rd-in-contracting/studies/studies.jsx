@@ -77,7 +77,7 @@ export default function Studies(props) {
 
 		<Downloads
 			href={'/unstructured-data/rd-in-contracting/r&d_trends_fy2009to2019.csv'}
-			date={'December 2019'}
+			date={'October 2019'}
 		/>
 	</>);
 }

@@ -10,14 +10,14 @@ $fedEmpBlue: #2272ce;
   margin-bottom: 1.5rem;
 }
 
-.headerNumber h2 {
+.headerNumber span {
   color: $mdGrey;
   font-size: 3rem;
   font-weight: 600;
   line-height: 3.125rem;
   margin: 0.1rem 0 0.3rem;
   text-align: center;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #b3b3b3;
 }
 
 .headerTitle {
@@ -28,13 +28,11 @@ $fedEmpBlue: #2272ce;
 }
 
 .introContainer {
-  margin: 0 0 $margin-50 0;
+  width: auto !important;
 
   .intro {
-    padding: 0 40px 0 0;
     font-size: 2.5rem;
     font-weight: 300;
-    margin: 1rem 0;
   }
 
   .blurb-text {
@@ -113,14 +111,17 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-@media (min-width: $tablet) and (max-width: $desktop-xl - 1) {
-  .heading {
-    padding: 100px 0 30px;
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  .header {
     text-align: center;
+  }
 
-    .number {
-      margin-right: 0;
-    }
+  .introContainer {
+    margin: 0 16%;
+  }
+
+  .headerTitle {
+    margin-top: 25px !important;
   }
 }
 
@@ -130,17 +131,19 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-@media (min-width: $desktop-xl) {
+@media (min-width: $desktop) {
   .header {
-    .headerTitleContainer {
-      margin-bottom: 40px;
+    margin-left: 8%;
 
-      .headerNumber h2 {
+    .headerTitleContainer {
+      margin-bottom: 50px;
+
+      .headerNumber span {
         padding-bottom: 8px;
       }
 
       .headerTitle {
-        line-height: 60px;
+        margin-top: 15px !important;
         padding-left: 42px;
       }
     }
@@ -152,17 +155,10 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-@media (min-width: $phone) and (max-width: $desktop-xl) {
-  .header {
-    text-align: center;
-  }
-}
-
-
 @media (max-width: $tablet - 1) {
   .introContainer {
     margin: 0 0 25px 0 !important;
-    
+
     .intro {
       font-size: 1.125rem;
       font-weight: 600;
@@ -184,7 +180,7 @@ $fedEmpBlue: #2272ce;
       font-size: 1.125rem;
     }
   }
-  .headerNumber h2 {
+  .headerNumber span {
     font-size: 1.5rem;
     margin: 0;
   }
