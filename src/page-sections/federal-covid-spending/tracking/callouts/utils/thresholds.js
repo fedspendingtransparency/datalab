@@ -2,14 +2,14 @@
 const threshold = {
   outlayLabelOffset: 1,
   outlayLabelWidth: 10,
-  padding: 5,
+  padding: 15,
   tabletPadding: 15,
-  mobilePadding: 20,
+  mobilePadding: 25,
   obligatedLabelWidth: 10,
   unobligatedLabelOffset: 80,
   mobileUnobligatedLabelOffset: 65,
   tabletUnobligatedLabelOffset: 70,
-  modalUnobligatedLabelOffset: 75,
+  modalUnobligatedLabelOffset: 73,
   rightOffset: 90,
 }
 
