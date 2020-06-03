@@ -76,7 +76,7 @@ export default function Budget(props) {
             </div>
 
             <Downloads
-              href={'/data/federal-covid-spending/overview/covid19_response_viz1_2020-05-21.csv'}
+              href={'/data/federal-covid-spending/tracking/covid19_response_viz1_2020-05-21.csv'}
               date={'May 2020'}
             />
           </>);
