@@ -193,7 +193,7 @@ export default class SpendingChart extends React.Component {
                   <Legend />
                   <Downloads
                     href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
-                    date={'December 2019'}
+                    date={'October 2019'}
                   />
                 </div>
               </>);
@@ -219,7 +219,7 @@ export default class SpendingChart extends React.Component {
                   <Legend />
                   <Downloads
                     href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
-                    date={'December 2019'}
+                    date={'October 2019'}
                   />
                 </div>
               </>);
@@ -245,7 +245,7 @@ export default class SpendingChart extends React.Component {
                   <Legend />
                   <Downloads
                     href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
-                    date={'December 2019'}
+                    date={'October 2019'}
                   />
                 </div>
               </>);

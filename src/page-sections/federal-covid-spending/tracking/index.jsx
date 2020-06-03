@@ -31,6 +31,7 @@ export default function Tracking(props) {
 					Amount_Outlaid
 					Percent_Obligated
 					Amount_Obligated
+					Amount_Obligated_Not_Outlaid
 					Percent_Unobligated
 					Amount_Unobligated
 					Total_Budgetary_Resources
@@ -116,7 +117,7 @@ export default function Tracking(props) {
 				'amount': i.Amount_Outlaid,
 				'percent': parseFloat(i.Percent_Outlaid).toFixed(2)
 			}, {
-				'amount': i.Amount_Obligated,
+				'amount': i.Amount_Obligated_Not_Outlaid,
 				'percent': parseFloat(i.Percent_Obligated).toFixed(2)
 			}, {
 				'amount': i.Amount_Unobligated,
