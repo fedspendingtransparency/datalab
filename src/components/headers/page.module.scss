@@ -1,10 +1,10 @@
 @import "../../styles/index.scss";
 
 #header {
-  background: #FFFFFF;
+  background: #ffffff;
   box-sizing: border-box;
   line-height: normal;
-  box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
   z-index: 100;
 }
@@ -21,7 +21,7 @@
 .header-container {
   position: fixed;
   top: 0;
-  animation: smoothy .5s ease-in;
+  animation: smoothy 0.5s ease-in;
 }
 
 .logo-wrapper.row {
@@ -36,8 +36,8 @@
 .nav {
   display: flex;
   justify-content: center;
-  margin-top: .25rem;
-  padding-top: .5rem;
+  margin-top: 0.25rem;
+  padding-top: 0.5rem;
   border-top: 1px solid #ddd;
   width: 100%;
   height: 30px;
@@ -51,7 +51,8 @@
     color: #666;
     padding-top: 0.125rem; // 2px;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: #046b99;
       border-bottom: 2px solid #046b99;
       padding-bottom: 0.4375rem; // 7pxpx
@@ -71,7 +72,7 @@
     list-style: none;
     font-size: 0.8125rem;
     padding: 0;
-    margin-top: .1rem;
+    margin-top: 0.1rem;
 
     .item {
       font-size: 0.9375rem;
@@ -79,7 +80,6 @@
       padding-right: 30px;
     }
   }
-
 } // end header-nav
 
 .nav.tight {
@@ -93,7 +93,7 @@
   display: flex;
   position: absolute;
   top: 26px; // from top of blue bar!
-  box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
   flex-wrap: nowrap;
   box-sizing: border-box;
@@ -117,7 +117,7 @@
 .main.tight {
   height: 50px;
   top: 0px;
-  background: #FFFFFF;
+  background: #ffffff;
   padding-bottom: 1rem;
   padding-top: 12px;
 }
@@ -128,7 +128,6 @@ ul.ul-nav {
   font-size: 0.8125rem;
   margin: 0;
   padding: 0;
-
 }
 
 // container for "megamenu"!
@@ -170,7 +169,6 @@ ul.ul-nav {
   flex-grow: 1;
 }
 
-
 // generic for dropdown list (megamenu)
 .data-list {
   display: flex;
@@ -178,24 +176,24 @@ ul.ul-nav {
   list-style-type: none;
   border-top: 1px solid #ddd;
   box-sizing: border-box;
-  background: #F9F9F9F9;
-  padding-bottom: .25rem;
+  background: #f9f9f9f9;
+  padding-bottom: 0.25rem;
 
   .ul {
     display: flex;
     flex-direction: column;
     list-style-type: none;
     justify-content: center;
-//    padding-left: 2.5rem;
-//    padding-right: 2.5rem;
+    //    padding-left: 2.5rem;
+    //    padding-right: 2.5rem;
     font-size: 0.875rem;
     padding-top: 25px;
     padding-bottom: 25px;
     margin: 0;
 
     .li {
-      padding-top: .5rem;
-      padding-bottom: .5rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
       font-weight: 300;
     }
   }
@@ -203,7 +201,6 @@ ul.ul-nav {
   .ul-analyses {
     padding: 0;
   }
-
 
   // specific for FFG section as they have headers.
   .section {
@@ -227,19 +224,18 @@ ul.ul-nav {
     }
 
     .li {
-      padding-top: .5rem;
-      padding-bottom: .5rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
       font-weight: 300;
     }
 
     .sectionTitle {
       margin: 0;
-      padding-bottom: .5rem;
+      padding-bottom: 0.5rem;
       color: #555555;
       font-size: 0.875rem; // 14px
       line-height: 18px;
     }
-
   }
 
   .a {
@@ -249,7 +245,6 @@ ul.ul-nav {
   .a:hover {
     color: #046b99;
   }
-
 }
 
 // data list modifiers for spacing
@@ -286,7 +281,6 @@ ul.ul-nav {
     padding-top: 15px;
     padding-bottom: 15px;
   }
-
 }
 
 .toggle {
@@ -301,4 +295,4 @@ ul.ul-nav {
   display: none;
 }
 
-@import './page-mobile.scss';
+@import "./page-mobile.scss";
