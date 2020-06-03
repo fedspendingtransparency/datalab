@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Grid } from "@material-ui/core";
 import ControlBar from "src/components/control-bar/control-bar";
 import Share from "src/components/share/share";
 import Downloads from "src/components/section-elements/downloads/downloads";
@@ -51,25 +52,23 @@ export default function Budget(props) {
   }
 
   return (<>
-            <h2 className="rd-viztitle">{props.section.viztitle}</h2>
-            <ControlBar>
-	      <Share
-	        siteUrl={props.location.origin}
-	        pageUrl={props.location.pathname + '#' + props.sectionId}
-	        title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-	        text={'Who watches the Watchmen? Anyone with HBO...'}
-                hoverColor='#1302d9'
-	      />
-            </ControlBar>
+            <Grid container alignItems='center' style={{ marginBottom: 30 }}>
+              <Grid item xs={10}>
+                <h2 className="rd-viztitle">{props.section.viztitle}</h2>
+              </Grid>
+              <Grid item xs={2}>
+                <Share
+	          siteUrl={props.location.origin}
+	          pageUrl={props.location.pathname + '#' + props.sectionId}
+	          title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+	          text={'Who watches the Watchmen? Anyone with HBO...'}
+                  hoverColor='#1302d9'
+	        />
+              </Grid>
+            </Grid>
 
             <div className="chart-container">
               <Chart />
-              <div id="pop-up">
-                <div className="title">
-                  <div id="inner-title">{title}</div>
-                  <div id="close"><CloseIcon  /></div>
-                </div>
-              </div>
             </div>
 
             <Downloads
