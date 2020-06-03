@@ -9,11 +9,12 @@ class Dropdown extends React.Component {
     };
   }
 
-  returnActiveList = data => {
-    return data.map((item, i) => {
+  returnActiveList = (data, first) => {
+    return data.map((item, key) => {
       return (
-        <li className={styles.li} key={i}>
-          <a href={item.link} className={styles.a}>{item.name}</a>
+        <li          key={key}          className={styles.li}        >
+          <a id={first ? 'menu-first-item' : ''}
+            href={item.link} className={styles.a}>{item.name}</a>
         </li>
       );
     });
@@ -31,7 +32,7 @@ class Dropdown extends React.Component {
           <div className={styles.dataList} onMouseLeave={this.props.mouseHandle}>
             <section className={`${styles.section} ${styles.analyses}`}>
               <h4 className={styles.sectionTitle}>Topical Analyses</h4>
-              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(0, 4))}</ul>
+              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(0, 4), true)}</ul>
             </section>
             <section className={`${styles.section} ${styles.analyses}`}>
               <h4 className={styles.sectionTitle}>Contract Analyses</h4>

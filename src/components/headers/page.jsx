@@ -86,6 +86,21 @@ export default class PageHeader extends React.Component {
     this.setState({ activeItem: ' ' });
   };
 
+  menuKeyDown = e => {
+
+    console.log(e);
+      
+
+    if (e.key === 'ArrowDown') {
+
+      console.log(e);
+      
+
+
+      document.getElementById('menu-first-item').focus();
+    }
+  }
+
   tagLineCheck = (isSticky) => {
     if (isSticky) {
       if (this.state.isMobileTag) {
@@ -118,7 +133,11 @@ export default class PageHeader extends React.Component {
               <span className={styles.toggle} onClick={this.burgerClick}>
                 <FontAwesomeIcon icon={faBars} />
               </span>
-              <ul className={styles.ulNav} id={styles.burgerMenu}>
+              <ul
+                id={styles.burgerMenu}
+                className={styles.ulNav}
+                onKeyDown={this.menuKeyDown}
+              >
                 <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
                   <button className={styles.anchor}>Analyses <span className={styles.arrow}><Arrow /></span></button>
                 </li>
