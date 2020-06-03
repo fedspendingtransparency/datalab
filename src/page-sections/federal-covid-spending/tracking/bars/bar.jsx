@@ -62,12 +62,16 @@ export default class Bar extends React.Component {
     }
   }
 
-	onHover = (e) => {
-		this.setState({showDetails: true})
+	onHover = () => {
+    if(this.state.screenMode !== ScreenModeEnum.mobile) {
+      this.setState({showDetails: true})
+    }
 	}
 
-	onBlur = (e) => {
-    this.setState({showDetails: false})
+	onBlur = () => {
+    if(this.state.screenMode !== ScreenModeEnum.mobile) {
+      this.setState({ showDetails: false })
+    }
   }
 
 	render = () =>
@@ -87,8 +91,8 @@ export default class Bar extends React.Component {
 				>
 					<svg width='100%'
 							 height={this.props.isModal ? '70px' : '56px'}
-               onMouseOver={e => this.state.screenMode !== ScreenModeEnum.mobile ? this.onHover(e) : ''}
-               onMouseOut={e => this.state.screenMode !== ScreenModeEnum.mobile ? this.onBlur(e) : ''}>
+               onMouseOver={this.onHover}
+               onMouseOut={this.onBlur}>
             <g style={{display: this.props.isModal || this.state.showDetails ? 'block' : 'none' }}>
               <CalloutBar
                   outlaid={parseFloat(this.props.data[0].percent)}
