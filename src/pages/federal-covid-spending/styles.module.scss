@@ -19,3 +19,9 @@ $left-indent: 32px;
     line-height: 1.5rem;
   }
 }
+
+[id="footnotes"] {
+  a {
+    color: $highlightColor;
+  }
+}
