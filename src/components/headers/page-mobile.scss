@@ -21,8 +21,8 @@
 
   .nav {
     position: absolute;
-    padding: 0;
-    padding-right: 2rem;
+    padding-right: 2rem !important;
+    padding-top: .2rem !important;
     width: auto;
     right: 0;
     border-top: none;

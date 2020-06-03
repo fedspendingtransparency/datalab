@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Grid } from "@material-ui/core";
 import ControlBar from "src/components/control-bar/control-bar";
 import Share from "src/components/share/share";
 import Downloads from "src/components/section-elements/downloads/downloads";
@@ -9,7 +10,7 @@ import Mobile from 'src/svgs/federal-covid-spending/budget/viz1Mobile.svg';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import variables from "src/styles/variables.scss";
-import './budget.scss';
+import styles from './budget.module.scss';
 
 export default function Budget(props) {
   const [windowWidth, setWindowWidth] = useState(null);
@@ -50,30 +51,28 @@ export default function Budget(props) {
     }
   }
 
-  return (<>
-            <h2 className="rd-viztitle">{props.section.viztitle}</h2>
-	    <AccordionList title='Instructions'>
-	      <p>Actual instructions are larger than they appear</p>
-	    </AccordionList>
-            <ControlBar>
-	     <Share
-	       siteUrl={props.location.origin}
-	       pageUrl={props.location.pathname + '#' + props.sectionId}
-	       title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-	       text={'Who watches the Watchmen? Anyone with HBO...'}
-               hoverColor='#1302d9'
-	     />
-            </ControlBar>
+  return (
+    <>
+      <Grid container alignItems='center' style={{ marginBottom: 30 }}>
+        <Grid item xs={10}>
+          <div className={styles.vizTitle}>
+            {props.section.viztitle}
+          </div>
+        </Grid>
+        <Grid item xs={2}>
+          <Share
+	    siteUrl={props.location.origin}
+	    pageUrl={props.location.pathname + '#' + props.sectionId}
+	    title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+	    text={'Who watches the Watchmen? Anyone with HBO...'}
+            hoverColor='#1302d9'
+	  />
+        </Grid>
+      </Grid>
 
-            <div className="chart-container">
-              <Chart />
-              <div id="pop-up">
-                <div className="title">
-                  <div id="inner-title">{title}</div>
-                  <div id="close"><CloseIcon  /></div>
-                </div>
-              </div>
-            </div>
+      <div className="chart-container">
+        <Chart />
+      </div>
 
             <Downloads
               href={'/data/federal-covid-spending/tracking/covid19_response_viz1_2020-05-21.csv'}

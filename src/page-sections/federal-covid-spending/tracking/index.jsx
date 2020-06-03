@@ -131,7 +131,6 @@ export default function Tracking(props) {
 				firstBar={key === 0}
 				lastBar={key === chartData.length - 1}
 				openModal={e => openModal(e, thisBar)}
-				showDetails={screenMode !== ScreenModeEnum.mobile}
 				isModal={false}
 			/>;
 		});
@@ -139,8 +138,8 @@ export default function Tracking(props) {
 		return (<>
 			<div className={styles.legend}>
 				<div className={styles.blockContainer}>
-					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlaid</span>
-					<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligated</span>
+					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlays</span>
+					<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligations</span>
 					<span className={`${styles.block} ${styles.unobligatedBar}`}></span><span>Unobligated</span>
 				</div>
 			</div>
@@ -170,7 +169,7 @@ export default function Tracking(props) {
 
 	const findTitle = () => {
 		const selectionAmount = data.agencies.nodes.find(item => item.label === selectedBar);
-		return `${selectedBar} ${selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}`;
+		return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
 	}
 
 	return <>
@@ -196,14 +195,15 @@ export default function Tracking(props) {
 			open={isModalOpen}
 			close={closeModal}
 			title={findTitle()}
-			maxWidth={false} maxHeight={true}
+			maxWidth={false}
+			maxHeight={true}
 		>
 			<Modal
 				bar={selectedBar}
 				data={accountsByAgency[selectedBar]}
 				barData={selectedBarData}
 				isModal={true}
-				mobile={screenMode === ScreenModeEnum.mobile}
+				mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet }
 			/>
 		</ModalReference>
 
