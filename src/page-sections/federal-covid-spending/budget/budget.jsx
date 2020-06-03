@@ -50,34 +50,63 @@ export default function Budget(props) {
     }
   }
 
-  return (<>
+  function Header() {
+    if (windowWidth && windowWidth >= parseInt(variables.md)) {
+      return (
+        <>
+          <ControlBar>
             <h2 className="rd-viztitle">{props.section.viztitle}</h2>
-	    <AccordionList title='Instructions'>
-	      <p>Actual instructions are larger than they appear</p>
-	    </AccordionList>
-            <ControlBar>
-	     <Share
-	       siteUrl={props.location.origin}
-	       pageUrl={props.location.pathname + '#' + props.sectionId}
-	       title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-	       text={'Who watches the Watchmen? Anyone with HBO...'}
-               hoverColor='#1302d9'
-	     />
-            </ControlBar>
-
-            <div className="chart-container">
-              <Chart />
-              <div id="pop-up">
-                <div className="title">
-                  <div id="inner-title">{title}</div>
-                  <div id="close"><CloseIcon  /></div>
-                </div>
-              </div>
-            </div>
-
-            <Downloads
-              href={'/data/federal-covid-spending/overview/covid19_response_viz1_2020-05-21.csv'}
-              date={'May 2020'}
+            <Share
+              siteUrl={props.location.origin}
+              pageUrl={props.location.pathname + '#' + props.sectionId}
+              title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+              text={'Who watches the Watchmen? Anyone with HBO...'}
+              hoverColor='#1302d9'
             />
-          </>);
+          </ControlBar>
+          <AccordionList title='Instructions'>
+            <p>Actual instructions are larger than they appear</p>
+          </AccordionList>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <h2 className="rd-viztitle">{props.section.viztitle}</h2>
+          <AccordionList title='Instructions'>
+            <p>Actual instructions are larger than they appear</p>
+          </AccordionList>
+          <ControlBar alignRightOnMobile>
+            <Share
+              siteUrl={props.location.origin}
+              pageUrl={props.location.pathname + '#' + props.sectionId}
+              title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+              text={'Who watches the Watchmen? Anyone with HBO...'}
+              hoverColor='#1302d9'
+            />
+          </ControlBar>
+        </>
+      )
+    }
+  }
+
+  return (
+    <>
+      <Header />
+      <div className="chart-container">
+        <Chart />
+        <div id="pop-up">
+          <div className="title">
+            <div id="inner-title">{title}</div>
+            <div id="close"><CloseIcon /></div>
+          </div>
+        </div>
+      </div>
+
+      <Downloads
+        href={'/data/federal-covid-spending/overview/covid19_response_viz1_2020-05-21.csv'}
+        date={'May 2020'}
+      />
+    </>
+  );
 }

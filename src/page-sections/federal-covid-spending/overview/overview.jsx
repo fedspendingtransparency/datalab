@@ -90,24 +90,39 @@ const Overview = (props) => {
     </>
   );
 
+  const titleComponent = screenWidth < 768 ? (
+    <>
+      <h2 className={overviewStyles.overviewTitle}>
+        The Process of Spending COVID-19 Funds
+      </h2>
+      <ControlBar alignRightOnMobile>
+        <Share
+          siteUrl={props.location.origin}
+          pageUrl={props.location.pathname + '#' + props.sectionId}
+          title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+          text={'Who watches the Watchmen? Anyone with HBO...'}
+          hoverColor='#1302d9'
+        />
+      </ControlBar>
+    </>
+  ) : (
+    <ControlBar>
+      <h2 className={overviewStyles.overviewTitle}>
+        The Process of Spending COVID-19 Funds
+      </h2>
+      <Share
+        siteUrl={props.location.origin}
+        pageUrl={props.location.pathname + '#' + props.sectionId}
+        title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+        text={'Who watches the Watchmen? Anyone with HBO...'}
+        hoverColor='#1302d9'
+      />
+    </ControlBar>
+  )
+
   return (
     <>
-      <Grid container alignItems='center' style={{ marginBottom: 30 }}>
-        <Grid item xs={10}>
-          <div className={overviewStyles.overviewTitle}>
-            The Process of Spending COVID-19 Funds
-          </div>
-        </Grid>
-        <Grid item xs={2}>
-          <Share
-	    siteUrl={props.location.origin}
-	    pageUrl={props.location.pathname + '#' + props.sectionId}
-	    title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-	    text={'Who watches the Watchmen? Anyone with HBO...'}
-            hoverColor='#1302d9'
-	  />
-        </Grid>
-      </Grid>
+      {titleComponent}
       {visualizationComponent}
     </>
   );
