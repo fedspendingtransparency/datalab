@@ -11,6 +11,16 @@ $ltGrey: #ccc;
   margin-bottom: 20px;
 }
 
+.scroll-to-top-container-hidden {
+  position: sticky;
+  display: flex;
+  justify-content: flex-end;
+  top: 88%;
+  padding-right: 20px;
+  margin-bottom: 20px;
+  opacity: 0;
+}
+
 .scroll-to-top-button {
   background-color: $ltGrey !important;
   z-index: 1000;

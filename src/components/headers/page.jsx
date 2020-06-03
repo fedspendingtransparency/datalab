@@ -102,7 +102,7 @@ class PageHeader extends React.Component {
   };
 
   scrollToTop = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && window.pageYOffset !== 0) {
       window.scrollTo(0, 0)
     }
   }
@@ -157,7 +157,7 @@ class PageHeader extends React.Component {
 
           </div>
         </header>
-        {this.state.scrollButtonVisible && <ScrollToTopButton onClick={this.scrollToTop} />}
+        <ScrollToTopButton onClick={this.scrollToTop} visible={scrollButtonVisible} />
         <Glossary />
       </>
     );
