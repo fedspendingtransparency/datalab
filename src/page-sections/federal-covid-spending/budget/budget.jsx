@@ -10,7 +10,7 @@ import Mobile from 'src/svgs/federal-covid-spending/budget/viz1Mobile.svg';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import variables from "src/styles/variables.scss";
-import './budget.scss';
+import styles from './budget.module.scss';
 
 export default function Budget(props) {
   const [windowWidth, setWindowWidth] = useState(null);
@@ -51,29 +51,32 @@ export default function Budget(props) {
     }
   }
 
-  return (<>
-            <Grid container alignItems='center' style={{ marginBottom: 30 }}>
-              <Grid item xs={10}>
-                <h2 className="rd-viztitle">{props.section.viztitle}</h2>
-              </Grid>
-              <Grid item xs={2}>
-                <Share
-	          siteUrl={props.location.origin}
-	          pageUrl={props.location.pathname + '#' + props.sectionId}
-	          title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-	          text={'Who watches the Watchmen? Anyone with HBO...'}
-                  hoverColor='#1302d9'
-	        />
-              </Grid>
-            </Grid>
+  return (
+    <>
+      <Grid container alignItems='center' style={{ marginBottom: 30 }}>
+        <Grid item xs={10}>
+          <div className={styles.vizTitle}>
+            {props.section.viztitle}
+          </div>
+        </Grid>
+        <Grid item xs={2}>
+          <Share
+	    siteUrl={props.location.origin}
+	    pageUrl={props.location.pathname + '#' + props.sectionId}
+	    title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+	    text={'Who watches the Watchmen? Anyone with HBO...'}
+            hoverColor='#1302d9'
+	  />
+        </Grid>
+      </Grid>
 
-            <div className="chart-container">
-              <Chart />
-            </div>
+      <div className="chart-container">
+        <Chart />
+      </div>
 
-            <Downloads
-              href={'/data/federal-covid-spending/overview/covid19_response_viz1_2020-05-21.csv'}
-              date={'May 2020'}
-            />
-          </>);
+      <Downloads
+        href={'/data/federal-covid-spending/overview/covid19_response_viz1_2020-05-21.csv'}
+        date={'May 2020'}
+      />
+    </>);
 }
