@@ -42,6 +42,10 @@ $mdGrey: #555555;
     margin-top: $margin-75;
     margin-bottom: $margin-100;
 
+    .container {
+      justify-content: space-around;
+    }
+
     .tile:not(:last-child) {
       border-right: 1px solid $font-lightGrey;
     }
