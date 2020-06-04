@@ -87,16 +87,7 @@ export default class PageHeader extends React.Component {
   };
 
   menuKeyDown = e => {
-
-    console.log(e);
-      
-
     if (e.key === 'ArrowDown') {
-
-      console.log(e);
-      
-
-
       document.getElementById('menu-first-item').focus();
     }
   }
