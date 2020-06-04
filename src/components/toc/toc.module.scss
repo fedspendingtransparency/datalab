@@ -11,7 +11,6 @@ $mdGrey: #555555;
     margin: 0.1rem 0 0.3rem;
     text-align: left;
   }
-
   .subtitle {
     color: $font-title;
     font-weight: bold;
@@ -22,7 +21,6 @@ $mdGrey: #555555;
     text-align: left;
     margin-top: 10px;
   }
-
   .section {
     color: $font-title;
     font-size: 1.125rem;
@@ -30,7 +28,6 @@ $mdGrey: #555555;
     text-align: left;
     margin-top: 14px;
   }
-
   .blurb {
     color: $mdGrey;
     font-size: 1rem;
@@ -40,53 +37,49 @@ $mdGrey: #555555;
   }
 }
 
-@media (min-width: $desktop-xl) {
+@media (min-width: $desktop) {
   #TOC {
     margin-top: $margin-75;
     margin-bottom: $margin-100;
-    
+
+    .container {
+      justify-content: space-around;
+    }
+
     .tile:not(:last-child) {
       border-right: 1px solid $font-lightGrey;
     }
-
     .tile {
       padding: 1rem 1.5rem;
     }
   }
 }
 
-@media (min-width: $tablet) and (max-width: $desktop-xl - 1) {
-  #TOC {
-    .number {
-      margin-right: 1rem;
-    }
-    .tile:nth-child(odd) {
-      border-right: 1px solid $font-lightGrey;
-    }
-
-    .a {
-      max-width: 250px;
-    }
-
-    .tile:nth-child(1),
-    .tile:nth-child(2) {
-      border-bottom: $font-lightGrey solid 1px;
-      padding-bottom: 32px;
-    }
-
-    .tile {
-      padding-top: 1rem;
-    }
-  }
-}
-
-@media (min-width: $phone) and (max-width: $desktop-xl - 1) {
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
   #TOC {
     margin-top: $margin-30;
     margin-bottom: $margin-100;
 
-    .tile:last-child {
-      border-right: none;
+    .number {
+      margin-right: 1rem;
+    }
+    .a {
+      max-width: 250px;
+    }
+    .tile {
+      padding-top: 1rem;
+
+      &:nth-child(odd) {
+        border-right: 1px solid $font-lightGrey;
+      }
+      &:last-child {
+        border-right: none;
+      }
+      &:nth-child(1),
+      &:nth-child(2) {
+        border-bottom: $font-lightGrey solid 1px;
+        padding-bottom: 32px;
+      }
     }
   }
 }
@@ -96,7 +89,6 @@ $mdGrey: #555555;
     .a {
       width: 100%;
     }
-
     .tile {
       border-right: unset;
       border-bottom: $font-lightGrey solid 1px;
@@ -109,7 +101,7 @@ $mdGrey: #555555;
   }
 }
 
-@media (max-width: $phone - 1) {
+@media (max-width: $tablet - 1) {
   #TOC {
     margin-bottom: $margin-25;
     margin-top: $margin-25;
@@ -128,6 +120,9 @@ $mdGrey: #555555;
     }
     .section {
       margin: auto 0;
+    }
+    .blurb {
+      text-transform: uppercase;
     }
   }
 }
