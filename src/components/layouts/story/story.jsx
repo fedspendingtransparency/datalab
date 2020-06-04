@@ -14,8 +14,8 @@ const StoryLayout = (props) => {
 
   if (!props.isCustomHeader) {
     header =
-      <Grid container className={styles.headerContainer}>
-        <Grid item>
+      <Grid container justify='center' className={styles.headerContainer}>
+        <Grid item md={10}>
           <header className={styles.headerHero}>
             <p className={styles.title}>
               {props.title}

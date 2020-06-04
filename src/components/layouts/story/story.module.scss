@@ -13,8 +13,6 @@ h2 {
 
   .header-container {
     border-bottom: $darkGrey 1px solid;
-    margin: 0 1rem;
-    width: auto;
   }
 }
 
@@ -93,10 +91,6 @@ h2 {
 @media (max-width: $tablet - 1) {
   .story-page {
     margin: 0 $margin-15 $margin-50;
-
-    .header-container {
-      margin: 0;
-    }
   }
 
   .title,
