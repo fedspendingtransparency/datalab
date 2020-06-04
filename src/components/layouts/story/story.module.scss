@@ -17,7 +17,7 @@ h2 {
 }
 
 .header-hero {
-  margin: $margin-50 8% 0;
+  margin: $margin-50 0 0;
   padding-bottom: $margin-30;
 
   > * {
@@ -100,7 +100,7 @@ h2 {
   }
 
   .header-hero {
-    margin: $margin-30 0 0;
+    margin-top: $margin-30;
     padding-bottom: $margin-25;
   }
 }
