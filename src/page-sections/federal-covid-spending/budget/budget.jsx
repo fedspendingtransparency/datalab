@@ -16,8 +16,6 @@ export default function Budget(props) {
   const [windowWidth, setWindowWidth] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const title = 'Budget Functions under $2 B';
-
   useEffect(() => {
     handleResize();
   }, []);
@@ -65,18 +63,12 @@ export default function Budget(props) {
               hoverColor='#1302d9'
             />
           </ControlBar>
-          <AccordionList title='Instructions'>
-            <p>Actual instructions are larger than they appear</p>
-          </AccordionList>
         </>
-      )
+      );
     } else {
       return (
         <>
           <h2 className="rd-viztitle">{props.section.viztitle}</h2>
-          <AccordionList title='Instructions'>
-            <p>Actual instructions are larger than they appear</p>
-          </AccordionList>
           <ControlBar alignRightOnMobile>
             <Share
               siteUrl={props.location.origin}
@@ -87,7 +79,7 @@ export default function Budget(props) {
             />
           </ControlBar>
         </>
-      )
+      );
     }
   }
 
@@ -96,12 +88,6 @@ export default function Budget(props) {
       <Header />
       <div className="chart-container">
         <Chart />
-        <div id="pop-up">
-          <div className="title">
-            <div id="inner-title">{title}</div>
-            <div id="close"><CloseIcon /></div>
-          </div>
-        </div>
       </div>
 
       <Downloads
