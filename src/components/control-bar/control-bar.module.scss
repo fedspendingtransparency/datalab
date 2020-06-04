@@ -3,6 +3,7 @@
 .controlBar {
   margin: 25px 0;
   text-align: right;
+  align-items: center;
 }
 
 .fedControlBar {
@@ -13,7 +14,6 @@
 .child {
   min-width: 5rem;
   span {
-    color: #999;
     font-family: 'Source Sans Pro';
     font-size: 1rem;
   }
