@@ -76,4 +76,14 @@ h2 {
   .legend {
     align-items: center;
   }
+
+  .percentLegend {
+    margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+  }
+}
+
+@media screen and (max-width: $phone - 1) {
+  .percentLegend {
+    margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+  }
 }

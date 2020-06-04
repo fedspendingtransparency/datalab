@@ -1,8 +1,10 @@
-@import "src/styles/variables.scss";
+@import "../../../../styles/variables.scss";
 
 $chartBorder: 1px solid #ddd;
-$labelWidth: 11.5rem; // 28% for mobile
-$budgetWidth: 5.5rem; // 22% for mobile
+$labelWidth: 11.5rem;
+$mobileLabelWidth: 28%;
+$budgetWidth: 5.5rem;
+$mobileBudgetWidth: 22%;
 $lightBackground: #fafafa;
 
 svg {
@@ -110,6 +112,20 @@ svg {
 
   .sideBudget {
     flex-basis: $budgetWidth;
+    padding-left: 0.5rem;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: $tablet - 1) {
+  .sideLabel {
+    flex-basis: $mobileLabelWidth !important;
+    min-width: $mobileLabelWidth !important;
+    padding-right: 0.5rem;
+  }
+
+  .sideBudget {
+    flex-basis: $mobileBudgetWidth !important;
     padding-left: 0.5rem;
     white-space: nowrap;
   }
