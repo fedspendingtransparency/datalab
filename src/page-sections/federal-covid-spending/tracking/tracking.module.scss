@@ -55,6 +55,41 @@ h2 {
     font-weight: $bold;
   }
 }
+.view-spending-by-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+  .dropdown-icon {
+    margin-right: 10px;
+    height: 23px;
+  }
+
+  .view-spending-by-heading {
+    font-size: 1.625rem;
+    font-weight: 300;
+    margin-right: 12px;
+
+    #view-spending-by-dropdown-label {
+      display: none;
+    }
+  }
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  color: #666;
+  border-bottom: solid 1px #666;
+    
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  svg {
+    margin-right: 15px;
+  }
+}
 
 @media (max-width: $desktop - 1) {
   .legend {
