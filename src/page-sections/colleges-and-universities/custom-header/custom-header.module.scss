@@ -13,6 +13,7 @@ p {
   height: 100%;
   width: 100%;
   left: 0;
+  top: 100px;
   z-index: -1;
 }
 
@@ -23,6 +24,7 @@ p {
 .header-hero {
   margin-top: $margin-50;
   padding-bottom: $margin-30;
+  
   > * {
     text-align: center;
   }
@@ -59,8 +61,11 @@ p {
 
 #toc {
   margin-top: 23rem;
-  padding-top: 2rem;
   border-top: $darkGrey 1px solid;
+
+  section {
+    margin-top: 0;
+  }
 }
 
 @media screen and (max-width: $desktop - 1) {
