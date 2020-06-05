@@ -8,6 +8,7 @@ $ltGrey: #ccc;
   justify-content: flex-end;
   bottom: 52px;
   right: 12px;
+  z-index: 1000;
 }
 
 .scroll-to-top-container-hidden {
@@ -22,7 +23,6 @@ $ltGrey: #ccc;
 
 .scroll-to-top-button {
   background-color: $ltGrey !important;
-  z-index: 1000;
 
   span {
     color: #fff;
