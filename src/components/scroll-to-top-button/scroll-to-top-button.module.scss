@@ -3,12 +3,11 @@
 $ltGrey: #ccc;
 
 .scroll-to-top-container {
-  position: sticky;
+  position: fixed;
   display: flex;
   justify-content: flex-end;
-  top: 88%;
-  padding-right: 20px;
-  margin-bottom: 20px;
+  bottom: 52px;
+  right: 12px;
 }
 
 .scroll-to-top-container-hidden {
@@ -36,6 +35,6 @@ $ltGrey: #ccc;
 
 @media screen and (max-width: $desktop-xl - 1) {
   .scroll-to-top-container {
-    top: 92%
+    bottom: 12px;
   }
 }
