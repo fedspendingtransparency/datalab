@@ -1,0 +1,40 @@
+@import "../../styles/variables";
+
+$ltGrey: #ccc;
+
+.scroll-to-top-container {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  bottom: 52px;
+  right: 12px;
+  z-index: 1000;
+}
+
+.scroll-to-top-container-hidden {
+  position: sticky;
+  display: flex;
+  justify-content: flex-end;
+  top: 88%;
+  padding-right: 20px;
+  margin-bottom: 20px;
+  opacity: 0;
+}
+
+.scroll-to-top-button {
+  background-color: $ltGrey !important;
+
+  span {
+    color: #fff;
+  }
+}
+
+.scroll-to-top-button:hover {
+  background-color: #ddd !important;
+}
+
+@media screen and (max-width: $desktop-xl - 1) {
+  .scroll-to-top-container {
+    bottom: 12px;
+  }
+}
