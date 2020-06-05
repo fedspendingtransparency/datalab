@@ -83,12 +83,23 @@ export default class PageHeader extends React.Component {
 
   deactivateMenu = e => {
     e.stopPropagation();
+
+// focus on menu heading
+
     this.setState({ activeItem: ' ' });
   };
 
-  menuKeyDown = e => {
-    if (e.key === 'ArrowDown') {
-      document.getElementById('menu-first-item').focus();
+  menuKeyUp = e => {
+    if (e.key === 'Enter') {
+      e.stopPropagation();
+      let menuItem;
+      if (menuItem = document.getElementById('menu-first-item')) {
+        menuItem.focus();
+      } else {
+        this.activateMenu(e);
+      }
+    } else if (e.key === 'Escape') {
+      this.deactivateMenu(e);
     }
   }
 
@@ -127,7 +138,7 @@ export default class PageHeader extends React.Component {
               <ul
                 id={styles.burgerMenu}
                 className={styles.ulNav}
-                onKeyDown={this.menuKeyDown}
+                onKeyUp={this.menuKeyUp}
               >
                 <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
                   <button className={styles.anchor}>Analyses <span className={styles.arrow}><Arrow /></span></button>
