@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './share.module.scss';
-import shareLogo from '../../images/colleges-and-universities/share.svg';
+import ShareLogo from '../../svgs/share.svg';
 import facebookLogo from '../../images/colleges-and-universities/facebook.svg';
 import twitterLogo from '../../images/colleges-and-universities/twitter.svg';
 import linkedinLogo from '../../images/colleges-and-universities/linkedin.svg';
@@ -80,9 +80,6 @@ export default class Share extends Component {
     const imageDimensions = { height: '1.25rem', width: '1.25rem' };
     const images = [
       {
-        src: shareLogo
-      },
-      {
         src: facebookLogo,
         style: imageDimensions
       },
@@ -111,7 +108,7 @@ export default class Share extends Component {
       <div className={styles.shareContainer}>
         <div className={`${styles.popup} ${styles.newShare}`}>
           <button className={styles.vizShareIcon} aria-hidden="true" onClick={this.handleShow}>
-            <img src={images[0].src} role='presentation' />
+            <ShareLogo />
             <span className={styles.shareText}>Share</span>
           </button>
           <span className={`${styles.popuptext} ${styles.right} ${styles.newpopup} ${isShowing ? styles.show : ``}`} id="sharePopup">
@@ -119,31 +116,31 @@ export default class Share extends Component {
               <ul>
                 <li>
                   <button data-id="1" title="Share on Facebook" className={styles.shareLink} onClick={this.handleShareClickFacebook}>
-                    <img src={images[1].src} role='presentation' style={images[1].style} className={styles.iconFacebook} />
+                    <img src={images[0].src} role='presentation' style={images[0].style} className={styles.iconFacebook} />
                     <span className={styles.shareButtonText}>Facebook</span>
                   </button>
                 </li>
                 <li>
                   <button data-id='2' title="Share on Twitter" className={styles.shareLink} onClick={this.handleShareClickTwitter}>
-                    <img src={images[2].src} role='presentation' style={images[2].style} className={styles.iconTwitter} />
+                    <img src={images[1].src} role='presentation' style={images[1].style} className={styles.iconTwitter} />
                     <span className={styles.shareButtonText}>Twitter</span>
                   </button>
                 </li>
                 <li>
                   <button data-id='3' title="Share on Reddit" className={styles.shareLink} onClick={this.handleShareClickReddit}>
-                    <img src={images[3].src} role='presentation' style={images[3].style} className={styles.iconReddit} />
+                    <img src={images[2].src} role='presentation' style={images[2].style} className={styles.iconReddit} />
                     <span className={styles.shareButtonText}>Reddit</span>
                   </button>
                 </li>
                 <li>
                   <button data-id='4' title="Share on LinkedIn" className={styles.shareLink} onClick={this.handleShareClickLinkedin}>
-                    <img src={images[4].src} role='presentation' style={images[4].style} className={styles.iconLinkedin} />
+                    <img src={images[3].src} role='presentation' style={images[3].style} className={styles.iconLinkedin} />
                     <span className={styles.shareButtonText}>Linkedin</span>
                   </button>
                 </li>
                 <li>
                   <button data-id='5' title="Share via Email" className={styles.shareLink} onClick={this.handleShareClickEmail}>
-                    <img src={images[5].src} role='presentation' style={images[5].style} className={styles.iconEnvelope} />
+                    <img src={images[4].src} role='presentation' style={images[4].style} className={styles.iconEnvelope} />
                     <span className={styles.shareButtonText}>Email</span>
                   </button>
                 </li>
