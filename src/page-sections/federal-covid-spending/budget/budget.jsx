@@ -16,8 +16,6 @@ export default function Budget(props) {
   const [windowWidth, setWindowWidth] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const title = 'Budget Functions under $2 B';
-
   useEffect(() => {
     handleResize();
   }, []);
@@ -51,32 +49,51 @@ export default function Budget(props) {
     }
   }
 
+  function Header() {
+    if (windowWidth && windowWidth >= parseInt(variables.md)) {
+      return (
+        <>
+          <ControlBar>
+            <h2 className={styles.vizTitle}>{props.section.viztitle}</h2>
+            <Share
+              siteUrl={props.location.origin}
+              pageUrl={props.location.pathname + '#' + props.sectionId}
+              title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+              text={'Who watches the Watchmen? Anyone with HBO...'}
+              hoverColor='#1302d9'
+            />
+          </ControlBar>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <h2 className="rd-viztitle">{props.section.viztitle}</h2>
+          <ControlBar alignRightOnMobile>
+            <Share
+              siteUrl={props.location.origin}
+              pageUrl={props.location.pathname + '#' + props.sectionId}
+              title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
+              text={'Who watches the Watchmen? Anyone with HBO...'}
+              hoverColor='#1302d9'
+            />
+          </ControlBar>
+        </>
+      );
+    }
+  }
+
   return (
     <>
-      <Grid container alignItems='center' style={{ marginBottom: 30 }}>
-        <Grid item xs={10}>
-          <div className={styles.vizTitle}>
-            {props.section.viztitle}
-          </div>
-        </Grid>
-        <Grid item xs={2}>
-          <Share
-	    siteUrl={props.location.origin}
-	    pageUrl={props.location.pathname + '#' + props.sectionId}
-	    title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-	    text={'Who watches the Watchmen? Anyone with HBO...'}
-            hoverColor='#1302d9'
-	  />
-        </Grid>
-      </Grid>
-
+      <Header />
       <div className="chart-container">
         <Chart />
       </div>
 
-            <Downloads
-              href={'/data/federal-covid-spending/tracking/covid19_response_viz1_2020-05-21.csv'}
-              date={'May 2020'}
-            />
-          </>);
+      <Downloads
+        href={'/data/federal-covid-spending/tracking/covid19_response_viz1_2020-05-21.csv'}
+        date={'May 2020'}
+      />
+    </>
+  );
 }

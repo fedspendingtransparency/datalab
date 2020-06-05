@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Default from '../default/default';
 import { Grid } from '@material-ui/core';
 import MoreAnalyses from '../../more-analyses/more-analyses';
+import MoreResources from '../../more-resources/more-resources';
 import { FAQHeader } from '../../headers/headers';
 import Share from "../../share/share";
 
@@ -56,7 +57,7 @@ const FaqLayout = (props) => {
 
        <Grid container justify='center'>
          <Grid item xs={11} md={10}>
-           <MoreAnalyses />
+           {props.useMoreResources ? <MoreResources /> : <MoreAnalyses />}
          </Grid>         
        </Grid>
      </div>

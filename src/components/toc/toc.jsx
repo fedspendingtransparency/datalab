@@ -25,10 +25,10 @@ const Toc = (props) => {
 
   return (
     <section id={styles.TOC}>
-      <Grid container justify='space-around'>
+      <Grid container className={styles.container}>
         {props.sections.map((item, key) =>
 
-          <Grid item key={key} className={`${styles.tile}`} xs={12} md={6} xl>
+          <Grid item key={key} className={`${styles.tile}`} xs={12} md={6} lg={3}>
             <a href={`#section-${item.anchor}`} className='hover-color'>
               <Style
                 scopeSelector=".hover-color:hover .number, .hover-color:hover .section, .hover-color:hover .subtitle, .hover-color:hover .blurb"
@@ -37,10 +37,10 @@ const Toc = (props) => {
                   textDecoration: 'underline'
                 }}
               />
-              <Grid container className={styles.content} justify='center'>
+              <Grid container justify='center' className={styles.content}>
                 <Grid item className={styles.a}>
                   <Grid container>
-                    <Grid item className={`${styles.number} number`} xs={2} lg={3}>
+                    <Grid item xs={2} lg={3} className={`${styles.number} number`}>
                       {item.number}
                     </Grid>
                     <Grid item className={`${styles.section} section`}>
