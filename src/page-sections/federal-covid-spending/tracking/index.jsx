@@ -52,11 +52,10 @@ export default function Tracking(props) {
         nodes {
 					label: Agency
 					Percent_Outlaid
-					Amount_Outlaid
-					Percent_Obligated
-					Amount_Obligated
-					Amount_Obligated_Not_Outlaid
 					Percent_Unobligated
+					Percent_Obligated_Not_Outlaid
+					Amount_Outlaid
+					Amount_Obligated
 					Amount_Unobligated
 					Total_Budgetary_Resources
         }
@@ -68,10 +67,9 @@ export default function Tracking(props) {
 						Account_Name
 						Agency
 						Amount_Obligated
-						Amount_Obligated_Not_Outlaid
 						Amount_Outlaid
 						Amount_Unobligated
-						Percent_Obligated
+						Percent_Obligated_Not_Outlaid
 						Percent_Outlaid
 						Percent_Unobligated
 						Total_Budgetary_Resources
@@ -136,6 +134,7 @@ export default function Tracking(props) {
 
 	const mainChart = () => {
 		const barData = data[dataType].nodes;
+		console.log(barData);
 		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
@@ -193,8 +192,9 @@ export default function Tracking(props) {
 	}))(Button);
 
 	const findTitle = () => {
-		const selectionAmount = data['allData'].nodes.find(item => item.label === selectedBar);
-		return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
+		// const selectionAmount = data['allData'].nodes.find(item => item.label === selectedBar);
+		// return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
+		return 'xxxx';
 	}
 
 	const titleComponent = screenMode === ScreenModeEnum.mobile ? (
@@ -233,9 +233,9 @@ export default function Tracking(props) {
 	return <>
 		{titleComponent}
 
-		<a onClick={setData('total')}>Total</a>
-		<a onClick={setData('spending')}>Spending</a>
-		<a onClick={setData('loans')}>Loans</a>
+		<a onClick={e => setData('total')}>Total</a>
+		<a onClick={e => setData('spending')}>Spending</a>
+		<a onClick={e => setData('loans')}>Loans</a>
 
 		<a id='topofchart' />
 		{mainChart()}
