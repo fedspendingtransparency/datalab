@@ -143,13 +143,13 @@ export default class PageHeader extends React.Component {
                 className={styles.ulNav}
                 onKeyUp={this.menuKeyUp}
               >
-                <li className={styles.item} onMouseOver={this.activateMenu}>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
                   <button className={styles.anchor}>Analyses <span className={styles.arrow}><Arrow /></span></button>
                 </li>
-                <li className={styles.item} onMouseOver={this.activateMenu}>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
                   <button className={styles.anchor}>America's Finance Guide <span className={styles.arrow}><Arrow /></span></button>
                 </li>
-                <li className={styles.item} onMouseOver={this.activateMenu}>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
                   <button className={styles.anchor}>Resources <span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item}>
