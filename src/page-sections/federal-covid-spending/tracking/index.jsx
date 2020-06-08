@@ -195,18 +195,15 @@ export default function Tracking(props) {
 	const accountBreakdownOptions = [
 		{
 			name: 'All Accounts',
-			icon: <AllAccountsIcon className={styles.dropdownIcon} />,
-			tag: 'total'
+			icon: <AllAccountsIcon className={styles.dropdownIcon} />
 		},
 		{
 			name: 'Spending Accounts',
-			icon: <SpendingAccountsIcon className={styles.dropdownIcon} />,
-			tag: 'spending'
+			icon: <SpendingAccountsIcon className={styles.dropdownIcon} />
 		},
 		{
 			name: 'Loan Program Accounts',
-			icon: <LoanProgramAccountsIcon className={styles.dropdownIcon} />,
-			tag: 'loans'
+			icon: <LoanProgramAccountsIcon className={styles.dropdownIcon} />
 		}
 	];
 	const [activeAccountFilter, setActiveAccountFilter] = useState(accountBreakdownOptions[0].name);
