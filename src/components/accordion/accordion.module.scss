@@ -1,8 +1,5 @@
 @import "../../styles/variables.scss";
 
-$left-indent: 32px;
-$vert-padding: 20px;
-
 .container {
   position: relative;
   margin-bottom: 137px; // these are for R&D, which is the only use at this time
@@ -18,7 +15,7 @@ $vert-padding: 20px;
 }
 
 .heading {
-  padding: $vert-padding $left-indent;
+  padding: 12px 24px;
   font-size: 1.125rem;
   text-align: left;
   margin: 0;
