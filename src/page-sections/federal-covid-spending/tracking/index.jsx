@@ -110,6 +110,10 @@ export default function Tracking(props) {
 	const [selectedBarData, setSelectedBarData] = useState(null);
 	const [dataType, setData] = useState('total');
 
+	const updateData = (e, type) => {
+    setData(type);
+	}
+
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
 		if (!limitBars) {
@@ -188,7 +192,6 @@ export default function Tracking(props) {
 	}))(Button);
 
 	const findTitle = () => {
-		console.log(data.allData)
 		if(data['allData'].length > 0) {
       const selectionAmount = data['allData'].nodes.find(item => item.label === selectedBar);
       return [
@@ -200,20 +203,35 @@ export default function Tracking(props) {
 	const accountBreakdownOptions = [
 		{
 			name: 'All Accounts',
-			icon: <AllAccountsIcon className={styles.dropdownIcon} />
+			icon: <AllAccountsIcon className={styles.dropdownIcon} />,
+			tag: 'total'
 		},
 		{
 			name: 'Spending Accounts',
-			icon: <SpendingAccountsIcon className={styles.dropdownIcon} />
+			icon: <SpendingAccountsIcon className={styles.dropdownIcon} />,
+			tag: 'spending'
 		},
 		{
 			name: 'Loan Program Accounts',
-			icon: <LoanProgramAccountsIcon className={styles.dropdownIcon} />
+			icon: <LoanProgramAccountsIcon className={styles.dropdownIcon} />,
+			tag: 'loans'
 		}
 	];
 	const [activeAccountFilter, setActiveAccountFilter] = useState(accountBreakdownOptions[0].name);
 
-	const handleSpendingDropdownChange = (e) => setActiveAccountFilter(e.target.value);
+	const handleSpendingDropdownChange = (e) => {
+		setActiveAccountFilter(e.target.value);
+		switch(e.target.value) {
+			case 'Spending Accounts':
+				setData('spending')
+				break;
+			case 'Loan Program Accounts':
+				setData('loans');
+				break;
+			default:
+        setData('total');
+		}
+  }
 
 	const InputComponent = withStyles(() => ({
 		root: {
@@ -289,7 +307,10 @@ export default function Tracking(props) {
 						}}
 					>
 						{accountBreakdownOptions.map((option) => (
-							<MenuItem key={option.name} value={option.name} className={styles.dropdownItem}>
+							<MenuItem
+								key={option.name}
+								value={option.name}
+								className={styles.dropdownItem}>
 								{option.icon} {option.name}
 							</MenuItem>
 						))}
@@ -303,10 +324,6 @@ export default function Tracking(props) {
 	return <>
 		{titleComponent}
 
-		<a onClick={e => setData('total')}>Total</a>
-		<a onClick={e => setData('spending')}>Spending</a>
-		<a onClick={e => setData('loans')}>Loans</a>
-
 		<a id='topofchart' />
 		{mainChart()}
 
@@ -315,8 +332,7 @@ export default function Tracking(props) {
 			close={closeModal}
 			title={findTitle()}
 			maxWidth={false}
-			maxHeight={true}
-		>
+			maxHeight={true}>
 			<Modal
 				bar={selectedBar}
 				data={accountsByAgency[selectedBar]}
