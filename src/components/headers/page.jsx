@@ -24,7 +24,7 @@ export default class PageHeader extends React.Component {
       top: 0,
       skinnyTop: 26,
       skinnySub: 75,
-      activeItem: '',
+      activeItem: null,
       showMobileMenu: false,
       windowWidth: undefined,
       menuData: this.props.megamenuItems,
@@ -73,21 +73,22 @@ export default class PageHeader extends React.Component {
 
   activateMenu = e => {
     if (!e.target.innerText) {
-      return this.setState({ activeItem: ' ' });
+      return this.setState({ activeItem: null });
     }
-    this.setState({ activeItem: e.target.innerText });
+    this.setState({ activeItem: e.target });
   };
 
   deactivateMenu = e => {
     e.stopPropagation();
-
-    // focus on menu heading
-
-    this.setState({ activeItem: ' ' });
+    this.state.activeItem.focus();
+    this.setState({ activeItem: null });
   };
 
   menuKeyUp = e => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Escape') {
+      this.deactivateMenu(e);
+
+    } else if (e.key === 'Enter') {
       e.stopPropagation();
       let menuItem;
       if (menuItem = document.getElementById('menu-first-item')) {
@@ -95,8 +96,6 @@ export default class PageHeader extends React.Component {
       } else {
         this.activateMenu(e);
       }
-    } else if (e.key === 'Escape') {
-      this.deactivateMenu(e);
     }
   }
 
@@ -162,7 +161,7 @@ export default class PageHeader extends React.Component {
         </div>
 
         <div className={`${styles.sub} ${isSticky ? ' ' + styles.tight : ``}`} style={{ top: this.props.isHome === true ? `` : `${skinnySub}px` }}>
-          <Dropdown activeItem={activeItem}
+          <Dropdown activeItem={activeItem ? activeItem.innerText : null}
             mouseHandle={this.deactivateMenu}
             data={this.props.megamenuItems}
           />

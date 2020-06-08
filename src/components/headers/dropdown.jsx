@@ -4,7 +4,7 @@ import styles from './page.module.scss';
 
 export default class Dropdown extends React.Component {
   static propTypes = {
-    'data': PropTypes.object.isRequired,
+    'data': PropTypes.arrayOf(PropTypes.object).isRequired,
     'mouseHandle': PropTypes.func.isRequired
   };
 
