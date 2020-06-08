@@ -30,6 +30,12 @@ const MoreResources = () => {
       altText: 'An icon of a notebook.',
       title: 'Student Innovators Toolbox',
       description: 'Ways for professors and students to get involved.'
+    }, {
+      href: '/analyst-guide/',
+      imageSrc: playbookImg,
+      altText: 'An icon of a notebook.',
+      title: 'Analyst Guide',
+      description: 'Ways for professors and students to get involved.'
     }
   ];
 
@@ -39,28 +45,32 @@ const MoreResources = () => {
         More Resources
       </div>
       <Grid container spacing={3} className={moreResourcesStyles.tiles}>
-        {resources.map((resource, i) => (
-          <Grid item xs={12} md={4}
-            key={'resources_tile_' + i}
-            className={`tile ${moreResourcesStyles.tile}`}
-          >
-            <a href={resource.href} target="_blank" rel="noopener noreferrer">
-              <img
-                data-src={resource.imageSrc}
-                alt={resource.altText}
-                className={`${moreResourcesStyles.svgImg} lazyload`}
-              />
-              <div className={moreResourcesStyles.text}>
-                <p className={moreResourcesStyles.title}>
-                  {resource.title}
-                </p>
-                <p className={moreResourcesStyles.subtitle}>
-                  {resource.description}
-                </p>
-              </div>
-            </a>
-          </Grid>
-        ))}
+        {resources.map((resource, i) => {
+          if (typeof window !== 'undefined' && window.location.pathname !== resource.href) {
+            return (
+              <Grid item xs={12} md={4}
+                key={'resources_tile_' + i}
+                className={`tile ${moreResourcesStyles.tile}`}
+              >
+                <a href={resource.href} target="_blank" rel="noopener noreferrer">
+                  <img
+                    data-src={resource.imageSrc}
+                    alt={resource.altText}
+                    className={`${moreResourcesStyles.svgImg} lazyload`}
+                  />
+                  <div className={moreResourcesStyles.text}>
+                    <p className={moreResourcesStyles.title}>
+                      {resource.title}
+                    </p>
+                    <p className={moreResourcesStyles.subtitle}>
+                      {resource.description}
+                    </p>
+                  </div>
+                </a>
+              </Grid>
+            )
+          }
+        })}
       </Grid>
     </section>
   );

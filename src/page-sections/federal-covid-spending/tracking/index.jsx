@@ -3,18 +3,24 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import styles from './tracking.module.scss';
 
+import AllAccountsIcon from '../../../svgs/federal-covid-spending/tracking/all-accounts-icon.svg'
+import SpendingAccountsIcon from '../../../svgs/federal-covid-spending/tracking/spending-accounts-icon.svg'
+import LoanProgramAccountsIcon from '../../../svgs/federal-covid-spending/tracking/loan-program-accounts-icon.svg'
+
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Bar from './bars/bar';
 import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputBase from '@material-ui/core/InputBase';
 import { withStyles } from '@material-ui/core/styles';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter';
 import Share from 'src/components/share/share';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUniversity } from '@fortawesome/free-solid-svg-icons';
-import ListAltIcon from '@material-ui/icons/ListAlt';
 
 import ModalReference from "src/components/modal/modal"
 import Modal from "./modal/modal"
@@ -80,15 +86,6 @@ export default function Tracking(props) {
 	const [isModalOpen, setModalState] = useState(false);
 	const [selectedBar, setSelectedBar] = useState(null);
 	const [selectedBarData, setSelectedBarData] = useState(null);
-
-	const first = {
-		name: 'Budget Function',
-		icon: <ListAltIcon className={styles.toggleIcon} />
-	}
-	const second = {
-		name: 'Agency',
-		icon: <FontAwesomeIcon icon={faUniversity} className={styles.toggleIcon} />
-	}
 
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
@@ -172,6 +169,46 @@ export default function Tracking(props) {
 		return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
 	}
 
+	const accountBreakdownOptions = [
+		{
+			name: 'All Accounts',
+			icon: <AllAccountsIcon className={styles.dropdownIcon} />
+		},
+		{
+			name: 'Spending Accounts',
+			icon: <SpendingAccountsIcon className={styles.dropdownIcon} />
+		},
+		{
+			name: 'Loan Program Accounts',
+			icon: <LoanProgramAccountsIcon className={styles.dropdownIcon} />
+		}
+	];
+	const [activeAccountFilter, setActiveAccountFilter] = useState(accountBreakdownOptions[0].name);
+
+	const handleSpendingDropdownChange = (e) => setActiveAccountFilter(e.target.value);
+
+	const InputComponent = withStyles(() => ({
+		root: {
+			'label + &': {
+
+			}
+		},
+		input: {
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'space-between',
+			color: '#666',
+			fontSize: 22,
+			fontWeight: 300,
+			padding: '10px 26px 10px 12px',
+			borderBottom: 'solid 1px #666',
+			'&:focus': {
+				backgroundColor: 'transparent',
+				boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)'
+			}
+		}
+	}))(InputBase);
+
 	const titleComponent = screenMode === ScreenModeEnum.mobile ? (
 		<>
 			<h2>Progress of COVID-19 Spending</h2>
@@ -201,6 +238,36 @@ export default function Tracking(props) {
 			<AccordionList title='Instructions'>
 				<p>Actual instructions are larger than they appear</p>
 			</AccordionList>
+			<div className={styles.viewSpendingByContainer}>
+				<div className={styles.viewSpendingByHeading}>View Spending By: </div>
+				<FormControl>
+					<InputLabel id={styles.viewSpendingByDropdownLabel} />
+					<Select
+						labelId={styles.viewSpendingByDropdownLabel}
+						className={styles.viewSpendingByDropdown}
+						input={<InputComponent />}
+						value={activeAccountFilter}
+						onChange={handleSpendingDropdownChange}
+						MenuProps={{
+							anchorOrigin: {
+								vertical: "bottom",
+								horizontal: "left"
+							},
+							transformOrigin: {
+								vertical: "top",
+								horizontal: "left"
+							},
+							getContentAnchorEl: null
+						}}
+					>
+						{accountBreakdownOptions.map((option) => (
+							<MenuItem key={option.name} value={option.name} className={styles.dropdownItem}>
+								{option.icon} {option.name}
+							</MenuItem>
+						))}
+					</Select>
+				</FormControl>
+			</div>
 		</>
 	)
 
