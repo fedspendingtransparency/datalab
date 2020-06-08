@@ -1,7 +1,5 @@
 @import "../../styles/variables";
 
-$ltGrey: #ccc;
-
 .scroll-to-top-container {
   position: fixed;
   display: flex;
@@ -9,16 +7,6 @@ $ltGrey: #ccc;
   bottom: 52px;
   right: 12px;
   z-index: 1000;
-}
-
-.scroll-to-top-container-hidden {
-  position: sticky;
-  display: flex;
-  justify-content: flex-end;
-  top: 88%;
-  padding-right: 20px;
-  margin-bottom: 20px;
-  opacity: 0;
 }
 
 .scroll-to-top-button {
