@@ -14,8 +14,8 @@ const StoryLayout = (props) => {
 
   if (!props.isCustomHeader) {
     header =
-      <Grid container>
-        <Grid item>
+      <Grid container justify='center' className={styles.headerContainer}>
+        <Grid item md={10}>
           <header className={styles.headerHero}>
             <p className={styles.title}>
               {props.title}
@@ -30,22 +30,21 @@ const StoryLayout = (props) => {
         </Grid>
       </Grid>;
 
-
     toc = props.sectionToc ? <Toc sections={props.sectionToc} /> : <></>;
   }
 
   return <Default>
-    <StorypageHeader/>
-      <div className={styles.storyPage}>
-        {header}
-        {toc}
-        {props.children}
+    <StorypageHeader />
+    <div className={styles.storyPage}>
+      {header}
+      {toc}
+      {props.children}
 
-        <div className={styles.hwcta}>
-          <HwctaLink url={props.hwctaLink || '#'} />
-        </div>
-        <MoreAnalyses />
+      <div className={styles.hwcta}>
+        <HwctaLink url={props.hwctaLink || '#'} />
       </div>
+      <MoreAnalyses />
+    </div>
   </Default>
 };
 

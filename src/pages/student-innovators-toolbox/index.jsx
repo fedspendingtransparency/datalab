@@ -123,6 +123,7 @@ class AnalystGuidePage extends Component {
           introSentence={introSentence}
           heroImage={heroImage}
           location={this.props.location}
+          useMoreResources
         >
           {content}
           <Hidden lgDown>
