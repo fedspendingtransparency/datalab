@@ -10,6 +10,7 @@ import Book from '../../svgs/book.svg';
 import Dropdown from '../../components/headers/dropdown.jsx';
 import MobileMenu from '../../components/headers/mobile-menu.jsx';
 import Glossary from '../glossary/glossary';
+import ScrollToTopButton from '../scroll-to-top-button/scroll-to-top-button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -27,46 +28,42 @@ export default class PageHeader extends React.Component {
       showMobileMenu: false,
       windowWidth: undefined,
       menuData: this.props.megamenuItems,
+      scrollButtonVisible: false
     };
   };
 
   componentDidMount() {
     this.setState({ isMobileTag: window.innerWidth < 475 }); // 475 arbitrary value when burger hits wall (position absolute!)
 
-    // homepage listener...
-    if (this.props.isHome === true) {
+    if (typeof window !== 'undefined') {
       document.addEventListener('scroll', () => {
-        let isSticky = window.pageYOffset > 135;
-        this.setState({ isSticky: isSticky });
-      });
-    }
+        this.setState({ scrollButtonVisible: window.pageYOffset !== 0 })
 
-    // not on homepage..
-    if (this.props.isHome === false) {
-      document.addEventListener('scroll', () => {
-        const max = 26;
-        let skinnyTop = max - window.pageYOffset;
-        if (window.pageYOffset > max) {
-          skinnyTop = 0;
+        // homepage listener...
+        if (this.props.isHome === true) {
+          const isSticky = window.pageYOffset > 135;
+          this.setState({ isSticky });
+        } else {
+          // not on homepage..
+          const topMax = 26;
+          let skinnyTop = topMax - window.pageYOffset;
+          if (window.pageYOffset > topMax) {
+            skinnyTop = 0;
+          }
+
+          const subMax = 75;
+          let skinnySub = subMax - window.pageYOffset;
+          if (window.pageYOffset > 51) {
+            skinnySub = 50;
+          }
+
+          this.setState({ skinnyTop, skinnySub });
         }
-        this.setState({ skinnyTop });
-      });
+      })
 
       if (window.pageYOffset > 26) {
         this.setState({ skinnyTop: 0 });
       };
-    }
-
-    // not on homepage...
-    if (this.props.isHome === false) {
-      document.addEventListener('scroll', () => {
-        const max = 75;
-        let skinnySub = max - window.pageYOffset;
-        if (window.pageYOffset > 51) {
-          skinnySub = 50;
-        }
-        this.setState({ skinnySub });
-      });
     }
   };
 
@@ -84,7 +81,7 @@ export default class PageHeader extends React.Component {
   deactivateMenu = e => {
     e.stopPropagation();
 
-// focus on menu heading
+    // focus on menu heading
 
     this.setState({ activeItem: ' ' });
   };
@@ -117,17 +114,23 @@ export default class PageHeader extends React.Component {
     }
   };
 
+  scrollToTop = () => {
+    if (typeof window !== 'undefined' && window.pageYOffset !== 0) {
+      window.scrollTo(0, 0)
+    }
+  }
+
   render() {
 
-    const isSticky = this.state.isSticky;
+    let { isSticky, skinnyTop, skinnySub, activeItem, showMobileMenu, isMobileTag, scrollButtonVisible } = this.state;
 
-    return (<>
+    return <>
       <header id={styles.header} className={`${isSticky ? ' ' + styles.headerContainer : ``}`}>
-        <div style={{ top: this.props.isHome == true ? `` : `${this.state.skinnyTop}px` }} className={`${styles.main} ${isSticky ? styles.tight : ``} ${this.props.isHome ? `` : ``}`}>
+        <div style={{ top: this.props.isHome == true ? `` : `${skinnyTop}px` }} className={`${styles.main} ${isSticky ? styles.tight : ``} ${this.props.isHome ? `` : ``}`}>
           <div className={`${styles.logoWrapper} ${!isSticky ? ' ' + styles.col : ``}`}>
             <a href="/">
               <div>
-                {this.tagLineCheck(isSticky, this.state.isMobileTag)}
+                {this.tagLineCheck(isSticky, isMobileTag)}
               </div>
             </a>
 
@@ -140,13 +143,13 @@ export default class PageHeader extends React.Component {
                 className={styles.ulNav}
                 onKeyUp={this.menuKeyUp}
               >
-                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
+                <li className={styles.item} onMouseOver={this.activateMenu}>
                   <button className={styles.anchor}>Analyses <span className={styles.arrow}><Arrow /></span></button>
                 </li>
-                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
+                <li className={styles.item} onMouseOver={this.activateMenu}>
                   <button className={styles.anchor}>America's Finance Guide <span className={styles.arrow}><Arrow /></span></button>
                 </li>
-                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
+                <li className={styles.item} onMouseOver={this.activateMenu}>
                   <button className={styles.anchor}>Resources <span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item}>
@@ -154,25 +157,25 @@ export default class PageHeader extends React.Component {
                 </li>
               </ul>
             </nav>
+
           </div>
         </div>
 
-        <div className={`${styles.sub} ${isSticky ? ' ' + styles.tight : ``}`} style={{ top: this.props.isHome === true ? `` : `${this.state.skinnySub}px` }}>
-          <Dropdown
-            activeItem={this.state.activeItem}
+        <div className={`${styles.sub} ${isSticky ? ' ' + styles.tight : ``}`} style={{ top: this.props.isHome === true ? `` : `${skinnySub}px` }}>
+          <Dropdown activeItem={activeItem}
             mouseHandle={this.deactivateMenu}
             data={this.props.megamenuItems}
           />
 
-          {this.state.showMobileMenu ?
-            <MobileMenu showMenu={this.state.showMobileMenu} headerItems={this.props.headerItems} data={this.props.megamenuItems} />
-            :
-            <></>
+          {showMobileMenu
+            ? <MobileMenu showMenu={showMobileMenu} headerItems={this.props.headerItems} data={this.props.megamenuItems} />
+            : <></>
           }
 
         </div>
       </header>
+      <ScrollToTopButton onClick={this.scrollToTop} visible={scrollButtonVisible} />
       <Glossary />
-    </>);
+    </>;
   }
 };
