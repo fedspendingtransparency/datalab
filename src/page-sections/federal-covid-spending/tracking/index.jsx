@@ -105,14 +105,9 @@ export default function Tracking(props) {
 		}
 	});
 
-	const [isModalOpen, setModalState] = useState(false);
 	const [selectedBar, setSelectedBar] = useState(null);
 	const [selectedBarData, setSelectedBarData] = useState(null);
 	const [dataType, setData] = useState('total');
-
-	const updateData = (e, type) => {
-    setData(type);
-	}
 
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
@@ -122,7 +117,8 @@ export default function Tracking(props) {
 		setLimitBars(limitBars ? 0 : showLess);
 	}
 
-	const openModal = (e, data) => {
+  const [isModalOpen, setModalState] = useState(false);
+  const openModal = (e, data) => {
 		setModalState(true);
 		setSelectedBar(e);
 		setSelectedBarData(data);
@@ -132,6 +128,11 @@ export default function Tracking(props) {
 		setModalState(false);
 		setSelectedBar(null);
 	}
+
+  const findModalTitle = () => {
+		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
+		return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
+  }
 
 	const mainChart = () => {
 		const barData = data[dataType].nodes;
@@ -190,15 +191,6 @@ export default function Tracking(props) {
 			}
 		}
 	}))(Button);
-
-	const findTitle = () => {
-		if(data['allData'].length > 0) {
-      const selectionAmount = data['allData'].nodes.find(item => item.label === selectedBar);
-      return [
-        <b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
-    }
-    return <></>;
-	}
 
 	const accountBreakdownOptions = [
 		{
@@ -330,7 +322,7 @@ export default function Tracking(props) {
 		<ModalReference
 			open={isModalOpen}
 			close={closeModal}
-			title={findTitle()}
+			title={findModalTitle()}
 			maxWidth={false}
 			maxHeight={true}>
 			<Modal
