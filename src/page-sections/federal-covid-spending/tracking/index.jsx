@@ -15,6 +15,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@material-ui/core/IconButton';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import { withStyles } from '@material-ui/core/styles';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
@@ -83,6 +85,7 @@ export default function Tracking(props) {
 		}
 	});
 
+	const [isInfoModalOpen, setInfoModalState] = useState(false);
 	const [isModalOpen, setModalState] = useState(false);
 	const [selectedBar, setSelectedBar] = useState(null);
 	const [selectedBarData, setSelectedBarData] = useState(null);
@@ -101,10 +104,43 @@ export default function Tracking(props) {
 		setSelectedBarData(data);
 	}
 
+	const openInfoModal = () => {
+		setInfoModalState(true);
+	}
+
 	const closeModal = () => {
 		setModalState(false);
+		setInfoModalState(false);
 		setSelectedBar(null);
 	}
+
+	const categories = [
+		{
+			name: 'Outlays',
+			legendStyle: styles.outlayBar,
+			infoModalDescription: <p>The amount an agency paid toward an obligation. Outlays are also counted as obligations.</p>
+		},
+		{
+			name: 'Obligations',
+			legendStyle: styles.obligatedBar,
+			infoModalDescription: <p>The amount an agency promised to pay for a particular purchase. Obligations include outlays.</p>
+		},
+		{
+			name: 'Unobligated',
+			legendStyle: styles.unobligatedBar,
+			infoModalDescription: <p>The amount funded to an agency but not yet obligated.</p>
+		},
+		{
+			name: 'Loan Program Accounts',
+			icon: 'L',
+			infoModalDescription: <>
+				<p>These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
+				 agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.</p>
+				<p>Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
+				 direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.</p>
+			</>
+		},
+	]
 
 	const mainChart = () => {
 		const barData = data.agencies.nodes;
@@ -135,9 +171,17 @@ export default function Tracking(props) {
 		return (<>
 			<div className={styles.legend}>
 				<div className={styles.blockContainer}>
-					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlays</span>
-					<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligations</span>
-					<span className={`${styles.block} ${styles.unobligatedBar}`}></span><span>Unobligated</span>
+					<IconButton className={styles.infoButton} onClick={openInfoModal}>
+						<InfoOutlinedIcon className={styles.icon} />
+					</IconButton>
+				</div>
+				<div className={styles.blockContainer}>
+					{categories.map((c) => {
+						if (c.icon) {
+							return <><span className={styles.block}>{c.icon}</span><span>{c.name}</span></>
+						}
+						return <><span className={`${styles.block} ${c.legendStyle}`}></span><span>{c.name}</span></>
+					})}
 				</div>
 			</div>
 			<div className={styles.percentLegend}>
@@ -281,15 +325,32 @@ export default function Tracking(props) {
 			close={closeModal}
 			title={findTitle()}
 			maxWidth={false}
-			maxHeight={true}
+			maxHeight
 		>
 			<Modal
 				bar={selectedBar}
 				data={accountsByAgency[selectedBar]}
 				barData={selectedBarData}
-				isModal={true}
+				isModal
 				mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet }
 			/>
+		</ModalReference>
+		
+		<ModalReference
+			open={isInfoModalOpen}
+			close={closeModal}
+			title='Spending Definitions'
+			maxWidth
+			maxHeight
+		>
+			{categories.map((c) => (
+				<div className={styles.infoModalBody}>
+					<div className={styles.heading}>
+						<div className={`${styles.modalBlock} ${c.legendStyle || ''}`}>{c.icon}</div>{c.name}
+					</div>
+					{c.infoModalDescription}
+				</div>
+			))}
 		</ModalReference>
 
 		{limitBars >= data.agencies.nodes.length ?
