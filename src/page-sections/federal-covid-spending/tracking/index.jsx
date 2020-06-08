@@ -134,7 +134,6 @@ export default function Tracking(props) {
 
 	const mainChart = () => {
 		const barData = data[dataType].nodes;
-		console.log(barData);
 		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
@@ -192,9 +191,13 @@ export default function Tracking(props) {
 	}))(Button);
 
 	const findTitle = () => {
-		// const selectionAmount = data['allData'].nodes.find(item => item.label === selectedBar);
-		// return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
-		return 'xxxx';
+		console.log(data.allData)
+		if(data['allData'].length > 0) {
+      const selectionAmount = data['allData'].nodes.find(item => item.label === selectedBar);
+      return [
+        <b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
+    }
+    return <></>;
 	}
 
 	const titleComponent = screenMode === ScreenModeEnum.mobile ? (
