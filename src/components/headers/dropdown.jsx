@@ -5,7 +5,7 @@ import styles from './page.module.scss';
 export default class Dropdown extends React.Component {
   static propTypes = {
     'data': PropTypes.object.isRequired,
-    'mouseHandle': PropTypes.func
+    'mouseHandle': PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -38,9 +38,9 @@ export default class Dropdown extends React.Component {
     }
     const activeItem = this.props.activeItem.toString().trim();
 
-    return <div onKeyUp={this.menuKeyUp}>
+    return <div>
       {activeItem === "Analyses" &&
-        <div className={styles.dataList} onMouseLeave={this.props.mouseHandle}>
+        <div className={styles.dataList} onMouseLeave={this.props.mouseHandle} onKeyUp={this.menuKeyUp}>
           <section className={`${styles.section} ${styles.analyses}`}>
             <h4 className={styles.sectionTitle}>Topical Analyses</h4>
             <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(0, 4), true)}</ul>

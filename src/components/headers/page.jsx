@@ -143,13 +143,13 @@ export default class PageHeader extends React.Component {
                 className={styles.ulNav}
                 onKeyUp={this.menuKeyUp}
               >
-                <li className={styles.item} onMouseOver={this.handleItemHover}>
+                <li className={styles.item} onMouseOver={this.activateMenu}>
                   <button className={styles.anchor}>Analyses <span className={styles.arrow}><Arrow /></span></button>
                 </li>
-                <li className={styles.item} onMouseOver={this.handleItemHover}>
+                <li className={styles.item} onMouseOver={this.activateMenu}>
                   <button className={styles.anchor}>America's Finance Guide <span className={styles.arrow}><Arrow /></span></button>
                 </li>
-                <li className={styles.item} onMouseOver={this.handleItemHover}>
+                <li className={styles.item} onMouseOver={this.activateMenu}>
                   <button className={styles.anchor}>Resources <span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item}>
@@ -163,8 +163,9 @@ export default class PageHeader extends React.Component {
 
         <div className={`${styles.sub} ${isSticky ? ' ' + styles.tight : ``}`} style={{ top: this.props.isHome === true ? `` : `${skinnySub}px` }}>
           <Dropdown activeItem={activeItem}
-            mouseHandle={this.handleMouseLeave}
-            data={this.props.megamenuItems} />
+            mouseHandle={this.deactivateMenu}
+            data={this.props.megamenuItems}
+          />
 
           {showMobileMenu
             ? <MobileMenu showMenu={showMobileMenu} headerItems={this.props.headerItems} data={this.props.megamenuItems} />
