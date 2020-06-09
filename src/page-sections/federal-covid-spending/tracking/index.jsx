@@ -223,17 +223,12 @@ export default function Tracking(props) {
   }
 
 	const InputComponent = withStyles(() => ({
-		root: {
-			'label + &': {
-
-			}
-		},
 		input: {
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'space-between',
 			color: '#666',
-			fontSize: 22,
+			fontSize: 26,
 			fontWeight: 300,
 			padding: '10px 26px 10px 12px',
 			borderBottom: 'solid 1px #666',
