@@ -9,7 +9,6 @@ module.exports = {
 		'gatsby-plugin-root-import',
 		'gatsby-plugin-material-ui',
 		'gatsby-plugin-react-helmet',
-		'gatsby-plugin-emotion',
 		{
 			resolve: 'gatsby-plugin-sass',
 			options: {
