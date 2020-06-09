@@ -20,10 +20,8 @@ import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter';
 import Share from 'src/components/share/share';
-
-
-import ModalReference from "src/components/modal/modal"
-import Modal from "./modal/modal"
+import ModalReference from 'src/components/modal/modal';
+import Modal from './modal/modal';
 
 const showLess = 10; // bars to show when collapsed
 
@@ -117,8 +115,8 @@ export default function Tracking(props) {
 		setLimitBars(limitBars ? 0 : showLess);
 	}
 
-  const [isModalOpen, setModalState] = useState(false);
-  const openModal = (e, data) => {
+	const [isModalOpen, setModalState] = useState(false);
+	const openModal = (e, data) => {
 		setModalState(true);
 		setSelectedBar(e);
 		setSelectedBarData(data);
@@ -129,10 +127,10 @@ export default function Tracking(props) {
 		setSelectedBar(null);
 	}
 
-  const findModalTitle = () => {
+	const findModalTitle = () => {
 		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
 		return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
-  }
+	}
 
 	const mainChart = () => {
 		const barData = data[dataType].nodes;
@@ -151,6 +149,7 @@ export default function Tracking(props) {
 
 			return <Bar key={key}
 				data={thisBar}
+				totalBar={i.label === 'Total'}
 				barLabel={i.label}
 				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
 				firstBar={key === 0}
@@ -210,7 +209,7 @@ export default function Tracking(props) {
 
 	const handleSpendingDropdownChange = (e) => {
 		setActiveAccountFilter(e.target.value);
-		switch(e.target.value) {
+		switch (e.target.value) {
 			case 'Spending Accounts':
 				setData('spending')
 				break;
@@ -218,9 +217,9 @@ export default function Tracking(props) {
 				setData('loans');
 				break;
 			default:
-        setData('total');
+				setData('total');
 		}
-  }
+	}
 
 	const InputComponent = withStyles(() => ({
 		root: {
@@ -244,7 +243,7 @@ export default function Tracking(props) {
 		}
 	}))(InputBase);
 
-	const titleComponent = screenMode === ScreenModeEnum.mobile ? (
+	const titleComponent = screenMode === ScreenModeEnum.mobile ?
 		<>
 			<h2>Progress of COVID-19 Spending</h2>
 			<AccordionList title='Instructions'>
@@ -259,7 +258,7 @@ export default function Tracking(props) {
 				/>
 			</ControlBar>
 		</>
-	) : (
+		:
 		<>
 			<ControlBar>
 				<h2>Progress of COVID-19 Spending</h2>
@@ -285,12 +284,12 @@ export default function Tracking(props) {
 						onChange={handleSpendingDropdownChange}
 						MenuProps={{
 							anchorOrigin: {
-								vertical: "bottom",
-								horizontal: "left"
+								vertical: 'bottom',
+								horizontal: 'left'
 							},
 							transformOrigin: {
-								vertical: "top",
-								horizontal: "left"
+								vertical: 'top',
+								horizontal: 'left'
 							},
 							getContentAnchorEl: null
 						}}
@@ -307,8 +306,7 @@ export default function Tracking(props) {
 				</FormControl>
 			</div>
 		</>
-	)
-
+		;
 
 	return <>
 		{titleComponent}
@@ -321,13 +319,14 @@ export default function Tracking(props) {
 			close={closeModal}
 			title={findModalTitle()}
 			maxWidth={false}
-			maxHeight={true}>
+			maxHeight={true}
+		>
 			<Modal
 				bar={selectedBar}
 				data={accountsByAgency[selectedBar]}
 				barData={selectedBarData}
 				isModal={true}
-				mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet }
+				mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
 			/>
 		</ModalReference>
 
