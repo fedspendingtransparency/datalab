@@ -6,6 +6,7 @@ import styles from './tracking.module.scss';
 import AllAccountsIcon from '../../../svgs/federal-covid-spending/tracking/all-accounts-icon.svg'
 import SpendingAccountsIcon from '../../../svgs/federal-covid-spending/tracking/spending-accounts-icon.svg'
 import LoanProgramAccountsIcon from '../../../svgs/federal-covid-spending/tracking/loan-program-accounts-icon.svg'
+import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg'
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Bar from './bars/bar';
@@ -132,7 +133,7 @@ export default function Tracking(props) {
 		},
 		{
 			name: 'Loan Program Accounts',
-			icon: 'L',
+			icon: <LIcon />,
 			infoModalDescription: <>
 				<p>These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
 				 agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.</p>
@@ -340,6 +341,7 @@ export default function Tracking(props) {
 			open={isInfoModalOpen}
 			close={closeModal}
 			title='Spending Definitions'
+			titleStyle={{ fontWeight: 600 }}
 			maxWidth
 			maxHeight
 		>
