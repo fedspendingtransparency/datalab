@@ -1,3 +1,5 @@
+//TODO: hide menu when shift/tabbed off menus (logo or Glossary for now), or when no menus active
+
 import React from "react";
 import styles from "./page.module.scss";
 
