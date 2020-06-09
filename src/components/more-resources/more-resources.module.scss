@@ -1,0 +1,109 @@
+@import "../../styles/variables.scss";
+
+$grey: #888;
+$darkGrey: #666666;
+
+.analyses {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  border-bottom: 1px solid $darkGrey;
+  color: $grey;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.tiles {
+  padding-top: 1rem;
+
+  a {
+    color: #4a4a4a;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.svgImg {
+  height: 62px;
+  margin: 0 auto 1rem auto;
+  display: block;
+  width: 50%;
+}
+
+.text {
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4a4a4a;
+  
+  .title {
+    font-weight: 600;
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+  
+  .subtitle {
+    font-weight: 300;
+    font-size: 1.25rem;
+    height: 6rem;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.image {
+  width: 100%;
+}
+
+@media (max-width: $tablet) {
+  .tile:global(.MuiGrid-item) {
+    margin-top: 1rem;
+  }
+
+  .tile {
+    border-bottom: 1px solid #ddd;
+    
+    &:last-child {
+      border-bottom: 0;
+    }
+    
+    a {
+      margin-top: 0;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    img {
+      margin: 0;
+      width: 30%;
+    }
+
+    .text {
+      width: 50%;
+      float: right;
+      padding-left: 0.5rem;
+      text-align: center;
+
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .subtitle {
+        display: none;
+      }
+    }
+
+    .image {
+      width: 50%;
+      float: left;
+      margin-bottom: 1rem;
+    }
+  }
+}
