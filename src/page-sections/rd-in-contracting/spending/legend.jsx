@@ -24,7 +24,6 @@ export default class Legend extends React.Component {
     this.setState({ legendWidth: window.innerWidth });
   };
 
-
   render() {
     let w = this.state.legendWidth;
     let legendTextwrap = w <= 713;
