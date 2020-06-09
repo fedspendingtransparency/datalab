@@ -169,8 +169,6 @@ export default class SpendingChart extends React.Component {
 
     const desktopPopupStyle = {};
 
-    if (bWidth <= 1000) desktopPopupStyle.top = '18%';
-
     if (isTabletSvg) {
       return (<>
                 <h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>

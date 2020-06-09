@@ -1,3 +1,5 @@
+@import "../../../styles/variables.scss";
+
 .chart-legend {
   display: flex;
   flex-direction: row;
@@ -5,11 +7,13 @@
 };
 
 .legend-item {
+  margin: 0;
   padding-left: 3rem;
   padding-right: 3rem;
 };
 
 .legend-item-spending {
+  margin: 0;
   padding-top: 4px;
   padding-left: 3rem;
   padding-right: 3rem;
@@ -18,9 +22,11 @@
 .legend-item-small {
   padding-left: .5rem;
   padding-right: .5rem;
+  margin: 0;
 }
 
 .legend-item-small-spending {
+  margin: 0;
   padding-left: .5rem;
   padding-right: .5rem;
   padding-top: 4px;
@@ -40,5 +46,11 @@
   }
   .legend-item-small-spending {
     margin: 0;
+  }
+}
+
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  .chart-legend {
+    margin-top: -30px;
   }
 }
