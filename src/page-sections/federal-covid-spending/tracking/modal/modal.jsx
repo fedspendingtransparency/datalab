@@ -14,8 +14,8 @@ export default function CovidModal(props) {
           'amount': i.Amount_Outlaid,
           'percent': i.Percent_Outlaid
         }, {
-          'amount': i.Amount_Obligated_Not_Outlaid,
-          'percent': i.Percent_Obligated
+          'amount': i.Amount_Obligated,
+          'percent': i.Percent_Obligated_Not_Outlaid
         }, {
           'amount': i.Amount_Unobligated,
           'percent': i.Percent_Unobligated

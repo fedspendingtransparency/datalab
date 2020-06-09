@@ -33,30 +33,52 @@ const showLess = 10; // bars to show when collapsed
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
     query {
-      agencies: allCovid19ResponseViz3AgencyMain20200521Csv {
+      spending: allCovid19ResponseViz3MainAgencySpending20200603Csv {
         nodes {
 					label: Agency
 					Percent_Outlaid
-					Amount_Outlaid
-					Percent_Obligated
-					Amount_Obligated
-					Amount_Obligated_Not_Outlaid
+					Percent_Obligated_Not_Outlaid
 					Percent_Unobligated
+					Amount_Outlaid
+					Amount_Obligated
 					Amount_Unobligated
 					Total_Budgetary_Resources
         }
       }
-			agencyPopup: allCovid19ResponseViz3AgencyPopout20200521Csv {
+			total: allCovid19ResponseViz3MainAgencyTotal20200603Csv {
+        nodes {
+					label: Agency
+					Percent_Outlaid
+					Percent_Obligated_Not_Outlaid
+					Percent_Unobligated
+					Amount_Outlaid
+					Amount_Obligated
+					Amount_Unobligated
+					Total_Budgetary_Resources
+        }
+      }
+			loans: allCovid19ResponseViz3MainAgencyLoans20200603Csv {
+        nodes {
+					label: Agency
+					Percent_Outlaid
+					Percent_Unobligated
+					Percent_Obligated_Not_Outlaid
+					Amount_Outlaid
+					Amount_Obligated
+					Amount_Unobligated
+					Total_Budgetary_Resources
+        }
+      }
+			allData: allCovid19ResponseViz3ModalAgency20200603Csv {
         group(field: Agency) {
           fieldValue
           nodes {
 						Account_Name
 						Agency
 						Amount_Obligated
-						Amount_Obligated_Not_Outlaid
 						Amount_Outlaid
 						Amount_Unobligated
-						Percent_Obligated
+						Percent_Obligated_Not_Outlaid
 						Percent_Outlaid
 						Percent_Unobligated
 						Total_Budgetary_Resources
@@ -67,7 +89,7 @@ export default function Tracking(props) {
 	`);
 
 	const accountsByAgency = {};
-	data.agencyPopup.group.forEach(item => {
+	data.allData.group.forEach(item => {
 		accountsByAgency[item.fieldValue] = item.nodes;
 	});
 
@@ -88,8 +110,10 @@ export default function Tracking(props) {
 
 	const [isInfoModalOpen, setInfoModalState] = useState(false);
 	const [isModalOpen, setModalState] = useState(false);
+
 	const [selectedBar, setSelectedBar] = useState(null);
 	const [selectedBarData, setSelectedBarData] = useState(null);
+	const [dataType, setData] = useState('total');
 
 	const [limitBars, setLimitBars] = useState(showLess);
 	const handleSeeMore = () => {
@@ -99,7 +123,8 @@ export default function Tracking(props) {
 		setLimitBars(limitBars ? 0 : showLess);
 	}
 
-	const openModal = (e, data) => {
+  const [isModalOpen, setModalState] = useState(false);
+  const openModal = (e, data) => {
 		setModalState(true);
 		setSelectedBar(e);
 		setSelectedBarData(data);
@@ -143,16 +168,21 @@ export default function Tracking(props) {
 		},
 	]
 
+  const findModalTitle = () => {
+		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
+		return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
+  }
+
 	const mainChart = () => {
-		const barData = data.agencies.nodes;
+		const barData = data[dataType].nodes;
 		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
 				'amount': i.Amount_Outlaid,
 				'percent': parseFloat(i.Percent_Outlaid).toFixed(2)
 			}, {
-				'amount': i.Amount_Obligated_Not_Outlaid,
-				'percent': parseFloat(i.Percent_Obligated).toFixed(2)
+				'amount': i.Amount_Obligated,
+				'percent': parseFloat(i.Percent_Obligated_Not_Outlaid).toFixed(2)
 			}, {
 				'amount': i.Amount_Unobligated,
 				'percent': parseFloat(i.Percent_Unobligated).toFixed(2)
@@ -209,11 +239,6 @@ export default function Tracking(props) {
 		}
 	}))(Button);
 
-	const findTitle = () => {
-		const selectionAmount = data.agencies.nodes.find(item => item.label === selectedBar);
-		return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
-	}
-
 	const accountBreakdownOptions = [
 		{
 			name: 'All Accounts',
@@ -230,7 +255,19 @@ export default function Tracking(props) {
 	];
 	const [activeAccountFilter, setActiveAccountFilter] = useState(accountBreakdownOptions[0].name);
 
-	const handleSpendingDropdownChange = (e) => setActiveAccountFilter(e.target.value);
+	const handleSpendingDropdownChange = (e) => {
+		setActiveAccountFilter(e.target.value);
+		switch(e.target.value) {
+			case 'Spending Accounts':
+				setData('spending')
+				break;
+			case 'Loan Program Accounts':
+				setData('loans');
+				break;
+			default:
+        setData('total');
+		}
+  }
 
 	const InputComponent = withStyles(() => ({
 		root: {
@@ -306,7 +343,10 @@ export default function Tracking(props) {
 						}}
 					>
 						{accountBreakdownOptions.map((option) => (
-							<MenuItem key={option.name} value={option.name} className={styles.dropdownItem}>
+							<MenuItem
+								key={option.name}
+								value={option.name}
+								className={styles.dropdownItem}>
 								{option.icon} {option.name}
 							</MenuItem>
 						))}
@@ -316,18 +356,19 @@ export default function Tracking(props) {
 		</>
 	)
 
+
 	return <>
 		{titleComponent}
+
 		<a id='topofchart' />
 		{mainChart()}
 
 		<ModalReference
 			open={isModalOpen}
 			close={closeModal}
-			title={findTitle()}
+			title={findModalTitle()}
 			maxWidth={false}
-			maxHeight
-		>
+			maxHeight={true}>
 			<Modal
 				bar={selectedBar}
 				data={accountsByAgency[selectedBar]}
@@ -355,12 +396,12 @@ export default function Tracking(props) {
 			))}
 		</ModalReference>
 
-		{limitBars >= data.agencies.nodes.length ?
+		{limitBars >= data[dataType].nodes.length ?
 			''
 			:
 			<SeeMoreButton fullWidth onClick={handleSeeMore}>
 				{limitBars ?
-					`See More (${data.agencies.nodes.length - limitBars})`
+					`See More (${data[dataType].nodes.length - limitBars})`
 					:
 					'See Less'
 				}
