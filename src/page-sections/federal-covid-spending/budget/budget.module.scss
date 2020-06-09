@@ -89,3 +89,9 @@
     }
   }
 }
+
+@media (max-width: $phone) {
+    .chart-container {
+	margin-bottom: 50px;
+    }
+}

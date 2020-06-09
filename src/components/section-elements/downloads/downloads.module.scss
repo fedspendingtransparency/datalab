@@ -2,34 +2,41 @@
 $grey: #555555;
 
 .download {
-	color: $grey;
-	font-size: 1rem;
-	margin-top: $margin-15;
+    color: $grey;
+    font-size: 1rem;
+    margin-top: $margin-15;
+}
+
+#download-mobile {
+    color: $grey;
+    font-size: 1rem;
+    margin-top: $margin-15;
+    margin-bottom: $margin-100;
 }
 
 .faded-modifier {
-	opacity: 0.5;
-	line-height: 18pt;
+    opacity: 0.5;
+    line-height: 18pt;
 }
 
 a.data {
-	color: $grey;
-	margin-left: 12px;
-	fill: $grey;
-	cursor: pointer;
+    color: $grey;
+    margin-left: 12px;
+    fill: $grey;
+    cursor: pointer;
 
-	&:hover {
-		color: $legacyBlue;
-		text-decoration: underline;
+    &:hover {
+	color: $legacyBlue;
+	text-decoration: underline;
 
-		img {
-			filter: brightness(0.5) sepia(1);
-		}
+	img {
+	    filter: brightness(0.5) sepia(1);
 	}
+    }
 }
 
 @media (max-width: $tablet - 1) {
-	.download:global(.MuiGrid-container) {
-		justify-content: center;
-	}
+    .download:global(.MuiGrid-container) {
+	justify-content: center;
+    }
 }
