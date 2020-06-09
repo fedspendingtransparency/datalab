@@ -22,6 +22,7 @@ import numberFormatter from 'src/utils/number-formatter';
 import Share from 'src/components/share/share';
 import ModalReference from 'src/components/modal/modal';
 import Modal from './modal/modal';
+import { Grid, Hidden } from '@material-ui/core';
 
 const showLess = 10; // bars to show when collapsed
 
@@ -159,14 +160,21 @@ export default function Tracking(props) {
 			/>;
 		});
 
-		return (<>
-			<div className={styles.legend}>
-				<div className={styles.blockContainer}>
-					<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlays</span>
-					<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligations</span>
-					<span className={`${styles.block} ${styles.unobligatedBar}`}></span><span>Unobligated</span>
-				</div>
-			</div>
+		return <>
+			<Grid container justify='space-between' className={styles.legendContainer}>
+				<Hidden smDown>
+					<Grid item xs={12} lg={4} className={styles.legendAsOf}>
+						Data updated as of May 1, 2020
+				</Grid>
+				</Hidden>
+				<Grid item className={styles.legend}>
+					<div className={styles.blockContainer}>
+						<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlays</span>
+						<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligations</span>
+						<span className={`${styles.block} ${styles.unobligatedBar}`}></span><span>Unobligated</span>
+					</div>
+				</Grid>
+			</Grid>
 			<div className={styles.percentLegend}>
 				<span>0%</span><span>50%</span><span>100%</span>
 			</div>
@@ -176,7 +184,7 @@ export default function Tracking(props) {
 			>
 				{table}
 			</div>
-		</>);
+		</>;
 	}
 
 	const SeeMoreButton = withStyles(() => ({
