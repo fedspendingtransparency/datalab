@@ -82,12 +82,13 @@ const Downloads = (props) => {
       justify={props.justify || "flex-end"}
       direction="row"
       className={downloadsStyles.download}
+      id={props.mobileSpace ? downloadsStyles.downloadMobile : ``}
     >
       {props.date ? <span className={downloadsStyles.fadedModifier}>Updated as of {props.date} / </span> : ''}
       {props.isJSON ?
         exportToJsonFile(props.data)
         :
-        <a className={downloadsStyles.data} style={selectedStyle} href={props.href}>
+       <a className={downloadsStyles.data} style={selectedStyle} href={props.href}>
           <FontAwesomeIcon icon={faDownload} width={16} />
           &nbsp;Download
        </a>
@@ -99,7 +100,8 @@ const Downloads = (props) => {
 Downloads.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   date: PropTypes.string,
-  href: PropTypes.string
+  href: PropTypes.string,
+  mobileSpace: PropTypes.boolean
 };
 
 const StyledDownloads = Radium(Downloads);

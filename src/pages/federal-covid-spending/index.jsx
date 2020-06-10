@@ -63,10 +63,10 @@ export default class FederalCovidSpending extends React.Component {
       viztitle: 'Covid-19 Supplemental Funding by Budget Function',
       tagName: 'Budget',
       accordion: <aside>
-                                                                                                       <Accordion title='How do you track $2.4 trillion?' color='#6F41A7' backgroundColor='#F3EAFF'>
-                                                                                                         {BudgetAccordionContent()}
-                                                                                                       </Accordion>
-                                                                                                     </aside>
+                   <Accordion title='How do you track $2.4 trillion?' color='#6F41A7' backgroundColor='#F3EAFF'>
+                     {BudgetAccordionContent()}
+                   </Accordion>
+                 </aside>
     },
     {
       section: 'The Flow of Funds',

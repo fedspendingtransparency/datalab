@@ -89,3 +89,9 @@
     }
   }
 }
+
+@media (max-width: $tablet) {
+    .chart-container {
+	margin-bottom: 50px;
+    }
+}
