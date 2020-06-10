@@ -206,12 +206,14 @@ export default function Tracking(props) {
 					</IconButton>
 				</div>
 				<div className={styles.blockContainer}>
-					{categories.map((c) => {
-						if (c.icon) {
-							return <><span className={styles.block}>{c.icon}</span><span>{c.name}</span></>
-						}
-						return <><span className={`${styles.block} ${c.legendStyle}`}></span><span>{c.name}</span></>
-					})}
+					<div>
+						<><span className={`${styles.block} ${categories[0].legendStyle}`}></span><span>{categories[0].name}</span></>
+						<><span className={`${styles.block} ${categories[1].legendStyle}`}></span><span>{categories[1].name}</span></>
+					</div>
+					<div>
+						<><span className={`${styles.block} ${categories[2].legendStyle}`}></span><span>{categories[2].name}</span></>
+						<><span className={styles.block}>{categories[3].icon}</span><span>{categories[3].name}</span></>
+					</div>
 				</div>
 			</div>
 			<div className={styles.percentLegend}>

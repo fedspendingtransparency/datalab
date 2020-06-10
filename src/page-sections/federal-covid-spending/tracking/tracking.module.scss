@@ -14,12 +14,15 @@ h2 {
 
   .blockContainer {
     display: flex;
-    align-items: center;
     margin-bottom: 2rem;
     background: $lightBackground;
     padding: 6px;
     border: solid 1px #ddd; 
-    height: 38px;
+   
+    div {
+      display: flex;
+      justify-content: center;
+    }
     
     &:first-child {
       border-left: none;
@@ -144,6 +147,18 @@ h2 {
   }
 }
 
+@media screen and (min-width: $phone) {
+  .blockContainer {
+    align-items: center;
+    height: 38px;
+
+    div:first-of-type {
+      margin-right: 1.5rem;
+    }
+  }
+}
+
+
 @media (max-width: $desktop - 1) {
   .legend {
     justify-content: center;
@@ -177,5 +192,12 @@ h2 {
 @media screen and (max-width: $phone - 1) {
   .percentLegend {
     margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+  }
+
+  .blockContainer {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 76px;
   }
 }
