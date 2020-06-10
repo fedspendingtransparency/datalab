@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg class="budgetSvg" aria-labelledby="covid-budget-mobile" width="359px" height="1069px" viewBox="0 0 359 1069" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+<svg class="budgetSvg" aria-labelledby="covid-budget-mobile" width="100%" height="1069px" viewBox="0 0 359 1069" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
     <defs>
       <desc id="covid-budget-mobile">alt text goes here</desc>
         <polygon id="path-1" points="0 50 74.507 50 74.507 0.717 0 0.717"></polygon>
