@@ -86,13 +86,14 @@ export default function Budget(props) {
   return (
     <>
       <Header />
-      <div className="chart-container">
+      <div className={styles.chartContainer}>
         <Chart />
       </div>
 
       <Downloads
         href={'/data/federal-covid-spending/tracking/covid19_response_viz1_2020-05-21.csv'}
         date={'May 2020'}
+        mobileSpace
       />
     </>
   );

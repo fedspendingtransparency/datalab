@@ -4,15 +4,14 @@ h2 {
   font-size: 2rem;
 }
 
-.legend {
-  display: flex;
-  flex-direction: row-reverse;
+.legendContainer {
+  margin: 40px auto 0;
 
-  span {
-    font-size: 0.8rem;
+  .legendAsOf {
+    font-size: 1rem;
   }
 
-  .blockContainer {
+  .legend {
     display: flex;
     margin-bottom: 2rem;
     background: $lightBackground;
@@ -42,6 +41,14 @@ h2 {
 
   .infoButton:focus {
     outline: solid 1px blue;
+  }
+
+  .blockContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    background: $lightBackground;
+    padding: 6px;
   }
 
   .block {
@@ -94,10 +101,11 @@ h2 {
     font-size: 1.625rem;
     font-weight: 300;
     margin-right: 12px;
+    margin-top: 3px;
+  }
 
-    #view-spending-by-dropdown-label {
-      display: none;
-    }
+  #view-spending-by-dropdown-label {
+    display: none;
   }
 }
 
@@ -106,7 +114,7 @@ h2 {
   align-items: center;
   color: #666;
   border-bottom: solid 1px #666;
-    
+
   &:last-child {
     border-bottom: 0;
   }
@@ -160,16 +168,30 @@ h2 {
 
 
 @media (max-width: $desktop - 1) {
-  .legend {
+  .view-spending-by-container {
     justify-content: center;
-    align-items: center;
   }
 
-  .toggleContainer {
-    width: 100%;
-    margin-bottom: 0;
-  }
+  .legendContainer {
+    text-align: center;
+    width: 50% !important;
+    margin-top: 10px;
 
+    .legend {
+      flex-direction: column;
+      align-items: flex-end;
+
+      .blockContainer {
+        margin-top: 45px;
+        margin-bottom: 22px;
+      }
+    }
+
+    .toggleContainer {
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
   .percentLegend {
     margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
   }
@@ -180,18 +202,25 @@ h2 {
 }
 
 @media screen and (max-width: $tablet - 1) {
-  .legend {
-    align-items: center;
-  }
+  .legendContainer {
+    .legend {
+      align-items: center;
 
+      .blockContainer {
+        margin-top: 15px;
+      }
+    }
+  }
   .percentLegend {
-    margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+    margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem
+      calc(#{$mobileLabelWidth} - 0.5rem);
   }
 }
 
 @media screen and (max-width: $phone - 1) {
   .percentLegend {
-    margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+    margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem
+      calc(#{$mobileLabelWidth} - 0.5rem);
   }
 
   .blockContainer {

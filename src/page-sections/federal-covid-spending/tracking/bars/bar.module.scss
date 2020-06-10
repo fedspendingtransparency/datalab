@@ -21,13 +21,27 @@ svg {
   }
 }
 
+.totalBar {
+  background-color: $lightBackground;
+  border-bottom: $chartBorder;
+
+  .sideLabel,
+  .sideBudget {
+    color: $covidPurple;
+    font-weight: $bold;
+  }
+}
+
 .container {
   display: flex;
   justify-content: space-between;
 
   &:hover {
-    cursor: pointer;
     font-weight: $bold;
+
+    :not .totalBar {
+      cursor: pointer;
+    }
   }
 
   .topPad {
@@ -37,6 +51,7 @@ svg {
   .sideLabel {
     flex-basis: $labelWidth;
     min-width: $labelWidth;
+    padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
 
@@ -47,19 +62,19 @@ svg {
 
     background-image: linear-gradient(
       to right,
-      #fff,
-      #fff 24.8%,
+      transparent,
+      transparent 24.8%,
       $background-gray-warm-light 24.8%,
       $background-gray-warm-light 25%,
-      #fff 25%,
-      #fff 49.8%,
+      transparent 25%,
+      transparent 49.8%,
       $background-gray-warm-light 49.8%,
       $background-gray-warm-light 50%,
-      #fff 50%,
-      #fff 74.8%,
+      transparent 50%,
+      transparent 74.8%,
       $background-gray-warm-light 74.8%,
       $background-gray-warm-light 75%,
-      #fff 75%
+      transparent 75%
     );
 
     .bar {
