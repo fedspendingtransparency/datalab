@@ -6,6 +6,7 @@ import styles from './tracking.module.scss';
 import AllAccountsIcon from '../../../svgs/federal-covid-spending/tracking/all-accounts-icon.svg'
 import SpendingAccountsIcon from '../../../svgs/federal-covid-spending/tracking/spending-accounts-icon.svg'
 import LoanProgramAccountsIcon from '../../../svgs/federal-covid-spending/tracking/loan-program-accounts-icon.svg'
+import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg'
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Bar from './bars/bar';
@@ -15,6 +16,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@material-ui/core/IconButton';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import { withStyles } from '@material-ui/core/styles';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
@@ -104,6 +107,8 @@ export default function Tracking(props) {
 		}
 	});
 
+	const [isInfoModalOpen, setInfoModalState] = useState(false);
+
 	const [selectedBar, setSelectedBar] = useState(null);
 	const [selectedBarData, setSelectedBarData] = useState(null);
 	const [dataType, setData] = useState('total');
@@ -116,6 +121,7 @@ export default function Tracking(props) {
 		setLimitBars(limitBars ? 0 : showLess);
 	}
 
+
 	const [isModalOpen, setModalState] = useState(false);
 	const openModal = (e, data) => {
 		setModalState(true);
@@ -123,12 +129,45 @@ export default function Tracking(props) {
 		setSelectedBarData(data);
 	}
 
+	const openInfoModal = () => {
+		setInfoModalState(true);
+	}
+
 	const closeModal = () => {
 		setModalState(false);
+		setInfoModalState(false);
 		setSelectedBar(null);
 	}
 
-	const findModalTitle = () => {
+	const categories = [
+		{
+			name: 'Outlays',
+			legendStyle: styles.outlayBar,
+			infoModalDescription: <p>The amount an agency paid toward an obligation. Outlays are also counted as obligations.</p>
+		},
+		{
+			name: 'Obligations',
+			legendStyle: styles.obligatedBar,
+			infoModalDescription: <p>The amount an agency promised to pay for a particular purchase. Obligations include outlays.</p>
+		},
+		{
+			name: 'Unobligated',
+			legendStyle: styles.unobligatedBar,
+			infoModalDescription: <p>The amount funded to an agency but not yet obligated.</p>
+		},
+		{
+			name: 'Loan Program Accounts',
+			icon: <LIcon />,
+			infoModalDescription: <>
+				<p>These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
+				 agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.</p>
+				<p>Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
+				 direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.</p>
+			</>
+		},
+	]
+
+  const findModalTitle = () => {
 		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
 		return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
 	}
@@ -160,20 +199,28 @@ export default function Tracking(props) {
 			/>;
 		});
 
-		return <>
-			<Grid container justify='space-between' className={styles.legendContainer}>
-				<Hidden smDown>
-					<Grid item xs={12} lg={4} className={styles.legendAsOf}>
-						Data updated as of May 1, 2020
+		return (<>
+      <Grid container className={styles.legendContainer}>
+				<Grid item xs={12} lg={4} className={styles.legendAsOf}>
+					Data updated as of May 1, 2020
 				</Grid>
-				</Hidden>
-				<Grid item className={styles.legend}>
-					<div className={styles.blockContainer}>
-						<span className={`${styles.block} ${styles.outlayBar}`}></span><span>Outlays</span>
-						<span className={`${styles.block} ${styles.obligatedBar}`}></span><span>Obligations</span>
-						<span className={`${styles.block} ${styles.unobligatedBar}`}></span><span>Unobligated</span>
-					</div>
-				</Grid>
+        <Grid className={styles.legend}>
+          <div className={styles.blockContainer}>
+            <div>
+              <><span className={`${styles.block} ${categories[0].legendStyle}`}></span><span>{categories[0].name}</span></>
+              <><span className={`${styles.block} ${categories[1].legendStyle}`}></span><span>{categories[1].name}</span></>
+            </div>
+            <div>
+              <><span className={`${styles.block} ${categories[2].legendStyle}`}></span><span>{categories[2].name}</span></>
+              <><span className={styles.block}>{categories[3].icon}</span><span>{categories[3].name}</span></>
+            </div>
+          </div>
+          <div className={styles.blockContainer}>
+            <IconButton className={styles.infoButton} onClick={openInfoModal}>
+              <InfoOutlinedIcon className={styles.icon} />
+            </IconButton>
+          </div>
+        </Grid>
 			</Grid>
 			<div className={styles.percentLegend}>
 				<span>0%</span><span>50%</span><span>100%</span>
@@ -184,7 +231,7 @@ export default function Tracking(props) {
 			>
 				{table}
 			</div>
-		</>;
+		</>)
 	}
 
 	const SeeMoreButton = withStyles(() => ({
@@ -331,6 +378,24 @@ export default function Tracking(props) {
 				isModal={true}
 				mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
 			/>
+		</ModalReference>
+		
+		<ModalReference
+			open={isInfoModalOpen}
+			close={closeModal}
+			title='Spending Definitions'
+			titleStyle={{ fontWeight: 600 }}
+			maxWidth
+			maxHeight
+		>
+			{categories.map((c) => (
+				<div className={styles.infoModalBody}>
+					<div className={styles.heading}>
+						<div className={`${styles.modalBlock} ${c.legendStyle || ''}`}>{c.icon}</div>{c.name}
+					</div>
+					{c.infoModalDescription}
+				</div>
+			))}
 		</ModalReference>
 
 		{limitBars >= data[dataType].nodes.length ?

@@ -80,7 +80,7 @@ class ModalReference extends React.Component {
   }
 
   render() {
-    const { classes, children, title } = this.props;
+    const { classes, children, title, titleStyle } = this.props;
     const { open } = this.state;
 
     return (
@@ -99,7 +99,7 @@ class ModalReference extends React.Component {
         <Fade in={open}>
           <div className={classes.paper}>
             <div className={styles.title}>
-              <span>{title}</span>
+              <span style={titleStyle}>{title}</span>
               <CloseIcon className={styles.close} tabIndex='0' onClick={this.handleClose} onKeyUp={e => this.keyUpHandler(e)} />
             </div>
             <div className={styles.content} style={{'maxWidth': this.state.maxWidth, 'maxHeight': this.state.maxHeight}}>
