@@ -22,13 +22,13 @@ svg {
 }
 
 .totalBar {
+  font-weight: $bold;
   background-color: $lightBackground;
   border-bottom: $chartBorder;
 
   .sideLabel,
   .sideBudget {
     color: $covidPurple;
-    font-weight: $bold;
   }
 }
 
