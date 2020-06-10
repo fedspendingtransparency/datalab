@@ -5,73 +5,79 @@ h2 {
 }
 
 .legendContainer {
-  margin: 40px auto 0;
-
   .legendAsOf {
     font-size: 1rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
   }
 
   .legend {
     display: flex;
     margin-bottom: 2rem;
-    background: $lightBackground;
     padding: 6px;
-    border: solid 1px #ddd; 
    
     div {
       display: flex;
       justify-content: center;
+
+      span {
+        font-size: 0.875rem;
+      }
     }
     
-    &:first-child {
+    div:last-of-type {
       border-left: none;
     }
-  }
 
-  .infoButton {
-    padding: 0px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #2273CE;
-  }
-  
-  .infoButton:hover {
-    background-color: #666;
-  }
-
-  .infoButton:focus {
-    outline: solid 1px blue;
-  }
-
-  .blockContainer {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-    background: $lightBackground;
-    padding: 6px;
-  }
-
-  .block {
-    display: inline-block;
-    height: 1.125rem;
-    width: 1.125rem;
-    margin: 0 0.5rem 0 1.5rem;
-
-    &:first-child {
-      margin-left: 0;
+    .infoButton {
+      padding: 0px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #2273CE;
     }
-  }
+    
+    .infoButton:hover {
+      background-color: #666;
+    }
 
-  .outlayBar {
-    background: darken($covidPurple, 25%);
-  }
+    .infoButton:focus {
+      outline: solid 1px blue;
+    }
 
-  .obligatedBar {
-    background: $covidPurple;
-  }
+    .blockContainer {
+      display: flex;
+      background: $lightBackground;
+      padding: 6px;
+      border: solid 1px #ddd;
 
-  .unobligatedBar {
-    background: #f3e9ff;
+      div {
+        align-items: center;
+      }
+    }
+
+    .block {
+      display: inline-block;
+      height: 1.125rem;
+      width: 1.125rem;
+      margin: 0 0.5rem 0 1.5rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .outlayBar {
+      background: darken($covidPurple, 25%);
+    }
+
+    .obligatedBar {
+      background: $covidPurple;
+    }
+
+    .unobligatedBar {
+      background: #f3e9ff;
+    }
   }
 }
 
@@ -166,25 +172,21 @@ h2 {
   }
 }
 
-
 @media (max-width: $desktop - 1) {
   .view-spending-by-container {
     justify-content: center;
+    margin-bottom: 0.5rem;
   }
 
   .legendContainer {
-    text-align: center;
-    width: 50% !important;
-    margin-top: 10px;
+    justify-content: center;
+    
+    .legendAsOf {
+      justify-content: center;
+    }
 
     .legend {
-      flex-direction: column;
       align-items: flex-end;
-
-      .blockContainer {
-        margin-top: 45px;
-        margin-bottom: 22px;
-      }
     }
 
     .toggleContainer {
@@ -208,6 +210,7 @@ h2 {
 
       .blockContainer {
         margin-top: 15px;
+        justify-content: space-around;
       }
     }
   }

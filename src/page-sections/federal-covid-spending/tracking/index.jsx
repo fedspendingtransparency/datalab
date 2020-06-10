@@ -200,18 +200,11 @@ export default function Tracking(props) {
 		});
 
 		return (<>
-      <Grid container justify='space-between' className={styles.legendContainer}>
-        <Hidden smDown>
-					<Grid item xs={12} lg={4} className={styles.legendAsOf}>
-						Data updated as of May 1, 2020
-          </Grid>
-				</Hidden>
+      <Grid container className={styles.legendContainer}>
+				<Grid item xs={12} lg={4} className={styles.legendAsOf}>
+					Data updated as of May 1, 2020
+				</Grid>
         <Grid className={styles.legend}>
-          <div className={styles.blockContainer}>
-            <IconButton className={styles.infoButton} onClick={openInfoModal}>
-              <InfoOutlinedIcon className={styles.icon} />
-            </IconButton>
-          </div>
           <div className={styles.blockContainer}>
             <div>
               <><span className={`${styles.block} ${categories[0].legendStyle}`}></span><span>{categories[0].name}</span></>
@@ -221,6 +214,11 @@ export default function Tracking(props) {
               <><span className={`${styles.block} ${categories[2].legendStyle}`}></span><span>{categories[2].name}</span></>
               <><span className={styles.block}>{categories[3].icon}</span><span>{categories[3].name}</span></>
             </div>
+          </div>
+          <div className={styles.blockContainer}>
+            <IconButton className={styles.infoButton} onClick={openInfoModal}>
+              <InfoOutlinedIcon className={styles.icon} />
+            </IconButton>
           </div>
         </Grid>
 			</Grid>
@@ -233,7 +231,7 @@ export default function Tracking(props) {
 			>
 				{table}
 			</div>
-		</>;
+		</>)
 	}
 
 	const SeeMoreButton = withStyles(() => ({
