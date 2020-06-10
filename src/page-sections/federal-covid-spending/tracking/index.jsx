@@ -123,7 +123,6 @@ export default function Tracking(props) {
 		setLimitBars(limitBars ? 0 : showLess);
 	}
 
-  const [isModalOpen, setModalState] = useState(false);
   const openModal = (e, data) => {
 		setModalState(true);
 		setSelectedBar(e);

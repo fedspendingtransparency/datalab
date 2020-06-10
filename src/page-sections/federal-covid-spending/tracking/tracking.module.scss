@@ -19,6 +19,7 @@ h2 {
     background: $lightBackground;
     padding: 6px;
     border: solid 1px #ddd; 
+    height: 38px;
     
     &:first-child {
       border-left: none;
@@ -145,8 +146,8 @@ h2 {
 
 @media (max-width: $desktop - 1) {
   .legend {
-    flex-direction: column;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
   }
 
   .toggleContainer {
@@ -156,6 +157,10 @@ h2 {
 
   .percentLegend {
     margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
+  }
+
+  .view-spending-by-container {
+    justify-content: center;
   }
 }
 
