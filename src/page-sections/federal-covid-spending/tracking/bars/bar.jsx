@@ -118,7 +118,7 @@ export default class Bar extends React.Component {
 						onMouseOver={this.onHover}
 						onMouseOut={this.onBlur}
 					>
-						<g style={{ display: this.props.isModal || this.state.showDetails ? 'block' : 'none' }}>
+						<g style={{ display: this.props.isModal|| this.props.totalBar || this.state.showDetails ? 'block' : 'none' }}>
 							<CalloutBar
 								outlaid={parseFloat(this.props.data[0].percent)}
 								obligated={parseFloat(this.props.data[1].percent)}
