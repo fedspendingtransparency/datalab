@@ -94,7 +94,7 @@ export default class Bar extends React.Component {
 				'' :
 				<div className={`${styles.sideLabel} ${styles.topPad}`}>
 					{this.props.totalBar ?
-						'TOTAL U.S. GOVERNMENT FUNDING'
+						<span className={styles.totalBarLabel}>TOTAL U.S. GOVERNMENT FUNDING</span>
 						:
 						this.props.barLabel
 					}

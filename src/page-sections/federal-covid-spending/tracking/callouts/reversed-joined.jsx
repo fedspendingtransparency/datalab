@@ -15,15 +15,15 @@ export default function ReversedJoinedCallout(props) {
 		// eslint-disable-next-line max-len
 		xStart, xMid, isModal, xEnd, label1Offset, label2Offset, label1, label2, label1Amount, label2Amount,
 	} = props;
-	const shiftLabel = 10;
-	const shiftAmount = label2 === 'Unobligated' ? 16 : 0;
+	const shiftLabel = label2 === 'Unobligated' ? 14 : 10;
+	const shiftAmount = label2 === 'Unobligated' ? 18 : 0;
 
 
 	function TextBlock() {
 		if (isModal) {
 			return (
 				<>
-					<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight="bold">
+					<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="bold">
 						{label1}
 					</text>
 					<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
@@ -31,7 +31,7 @@ export default function ReversedJoinedCallout(props) {
 						{numberFormatter('dollars suffix', label1Amount)}
 					</text>
 
-					<text fill={defaults.fontColor} x={`${label2Offset + shiftLabel}%`} y={defaults.textPosition} fontSize={defaults.fontSize} fontWeight="bold">
+					<text fill={defaults.fontColor} x={`${label2Offset + shiftLabel}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="bold">
 						{label2}
 					</text>
 					<text fill={defaults.fontColor} x={`${label2Offset + shiftAmount}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>

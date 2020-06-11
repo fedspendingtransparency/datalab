@@ -10,10 +10,10 @@ import styles from '../bars/bar.module.scss';
 
 export default function StraightCallout(props) {
 	const {
-		xStart, xEnd, isModal, labelOffset, label, labelAmount,
+		xStart, isModal, labelOffset, label, labelAmount,
 	} = props;
-	const shiftLabel = label === 'Unobligated' ? 10 : 0;
-	const shiftAmount = label === 'Unobligated' ? 16 : 0;
+	const shiftLabel = label === 'Unobligated' ? 14 : 0;
+	const shiftAmount = label === 'Unobligated' ? 18 : 0;
 
 	function TextBlock() {
 		if (isModal) {
@@ -23,7 +23,7 @@ export default function StraightCallout(props) {
 						fill={defaults.fontColor}
 						x={`${labelOffset + shiftLabel}%`}
 						y={defaults.textPosition}
-						fontSize={defaults.fontSize}
+						fontSize={defaults.mdFontSize}
 						fontWeight="bold"
 					>
 						{label}
@@ -70,7 +70,6 @@ export default function StraightCallout(props) {
 
 StraightCallout.propTypes = {
 	xStart: PropTypes.number.isRequired,
-	xEnd: PropTypes.number.isRequired,
 	isModal: PropTypes.bool.isRequired,
 	labelOffset: PropTypes.number.isRequired,
 	label: PropTypes.string.isRequired,

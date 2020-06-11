@@ -50,6 +50,10 @@ svg {
     min-width: $labelWidth;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+
+    .totalBarLabel {
+      font-weight: $bold;
+    }
   }
 
   .barContainer {

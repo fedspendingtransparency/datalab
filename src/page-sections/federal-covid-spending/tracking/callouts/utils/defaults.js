@@ -6,8 +6,9 @@ const defaults = {
 	lineColor: '#666',
 	textPosition: null,
 	fontSize: '14px',
-	fontColor: '#666',
-	smFontSize: '12px',
+	fontColor: '#555',
+	mdFontSize: '12px',
+	smFontSize: '10px',
 };
 
 defaults.textPosition = parseFloat(defaults.starterHeight + defaults.lineStroke + defaults.endingHeight + defaults.lineHeight);
