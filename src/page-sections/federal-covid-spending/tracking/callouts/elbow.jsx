@@ -7,6 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import numberFormatter from 'src/utils/number-formatter';
 import defaults from './utils/defaults';
+import styles from '../bars/bar.module.scss';
 
 export default function ElbowCallout(props) {
 	const {
@@ -28,7 +29,7 @@ export default function ElbowCallout(props) {
 		}
 		return (
 			<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-				{label}
+				<tspan className={styles.label} fontWeight="bold">{label}</tspan>
 				{' '}
 				{numberFormatter('dollars suffix', labelAmount)}
 			</text>
@@ -36,7 +37,7 @@ export default function ElbowCallout(props) {
 	}
 
 	return (
-		<g className="connector">
+		<g className={styles.connector}>
 			<rect
   			fill={defaults.lineColor}
 				x={`${xStart}%`}

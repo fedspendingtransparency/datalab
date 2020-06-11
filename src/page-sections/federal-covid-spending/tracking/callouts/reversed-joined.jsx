@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import defaults from './utils/defaults';
 import numberFormatter from '../../../../utils/number-formatter';
+import styles from '../bars/bar.module.scss';
 
 /* props
   xStart = x position of starting vertical line, start of the horizontal line (pointing to bar)
@@ -43,12 +44,12 @@ export default function ReversedJoinedCallout(props) {
 		return (
 			<>
 				<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-					{label1}
+					<tspan className={styles.label} fontWeight="bold">{label1}</tspan>
 					{' '}
 					{numberFormatter('dollars suffix', label1Amount)}
 				</text>
 				<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-					{label2}
+					<tspan className={styles.label} fontWeight="bold">{label2}</tspan>
 					{' '}
 					{numberFormatter('dollars suffix', label2Amount)}
 				</text>
@@ -57,7 +58,7 @@ export default function ReversedJoinedCallout(props) {
 	}
 
 	return (
-		<g className="connector">
+		<g className={styles.connector}>
 			<rect
 				fill={defaults.lineColor}
 				x={`${xStart}%`}

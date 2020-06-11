@@ -31,7 +31,7 @@ h2 {
     }
 
     .infoButton {
-      padding: 0px;
+      padding: 0;
       font-size: 1rem;
       color: #fff;
       background-color: #2273CE;
@@ -158,12 +158,6 @@ h2 {
 
   p {
     margin-left: 36px;
-  }
-}
-
-g.connector {
-  rect {
-    fill-opacity: 0.5;
   }
 }
 

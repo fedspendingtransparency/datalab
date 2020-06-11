@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import defaults from './utils/defaults';
 import numberFormatter from '../../../../utils/number-formatter';
+import styles from '../bars/bar.module.scss';
 
 /* props
 lineColor = hex value for line color
@@ -42,7 +43,7 @@ export default function ReversedElbowCallout(props) {
 				fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition}
 				fontSize={defaults.fontSize}
 			>
-				{label}
+				<tspan className={styles.label} fontWeight="bold">{label}</tspan>
 				{' '}
 				(
 				{numberFormatter('dollars suffix', labelAmount)}
@@ -52,7 +53,7 @@ export default function ReversedElbowCallout(props) {
 	}
 
 	return (
-		<g className="connector">
+		<g className={styles.connector}>
 			<rect
 				fill={defaults.lineColor}
   			x={`${xStart}%`}

@@ -22,7 +22,6 @@ svg {
 }
 
 .totalBar {
-  font-weight: $bold;
   background-color: $lightBackground;
   border-bottom: $chartBorder;
 
@@ -37,8 +36,6 @@ svg {
   justify-content: space-between;
 
   &:hover {
-    font-weight: $bold;
-
     :not .totalBar {
       cursor: pointer;
     }
@@ -129,6 +126,13 @@ svg {
     flex-basis: $budgetWidth;
     padding-left: 0.5rem;
     white-space: nowrap;
+  }
+}
+
+
+g.connector {
+  rect {
+    fill-opacity: 0.5;
   }
 }
 

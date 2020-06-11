@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import defaults from './utils/defaults';
 import numberFormatter from '../../../../utils/number-formatter';
+import styles from '../bars/bar.module.scss';
 
 /* props
   xStart = x position vertical line
@@ -45,7 +46,7 @@ export default function StraightCallout(props) {
 				y={defaults.textPosition}
 				fontSize={defaults.fontSize}
 			>
-				{label}
+				<tspan className={styles.label} fontWeight="bold">{label}</tspan>
 				{' '}
 				{numberFormatter('dollars suffix', labelAmount)}
 			</text>
@@ -53,7 +54,7 @@ export default function StraightCallout(props) {
 	}
 
 	return (
-		<g className="connector">
+		<g className={styles.connector}>
 			<rect
 				fill={defaults.lineColor}
 				x={`${xStart}%`}
