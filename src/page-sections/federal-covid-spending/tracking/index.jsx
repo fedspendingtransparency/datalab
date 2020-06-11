@@ -276,7 +276,7 @@ export default function Tracking(props) {
 			default:
 				setData('total');
 				setLimitBars(data.total.nodes.length >= showLess ? showLess : 0);
-			}
+		}
 	}
 
 	const InputComponent = withStyles(() => ({
