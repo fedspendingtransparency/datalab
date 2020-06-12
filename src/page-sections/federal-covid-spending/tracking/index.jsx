@@ -307,6 +307,39 @@ export default function Tracking(props) {
 					text={'Who watches the Watchmen? Anyone with HBO...'}
 				/>
 			</ControlBar>
+			<div className={styles.viewSpendingByContainer}>
+				<div className={styles.viewSpendingByHeading}>View Spending By: </div>
+				<FormControl>
+					<InputLabel id={styles.viewSpendingByDropdownLabel} />
+					<Select
+						labelId={styles.viewSpendingByDropdownLabel}
+						className={styles.viewSpendingByDropdown}
+						input={<InputComponent />}
+						value={activeAccountFilter}
+						onChange={handleSpendingDropdownChange}
+						MenuProps={{
+							anchorOrigin: {
+								vertical: 'bottom',
+								horizontal: 'left'
+							},
+							transformOrigin: {
+								vertical: 'top',
+								horizontal: 'left'
+							},
+							getContentAnchorEl: null
+						}}
+					>
+						{accountBreakdownOptions.map((option) => (
+							<MenuItem
+								key={option.name}
+								value={option.name}
+								className={styles.dropdownItem}>
+								{option.icon} {option.name}
+							</MenuItem>
+						))}
+					</Select>
+				</FormControl>
+			</div>
 		</>
 		:
 		<>
