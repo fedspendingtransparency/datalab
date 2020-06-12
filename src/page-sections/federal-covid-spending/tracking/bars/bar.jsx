@@ -38,15 +38,27 @@ export default class Bar extends React.Component {
 		};
 	}
 
-	clickHandler = item => {
-		if (!this.props.totalBar) {
-			this.props.openModal(item);
+	barClickHandler = () => {
+		if (!this.props.isModal && this.state.screenMode >= ScreenModeEnum.desktop && !this.props.totalBar) {
+			this.props.openModal(this.props.barLabel);
 		}
 	};
 
-	keyUpHandler = (e, item) => {
-		if (e.keyCode === 13) {
-			this.props.openModal(item);
+	barKeyUpHandler = (e) => {
+		if (!this.props.isModal && this.state.screenMode >= ScreenModeEnum.desktop && e.keyCode === 13) {
+			this.props.openModal(this.props.barLabel);
+		}
+	};
+
+	labelClickHandler = () => {
+		if (!this.props.isModal && this.state.screenMode < ScreenModeEnum.desktop && !this.props.totalBar) {
+			this.props.openModal(this.props.barLabel);
+		}
+	};
+
+	labelKeyUpHandler = (e) => {
+		if (!this.props.isModal && this.state.screenMode < ScreenModeEnum.desktop && e.keyCode === 13) {
+			this.props.openModal(this.props.barLabel);
 		}
 	};
 
@@ -67,13 +79,13 @@ export default class Bar extends React.Component {
 	};
 
 	onHover = () => {
-		if (this.state.screenMode === ScreenModeEnum.desktop) {
+		if (this.state.screenMode >= ScreenModeEnum.desktop) {
 			this.setState({ showDetails: true })
 		}
 	};
 
 	onBlur = () => {
-		if (this.state.screenMode === ScreenModeEnum.desktop) {
+		if (this.state.screenMode >= ScreenModeEnum.desktop) {
 			this.setState({ showDetails: false })
 		}
 	};
@@ -92,7 +104,12 @@ export default class Bar extends React.Component {
 		<div className={this.containerClass()}>
 			{this.props.isModal ?
 				'' :
-				<div className={`${styles.sideLabel} ${styles.topPad}`}>
+				<div
+					className={`${styles.sideLabel} ${styles.topPad}`}
+					onClick={this.labelClickHandler}
+					onKeyUp={this.labelKeyUpHandler}
+					tabIndex={this.props.isModal || this.state.screenMode >= ScreenModeEnum.desktop ? '' : '0'}
+				>
 					{this.props.totalBar ?
 						'TOTAL U.S. GOVERNMENT FUNDING'
 						:
@@ -107,10 +124,10 @@ export default class Bar extends React.Component {
 					${this.props.isModal ? '' : styles.barBorder}
 					${this.props.firstBar ? styles.firstBar : ''}
 					${this.props.lastBar ? styles.lastBar : ''}`}
-					style={{ cursor: this.props.isModal || this.props.totalBar ? 'default' : 'pointer' }}
-					tabIndex={this.props.isModal ? '' : '0'}
-					onClick={() => this.props.isModal ? '' : this.clickHandler(this.props.barLabel)}
-					onKeyUp={e => this.props.isModal ? '' : this.keyUpHandler(e, this.props.barLabel)}
+					style={{ cursor: this.state.screenMode < ScreenModeEnum.desktop || this.props.isModal || this.props.totalBar ? 'default' : 'pointer' }}
+					tabIndex={this.props.isModal || this.state.screenMode < ScreenModeEnum.desktop ? '' : '0'}
+					onClick={this.barClickHandler}
+					onKeyUp={this.barKeyUpHandler}
 				>
 					<svg
 						width='100%'

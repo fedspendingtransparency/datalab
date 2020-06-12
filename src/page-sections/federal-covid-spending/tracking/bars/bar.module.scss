@@ -37,8 +37,6 @@ svg {
   justify-content: space-between;
 
   &:hover {
-    font-weight: $bold;
-
     :not .totalBar {
       cursor: pointer;
     }
@@ -129,6 +127,19 @@ svg {
     flex-basis: $budgetWidth;
     padding-left: 0.5rem;
     white-space: nowrap;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .container:hover {
+    font-weight: bold;
+  } 
+}
+
+@media screen and (max-width: $desktop - 1) {
+  .sideLabel {
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 
