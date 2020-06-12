@@ -266,13 +266,16 @@ export default function Tracking(props) {
 		setActiveAccountFilter(e.target.value);
 		switch (e.target.value) {
 			case 'Spending Accounts':
-				setData('spending')
+				setData('spending');
+				setLimitBars(data.spending.nodes.length >= showLess ? showLess : 0);
 				break;
 			case 'Loan Program Accounts':
 				setData('loans');
+				setLimitBars(data.loans.nodes.length >= showLess ? showLess : 0);
 				break;
 			default:
 				setData('total');
+				setLimitBars(data.total.nodes.length >= showLess ? showLess : 0);
 		}
 	}
 
@@ -431,7 +434,7 @@ export default function Tracking(props) {
 			))}
 		</ModalReference>
 
-		{limitBars >= data[dataType].nodes.length ?
+		{showLess >= data[dataType].nodes.length ?
 			''
 			:
 			<SeeMoreButton fullWidth onClick={handleSeeMore}>
