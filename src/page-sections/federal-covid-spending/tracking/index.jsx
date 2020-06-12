@@ -296,9 +296,9 @@ export default function Tracking(props) {
 		}
 	}))(InputBase);
 
-	const titleComponent = screenMode === ScreenModeEnum.mobile ?
+	const titleComponent = screenMode <= ScreenModeEnum.tablet ?
 		<>
-			<h2>Progress of COVID-19 Spending</h2>
+			<h2 className={styles.sectionHeading}>Progress of COVID-19 Spending</h2>
 			<AccordionList title='Instructions'>
 				<p>Actual instructions are larger than they appear</p>
 			</AccordionList>
