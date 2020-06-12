@@ -67,13 +67,13 @@ export default class Bar extends React.Component {
 	};
 
 	onHover = () => {
-		if (this.state.screenMode !== ScreenModeEnum.mobile) {
+		if (this.state.screenMode === ScreenModeEnum.desktop) {
 			this.setState({ showDetails: true })
 		}
 	};
 
 	onBlur = () => {
-		if (this.state.screenMode !== ScreenModeEnum.mobile) {
+		if (this.state.screenMode === ScreenModeEnum.desktop) {
 			this.setState({ showDetails: false })
 		}
 	};
