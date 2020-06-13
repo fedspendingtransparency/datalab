@@ -20,14 +20,14 @@ export default function JoinedCallout(props) {
 		if (isModal) {
 			return (
 				<>
-					<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="bold">
+					<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="600">
 						{label1}
 					</text>
 					<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
 						{numberFormatter('dollars suffix', label1Amount)}
 					</text>
 
-					<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="bold">
+					<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="600">
 						{label2}
 					</text>
 					<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
@@ -39,12 +39,12 @@ export default function JoinedCallout(props) {
 		return (
 			<>
 				<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-					<tspan className={styles.label} fontWeight="bold">{label1}</tspan>
+					<tspan className={styles.label} fontWeight="600">{label1}</tspan>
 					{' '}
 					{numberFormatter('dollars suffix', label1Amount)}
 				</text>
 				<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-					<tspan className={styles.label} fontWeight="bold">{label2}</tspan>
+					<tspan className={styles.label} fontWeight="600">{label2}</tspan>
 					{' '}
 					{numberFormatter('dollars suffix', label2Amount)}
 				</text>

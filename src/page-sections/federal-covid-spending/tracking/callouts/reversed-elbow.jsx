@@ -23,7 +23,7 @@ export default function ReversedElbowCallout(props) {
 				<>
 					<text
 						fill={defaults.fontColor} x={`${labelOffset + shiftLabel}%`} y={defaults.textPosition}
-						fontSize={defaults.mdFontSize} fontWeight="bold"
+						fontSize={defaults.mdFontSize} fontWeight="600"
 					>
 						{label}
 					</text>
@@ -43,7 +43,7 @@ export default function ReversedElbowCallout(props) {
 				fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition}
 				fontSize={defaults.fontSize}
 			>
-				<tspan className={styles.label} fontWeight="bold">{label}</tspan>
+				<tspan className={styles.label} fontWeight="600">{label}</tspan>
 				{' '}
 				(
 				{numberFormatter('dollars suffix', labelAmount)}

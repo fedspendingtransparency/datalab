@@ -18,7 +18,7 @@ export default function ElbowCallout(props) {
 		if (isModal) {
 			return (
 				<>
-					<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="bold">
+					<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="600">
 						{label}
 					</text>
 					<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
@@ -29,7 +29,7 @@ export default function ElbowCallout(props) {
 		}
 		return (
 			<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-				<tspan className={styles.label} fontWeight="bold">{label}</tspan>
+				<tspan className={styles.label} fontWeight="600">{label}</tspan>
 				{' '}
 				{numberFormatter('dollars suffix', labelAmount)}
 			</text>

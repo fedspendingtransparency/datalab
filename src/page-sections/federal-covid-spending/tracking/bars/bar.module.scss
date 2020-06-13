@@ -36,6 +36,11 @@ svg {
   justify-content: space-between;
 
   &:hover {
+    .sideLabel,
+    .sideBudget {
+      font-weight: $bold;
+    }
+
     :not .totalBar {
       cursor: pointer;
     }
