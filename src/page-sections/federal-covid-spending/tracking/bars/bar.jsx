@@ -45,7 +45,7 @@ export default class Bar extends React.Component {
 	};
 
 	barKeyUpHandler = (e) => {
-		if (!this.props.isModal && this.state.screenMode >= ScreenModeEnum.desktop && e.keyCode === 13) {
+		if (!this.props.isModal && this.state.screenMode >= ScreenModeEnum.desktop && !this.props.totalBar && e.keyCode === 13) {
 			this.props.openModal(this.props.barLabel);
 		}
 	};
@@ -57,7 +57,7 @@ export default class Bar extends React.Component {
 	};
 
 	labelKeyUpHandler = (e) => {
-		if (!this.props.isModal && this.state.screenMode < ScreenModeEnum.desktop && e.keyCode === 13) {
+		if (!this.props.isModal && this.state.screenMode < ScreenModeEnum.desktop && !this.props.totalBar && e.keyCode === 13) {
 			this.props.openModal(this.props.barLabel);
 		}
 	};
@@ -108,7 +108,7 @@ export default class Bar extends React.Component {
 					className={`${this.props.totalBar ? styles.totalBarSideLabel : styles.sideLabel} ${styles.topPad}`}
 					onClick={this.labelClickHandler}
 					onKeyUp={this.labelKeyUpHandler}
-					tabIndex={this.props.isModal || this.state.screenMode >= ScreenModeEnum.desktop ? '' : '0'}
+					tabIndex={this.props.isModal || this.state.screenMode >= ScreenModeEnum.desktop || this.props.totalBar ? '' : '0'}
 				>
 					{this.props.totalBar ?
 						<span className={styles.totalBarLabel}>TOTAL U.S. GOVERNMENT FUNDING</span>
