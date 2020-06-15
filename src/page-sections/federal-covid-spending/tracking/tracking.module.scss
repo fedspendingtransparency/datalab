@@ -93,6 +93,10 @@ h2 {
   }
 }
 
+.section-heading {
+  margin-bottom: 20px;
+}
+
 .view-spending-by-container {
   display: flex;
   justify-content: flex-start;
@@ -231,5 +235,20 @@ h2 {
     justify-content: space-around;
     align-items: flex-start;
     height: 76px;
+  }
+
+  .view-spending-by-container {
+    flex-direction: column;
+    align-items: center;
+
+    .view-spending-by-heading {
+      margin-bottom: 6px;
+    }
+  }
+}
+
+@media screen and (max-width: $desktop - 1) and (min-width: $tablet) {
+  .section-heading {
+    text-align: center;
   }
 }

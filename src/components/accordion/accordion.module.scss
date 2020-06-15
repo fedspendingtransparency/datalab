@@ -15,7 +15,7 @@
 }
 
 .heading {
-  padding: 12px 24px;
+  padding: 16px 20px;
   font-size: 1.125rem;
   text-align: left;
   margin: 0;
@@ -29,7 +29,7 @@
 .toggle {
   background: transparent;
   border: none;
-  margin-right: -18px;
+  margin-right: -7px;
   cursor: pointer;
 }
 
@@ -48,10 +48,6 @@
 }
 
 .open {
-  .heading {
-    padding-bottom: 0;
-  }
-
   .content {
     max-height: 1400px; // hack; larger than any content's height
   }
