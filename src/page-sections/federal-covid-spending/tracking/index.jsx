@@ -169,7 +169,8 @@ export default function Tracking(props) {
 
   const findModalTitle = () => {
 		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
-		return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
+		const totalofAll = data.total.nodes[0].Total_Budgetary_Resources;
+		return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) +  ` of ` + numberFormatter('dollars suffix', totalofAll) : ''];
 	}
 
 	const mainChart = () => {
@@ -404,6 +405,7 @@ export default function Tracking(props) {
 			open={isModalOpen}
 			close={closeModal}
 			title={findModalTitle()}
+			titleStyle={{fontWeight: 300}}
 			maxWidth={false}
 			maxHeight={true}
 		>
