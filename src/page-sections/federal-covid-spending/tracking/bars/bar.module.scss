@@ -22,7 +22,6 @@ svg {
 }
 
 .totalBar {
-  font-weight: $bold;
   background-color: $lightBackground;
   border-bottom: $chartBorder;
 
@@ -37,7 +36,10 @@ svg {
   justify-content: space-between;
 
   &:hover {
-    font-weight: $bold;
+    .sideLabel,
+    .sideBudget {
+      font-weight: $bold;
+    }
 
     :not .totalBar {
       cursor: pointer;
@@ -53,6 +55,11 @@ svg {
     min-width: $labelWidth;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+
+    .totalBarLabel {
+      font-weight: $bold;
+      font-size: 14px;
+    }
   }
 
   .barContainer {
@@ -129,6 +136,13 @@ svg {
     flex-basis: $budgetWidth;
     padding-left: 0.5rem;
     white-space: nowrap;
+  }
+}
+
+
+g.connector {
+  rect {
+    fill-opacity: 0.5;
   }
 }
 

@@ -94,7 +94,7 @@ export default class Bar extends React.Component {
 				'' :
 				<div className={`${styles.sideLabel} ${styles.topPad}`}>
 					{this.props.totalBar ?
-						'TOTAL U.S. GOVERNMENT FUNDING'
+						<span className={styles.totalBarLabel}>TOTAL U.S. GOVERNMENT FUNDING</span>
 						:
 						this.props.barLabel
 					}
@@ -108,7 +108,7 @@ export default class Bar extends React.Component {
 					${this.props.firstBar ? styles.firstBar : ''}
 					${this.props.lastBar ? styles.lastBar : ''}`}
 					style={{ cursor: this.props.isModal || this.props.totalBar ? 'default' : 'pointer' }}
-					tabIndex={this.props.isModal ? '' : '0'}
+					tabIndex={this.props.isModal || this.props.totalBar ? '' : '0'}
 					onClick={() => this.props.isModal ? '' : this.clickHandler(this.props.barLabel)}
 					onKeyUp={e => this.props.isModal ? '' : this.keyUpHandler(e, this.props.barLabel)}
 				>
