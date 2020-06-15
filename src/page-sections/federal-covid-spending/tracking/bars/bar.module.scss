@@ -26,7 +26,8 @@ svg {
   border-bottom: $chartBorder;
 
   .sideLabel,
-  .sideBudget {
+  .sideBudget,
+  .totalBarSideLabel {
     color: $covidPurple;
   }
 }
@@ -37,7 +38,8 @@ svg {
 
   &:hover {
     .sideLabel,
-    .sideBudget {
+    .sideBudget,
+    .totalBarSideLabel {
       font-weight: $bold;
     }
 
@@ -55,7 +57,14 @@ svg {
     min-width: $labelWidth;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-
+  }
+  
+  .totalBarSideLabel {
+    flex-basis: $labelWidth;
+    min-width: $labelWidth;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    
     .totalBarLabel {
       font-weight: $bold;
       font-size: 14px;
@@ -146,8 +155,23 @@ g.connector {
   }
 }
 
-@media screen and (max-width: $tablet - 1) {
+@media screen and (min-width: $desktop) {
+  .container:hover {
+    font-weight: bold;
+  } 
+}
+
+@media screen and (max-width: $desktop - 1) {
   .sideLabel {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+
+@media screen and (max-width: $tablet - 1) {
+  .sideLabel,
+  .totalBarSideLabel {
     flex-basis: $mobileLabelWidth !important;
     min-width: $mobileLabelWidth !important;
     padding-right: 0.5rem;
