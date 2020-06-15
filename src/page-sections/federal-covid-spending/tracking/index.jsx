@@ -296,8 +296,7 @@ export default function Tracking(props) {
 		}
 	}))(InputBase);
 
-	const titleComponent = screenMode <= ScreenModeEnum.tablet ?
-		<>
+	const titleComponent = <>
 			<h2 className={styles.sectionHeading}>Progress of COVID-19 Spending</h2>
 			<AccordionList title='Instructions'>
 				<p>Actual instructions are larger than they appear</p>
@@ -344,55 +343,6 @@ export default function Tracking(props) {
 				</FormControl>
 			</div>
 		</>
-		:
-		<>
-			<ControlBar>
-				<h2>Progress of COVID-19 Spending</h2>
-				<Share
-					siteUrl={props.location.origin}
-					pageUrl={props.location.pathname + '#' + props.sectionId}
-					title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-					text={'Who watches the Watchmen? Anyone with HBO...'}
-				/>
-			</ControlBar>
-			<AccordionList title='Instructions'>
-				<p>Actual instructions are larger than they appear</p>
-			</AccordionList>
-			<div className={styles.viewSpendingByContainer}>
-				<div className={styles.viewSpendingByHeading}>View Spending By: </div>
-				<FormControl>
-					<InputLabel id={styles.viewSpendingByDropdownLabel} />
-					<Select
-						labelId={styles.viewSpendingByDropdownLabel}
-						className={styles.viewSpendingByDropdown}
-						input={<InputComponent />}
-						value={activeAccountFilter}
-						onChange={handleSpendingDropdownChange}
-						MenuProps={{
-							anchorOrigin: {
-								vertical: 'bottom',
-								horizontal: 'left'
-							},
-							transformOrigin: {
-								vertical: 'top',
-								horizontal: 'left'
-							},
-							getContentAnchorEl: null
-						}}
-					>
-						{accountBreakdownOptions.map((option) => (
-							<MenuItem
-								key={option.name}
-								value={option.name}
-								className={styles.dropdownItem}>
-								{option.icon} {option.name}
-							</MenuItem>
-						))}
-					</Select>
-				</FormControl>
-			</div>
-		</>
-		;
 
 	return <>
 		{titleComponent}
