@@ -388,10 +388,14 @@ export default function Tracking(props) {
 			''
 			:
 			<SeeMoreButton fullWidth onClick={handleSeeMore}>
-				{limitBars ?
-					`See More (${data[dataType].nodes.length - limitBars})`
+				{limitBars
+					?
+						<>
+							<div style={{ fontWeight: 600 }}>See More</div>
+							&nbsp;({data[dataType].nodes.length - limitBars})
+						</>
 					:
-					'See Less'
+						<div style={{ fontWeight: 600 }}>See Less</div>
 				}
 			</SeeMoreButton>
 		}
