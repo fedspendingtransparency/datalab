@@ -1,54 +1,78 @@
 @import "../../styles/variables.scss";
 
 .container {
-  position: relative;
-  margin-bottom: 137px; // these are for R&D, which is the only use at this time
+    position: relative;
+    margin-bottom: 137px; // these are for R&D, which is the only use at this time
 }
 
 .accordion {
-  margin-top: -87px; // these are for R&D, which is the only use at this time
-  position: absolute;
-  width: 100%;
-  z-index: 1;
-  background-color: $font-white;
-  border: 1px solid $font-lightGrey;
+    margin-top: -87px; // these are for R&D, which is the only use at this time
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    background-color: $font-white;
+    border: 1px solid $font-lightGrey;
+}
+
+/* seperate for Covid page */
+/* dont want to overwrite other pages */
+.covidAccordion {
+    margin-top: -100px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    background-color: $font-white;
+    border: 1px solid $font-lightGrey;
 }
 
 .heading {
-  padding: 16px 20px;
-  font-size: 1.125rem;
-  text-align: left;
-  margin: 0;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  font-weight: 600;
-  flex-wrap: nowrap;
+    padding: 16px 20px;
+    font-size: 1.125rem;
+    text-align: left;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    flex-wrap: nowrap;
 }
 
+.covidHeading {
+    padding: 10px 20px; // reduce padding for covid page
+    font-size: 1.125rem;
+    text-align: left;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    flex-wrap: nowrap;
+}
+
+
 .toggle {
-  background: transparent;
-  border: none;
-  margin-right: -7px;
-  cursor: pointer;
+    background: transparent;
+    border: none;
+    margin-right: -7px;
+    cursor: pointer;
 }
 
 .expand-icon {
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 0.7; // adjust vertical to match heading
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 0.7; // adjust vertical to match heading
 }
 
 .content {
-  overflow: hidden;
-  line-height: 1.43rem;
+    overflow: hidden;
+    line-height: 1.43rem;
 
-  max-height: 0;
-  transition: ease-in-out max-height 500ms;
+    max-height: 0;
+    transition: ease-in-out max-height 500ms;
 }
 
 .open {
-  .content {
-    max-height: 1400px; // hack; larger than any content's height
-  }
+    .content {
+	max-height: 1400px; // hack; larger than any content's height
+    }
 }
