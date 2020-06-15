@@ -111,7 +111,7 @@ export default class Bar extends React.Component {
 					tabIndex={this.props.isModal || this.state.screenMode >= ScreenModeEnum.desktop ? '' : '0'}
 				>
 					{this.props.totalBar ?
-						'TOTAL U.S. GOVERNMENT FUNDING'
+						<span className={styles.totalBarLabel}>TOTAL U.S. GOVERNMENT FUNDING</span>
 						:
 						this.props.barLabel
 					}
@@ -119,11 +119,13 @@ export default class Bar extends React.Component {
 			}
 			<div className={styles.barContainer}>
 				<div
-					className={`${styles.bar}
-					${this.props.isModal ? '' : styles.topPad}
-					${this.props.isModal ? '' : styles.barBorder}
-					${this.props.firstBar ? styles.firstBar : ''}
-					${this.props.lastBar ? styles.lastBar : ''}`}
+					className={`
+            ${styles.bar}
+            ${this.props.isModal ? '' : styles.topPad}
+            ${this.props.isModal ? '' : styles.barBorder}
+            ${this.props.firstBar ? styles.firstBar : ''}
+            ${this.props.lastBar ? styles.lastBar : ''}
+           `}
 					style={{ cursor: this.state.screenMode < ScreenModeEnum.desktop || this.props.isModal || this.props.totalBar ? 'default' : 'pointer' }}
 					tabIndex={this.props.isModal || this.state.screenMode < ScreenModeEnum.desktop ? '' : '0'}
 					onClick={this.barClickHandler}

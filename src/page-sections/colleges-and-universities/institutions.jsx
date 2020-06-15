@@ -195,7 +195,7 @@ export default function Institutions(props) {
     <ControlBar>
       <div className={styles.mapboxRefresh} id='refresh-btn'>
         <img src={refreshLogo} />
-        Refresh
+        Reset
       </div>
       <Share
         location={props.location}

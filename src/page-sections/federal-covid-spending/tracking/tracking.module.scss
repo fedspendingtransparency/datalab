@@ -16,7 +16,7 @@ h2 {
     display: flex;
     margin-bottom: 2rem;
     padding: 6px;
-   
+
     div {
       display: flex;
       justify-content: center;
@@ -25,18 +25,18 @@ h2 {
         font-size: 0.875rem;
       }
     }
-    
+
     div:last-of-type {
       border-left: none;
     }
 
     .infoButton {
-      padding: 0px;
+      padding: 0;
       font-size: 1rem;
       color: #fff;
       background-color: #2273CE;
     }
-    
+
     .infoButton:hover {
       background-color: #666;
     }
@@ -180,7 +180,7 @@ h2 {
 
   .legendContainer {
     justify-content: center;
-    
+
     .legendAsOf {
       justify-content: center;
     }
