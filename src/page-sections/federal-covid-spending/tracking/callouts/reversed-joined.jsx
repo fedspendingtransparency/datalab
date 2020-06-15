@@ -53,7 +53,9 @@ export default function ReversedJoinedCallout(props) {
 						{label2}
 						{' '}
 					</tspan>
-					{numberFormatter('dollars suffix', label2Amount)}
+					<tspan style={{ fontWeight: mobile ? '600' : '0' }}>
+						{numberFormatter('dollars suffix', label2Amount)}
+					</tspan>
 				</text>
 			</>
 		);

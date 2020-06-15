@@ -44,9 +44,13 @@ export default function JoinedCallout(props) {
 					{numberFormatter('dollars suffix', label1Amount)}
 				</text>
 				<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-					<tspan className={styles.label} style={{ display: mobile ? 'none' : 'block' }} fontWeight="600">{label2}</tspan>
-					{' '}
-					{numberFormatter('dollars suffix', label2Amount)}
+					<tspan className={styles.label} style={{ display: mobile ? 'none' : 'block' }} fontWeight="600">
+						{label2}
+						{' '}
+					</tspan>
+					<tspan style={{ fontWeight: mobile ? '600' : '0' }}>
+						{numberFormatter('dollars suffix', label2Amount)}
+					</tspan>
 				</text>
 			</>
 		);

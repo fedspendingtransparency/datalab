@@ -62,7 +62,9 @@ export default function StraightCallout(props) {
 					{label}
 					{' '}
 				</tspan>
-				{numberFormatter('dollars suffix', labelAmount)}
+				<tspan style={{ fontWeight: mobile ? '600' : '0' }}>
+					{numberFormatter('dollars suffix', labelAmount)}
+				</tspan>
 			</text>
 		);
 	}

@@ -48,7 +48,9 @@ export default function ReversedElbowCallout(props) {
 					{label}
 					{' '}
 				</tspan>
-				{numberFormatter('dollars suffix', labelAmount)}
+				<tspan style={{ fontWeight: mobile ? '600' : '0' }}>
+					{numberFormatter('dollars suffix', labelAmount)}
+				</tspan>
 			</text>
 		);
 	}
