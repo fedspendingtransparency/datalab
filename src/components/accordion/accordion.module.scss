@@ -76,3 +76,14 @@
 	max-height: 1400px; // hack; larger than any content's height
     }
 }
+
+@media(max-width: $tablet) {
+    .covidAccordion {
+	margin-top: -87px;
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+	background-color: $font-white;
+	border: 1px solid $font-lightGrey;
+    }
+}
