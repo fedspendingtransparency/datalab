@@ -17,7 +17,7 @@ import Tracking from '../../page-sections/federal-covid-spending/tracking';
 const BudgetAccordionContent = () => (
   <div className={styles.accordionContents}>
     <p>
-      All of the data in our analysis comes from agencies’ certified monthly reporting to the <a target='_blank' rel='noopener noreferrer' href="https://www.fiscal.treasury.gov/gtas/">Treasury’s Governmentwide Treasury Account Symbol (GTAS) Adjusted Trial Balance System</a>. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for certifying their reporting and ensuring their data is correct.
+      All of the data in this analysis comes from agencies’ certified monthly reporting to the <a target='_blank' rel='noopener noreferrer' href="https://www.fiscal.treasury.gov/gtas/">Treasury’s Governmentwide Treasury Account Symbol (GTAS) Adjusted Trial Balance System</a>. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for certifying their reporting and ensuring their data is correct.
     </p>
     <p>
       For the COVID-19 special appropriations, agencies are required to include a special field called the <b>Disaster Emergency Fund Code (DEFC)</b> in their financial reporting. Data Lab is tracking COVID-19 appropriations through the spending lifecycle using the DEFC that maps to each piece of legislation.
@@ -53,10 +53,13 @@ export default class FederalCovidSpending extends React.Component {
       introBlurb: [
         <>
           <p key='section-1-p-1'>
-            To aid the nation’s recovery from the coronavirus disease 2019 (COVID-19) pandemic, the U.S. Congress passed four special appropriations laws, making $2.4 trillion available for the federal government to use in relief efforts.<a id='fr1' href='#fn1' className='footnoteref'>1</a> The largest of these was the Coronavirus Aid, Relief, and Economic Security (CARES) Act, which provided almost $2 trillion and is the largest special appropriation in American history. It is the role of the Treasury Department (the Treasury) to review new legislation and issue funds to federal agencies. Agencies are then required to report how they are spending these funds to the Treasury’s governmentwide accounting system and certify its accuracy.
+To aid the nation’s recovery from the coronavirus disease 2019 (COVID-19) pandemic, the U.S. Congress passed four special appropriations laws, making $2.4 trillion available for the federal government to use in relief efforts.<a id="fr1" href="#fn1" className="footnoteref">1</a> The largest of these was the Coronavirus Aid, Relief, and Economic Security (CARES) Act, which provides almost $2 trillion and is the largest special appropriation in American history. To track how and where COVID-19 funding has been spent, we first look at the major players involved in spending the funds.
           </p>
           <p key='section-1-p-2'>
-            In this analysis of COVID-19 spending, Data Lab uses this certified data to track the progress of spending, starting with the distribution of special appropriations across federal agencies.
+Federal agencies play a critical role in COVID-19 relief efforts by executing and administering funding allocated to them through the appropriations process. Special appropriations for COVID-19 are distributed across 11 different federal agencies, with approximately 90% of funding authorized to four agencies: <a href="https://home.treasury.gov/policy-issues/cares">the Department of the Treasury</a> (Treasury), the <a href="https://www.sba.gov/page/coronavirus-covid-19-small-business-guidance-loan-resources">Small Business Administration</a> (SBA), the <a href="https://www.hhs.gov/coronavirus/cares-act-provider-relief-fund/index.html">Department of Health and Human Services</a> (HHS), and the <a href="https://www.dol.gov/coronavirus">Department of Labor</a> (DOL).
+          </p>
+          <p key='section-1-p-3'>
+            Each agency serves a unique mission and has been allocated emergency funding to expand existing programs, or in some cases, establish new programs in response to the pandemic. For example, the Treasury issues Economic Impact Payments through the Internal Revenue Service’s tax system. Funding has also gone to DOL’s unemployment compensation programs and SBA’s grant and loan programs. Examples of new programs include the HHS Provider Relief Fund and Treasury’s Coronavirus Economic Stabilization Act Program. In Section 3, we dive deeper into each agency’s spending accounts for insight into how the agency is spending the money.
           </p>
         </>
                                                                                                                                                                                           ],
