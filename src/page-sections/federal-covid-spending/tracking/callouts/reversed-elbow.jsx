@@ -12,7 +12,7 @@ xEnd = x position of ending vertical line, end of the horizontal line (pointing 
 
 export default function ReversedElbowCallout(props) {
 	const {
-		xStart, xEnd, isModal, labelOffset, label, labelAmount,
+		xStart, xEnd, isModal, labelOffset, label, labelAmount, mobile,
 	} = props;
 	const shiftLabel = label === 'Unobligated' ? 14 : 10;
 	const shiftAmount = label === 'Unobligated' ? 18 : 0;
@@ -23,7 +23,8 @@ export default function ReversedElbowCallout(props) {
 				<>
 					<text
 						fill={defaults.fontColor} x={`${labelOffset + shiftLabel}%`} y={defaults.textPosition}
-						fontSize={defaults.mdFontSize} fontWeight="600"
+						fontSize={defaults.mdFontSize}
+						fontWeight="600"
 					>
 						{label}
 					</text>
@@ -43,11 +44,11 @@ export default function ReversedElbowCallout(props) {
 				fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition}
 				fontSize={defaults.fontSize}
 			>
-				<tspan className={styles.label} fontWeight="600">{label}</tspan>
-				{' '}
-				(
+				<tspan className={styles.label} style={{ display: mobile ? 'none' : 'block' }} fontWeight="600">
+					{label}
+					{' '}
+				</tspan>
 				{numberFormatter('dollars suffix', labelAmount)}
-				)
 			</text>
 		);
 	}
@@ -91,4 +92,5 @@ ReversedElbowCallout.propTypes = {
 	labelOffset: PropTypes.number.isRequired,
 	label: PropTypes.string.isRequired,
 	labelAmount: PropTypes.string.isRequired,
+	mobile: PropTypes.bool.isRequired,
 };

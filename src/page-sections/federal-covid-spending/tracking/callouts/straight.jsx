@@ -10,10 +10,18 @@ import styles from '../bars/bar.module.scss';
 
 export default function StraightCallout(props) {
 	const {
-		xStart, isModal, labelOffset, label, labelAmount,
+		xStart, isModal, labelOffset, label, labelAmount, mobile,
 	} = props;
 	const shiftLabel = label === 'Unobligated' ? 14 : 0;
-	const shiftAmount = label === 'Unobligated' ? 18 : 0;
+	let shiftAmount = 0;
+
+	if (label === 'Unobligated') {
+		if (isModal) {
+			shiftAmount = 18;
+		} else if (mobile) {
+			shiftAmount = 2;
+		}
+	}
 
 	function TextBlock() {
 		if (isModal) {
@@ -42,12 +50,18 @@ export default function StraightCallout(props) {
 		return (
 			<text
   			fill={defaults.fontColor}
-  			x={`${labelOffset}%`}
+  			x={`${labelOffset + shiftAmount}%`}
 				y={defaults.textPosition}
 				fontSize={defaults.fontSize}
 			>
-				<tspan className={styles.label} fontWeight="600">{label}</tspan>
-				{' '}
+				<tspan
+					className={styles.label}
+					style={{ display: mobile ? 'none' : 'block' }}
+					fontWeight="600"
+				>
+					{label}
+					{' '}
+				</tspan>
 				{numberFormatter('dollars suffix', labelAmount)}
 			</text>
 		);
@@ -74,4 +88,5 @@ StraightCallout.propTypes = {
 	labelOffset: PropTypes.number.isRequired,
 	label: PropTypes.string.isRequired,
 	labelAmount: PropTypes.string.isRequired,
+	mobile: PropTypes.bool.isRequired,
 };

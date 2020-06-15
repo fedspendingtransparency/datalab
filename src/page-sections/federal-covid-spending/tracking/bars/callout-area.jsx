@@ -151,7 +151,7 @@ export default function CalloutBar(props) {
   label2Amount={props.data[1].amount}
   label2Percent={props.obligated}
   isModal={props.isModal}
-  mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+  mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		} else if (barStatus.outlay === barState[0]) {
 			calloutComponent.push(<StraightCallout
@@ -161,7 +161,7 @@ export default function CalloutBar(props) {
   labelAmount={props.data[0].amount}
   labelPercent={props.outlaid}
   isModal={props.isModal}
-  mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+  mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		} else {
 			calloutComponent.push(<ElbowCallout
@@ -172,7 +172,7 @@ export default function CalloutBar(props) {
   labelAmount={props.data[0].amount}
   labelPercent={props.outlaid}
   isModal={props.isModal}
-  mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+  mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		}
 	}
@@ -191,7 +191,7 @@ export default function CalloutBar(props) {
   labelAmount={props.data[1].amount}
   labelPercent={props.obligated}
   isModal={props.isModal}
-  mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+  mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		} else if (barStatus.obligated === barState[1]) {
 			calloutComponent.push(<ElbowCallout
@@ -202,7 +202,7 @@ export default function CalloutBar(props) {
   labelAmount={props.data[1].amount}
   labelPercent={props.obligated}
   isModal={props.isModal}
-  mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+  mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		} else if (barStatus.obligated === barState[3]) {
 			calloutComponent.push(<ReversedElbowCallout
@@ -213,7 +213,7 @@ export default function CalloutBar(props) {
   labelAmount={props.data[1].amount}
   labelPercent={props.obligated}
   isModal={props.isModal}
-  mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+  mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		} else if (barStatus.obligated === barState[4]) {
 			// reversed joined
@@ -234,7 +234,7 @@ export default function CalloutBar(props) {
   label2Amount={props.data[2].amount}
   label2Percent={props.unobligated}
   isModal={props.isModal}
-  mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+  mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		}
 	}
@@ -248,7 +248,7 @@ export default function CalloutBar(props) {
   labelAmount={props.data[2].amount}
   labelPercent={props.unobligated}
   isModal={props.isModal}
-  mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+  mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		} else if (barStatus.unobligated === barState[1]) {
 			calloutComponent.push(<ReversedElbowCallout
@@ -259,7 +259,7 @@ export default function CalloutBar(props) {
   labelAmount={props.data[2].amount}
   labelPercent={props.unobligated}
   isModal={props.isModal}
-  mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+  mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		}
 	}

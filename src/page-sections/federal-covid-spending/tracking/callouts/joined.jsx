@@ -13,7 +13,7 @@ import styles from '../bars/bar.module.scss';
 export default function JoinedCallout(props) {
 	const {
 		// eslint-disable-next-line max-len
-		xStart, xMid, isModal, xEnd, label1Offset, label2Offset, label1, label2, label1Amount, label2Amount,
+		xStart, xMid, isModal, xEnd, label1Offset, label2Offset, label1, label2, label1Amount, label2Amount, mobile,
 	} = props;
 
 	function TextBlock() {
@@ -39,12 +39,12 @@ export default function JoinedCallout(props) {
 		return (
 			<>
 				<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-					<tspan className={styles.label} fontWeight="600">{label1}</tspan>
+					<tspan className={styles.label} style={{ display: mobile ? 'none' : 'block' }} fontWeight="600">{label1}</tspan>
 					{' '}
 					{numberFormatter('dollars suffix', label1Amount)}
 				</text>
 				<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-					<tspan className={styles.label} fontWeight="600">{label2}</tspan>
+					<tspan className={styles.label} style={{ display: mobile ? 'none' : 'block' }} fontWeight="600">{label2}</tspan>
 					{' '}
 					{numberFormatter('dollars suffix', label2Amount)}
 				</text>
@@ -102,4 +102,5 @@ JoinedCallout.propTypes = {
 	label2: PropTypes.string.isRequired,
 	label1Amount: PropTypes.string.isRequired,
 	label2Amount: PropTypes.string.isRequired,
+	mobile: PropTypes.bool.isRequired,
 };

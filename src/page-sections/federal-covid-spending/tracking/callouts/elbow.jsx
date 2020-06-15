@@ -11,7 +11,7 @@ import styles from '../bars/bar.module.scss';
 
 export default function ElbowCallout(props) {
 	const {
-		xStart, xEnd, isModal, labelOffset, label, labelAmount,
+		xStart, xEnd, isModal, labelOffset, label, labelAmount, mobile,
 	} = props;
 
 	function TextBlock() {
@@ -27,9 +27,14 @@ export default function ElbowCallout(props) {
 				</>
 			);
 		}
+
 		return (
 			<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-				<tspan style={{ display:  }} className={styles.label} fontWeight="600">
+				<tspan
+					style={{ display: mobile ? 'none' : 'block' }}
+					className={styles.label}
+					fontWeight="600"
+				>
 					{label}
 					{' '}
 				</tspan>
@@ -77,4 +82,5 @@ ElbowCallout.propTypes = {
 	labelOffset: PropTypes.number.isRequired,
 	label: PropTypes.string.isRequired,
 	labelAmount: PropTypes.string.isRequired,
+	mobile: PropTypes.bool.isRequired,
 };
