@@ -105,7 +105,7 @@ export default class Bar extends React.Component {
 			{this.props.isModal ?
 				'' :
 				<div
-					className={`${styles.sideLabel} ${styles.topPad}`}
+					className={`${this.props.totalBar ? styles.totalBarSideLabel : styles.sideLabel} ${styles.topPad}`}
 					onClick={this.labelClickHandler}
 					onKeyUp={this.labelKeyUpHandler}
 					tabIndex={this.props.isModal || this.state.screenMode >= ScreenModeEnum.desktop ? '' : '0'}
