@@ -95,3 +95,10 @@
 	margin-bottom: 50px;
     }
 }
+
+@media (max-width: $phone - 1) {
+    .vizTitle {
+	font-size: 1.25rem;
+	font-weight: 300;
+    }
+}
