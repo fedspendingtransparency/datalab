@@ -1,6 +1,10 @@
 @import "../../styles/variables.scss";
 
 [id="footnotes"] {
+  a {
+    color: $legacyBlue;
+  }
+  
   a:any-link:hover {
     text-decoration: underline;
   }
