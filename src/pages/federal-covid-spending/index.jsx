@@ -85,18 +85,13 @@ Federal agencies play a critical role in COVID-19 relief efforts by executing an
             There are many steps to move federal dollars through the full budget lifecycle. Here, we focus on a few key parts of the process that help us track the progress of agency spending for COVID-19.
           </p>
           <p key='section-2-p-2'>
-            After COVID-19 special <a href='https://www.usaspending.gov/#/?glossary=appropriation' target='_blank' rel='noopener noreferrer'>appropriations</a> laws are passed, Treasury issues funding to different spending accounts so federal agencies can begin using it according to the purpose assigned in the law. Large federal agencies typically have multiple accounts that exist for different purposes.
-            Across the 100 agencies who routinely report data to <a href='https://www.usaspending.gov/#/' target='_blank' rel='noopener noreferrer'>USAspending.gov</a>, there are roughly 2,000 accounts that are used for regular spending. However, with the almost $2.4 trillion of emergency funding related to COVID-19, spending has been allocated to a targeted group of about 180 accounts.
+            After a special appropriations law passes, it is the role of the Treasury to review the new legislation and issue funds to agencies’ spending accounts. The <a href="https://www.usaspending.gov/#/?glossary=appropriation">appropriations</a> process gives agencies the authority to begin using funding according to the purpose assigned in the law. To spend the money, agencies obligate the funds to different programs through contracts, direct payments, grants, or loans. When agencies make an <a href="https://www.usaspending.gov/#/?glossary=obligation">obligation</a>, they create a binding agreement to use the funds for a particular purpose. An example of an obligation is an agency setting aside adequate funds when it enters into a contract with a vendor to purchase <a href="https://www.usaspending.gov/#/award/CONT_AWD_75A50120C00030_7505_-NONE-_-NONE-">personal protective equipment, such as masks</a>.
           </p>
           <p key='section-2-p-3'>
-            The appropriations give agencies the authority to obligate the funds to different programs through contracts, direct payments, grants, or loans. This step, where agencies make a binding agreement to use funds for a particular purpose, is called an <a href='https://www.usaspending.gov/#/?glossary=obligation' target='_blank' rel='noopener noreferrer'>obligation. </a>
-            An example of an obligation is an agency setting aside adequate funds when it enters into a contract with a vendor to purchase <a href='https://www.usaspending.gov/#/award/CONT_AWD_75A50120C00030_7505_-NONE-_-NONE-' target='_blank' rel='noopener noreferrer'>personal protective equipment such as masks.</a>
+            Creating an obligation doesn’t mean the money has been paid, only that the agency has promised to pay the funds. In many cases, the recipients of funds may be required to do something before receiving payment, such as delivering equipment or supplies. 
           </p>
           <p key='section-2-p-4'>
-            Creating an obligation doesn’t mean the money has been paid, only that the federal agency has promised to pay the funds. In many cases, the recipients of funds may be required to do something before receiving payment, such as delivering equipment or supplies.
-          </p>
-          <p key='section-2-p-5'>
-            The final step in the process is making a payment, which is called an <a href='https://www.usaspending.gov/#/?glossary=outlay' target='_blank' rel='noopener noreferrer'>outlay.</a> This is the step when the funds for a direct payment, grant, loan, or contract are received by individuals, businesses or other organizations.
+            The final step in the process is making a payment, which is called an <a href="https://www.usaspending.gov/#/?glossary=outlay">outlay</a>. This is the step where the agencies authorize the Treasury to issue funds toward a direct payment, grant, loan, or contract to individuals, businesses, or other organizations.
           </p>
         </>
                                                                                                                                                                                                 ],
