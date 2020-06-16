@@ -119,7 +119,7 @@ export default class MoreAnalyses extends React.Component {
               key={'analyses_tile_' + i}
               className={`tile ${moreAnalysesStyles.tile}`}
             >
-              <Link to={this.analyses[analysesIndex].href}>
+              <a href={`/${this.analyses[analysesIndex].href}`}>
                 <div className={moreAnalysesStyles.text}>
                   <div className={moreAnalysesStyles.title}>
                     {this.analyses[analysesIndex].title}
@@ -133,7 +133,7 @@ export default class MoreAnalyses extends React.Component {
                   alt={this.analyses[analysesIndex].altText}
                   className={`${moreAnalysesStyles.image} lazyload`}
                 />
-              </Link>
+              </a>
             </Grid>
           )
         }
