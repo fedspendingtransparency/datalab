@@ -156,7 +156,7 @@ export default class Bar extends React.Component {
 					</svg>
 				</div>
 			</div>
-			{this.props.isModal ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div>}
+			{this.props.isModal ? '' : <div className={`${this.props.totalBar ? styles.totalBarBudgetLabel : ''} ${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div>}
 		</div>
 		;
 }

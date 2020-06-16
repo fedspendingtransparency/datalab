@@ -25,7 +25,7 @@ import numberFormatter from 'src/utils/number-formatter';
 import Share from 'src/components/share/share';
 import ModalReference from 'src/components/modal/modal';
 import Modal from './modal/modal';
-import { Grid, Hidden } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 const showLess = 10; // bars to show when collapsed
 
@@ -165,12 +165,15 @@ export default function Tracking(props) {
 				 direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.</p>
 			</>
 		},
-	]
+	];
 
-  const findModalTitle = () => {
-		const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
-		return [<b>{selectedBar} </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
-	}
+	const findModalTitle = () => {
+		const selectionAmount = data[dataType].nodes.find((item) => item.label === selectedBar);
+		return [<b>
+			{selectedBar}
+			{' '}
+		</b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
+	};
 
 	const mainChart = () => {
 		const barData = data[dataType].nodes;
@@ -277,7 +280,7 @@ export default function Tracking(props) {
 				setData('total');
 				setLimitBars(data.total.nodes.length >= showLess ? showLess : 0);
 		}
-	}
+	};
 
 	const InputComponent = withStyles(() => ({
 		input: {
@@ -365,7 +368,7 @@ export default function Tracking(props) {
 				mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
 			/>
 		</ModalReference>
-		
+
 		<ModalReference
 			open={isInfoModalOpen}
 			close={closeModal}

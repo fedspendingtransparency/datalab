@@ -32,6 +32,11 @@ svg {
   }
 }
 
+.totalBarBudgetLabel {
+  font-weight: $bold;
+  font-size: 14px;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -58,13 +63,13 @@ svg {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
-  
+
   .totalBarSideLabel {
     flex-basis: $labelWidth;
     min-width: $labelWidth;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    
+
     .totalBarLabel {
       font-weight: $bold;
       font-size: 14px;
@@ -153,12 +158,6 @@ g.connector {
   rect {
     fill-opacity: 0.5;
   }
-}
-
-@media screen and (min-width: $desktop) {
-  .container:hover {
-    font-weight: bold;
-  } 
 }
 
 @media screen and (max-width: $desktop - 1) {
