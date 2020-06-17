@@ -113,14 +113,13 @@ Federal agencies play a critical role in COVID-19 relief efforts by executing an
       introBlurb: [
         <>
           <p key='section-3-p-1'>
-            As of May 1st, the Treasury has tracked $963 billion in obligations and $459 billion in outlays paid out by agencies related to COVID-19 relief.
+As of May 1st, the Treasury has tracked $963 billion in obligations, of which $459 billion has been outlayed in COVID-19 relief. These totals are calculated from agencies’ certified monthly reports to the Treasury’s governmentwide accounting system (GTAS), which include how much funding agencies obligated and outlayed from their spending accounts.
           </p>
           <p key='section-3-p-2'>
-            Federal agencies report data in the Treasury’s governmentwide accounting systems each month, including how much funding they have obligated and outlaid from their spending accounts. Agencies also certify the accuracy of these reports. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for ensuring their data is correct.
+            In this visualization, we explore the 180 agency spending accounts containing COVID-19 relief funding. These 180 accounts are just a small fraction of the 2,000 accounts used for regular spending. You can click or tab into the visualization to explore how much has been committed and spent by account.
           </p>
           <p key='section-3-p-3'>
-            Under the normal reporting process, the data agencies report and certify on <a href='https://www.usaspending.gov/#/' target='_blank' rel='noopener noreferrer'>USAspending.gov</a> each quarter is not tracked by the specific appropriation bill by which it was initially authorized. With the COVID-19 appropriations, spending is tracked with a special field called the
-            Disaster Emergency Fund Code (DEFC). Using this code allows for funds to be followed through the spending lifecycle. Data Lab will continue to update this analysis on a monthly basis with each reporting window. In addition, agencies will begin reporting spending data using the DEFC to USAspending.gov in July 2020.
+            This analysis will be updated monthly as new data becomes available. To learn more about how we developed this analysis and download the raw data, visit the <a href="http://datalab.usaspending.gov/federal-covid-spending/methodologies">Data Sources and Methodologies page</a>.
           </p>
         </>
                                                                                                                                                                                                                                                                                                                                                                                                                    ],

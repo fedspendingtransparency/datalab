@@ -159,10 +159,8 @@ export default function Tracking(props) {
 			name: 'Loan Program Accounts',
 			icon: <LIcon />,
 			infoModalDescription: <>
-				<p>These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
-				 agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.</p>
-				<p>Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
-				 direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.</p>
+                                                <p>These accounts are used to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender. For these accounts, obligations represent the agency setting aside money for these purposes. Outlays only reflect direct loan disbursements and the cost of servicing and running loan programs. </p>
+                                                <p>The amounts included in these accounts <b>do not include</b> when a lender disperses a government-backed, or guaranteed loan, to a business or individual. Outlays for guaranteed loans are only recorded by an agency if a loan is forgiven or if the loan defaults. </p>
 			</>
 		},
 	]
@@ -300,14 +298,19 @@ export default function Tracking(props) {
 		<>
 			<h2>Progress of COVID-19 Spending</h2>
 			<AccordionList title='Instructions'>
-				<p>Actual instructions are larger than they appear</p>
+                          <ul>
+                            <li>Hover over a bar or agency in the chart to see the detailed values of outlays, obligations, and unobligated funds. </li>
+                            <li>By clicking on a single bar within the chart, you can see the breakdown of obligations and outlays for each spending account by agency. Spending is tracked by account.</li>
+                            <li>To exit the pop-up, click or tap the X.</li>
+                            <li>To expand the list agencies, click or tap See More.</li>
+                          </ul>
 			</AccordionList>
 			<ControlBar alignRightOnMobile>
 				<Share
 					siteUrl={props.location.origin}
 					pageUrl={props.location.pathname + '#' + props.sectionId}
-					title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-					text={'Who watches the Watchmen? Anyone with HBO...'}
+					title='Data Lab - COVID-19 Tracking - U.S. Treasury'
+					text={'Curious how much #COVID-19 related funds have been spent? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'}
 				/>
 			</ControlBar>
 			<div className={styles.viewSpendingByContainer}>
@@ -351,12 +354,17 @@ export default function Tracking(props) {
 				<Share
 					siteUrl={props.location.origin}
 					pageUrl={props.location.pathname + '#' + props.sectionId}
-					title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-					text={'Who watches the Watchmen? Anyone with HBO...'}
+					title='Data Lab - COVID-19 Tracking - U.S. Treasury'
+					text={'Curious how much #COVID-19 related funds have been spent? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'}
 				/>
 			</ControlBar>
 			<AccordionList title='Instructions'>
-				<p>Actual instructions are larger than they appear</p>
+                          <ul>
+                            <li>Hover over a bar or agency in the chart to see the detailed values of outlays, obligations, and unobligated funds. </li>
+                            <li>By clicking on a single bar within the chart, you can see the breakdown of obligations and outlays for each spending account by agency. Spending is tracked by account.</li>
+                            <li>To exit the pop-up, click or tap the X.</li>
+                            <li>To expand the list agencies, click or tap See More.</li>
+                          </ul>
 			</AccordionList>
 			<div className={styles.viewSpendingByContainer}>
 				<div className={styles.viewSpendingByHeading}>View Spending By: </div>
