@@ -225,7 +225,7 @@ export default function Tracking(props) {
 			</div>
 			<div
 				className={styles.barContainer}
-				aria-label='Horizontal stacked bar chart depicting the portion of total budgetary resources from the emergency funding that have been obligated and outlaid to date.'
+				aria-label='Horizontal stacked bar chart depicting the portion of total budgetary resources from the emergency funding that have been obligated and outlayed to date. Data can be displayed by all accounts, spending accounts, or loan program accounts.'
 			>
 				{table}
 			</div>
