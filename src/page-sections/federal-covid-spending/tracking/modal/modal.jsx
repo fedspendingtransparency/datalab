@@ -36,7 +36,7 @@ export default function CovidModal(props) {
         } else {
           return (<div key={key} style={{paddingRight: '10px'}}>
               <p style={{marginBottom: '0', marginTop: '0.5rem'}}>
-                <span>{i.Loan_Program_Account === "Yes" ? <LIcon/> : <></>}<b>{i.Account_Name}</b></span>
+                <span>{i.Loan_Program_Account === "Yes" ? <LIcon/>  : <></>} <b> {i.Account_Name}</b></span>
                 <span>&nbsp;&nbsp;{numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}</span></p>
               <Bar key={key}
                    data={_data}
