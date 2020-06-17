@@ -32,6 +32,11 @@ svg {
   }
 }
 
+.totalBarBudgetLabel {
+  font-weight: $bold;
+  font-size: 14px;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -157,12 +162,6 @@ svg {
 g.connector {
   rect {
     fill-opacity: 0.5;
-  }
-}
-
-@media screen and (min-width: $desktop) {
-  .container:hover {
-    font-weight: bold;
   }
 }
 
