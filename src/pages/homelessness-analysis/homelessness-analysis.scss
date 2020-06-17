@@ -1093,12 +1093,6 @@ $homelessAnalysisPurple: rgb(96, 70, 126);
   height: auto;
 }
 
-[id="footnotes"] {
-  a {
-    color: $homelessAnalysisPurple;
-  }
-}
-
 @media screen and (min-width: $desktop-xl) {
   .homelessness-subheading2 {
     margin-bottom: $margin-20;

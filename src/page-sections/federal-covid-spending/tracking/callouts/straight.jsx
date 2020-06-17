@@ -1,57 +1,97 @@
 import React from 'react';
-import defaults from './utils/defaults';
 import PropTypes from 'prop-types';
-import numberFormatter from "../../../../utils/number-formatter"
+import defaults from './utils/defaults';
+import numberFormatter from '../../../../utils/number-formatter';
+import styles from '../bars/bar.module.scss';
 
 /* props
   xStart = x position vertical line
 */
 
-StraightCallout.propTypes = {
-  'xStart': PropTypes.number.isRequired,
-  'labelOffset': PropTypes.number.isRequired,
-  'label': PropTypes.string.isRequired,
-  'labelAmount': PropTypes.string.isRequired
-};
-
 export default function StraightCallout(props) {
-  const shiftLabel = props.label === 'Unobligated' ? 10 : 0;
-  const shiftAmount = props.label === 'Unobligated' ? 10 : 0;
+	const {
+		xStart, isModal, labelOffset, label, labelAmount, mobile,
+	} = props;
+	const shiftLabel = label === 'Unobligated' ? 14 : 0;
+	let shiftAmount = 0;
 
-  function TextBlock() {
-    if(props.isModal) {
-      return (<>
-        <text fill={defaults.fontColor}
-              x={`${props.labelOffset + shiftLabel}%`}
-              y={defaults.textPosition}
-              fontSize={defaults.fontSize}
-              fontWeight='bold'>
-          {props.label}
-        </text>
-        <text fill={defaults.fontColor}
-              x={`${props.labelOffset + shiftAmount}%`}
-              y={defaults.textPosition + defaults.lineHeight}
-              fontSize={defaults.smFontSize}>
-          {numberFormatter('dollars suffix', props.labelAmount)}&nbsp;({`${props.labelPercent}%`})
-        </text>
-      </>)
-    } else {
-      return <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition}
-        fontSize={defaults.fontSize}>
-        {props.label} ({numberFormatter('dollars suffix', props.labelAmount)})
-      </text>
-    }
-  }
+	if (label === 'Unobligated') {
+		if (isModal) {
+			shiftAmount = 18;
+		} else if (mobile) {
+			shiftAmount = 2;
+		}
+	}
 
-  return (<g className='outlay-connector'>
-    <rect
-      fill={defaults.lineColor}
-      x={`${props.xStart}%`}
-      y='0'
-      width={defaults.lineStroke}
-      height={defaults.starterHeight + defaults.endingHeight}
-    />
+	function TextBlock() {
+		if (isModal) {
+			return (
+				<>
+					<text
+						fill={defaults.fontColor}
+						x={`${labelOffset + shiftLabel}%`}
+						y={defaults.textPosition}
+						fontSize={defaults.mdFontSize}
+						fontWeight="600"
+					>
+						{label}
+					</text>
+					<text
+						fill={defaults.fontColor}
+						x={`${labelOffset + shiftAmount}%`}
+						y={defaults.textPosition + defaults.lineHeight}
+						fontSize={defaults.smFontSize}
+					>
+						{numberFormatter('dollars suffix', labelAmount)}
+					</text>
+				</>
+			);
+		}
+		return (
+			<text
+  			fill={defaults.fontColor}
+  			x={`${labelOffset + shiftAmount}%`}
+				y={defaults.textPosition}
+				fontSize={defaults.fontSize}
+			>
+				<tspan
+					className={styles.label}
+					style={{ display: mobile ? 'none' : 'block' }}
+					fontWeight="600"
+				>
+					{label}
+					{' '}
+				</tspan>
+				<tspan
+					className={styles.amountLabel}
+					style={{ fontWeight: mobile ? '600' : '0' }}
+				>
+					{numberFormatter('dollars suffix', labelAmount)}
+				</tspan>
+			</text>
+		);
+	}
 
-    <TextBlock/>
-  </g>)
+	return (
+		<g className={styles.connector}>
+			<rect
+				fill={defaults.lineColor}
+				x={`${xStart}%`}
+				y="0"
+				width={defaults.lineStroke}
+				height={defaults.starterHeight + defaults.endingHeight}
+			/>
+
+			<TextBlock />
+		</g>
+	);
 }
+
+StraightCallout.propTypes = {
+	xStart: PropTypes.number.isRequired,
+	isModal: PropTypes.bool.isRequired,
+	labelOffset: PropTypes.number.isRequired,
+	label: PropTypes.string.isRequired,
+	labelAmount: PropTypes.string.isRequired,
+	mobile: PropTypes.bool.isRequired,
+};
