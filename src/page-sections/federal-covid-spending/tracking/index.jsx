@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
-import styles from './tracking.module.scss';
 
-import AllAccountsIcon from '../../../svgs/federal-covid-spending/tracking/all-accounts-icon.svg'
-import SpendingAccountsIcon from '../../../svgs/federal-covid-spending/tracking/spending-accounts-icon.svg'
-import LoanProgramAccountsIcon from '../../../svgs/federal-covid-spending/tracking/loan-program-accounts-icon.svg'
-import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg'
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
-import Bar from './bars/bar';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -25,6 +19,12 @@ import numberFormatter from 'src/utils/number-formatter';
 import Share from 'src/components/share/share';
 import ModalReference from 'src/components/modal/modal';
 import Modal from './modal/modal';
+import Bar from './bars/bar';
+import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
+import LoanProgramAccountsIcon from '../../../svgs/federal-covid-spending/tracking/loan-program-accounts-icon.svg';
+import SpendingAccountsIcon from '../../../svgs/federal-covid-spending/tracking/spending-accounts-icon.svg';
+import AllAccountsIcon from '../../../svgs/federal-covid-spending/tracking/all-accounts-icon.svg';
+import styles from './tracking.module.scss';
 import { Grid } from '@material-ui/core';
 
 const showLess = 10; // bars to show when collapsed
@@ -92,19 +92,24 @@ export default function Tracking(props) {
 		accountsByAgency[item.fieldValue] = item.nodes;
 	});
 
+	const totalBudgetByAgency = {};
+	data.total.nodes.forEach((item) => {
+		totalBudgetByAgency[item.label] = item.Total_Budgetary_Resources;
+	});
+
 	const [screenMode, setScreenMode] = useState(0);
 	const resizeWindow = () => {
 		const newMode = checkScreenMode(window.innerWidth);
 		if (newMode !== screenMode) {
 			setScreenMode(newMode);
 		}
-	}
+	};
 	useEffect(() => {
 		resizeWindow();
 		window.addEventListener('resize', resizeWindow);
 		return () => {
 			window.removeEventListener('resize', resizeWindow);
-		}
+		};
 	});
 
 	const [isInfoModalOpen, setInfoModalState] = useState(false);
@@ -119,7 +124,7 @@ export default function Tracking(props) {
 			location = `${window.location.pathname}#topofchart`;
 		}
 		setLimitBars(limitBars ? 0 : showLess);
-	}
+	};
 
 
 	const [isModalOpen, setModalState] = useState(false);
@@ -127,17 +132,17 @@ export default function Tracking(props) {
 		setModalState(true);
 		setSelectedBar(e);
 		setSelectedBarData(data);
-	}
+	};
 
 	const openInfoModal = () => {
 		setInfoModalState(true);
-	}
+	};
 
 	const closeModal = () => {
 		setModalState(false);
 		setInfoModalState(false);
 		setSelectedBar(null);
-	}
+	};
 
 	const categories = [
 		{
@@ -190,16 +195,20 @@ export default function Tracking(props) {
 				'percent': parseFloat(i.Percent_Unobligated).toFixed(2)
 			}];
 
-			return <Bar key={key}
-				data={thisBar}
-				totalBar={i.label === 'Total'}
-				barLabel={i.label}
-				total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
-				firstBar={key === 0}
-				lastBar={key === chartData.length - 1}
-				openModal={e => openModal(e, thisBar)}
-				isModal={false}
-			/>;
+			return (
+				<Bar
+					key={key}
+					data={thisBar}
+					totalBar={i.label === 'Total'}
+					barLabel={i.label}
+					total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
+					allTotal={dataType !== 'total' ? numberFormatter('dollars suffix', totalBudgetByAgency[i.label]) : ''}
+  				firstBar={key === 0}
+					lastBar={key === chartData.length - 1}
+  				openModal={(e) => openModal(e, thisBar)}
+  				isModal={false}
+				/>
+			);
 		});
 
 		return (<>
