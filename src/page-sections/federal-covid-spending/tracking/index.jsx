@@ -165,18 +165,18 @@ export default function Tracking(props) {
       name: 'Loan Program Accounts',
       icon: <LIcon />,
       infoModalDescription: <>
-				                                    <p>These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
-				                                      agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.</p>
-				                                    <p>Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
-				                                      direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.</p>
-			                                          </>
+			      <p>These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
+				agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.</p>
+			      <p>Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
+				direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.</p>
+			    </>
     },
   ];
 
   const findModalTitle = () => {
     const selectionAmount = data[dataType].nodes.find((item) => item.label === selectedBar);
     return [<b>
-			                                                                                                         {selectedBar}
+			                                                 {selectedBar}
 			                                                                                                         {' '}
 		                                                                                                               </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
   };
@@ -213,38 +213,38 @@ export default function Tracking(props) {
     });
 
     return (<>
-               <Grid container className={styles.legendContainer}>
-		 <Grid item xs={12} lg={4} className={styles.legendAsOf}>
-		   Data updated as of May 1, 2020
-		 </Grid>
-                 <Grid className={styles.legend}>
-                   <div className={styles.blockContainer}>
-                     <div>
-                       <><span className={`${styles.block} ${categories[0].legendStyle}`}></span><span>{categories[0].name}</span></>
-                       <><span className={`${styles.block} ${categories[1].legendStyle}`}></span><span>{categories[1].name}</span></>
-                     </div>
-                     <div>
-                       <><span className={`${styles.block} ${categories[2].legendStyle}`}></span><span>{categories[2].name}</span></>
-                       <><span className={styles.block}>{categories[3].icon}</span><span>{categories[3].name}</span></>
-                     </div>
-                   </div>
-                   <div className={styles.blockContainer}>
-                     <IconButton className={styles.infoButton} onClick={openInfoModal}>
-                       <InfoOutlinedIcon className={styles.icon} />
-                     </IconButton>
-                   </div>
-                 </Grid>
-	       </Grid>
-	       <div className={styles.percentLegend}>
-		 <span>0%</span><span>50%</span><span>100%</span>
-	       </div>
-	       <div
-		 className={styles.barContainer}
-		 aria-label='Horizontal stacked bar chart depicting the portion of total budgetary resources from the emergency funding that have been obligated and outlaid to date.'
-	       >
-		 {table}
-	       </div>
-	     </>)
+       <Grid container className={styles.legendContainer}>
+	 <Grid item xs={12} lg={4} className={styles.legendAsOf}>
+	   Data updated as of May 1, 2020
+	 </Grid>
+         <Grid className={styles.legend}>
+           <div className={styles.blockContainer}>
+             <div>
+               <><span className={`${styles.block} ${categories[0].legendStyle}`}></span><span>{categories[0].name}</span></>
+               <><span className={`${styles.block} ${categories[1].legendStyle}`}></span><span>{categories[1].name}</span></>
+             </div>
+             <div>
+               <><span className={`${styles.block} ${categories[2].legendStyle}`}></span><span>{categories[2].name}</span></>
+               <><span className={styles.block}>{categories[3].icon}</span><span>{categories[3].name}</span></>
+             </div>
+           </div>
+           <div className={styles.blockContainer}>
+             <IconButton className={styles.infoButton} onClick={openInfoModal}>
+               <InfoOutlinedIcon className={styles.icon} />
+             </IconButton>
+           </div>
+         </Grid>
+       </Grid>
+	                  <div className={styles.percentLegend}>
+		            <span>0%</span><span>50%</span><span>100%</span>
+	                  </div>
+	                  <div
+		            className={styles.barContainer}
+		            aria-label='Horizontal stacked bar chart depicting the portion of total budgetary resources from the emergency funding that have been obligated and outlaid to date.'
+	                  >
+		            {table}
+	                  </div>
+	                </>)
   }
 
   const SeeMoreButton = withStyles(() => ({
@@ -310,7 +310,7 @@ export default function Tracking(props) {
   }))(InputBase);
 
   const titleComponent = <>
-			                     <h2 className={styles.sectionHeading}>Progress of COVID-19 Spending</h2>
+			                                  <h2 className={styles.sectionHeading}>Progress of COVID-19 Spending</h2>
 			                     <AccordionList title='Instructions'>
 				               <p>Actual instructions are larger than they appear</p>
 			                     </AccordionList>
@@ -358,7 +358,7 @@ export default function Tracking(props) {
 		                           </>
 
   return <>
-		                                                             {titleComponent}
+		          {titleComponent}
 
 		                                                             <a id='topofchart' />
 		                                                             {mainChart()}
@@ -375,6 +375,7 @@ export default function Tracking(props) {
 				                                                 data={accountsByAgency[selectedBar]}
 				                                                 barData={selectedBarData}
 				                                                 isModal={true}
+                                                                                 activeAcc={activeAccountFilter}
 				                                                 mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
 			                                                       />
 		                                                             </ModalReference>

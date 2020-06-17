@@ -54,6 +54,16 @@ export default function CovidModal(props) {
 
   }
 
+  function accountChecker() {
+    if (props.activeAcc === "All Accounts") {
+      return <h2>Breakdown of All Agency Accounts</h2>;
+    } else if (props.activeAcc === "Spending Accounts") {
+      return <h2>Breakdown of Agency Spending Accounts</h2>;
+    } else {
+      return <h2>Breakdown of Agency Loan Program Accounts</h2>;
+    };
+  };
+
   function ContentHeader () {
     if(props.mobileTablet) {
       return <div style={{paddingRight: '8px'}}>
@@ -67,7 +77,7 @@ export default function CovidModal(props) {
           </Grid>
              </div>;
     } else {
-      return <h2>Spending Account Breakdown within Agency</h2>;
+      return "hi";
     }
   }
   return(<div style={{minWidth: window.innerWidth * .6, maxWidth: window.innerWidth * .9, overflowX: 'hidden'}}>
