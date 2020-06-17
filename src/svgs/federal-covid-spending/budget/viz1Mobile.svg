@@ -17,7 +17,7 @@
             <g id="Viz-1-Mobile" transform="translate(124.931472, 177.000000)">
                 <g id="Viz-1_mobile">
                     <line x1="151.677903" y1="-112.705128" x2="151.362113" y2="186" id="Line-35" stroke="#666666" stroke-width="1.5" stroke-linecap="round" fill-rule="nonzero" transform="translate(151.568528, 36.500000) rotate(90.000000) translate(-151.568528, -36.500000) "></line>
-                    <g id="x-axis" transform="translate(43.568528, 0.000000)" fill="#666666" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" line-spacing="36.800418">
+                    <g id="x-axis" transform="translate(43.568528, 0.000000)" fill="#666666" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" linespacing="36.800418">
                         <text id="$1-T">
                             <tspan x="246.24" y="12">$1 T</tspan>
                         </text>

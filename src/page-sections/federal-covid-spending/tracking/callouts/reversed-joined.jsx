@@ -13,7 +13,7 @@ import styles from '../bars/bar.module.scss';
 export default function ReversedJoinedCallout(props) {
 	const {
 		// eslint-disable-next-line max-len
-		xStart, xMid, isModal, xEnd, label1Offset, label2Offset, label1, label2, label1Amount, label2Amount,
+		xStart, xMid, isModal, xEnd, label1Offset, label2Offset, label1, label2, label1Amount, label2Amount, mobile,
 	} = props;
 	const shiftLabel = label2 === 'Unobligated' ? 14 : 10;
 	const shiftAmount = label2 === 'Unobligated' ? 18 : 0;
@@ -49,9 +49,16 @@ export default function ReversedJoinedCallout(props) {
 					{numberFormatter('dollars suffix', label1Amount)}
 				</text>
 				<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-					<tspan className={styles.label} fontWeight="600">{label2}</tspan>
-					{' '}
-					{numberFormatter('dollars suffix', label2Amount)}
+					<tspan className={styles.label} style={{ display: mobile ? 'none' : 'block' }} fontWeight="600">
+						{label2}
+						{' '}
+					</tspan>
+					<tspan
+						className={styles.amountLabel}
+						style={{ fontWeight: mobile ? '600' : '0' }}
+					>
+						{numberFormatter('dollars suffix', label2Amount)}
+					</tspan>
 				</text>
 			</>
 		);
@@ -107,4 +114,5 @@ ReversedJoinedCallout.propTypes = {
 	label1Amount: PropTypes.string.isRequired,
 	label2Amount: PropTypes.string.isRequired,
 	isModal: PropTypes.bool.isRequired,
+	mobile: PropTypes.bool.isRequired,
 };

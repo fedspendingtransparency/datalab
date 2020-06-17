@@ -151,7 +151,7 @@ As of May 1st, the Treasury has tracked $963 billion in obligations, of which $4
         );
       })}
       <Grid container justify="center">
-        <Grid item xs={10} style={{ 'color': globalStyles.covidColor }}>
+        <Grid item xs={10}>
           <Footnotes
             footnotes={[
               'Coronavirus Preparedness and Response Supplemental Appropriations Act (H.R. 6074) appropriated an estimated $7.8 billion; Families First Coronavirus Response Act (H.R. 6201) appropriated an estimated $3.4 billion; CARES Act (H.R. 748) appropriated an estimated $1.95 trillion of funding; and the Paycheck Protection Program and Health Care Enhancement Act (H.R. 266) appropriated an estimated $483 billion.',
