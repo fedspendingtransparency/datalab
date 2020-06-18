@@ -4,8 +4,9 @@
   position: fixed;
   display: flex;
   justify-content: flex-end;
+  margin-right: calc(100% - 100vw);
   bottom: 52px;
-  right: 12px;
+  right: 27px;
   z-index: 1000;
 }
 

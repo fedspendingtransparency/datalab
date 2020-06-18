@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 
 $highlightColor: $covidPurple;
-$left-indent: 32px;
+$left-indent: 20px;
 
 .accordion-contents {
   text-align: justify;
@@ -21,8 +21,3 @@ $left-indent: 32px;
   }
 }
 
-[id="footnotes"] {
-  a {
-    color: $highlightColor;
-  }
-}

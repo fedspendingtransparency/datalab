@@ -16,7 +16,7 @@ h2 {
     display: flex;
     margin-bottom: 2rem;
     padding: 6px;
-   
+
     div {
       display: flex;
       justify-content: center;
@@ -25,18 +25,18 @@ h2 {
         font-size: 0.875rem;
       }
     }
-    
+
     div:last-of-type {
       border-left: none;
     }
 
     .infoButton {
-      padding: 0px;
+      padding: 0;
       font-size: 1rem;
       color: #fff;
       background-color: #2273CE;
     }
-    
+
     .infoButton:hover {
       background-color: #666;
     }
@@ -91,6 +91,22 @@ h2 {
     font-size: 0.875rem;
     font-weight: $bold;
   }
+}
+
+.selectionAmountVal {
+	display: inline;
+	font-weight: 300;
+	font-size: 24px;
+}
+
+.selectionAmountValSmall {
+	display: inline;
+	font-weight: 300;
+	font-size: 18px;
+}
+
+.section-heading {
+  margin-bottom: 20px;
 }
 
 .view-spending-by-container {
@@ -180,7 +196,7 @@ h2 {
 
   .legendContainer {
     justify-content: center;
-    
+
     .legendAsOf {
       justify-content: center;
     }
@@ -240,5 +256,11 @@ h2 {
     .view-spending-by-heading {
       margin-bottom: 6px;
     }
+  }
+}
+
+@media screen and (max-width: $desktop - 1) and (min-width: $tablet) {
+  .section-heading {
+    text-align: center;
   }
 }
