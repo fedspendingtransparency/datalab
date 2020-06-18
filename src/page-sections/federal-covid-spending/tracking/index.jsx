@@ -182,7 +182,10 @@ export default function Tracking(props) {
     const selectionAmount = data[dataType].nodes.find(item => item.label === selectedBar);
     const totalofAll = data.total.nodes[0].Total_Budgetary_Resources;
     return [
-      <b>{selectedBar}</b>,
+      <span className={styles.modalTitle}>
+        {selectedBar}
+        {' '}
+      </span>,
       <p className={styles.selectionAmountVal}>
         {selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}
       </p>,
