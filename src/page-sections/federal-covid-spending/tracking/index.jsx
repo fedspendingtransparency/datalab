@@ -270,7 +270,7 @@ export default function Tracking(props) {
         </div>
         <div
           className={styles.barContainer}
-          aria-label='Horizontal stacked bar chart depicting the portion of total budgetary resources from the emergency funding that have been obligated and outlaid to date.'
+          aria-label='Horizontal stacked bar chart depicting the portion of total budgetary resources from the supplemental funding that have been obligated and outlaid to date. Data can be displayed by all accounts, spending accounts, or loan program accounts.'
         >
           {table}
         </div>
@@ -349,8 +349,8 @@ export default function Tracking(props) {
       <Share
         siteUrl={props.location.origin}
         pageUrl={props.location.pathname + '#' + props.sectionId}
-        title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-        text={'Who watches the Watchmen? Anyone with HBO...'}
+        title='Data Lab - COVID-19 Tracking - U.S. Treasury'
+        text='Curious how much #COVID-19 related funds have been spent? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'
       />
     </ControlBar>
     <div className={styles.viewSpendingByContainer}>
@@ -434,12 +434,12 @@ const paperStyle = typeof window !== 'undefined' && window.innerWidth < 576 ? {
 						</div>
 						{c.infoModalDescription}
 					</div>
-			                                                       ))}
+			  ))}
 			</ModalReference>
 
 			{showLess >= data[dataType].nodes.length
 				?
-				''
+				  ''
 				:
 				<SeeMoreButton fullWidth onClick={handleSeeMore}>
 					{limitBars

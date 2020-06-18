@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg class="budgetSvg" aria-labelledby="covid-budget-desktop" width="100%" height="499px" viewBox="0 0 950 499" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
-  <title id="covid-budget-desktop">Bar chart depicting levels of emergency funding for coronavirus grouped by agency. The Department of Treasury received the most funding, $975B.</title>
+  <title id="covid-budget-desktop">Bar chart depicting levels of supplemental funding for coronavirus grouped by agency. The Department of Treasury received the most funding, $975B.</title>
     <defs>
       <desc id="covid-budget-desktop">alt text goes here</desc>
         <polygon id="path-1" points="0 0 7.2171 0 7.2171 16.038 0 16.038"></polygon>
