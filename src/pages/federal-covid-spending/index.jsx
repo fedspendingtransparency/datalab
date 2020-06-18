@@ -47,7 +47,7 @@ export default class FederalCovidSpending extends React.Component {
       subtext: 'Overview',
       subblurb: '',
       blurb: 'How is the federal government allocating supplemental funds for COVID-19?',
-      sectionTeaser: ['How is the federal government', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> allocating supplemental funds of COVID-19?</span>],
+      sectionTeaser: ['How is the federal government', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> allocating supplemental funds for COVID-19?</span>],
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: [
@@ -56,14 +56,14 @@ export default class FederalCovidSpending extends React.Component {
             To aid the nation’s recovery from the coronavirus disease 2019 (COVID-19) pandemic, the U.S. Congress passed four special appropriations laws, making $2.3 trillion available for the federal government to use in relief efforts.<a id="fr1" href="#fn1" className="footnoteref">1</a> The largest of these was the Coronavirus Aid, Relief, and Economic Security (CARES) Act, which provides almost $2 trillion and is the largest special appropriation in American history. To track how and where COVID-19 funding has been spent, we first look at the major players involved in spending the funds.
           </p>
           <p key='section-1-p-2'>
-            Federal agencies play a critical role in COVID-19 relief efforts by executing and administering funding allocated to them through the appropriations process. Special appropriations for COVID-19 are distributed across 11 different federal agencies, with approximately 90% of funding authorized to four agencies: <a href="https://home.treasury.gov/policy-issues/cares">the Department of the Treasury</a> (Treasury), the <a href="https://www.sba.gov/page/coronavirus-covid-19-small-business-guidance-loan-resources">Small Business Administration</a> (SBA), the <a href="https://www.hhs.gov/coronavirus/cares-act-provider-relief-fund/index.html">Department of Health and Human Services</a> (HHS), and the <a href="https://www.dol.gov/coronavirus">Department of Labor</a> (DOL).
+            Federal agencies play a critical role in COVID-19 relief efforts by executing and administering funding allocated to them through the appropriations process. Approximately 90% of special appropriations for COVID-19 are authorized to four agencies: <a href="https://home.treasury.gov/policy-issues/cares">the Department of the Treasury</a> (Treasury), the <a href="https://www.sba.gov/page/coronavirus-covid-19-small-business-guidance-loan-resources">Small Business Administration</a> (SBA), the <a href="https://www.hhs.gov/coronavirus/cares-act-provider-relief-fund/index.html">Department of Health and Human Services</a> (HHS), and the <a href="https://www.dol.gov/coronavirus">Department of Labor</a> (DOL).
           </p>
           <p key='section-1-p-3'>
             Each agency serves a unique mission and has been allocated supplemental funding to expand existing programs, or in some cases, establish new programs in response to the pandemic. For example, the Treasury issues Economic Impact Payments through the Internal Revenue Service’s tax system. Funding has also gone to DOL’s unemployment compensation programs and SBA’s grant and loan programs. Examples of new programs include the HHS Provider Relief Fund and Treasury’s Coronavirus Economic Stabilization Act Program. In Section 3, we dive deeper into each agency’s spending accounts for insight into how the agency is spending the money.
           </p>
         </>
       ],
-      viztitle: 'Covid-19 Supplemental Funding by Agency',
+      viztitle: 'COVID-19 Supplemental Funding by Agency',
       tagName: 'Budget',
       accordion: <aside>
                    <Accordion title='How do you track $2.3 trillion?' color='#6F41A7' backgroundColor='#F3EAFF' isCovid>
@@ -82,13 +82,13 @@ export default class FederalCovidSpending extends React.Component {
       introBlurb: [
         <>
           <p key='section-2-p-1'>
-            There are many steps in the process to move federal dollars through the full budget lifecycle to the American people. In this section, we break down a few key terms and explain how agencies spend supplemental funding to help follow the flow of money. 
+            There are many steps in the process to move federal dollars through the full budget lifecycle to the American people. In this section, we break down a few key terms and explain how agencies spend supplemental funding to help follow the flow of money.
           </p>
           <p key='section-2-p-2'>
             After a special appropriations law passes, it is the role of the Treasury to review the new legislation and issue funds to agencies’ spending accounts. The <a href="https://www.usaspending.gov/#/?glossary=appropriation">appropriations</a> process gives agencies the authority to begin using funding according to the purpose assigned in the law. To spend the money, agencies obligate the funds to different programs through contracts, direct payments, grants, or loans. When agencies make an <a href="https://www.usaspending.gov/#/?glossary=obligation">obligation</a>, they create a binding agreement to use the funds for a particular purpose. An example of an obligation is an agency setting aside adequate funds when it enters into a contract with a vendor to purchase <a href="https://www.usaspending.gov/#/award/CONT_AWD_75A50120C00030_7505_-NONE-_-NONE-">personal protective equipment, such as masks</a>.
           </p>
           <p key='section-2-p-3'>
-            Creating an obligation doesn’t mean the money has been paid, only that the agency has promised to pay the funds. In many cases, the recipients of funds may be required to do something before receiving payment, such as delivering equipment or supplies. 
+            Creating an obligation doesn’t mean the money has been paid, only that the agency has promised to pay the funds. In many cases, the recipients of funds may be required to do something before receiving payment, such as delivering equipment or supplies.
           </p>
           <p key='section-2-p-4'>
             The final step in the process is making a payment, which is called an <a href="https://www.usaspending.gov/#/?glossary=outlay">outlay</a>. This is the step where the agencies authorize the Treasury to issue funds toward a direct payment, grant, loan, or contract to individuals, businesses, or other organizations.
@@ -107,13 +107,13 @@ export default class FederalCovidSpending extends React.Component {
       subtext: 'Tracking Spending',
       subblurb: '',
       blurb: 'How much has been spent?',
-      sectionTeaser: ['How much ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>has been spent?</span>],
+      sectionTeaser: ['How much ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>funding has been spent?</span>],
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: [
         <>
           <p key='section-3-p-1'>
-            As of May 1st, the Treasury has tracked $963 billion in obligations, of which $459 billion has been outlayed in COVID-19 relief. These totals are calculated from agencies’ certified monthly reports to the Treasury’s governmentwide accounting system (GTAS), which include how much funding agencies obligated and outlayed from their fhow muchaccounts.
+            As of May 1st, the Treasury has tracked $963 billion in obligations, of which $459 billion has been outlayed in COVID-19 relief. These totals are calculated from agencies’ certified monthly reports to the Treasury’s governmentwide accounting system (GTAS), which include how much funding agencies obligated and outlayed from their spending accounts.
           </p>
           <p key='section-3-p-2'>
             In this visualization, we explore the 180 agency spending accounts containing COVID-19 relief funding. These 180 accounts are just a small fraction of the 2,000 accounts used for regular spending. You can click or tab into the visualization to explore how much has been committed and spent by account.
