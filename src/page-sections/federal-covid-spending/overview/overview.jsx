@@ -93,14 +93,14 @@ const Overview = (props) => {
   const titleComponent = screenWidth < 768 ? (
     <>
       <h2 className={overviewStyles.overviewTitle}>
-        The Process of Spending COVID-19 Funds
+        The Process of COVID-19 Supplemental Funding
       </h2>
       <ControlBar alignRightOnMobile>
         <Share
           siteUrl={props.location.origin}
           pageUrl={props.location.pathname + '#' + props.sectionId}
           title='Data Lab - COVID-19 Overview - U.S. Treasury'
-          text={'#DYK that #COVID19 funds from the federal government can be paid out through contracts, direct payments, grants or loans? Head to #DataLab to learn more. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'}
+          text='#DYK that #COVID19 funds from the federal government can be paid out through contracts, direct payments, grants or loans? Head to #DataLab to learn more. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'
           hoverColor='#1302d9'
         />
       </ControlBar>
@@ -108,13 +108,13 @@ const Overview = (props) => {
   ) : (
     <ControlBar>
       <h2 className={overviewStyles.overviewTitle}>
-        The Process of Spending COVID-19 Funds
+        The Process of COVID-19 Supplemental Funding
       </h2>
       <Share
         siteUrl={props.location.origin}
         pageUrl={props.location.pathname + '#' + props.sectionId}
-        title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-        text={'#DYK that #COVID19 funds from the federal government can be paid out through contracts, direct payments, grants or loans? Head to #DataLab to learn more. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'}
+        title='Data Lab - COVID-19 Overview - U.S. Treasury'
+        text='#DYK that #COVID19 funds from the federal government can be paid out through contracts, direct payments, grants or loans? Head to #DataLab to learn more. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'
         hoverColor='#1302d9'
       />
     </ControlBar>
