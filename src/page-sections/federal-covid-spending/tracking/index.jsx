@@ -30,9 +30,9 @@ import { Grid } from '@material-ui/core';
 const showLess = 10; // bars to show when collapsed
 
 export default function Tracking(props) {
-  const data = useStaticQuery(graphql`
+	const data = useStaticQuery(graphql`
     query {
-      spending: allCovid19ResponseViz3MainAgencySpending20200603Csv {
+      spending: allCovid19ResponseViz3MainAgencySpending20200617Csv {
         nodes {
 					label: Agency
 					Percent_Outlaid
@@ -44,7 +44,7 @@ export default function Tracking(props) {
 					Total_Budgetary_Resources
         }
       }
-			total: allCovid19ResponseViz3MainAgencyTotal20200603Csv {
+			total: allCovid19ResponseViz3MainAgencyTotal20200617Csv {
         nodes {
 					label: Agency
 					Percent_Outlaid
@@ -56,7 +56,7 @@ export default function Tracking(props) {
 					Total_Budgetary_Resources
         }
       }
-			loans: allCovid19ResponseViz3MainAgencyLoans20200603Csv {
+			loans: allCovid19ResponseViz3MainAgencyLoans20200617Csv {
         nodes {
 					label: Agency
 					Percent_Outlaid
@@ -68,7 +68,7 @@ export default function Tracking(props) {
 					Total_Budgetary_Resources
         }
       }
-			allData: allCovid19ResponseViz3ModalAgency20200603Csv {
+			allData: allCovid19ResponseViz3ModalAgency20200617Csv {
         group(field: Agency) {
           fieldValue
           nodes {
@@ -93,25 +93,25 @@ export default function Tracking(props) {
     accountsByAgency[item.fieldValue] = item.nodes;
   });
 
-  const totalBudgetByAgency = {};
-  data.total.nodes.forEach((item) => {
-    totalBudgetByAgency[item.label] = item.Total_Budgetary_Resources;
-  });
+	const totalBudgetByAgency = {};
+	data.total.nodes.forEach((item) => {
+		totalBudgetByAgency[item.label] = item.Total_Budgetary_Resources;
+	});
 
-  const [screenMode, setScreenMode] = useState(0);
-  const resizeWindow = () => {
-    const newMode = checkScreenMode(window.innerWidth);
-    if (newMode !== screenMode) {
-      setScreenMode(newMode);
-    }
-  };
-  useEffect(() => {
-    resizeWindow();
-    window.addEventListener('resize', resizeWindow);
-    return () => {
-      window.removeEventListener('resize', resizeWindow);
-    };
-  });
+	const [screenMode, setScreenMode] = useState(0);
+	const resizeWindow = () => {
+		const newMode = checkScreenMode(window.innerWidth);
+		if (newMode !== screenMode) {
+			setScreenMode(newMode);
+		}
+	};
+	useEffect(() => {
+		resizeWindow();
+		window.addEventListener('resize', resizeWindow);
+		return () => {
+			window.removeEventListener('resize', resizeWindow);
+		};
+	});
 
   const [isInfoModalOpen, setInfoModalState] = useState(false);
 
@@ -195,20 +195,33 @@ export default function Tracking(props) {
      ];
   }
 
-  const mainChart = () => {
-    const barData = data[dataType].nodes;
-    const chartData = limitBars ? barData.slice(0, limitBars) : barData;
-    const table = chartData.map((i, key) => {
-      const thisBar = [{
-        amount: i.Amount_Outlaid,
-        percent: parseFloat(i.Percent_Outlaid).toFixed(2)
-      }, {
-        amount: i.Amount_Obligated,
-        percent: parseFloat(i.Percent_Obligated_Not_Outlaid).toFixed(2)
-      }, {
-        amount: i.Amount_Unobligated,
-        percent: parseFloat(i.Percent_Unobligated).toFixed(2)
-      }];
+	const filterModalData = () => {
+		if (selectedBar && accountsByAgency) {
+			switch (dataType) {
+			case 'loans':
+				return accountsByAgency[selectedBar].filter((i) => i.Loan_Program_Account === 'Yes');
+			case 'spending':
+				return accountsByAgency[selectedBar].filter((i) => i.Loan_Program_Account === 'No');
+			}
+			return accountsByAgency[selectedBar];
+		}
+		return null;
+	};
+
+	const mainChart = () => {
+		const barData = data[dataType].nodes;
+		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
+		const table = chartData.map((i, key) => {
+			const thisBar = [{
+				amount: i.Amount_Outlaid,
+				percent: parseFloat(i.Percent_Outlaid).toFixed(2),
+			}, {
+				amount: i.Amount_Obligated,
+				percent: parseFloat(i.Percent_Obligated_Not_Outlaid).toFixed(2),
+			}, {
+				amount: i.Amount_Unobligated,
+				percent: parseFloat(i.Percent_Unobligated).toFixed(2),
+			}];
 
       return (
         <Bar
@@ -380,65 +393,68 @@ const paperStyle = typeof window !== 'undefined' && window.innerWidth < 576 ? {
   width: '95%', padding: '10px 8px'
 } : {}
 
-  return <>
-    {titleComponent}
+	return (
+		<>
+			{titleComponent}
 
-    <a id='topofchart' />
-    {mainChart()}
+			<a id="topofchart" />
+			{mainChart()}
 
-    <ModalReference
-      open={isModalOpen}
-      close={closeModal}
-      title={findModalTitle()}
-      maxWidth={false}
-      maxHeight
-      paperStyle={paperStyle}
-    >
-      <Modal
-        bar={selectedBar}
-        data={accountsByAgency[selectedBar]}
-        barData={selectedBarData}
-        isModal={true}
-        activeAcc={activeAccountFilter}
-        mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
-      />
-    </ModalReference>
+			<ModalReference
+				open={isModalOpen}
+				close={closeModal}
+				title={findModalTitle()}
+				maxWidth={false}
+				maxHeight
+				paperStyle={paperStyle}
+			>
+				<Modal
+					bar={selectedBar}
+					data={filterModalData()}
+					barData={selectedBarData}
+					isModal
+					activeAcc={activeAccountFilter}
+					mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+				/>
+			</ModalReference>
 
-    <ModalReference
-      open={isInfoModalOpen}
-      close={closeModal}
-      title='Spending Definitions'
-      titleStyle={{ fontWeight: 600 }}
-      maxWidth
-      maxHeight
-    >
-      {categories.map((c) => (
-        <div className={styles.infoModalBody}>
-          <div className={styles.heading}>
-            <div className={`${styles.modalBlock} ${c.legendStyle || ''}`}>{c.icon}</div>{c.name}
-          </div>
-          {c.infoModalDescription}
-        </div>
-      ))}
-    </ModalReference>
+			<ModalReference
+				open={isInfoModalOpen}
+				close={closeModal}
+				title="Spending Definitions"
+				titleStyle={{ fontWeight: 600 }}
+				maxWidth
+				maxHeight
+			>
+				{categories.map((c) => (
+					<div className={styles.infoModalBody}>
+						<div className={styles.heading}>
+							<div className={`${styles.modalBlock} ${c.legendStyle || ''}`}>{c.icon}</div>
+							{c.name}
+						</div>
+						{c.infoModalDescription}
+					</div>
+			  ))}
+			</ModalReference>
 
-    {showLess >= data[dataType].nodes.length
-      ?
-        ''
-      :
-        <SeeMoreButton fullWidth onClick={handleSeeMore}>
-          {limitBars
-            ?
-              <>
-                <div style={{ fontWeight: 600 }}>See More</div>
-                &nbsp;({data[dataType].nodes.length - limitBars})
-              </>
-            :
-              <div style={{ fontWeight: 600 }}>See Less</div>
-          }
-        </SeeMoreButton>
-    }
+			{showLess >= data[dataType].nodes.length
+				?
+				  ''
+				:
+				<SeeMoreButton fullWidth onClick={handleSeeMore}>
+					{limitBars
+						?
+						<>
+							<div style={{ fontWeight: 600 }}>See More</div>
+							&nbsp;({data[dataType].nodes.length - limitBars})
+						</>
+						:
+						<div style={{ fontWeight: 600 }}>See Less</div>
+					}
+				</SeeMoreButton>
+			}
 
-    <Downloads href={'/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-03.csv'} date={'May 2020'} />
-  </>;
+			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-17.csv" date="May 2020" />
+		</>
+	);
 }
