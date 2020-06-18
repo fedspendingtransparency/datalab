@@ -59,8 +59,8 @@ class ModalReference extends React.Component {
 
   handleResize = () => {
     this.setState({
-      maxWidth: window.innerWidth * .70,
-      maxHeight: window.innerHeight * .80
+      maxWidth: this.props.maxWidth ? window.innerWidth * .70 : null,
+      maxHeight: this.props.maxHeight ? window.innerHeight * .80 : null
     })
   }
 
@@ -75,13 +75,13 @@ class ModalReference extends React.Component {
 
   keyUpHandler = (e) => {
     if(e.keyCode === 13) {
-      this.handleClose()
+      this.handleClose();
     }
   }
 
   render() {
-    const { classes, children, title, titleStyle } = this.props;
-    const { open } = this.state;
+    const { classes, children, title, titleStyle, paperStyle } = this.props;
+    const { open, maxWidth, maxHeight } = this.state;
 
     return (
       <Modal
@@ -97,12 +97,12 @@ class ModalReference extends React.Component {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <div className={classes.paper} style={paperStyle}>
             <div className={styles.title}>
               <span style={titleStyle}>{title}</span>
               <CloseIcon className={styles.close} tabIndex='0' onClick={this.handleClose} onKeyUp={e => this.keyUpHandler(e)} />
             </div>
-            <div className={styles.content} style={{'maxWidth': this.state.maxWidth, 'maxHeight': this.state.maxHeight}}>
+            <div className={styles.content} style={{ maxWidth, maxHeight }}>
               {children}
             </div>
           </div>
