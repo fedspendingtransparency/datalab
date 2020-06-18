@@ -93,6 +93,22 @@ h2 {
   }
 }
 
+.selectionAmountVal {
+	display: inline;
+	font-weight: 300;
+	font-size: 24px;
+}
+
+.selectionAmountValSmall {
+	display: inline;
+	font-weight: 300;
+	font-size: 18px;
+}
+
+.section-heading {
+  margin-bottom: 20px;
+}
+
 .view-spending-by-container {
   display: flex;
   justify-content: flex-start;
@@ -159,6 +175,14 @@ h2 {
   p {
     margin-left: 36px;
   }
+}
+
+.modal-title {
+  font-weight: 600;
+}
+
+.modal-subtitle {
+  font-weight: 300;
 }
 
 @media screen and (min-width: $phone) {
@@ -240,5 +264,21 @@ h2 {
     .view-spending-by-heading {
       margin-bottom: 6px;
     }
+  }
+
+  .modal-title {
+    font-size: 18px !important;
+    font-weight: 600;
+  }
+  
+  .modal-subtitle {
+    font-size: 18px !important;
+    font-weight: 300;
+  }
+}
+
+@media screen and (max-width: $desktop - 1) and (min-width: $tablet) {
+  .section-heading {
+    text-align: center;
   }
 }
