@@ -177,6 +177,14 @@ h2 {
   }
 }
 
+.modal-title {
+  font-weight: 600;
+}
+
+.modal-subtitle {
+  font-weight: 300;
+}
+
 @media screen and (min-width: $phone) {
   .blockContainer {
     align-items: center;
@@ -256,6 +264,16 @@ h2 {
     .view-spending-by-heading {
       margin-bottom: 6px;
     }
+  }
+
+  .modal-title {
+    font-size: 18px !important;
+    font-weight: 600;
+  }
+  
+  .modal-subtitle {
+    font-size: 18px !important;
+    font-weight: 300;
   }
 }
 
