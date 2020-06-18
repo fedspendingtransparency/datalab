@@ -38,8 +38,8 @@ function IndexPage() {
             isMain={true}
             imgAlt=''
             heading='Federal Response to COVID-19'
-            body='To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress passed four special appropriations laws, making $2.3 trillion available for the federal government to use in relief efforts.  As of May 1, the Treasury has tracked $963 billion COVID-19 relief-related obligations made by agencies, and $459 billion in spending. In this analysis, we break down the funding by agency and walk through the steps for the money to flow from legislation to the American people.  '
-            mobileBody='Follow along as Data Lab tracks the flow of four emergency funding bills for COVID-19. As of May 1, the Treasury has tracked $963 billion in agency spending for COVID-19 related relief efforts.'
+            body='To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress passed four special appropriations laws, making $2.3 trillion available for the federal government to use in relief efforts.  As of May 1, the U.S. Department of the Treasury has tracked $963 billion COVID-19-related obligations made by agencies, of which $459 billion has been spent. In this analysis, we break down the funding by agency and describe the flow of money from legislation to the American people.'
+            mobileBody='Follow along as Data Lab tracks the flow of four supplemental funding bills for COVID-19. As of May 1, the U.S. Department of the Treasury has tracked $963 billion in agency spending.'
           />
         </Grid>
         <Grid item md={12} lg={4}>

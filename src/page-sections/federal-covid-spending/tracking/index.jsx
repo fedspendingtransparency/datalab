@@ -375,7 +375,7 @@ export default function Tracking(props) {
       </FormControl>
     </div>
   </>
-      
+
 const paperStyle = typeof window !== 'undefined' && window.innerWidth < 576 ? {
   width: '95%', padding: '10px 8px'
 } : {}
@@ -398,7 +398,8 @@ const paperStyle = typeof window !== 'undefined' && window.innerWidth < 576 ? {
         bar={selectedBar}
         data={accountsByAgency[selectedBar]}
         barData={selectedBarData}
-        isModal
+        isModal={true}
+        activeAcc={activeAccountFilter}
         mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
       />
     </ModalReference>
