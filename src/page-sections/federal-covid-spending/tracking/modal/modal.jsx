@@ -9,6 +9,7 @@ import LIcon from '../../../../svgs/federal-covid-spending/tracking/l-icon.svg';
 export default function CovidModal(props) {
 
   function Content() {
+    //console.log(props);
     if(props.data) {
       return (<>
         {props.data.map((i, key) => {
@@ -64,6 +65,16 @@ export default function CovidModal(props) {
     };
   };
 
+  function mobileAccountChecker() {
+    if (props.activeAcc === "All Accounts") {
+      return <div>Account</div>;
+    } else if (props.activeAcc === "Spending Accounts") {
+      return <div>Spending Account</div>
+    } else {
+      return <div>Loan Account</div>
+    }
+  }
+
   function ContentHeader () {
     if(props.mobileTablet) {
       return <div style={{paddingRight: '8px'}}>
@@ -72,12 +83,12 @@ export default function CovidModal(props) {
                showDetails={true}
            />
           <Grid container className={styles.titles}>
-            <Grid item xs={10}>Spending Account:</Grid>
-            <Grid item xs={2}>Total Budget:</Grid>
+            <Grid item xs={10}>{mobileAccountChecker()}</Grid>
+            <Grid item xs={2}>Total Budget</Grid>
           </Grid>
              </div>;
     } else {
-      return "hi";
+      return accountChecker();
     }
   }
   return(<div style={{minWidth: window.innerWidth * .6, maxWidth: window.innerWidth * .9, overflowX: 'hidden'}}>
