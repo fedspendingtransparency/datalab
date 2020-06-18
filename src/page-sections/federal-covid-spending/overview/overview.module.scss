@@ -45,7 +45,6 @@
     justify-content: center;
 }
 
-
 @media (max-width: $tablet - 1) {
     .overviewMobileContainer {
 	justify-content: center;
@@ -58,10 +57,11 @@
 	}
 	
 	.overviewText {
+        font-size: 1.25rem;
 	    text-align: center;
 	    max-width: 352px;
 	}
-    }
+}
 
     .updatedDate {
 	text-align: center;
@@ -70,8 +70,8 @@
 
 @media (max-width: $phone - 1) {
     .overviewTitle {
-	font-size: 1.25rem;
-	font-weight: 300;
+        font-size: 1.25rem;
+        font-weight: 300;
     }
-
 }
+

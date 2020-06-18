@@ -102,3 +102,9 @@
       font-weight: 300;
     }
 }
+
+@media (max-width: $tablet - 1) {
+  .vizTitle {
+    font-size: 1.25rem;
+  }
+}

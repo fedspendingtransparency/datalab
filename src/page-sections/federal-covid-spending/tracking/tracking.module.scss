@@ -216,7 +216,7 @@ h2 {
 
 @media screen and (max-width: $tablet - 1) {
 	.covidTitle {
-		font-size: 2rem;
+		font-size: 1.25rem;
 		color: #666;
 		line-height: 40px;
 		padding-bottom: 1.2rem;
@@ -274,7 +274,7 @@ h2 {
   }
 }
 
-@media screen and (max-width: $phone) {
+@media screen and (max-width: $tablet - 1) {
 	.section-heading {
 		font-size: 1.25rem;
 	  }	
