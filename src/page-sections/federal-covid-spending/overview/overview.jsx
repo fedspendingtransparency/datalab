@@ -93,7 +93,7 @@ const Overview = (props) => {
   const titleComponent = screenWidth < 768 ? (
     <>
       <h2 className={overviewStyles.overviewTitle}>
-        The Process of COVID-19 Supplemental Funding
+        The Process of COVID-19 Supplemental Spending
       </h2>
       <ControlBar alignRightOnMobile>
         <Share
@@ -108,7 +108,7 @@ const Overview = (props) => {
   ) : (
     <ControlBar>
       <h2 className={overviewStyles.overviewTitle}>
-        The Process of COVID-19 Supplemental Funding
+        The Process of COVID-19 Supplemental Spending
       </h2>
       <Share
         siteUrl={props.location.origin}
