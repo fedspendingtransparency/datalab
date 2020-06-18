@@ -178,9 +178,20 @@ export default function Tracking(props) {
 	];
 
 
+	const modalTotalOfAmount = (selection) => {
+		if (dataType === 'loans' || dataType === 'spending') {
+			return (
+				<p className={styles.selectionAmountValSmall}>
+					{selection ? ` of ${numberFormatter('dollars suffix', totalBudgetByAgency[selection])}` : ''}
+				</p>
+			);
+		}
+		return <></>;
+	};
+
 	const findModalTitle = () => {
 		const selectionAmount = data[dataType].nodes.find((item) => item.label === selectedBar);
-		const totalofAll = data.total.nodes[0].Total_Budgetary_Resources;
+
 		return [
 			<span className={styles.modalTitle}>
 				{selectedBar}
@@ -189,9 +200,7 @@ export default function Tracking(props) {
 			<p className={styles.selectionAmountVal}>
 				{selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}
 			</p>,
-			<p className={styles.selectionAmountValSmall}>
-				{selectionAmount ? ` of ${numberFormatter('dollars suffix', totalofAll)}` : ''}
-			</p>,
+			modalTotalOfAmount(selectedBar),
 		];
 	};
 
@@ -471,7 +480,7 @@ export default function Tracking(props) {
 									)
 								</>
 							)
-							:						<div style={{ fontWeight: 600 }}>See Less</div>}
+							:	<div style={{ fontWeight: 600 }}>See Less</div>}
 					</SeeMoreButton>
 				)}
 
