@@ -81,7 +81,7 @@ export default function Tracking(props) {
 						Percent_Outlaid
 						Percent_Unobligated
 						Total_Budgetary_Resources
-                                                Loan_Program_Account
+            Loan_Program_Account
           }
         }
       }
@@ -165,20 +165,29 @@ export default function Tracking(props) {
       name: 'Loan Program Accounts',
       icon: <LIcon />,
       infoModalDescription: <>
-        <p>These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
-				agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.</p>
-        <p>Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
-				direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.</p>
+        <p>
+          These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
+          agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.
+        </p>
+        <p>
+          Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
+          direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.
+        </p>
       </>
     },
   ];
 
   const findModalTitle = () => {
     const selectionAmount = data[dataType].nodes.find((item) => item.label === selectedBar);
-    return [<b>
-      {selectedBar}
-      {' '}
-    </b>, selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''];
+    return [
+      <span className={styles.modalTitle}>
+        {selectedBar}
+        {' '}
+      </span>,
+      <span className={styles.modalSubtitle}>
+        {selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}
+      </span>
+    ];
   };
 
   const mainChart = () => {
@@ -186,14 +195,14 @@ export default function Tracking(props) {
     const chartData = limitBars ? barData.slice(0, limitBars) : barData;
     const table = chartData.map((i, key) => {
       const thisBar = [{
-        'amount': i.Amount_Outlaid,
-        'percent': parseFloat(i.Percent_Outlaid).toFixed(2)
+        amount: i.Amount_Outlaid,
+        percent: parseFloat(i.Percent_Outlaid).toFixed(2)
       }, {
-        'amount': i.Amount_Obligated,
-        'percent': parseFloat(i.Percent_Obligated_Not_Outlaid).toFixed(2)
+        amount: i.Amount_Obligated,
+        percent: parseFloat(i.Percent_Obligated_Not_Outlaid).toFixed(2)
       }, {
-        'amount': i.Amount_Unobligated,
-        'percent': parseFloat(i.Percent_Unobligated).toFixed(2)
+        amount: i.Amount_Unobligated,
+        percent: parseFloat(i.Percent_Unobligated).toFixed(2)
       }];
 
       return (
@@ -212,39 +221,43 @@ export default function Tracking(props) {
       );
     });
 
-    return (<>
-      <Grid container className={styles.legendContainer}>
-        <Grid item xs={12} lg={4} className={styles.legendAsOf}>
-          Data updated as of May 1, 2020
-	 </Grid>
-        <Grid className={styles.legend}>
-          <div className={styles.blockContainer}>
-            <div>
-              <><span className={`${styles.block} ${categories[0].legendStyle}`}></span><span>{categories[0].name}</span></>
-              <><span className={`${styles.block} ${categories[1].legendStyle}`}></span><span>{categories[1].name}</span></>
+    return (
+      <>
+        <Grid container className={styles.legendContainer}>
+          <Grid item xs={12} lg={4} className={styles.legendAsOf}>
+            Data updated as of May 1, 2020
+          </Grid>
+          <Grid className={styles.legend}>
+            <div className={styles.blockContainer}>
+              <div>
+                <><span className={`${styles.block} ${categories[0].legendStyle}`}></span><span>{categories[0].name}</span></>
+                <><span className={`${styles.block} ${categories[1].legendStyle}`}></span><span>{categories[1].name}</span></>
+              </div>
+              <div>
+                <><span className={`${styles.block} ${categories[2].legendStyle}`}></span><span>{categories[2].name}</span></>
+                <><span className={styles.block}>{categories[3].icon}</span><span>{categories[3].name}</span></>
+              </div>
             </div>
-            <div>
-              <><span className={`${styles.block} ${categories[2].legendStyle}`}></span><span>{categories[2].name}</span></>
-              <><span className={styles.block}>{categories[3].icon}</span><span>{categories[3].name}</span></>
+            <div className={styles.blockContainer}>
+              <IconButton className={styles.infoButton} onClick={openInfoModal}>
+                <InfoOutlinedIcon className={styles.icon} />
+              </IconButton>
             </div>
-          </div>
-          <div className={styles.blockContainer}>
-            <IconButton className={styles.infoButton} onClick={openInfoModal}>
-              <InfoOutlinedIcon className={styles.icon} />
-            </IconButton>
-          </div>
+          </Grid>
         </Grid>
-      </Grid>
-      <div className={styles.percentLegend}>
-        <span>0%</span><span>50%</span><span>100%</span>
-      </div>
-      <div
-        className={styles.barContainer}
-        aria-label='Horizontal stacked bar chart depicting the portion of total budgetary resources from the emergency funding that have been obligated and outlaid to date.'
-      >
-        {table}
-      </div>
-    </>)
+        <div className={styles.percentLegend}>
+          <span>0%</span>
+          <span>50%</span>
+          <span>100%</span>
+        </div>
+        <div
+          className={styles.barContainer}
+          aria-label='Horizontal stacked bar chart depicting the portion of total budgetary resources from the emergency funding that have been obligated and outlaid to date.'
+        >
+          {table}
+        </div>
+      </>
+    )
   }
 
   const SeeMoreButton = withStyles(() => ({
@@ -348,7 +361,8 @@ export default function Tracking(props) {
             <MenuItem
               key={option.name}
               value={option.name}
-              className={styles.dropdownItem}>
+              className={styles.dropdownItem}
+            >
               {option.icon} {option.name}
             </MenuItem>
           ))}
@@ -356,6 +370,10 @@ export default function Tracking(props) {
       </FormControl>
     </div>
   </>
+        
+const paperStyle = typeof window !== 'undefined' && window.innerWidth < 576 ? {
+  width: '95%', padding: '10px 8px'
+} : {}
 
   return <>
     {titleComponent}
@@ -368,7 +386,8 @@ export default function Tracking(props) {
       close={closeModal}
       title={findModalTitle()}
       maxWidth={false}
-      maxHeight={true}
+      maxHeight
+      paperStyle={paperStyle}
     >
       <Modal
         bar={selectedBar}
@@ -398,20 +417,21 @@ export default function Tracking(props) {
       ))}
     </ModalReference>
 
-    {showLess >= data[dataType].nodes.length ?
-      ''
+    {showLess >= data[dataType].nodes.length
+      ?
+        ''
       :
-      <SeeMoreButton fullWidth onClick={handleSeeMore}>
-        {limitBars
-          ?
-          <>
-            <div style={{ fontWeight: 600 }}>See More</div>
-							                           &nbsp;({data[dataType].nodes.length - limitBars})
-						                                 </>
-          :
-          <div style={{ fontWeight: 600 }}>See Less</div>
-        }
-      </SeeMoreButton>
+        <SeeMoreButton fullWidth onClick={handleSeeMore}>
+          {limitBars
+            ?
+              <>
+                <div style={{ fontWeight: 600 }}>See More</div>
+                &nbsp;({data[dataType].nodes.length - limitBars})
+              </>
+            :
+              <div style={{ fontWeight: 600 }}>See Less</div>
+          }
+        </SeeMoreButton>
     }
 
     <Downloads href={'/data/federal-covid-spending/tracking/covid19_response_viz3_agency_popout_2020-05-21.csv'} date={'May 2020'} />
