@@ -45,8 +45,7 @@ export default class FederalCovidSpending extends React.Component {
       anchor: 'budget',
       number: '01',
       subtext: 'Overview',
-      subblurb: '',
-      blurb: 'How is the federal government allocating emergency funds for COVID-19?',
+      subblurb: 'How is the federal government allocating emergency funds for COVID-19?',
       sectionTeaser: ['How is the federal government', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> allocating emergency funds of COVID-19?</span>],
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor },
@@ -76,8 +75,7 @@ Federal agencies play a critical role in COVID-19 relief efforts by executing an
       anchor: 'overview',
       number: '02',
       subtext: 'The Flow of Funds', // <a href='' target='_blank' rel='noopener noreferrer'>
-      subblurb: '',
-      blurb: 'How do federal dollars move from Congress to the American people?',
+      subblurb: 'How do federal dollars move from Congress to the American people?',
       sectionTeaser: ['How do federal dollars ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>move from congress to the American people?</span>],
       introBlurb: [
         <>
@@ -88,7 +86,7 @@ Federal agencies play a critical role in COVID-19 relief efforts by executing an
             After a special appropriations law passes, it is the role of the Treasury to review the new legislation and issue funds to agencies’ spending accounts. The <a href="https://www.usaspending.gov/#/?glossary=appropriation">appropriations</a> process gives agencies the authority to begin using funding according to the purpose assigned in the law. To spend the money, agencies obligate the funds to different programs through contracts, direct payments, grants, or loans. When agencies make an <a href="https://www.usaspending.gov/#/?glossary=obligation">obligation</a>, they create a binding agreement to use the funds for a particular purpose. An example of an obligation is an agency setting aside adequate funds when it enters into a contract with a vendor to purchase <a href="https://www.usaspending.gov/#/award/CONT_AWD_75A50120C00030_7505_-NONE-_-NONE-">personal protective equipment, such as masks</a>.
           </p>
           <p key='section-2-p-3'>
-            Creating an obligation doesn’t mean the money has been paid, only that the agency has promised to pay the funds. In many cases, the recipients of funds may be required to do something before receiving payment, such as delivering equipment or supplies. 
+            Creating an obligation doesn’t mean the money has been paid, only that the agency has promised to pay the funds. In many cases, the recipients of funds may be required to do something before receiving payment, such as delivering equipment or supplies.
           </p>
           <p key='section-2-p-4'>
             The final step in the process is making a payment, which is called an <a href="https://www.usaspending.gov/#/?glossary=outlay">outlay</a>. This is the step where the agencies authorize the Treasury to issue funds toward a direct payment, grant, loan, or contract to individuals, businesses, or other organizations.
@@ -105,8 +103,7 @@ Federal agencies play a critical role in COVID-19 relief efforts by executing an
       anchor: 'tracking',
       number: '03',
       subtext: 'Tracking Spending',
-      subblurb: '',
-      blurb: 'How much emergency funding has been spent?',
+      subblurb: 'How much emergency funding has been spent?',
       sectionTeaser: ['How much emergency funding ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>has been spent?</span>],
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor },
