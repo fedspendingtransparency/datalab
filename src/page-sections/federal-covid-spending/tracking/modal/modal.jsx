@@ -82,7 +82,7 @@ export default function CovidModal(props) {
 		} if (props.activeAcc === 'Spending Accounts') {
 			return <div>Spending Account</div>;
 		}
-		return <div>Loan Account</div>;
+		return <div>Loan Program Account</div>;
 	}
 
 	function ContentHeader() {
@@ -96,7 +96,7 @@ export default function CovidModal(props) {
 					/>
 					<Grid container className={styles.titles}>
 						<Grid item xs={10}>{mobileAccountChecker()}</Grid>
-						<Grid item xs={2}>Total Budget</Grid>
+						<Grid item xs={2} style={{textAlign: 'right'}}>Total Budget</Grid>
 					</Grid>
 				</div>
 			);
