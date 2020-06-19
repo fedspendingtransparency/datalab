@@ -37,7 +37,7 @@ export default function CovidModal(props) {
 							);
 						}
 						return (
-							<div key={key} style={{ paddingRight: '10px' }}>
+							<div key={key} style={{ paddingRight: '10px', paddingTop: '10px', paddingBottom: '10px' }}>
 								<p style={{ marginBottom: '0', marginTop: '0.5rem' }}>
 									<span>
 										{i.Loan_Program_Account === 'Yes' ? <LIcon /> : <></>}
