@@ -86,11 +86,30 @@ h2 {
   justify-content: space-between;
   align-content: center;
   margin: 0 calc(#{$budgetWidth} - 2.5rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
+  height: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
 
   span {
     font-size: 0.875rem;
     font-weight: $bold;
   }
+}
+
+.selectionAmountVal {
+	display: inline;
+	font-weight: 300;
+	font-size: 24px;
+}
+
+.selectionAmountValSmall {
+	display: inline;
+	font-weight: 300;
+	font-size: 18px;
 }
 
 .section-heading {
@@ -170,6 +189,14 @@ h2 {
     font-size: 2rem;
     color: #666;
     line-height: 40px;
+}
+
+.modal-title {
+  font-weight: 600;
+}
+
+.modal-subtitle {
+  font-weight: 300;
 }
 
 @media screen and (min-width: $phone) {
@@ -264,6 +291,16 @@ h2 {
     .view-spending-by-heading {
       margin-bottom: 6px;
     }
+  }
+
+  .modal-title {
+    font-size: 18px !important;
+    font-weight: 600;
+  }
+  
+  .modal-subtitle {
+    font-size: 18px !important;
+    font-weight: 300;
   }
 }
 
