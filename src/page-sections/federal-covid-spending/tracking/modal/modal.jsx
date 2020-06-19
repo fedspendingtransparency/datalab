@@ -103,8 +103,6 @@ export default function CovidModal(props) {
 		}
 		return accountChecker();
 
-
-		return <h2>Spending Account Breakdown within Agency</h2>;
 	}
 
 	return (
