@@ -59,7 +59,7 @@ export default function Budget(props) {
               siteUrl={props.location.origin}
               pageUrl={props.location.pathname + '#' + props.sectionId}
               title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-              text={'Interested in learning how the federal government is allocating emergency funds for #COVID19? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'}
+              text={'Interested in learning how the federal government is allocating supplemental funds for #COVID19? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'}
               hoverColor='#1302d9'
             />
           </ControlBar>
@@ -68,13 +68,13 @@ export default function Budget(props) {
     } else {
       return (
         <>
-          <h2 className="rd-viztitle">{props.section.viztitle}</h2>
+          <h2 className={styles.vizTitle}>{props.section.viztitle}</h2>
           <ControlBar alignRightOnMobile>
             <Share
               siteUrl={props.location.origin}
               pageUrl={props.location.pathname + '#' + props.sectionId}
               title='Data Lab - COVID-19 tracking stuff - U.S. Treasury'
-              text={'Interested in learning how the federal government is allocating emergency funds for #COVID19? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'}
+              text={'Interested in learning how the federal government is allocating supplemental funds for #COVID19? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'}
               hoverColor='#1302d9'
             />
           </ControlBar>

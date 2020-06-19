@@ -86,6 +86,13 @@ h2 {
   justify-content: space-between;
   align-content: center;
   margin: 0 calc(#{$budgetWidth} - 2.5rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
+  height: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
 
   span {
     font-size: 0.875rem;
@@ -93,8 +100,21 @@ h2 {
   }
 }
 
+.selectionAmountVal {
+	display: inline;
+	font-weight: 300;
+	font-size: 24px;
+}
+
+.selectionAmountValSmall {
+	display: inline;
+	font-weight: 300;
+	font-size: 18px;
+}
+
 .section-heading {
-  margin-bottom: 20px;
+	font-size: 2rem;
+	margin-bottom: 20px;
 }
 
 .view-spending-by-container {
@@ -165,6 +185,20 @@ h2 {
   }
 }
 
+.covidTitle {
+    font-size: 2rem;
+    color: #666;
+    line-height: 40px;
+}
+
+.modal-title {
+  font-weight: 600;
+}
+
+.modal-subtitle {
+  font-weight: 300;
+}
+
 @media screen and (min-width: $phone) {
   .blockContainer {
     align-items: center;
@@ -208,6 +242,13 @@ h2 {
 }
 
 @media screen and (max-width: $tablet - 1) {
+	.covidTitle {
+		font-size: 1.25rem;
+		color: #666;
+		line-height: 40px;
+		padding-bottom: 1.2rem;
+	}
+
   .legendContainer {
     .legend {
       align-items: center;
@@ -225,6 +266,12 @@ h2 {
 }
 
 @media screen and (max-width: $phone - 1) {
+	.covidTitle {
+		font-size: 1.25rem;
+		color: #666;
+		line-height: 30px;
+	}
+
   .percentLegend {
     margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem
       calc(#{$mobileLabelWidth} - 0.5rem);
@@ -245,10 +292,27 @@ h2 {
       margin-bottom: 6px;
     }
   }
+
+  .modal-title {
+    font-size: 18px !important;
+    font-weight: 600;
+  }
+  
+  .modal-subtitle {
+    font-size: 18px !important;
+    font-weight: 300;
+  }
 }
 
 @media screen and (max-width: $desktop - 1) and (min-width: $tablet) {
   .section-heading {
-    text-align: center;
+	text-align: center;
+	font-size: 2rem;
   }
+}
+
+@media screen and (max-width: $tablet - 1) {
+	.section-heading {
+		font-size: 1.25rem;
+	  }	
 }
