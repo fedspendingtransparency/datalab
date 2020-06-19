@@ -8,7 +8,6 @@ import LIcon from '../../../../svgs/federal-covid-spending/tracking/l-icon.svg';
 
 export default function CovidModal(props) {
 	function Content() {
-		// console.log(props);
 		if (props.data) {
 			return (
 				<>
@@ -52,10 +51,10 @@ export default function CovidModal(props) {
 									</span>
 								</p>
 								<Bar
-  key={key}
-  data={_data}
-  isModal
-  showDetails
+									key={key}
+									data={_data}
+									isModal
+									showDetails
 								/>
 							</div>
 						);

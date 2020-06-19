@@ -1,3 +1,5 @@
+@import "../../../../styles/variables.scss";
+
 .titles {
   font-size: 14px;
   color: #666666;
@@ -22,13 +24,13 @@
   align-items: center;
   justify-content: center;
   margin-left: auto;
-
+  
   span {
     font-size: 14px;
     font-weight: 600;
     color: #555555;
   }
-
+  
 }
 
 .account {
@@ -37,4 +39,12 @@
   font-weight: 600;
   color: #555555;
   padding-right: 10px;
+}
+
+@media screen and (max-width: $phone - 1) {
+  .account {
+    position: relative;
+    height: auto;
+    min-height: 100%;
+  }
 }
