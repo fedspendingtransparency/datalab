@@ -1,74 +1,77 @@
 @import "../../../styles/variables";
 
 .overviewTitle {
-	font-size: 2rem;
-	font-weight: 300;
+    font-size: 2rem;
+    font-weight: 300;
 }
 
 .overviewNumber {
-	font-size: 2rem;
-	font-weight: 600;
-	text-align: center;
-	margin-top: 15px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 15px;
 }
 
 .overviewSubtitle {
-	font-size: 1.125rem;
-	font-weight: 600;
-	color: $covidPurple;
-	text-align: center;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $covidPurple;
+    text-align: center;
 }
 
 .overviewText {
-	color: $darkGrey;
-	font-size: 1rem;
-	font-weight: 300;
-	padding: 12px 20px; 
-	margin-bottom: 12px;
-	text-align: center;
+    color: $darkGrey;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 12px 20px; 
+    margin-bottom: 12px;
+    text-align: center;
 }
 
 .updatedDate {
-	text-align: right;
-	margin: 50px 0;
+    text-align: right;
+    margin: 50px 0;
 
-	.fadedModifier {
-		opacity: 0.5;
-		line-height: 18pt;
-	}
+    .fadedModifier {
+	opacity: 0.5;
+	line-height: 18pt;
+    }
 }
 
 .overviewMobileSvgContainer {
-	display: flex;
-	width: 100%;
-	margin: 15px 0px 0px 0px;
-	justify-content: center;
+    display: flex;
+    width: 100%;
+    margin: 15px 0px 0px 0px;
+    justify-content: center;
 }
-
 
 @media (max-width: $tablet - 1) {
-	.overviewMobileContainer {
-		justify-content: center;
-
-		.overviewTitle {
-			font-size: 1.25rem;
-			font-weight: 300;
-		}
-		
-		.textContainer {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			min-width: 352px;
-		}
-		
-		.overviewText {
-			text-align: center;
-			max-width: 352px;
-		}
+    .overviewMobileContainer {
+	justify-content: center;
+	
+	.textContainer {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    min-width: 352px;
 	}
-
-	.updatedDate {
-		text-align: center;
+	
+	.overviewText {
+        font-size: 1.25rem;
+	    text-align: center;
+	    max-width: 352px;
 	}
 }
+
+    .updatedDate {
+	text-align: center;
+    }
+}
+
+@media (max-width: $tablet - 1) {
+    .overviewTitle {
+        font-size: 1.25rem;
+        font-weight: 300;
+    }
+}
+

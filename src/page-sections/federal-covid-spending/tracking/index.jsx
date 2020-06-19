@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 
-
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';

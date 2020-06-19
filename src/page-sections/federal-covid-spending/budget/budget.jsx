@@ -68,7 +68,7 @@ export default function Budget(props) {
     } else {
       return (
         <>
-          <h2 className="rd-viztitle">{props.section.viztitle}</h2>
+          <h2 className={styles.vizTitle}>{props.section.viztitle}</h2>
           <ControlBar alignRightOnMobile>
             <Share
               siteUrl={props.location.origin}

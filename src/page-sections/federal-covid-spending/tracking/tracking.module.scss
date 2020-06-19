@@ -113,7 +113,8 @@ h2 {
 }
 
 .section-heading {
-  margin-bottom: 20px;
+	font-size: 2rem;
+	margin-bottom: 20px;
 }
 
 .view-spending-by-container {
@@ -184,6 +185,12 @@ h2 {
   }
 }
 
+.covidTitle {
+    font-size: 2rem;
+    color: #666;
+    line-height: 40px;
+}
+
 .modal-title {
   font-weight: 600;
 }
@@ -235,6 +242,13 @@ h2 {
 }
 
 @media screen and (max-width: $tablet - 1) {
+	.covidTitle {
+		font-size: 1.25rem;
+		color: #666;
+		line-height: 40px;
+		padding-bottom: 1.2rem;
+	}
+
   .legendContainer {
     .legend {
       align-items: center;
@@ -252,6 +266,12 @@ h2 {
 }
 
 @media screen and (max-width: $phone - 1) {
+	.covidTitle {
+		font-size: 1.25rem;
+		color: #666;
+		line-height: 30px;
+	}
+
   .percentLegend {
     margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem
       calc(#{$mobileLabelWidth} - 0.5rem);
@@ -286,6 +306,13 @@ h2 {
 
 @media screen and (max-width: $desktop - 1) and (min-width: $tablet) {
   .section-heading {
-    text-align: center;
+	text-align: center;
+	font-size: 2rem;
   }
+}
+
+@media screen and (max-width: $tablet - 1) {
+	.section-heading {
+		font-size: 1.25rem;
+	  }	
 }
