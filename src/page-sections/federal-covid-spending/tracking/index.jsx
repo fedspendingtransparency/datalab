@@ -164,15 +164,15 @@ export default function Tracking(props) {
       name: 'Loan Program Accounts',
       icon: <LIcon />,
       infoModalDescription: <>
-        <p>
-          These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
-          agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.
-				</p>
-        <p>
-          Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
-          direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.
-				</p>
-      </>,
+                              <p>
+                                These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
+                                agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.
+			      </p>
+                              <p>
+                                Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
+                                direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.
+			      </p>
+                            </>,
     },
   ];
 
@@ -197,10 +197,10 @@ export default function Tracking(props) {
   const filterModalData = () => {
     if (selectedBar && accountsByAgency) {
       switch (dataType) {
-        case 'loans':
-          return accountsByAgency[selectedBar].filter((i) => i.Loan_Program_Account === 'Yes');
-        case 'spending':
-          return accountsByAgency[selectedBar].filter((i) => i.Loan_Program_Account === 'No');
+      case 'loans':
+        return accountsByAgency[selectedBar].filter((i) => i.Loan_Program_Account === 'Yes');
+      case 'spending':
+        return accountsByAgency[selectedBar].filter((i) => i.Loan_Program_Account === 'No');
       }
       return accountsByAgency[selectedBar];
     }
@@ -243,7 +243,7 @@ export default function Tracking(props) {
         <Grid container className={styles.legendContainer}>
           <Grid item xs={12} lg={4} className={styles.legendAsOf}>
             Data updated as of May 1, 2020
-					</Grid>
+	  </Grid>
           <Grid className={styles.legend}>
             <div className={styles.blockContainer}>
               <div>
@@ -320,17 +320,17 @@ export default function Tracking(props) {
   const handleSpendingDropdownChange = (e) => {
     setActiveAccountFilter(e.target.value);
     switch (e.target.value) {
-      case 'Spending Accounts':
-        setData('spending');
-        setLimitBars(data.spending.nodes.length >= showLess ? showLess : 0);
-        break;
-      case 'Loan Program Accounts':
-        setData('loans');
-        setLimitBars(data.loans.nodes.length >= showLess ? showLess : 0);
-        break;
-      default:
-        setData('total');
-        setLimitBars(data.total.nodes.length >= showLess ? showLess : 0);
+    case 'Spending Accounts':
+      setData('spending');
+      setLimitBars(data.spending.nodes.length >= showLess ? showLess : 0);
+      break;
+    case 'Loan Program Accounts':
+      setData('loans');
+      setLimitBars(data.loans.nodes.length >= showLess ? showLess : 0);
+      break;
+    default:
+      setData('total');
+      setLimitBars(data.total.nodes.length >= showLess ? showLess : 0);
     }
   };
 
@@ -458,21 +458,21 @@ export default function Tracking(props) {
       </ModalReference>
 
       {showLess >= data[dataType].nodes.length
-        ? ''
-        : (
-          <SeeMoreButton fullWidth onClick={handleSeeMore}>
-            {limitBars
-              ? (
-                <>
-                  <div style={{ fontWeight: 600 }}>See More</div>
-							&nbsp;(
-                  {data[dataType].nodes.length - limitBars}
-									)
-                </>
-              )
-              : <div style={{ fontWeight: 600 }}>See Less</div>}
-          </SeeMoreButton>
-        )}
+       ? ''
+       : (
+         <SeeMoreButton fullWidth onClick={handleSeeMore}>
+           {limitBars
+            ? (
+              <>
+                <div style={{ fontWeight: 600 }}>See More</div>
+		&nbsp;(
+                {data[dataType].nodes.length - limitBars}
+		)
+              </>
+            )
+            : <div style={{ fontWeight: 600 }}>See Less</div>}
+         </SeeMoreButton>
+       )}
 
       <Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-17.csv" date="May 2020" />
     </>

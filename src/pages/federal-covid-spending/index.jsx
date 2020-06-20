@@ -62,14 +62,14 @@ export default class FederalCovidSpending extends React.Component {
             Each agency serves a unique mission and has been allocated supplemental funding to expand existing programs, or in some cases, establish new programs in response to the pandemic. For example, the Treasury issues Economic Impact Payments through the Internal Revenue Service’s tax system. Funding has also gone to DOL’s unemployment compensation programs and SBA’s grant and loan programs. Examples of new programs include the HHS Provider Relief Fund and Treasury’s Coronavirus Economic Stabilization Act Program. In Section 3, we dive deeper into each agency’s spending accounts for insight into how the agency is spending the money.
           </p>
         </>
-      ],
+                                                                                                                                                                                          ],
       viztitle: 'COVID-19 Supplemental Funding by Agency',
       tagName: 'Budget',
       accordion: <aside>
-                   <Accordion title='How do you track $2.3 trillion?' color='#6F41A7' backgroundColor='#F3EAFF' isCovid>
-                     {BudgetAccordionContent()}
-                   </Accordion>
-                 </aside>
+                                                                                                                <Accordion title='How do you track $2.3 trillion?' color='#6F41A7' backgroundColor='#F3EAFF' isCovid>
+                                                                                                                  {BudgetAccordionContent()}
+                                                                                                                </Accordion>
+                                                                                                              </aside>
     },
     {
       section: 'The Flow of Funds',
@@ -94,7 +94,7 @@ export default class FederalCovidSpending extends React.Component {
             The final step in the process is making a payment, which is called an <a href="https://www.usaspending.gov/#/?glossary=outlay" target="_blank" rel='noopener noreferrer'>outlay</a>. This is the step where the agencies authorize the Treasury to issue funds toward a direct payment, grant, loan, or contract to individuals, businesses, or other organizations.
           </p>
         </>
-      ],
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ],
       viztitle: 'The Process of COVID-19 Supplemental Spending',
       tagName: 'Overview',
       readMoreOnMobile: true,
@@ -119,10 +119,10 @@ export default class FederalCovidSpending extends React.Component {
             In this visualization, we explore the 180 agency spending accounts containing COVID-19 relief funding. These 180 accounts are just a small fraction of the 2,000 accounts used for regular spending. You can click or tab into the visualization to explore how much has been committed and spent by account.
           </p>
           <p key='section-3-p-3'>
-            This analysis will be updated monthly as new data becomes available. To learn more about how we developed this analysis and download the raw data, visit the <a href="http://datalab.usaspending.gov/federal-covid-spending/methodologies" target="_blank">Data Sources and Methodologies page</a>.
+            This analysis will be updated monthly as new data becomes available. To learn more about how we developed this analysis and download the raw data, visit the <a href="/federal-covid-spending/methodologies" target="_blank">Data Sources and Methodologies page</a>.
           </p>
         </>
-      ],
+                                                                                                                                                                                           ],
       viztitle: 'Title for Tracking viz',
       tagName: 'Tracking'
     }
@@ -156,10 +156,10 @@ export default class FederalCovidSpending extends React.Component {
             footnotes={[
               'Coronavirus Preparedness and Response Supplemental Appropriations Act (H.R. 6074) appropriated an estimated $7.8 billion; Families First Coronavirus Response Act (H.R. 6201) appropriated an estimated $3.4 billion; CARES Act (H.R. 748) appropriated an estimated $1.95 trillion of funding; and the Paycheck Protection Program and Health Care Enhancement Act (H.R. 266) appropriated an estimated $483 billion.',
               <>OMB Guidance on reporting requirements and DEFC values provided for the four bills are provided in OMB M20-21:<a target='_blank' rel='noopener noreferrer' href="https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf"> https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf</a></>,
-              <>Values were calculating according to the USSGL Supplement of the Treasury Financial Manual - Section V: Crosswalks to Standard External Reports for FY 2020 GTAS Reporting, SF 133: Report on Budget Execution and Budgetary Resources & Schedule P Budget Program and Financing Schedule. <a target='_blank' rel='noopener noreferrer' href="https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_2/sec5/sec5_sf133_schp_2020.xlsx">https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_2/sec5/sec5_sf133_schp_2020.xlsx</a></>,
-              <>GTAS data is collected monthly, each month’s agencies report data for all transactions occurring through the end of the prior month. Data for this analysis published May 28, 2020 includes data reported through the close of April 2020.</>,
-              <>Detailed instructions on how agencies should be classified is provided here: <a target='_blank' rel='noopener noreferrer' href="https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md">https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md.</a> The list of shared agencies identified by FREC can be found here: <a target='_blank' rel='noopener noreferrer' href="https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker">https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a></>
-            ]}
+                                                                                <>Values were calculating according to the USSGL Supplement of the Treasury Financial Manual - Section V: Crosswalks to Standard External Reports for FY 2020 GTAS Reporting, SF 133: Report on Budget Execution and Budgetary Resources & Schedule P Budget Program and Financing Schedule. <a target='_blank' rel='noopener noreferrer' href="https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_2/sec5/sec5_sf133_schp_2020.xlsx">https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_2/sec5/sec5_sf133_schp_2020.xlsx</a></>,
+                                                                                <>GTAS data is collected monthly, each month’s agencies report data for all transactions occurring through the end of the prior month. Data for this analysis published May 28, 2020 includes data reported through the close of April 2020.</>,
+                                                                                <>Detailed instructions on how agencies should be classified is provided here: <a target='_blank' rel='noopener noreferrer' href="https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md">https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md.</a> The list of shared agencies identified by FREC can be found here: <a target='_blank' rel='noopener noreferrer' href="https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker">https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a></>
+                                                                                ]}
           />
         </Grid>
       </Grid>
