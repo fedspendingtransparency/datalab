@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import styleVariables from '../../styles/variables.scss';
 import styles from './toc.module.scss';
 
