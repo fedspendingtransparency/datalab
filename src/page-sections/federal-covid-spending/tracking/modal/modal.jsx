@@ -10,24 +10,24 @@ export default function CovidModal(props) {
   function Content() {
     if (props.data) {
       return (
-	<>
-	  {props.data.map((i, key) => {
-	    const _data = [{
-	      amount: i.Amount_Outlaid,
-	      percent: i.Percent_Outlaid,
-	    }, {
-	      amount: i.Amount_Obligated,
-	      percent: i.Percent_Obligated_Not_Outlaid,
-	    }, {
-	      amount: i.Amount_Unobligated,
-	      percent: i.Percent_Unobligated,
-	    }];
+        <>
+          {props.data.map((i, key) => {
+            const _data = [{
+              amount: i.Amount_Outlaid,
+              percent: i.Percent_Outlaid,
+            }, {
+              amount: i.Amount_Obligated,
+              percent: i.Percent_Obligated_Not_Outlaid,
+            }, {
+              amount: i.Amount_Unobligated,
+              percent: i.Percent_Unobligated,
+            }];
 
 						if (props.mobileTablet) {
 							return (
 								<Grid container key={key} className={styles.items} justify="center">
-									<Grid item xs={10} className={styles.account}><span>{i.Loan_Program_Account === 'Yes' ? <LIcon /> : <></>}</span> {i.Account_Name}</Grid>
-									<Grid item xs={2}>
+									<Grid item xs={6} className={styles.account}><span>{i.Loan_Program_Account === 'Yes' ? <LIcon /> : <></>}</span> {i.Account_Name}</Grid>
+									<Grid item xs={6}>
 										<div className={styles.amount}>
 											<span>{numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}</span>
 										</div>
@@ -62,7 +62,6 @@ export default function CovidModal(props) {
 				</>
 			);
 		}
-
     return <></>;
   }
 
@@ -81,7 +80,7 @@ export default function CovidModal(props) {
     } if (props.activeAcc === 'Spending Accounts') {
       return <div>Spending Account</div>;
     }
-    return <div>Loan Account</div>;
+    return <div>Loan Program Account</div>;
   }
 
   function ContentHeader() {
@@ -94,8 +93,8 @@ export default function CovidModal(props) {
 	    showDetails
 	  />
 	  <Grid container className={styles.titles}>
-	    <Grid item xs={10}>{mobileAccountChecker()}</Grid>
-	    <Grid item xs={2}>Total Budget</Grid>
+	    <Grid item xs={6}>{mobileAccountChecker()}</Grid>
+	    <Grid item xs={6} style={{textAlign: 'right'}}>Total Budget</Grid>
 	  </Grid>
 	</div>
       );
