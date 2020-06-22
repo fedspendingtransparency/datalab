@@ -45,9 +45,8 @@ export default class FederalCovidSpending extends React.Component {
       anchor: 'budget',
       number: '01',
       subtext: 'Overview',
-      subblurb: '',
-      blurb: 'How is the federal government allocating supplemental funds for COVID-19?',
-      sectionTeaser: ['How is the federal government', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> allocating supplemental funds for COVID-19?</span>],
+      subblurb: 'How is the federal government allocating emergency funds for COVID-19?',
+      sectionTeaser: ['How is the federal government', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> allocating emergency funds of COVID-19?</span>],
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: [
@@ -76,8 +75,7 @@ export default class FederalCovidSpending extends React.Component {
       anchor: 'overview',
       number: '02',
       subtext: 'The Flow of Funds',
-      subblurb: '',
-      blurb: 'How do federal dollars move from Congress to the American people?',
+      subblurb: 'How do federal dollars move from Congress to the American people?',
       sectionTeaser: ['How do federal dollars ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>move from congress to the American people?</span>],
       introBlurb: [
         <>
@@ -105,9 +103,8 @@ export default class FederalCovidSpending extends React.Component {
       anchor: 'tracking',
       number: '03',
       subtext: 'Tracking Spending',
-      subblurb: '',
-      blurb: 'How much has been spent?',
-      sectionTeaser: ['How much ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>funding has been spent?</span>],
+      subblurb: 'How much emergency funding has been spent?',
+      sectionTeaser: ['How much emergency funding ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>has been spent?</span>],
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: [

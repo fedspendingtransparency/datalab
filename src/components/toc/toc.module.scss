@@ -11,7 +11,7 @@ $mdGrey: #555555;
     margin: 0.1rem 0 0.3rem;
     text-align: left;
   }
-  .subtitle {
+  .subblurb {
     color: $font-title;
     font-weight: bold;
     font-size: 0.875rem;
@@ -110,7 +110,7 @@ $mdGrey: #555555;
       padding: 0;
       border: none;
     }
-    .subtitle {
+    .subblurb {
       display: none;
     }
     .number {
