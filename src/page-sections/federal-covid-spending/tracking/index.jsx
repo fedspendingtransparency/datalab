@@ -32,7 +32,7 @@ const showLess = 10; // bars to show when collapsed
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
     query {
-      spending: allCovid19ResponseViz3MainAgencySpending20200617Csv {
+      spending: allCovid19ResponseViz3MainAgencySpending20200619Csv {
         nodes {
 					label: Agency
 					Percent_Outlaid
@@ -44,7 +44,7 @@ export default function Tracking(props) {
 					Total_Budgetary_Resources
         }
       }
-			total: allCovid19ResponseViz3MainAgencyTotal20200617Csv {
+			total: allCovid19ResponseViz3MainAgencyTotal20200619Csv {
         nodes {
 					label: Agency
 					Percent_Outlaid
@@ -56,7 +56,7 @@ export default function Tracking(props) {
 					Total_Budgetary_Resources
         }
       }
-			loans: allCovid19ResponseViz3MainAgencyLoans20200617Csv {
+			loans: allCovid19ResponseViz3MainAgencyLoans20200619Csv {
         nodes {
 					label: Agency
 					Percent_Outlaid
@@ -68,7 +68,7 @@ export default function Tracking(props) {
 					Total_Budgetary_Resources
         }
       }
-			allData: allCovid19ResponseViz3ModalAgency20200617Csv {
+			allData: allCovid19ResponseViz3ModalAgency20200619Csv {
         group(field: Agency) {
           fieldValue
           nodes {
@@ -191,7 +191,7 @@ export default function Tracking(props) {
 
 	const findModalTitle = () => {
 		const selectionAmount = data[dataType].nodes.find((item) => item.label === selectedBar);
-
+		const totalofAll = data.total.nodes[0].Total_Budgetary_Resources;
 		return [
 			<span className={styles.modalTitle}>
 				{selectedBar}
@@ -374,10 +374,10 @@ export default function Tracking(props) {
 			</AccordionList>
 			<ControlBar alignRightOnMobile>
 				<Share
-					siteUrl={props.location.origin}
-					pageUrl={`${props.location.pathname}#${props.sectionId}`}
-					title="Data Lab - COVID-19 Tracking - U.S. Treasury"
-					text="Curious how much #COVID-19 related funds have been spent? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/"
+  siteUrl={props.location.origin}
+  pageUrl={`${props.location.pathname}#${props.sectionId}`}
+  title="Data Lab - COVID-19 Tracking - U.S. Treasury"
+  text="Curious how much #COVID-19 related funds have been spent? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/"
 				/>
 			</ControlBar>
 			<div className={styles.viewSpendingByContainer}>
@@ -385,12 +385,12 @@ export default function Tracking(props) {
 				<FormControl>
 					<InputLabel id={styles.viewSpendingByDropdownLabel} />
 					<Select
-						labelId={styles.viewSpendingByDropdownLabel}
-						className={styles.viewSpendingByDropdown}
-						input={<InputComponent />}
-						value={activeAccountFilter}
-						onChange={handleSpendingDropdownChange}
-						MenuProps={{
+  labelId={styles.viewSpendingByDropdownLabel}
+  className={styles.viewSpendingByDropdown}
+  input={<InputComponent />}
+  value={activeAccountFilter}
+  onChange={handleSpendingDropdownChange}
+  MenuProps={{
 							anchorOrigin: {
 								vertical: 'bottom',
 								horizontal: 'left',
@@ -404,9 +404,9 @@ export default function Tracking(props) {
 					>
 						{accountBreakdownOptions.map((option) => (
 							<MenuItem
-								key={option.name}
-								value={option.name}
-								className={styles.dropdownItem}
+  key={option.name}
+  value={option.name}
+  className={styles.dropdownItem}
 							>
 								{option.icon}
 								{' '}
@@ -431,30 +431,30 @@ export default function Tracking(props) {
 			{mainChart()}
 
 			<ModalReference
-				open={isModalOpen}
-				close={closeModal}
-				title={findModalTitle()}
-				maxWidth={false}
-				maxHeight
-				paperStyle={paperStyle}
+  open={isModalOpen}
+  close={closeModal}
+  title={findModalTitle()}
+  maxWidth={false}
+  maxHeight
+  paperStyle={paperStyle}
 			>
 				<Modal
-					bar={selectedBar}
-					data={filterModalData()}
-					barData={selectedBarData}
-					isModal
-					activeAcc={activeAccountFilter}
-					mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+  bar={selectedBar}
+  data={filterModalData()}
+  barData={selectedBarData}
+  isModal
+  activeAcc={activeAccountFilter}
+  mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
 				/>
 			</ModalReference>
 
 			<ModalReference
-				open={isInfoModalOpen}
-				close={closeModal}
-				title="Spending Definitions"
-				titleStyle={{ fontWeight: 600 }}
-				maxWidth
-				maxHeight
+  open={isInfoModalOpen}
+  close={closeModal}
+  title="Spending Definitions"
+  titleStyle={{ fontWeight: 600 }}
+  maxWidth
+  maxHeight
 			>
 				{categories.map((c) => (
 					<div className={styles.infoModalBody}>
@@ -464,15 +464,15 @@ export default function Tracking(props) {
 						</div>
 						{c.infoModalDescription}
 					</div>
-			  ))}
+				))}
 			</ModalReference>
 
 			{showLess >= data[dataType].nodes.length
 				? ''
-				:				(
+				: (
 					<SeeMoreButton fullWidth onClick={handleSeeMore}>
 						{limitBars
-							?						(
+							? (
 								<>
 									<div style={{ fontWeight: 600 }}>See More</div>
 							&nbsp;(
@@ -480,11 +480,11 @@ export default function Tracking(props) {
 									)
 								</>
 							)
-							:	<div style={{ fontWeight: 600 }}>See Less</div>}
+							: <div style={{ fontWeight: 600 }}>See Less</div>}
 					</SeeMoreButton>
 				)}
 
-			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-17.csv" date="May 2020" />
+			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-19.csv" date="May 2020" />
 		</>
 	);
 }
