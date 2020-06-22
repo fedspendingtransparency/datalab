@@ -7,21 +7,21 @@ import styles from './modal.module.scss';
 import LIcon from '../../../../svgs/federal-covid-spending/tracking/l-icon.svg';
 
 export default function CovidModal(props) {
-	function Content() {
-		if (props.data) {
-			return (
-				<>
-					{props.data.map((i, key) => {
-						const _data = [{
-							amount: i.Amount_Outlaid,
-							percent: i.Percent_Outlaid,
-						}, {
-							amount: i.Amount_Obligated,
-							percent: i.Percent_Obligated_Not_Outlaid,
-						}, {
-							amount: i.Amount_Unobligated,
-							percent: i.Percent_Unobligated,
-						}];
+  function Content() {
+    if (props.data) {
+      return (
+        <>
+          {props.data.map((i, key) => {
+            const _data = [{
+              amount: i.Amount_Outlaid,
+              percent: i.Percent_Outlaid,
+            }, {
+              amount: i.Amount_Obligated,
+              percent: i.Percent_Obligated_Not_Outlaid,
+            }, {
+              amount: i.Amount_Unobligated,
+              percent: i.Percent_Unobligated,
+            }];
 
 						if (props.mobileTablet) {
 							return (
