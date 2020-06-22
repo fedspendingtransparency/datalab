@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 
+
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
@@ -177,6 +178,17 @@ export default function Tracking(props) {
 	];
 
 
+	const modalTotalOfAmount = (selection) => {
+		if (dataType === 'loans' || dataType === 'spending') {
+			return (
+				<p className={styles.selectionAmountValSmall}>
+					{selection ? ` of ${numberFormatter('dollars suffix', totalBudgetByAgency[selection])}` : ''}
+				</p>
+			);
+		}
+		return <></>;
+	};
+
 	const findModalTitle = () => {
 		const selectionAmount = data[dataType].nodes.find((item) => item.label === selectedBar);
 		const totalofAll = data.total.nodes[0].Total_Budgetary_Resources;
@@ -188,9 +200,7 @@ export default function Tracking(props) {
 			<p className={styles.selectionAmountVal}>
 				{selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}
 			</p>,
-			<p className={styles.selectionAmountValSmall}>
-				{selectionAmount ? ` of ${numberFormatter('dollars suffix', totalofAll)}` : ''}
-			</p>,
+			modalTotalOfAmount(selectedBar),
 		];
 	};
 

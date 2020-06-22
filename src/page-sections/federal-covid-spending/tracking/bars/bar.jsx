@@ -158,9 +158,9 @@ export default class Bar extends React.Component {
 			</div>
 			{this.props.isModal ? '' :
 				<div className={`${styles.sideBudget} ${styles.topPad}`}>
-				{this.props.total}
-				<br/>
-				<span className={styles.sideBudgetTotal}>{this.props.allTotal ? `of ${this.props.allTotal}` : ''}</span>
+					<span>{this.props.total}</span>
+					<br/>
+					<span className={styles.sideBudgetTotal}>{this.props.allTotal ? `of ${this.props.allTotal}` : ''}</span>
 			</div>}
 		</div>
 		;
