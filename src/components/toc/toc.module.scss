@@ -35,7 +35,57 @@ $mdGrey: #555555;
     line-height: 16px;
     margin-top: 10px;
   }
+
+  .legacy-anchor:hover {
+    color: $legacyBlue;
+    * {
+      color: $legacyBlue !important;
+      text-decoration: underline;
+    }
+  }
+
+  .colleges-and-universities-anchor:hover {
+    color: $cuRed;
+    * {
+      color: $cuRed !important;
+      text-decoration: underline;
+    }
+  }
+
+  .federal-covid-spending-anchor:hover {
+    color: $covidPurple;
+    * {
+      color: $covidPurple !important;
+      text-decoration: underline;
+    }
+  }
+
+  .homelessness-analysis-anchor:hover {
+    color: $homelessAnalysisPurple;
+    * {
+      color: $homelessAnalysisPurple !important;
+      text-decoration: underline;
+    }
+  }
+  
+  .legacy-section {
+    color: $legacyBlue;
+  }
+  
+  .colleges-and-universities-section {
+    color: $cuRed;
+  }
+  
+  .federal-covid-spending-section {
+    color: $covidPurple;
+  }
+  
+  .homelessness-analysis-section {
+    color: $homelessAnalysisPurple;
+  }
 }
+
+
 
 @media (min-width: $desktop) {
   #TOC {
