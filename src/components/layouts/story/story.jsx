@@ -8,9 +8,10 @@ import HwctaLink from '../../hwcta-link/hwcta-link';
 import MoreAnalyses from '../../more-analyses/more-analyses';
 import { StorypageHeader } from '../../headers/headers';
 import Toc from '../../toc/toc';
+import pageColorMap from '../../../utils/page-color';
 
 const StoryLayout = (props) => {
-  let header, toc;
+  let header, toc, color;
 
   if (!props.isCustomHeader) {
     header =
@@ -32,6 +33,10 @@ const StoryLayout = (props) => {
 
     toc = props.sectionToc ? <Toc sections={props.sectionToc} /> : <></>;
   }
+  
+  if (typeof window !== 'undefined') {
+    color = pageColorMap[window.location.pathname]
+  }
 
   return <Default>
     <StorypageHeader />
@@ -41,7 +46,10 @@ const StoryLayout = (props) => {
       {props.children}
 
       <div className={styles.hwcta}>
-        <HwctaLink url={props.hwctaLink || '#'} />
+        <HwctaLink
+          url={props.hwctaLink || '#'}
+          fillColor={color}
+        />
       </div>
       <MoreAnalyses />
     </div>
