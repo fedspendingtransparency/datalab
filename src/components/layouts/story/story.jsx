@@ -1,5 +1,5 @@
 import styles from './story.module.scss';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Default from '../default/default';
@@ -9,9 +9,10 @@ import MoreAnalyses from '../../more-analyses/more-analyses';
 import { StorypageHeader } from '../../headers/headers';
 import Toc from '../../toc/toc';
 import pageColorMap from '../../../utils/page-color';
+import globalVariables from '../../../styles/variables.scss';
 
 const StoryLayout = (props) => {
-  let header, toc, color;
+  let header, toc;
 
   if (!props.isCustomHeader) {
     header =
@@ -33,10 +34,14 @@ const StoryLayout = (props) => {
 
     toc = props.sectionToc ? <Toc sections={props.sectionToc} /> : <></>;
   }
+
+  const [color, setColor] = useState(globalVariables.legacy);
   
-  if (typeof window !== 'undefined') {
-    color = pageColorMap[window.location.pathname]
-  }
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setColor(pageColorMap[window.location.pathname])
+    }
+  }, [props.color])
 
   return <Default>
     <StorypageHeader />

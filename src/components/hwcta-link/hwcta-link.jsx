@@ -8,9 +8,10 @@ import { Grid, Hidden, Container } from '@material-ui/core';
 import { withStyles } from "@material-ui/styles"
 import Sources from '../logos/sources';
 import { Link } from 'gatsby';
+import globalVariables from '../../styles/variables.scss';
 
 const HWCTALink = (props) => {
-  const DSMWrapper = withStyles(() => ({
+  const LinkWrapper = withStyles(() => ({
     'root': {
       '&:hover': {
         '& .hover-color': {
@@ -29,7 +30,7 @@ const HWCTALink = (props) => {
 
   return (
     <div className={hwctaLinkStyles.hwcta + ' ' + props._mainClass}>
-      <DSMWrapper>
+      <LinkWrapper>
         <Link to={props.url.replace(/\/\//g, '/')} style={{ textDecorationColor: props.fillColor }}>
           <Grid container alignItems='center'>
             <Grid item className={hwctaLinkStyles.icon}>
@@ -47,7 +48,7 @@ const HWCTALink = (props) => {
             </Grid>
           </Grid>
         </Link>
-      </DSMWrapper>
+      </LinkWrapper>
     </div>
   );
 };
@@ -57,7 +58,7 @@ HWCTALink.propTypes = {
 };
 
 HWCTALink.defaultProps = {
-  fillColor: '#881E3D'
+  fillColor: globalVariables.legacy
 };
 
 export default HWCTALink;
