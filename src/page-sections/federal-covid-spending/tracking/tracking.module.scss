@@ -6,78 +6,78 @@ h2 {
 
 .legendContainer {
     .legendAsOf {
-	font-size: 1rem;
-	display: flex;
-	align-items: center;
-	margin-bottom: 2rem;
+		font-size: 1rem;
+		display: flex;
+		align-items: center;
+		margin-bottom: 2rem;
     }
 
     .legend {
-	display: flex;
-	margin-bottom: 2rem;
-	padding: 6px;
+		display: flex;
+		margin-bottom: 2rem;
+		padding: 6px;
 
-	div {
-	    display: flex;
-	    justify-content: center;
+		div {
+			display: flex;
+			justify-content: center;
 
-	    span {
-		font-size: 0.875rem;
-	    }
-	}
+			span {
+			font-size: 0.875rem;
+			}
+		}
 
-	div:last-of-type {
-	    border-left: none;
-	}
+		div:last-of-type {
+			border-left: none;
+		}
 
-	.infoButton {
-	    padding: 0;
-	    font-size: 1rem;
-	    color: #fff;
-	    background-color: #2273CE;
-	}
+		.infoButton {
+			padding: 0;
+			font-size: 1rem;
+			color: #fff;
+			background-color: #2273CE;
+		}
 
-	.infoButton:hover {
-	    background-color: #666;
-	}
+		.infoButton:hover {
+			background-color: #666;
+		}
 
-	.infoButton:focus {
-	    outline: solid 1px blue;
-	}
+		.infoButton:focus {
+			outline: solid 1px blue;
+		}
 
-	.blockContainer {
-	    display: flex;
-	    background: $lightBackground;
-	    padding: 6px;
-	    border: solid 1px #ddd;
+		.blockContainer {
+			display: flex;
+			background: $lightBackground;
+			padding: 6px;
+			border: solid 1px #ddd;
 
-	    div {
-		align-items: center;
-	    }
-	}
+			div {
+			align-items: center;
+			}
+		}
 
-	.block {
-	    display: inline-block;
-	    height: 1.125rem;
-	    width: 1.125rem;
-	    margin: 0 0.5rem 0 1.5rem;
+		.block {
+			display: inline-block;
+			height: 1.125rem;
+			width: 1.125rem;
+			margin: 0 0.5rem 0 1.5rem;
 
-	    &:first-child {
-		margin-left: 0;
-	    }
-	}
+			&:first-child {
+			margin-left: 0;
+			}
+		}
 
-	.outlayBar {
-	    background: darken($covidPurple, 25%);
-	}
+		.outlayBar {
+			background: darken($covidPurple, 25%);
+		}
 
-	.obligatedBar {
-	    background: $covidPurple;
-	}
+		.obligatedBar {
+			background: $covidPurple;
+		}
 
-	.unobligatedBar {
-	    background: #f3e9ff;
-	}
+		.unobligatedBar {
+			background: #f3e9ff;
+		}
     }
 }
 
@@ -96,21 +96,19 @@ h2 {
     letter-spacing: normal;
 
     span {
-	font-size: 0.875rem;
-	font-weight: $bold;
+		font-size: 0.875rem;
+		font-weight: $bold;
     }
 }
 
 .selectionAmountVal {
-    display: inline;
-    font-weight: 300;
-    font-size: 24px;
+	display: inline;
+	font-weight: 300;
 }
 
 .selectionAmountValSmall {
-    display: inline;
-    font-weight: 300;
-    font-size: 18px;
+	display: inline;
+	font-weight: 300;
 }
 
 .section-heading {
@@ -124,19 +122,19 @@ h2 {
     margin-bottom: 1.5rem;
 
     .dropdown-icon {
-	margin-right: 10px;
-	height: 23px;
+		margin-right: 10px;
+		height: 23px;
     }
 
     .view-spending-by-heading {
-	font-size: 1.625rem;
-	font-weight: 300;
-	margin-right: 12px;
-	margin-top: 3px;
+		font-size: 1.625rem;
+		font-weight: 300;
+		margin-right: 12px;
+		margin-top: 3px;
     }
 
     #view-spending-by-dropdown-label {
-	display: none;
+		display: none;
     }
 }
 
@@ -147,42 +145,42 @@ h2 {
     border-bottom: solid 1px #666;
 
     &:last-child {
-	border-bottom: 0;
+		border-bottom: 0;
     }
 
     svg {
-	margin-right: 15px;
+		margin-right: 15px;
     }
 }
 
 .infoModalBody {
     .modalBlock {
-	height: 1.25rem;
-	width: 1.25rem;
-	margin-right: 1rem;
+		height: 1.25rem;
+		width: 1.25rem;
+		margin-right: 1rem;
     }
 
     .heading {
-	display: flex;
-	align-items: center;
-	font-size: 1.25rem;
-	font-weight: 600;
+		display: flex;
+		align-items: center;
+		font-size: 1.25rem;
+		font-weight: 600;
     }
 
     .outlayBar {
-	background: darken($covidPurple, 25%);
+		background: darken($covidPurple, 25%);
     }
 
     .obligatedBar {
-	background: $covidPurple;
+		background: $covidPurple;
     }
 
     .unobligatedBar {
-	background: #f3e9ff;
+		background: #f3e9ff;
     }
 
     p {
-	margin-left: 36px;
+		margin-left: 36px;
     }
 }
 
@@ -196,58 +194,63 @@ h2 {
     font-weight: 600;
 }
 
-.modal-subtitle {
-    font-weight: 300;
-}
-
 @media screen and (min-width: $phone) {
     .blockContainer {
-	align-items: center;
-	height: 38px;
+		align-items: center;
+		height: 38px;
 
-	div:first-of-type {
-	    margin-right: 1.5rem;
-	}
+		div:first-of-type {
+			margin-right: 1.5rem;
+		}
     }
+
+	.selectionAmountVal {
+		font-size: 24px;
+	}
+  
+	.selectionAmountValSmall {
+		font-size: 18px;
+	}
 }
 
 @media (max-width: $desktop - 1) {
     .view-spending-by-container {
-	justify-content: center;
-	margin-bottom: 0.5rem;
+		justify-content: center;
+		margin-bottom: 0.5rem;
     }
 
     .legendContainer {
-	justify-content: center;
+		justify-content: center;
 
-	.legendAsOf {
-	    justify-content: center;
-	}
+		.legendAsOf {
+			justify-content: center;
+		}
 
-	.legend {
-	    align-items: flex-end;
-	}
+		.legend {
+			align-items: flex-end;
+		}
 
-	.toggleContainer {
-	    width: 100%;
-	    margin-bottom: 0;
+		.toggleContainer {
+			width: 100%;
+			margin-bottom: 0;
+		}
 	}
-    }
+	
     .percentLegend {
-	margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
+		margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
     }
 
     .view-spending-by-container {
-	justify-content: center;
+		justify-content: center;
     }
 }
 
 @media screen and (max-width: $tablet - 1) {
     .covidTitle {
-	font-size: 1.25rem;
-	color: #666;
-	line-height: 40px;
-	padding-bottom: 1.2rem;
+		font-size: 1.25rem;
+		color: #666;
+		line-height: 40px;
+		padding-bottom: 1.2rem;
     }
 
     .legendContainer {
@@ -255,70 +258,71 @@ h2 {
 	    align-items: center;
 
 	    .blockContainer {
-		margin-top: 15px;
-		justify-content: space-around;
+			margin-top: 15px;
+			justify-content: space-around;
 	    }
 	}
     }
     .percentLegend {
-	margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem
-		  calc(#{$mobileLabelWidth} - 0.5rem);
+		margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
     }
 }
 
 @media screen and (max-width: $phone - 1) {
     .covidTitle {
-	font-size: 1.25rem;
-	color: #666;
-	line-height: 30px;
+		font-size: 1.25rem;
+		color: #666;
+		line-height: 30px;
     }
 
     .percentLegend {
-	margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem
-		  calc(#{$mobileLabelWidth} - 0.5rem);
+		margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
     }
 
     .percentLegend > span {
-	font-size: 0.75rem;
-	font-weight: $bold;
+		font-size: 0.75rem;
+		font-weight: $bold;
     }
 
     .blockContainer {
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: flex-start;
-	height: 76px;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: flex-start;
+		height: 76px;
     }
 
     .view-spending-by-container {
-	flex-direction: column;
-	align-items: center;
+		flex-direction: column;
+		align-items: center;
 
-	.view-spending-by-heading {
-	    margin-bottom: 6px;
-	}
+		.view-spending-by-heading {
+			margin-bottom: 6px;
+		}
     }
 
-    .modal-title {
-	font-size: 18px !important;
-	font-weight: 600;
-    }
-    
-    .modal-subtitle {
-	font-size: 18px !important;
-	font-weight: 300;
-    }
+  .modal-title {
+    font-size: 18px !important;
+    font-weight: 600;
+  }
+
+  .selectionAmountVal {
+    font-size: 18px;
+  }
+  
+  .selectionAmountValSmall {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: $desktop - 1) and (min-width: $tablet) {
     .section-heading {
-	text-align: center;
-	font-size: 2rem;
+		text-align: center;
+		font-size: 2rem;
     }
 }
 
 @media screen and (max-width: $tablet - 1) {
     .section-heading {
-	font-size: 1.25rem;
+		font-size: 1.25rem;
     }	
 }
