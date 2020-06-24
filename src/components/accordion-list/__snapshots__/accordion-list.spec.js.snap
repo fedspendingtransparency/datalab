@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion expect the snapshot to match 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12"
+    >
+      <section
+        className="accordion"
+        style={Object {}}
+      >
+        <h1
+          className="heading"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Placeholder Title
+          <button
+            className="toggle"
+            onClick={[Function]}
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-plus fa-w-14 plus"
+              data-icon="plus"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-minus fa-w-14 minus"
+              data-icon="minus"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+            <span
+              className="sr-only"
+            >
+              toggle contents
+            </span>
+          </button>
+        </h1>
+        <div
+          className="content"
+        >
+          Placeholder Body
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+`;
