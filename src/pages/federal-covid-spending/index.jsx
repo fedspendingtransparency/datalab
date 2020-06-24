@@ -17,7 +17,7 @@ import Tracking from '../../page-sections/federal-covid-spending/tracking';
 const BudgetAccordionContent = () => (
   <div className={styles.accordionContents}>
     <p>
-      All of the data in our analysis comes from agencies’ certified monthly reporting to the <a target='_blank' rel='noopener noreferrer' href="https://www.fiscal.treasury.gov/gtas/">Treasury’s Governmentwide Treasury Account Symbol (GTAS) Adjusted Trial Balance System</a>. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for certifying their reporting and ensuring their data is correct.
+      All of the data in this analysis comes from agencies’ certified monthly reporting to the <a target='_blank' rel='noopener noreferrer' href="https://www.fiscal.treasury.gov/gtas/">Treasury’s Governmentwide Treasury Account Symbol (GTAS) Adjusted Trial Balance System</a>. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for certifying their reporting and ensuring their data is correct.
     </p>
     <p>
       For the COVID-19 special appropriations, agencies are required to include a special field called the <b>Disaster Emergency Fund Code (DEFC)</b> in their financial reporting. Data Lab is tracking COVID-19 appropriations through the spending lifecycle using the DEFC that maps to each piece of legislation.
@@ -45,59 +45,55 @@ export default class FederalCovidSpending extends React.Component {
       anchor: 'budget',
       number: '01',
       subtext: 'Overview',
-      subblurb: '',
-      blurb: 'How is the federal government allocating emergency funds for COVID-19?',
+      subblurb: 'How is the federal government allocating emergency funds for COVID-19?',
       sectionTeaser: ['How is the federal government', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> allocating emergency funds of COVID-19?</span>],
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: [
         <>
           <p key='section-1-p-1'>
-            To aid the nation’s recovery from the coronavirus disease 2019 (COVID-19) pandemic, the U.S. Congress passed four special appropriations laws, making $2.4 trillion available for the federal government to use in relief efforts.<a id='fr1' href='#fn1' className='footnoteref'>1</a> The largest of these was the Coronavirus Aid, Relief, and Economic Security (CARES) Act, which provided almost $2 trillion and is the largest special appropriation in American history. It is the role of the Treasury Department (the Treasury) to review new legislation and issue funds to federal agencies. Agencies are then required to report how they are spending these funds to the Treasury’s governmentwide accounting system and certify its accuracy.
+            To aid the nation’s recovery from the coronavirus disease 2019 (COVID-19) pandemic, the U.S. Congress passed four special appropriations laws, making $2.3 trillion available for the federal government to use in relief efforts.<a id="fr1" href="#fn1" className="footnoteref">1</a> The largest of these was the Coronavirus Aid, Relief, and Economic Security (CARES) Act, which provides almost $2 trillion and is the largest special appropriation in American history. To track how and where COVID-19 funding has been spent, we first look at the major players involved in spending the funds.
           </p>
           <p key='section-1-p-2'>
-            In this analysis of COVID-19 spending, Data Lab uses this certified data to track the progress of spending, starting with the distribution of special appropriations across federal agencies.
+            Federal agencies play a critical role in COVID-19 relief efforts by executing and administering funding allocated to them through the appropriations process. Approximately 90% of special appropriations for COVID-19 are authorized to four agencies: <a href="https://home.treasury.gov/policy-issues/cares" target="_blank" rel='noopener noreferrer'>the Department of the Treasury</a> (Treasury), the <a href="https://www.sba.gov/page/coronavirus-covid-19-small-business-guidance-loan-resources" target="_blank" rel='noopener noreferrer'>Small Business Administration</a> (SBA), the <a href="https://www.hhs.gov/coronavirus/cares-act-provider-relief-fund/index.html" target="_blank" rel='noopener noreferrer'>Department of Health and Human Services</a> (HHS), and the <a href="https://www.dol.gov/coronavirus" target="_blank" rel='noopener noreferrer'>Department of Labor</a> (DOL).
+          </p>
+          <p key='section-1-p-3'>
+            Each agency serves a unique mission and has been allocated supplemental funding to expand existing programs, or in some cases, establish new programs in response to the pandemic. For example, the Treasury issues Economic Impact Payments through the Internal Revenue Service’s tax system. Funding has also gone to DOL’s unemployment compensation programs and SBA’s grant and loan programs. Examples of new programs include the HHS Provider Relief Fund and Treasury’s Coronavirus Economic Stabilization Act Program. In Section 3, we dive deeper into each agency’s spending accounts for insight into how the agency is spending the money.
           </p>
         </>
                                                                                                                                                                                           ],
-      viztitle: 'Covid-19 Supplemental Funding by Budget Function',
+      viztitle: 'COVID-19 Supplemental Funding by Agency',
       tagName: 'Budget',
       accordion: <aside>
-                                                                                                       <Accordion title='How do you track $2.4 trillion?' color='#6F41A7' backgroundColor='#F3EAFF'>
-                                                                                                         {BudgetAccordionContent()}
-                                                                                                       </Accordion>
-                                                                                                     </aside>
+                                                                                                                <Accordion title='How do you track $2.3 trillion?' color='#6F41A7' backgroundColor='#F3EAFF' isCovid>
+                                                                                                                  {BudgetAccordionContent()}
+                                                                                                                </Accordion>
+                                                                                                              </aside>
     },
     {
       section: 'The Flow of Funds',
       anchor: 'overview',
       number: '02',
-      subtext: 'The Flow of Funds', // <a href='' target='_blank' rel='noopener noreferrer'>
-      subblurb: '',
-      blurb: 'How do federal dollars move from Congress to the American people?',
+      subtext: 'The Flow of Funds',
+      subblurb: 'How do federal dollars move from Congress to the American people?',
       sectionTeaser: ['How do federal dollars ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>move from congress to the American people?</span>],
       introBlurb: [
         <>
           <p key='section-2-p-1'>
-            There are many steps to move federal dollars through the full budget lifecycle. Here, we focus on a few key parts of the process that help us track the progress of agency spending for COVID-19.
+            There are many steps in the process to move federal dollars through the full budget lifecycle to the American people. In this section, we break down a few key terms and explain how agencies spend supplemental funding to help follow the flow of money.
           </p>
           <p key='section-2-p-2'>
-            After COVID-19 special <a href='https://www.usaspending.gov/#/?glossary=appropriation' target='_blank' rel='noopener noreferrer'>appropriations</a> laws are passed, Treasury issues funding to different spending accounts so federal agencies can begin using it according to the purpose assigned in the law. Large federal agencies typically have multiple accounts that exist for different purposes.
-            Across the 100 agencies who routinely report data to <a href='https://www.usaspending.gov/#/' target='_blank' rel='noopener noreferrer'>USAspending.gov</a>, there are roughly 2,000 accounts that are used for regular spending. However, with the almost $2.4 trillion of emergency funding related to COVID-19, spending has been allocated to a targeted group of about 180 accounts.
+            After a special appropriations law passes, it is the role of the Treasury to review the new legislation and issue funds to agencies’ spending accounts. The <a href="https://www.usaspending.gov/#/?glossary=appropriation" target="_blank" rel='noopener noreferrer'>appropriations</a> process gives agencies the authority to begin using funding according to the purpose assigned in the law. To spend the money, agencies obligate the funds to different programs through contracts, direct payments, grants, or loans. When agencies make an <a href="https://www.usaspending.gov/#/?glossary=obligation" target="_blank" rel='noopener noreferrer'>obligation</a>, they create a binding agreement to use the funds for a particular purpose. An example of an obligation is an agency setting aside adequate funds when it enters into a contract with a vendor to purchase <a href="https://www.usaspending.gov/#/award/CONT_AWD_75A50120C00030_7505_-NONE-_-NONE-" target="_blank" rel='noopener noreferrer'>personal protective equipment, such as masks</a>.
           </p>
           <p key='section-2-p-3'>
-            The appropriations give agencies the authority to obligate the funds to different programs through contracts, direct payments, grants, or loans. This step, where agencies make a binding agreement to use funds for a particular purpose, is called an <a href='https://www.usaspending.gov/#/?glossary=obligation' target='_blank' rel='noopener noreferrer'>obligation. </a>
-            An example of an obligation is an agency setting aside adequate funds when it enters into a contract with a vendor to purchase <a href='https://www.usaspending.gov/#/award/CONT_AWD_75A50120C00030_7505_-NONE-_-NONE-' target='_blank' rel='noopener noreferrer'>personal protective equipment such as masks.</a>
+            Creating an obligation doesn’t mean the money has been paid, only that the agency has promised to pay the funds. In many cases, the recipients of funds may be required to do something before receiving payment, such as delivering equipment or supplies.
           </p>
           <p key='section-2-p-4'>
-            Creating an obligation doesn’t mean the money has been paid, only that the federal agency has promised to pay the funds. In many cases, the recipients of funds may be required to do something before receiving payment, such as delivering equipment or supplies.
-          </p>
-          <p key='section-2-p-5'>
-            The final step in the process is making a payment, which is called an <a href='https://www.usaspending.gov/#/?glossary=outlay' target='_blank' rel='noopener noreferrer'>outlay.</a> This is the step when the funds for a direct payment, grant, loan, or contract are received by individuals, businesses or other organizations.
+            The final step in the process is making a payment, which is called an <a href="https://www.usaspending.gov/#/?glossary=outlay" target="_blank" rel='noopener noreferrer'>outlay</a>. This is the step where the agencies authorize the Treasury to issue funds toward a direct payment, grant, loan, or contract to individuals, businesses, or other organizations.
           </p>
         </>
-                                                                                                                                                                                                ],
-      viztitle: 'Title for Overview viz',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ],
+      viztitle: 'The Process of COVID-19 Supplemental Spending',
       tagName: 'Overview',
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor }
@@ -107,25 +103,23 @@ export default class FederalCovidSpending extends React.Component {
       anchor: 'tracking',
       number: '03',
       subtext: 'Tracking Spending',
-      subblurb: '',
-      blurb: 'How much emergency funding has been spent?',
+      subblurb: 'How much emergency funding has been spent?',
       sectionTeaser: ['How much emergency funding ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>has been spent?</span>],
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: [
         <>
           <p key='section-3-p-1'>
-            As of May 1st, the Treasury has tracked $963 billion in obligations and $459 billion in outlays paid out by agencies related to COVID-19 relief.
+            As of May 1st, the Treasury has tracked $963 billion in obligations, of which $459 billion has been outlayed in COVID-19 relief. These totals are calculated from agencies’ certified monthly reports to the Treasury’s governmentwide accounting system (GTAS), which include how much funding agencies obligated and outlayed from their spending accounts.
           </p>
           <p key='section-3-p-2'>
-            Federal agencies report data in the Treasury’s governmentwide accounting systems each month, including how much funding they have obligated and outlaid from their spending accounts. Agencies also certify the accuracy of these reports. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for ensuring their data is correct.
+            In this visualization, we explore the 180 agency spending accounts containing COVID-19 relief funding. These 180 accounts are just a small fraction of the 2,000 accounts used for regular spending. You can click or tab into the visualization to explore how much has been committed and spent by account.
           </p>
           <p key='section-3-p-3'>
-            Under the normal reporting process, the data agencies report and certify on <a href='https://www.usaspending.gov/#/' target='_blank' rel='noopener noreferrer'>USAspending.gov</a> each quarter is not tracked by the specific appropriation bill by which it was initially authorized. With the COVID-19 appropriations, spending is tracked with a special field called the
-            Disaster Emergency Fund Code (DEFC). Using this code allows for funds to be followed through the spending lifecycle. Data Lab will continue to update this analysis on a monthly basis with each reporting window. In addition, agencies will begin reporting spending data using the DEFC to USAspending.gov in July 2020.
+            This analysis will be updated monthly as new data becomes available. To learn more about how we developed this analysis and download the raw data, visit the <a href="/federal-covid-spending/methodologies" target="_blank">Data Sources and Methodologies page</a>.
           </p>
         </>
-                                                                                                                                                                                                                                                                                                                                                                                                                   ],
+                                                                                                                                                                                           ],
       viztitle: 'Title for Tracking viz',
       tagName: 'Tracking'
     }
@@ -135,7 +129,7 @@ export default class FederalCovidSpending extends React.Component {
     <StoryLayout
       title='The Federal Response To COVID-19'
       introSentence='How is the federal government funding relief efforts for COVID-19?'
-      contextStatement='Data Lab explores how emergency funding for COVID-19 makes its way from Congress into the economy. We break down the steps taken by federal agencies to use the $2.4 trillion and track the status so you can see how much has been spent.'
+      contextStatement='Data Lab explores how supplemental funding for COVID-19 makes its way from Congress into the economy. We break down the steps taken by federal agencies to use the $2.3 trillion and track the status so you can see how much has been spent.'
       sectionToc={this.sections}
       hwctaLink={this.props.location.pathname + '/methodologies'}
     >
@@ -154,7 +148,7 @@ export default class FederalCovidSpending extends React.Component {
         );
       })}
       <Grid container justify="center">
-        <Grid item xs={10} style={{ 'color': globalStyles.covidColor }}>
+        <Grid item xs={10}>
           <Footnotes
             footnotes={[
               'Coronavirus Preparedness and Response Supplemental Appropriations Act (H.R. 6074) appropriated an estimated $7.8 billion; Families First Coronavirus Response Act (H.R. 6201) appropriated an estimated $3.4 billion; CARES Act (H.R. 748) appropriated an estimated $1.95 trillion of funding; and the Paycheck Protection Program and Health Care Enhancement Act (H.R. 266) appropriated an estimated $483 billion.',

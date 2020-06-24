@@ -5,6 +5,8 @@
   "author": "Andrea Blackwell <blackwell_andrea@bah.com>, Brett Varney <brett.varney@kc.frb.org>, Jack Killilea <killilea_jack@bah.com>, Matthew Brown <matthew.brown@kc.frb.org>",
   "dependencies": {
     "@date-io/core": "^1.3.13",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
@@ -36,6 +38,7 @@
     "gatsby": "^2.18.17",
     "gatsby-core-utils": "^1.0.34",
     "gatsby-image": "^2.0.37",
+    "gatsby-plugin-emotion": "^4.3.4",
     "gatsby-plugin-google-analytics": "^2.1.31",
     "gatsby-plugin-manifest": "^2.0.28",
     "gatsby-plugin-material-ui": "^2.1.6",

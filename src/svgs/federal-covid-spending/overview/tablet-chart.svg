@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="720" height="225" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
-    <desc id="section-2-tablet-svg">section 2 desktop placeholder alt text</desc>
+<svg width="720" height="225" aria-labelledby="section-2-tablet-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+    <title id="section-2-tablet-svg">Process flow diagram of COVID-19 supplemental funding from appropriations to obligations and ending with outlays.</title>
     <defs>
         <path id="a" d="M0 109.756h154.926V0H0z"/>
         <path id="c" d="M0 .11h49.088v49.94H0z"/>

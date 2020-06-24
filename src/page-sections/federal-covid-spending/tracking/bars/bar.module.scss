@@ -21,13 +21,36 @@ svg {
   }
 }
 
+.totalBar {
+  background-color: $lightBackground;
+  border-bottom: $chartBorder;
+
+  .sideLabel,
+  .sideBudget,
+  .totalBarSideLabel {
+    color: $covidPurple;
+  }
+}
+
+.totalBarBudgetLabel {
+  font-weight: $bold;
+  font-size: 14px;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
 
   &:hover {
-    cursor: pointer;
-    font-weight: $bold;
+    .sideLabel,
+    .sideBudget,
+    .totalBarSideLabel {
+      font-weight: $bold;
+    }
+
+    :not .totalBar {
+      cursor: pointer;
+    }
   }
 
   .topPad {
@@ -37,7 +60,21 @@ svg {
   .sideLabel {
     flex-basis: $labelWidth;
     min-width: $labelWidth;
+    padding-left: 0.5rem;
     padding-right: 0.5rem;
+    color: $font-title;
+  }
+
+  .totalBarSideLabel {
+    flex-basis: $labelWidth;
+    min-width: $labelWidth;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    .totalBarLabel {
+      font-weight: $bold;
+      font-size: 14px;
+    }
   }
 
   .barContainer {
@@ -47,19 +84,19 @@ svg {
 
     background-image: linear-gradient(
       to right,
-      #fff,
-      #fff 24.8%,
+      transparent,
+      transparent 24.8%,
       $background-gray-warm-light 24.8%,
       $background-gray-warm-light 25%,
-      #fff 25%,
-      #fff 49.8%,
+      transparent 25%,
+      transparent 49.8%,
       $background-gray-warm-light 49.8%,
       $background-gray-warm-light 50%,
-      #fff 50%,
-      #fff 74.8%,
+      transparent 50%,
+      transparent 74.8%,
       $background-gray-warm-light 74.8%,
       $background-gray-warm-light 75%,
-      #fff 75%
+      transparent 75%
     );
 
     .bar {
@@ -115,10 +152,35 @@ svg {
     padding-left: 0.5rem;
     white-space: nowrap;
   }
+
+  .sideBudgetTotal {
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  .sideBudget span {
+    color: $font-title;
+  }
 }
 
-@media screen and (max-width: $tablet - 1) {
+
+g.connector {
+  rect {
+    fill-opacity: 0.5;
+  }
+}
+
+@media screen and (max-width: $desktop - 1) {
   .sideLabel {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+
+@media screen and (max-width: $tablet - 1) {
+  .sideLabel,
+  .totalBarSideLabel {
     flex-basis: $mobileLabelWidth !important;
     min-width: $mobileLabelWidth !important;
     padding-right: 0.5rem;

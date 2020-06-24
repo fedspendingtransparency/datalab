@@ -11,6 +11,7 @@ export default class Bar extends React.Component {
 	/* props notes
 		showDetails set if bar details (Outlay etc) should be shown
 		data: outlay, obligated and unobligated as {'amount': amount [in desired format], 'percent': percentage value}
+		totalBar: is this the top, US total bar? (to format differently)
 		barLabel: words to left or top of bar
 		total: bar total amount (not necessarily sum of data amounts) in desired format
 		hideBarLabels: don't show details labels below bar segments
@@ -19,6 +20,7 @@ export default class Bar extends React.Component {
 	*/
 	static propTypes = {
 		'data': PropTypes.arrayOf(PropTypes.object).isRequired,
+		'totalBar': PropTypes.bool,
 		'barLabel': PropTypes.string,
 		'total': PropTypes.string,
 		'hideBarLabels': PropTypes.bool,
@@ -33,75 +35,117 @@ export default class Bar extends React.Component {
 		this.state = {
 			showDetails: false,
 			screenMode: null
-		}
+		};
 	}
 
-	clickHandler = item => {
-		this.props.openModal(item);
-	}
-
-	keyUpHandler = (e, item) => {
-		if (e.keyCode === 13) {
-			this.props.openModal(item);
+	barClickHandler = () => {
+		if (!this.props.isModal && this.state.screenMode >= ScreenModeEnum.desktop && !this.props.totalBar) {
+			this.props.openModal(this.props.barLabel);
 		}
-	}
+	};
+
+	barKeyUpHandler = (e) => {
+		if (!this.props.isModal && this.state.screenMode >= ScreenModeEnum.desktop && !this.props.totalBar && e.keyCode === 13) {
+			this.props.openModal(this.props.barLabel);
+		}
+	};
+
+	labelClickHandler = () => {
+		if (!this.props.isModal && this.state.screenMode < ScreenModeEnum.desktop && !this.props.totalBar) {
+			this.props.openModal(this.props.barLabel);
+		}
+	};
+
+	labelKeyUpHandler = (e) => {
+		if (!this.props.isModal && this.state.screenMode < ScreenModeEnum.desktop && !this.props.totalBar && e.keyCode === 13) {
+			this.props.openModal(this.props.barLabel);
+		}
+	};
 
 	componentDidMount() {
-    this.resizeWindow();
-    window.addEventListener('resize', this.resizeWindow);
-  }
+		this.resizeWindow();
+		window.addEventListener('resize', this.resizeWindow);
+	}
 
 	componentWillUnmount() {
-    window.removeEventListener('resize', this.resizeWindow);
+		window.removeEventListener('resize', this.resizeWindow);
 	}
 
-  resizeWindow = () => {
-    const newMode = checkScreenMode(window.innerWidth);
-    if (newMode !== this.state.screenMode) {
-      this.setState({screenMode: newMode});
-    }
-  }
+	resizeWindow = () => {
+		const newMode = checkScreenMode(window.innerWidth);
+		if (newMode !== this.state.screenMode) {
+			this.setState({ screenMode: newMode });
+		}
+	};
 
 	onHover = () => {
-    if(this.state.screenMode !== ScreenModeEnum.mobile) {
-      this.setState({showDetails: true})
-    }
-	}
+		if (this.state.screenMode >= ScreenModeEnum.desktop) {
+			this.setState({ showDetails: true })
+		}
+	};
 
 	onBlur = () => {
-    if(this.state.screenMode !== ScreenModeEnum.mobile) {
-      this.setState({ showDetails: false })
-    }
-  }
+		if (this.state.screenMode >= ScreenModeEnum.desktop) {
+			this.setState({ showDetails: false })
+		}
+	};
+
+	containerClass = () => {
+		if (this.props.isModal) {
+			return null;
+		} else if (this.props.totalBar) {
+			return `${styles.container} ${styles.totalBar}`
+		} else {
+			return `${styles.container}`
+		}
+	};
 
 	render = () =>
-		<div className={this.props.isModal ? '' : styles.container}>
-      {this.props.isModal ? '' : <div className={`${styles.sideLabel} ${styles.topPad}`}>{this.props.barLabel}</div>}
+		<div className={this.containerClass()}>
+			{this.props.isModal ?
+				'' :
+				<div
+					className={`${this.props.totalBar ? styles.totalBarSideLabel : styles.sideLabel} ${styles.topPad}`}
+					onClick={this.labelClickHandler}
+					onKeyUp={this.labelKeyUpHandler}
+					tabIndex={this.props.isModal || this.state.screenMode >= ScreenModeEnum.desktop || this.props.totalBar ? '' : '0'}
+				>
+					{this.props.totalBar ?
+						<span className={styles.totalBarLabel}>TOTAL U.S. GOVERNMENT FUNDING</span>
+						:
+						this.props.barLabel
+					}
+				</div>
+			}
 			<div className={styles.barContainer}>
 				<div
-					className={`${styles.bar}
-					${this.props.isModal ? '' : styles.topPad}
-					${this.props.isModal ? '' : styles.barBorder}
-					${this.props.firstBar ? styles.firstBar : ''}
-					${this.props.lastBar ? styles.lastBar : ''}`}
-					style={{ cursor: this.props.isModal ? 'default' : 'pointer' }}
-					tabIndex={this.props.isModal ? '' : '0'}
-					onClick={() => this.props.isModal ? '' : this.clickHandler(this.props.barLabel)}
-					onKeyUp={e => this.props.isModal ? '' : this.keyUpHandler(e, this.props.barLabel)}
+					className={`
+            ${styles.bar}
+            ${this.props.isModal ? '' : styles.topPad}
+            ${this.props.isModal ? '' : styles.barBorder}
+            ${this.props.firstBar ? styles.firstBar : ''}
+            ${this.props.lastBar ? styles.lastBar : ''}
+           `}
+					style={{ cursor: this.state.screenMode < ScreenModeEnum.desktop || this.props.isModal || this.props.totalBar ? 'default' : 'pointer' }}
+					tabIndex={this.props.isModal || this.state.screenMode < ScreenModeEnum.desktop ? '' : '0'}
+					onClick={this.barClickHandler}
+					onKeyUp={this.barKeyUpHandler}
 				>
-					<svg width='100%'
-							 height={this.props.isModal ? '70px' : '56px'}
-               onMouseOver={this.onHover}
-               onMouseOut={this.onBlur}>
-            <g style={{display: this.props.isModal || this.state.showDetails ? 'block' : 'none' }}>
-              <CalloutBar
-                  outlaid={parseFloat(this.props.data[0].percent)}
-                  obligated={parseFloat(this.props.data[1].percent)}
-                  unobligated={parseFloat(this.props.data[2].percent)}
-                  data={this.props.data}
-                  isModal={this.props.isModal}
-                />
-            </g>
+					<svg
+						width='100%'
+						height={this.props.isModal ? '70px' : '56px'}
+						onMouseOver={this.onHover}
+						onMouseOut={this.onBlur}
+					>
+						<g style={{ display: this.props.isModal|| this.props.totalBar || this.state.showDetails ? 'block' : 'none' }}>
+							<CalloutBar
+								outlaid={parseFloat(this.props.data[0].percent)}
+								obligated={parseFloat(this.props.data[1].percent)}
+								unobligated={parseFloat(this.props.data[2].percent)}
+								data={this.props.data}
+								isModal={this.props.isModal}
+							/>
+						</g>
 						<PercentBar
 							outlaid={parseFloat(this.props.data[0].percent)}
 							obligated={parseFloat(this.props.data[1].percent)}
@@ -112,7 +156,12 @@ export default class Bar extends React.Component {
 					</svg>
 				</div>
 			</div>
-      {this.props.isModal ? '' : <div className={`${styles.sideBudget} ${styles.topPad}`}>{this.props.total}</div>}
+			{this.props.isModal ? '' :
+				<div className={`${styles.sideBudget} ${styles.topPad}`}>
+					<span>{this.props.total}</span>
+					<br/>
+					<span className={styles.sideBudgetTotal}>{this.props.allTotal ? `of ${this.props.allTotal}` : ''}</span>
+			</div>}
 		</div>
 		;
 }

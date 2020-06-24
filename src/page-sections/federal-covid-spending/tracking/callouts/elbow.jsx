@@ -4,66 +4,88 @@
   xEnd = x position of ending vertical line, end of the horizontal line (pointing to label)
 */
 import React from 'react';
-import defaults from './utils/defaults';
 import PropTypes from 'prop-types';
-import numberFormatter from "src/utils/number-formatter"
-
-ElbowCallout.propTypes = {
-  'xStart': PropTypes.number.isRequired,
-  'xEnd': PropTypes.number.isRequired,
-  'labelOffset': PropTypes.number.isRequired,
-  'label': PropTypes.string.isRequired,
-  'labelAmount': PropTypes.string.isRequired
-
-};
+import numberFormatter from 'src/utils/number-formatter';
+import defaults from './utils/defaults';
+import styles from '../bars/bar.module.scss';
 
 export default function ElbowCallout(props) {
-  function TextBlock() {
-    if(props.isModal) {
-      return (<>
-        <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition}
-              fontSize={defaults.fontSize} fontWeight='bold'>
-          {props.label}&nbsp;
-        </text>
-        <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition + defaults.lineHeight}
-              fontSize={defaults.smFontSize}>
-          {numberFormatter('dollars suffix', props.labelAmount)}&nbsp;({`${props.labelPercent}%`})
-        </text>
-      </>)
-    } else {
-      return <text fill={defaults.fontColor} x={`${props.labelOffset}%`} y={defaults.textPosition}
-            fontSize={defaults.fontSize}>
-        {props.label} ({numberFormatter('dollars suffix', props.labelAmount)})
-      </text>
-    }
-  }
+	const {
+		xStart, xEnd, isModal, labelOffset, label, labelAmount, mobile,
+	} = props;
 
-  return (<>
-    <rect
-      fill={defaults.lineColor}
-      x={`${props.xStart}%`}
-      y='0'
-      width={defaults.lineStroke}
-      height={defaults.starterHeight}
-    />
+	function TextBlock() {
+		if (isModal) {
+			return (
+				<>
+					<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="600">
+						{label}
+					</text>
+					<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
+						{numberFormatter('dollars suffix', labelAmount)}
+					</text>
+				</>
+			);
+		}
 
-    <rect
-      fill={defaults.lineColor}
-      x={`${props.xStart}%`}
-      y={defaults.starterHeight}
-      width={`${props.xEnd - props.xStart}%`}
-      height={defaults.lineStroke}
-    />
+		return (
+			<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
+				<tspan
+					style={{ display: mobile ? 'none' : 'block' }}
+					className={styles.label}
+					fontWeight="600"
+				>
+					{label}
+					{' '}
+				</tspan>
+				<tspan
+					className={styles.amountLabel}
+					style={{ fontWeight: mobile ? '600' : '0' }}
+				>
+					{numberFormatter('dollars suffix', labelAmount)}
+				</tspan>
+			</text>
+		);
+	}
 
-    <rect
-      fill={defaults.lineColor}
-      x={`${props.xEnd}%`}
-      y={defaults.starterHeight}
-      width={defaults.lineStroke}
-      height={defaults.endingHeight}
-    />
+	return (
+		<g className={styles.connector}>
+			<rect
+  			fill={defaults.lineColor}
+				x={`${xStart}%`}
+				y="0"
+				width={defaults.lineStroke}
+				height={defaults.starterHeight}
+			/>
 
-    <TextBlock />
+			<rect
+				fill={defaults.lineColor}
+				x={`${xStart}%`}
+				y={defaults.starterHeight}
+				width={`${xEnd - xStart}%`}
+				height={defaults.lineStroke}
+			/>
 
-  </>)
+			<rect
+				fill={defaults.lineColor}
+				x={`${xEnd}%`}
+				y={defaults.starterHeight}
+				width={defaults.lineStroke}
+				height={defaults.endingHeight}
+			/>
+
+			<TextBlock />
+
+		</g>
+	);
 }
+
+ElbowCallout.propTypes = {
+	xStart: PropTypes.number.isRequired,
+	xEnd: PropTypes.number.isRequired,
+	isModal: PropTypes.bool.isRequired,
+	labelOffset: PropTypes.number.isRequired,
+	label: PropTypes.string.isRequired,
+	labelAmount: PropTypes.string.isRequired,
+	mobile: PropTypes.bool.isRequired,
+};
