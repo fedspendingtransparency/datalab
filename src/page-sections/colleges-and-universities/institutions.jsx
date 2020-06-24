@@ -16,6 +16,7 @@ import Share from '../../components/share/share';
 import StoryHeading from 'src/components/section-elements/story-section-heading/story-section-heading';
 import VizControlPanel from '../../components/chartpanels/viz-control';
 import VizDetails from '../../components/chartpanels/viz-detail';
+import Reset from '../../components/reset/reset';
 
 import dataTableData from '../../../static/unstructured-data/mapbox/tableData.csv';
 import GeoDataMapbox from '../../../static/unstructured-data/mapbox/mapData.json';
@@ -193,9 +194,8 @@ export default function Institutions(props) {
     </AccordionList>
 
     <ControlBar>
-      <div className={styles.mapboxRefresh} id='refresh-btn'>
-        <img src={refreshLogo} />
-        Reset
+      <div className={styles.refreshBtn} id='refresh-btn'>
+        <Reset />
       </div>
       <Share
         location={props.location}
