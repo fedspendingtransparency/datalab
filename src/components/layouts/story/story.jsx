@@ -1,5 +1,5 @@
 import styles from './story.module.scss';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Default from '../default/default';
@@ -8,6 +8,8 @@ import HwctaLink from '../../hwcta-link/hwcta-link';
 import MoreAnalyses from '../../more-analyses/more-analyses';
 import { StorypageHeader } from '../../headers/headers';
 import Toc from '../../toc/toc';
+import pageColorMap from '../../../utils/page-color';
+import globalVariables from '../../../styles/variables.scss';
 
 const StoryLayout = (props) => {
   let header, toc;
@@ -33,6 +35,14 @@ const StoryLayout = (props) => {
     toc = props.sectionToc ? <Toc sections={props.sectionToc} /> : <></>;
   }
 
+  const [color, setColor] = useState(globalVariables.legacy);
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setColor(pageColorMap[window.location.pathname])
+    }
+  }, [props.color])
+
   return <Default>
     <StorypageHeader />
     <div className={styles.storyPage}>
@@ -41,7 +51,10 @@ const StoryLayout = (props) => {
       {props.children}
 
       <div className={styles.hwcta}>
-        <HwctaLink url={props.hwctaLink || '#'} />
+        <HwctaLink
+          url={props.hwctaLink || '#'}
+          fillColor={color}
+        />
       </div>
       <MoreAnalyses />
     </div>
