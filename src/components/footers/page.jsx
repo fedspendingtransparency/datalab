@@ -35,7 +35,7 @@ export default class PageFooter extends React.Component {
     <div className={pageFooterStyles.pageFooter}>
       <Grid container className={pageFooterStyles.content}>
         <Grid item xs={12} lg={3} className={pageFooterStyles.logo}>
-          <DataLab fillColor='#666' />
+          <DataLab fillColor='#666' alt="Data Lab Logo of an abstract American flag referencing a bar chart"/>
         </Grid>
         <Grid item xs={12} lg={3}>
           <div className={pageFooterStyles.title}>Contact Us</div>
