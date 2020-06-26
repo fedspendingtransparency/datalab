@@ -4,18 +4,18 @@ import moreAnalysesStyles from './more-analyses-tiles.module.scss';
 
 import { Grid } from '@material-ui/core';
 
-import explorer from 'src/images/more-analyses/explorer.png';
+import federal from 'src/images/more-analyses/federal.jpg';
 import workers from 'src/images/more-analyses/workers.jpg';
 import budget from 'src/images/more-analyses/budget.jpg';
 import competition from 'src/images/more-analyses/competition.jpg';
 
 const MoreAnalysesTiles = () => {
   const analyses = [{
-    href: 'contract-explorer',
-    imageSrc: explorer,
-    alt: 'A picture of a microscope with a sunburst image overlaid.',
-    title: 'Contract Explorer',
-    subtitle: 'Who receives federal contracts?'
+    href: 'federal-account-explorer',
+    imageSrc: federal,
+    alt: 'A close view of a withered copy of the Statement of the Income and Expenditures of the United States.',
+    title: 'Federal Account Explorer',
+    subtitle: 'Discover the federal government\'s spending accounts'
   }, {
     href: 'federal-employees',
     imageSrc: workers,
