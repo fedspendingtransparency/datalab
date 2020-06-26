@@ -33,13 +33,13 @@ function IndexPage() {
       >
         <Grid item md={12} lg={8} className={homeStyles.featuredTile}>
           <FeatureTile
-            href='federal-covid-spending'
-            imgSrc={covid}
+            href='americas-finance-guide'
+            imgSrc={afg}
             isMain={true}
             imgAlt=''
-            heading='Federal Response to COVID-19'
-            body='To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress passed four special appropriations laws, making $2.3 trillion available for the federal government to use in relief efforts.  As of May 1, the U.S. Department of the Treasury has tracked $963 billion COVID-19-related obligations made by agencies, of which $459 billion has been spent. In this analysis, we break down the funding by agency and describe the flow of money from legislation to the American people.'
-            mobileBody='Follow along as Data Lab tracks the flow of four supplemental funding bills for COVID-19. As of May 1, the U.S. Department of the Treasury has tracked $963 billion in agency spending.'
+            heading="Your Guide to America's Finances"
+            body="Your Guide to America's Finances is an overview of federal government finances in 2019, providing information on spending, revenue, the deficit, and debt. The Guide, which is created by Treasury's Data Lab, presents a series of interactive visualizations to allow you to explore these categories and how they have changed over time. Ultimately, the Guide seeks to provide a comprehensive overview of the trillions of dollars collected and spent by the federal government each year."
+            mobileBody="The Guide presents straightforward information about the federal government's spending and revenue, as well as the deficit and debt in 2019."
           />
         </Grid>
         <Grid item md={12} lg={4}>
