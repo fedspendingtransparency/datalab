@@ -5,6 +5,7 @@ const Logo = props => {
   const logoBlue = props.fillColor || '#212F64';
   const logoRed = props.fillColor || '#CC2128';
   const logoGrey = props.fillColor || '#ACACAC';
+  const altText = props.alt;
 
   return (
     <svg
@@ -14,7 +15,10 @@ const Logo = props => {
       version='1.1'
       xmlns='http://www.w3.org/2000/svg'
       xmlnsXlink='http://www.w3.org/1999/xlink'
+      role="img"
+      aria-labelledby="logo-title"
     >
+      <title id="logo-title">{altText}</title>
       <defs>
         <polygon
           id='logo-path-1'
