@@ -86,14 +86,14 @@ export default class MoreAnalyses extends React.Component {
   }];
 
   show = { // key is current page URL frag, value is array of analyses (above) to show
-    'federal-employees': [8, 0, 4, 5],
-    'colleges-and-universities': [8, 5, 6, 1],
-    'dts': [8, 2, 0, 7],
-    'federal-account-explorer': [8, 6, 7, 2],
-    'contract-explorer': [8, 3, 0, 2],
-    'homelessness-analysis': [8, 1, 4, 3],
-    'budget-function': [8, 0, 6, 1],
-    'competition-in-contracting': [8, 7, 5, 4],
+    'federal-employees': [9, 0, 4, 5],
+    'colleges-and-universities': [9, 5, 6, 1],
+    'dts': [9, 2, 0, 7],
+    'federal-account-explorer': [9, 6, 7, 2],
+    'contract-explorer': [9, 3, 0, 2],
+    'homelessness-analysis': [9, 1, 4, 3],
+    'budget-function': [9, 0, 6, 1],
+    'competition-in-contracting': [9, 7, 5, 4],
     'rd-in-contracting': [5, 4, 7, 6],
     'federal-covid-spending': [9, 5, 7, 0]
   };
