@@ -5,7 +5,6 @@ const Logo = props => {
   const logoBlue = props.fillColor || '#212F64';
   const logoRed = props.fillColor || '#CC2128';
   const logoGrey = props.fillColor || '#ACACAC';
-  const altText = props.alt;
 
   return (
     <svg
@@ -18,7 +17,9 @@ const Logo = props => {
       role="img"
       aria-labelledby="logo-title"
     >
-      <title id="logo-title">{altText}</title>
+      <desc>
+        <title id="logo-title">Data Lab Logo of an abstract American flag referencing a bar chart.</title>
+      </desc>
       <defs>
         <polygon
           id='logo-path-1'
