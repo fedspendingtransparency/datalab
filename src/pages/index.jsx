@@ -37,7 +37,7 @@ function IndexPage() {
             href='americas-finance-guide'
             imgSrc={afg}
             isMain={true}
-            imgAlt=''
+            imgAlt='The Department of Treasury building, in Washington, D.C., that includes a bronze statue of Albert Gallatin, the fourth Secretary of the Treasury.'
             heading="Your Guide to America's Finances"
             body="Your Guide to America's Finances is an overview of federal government finances in 2019, providing information on spending, revenue, the deficit, and debt. The Guide, which is created by Treasury's Data Lab, presents a series of interactive visualizations to allow you to explore these categories and how they have changed over time. Ultimately, the Guide seeks to provide a comprehensive overview of the trillions of dollars collected and spent by the federal government each year."
             mobileBody="The Guide presents straightforward information about the federal government's spending and revenue, as well as the deficit and debt in 2019."
