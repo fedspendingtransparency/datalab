@@ -28,6 +28,7 @@ const SecondaryTile = (props) => (
 							data-src={props.imgSrc}
 							className='lazyload'
 							role='presentation'
+							alt={props.imgAlt}
 						/>
 						<Hidden mdDown>
 							<p className={secondaryAnalysesTileStyles.subheading}>{props.subheading}</p>
