@@ -8,7 +8,7 @@ import { Grid, Hidden, Container } from '@material-ui/core';
 import { withStyles } from "@material-ui/styles"
 import Sources from '../logos/sources';
 import { Link } from 'gatsby';
-import globalVariables from '../../styles/variables.scss';
+import { legacy } from '../../styles/variables.scss';
 
 const HWCTALink = (props) => {
   const LinkWrapper = withStyles(() => ({
@@ -58,7 +58,7 @@ HWCTALink.propTypes = {
 };
 
 HWCTALink.defaultProps = {
-  fillColor: globalVariables.legacy
+  fillColor: legacy
 };
 
 export default HWCTALink;
