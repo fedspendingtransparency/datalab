@@ -13,9 +13,7 @@ import SEO from 'src/components/seo';
 import afg from 'src/images/home/CG-GIF_sm_2019.gif';
 import cu from 'src/images/home/collegehomepage.svg';
 import homelessImg from 'src/images/home/homelessness.png';
-import rd from 'src/images/home/rd-homepage-v4.gif';
 import explorer from 'src/images/home/contractexplorersunburst.png';
-import covid from 'src/images/home/covid.png';
 import homeStyles from './index.module.scss';
 
 function IndexPage() {
@@ -24,7 +22,19 @@ function IndexPage() {
 			<SEO
   title="Data Lab - U.S. Treasury"
   description="The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending."
-  keywords={['Federal spending', 'data', 'visualizations', 'contracts', 'accounts', 'grants', 'federal programs', 'federal financial data', 'government spending', 'government programs', 'government contracts']}
+  keywords={[
+					'Federal spending',
+					'data',
+					'visualizations',
+					'contracts',
+					'accounts',
+					'grants',
+					'federal programs',
+					'federal financial data',
+					'government spending',
+					'government programs',
+					'government contracts',
+				]}
 			/>
 			<Grid
   container
@@ -64,9 +74,7 @@ function IndexPage() {
 
 			{/* The more analyses is outside of the more analyses section on purpose */}
 			<Grid item xs={12}>
-				<p className={homeStyles.heading}>
-					More Analyses
-				</p>
+				<p className={homeStyles.heading}>More Analyses</p>
 			</Grid>
 
 			<Grid container spacing={3} className={homeStyles.moreAnalysesRow}>
