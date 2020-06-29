@@ -35,11 +35,11 @@ class Dropdown extends React.Component {
             </section>
             <section className={`${styles.section} ${styles.analyses}`}>
               <h4 className={styles.sectionTitle}>Contract Analyses</h4>
-              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(3, 6))}</ul>
+              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(3, 5))}</ul>
             </section>
             <section className={`${styles.section} ${styles.analyses}`}>
               <h4 className={styles.sectionTitle}>Financial Data Visualizations</h4>
-              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(6, 9))}</ul>
+              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(5, 8))}</ul>
             </section>
           </div>
         }

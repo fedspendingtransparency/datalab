@@ -4,30 +4,51 @@ import hwctaLinkStyles from './hwcta-link.module.scss';
 
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Grid, Hidden } from '@material-ui/core';
+import { Grid, Hidden, Container } from '@material-ui/core';
+import { withStyles } from "@material-ui/styles"
 import Sources from '../logos/sources';
 import { Link } from 'gatsby';
+import globalVariables from '../../styles/variables.scss';
 
 const HWCTALink = (props) => {
+  const LinkWrapper = withStyles(() => ({
+    'root': {
+      '&:hover': {
+        '& .hover-color': {
+          color: props.fillColor
+        }
+      },
+      '& a': {
+        '&:focus': {
+          '& .hover-color': {
+            color: props.fillColor
+          }
+        }
+      }
+    }
+  }))(Container)
+
   return (
     <div className={hwctaLinkStyles.hwcta + ' ' + props._mainClass}>
-      <Link to={props.url.replace(/\/\//g, '/')}>
-        <Grid container alignItems='center'>
-          <Grid item className={hwctaLinkStyles.icon}>
-            <Sources fillColor={props.fillColor} />
+      <LinkWrapper>
+        <Link to={props.url.replace(/\/\//g, '/')} style={{ textDecorationColor: props.fillColor }}>
+          <Grid container alignItems='center'>
+            <Grid item className={hwctaLinkStyles.icon}>
+              <Sources fillColor={props.fillColor} />
+            </Grid>
+            <Grid item className='hover-color'>
+              Data Sources and{' '}
+              <Hidden mdUp>
+                <br />
+              </Hidden>
+              Methodologies
+            </Grid>
+            <Grid item className={hwctaLinkStyles.arrow}>
+              <FontAwesomeIcon icon={faChevronRight} width={20} color={props.fillColor} />
+            </Grid>
           </Grid>
-          <Grid item>
-            Data Sources and{' '}
-            <Hidden mdUp>
-              <br />
-            </Hidden>
-            Methodologies
-          </Grid>
-          <Grid item className={hwctaLinkStyles.arrow}>
-            <FontAwesomeIcon icon={faChevronRight} width={20} color={props.fillColor} />
-          </Grid>
-        </Grid>
-      </Link>
+        </Link>
+      </LinkWrapper>
     </div>
   );
 };
@@ -37,7 +58,7 @@ HWCTALink.propTypes = {
 };
 
 HWCTALink.defaultProps = {
-  fillColor: '#881E3D'
+  fillColor: globalVariables.legacy
 };
 
 export default HWCTALink;

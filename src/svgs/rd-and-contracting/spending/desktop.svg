@@ -2,7 +2,6 @@
 <svg width="100%" height="479px" viewBox="0 0 1064 479" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Bar chart of FY 2019 federal agency contract spending in billions overlaid with a line chart charting the percentage of total contract spending by each agency. DoD and NASA have the highest spend and the highest proportion of spend.">
   <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
   <title>Viz 1 Outline_Desktop</title>
-  <desc>Created with Sketch.</desc>
   <defs>
     <style>
       #toggle-region:hover {
@@ -63,7 +62,7 @@
       <stop stop-color="#041FCA" offset="100%"></stop>
     </linearGradient>
     <path d="M9.75,3.25 C9.75,1.45508594 11.2050859,0 13,0 C14.7949141,0 16.25,1.45508594 16.25,3.25 C16.25,5.04491406 14.7949141,6.5 13,6.5 C11.2050859,6.5 9.75,5.04491406 9.75,3.25 Z M15.4375,7.3125 L14.860625,7.3125 C13.707332,7.84280859 12.3423828,7.86571094 11.139375,7.3125 L10.5625,7.3125 C9.21628906,7.3125 8.125,8.40378906 8.125,9.75 L8.125,15.03125 C8.125,15.7043555 8.67064453,16.25 9.34375,16.25 L10.15625,16.25 L10.15625,21.53125 C10.15625,22.2043555 10.7018945,22.75 11.375,22.75 L14.625,22.75 C15.2981055,22.75 15.84375,22.2043555 15.84375,21.53125 L15.84375,16.25 L16.65625,16.25 C17.3293555,16.25 17.875,15.7043555 17.875,15.03125 L17.875,9.75 C17.875,8.40378906 16.7837109,7.3125 15.4375,7.3125 Z M19.7865078,16.917875 C19.43238,17.5030169 18.922261,17.9779498 18.3133438,18.2894258 C19.8622227,18.5479023 24.375,19.5941484 24.375,21.125 C24.375,23.476375 15.8612187,24.375 13,24.375 C9.42992578,24.375 1.625,23.3157539 1.625,21.125 C1.625,19.5953164 6.11208203,18.552168 7.68660547,18.2894258 C7.0777084,17.977921 6.56759649,17.5029947 6.21344141,16.917875 C3.80651172,17.4380273 0,18.6671367 0,21.125 C0,25.040793 9.07247656,26 13,26 C16.9228008,26 26,25.0420117 26,21.125 C26,18.6670352 22.193082,17.4379766 19.7865078,16.917875 Z" id="path-8"></path>
-    <rect id="path-10" x="525" y="359" width="440" height="91"></rect>
+    <rect focusable="true" tabIndex="0" id="path-10" x="525" y="359" width="440" height="91"></rect>
     <mask id="mask-11" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="440" height="91" fill="white">
       <use xlink:href="#path-10"></use>
     </mask>
@@ -143,20 +142,20 @@
       </g>
       <path d="M131.5,394.015058 L212.565873,99 L303.086942,387.011354 L390.621876,410.034809 L478.475563,382.275058 L567.823778,436.765751 L656.438047,428.725822 L746.706476,429.725822 L837.5,443 L924.5,446.69382" id="Percent-Line" stroke="#FF9300" stroke-width="2" stroke-dasharray="3,2"></path>
       <g id="Show-Details" transform="translate(663.000000, 323.000000)">
-        <g id="Detail-Icon" tabIndex="0" transform="translate(0.000000, 0.000000)">
+        <g id="Detail-Icon" focusable="true" tabIndex="0" transform="translate(0.000000, 0.000000)">
           <mask id="mask-9" fill="white">
             <use xlink:href="#path-8"></use>
           </mask>
           <use id="Mask" fill="#000000" fill-rule="nonzero" xlink:href="#path-8"></use>
           <g id="Color" stroke-width="1" fill-rule="evenodd" mask="url(#mask-9)" fill="#031FCB">
-            <rect tabIndex="0" id="Detail-Icon" x="0" y="0" width="31.6875" height="31.6875"></rect>
+            <rect id="Detail-Icon" x="0" y="0" width="31.6875" height="31.6875"></rect>
           </g>
         </g>
-        <text id="SHOW-DETAILS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300" fill="#666666">
-          <tspan tabindex="0" id="Show-Details-Text" x="43" y="17">SHOW DETAILS</tspan>
+        <text focusable="true" tabIndex="0" id="SHOW-DETAILS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300" fill="#666666">
+          <tspan id="Show-Details-Text" x="43" y="17">SHOW DETAILS</tspan>
         </text>
       </g>
-      <use tabindex="0" id="toggle-region" stroke="#1B3ADA" mask="url(#mask-11)" stroke-width="5" stroke-dasharray="7,7" xlink:href="#path-10"></use>
+      <use focusable="true" tabIndex="0" id="toggle-region" stroke="#1B3ADA" mask="url(#mask-11)" stroke-width="5" stroke-dasharray="7,7" xlink:href="#path-10"></use>
       <g id="Circles" transform="translate(128.500000, 96.000000)" fill="#FFFFFF" stroke="#FF9300">
         <circle id="Oval-Copy-35" stroke-width="2.6752" cx="83.5" cy="4.5" r="4.5"></circle>
         <circle id="Oval-Copy-36" stroke-width="2.6752" cx="176.5" cy="291.5" r="4.5"></circle>

@@ -155,15 +155,16 @@ export default function Categories(props) {
     }
 
     if(typeof document !== 'undefined') {
-      Object.keys(tooltipData)
-        .forEach((key) => {
-            const el = document.getElementById(key);
-            el.setAttribute('tabindex', '0');
-            el.addEventListener('mouseover', e => onHover(e));
-            el.addEventListener('keyup', e => onKeyUp(e, key, tooltipData[key]));
-            el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
-            el.addEventListener('mouseout', e => clearSelection(e));
-        });
+    Object.keys(tooltipData)
+      .forEach((key) => {
+          const el = document.getElementById(key);
+          el.setAttribute('tabindex', '0');
+          el.setAttribute('focusable', true);
+          el.addEventListener('mouseover', e => onHover(e));
+          el.addEventListener('keyup', e => onKeyUp(e, key, tooltipData[key]));
+          el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
+          el.addEventListener('mouseout', e => clearSelection(e));
+      });
     }
 
     window.addEventListener('resize', handleResize);
@@ -183,8 +184,8 @@ export default function Categories(props) {
 
         });
 
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('keyup', e => onEsc(e));
+        window.removeEventListener('resize', handleResize);
+        window.removeEventListener('keyup', e => onEsc(e));
     };
   });
 
@@ -266,15 +267,13 @@ export default function Categories(props) {
 
     <Downloads
       href={'/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv'}
-      date={'December 2019'}
+      date={'October 2019'}
     />
 
     {Object.keys(tooltipData)
       .map((i) => {
         const item = tooltipData[i];
-        return (<>
-          <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows} />
-        </>)
+        return <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows} />
       })}
 
 

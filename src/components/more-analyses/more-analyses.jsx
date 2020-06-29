@@ -12,6 +12,8 @@ import homeless from 'src/images/more-analyses/homeless.png';
 import dts from 'src/images/more-analyses/dts.png';
 import explorer from 'src/images/more-analyses/explorer.png';
 import rd from 'src/images/more-analyses/rd.png';
+import covid from 'src/images/more-analyses/covid.png';
+import afg from 'src/images/more-analyses/afg.png';
 
 
 export default class MoreAnalyses extends React.Component {
@@ -69,23 +71,31 @@ export default class MoreAnalyses extends React.Component {
     subtitle: 'Who receives federal contracts?'
   },
   {
-    href: 'rd-in-contracting',
-    imageSrc: rd,
-    altText: 'Abstract Brain with 4 categories: Aeronautics, Infectious Disease, Renewable Energy & Anti-Terrorism.',
-    title: 'R&D In Contracting',
-    subtitle: 'How does the government invest in research & development?'
+    href: 'federal-covid-spending',
+    imageSrc: covid,
+    altText: 'Woman standing with medical face mask on, social distanced between two others, with a cartoon image of the U.S. Capitol in the background.',
+    title: 'The Federal Response to COVID-19',
+    subtitle: 'How is the federal government funding relief efforts for COVID-19?'
+  },
+  {
+    href: 'americas-finance-guide',
+    imageSrc: afg,
+    altText: 'The Department of Treasury building, in Washington, D.C., that includes a bronze statue of Albert Gallatin, the fourth Secretary of the Treasury.',
+    title: 'America\'s Finance Guide',
+    subtitle: 'How much does the government spend and collect?'
   }];
 
   show = { // key is current page URL frag, value is array of analyses (above) to show
-    'federal-employees': [8, 0, 4, 5],
-    'colleges-and-universities': [8, 5, 6, 1],
-    'dts': [8, 2, 0, 7],
-    'federal-account-explorer': [8, 6, 7, 2],
-    'contract-explorer': [8, 3, 0, 2],
-    'homelessness-analysis': [8, 1, 4, 3],
-    'budget-function': [8, 0, 6, 1],
-    'competition-in-contracting': [8, 7, 5, 4],
+    'federal-employees': [9, 0, 4, 5],
+    'colleges-and-universities': [9, 5, 6, 1],
+    'dts': [9, 2, 0, 7],
+    'federal-account-explorer': [9, 6, 7, 2],
+    'contract-explorer': [9, 3, 0, 2],
+    'homelessness-analysis': [9, 1, 4, 3],
+    'budget-function': [9, 0, 6, 1],
+    'competition-in-contracting': [9, 7, 5, 4],
     'rd-in-contracting': [5, 4, 7, 6],
+    'federal-covid-spending': [9, 5, 7, 0]
   };
 
   showAnything = () => {
@@ -109,7 +119,7 @@ export default class MoreAnalyses extends React.Component {
               key={'analyses_tile_' + i}
               className={`tile ${moreAnalysesStyles.tile}`}
             >
-              <Link to={this.analyses[analysesIndex].href}>
+              <a href={`/${this.analyses[analysesIndex].href}`}>
                 <div className={moreAnalysesStyles.text}>
                   <div className={moreAnalysesStyles.title}>
                     {this.analyses[analysesIndex].title}
@@ -123,7 +133,7 @@ export default class MoreAnalyses extends React.Component {
                   alt={this.analyses[analysesIndex].altText}
                   className={`${moreAnalysesStyles.image} lazyload`}
                 />
-              </Link>
+              </a>
             </Grid>
           )
         }

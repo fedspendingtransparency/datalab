@@ -107,11 +107,9 @@ function HWCTA(props) {
         <Grid container>
           {dataPage && !props.noFooterBackButton ?
             <Grid item xs={12}>
-              <Button variant='contained' size='medium' className={hwctaStyles.backButtonFooter}>
-                <Link to={dataPage}>
-                  Back
-                </Link>
-              </Button>
+              <Link to={dataPage} className={hwctaStyles.backButtonFooter}>
+                Back
+              </Link>
             </Grid>
             : ''}
         </Grid>

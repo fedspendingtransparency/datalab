@@ -1,8 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './read-more.module.scss';
+import globalStyles from 'src/styles/variables.scss';
 
 export default class ReadMore extends React.Component {
+  /*
+    Notes on props:
+    collapsedHeight: total container height when collapsed
+    expandText: text to indicate expandible
+    collapseText: replacement text when expanded
+    animation: expand/collapse CSS transition rule
+    buttonStyle: style of toggle link (defaults to simply legacy blue)
+  */
+
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+    collapsedHeight: PropTypes.string,
+    expandText: PropTypes.string,
+    collapseText: PropTypes.string,
+    animation: PropTypes.string,
+    buttonStyle: PropTypes.object
+  };
+
+  static defaultProps = {
+    collapsedHeight: '6rem',
+    expandText: 'Read more...',
+    collapseText: 'Read less...',
+    animation: '1s ease',
+    buttonStyle: { color: globalStyles.legacyBlue }
+  };
+
   constructor(props) {
     super(props);
 
@@ -17,19 +44,17 @@ export default class ReadMore extends React.Component {
   render = () => {
     const inlineStyle = {
       'height': this.state.isOpen ? this.state.clientHeight : this.props.collapsedHeight,
-      'overflow-y': 'hidden',
+      'overflowY': 'hidden',
       'transition': 'height ' + this.props.animation
     };
-    const className = this.props.className;
-    const baseClass = className + ' ' + className + '--' + (this.state.isOpen ? 'open' : 'closed');
     return (
-      <div className={className + '__wrapper'}>
-        <div className={baseClass} style={inlineStyle}>
+      <div>
+        <div style={inlineStyle}>
           {this.props.children}
         </div>
         <button
           className={styles.button}
-          style={{color: this.props.toggleColor}}
+          style={this.props.buttonStyle}
           onClick={() => { this.toggleReadMore() }}
         >
           {this.state.isOpen ? this.props.collapseText : this.props.expandText}
@@ -38,19 +63,3 @@ export default class ReadMore extends React.Component {
     );
   };
 }
-
-ReadMore.propTypes = {
-  children: PropTypes.node.isRequired,
-  expandText: PropTypes.string,
-  collapseText: PropTypes.string,
-  toggleColor: PropTypes.string,
-  collapsedHeight: PropTypes.string,
-  animation: PropTypes.string
-}
-
-ReadMore.defaultProps = {
-  expandText: 'Read more...',
-  collapseText: 'Read less...',
-  collapsedHeight: '6em',
-  animation: '1s ease'
-};
