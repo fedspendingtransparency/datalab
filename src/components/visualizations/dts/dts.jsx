@@ -184,7 +184,7 @@ function DTS(props) {
 
       let title = d3.select("#svg-wrapper").append("desc").append('title');
       title.attr('id', 'd3-title');
-      title.text('whateverlol');
+      title.text('Line graph of the Daily Treasury Statement with data from June 2005 through today. (96) Data is displayed in ranges of 30 or 90 days and 1, 5, or 10 years and at a frequency of daily, monthly to date, and fiscal year to date. October 28, 2008 saw the highest day of spending ($123B) while December 8, 2008 saw the lowest day of spending ($8.8B).');
 
       width = w - margin.left - margin.right;
       height = +svg.attr("height") - margin.top - margin.bottom;
