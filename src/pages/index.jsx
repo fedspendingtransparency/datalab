@@ -55,7 +55,7 @@ function IndexPage() {
               subheading={`Explore federal programs that address homelessness`}
               href='homelessness-analysis'
               imgSrc={homelessImg}
-              imgAlt='A homeless person leaning against a street pole and additional homeless people stand against a building in the far background.'
+              imgAlt='A person experiencing homelessness leaning against a street pole and additional homeless people stand against a building in the far background.'
               body='On a single night in 2018, more than 550,000 people experienced homelessness in the United States. With our visualization you can explore federal spending on programs that address homelessness and where individuals experiencing homeless are located.'
             />
           </Grid>
