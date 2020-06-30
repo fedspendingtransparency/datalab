@@ -252,7 +252,7 @@ export default function Tracking(props) {
 			<>
 				<Grid container className={styles.legendContainer}>
 					<Grid item xs={12} lg={4} className={styles.legendAsOf}>
-						Data updated as of May 1, 2020
+						Data updated as of June 1, 2020
 					</Grid>
 					<Grid className={styles.legend}>
 						<div className={styles.blockContainer}>
@@ -484,7 +484,7 @@ export default function Tracking(props) {
 					</SeeMoreButton>
 				)}
 
-			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-19.csv" date="May 2020" />
+			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-19.csv" date="June 2020" />
 		</>
 	);
 }
