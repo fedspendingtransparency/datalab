@@ -70,29 +70,29 @@ export default class FederalEmployeesPage extends Component {
 				},
 			];
 
-		return <StoryLayout
-			title={'Federal Employees'}
-			introSentence={'In 2017, the largest 24 federal agencies employed nearly 2 million people.'}
-			contextStatement={["The U.S. Treasury’s Data Lab presents an analysis exploring federal employees using federal financial data and employment data from the Office of Personnel Management (OPM). In 2017, the 24 CFO Act Agencies employed nearly 2 million people."]}
-			sectionToc={sections}
-			hwctaLink={this.props.location.pathname + '/methodologies'}
-		>
-			<SEO title='U.S. Treasury Data lab – Federal Employee Analysis'
-					 	description="The U.S. Treasury’s Data Lab presents an analysis exploring federal employees using federal financial data
-							and employment data from the Office of Personnel Management (OPM). In 2017, the 24 CFO Act Agencies employed nearly 2 million
-							people."
-					 	keywords={[`Federal Employees`, `federal spending`, `Federal finances`, `work`, `personnel`, `CFO Act Agencie`, `states`,
-						 `occupation categories`, `government finances`, `government employees`, `tree map`, `bar chart`, `choropleth`]} />
-
-			{sections.map((item, key) => {
-					const SectionTag = this.sectionComponents[item.tagName];
-					return (
-						<StorySection key={key} header={item}>
-							<SectionTag sectionId={`section-${item.section}`} dataSource={DataModule} location={this.props.location} />
-						</StorySection>
-					)
-				})
-			}
-		</StoryLayout>
+		return (
+			<StoryLayout
+				title={'Federal Employees'}
+				introSentence={'In 2017, the largest 24 federal agencies employed nearly 2 million people.'}
+				contextStatement={["The U.S. Treasury’s Data Lab presents an analysis exploring federal employees using federal financial data and employment data from the Office of Personnel Management (OPM). In 2017, the 24 CFO Act Agencies employed nearly 2 million people."]}
+				sectionToc={sections}
+				hwctaLink={this.props.location.pathname + '/methodologies'}
+			>
+				<SEO
+					title='U.S. Treasury Data lab – Federal Employee Analysis'
+					description="In 2017, the 24 CFO Act Agencies employed nearly 24 people. This analysis explores federal employees using federal financial data and employment data from OPM."
+					keywords={[`Federal Employees`, `federal spending`, `Federal finances`, `work`, `personnel`, `CFO Act Agencie`, `states`, `occupation categories`, `government finances`, `government employees`, `tree map`, `bar chart`, `choropleth`]}
+				/>
+				{sections.map((item, key) => {
+						const SectionTag = this.sectionComponents[item.tagName];
+						return (
+							<StorySection key={key} header={item}>
+								<SectionTag sectionId={`section-${item.section}`} dataSource={DataModule} location={this.props.location} />
+							</StorySection>
+						)
+					})
+				}
+			</StoryLayout>
+		)
 	}
 }
