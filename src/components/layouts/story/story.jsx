@@ -9,7 +9,7 @@ import MoreAnalyses from '../../more-analyses/more-analyses';
 import { StorypageHeader } from '../../headers/headers';
 import Toc from '../../toc/toc';
 import pageColorMap from '../../../utils/page-color';
-import globalVariables from '../../../styles/variables.scss';
+import { legacy } from '../../../styles/variables.scss';
 
 const StoryLayout = (props) => {
   let header, toc;
@@ -35,7 +35,7 @@ const StoryLayout = (props) => {
     toc = props.sectionToc ? <Toc sections={props.sectionToc} /> : <></>;
   }
 
-  const [color, setColor] = useState(globalVariables.legacy);
+  const [color, setColor] = useState(legacy);
   
   useEffect(() => {
     if (typeof window !== 'undefined') {
