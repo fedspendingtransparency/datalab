@@ -279,7 +279,8 @@ function DTS(props) {
       let start = getQueryStringValue("start");
       let end = getQueryStringValue("end");
       let frequency = d3.select('#frequency-selector').property('value');
-      let category = d3.select('#category-selector').property('value');
+      //let category = d3.select('#category-selector').property('value') || 'All Categories';
+      let category = 'All Categories';
 
       let theQueryString = "?" + serialize({ start, end, frequency, category });
       history.replaceState(null, "", theQueryString);
@@ -289,7 +290,8 @@ function DTS(props) {
       let start = new Date(x2.invert(s[0])).toISOString().slice(0, 10).replace(/-/g, "");
       let end = new Date(x2.invert(s[1])).toISOString().slice(0, 10).replace(/-/g, "");
       let frequency = d3.select('#frequency-selector').property('value');
-      let category = d3.select('#category-selector').property('value');
+      //let category = d3.select('#category-selector').property('value') || 'All Categories';
+      let category = 'All Categories';
 
       const numberOfDays = Math.round((new Date(x2.invert(s[1])) - new Date(x2.invert(s[0]))) / (1000 * 60 * 60 * 24));
 
@@ -513,10 +515,11 @@ function DTS(props) {
     }
 
     function getGraphData() {
-      let categoryValue = d3.select('#category-selector').property('value');
+      //let categoryValue = d3.select('#category-selector').property('value') || 'All Categories';
       let frequencyValue = d3.select('#frequency-selector').property('value');
 
-      return masterMapping[categoryValue][frequencyValue];
+      // return masterMapping[categoryValue][frequencyValu]
+      return masterMapping['All Categories'][frequencyValue];
     }
 
     function setTooltipActiveTimeframe(frequencyValue) {
@@ -552,7 +555,8 @@ function DTS(props) {
         updateGraph(getGraphData());
         updateHistoryWithNewFrequencyOrCategory();
 
-        let categoryValue = d3.select('#category-selector').property('value');
+        //let categoryValue = d3.select('#category-selector').property('value') || "All Categories";
+        let categoryValue = 'All Categories';
         let frequencyValue = d3.select('#frequency-selector').property('value');
 
         setTooltipActiveTimeframe(frequencyValue);
@@ -604,8 +608,8 @@ function DTS(props) {
       categorySeparatorDate = data.length > 1 ? data[0].date : null;
 
       if (data[0].name === "All Categories") {
-        d3.select(".dts-footnote").style("visibility", "visible");
-        d3.select(".dts-footnote-text").text("All Categories was created by taking Total Withdrawals (excluding transfers) and subtracting Public Debt Cash Redemp (Table III B) from it for each corresponding entry.");
+//        d3.select(".dts-footnote").style("visibility", "visible");
+        // d3.select(".dts-footnote-text").text("All Categories was created by taking Total Withdrawals (excluding transfers) and subtracting Public Debt Cash Redemp (Table III B) from it for each corresponding entry.");
       } else if (data.length > 1) {
         d3.select(".dts-footnote").style("visibility", "visible");
         d3.select(".dts-footnote-text").text(data[1].footnote); // was [0]!
@@ -812,7 +816,8 @@ function DTS(props) {
       }
 
       function mouseMove() {
-        let categoryValue = d3.select('#category-selector').property('value');
+        //let categoryValue = d3.select('#category-selector').property('value');
+        let categoryValue = 'All Categories';
         let frequencyValue = d3.select('#frequency-selector').property('value');
 
         let d = getMouseOverDataPoint(masterMapping[categoryValue][frequencyValue], this);
@@ -830,7 +835,7 @@ function DTS(props) {
         let mtdDataPoint = dollarFormatter(getMouseOverDataPoint(masterMapping[categoryValue]["mtd"], this).value);
         let fytdDataPoint = dollarFormatter(getMouseOverDataPoint(masterMapping[categoryValue]["fytd"], this).value);
 
-        ttContainer.select(".dts-tt-category").text(d.name);
+        ttContainer.select(".dts-tt-category").text('Total');
         ttContainer.select(".dts-tt-date").text(mouseOverDateText);
 
         ttContainer.select(".dts-tt-daily-value").text(todayDataPoint);
@@ -1048,7 +1053,8 @@ function DTS(props) {
         activeOptions.sort();
         inactiveOptions.sort();
 
-        createSelect(condensedOptions, activeOptions, inactiveOptions);
+        /* Add this back for the select categories dropdown. */
+        //createSelect(condensedOptions, activeOptions, inactiveOptions);
 
         let theFrequency = getFrequencyFromURL();
         let theCategory = getCategoryFromURL(allOptions);

@@ -10,31 +10,32 @@ $fedEmpBlue: #2272ce;
   margin-bottom: 1.5rem;
 }
 
-.headerNumber h2 {
-  color: $darkGrey;
+.headerNumber span {
+  color: $mdGrey;
   font-size: 3rem;
   font-weight: 600;
   line-height: 3.125rem;
   margin: 0.1rem 0 0.3rem;
   text-align: center;
-  border-bottom: 1px solid $darkGrey;
+  border-bottom: 1px solid #b3b3b3;
 }
 
 .headerTitle {
   color: $darkGrey;
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: bold;
   text-transform: uppercase;
 }
 
 .introContainer {
-  margin: 0 0 $margin-50 0;
+  width: auto !important;
 
   .intro {
-    padding: 0 40px 0 0; 
+    font-size: 2.5rem;
+    font-weight: 300;
   }
 
-  .blurbText {
+  .blurb-text {
     color: #555555;
     font-size: 1rem;
     font-weight: 300;
@@ -76,6 +77,14 @@ $fedEmpBlue: #2272ce;
   font-size: 1.0625rem;
   font-weight: 300;
   line-height: 24px;
+
+  a {
+    color: $legacyBlue;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 .heading-red {
@@ -90,14 +99,10 @@ $fedEmpBlue: #2272ce;
   font-size: inherit;
 }
 
-@media (min-width: $phone) {
-  .introContainer {
-    .intro {
-      font-size: 2.5rem;
-      font-weight: 300;
-      margin: 0;
-    }
-  }
+.heading-purple {
+  color: $covidPurple;
+  font-weight: 600;
+  font-size: inherit;
 }
 
 @media (max-width: $desktop-xl - 1) {
@@ -106,14 +111,17 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-@media (min-width: $tablet) and (max-width: $desktop-xl - 1) {
-  .heading {
-    padding: 100px 0 30px;
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  .header {
     text-align: center;
+  }
 
-    .number {
-      margin-right: 0;
-    }
+  .introContainer {
+    margin: 0 16%;
+  }
+
+  .headerTitle {
+    margin-top: 25px !important;
   }
 }
 
@@ -123,41 +131,48 @@ $fedEmpBlue: #2272ce;
   }
 }
 
-@media (min-width: $desktop-xl) {
+@media (min-width: $desktop) {
   .header {
-    .headerTitle {
-      line-height: 60px;
+    margin-left: 8%;
+
+    .headerTitleContainer {
+      margin-bottom: 50px;
+
+      .headerNumber span {
+        padding-bottom: 8px;
+      }
+
+      .headerTitle {
+        margin-top: 15px !important;
+        padding-left: 42px;
+      }
     }
   }
 
   .intro {
     margin-bottom: 0;
+    padding-right: 2.5rem;
   }
 }
 
-@media (min-width: $phone) and (max-width: $desktop-xl) {
-  .header {
-    text-align: center;
-  }
-  .headerNumber h2 {
-    border: none;
-    text-decoration: underline;
-  }
-  .headerTitle {
-    margin-top: $margin-25;
-  }
-}
-
-@media (max-width: $phone - 1) {
+@media (max-width: $tablet - 1) {
   .introContainer {
     margin: 0 0 25px 0 !important;
+
     .intro {
       font-size: 1.125rem;
       font-weight: 600;
       color: $darkGrey;
-      margin: 1rem 0;
+      margin: 0;
+    }
+    .introTeaser {
+      margin-bottom: 0;
+    }
+    .introBlurb {
+      margin-top: 0;
     }
   }
+
   .header {
     .headerTitle {
       margin-top: 0;
@@ -165,7 +180,7 @@ $fedEmpBlue: #2272ce;
       font-size: 1.125rem;
     }
   }
-  .headerNumber h2 {
+  .headerNumber span {
     font-size: 1.5rem;
     margin: 0;
   }

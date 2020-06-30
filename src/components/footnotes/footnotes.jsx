@@ -1,27 +1,31 @@
+/*
+	This creates a set of formatted, hanging-indented, numbered footnotes starting with #1 (currently cannot support more than one per Web page)
+	To use: pass footnotes prop as array of strings or HTML/JSX elements, one for each footnote
+	Each footnote number is rendered as an anchor ("fn#") and hyperlink to referring text ("fr#")
+	Also there is a global style (footnoteref) to consistently style fn links to footnotes, e.g. <a id='fr3' href='#fn3' className='footnoteref'>3</a>
+*/
+
 import React from 'react';
-import footnotesStyles from './footnotes.module.scss';
-import { Grid } from "@material-ui/core"
+import PropTypes from 'prop-types';
+import styles from './footnotes.module.scss';
 
 export default class Footnotes extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+	constructor(props) {
+		super(props);
+	}
 
-  render = () =>
-    <Grid
-      container
-      id={footnotesStyles.footnotes}>
-      <Grid item>
-          <div className={footnotesStyles.header}>Footnotes</div>
-          <hr />
-      </Grid>
-      <Grid item>
-          {this.props.footnotes.map((footnote, i) => {
-            return <p key={i}>
-              <sup className={footnotesStyles.number}>{i + 1}</sup>
-              <span className={footnotesStyles.text}>{footnote}</span>
-            </p>
-          })}
-      </Grid>
-    </Grid>
+	static propTypes = {
+		footnotes: PropTypes.array
+	};
+
+	render = () =>
+		<div id='footnotes'>
+			<div className={styles.headerSpacer}><span className={styles.header}>Footnotes</span></div>
+			{this.props.footnotes.map((footnote, i) =>
+				<div key={i} className={styles.footnote}>
+					<div id={`fn${i + 1}`} className={styles.number}><a href={`#fr${i + 1}`}>{i + 1}</a></div>
+					<div className={styles.content}>{footnote}</div>
+				</div>
+			)}
+		</div>
 };

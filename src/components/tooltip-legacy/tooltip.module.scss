@@ -1,0 +1,55 @@
+#tooltip {
+  pointer-events: none;
+}
+
+#tooltip li {
+  text-align: left;
+}
+
+.tooltip-module {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+  color: rgb(51, 51, 51);
+  border: 1px solid rgb(191, 188, 188);
+  padding: 25px;
+  left: 0;
+  min-width: 325px;
+  max-width: 500px;
+  z-index: 10;
+  text-align: left;
+
+  .title {
+    border-bottom:1px solid #898C90;
+    font-size: 1.125rem;
+    margin:0;
+    padding-bottom:15px;
+    color:#555555;
+  }
+
+  .information {
+    font-weight: normal;
+    margin:0;
+    padding:0;
+
+    .key {
+      line-height: 1;
+      margin:0;
+      color: #7cd6f8;
+      font-size: 0.875rem;
+    }
+
+    .val {
+      margin:0;
+      padding-top:2px;
+      font-size: 1.25rem;
+    }
+  }
+
+  .disclaimer {
+    font-size: 0.75rem;
+    font-style: italic;
+  }
+}

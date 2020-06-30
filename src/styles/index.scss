@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600&display=swap');
-@import 'variables';
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600&display=swap");
+@import "variables";
 
 @font-face {
-  font-family: 'Source Sans Pro';
+  font-family: "Source Sans Pro";
   font-display: swap;
 }
 
@@ -11,15 +11,38 @@ body {
   padding: 0;
 }
 
-body, p, h1, h2, h3, h4, h5, input, select, textarea, ul, li {
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+select,
+textarea,
+ul,
+li {
   font-family: Source Sans Pro;
 }
 
-body, h1, h2, h3, h4, h5, input, select, textarea, div {
-   color: $font-body-copy;
- }
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+select,
+textarea,
+div {
+  color: $font-body-copy;
+}
 
-p, ul, li, span {
+p,
+ul,
+li,
+span {
   font-size: 1rem;
 }
 
@@ -52,6 +75,12 @@ ul {
   flex-basis: 100%;
 }
 
+h2.rd-viztitle {
+  font-size: 2rem;
+  color: #666666;
+  margin-bottom: 9px;
+}
+
 @mixin homepageSectionHeading {
   font-size: 1.17rem;
   padding-bottom: 1rem;
@@ -67,8 +96,7 @@ ul {
 }
 
 @mixin homepageTitle {
-  text-align: left;
-  color: #2272CE;
+  color: #2272ce;
   font-size: 1rem;
   font-weight: bold;
 
@@ -78,14 +106,13 @@ ul {
 }
 
 @mixin homepageSubtitle {
-  text-align: left;
   font-size: 130%;
-  font-weight: 600;
+  font-weight: $semibold;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.24;
   letter-spacing: normal;
-  color: #4A4A4A;
+  color: $primary-grey;
 
   &:hover {
     text-decoration: underline;
@@ -98,6 +125,7 @@ ul {
   letter-spacing: 0.4px;
   font-size: 1rem;
   font-weight: 300;
+  color: $font-body-copy;
 }
 
 @mixin h1-heading {
@@ -220,9 +248,16 @@ ul {
   letter-spacing: normal;
   color: $font-body-copy;
 }
-.superscript {
-  vertical-align:super;
+
+.footnoteref {
+  line-height: 0;
+  vertical-align: super;
   font-size: smaller;
+  color: currentColor !important;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 /**
@@ -260,7 +295,7 @@ $mdGrey: #555555;
   }
 }
 
-.section__header__title {
+.section .section__header__title {
   color: $darkGrey;
   font-size: 1.25rem;
   font-weight: 600;

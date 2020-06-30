@@ -1,6 +1,22 @@
 .cu {
-  .section:global(.MuiGrid-item) {
-    margin-top: 0;
-    margin-bottom: 30px;
-  }
+    .section:global(.MuiGrid-item) {
+	margin-top: 0;
+	margin-bottom: 30px;
+    }
+
 }
+
+.header-red {
+    color: #881e3d;
+    font-weight: 400;
+    font-size: inherit;
+}
+
+#refresh-btn {
+    display: inline;
+}
+
+.refresh-btn {
+    color: #555;
+}
+

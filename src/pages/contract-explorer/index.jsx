@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Accordion from 'src/components/accordion/accordion';
+import AccordionList from 'src/components/accordion-list/accordion-list';
 import SEO from 'src/components/seo';
 import Share from 'src/components/share/share';
 import ToolLayout from 'src/components/layouts/tool/tool';
@@ -36,7 +36,7 @@ export default class ContractExplorerPage extends Component {
 			<p>Although contracts and grants share some similarities, each serves a different purpose. Generally, contracts allow the government to purchase goods and services it will use to execute its mission, while grants allow the government to provide goods and services directly to the public. For example, the Air Force uses contracts to acquire fighter jets to execute its mission, while the Federal Highway Administration uses grants to provide funds to states for public roads.</p>'
 			hwctaLink={this.props.location.pathname + '/methodologies'}
 		>
-			<Accordion
+			<AccordionList
 				title='Instructions'>
 				<p>
 					This diagram has three rings. The inner ring represents federal agencies, like the Department of Defense, which are sized by the total dollar amounts they spent on contracts in FY 17. The middle ring represents sub-agencies, like the Air Force, which in most cases actually award contracts to contractors. The outer ring represents the contractors who receive awards from those sub-agencies.
@@ -47,7 +47,7 @@ export default class ContractExplorerPage extends Component {
 					<li>Click the white center circle to reset the sunburst</li>
 					<li>To find a specific agency or contractor by name, type the name into the search bar.</li>
 				</ul>
-			</Accordion>
+			</AccordionList>
       <ControlBar>
         <Share location={this.props.location} />
       </ControlBar>

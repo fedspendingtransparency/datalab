@@ -1,100 +1,111 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { withStyles } from '@material-ui/styles';
+import PropTypes from "prop-types"
 import styles from './tooltip.module.scss';
+import CloseIcon from '@material-ui/icons/Close';
+import Popper from '@material-ui/core/Popper';
+import Fade from '@material-ui/core/Fade';
+import { Grid } from "@material-ui/core";
 
-import * as d3 from "d3v3";
+const inlineStyles = () => ({
+  paper: {
+    padding: '20px',
+    borderRadius: '0',
+    boxShadow: '0 2px 30px 0 rgba(0, 0, 0, 0.16)',
+    backgroundColor: 'rgba(255, 253, 253, 0.95)'
+  },
+});
 
-function tooltipModule(){
-  function getLeftPosition(tooltipId) {
-    let curX = d3.event.clientX;
-    let pageX = d3.event.pageX;
-    let tooltipWidth = document.getElementById(tooltipId).clientWidth;
-    let paddingX = 20;
+class MouseOverPopover extends React.Component {
+  constructor(props) {
+    super(props);
 
-    if (curX + tooltipWidth + paddingX > window.innerWidth) {
-      return pageX - tooltipWidth + "px";
-    } else {
-      return pageX + "px";
+    this.state = {
+      anchorEl: null,
+      openedPopperId: null
+    }
+
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handlePopoverClose);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handlePopoverClose);
+  }
+
+  escHandler = (e) => {
+    if(e.keyCode === 27) {
+      this.handlePopoverClose()
     }
   }
 
-  function getTopPosition(tooltipId) {
-    let curY = d3.event.clientY;
-    let pageY = d3.event.pageY;
-    let tooltipHeight = document.getElementById(tooltipId).clientHeight;
-    let paddingY = 10;
-    let cursorPadding = 20;
+  isOpen = (id) => {
+    const { openedPopperId } = this.state;
+    return (openedPopperId === id);
+  }
 
-    if (curY + tooltipHeight + paddingY + cursorPadding > window.innerHeight) {
-      return pageY - tooltipHeight - cursorPadding + "px";
-    } else {
-      return pageY + cursorPadding + "px";
+  handlePopoverOpen = (event, popperId) => {
+    this.setState({
+      openedPopperId: popperId,
+      anchorEl: event.currentTarget
+    });
+
+  };
+
+  handlePopoverClose = () => {
+    this.setState({
+      openedPopperId: null,
+      anchorEl: null
+    });
+  };
+
+  keyUpHandler = (e) => {
+    if(e.keyCode === 13) {
+      this.handlePopoverClose()
     }
   }
 
-  function draw(tooltipId, title, information, disclaimers, customHTML) {
-    d3
-      .select(`#${tooltipId}`)
-      .transition()
-      .duration(200)
-      .style("opacity", 1);
+  render() {
+    const { classes, title, rows, id } = this.props;
+    const { anchorEl } = this.state;
 
-    function toolTipHtml(t, i, d) {
-      function getinfoHtml() {
-        return Object.entries(i).reduce((a, c) => {
-          a += `<p class=${styles.key}>${c[0]}</p><p class=${styles.val}>${c[1]}</p>`;
-          return a;
-        }, "");
-      }
-
-      function getDisclaimerHtml() {
-        return d.reduce((a, c) => {
-          a += `<div class=${styles.disclaimer}>${c}<div />`;
-          return a;
-        }, "");
-      }
-
-      const html = `
-                <p class=${styles.title}><b>${t}</b></p>
-                ${i ? `<br><div class=${styles.information}>${getinfoHtml()}<div />` : ""}
-                ${d ? `<br>${getDisclaimerHtml()}` : ""}
-            `;
-      return html;
-    }
-
-    const leftPosition = getLeftPosition(tooltipId);
-    const topPosition = getTopPosition(tooltipId);
-    let tooltipContent = customHTML
-    if(!tooltipContent){
-      tooltipContent = toolTipHtml(title, information, disclaimers);
-    }
-
-    d3
-      .select(`#${tooltipId}`)
-      .html(tooltipContent)
-      .style("left", leftPosition)
-      .style("top", topPosition);
-
+    return (
+      <>
+        <Popper id={id}
+                open={this.isOpen(id)}
+                anchorEl={anchorEl}
+                placement='bottom-end'
+                transition>
+          {({ TransitionProps }) => (
+            <Fade {...TransitionProps} timeout={350}>
+              <Grid container direction='row' className={classes.paper}>
+                <div className={styles.title} onClick={this.handlePopoverClose}>
+                  <span>{title}</span>
+                  <CloseIcon className={styles.close} onClick={this.handlePopoverClose} onKeyUp={this.keyUpHandler} />
+                </div>
+                {rows.map((item, key) => {
+                  return <Grid item key={`grid-item-${key}`} className={styles.container}>
+                      <div className={styles.label} >{Object.keys(item)}</div>
+                      <div className={styles.value}>{item[Object.keys(item)]}</div>
+                    </Grid>
+                })}
+              </Grid>
+            </Fade>
+          )}
+        </Popper>
+      </>
+    );
   }
-
-  function remove(tooltipId) {
-    d3
-      .select(`#${tooltipId}`)
-      .transition()
-      .duration(500)
-      .style("opacity", 0)
-      .style("pointer-events", "none");
-  }
-
-  function move(tooltipId) {
-    const leftPosition = getLeftPosition(tooltipId);
-    const topPosition = getTopPosition(tooltipId);
-    d3
-      .select(`#${tooltipId}`)
-      .style("left", leftPosition)
-      .style("top", topPosition);
-  }
-
-  return { draw, remove, move };
 }
 
-export default tooltipModule;
+export default withStyles(inlineStyles)(MouseOverPopover);
+
+MouseOverPopover.propTypes = {
+  classes: PropTypes.object.isRequired,
+  rows: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  title: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired
+
+}

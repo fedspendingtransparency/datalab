@@ -4,7 +4,7 @@ import '../../styles/index.scss';
 import storyHeadingStyles from '../../components/section-elements/story-section-heading/story-section-heading.module.scss';
 import styles from './cu.module.scss';
 import refreshLogo from '../../images/colleges-and-universities/refresh.svg';
-import Accordion from '../../components/accordion/accordion';
+import AccordionList from '../../components/accordion-list/accordion-list';
 import { Hidden } from '@material-ui/core';
 import SearchPanel from 'src/components/chartpanels/search';
 import ControlBar from '../../components/control-bar/control-bar';
@@ -16,6 +16,7 @@ import Share from '../../components/share/share';
 import StoryHeading from 'src/components/section-elements/story-section-heading/story-section-heading';
 import VizControlPanel from '../../components/chartpanels/viz-control';
 import VizDetails from '../../components/chartpanels/viz-detail';
+import Reset from '../../components/reset/reset';
 
 import dataTableData from '../../../static/unstructured-data/mapbox/tableData.csv';
 import GeoDataMapbox from '../../../static/unstructured-data/mapbox/mapData.json';
@@ -162,8 +163,8 @@ export default function Institutions(props) {
 	}
 
 	function updateTableData(data) {
-		if (tableRef && tableRef.current) { tableRef.current.updateTableData(data); }
 		setFilteredData(data);
+		if (tableRef && tableRef.current) { tableRef.current.updateTableData(data); }
 	}
 
   return (<>
@@ -184,18 +185,17 @@ export default function Institutions(props) {
       />
     </Hidden>
 
-    <Accordion title='Instructions'>
+    <AccordionList title='Instructions'>
       <p>Click the map to get started</p>
       <p>The number displayed on each cluster is the number of institutions in that area</p>
       <p>Click on a regional cluster to expand the area and display details for each school</p>
       <p>Use the zoom in and zoom out keys to adjust the map view</p>
       <p>For a specific search, use the search tool to type in the school by name</p>
-    </Accordion>
+    </AccordionList>
 
     <ControlBar>
-      <div className={styles.mapboxRefresh} id='refresh-btn'>
-        <img src={refreshLogo} />
-        Refresh
+      <div className={styles.refreshBtn} id='refresh-btn'>
+        <Reset />
       </div>
       <Share
         location={props.location}
@@ -241,7 +241,6 @@ export default function Institutions(props) {
       ref={tableRef}
     />
     </Grid>
-
 
     <Downloads
       href={'/unstructured-data/mapbox/tableData.csv'}

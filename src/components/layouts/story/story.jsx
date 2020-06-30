@@ -1,5 +1,5 @@
 import styles from './story.module.scss';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Default from '../default/default';
@@ -8,14 +8,16 @@ import HwctaLink from '../../hwcta-link/hwcta-link';
 import MoreAnalyses from '../../more-analyses/more-analyses';
 import { StorypageHeader } from '../../headers/headers';
 import Toc from '../../toc/toc';
+import pageColorMap from '../../../utils/page-color';
+import { legacy } from '../../../styles/variables.scss';
 
 const StoryLayout = (props) => {
   let header, toc;
 
   if (!props.isCustomHeader) {
     header =
-      <Grid container>
-        <Grid item>
+      <Grid container justify='center' className={styles.headerContainer}>
+        <Grid item md={10}>
           <header className={styles.headerHero}>
             <p className={styles.title}>
               {props.title}
@@ -30,21 +32,32 @@ const StoryLayout = (props) => {
         </Grid>
       </Grid>;
 
-    toc = <Toc sections={props.sectionToc} />;
+    toc = props.sectionToc ? <Toc sections={props.sectionToc} /> : <></>;
   }
 
-  return <Default>
-    <StorypageHeader/>
-      <div className={styles.storyPage}>
-        {header}
-        {toc}
-        {props.children}
+  const [color, setColor] = useState(legacy);
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setColor(pageColorMap[window.location.pathname])
+    }
+  }, [props.color])
 
-        <div className={styles.hwcta}>
-          <HwctaLink url={props.hwctaLink || '#'} />
-        </div>
-        <MoreAnalyses />
+  return <Default>
+    <StorypageHeader />
+    <div className={styles.storyPage}>
+      {header}
+      {toc}
+      {props.children}
+
+      <div className={styles.hwcta}>
+        <HwctaLink
+          url={props.hwctaLink || '#'}
+          fillColor={color}
+        />
       </div>
+      <MoreAnalyses />
+    </div>
   </Default>
 };
 
@@ -52,4 +65,9 @@ export default StoryLayout;
 
 StoryLayout.propTypes = {
   children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  introSentence: PropTypes.string.isRequired,
+  hwctaLink: PropTypes.string.isRequired,
+  contextStatement: PropTypes.string,
+  toc: PropTypes.array
 }

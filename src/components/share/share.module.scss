@@ -41,7 +41,8 @@ $silver: #ccc;
 
 .share-button-text {
   margin-left: 5px;
-  color: #333333;
+  color: #999;
+  font-family: 'Source Sans Pro';
 
   &:hover {
     text-decoration: underline;
@@ -124,13 +125,14 @@ $silver: #ccc;
 .viz-share-icon {
   width: auto;
   font-size: 1rem;
-  color: #4a4a4a;
+  font-family: 'Source Sans Pro';
   background-color: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
 
-  img {
+  svg {
+    fill: rgb(85, 85, 85);
     margin-right: 4px;
     transform: translateY(4px);
   }
@@ -138,6 +140,7 @@ $silver: #ccc;
 
 .popup .popuptext {
   visibility: hidden;
+  font-family: 'Source Sans Pro';
   width: 8rem;
   background-color: #fff;
   border: 1px $silver solid;
@@ -170,4 +173,5 @@ $silver: #ccc;
 .share-text {
   //vertical-align: top;
   line-height: 1.2rem;
+  color: rgb(85, 85, 85);
 }

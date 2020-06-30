@@ -6,6 +6,10 @@ export default function formatNumber(type, number) {
   const formatDollars = d3.format('$,');
   const formatDollarsText = d3.format('.2s');
 
+  if (isNaN(number)) {
+    return 'NA'
+  };
+
   switch (type) {
     case 'percent':
       return formatPercent(number);
@@ -25,8 +29,11 @@ export default function formatNumber(type, number) {
     case 'dollars suffix':
       return (
         '$' + formatDollarsText(Math.round(number))
-          .replace('k', ' T')
           .replace('G', ' B')
+          .replace('M', ' M')
+          .replace('k', ' k')
+          .replace('T', ' T')
+
       );
     default:
       return '';

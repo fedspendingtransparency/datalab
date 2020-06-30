@@ -62,8 +62,6 @@ const sections=
 
 export default class CollegesAndUniversitiesPage extends React.Component {
 
-
-
   render = () =>
     <StoryLayout isCustomHeader={true}
                  hwctaLink={this.props.location.pathname + '/methodologies'} >
@@ -75,7 +73,7 @@ export default class CollegesAndUniversitiesPage extends React.Component {
       <CustomHeader
         subtext={'Federal Investment in Higher Education'}
         subblurb={['Explore the Federal Investment in your ', <br key='subblurb-linebreak' />,
-          <span key='subblurb-callout' className={'header--red'}>Alma Mater</span>]}
+          <span key='subblurb-callout' className={styles.headerRed}>Alma Mater</span>]}
         blurb={['Did you know the federal government invested over $149 billion in colleges and universities in fiscal year 2018?',
           <br key='blurb-linebreak' />,
           'Those funds made an impact on over 3,000 schools, approximately 15 million undergraduates, and a little over 2.5 million graduate students.']}
