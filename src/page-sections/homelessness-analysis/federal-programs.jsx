@@ -129,9 +129,11 @@ export default function FederalPrograms(props) {
       .attr('width', '95%')
     ;
 
-    p2MatrixSvg = d3.select('#panel_matrix').append('svg')
+    p2MatrixSvg = d3.select('#panel_matrix')
+      .append('svg')
       .attr('width', '100%')
       .attr('height', mapHeight + margin.top + margin.bottom + 40)
+      .attr('id', 'p2_2_matrix')
     ;
 
 
@@ -171,6 +173,13 @@ export default function FederalPrograms(props) {
       d.homeless_unaccompanied_youth = +d.homeless_unaccompanied_youth;
       d.amount = +d.amount;
     });
+
+    d3.select('#p2_1_map')
+      .append('desc')
+      .html('Panel description of regional homelessness spending using 2018 Continuum of Care data. This panel is a searchable map with federal grant data.')
+    d3.select('#p2_2_matrix')
+      .append('desc')
+      .html('This panel contains a bar graph of grant categories such as housing, education, employment, support services, and health.')
   }
 
   function makeMapTitle(d9) {
@@ -226,17 +235,17 @@ export default function FederalPrograms(props) {
     d3.select('#p2_4_cfda_legend').remove();
 
     const cfdaLegend22 = d3.select('#p2_2_legend')
-          .append('div')
-          .attr('width', '100%')
-          .attr('height', '30px')
-          .attr('id', 'p2_2_cfda_legend')
+      .append('div')
+      .attr('width', '100%')
+      .attr('height', '30px')
+      .attr('id', 'p2_2_cfda_legend')
     ;
 
     const cfdaLegend = d3.select('#p2_4_legend')
-          .append('div')
-          .attr('width', '100%')
-          .attr('height', '30px')
-          .attr('id', 'p2_4_cfda_legend')
+      .append('div')
+      .attr('width', '100%')
+      .attr('height', '30px')
+      .attr('id', 'p2_4_cfda_legend')
     ;
 
     const cfdaColor = ['#544E89', '#BD10E0', '#04BCDD', '#F89206', '#06984E', '#F6043F'];
@@ -245,7 +254,7 @@ export default function FederalPrograms(props) {
 
     for (let i = 0; i < cfdaLegendKeyValues.length; i++) {
       const k = cfdaLegend22.append('div')
-            .attr('id', 'p2_2_legend_key')
+        .attr('id', 'p2_2_legend_key')
       ;
 
       k.append('div')
@@ -307,10 +316,15 @@ export default function FederalPrograms(props) {
     ;
 
     const p24MatrixSvg = d3.select('#panel_info').append('svg')
-          .attr('width', '100%')
-          .attr('height', mapHeight + margin.top + margin.bottom + 140)
-          .attr('transform', `translate(${0},${10})`)
+      .attr('id', 'p2_4_info')
+      .attr('width', '100%')
+      .attr('height', mapHeight + margin.top + margin.bottom + 140)
+      .attr('transform', `translate(${0},${10})`)
     ;
+
+    d3.select('#p2_4_info')
+      .append('desc')
+      .html('This panel shows the federal programs serving the selected region.')
 
     function filterStateBarChart(cfdaStateData) {
       return cfdaStateData.pop_state_code === d.properties.STUSAB;
@@ -941,6 +955,6 @@ export default function FederalPrograms(props) {
         href={'../../../../unstructured-data/homelessness-analysis/panel_2_table_and_counts_v7_2020_03_27.csv'}
         date={'November 2019'}
       />
-    </div >
+    </div>
   );
 }
