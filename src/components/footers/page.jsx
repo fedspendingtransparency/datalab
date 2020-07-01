@@ -31,23 +31,31 @@ export default class PageFooter extends React.Component {
     super(props);
   }
 
+  calculateLogoWidth = () => {
+    let width = 200;
+    if (typeof window !== 'undefined') {
+      width = '15%'
+    }
+    return width;
+  }
+
   render = () =>
     <div className={pageFooterStyles.pageFooter}>
       <Grid container className={pageFooterStyles.content}>
-        <Grid item xs={12} lg={3} className={pageFooterStyles.logo}>
-          <DataLab fillColor='#666'/>
+        <Grid item xs={12} xl={2} className={pageFooterStyles.logo}>
+          <a target="_blank" rel="noopener noreferrer" href='/'>
+            <DataLab fillColor='#666' />
+          </a>
         </Grid>
-        <Grid item xs={12} lg={3}>
-          <div className={pageFooterStyles.title}>Contact Us</div>
-          <p>For general inquiries or questions on Data Lab activities or operations, please contact:
-            <a href='mailto: usaspending.help@fiscal.treasury.gov?subject=Data Lab - Contact Us' rel='noopener noreferrer'>
-              <br /><br />
-              E: usaspending.help@fiscal.treasury.gov
-            </a>
-          </p>
+        <Grid item xs={12} xl={1} className={pageFooterStyles.ourSites}>
+          <div>
+            <div className={pageFooterStyles.title}>Our Sites</div>
+            <a target="_blank" rel="noopener noreferrer" href='https://github.com/fedspendingtransparency/datalab'>USASpending</a>
+            <a target="_blank" rel="noopener noreferrer" href='https://github.com/fedspendingtransparency/datalab'>Fiscal Data</a>
+          </div>
         </Grid>
-        <Grid item xs={12} lg={3}>
-          <div className={pageFooterStyles.title}>Mailing List</div>
+        <Grid item xs={12} xl={4} className={pageFooterStyles.social}>
+          <div className={pageFooterStyles.title}>Connect With Us</div>
           <p>
             To join our mailing list, send a blank email with no subject to:{' '}
             <a href='mailto: datalab@lists.fiscal.treasury.gov' rel='noopener noreferrer'>datalab@lists.fiscal.treasury.gov</a>
@@ -56,16 +64,22 @@ export default class PageFooter extends React.Component {
           <p>
             Visit our <a href='https://usaspending-help.zendesk.com/hc/en-us/community/topics' target='_blank' rel='noopener noreferrer'>Community Page today.</a>
           </p>
-        </Grid>
-        <Grid item xs={12} lg={3} className={pageFooterStyles.social}>
           <div className={pageFooterStyles.contents}>
-            <div className={pageFooterStyles.title}>Connect With Us</div>
             <a target="_blank" rel="noopener noreferrer" href='https://github.com/fedspendingtransparency/datalab'><Github /></a>
             <a target="_blank" rel="noopener noreferrer" href='https://data.world/usaspending'><Dataworld /></a>
             <a target="_blank" rel="noopener noreferrer" href='https://twitter.com/usaspending'><Twitter /></a>
             <a target="_blank" rel="noopener noreferrer" href='https://www.facebook.com/fiscalservice/'><Facebook /></a>
             <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt/'><LinkedIn /></a>
           </div>
+        </Grid>
+        <Grid item xs={12} xl={5}>
+          <div className={pageFooterStyles.title}>Help</div>
+          <p>For general inquiries or questions on Data Lab activities or operations, please contact:
+            <a href='mailto: media.relations@fiscal.treasury.gov?subject=Data Lab - Contact Us' rel='noopener noreferrer'>
+              <br /><br />
+              E: media.relations@fiscal.treasury.gov
+            </a>
+          </p>
         </Grid>
       </Grid>
     </div>
