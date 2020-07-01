@@ -83,7 +83,18 @@ export default class Share extends Component {
         '&:hover': {
           backgroundColor: 'transparent',
           '& span': {
-            color: this.state.fillColor
+            color: this.state.fillColor,
+            textDecoration: 'underline'
+          },
+          '& svg': {
+            fill: this.state.fillColor
+          }
+        },
+        '&:focus': {
+          backgroundColor: 'transparent',
+          '& span': {
+            color: this.state.fillColor,
+            textDecoration: 'underline'
           },
           '& svg': {
             fill: this.state.fillColor
