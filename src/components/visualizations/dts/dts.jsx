@@ -182,7 +182,7 @@ function DTS(props) {
 
       d3.select('#svg-wrapper').attr('aria-labeledby', 'd3-title').attr('role', 'img').attr('width', w);
 
-      let title = d3.select("#svg-wrapper").append("desc").append('title');
+      let title = d3.select("#svg-wrapper").append("desc");
       title.attr('id', 'd3-title');
       title.text('Line graph of the Daily Treasury Statement with data from June 2005 through today. (96) Data is displayed in ranges of 30 or 90 days and 1, 5, or 10 years and at a frequency of daily, monthly to date, and fiscal year to date. October 28, 2008 saw the highest day of spending ($123B) while December 8, 2008 saw the lowest day of spending ($8.8B).');
 
@@ -411,7 +411,7 @@ function DTS(props) {
         width = +svg.attr("width") - margin.left - margin.right,
         height = +svg.attr("height") - margin.top - margin.bottom;
 
-      svg.append('desc').append('title')
+      svg.append('desc')
         .text('Chart of Total Spending by Fiscal Year from 2011 ($4.33 trillion) through current Fiscal Year 2020 ($673 billion).').attr('id', 'dts-bar-title');
 
       var x = d3.scaleBand().range([0, width]).padding(0.1),
