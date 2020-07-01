@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './tool.module.scss';
 
@@ -7,42 +7,54 @@ import Default from '../default/default';
 import HWCTALink from '../../hwcta-link/hwcta-link';
 import MoreAnalyses from '../../more-analyses/more-analyses';
 import { ToolpageHeader } from '../../headers/headers';
+import pageColorMap from '../../../utils/page-color';
+import { legacy } from '../../../styles/variables.scss';
 
-export default class ToolLayout extends React.Component {
-  render = () => <Default>
-    <ToolpageHeader />
-    <div className={styles.toolPage}>
-      <header className={styles.header}>
-        <Grid container justify='space-between'>
-          <Grid item className={styles.title}>{this.props.title}</Grid>
-        </Grid>
-      </header>
-      <section>
-        <p className={styles.intro} dangerouslySetInnerHTML={{ __html: this.props.introSentence }}></p>
-        <p className={styles.p} dangerouslySetInnerHTML={{ __html: this.props.contextStatement }}></p>
-      </section>
+const ToolLayout = (props) => {
+  const [color, setColor] = useState(legacy);
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setColor(pageColorMap[window.location.pathname])
+    }
+  }, [props.color])
 
-      <div className={styles.main}>
-        <article>
-          <section className={styles.childrenSection}>
-            {this.props.children}
-          </section>
-          <section className={styles.followUp}>
-            <Grid container>
-              <Grid item xs={12} sm={4} lg={5}>
-                <div className={styles.bodyIntro} dangerouslySetInnerHTML={{ __html: this.props.sectionTitle }}></div>
+  return (
+    <Default>
+      <ToolpageHeader />
+      <div className={styles.toolPage}>
+        <header className={styles.header}>
+          <Grid container justify='space-between'>
+            <Grid item className={styles.title}>{props.title}</Grid>
+          </Grid>
+        </header>
+        <section>
+          <p className={styles.intro} dangerouslySetInnerHTML={{ __html: props.introSentence }}></p>
+          <p className={styles.p} dangerouslySetInnerHTML={{ __html: props.contextStatement }}></p>
+        </section>
+
+        <div className={styles.main}>
+          <article>
+            <section className={styles.childrenSection}>
+              {props.children}
+            </section>
+            <section className={styles.followUp}>
+              <Grid container>
+                <Grid item xs={12} sm={4} lg={5}>
+                  <div className={styles.bodyIntro} dangerouslySetInnerHTML={{ __html: props.sectionTitle }}></div>
+                </Grid>
+                <Grid item xs={12} sm={8} lg={7}>
+                  <div dangerouslySetInnerHTML={{ __html: props.sectionText }}></div>
+                </Grid>
               </Grid>
-              <Grid item xs={12} sm={8} lg={7}>
-                <div dangerouslySetInnerHTML={{ __html: this.props.sectionText }}></div>
-              </Grid>
-            </Grid>
-          </section>
-        </article>
+            </section>
+          </article>
+        </div>
+        <HWCTALink url={props.hwctaLink || '#'} _mainClass={styles.hwcta} _noOffset='true' fillColor={color} />
+        <MoreAnalyses />
       </div>
-      <HWCTALink url={this.props.hwctaLink || '#'} _mainClass={styles.hwcta} _noOffset='true' />
-      <MoreAnalyses />
-    </div>
-  </Default>
+    </Default>
+  )
 }
 
 ToolLayout.propTypes = {
@@ -54,3 +66,5 @@ ToolLayout.propTypes = {
   sectionText: PropTypes.string,
   hwctaLink: PropTypes.string
 }
+
+export default ToolLayout;

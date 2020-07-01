@@ -14,7 +14,12 @@ const Logo = props => {
       version='1.1'
       xmlns='http://www.w3.org/2000/svg'
       xmlnsXlink='http://www.w3.org/1999/xlink'
+      role="img"
+      aria-labelledby="logo-title"
     >
+      <desc>
+        <title id="logo-title">Data Lab Logo of an abstract American flag referencing a bar chart.</title>
+      </desc>
       <defs>
         <polygon
           id='logo-path-1'
