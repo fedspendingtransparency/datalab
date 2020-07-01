@@ -23,15 +23,24 @@ const Downloads = (props) => {
       padding: 0,
       margin: 0,
       width: 'max-content',
+      '& *': {
+        color: '#555'
+      },
       '&:hover': {
         '& *': {
           color: fillColor
+        },
+        '& div': {
+          textDecoration: 'underline'
         }
       },
       '& a': {
         '&:focus': {
           '& *': {
             color: fillColor
+          },
+          '& div': {
+            textDecoration: 'underline'
           }
         }
       }
