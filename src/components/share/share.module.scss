@@ -4,6 +4,7 @@ $silver: #ccc;
 .share-container {
   display: flex;
   justify-content: flex-end;
+  height: 100%;
 }
 
 .new-share {
@@ -15,10 +16,6 @@ $silver: #ccc;
 
 .newpopup {
   top: 40px !important;
-}
-
-.new-share-button .viz-share-icon:hover {
-  fill: $cuRed;
 }
 
 .share-buttons {
@@ -116,8 +113,9 @@ $silver: #ccc;
   }
 
   .share-link {
+    display: flex;
     border: none;
-    padding: 0;
+    padding: 3px 0px;
     background-color: transparent;
   }
 }
@@ -134,14 +132,12 @@ $silver: #ccc;
   svg {
     fill: rgb(85, 85, 85);
     margin-right: 4px;
-    transform: translateY(4px);
   }
 }
 
 .popup .popuptext {
   visibility: hidden;
   font-family: 'Source Sans Pro';
-  width: 8rem;
   background-color: #fff;
   border: 1px $silver solid;
   border-radius: 6px;
