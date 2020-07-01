@@ -34,7 +34,7 @@ class OfficialBanner extends React.Component {
 					<img
 						className={`${styles.flag} lazyload`}
 						src={flag}
-						alt="U.S. flag" />
+						alt="Data Lab Logo of an abstract American flag referencing a bar chart" />
 				</div>
 			</header>
 		);
