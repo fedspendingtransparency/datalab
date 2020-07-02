@@ -19,8 +19,7 @@ export default class DTSPage extends React.Component {
 
   componentDidMount() {
     d3.csv('/data-lab-data/dts/dts.csv', dataArray => {
-      console.log(dataArray)
-      // this.setState({ dtsData: dataArray });
+      this.setState({ dtsData: dataArray });
     });
   }
 
@@ -103,7 +102,7 @@ export default class DTSPage extends React.Component {
             The Daily Treasury Statement (DTS) is published each day that the Federal Government is open. It provides data on the cash and debt operations of the U.S. Treasury based on reporting of the Treasury account balances by the Federal Reserve banks. For more information about the authoritative source of this dataset, please go to:
             <a href="https://fsapps.fiscal.treasury.gov/dts/issues" className="dts-hyperlink">https://fsapps.fiscal.treasury.gov/dts/issues</a>
           </div>
-          <Downloads href={'/data-lab-data/dts/dts.csv'} withFiscalDataLogo justify='space-between' date='May 2020' />
+          <Downloads href={'/data-lab-data/dts/dts.csv'} withFiscalDataLogo justify='space-between' />
         </div>
       </div>
     </ToolLayout>
