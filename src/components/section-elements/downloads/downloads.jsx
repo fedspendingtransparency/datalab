@@ -106,7 +106,7 @@ const Downloads = (props) => {
       id={props.mobileSpace ? downloadsStyles.downloadMobile : ``}
     >
       {props.withFiscalDataLogo &&
-        <a href="">
+        <a target="_blank" rel="noopener noreferrer" href="https://fiscaldata.treasury.gov/">
           <FiscalDataLogo className={downloadsStyles.logo} />
         </a>
       }
