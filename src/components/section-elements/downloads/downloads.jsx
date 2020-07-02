@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import downloadsStyles from "./downloads.module.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
@@ -6,6 +6,8 @@ import { Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
 import Radium from 'radium';
 import styleVariables from 'src/styles/variables.scss';
+import FiscalDataLogo from 'src/svgs/powered-by-fiscal-data.svg';
+import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode'
 
 const Downloads = (props) => {
   const inlineStyles = {
@@ -48,6 +50,8 @@ const Downloads = (props) => {
 
   let selectedStyle = inlineStyles.legacy;
 
+  const [screenMode, setScreenMode] = useState(0);
+
   if (typeof window !== 'undefined') {
     const pathname = window.location.pathname.replace(/\//g, "");
     const index = Object.keys(inlineStyles).indexOf(pathname);
@@ -55,6 +59,21 @@ const Downloads = (props) => {
     if (index > -1) {
       selectedStyle = inlineStyles[pathname];
     }
+
+    const resizeWindow = () => {
+      const newMode = checkScreenMode(window.innerWidth);
+      if (newMode !== screenMode) {
+        setScreenMode(newMode);
+      }
+    }
+  
+    useEffect(() => {
+      resizeWindow();
+      window.addEventListener('resize', resizeWindow);
+      return () => {
+        window.removeEventListener('resize', resizeWindow);
+      }
+    }, []);
   }
 
   function exportToJsonFile(jsonData) {
@@ -75,24 +94,29 @@ const Downloads = (props) => {
     );
   }
 
+  const align = screenMode === ScreenModeEnum.mobile ? 'center' : 'flex-start';
+
   return (
     <Grid
       container
-      alignItems="flex-start"
+      alignItems={align}
       justify={props.justify || "flex-end"}
       direction="row"
       className={downloadsStyles.download}
       id={props.mobileSpace ? downloadsStyles.downloadMobile : ``}
     >
-      {props.date ? <span className={downloadsStyles.fadedModifier}>Updated as of {props.date} / </span> : ''}
-      {props.isJSON ?
-        exportToJsonFile(props.data)
-        :
-       <a className={downloadsStyles.data} style={selectedStyle} href={props.href}>
-          <FontAwesomeIcon icon={faDownload} width={16} />
-          &nbsp;Download
-       </a>
-      }
+      {props.withFiscalDataLogo && <FiscalDataLogo className={downloadsStyles.logo} />}
+      <div>
+        {props.date ? <span className={downloadsStyles.fadedModifier}>Updated as of {props.date} / </span> : ''}
+        {props.isJSON ?
+          exportToJsonFile(props.data)
+          :
+          <a className={downloadsStyles.data} style={selectedStyle} href={props.href}>
+              <FontAwesomeIcon icon={faDownload} width={16} />
+              &nbsp;Download
+          </a>
+        }
+      </div>
     </Grid>
   );
 };
