@@ -105,7 +105,11 @@ const Downloads = (props) => {
       className={downloadsStyles.download}
       id={props.mobileSpace ? downloadsStyles.downloadMobile : ``}
     >
-      {props.withFiscalDataLogo && <FiscalDataLogo className={downloadsStyles.logo} />}
+      {props.withFiscalDataLogo &&
+        <a href="">
+          <FiscalDataLogo className={downloadsStyles.logo} />
+        </a>
+      }
       <div>
         {props.date ? <span className={downloadsStyles.fadedModifier}>Updated as of {props.date} / </span> : ''}
         {props.isJSON ?
