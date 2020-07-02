@@ -150,12 +150,11 @@ export default class HomelessnessPage extends Component {
           sectionToc={sections}
           hwctaLink={this.props.location.pathname + '/methodologies'}
         >
-
-          <SEO title="U.S. Treasury Data Lab - Homelessness Analysis"
-            description="The U.S. Treasury’s Data Lab presents an analysis showing where people experience homelessness across America and the federal programs to assist them. On a single night in 2018 more than 550,000 people experienced homelessness in the United States."
+          <SEO
+            title="U.S. Treasury Data Lab - Homelessness Analysis"
+            description="Any night in 2018 over 550,000 people experienced homelessness in America. This analysis shows the federal programs in place to assist them and where they are."
             keywords={[`homelessness`, `federal spending`, `housing`, `federal programs`, `homeless`, `government programs`, `homeless housing`, `homeless shelter`, `homeless people`, `choropleth`, `bar chart`, `tree map`]}
           />
-
           {sections.map((item, key) => {
             const SectionTag = this.sectionComponents[item.tagName];
             return (
@@ -164,7 +163,6 @@ export default class HomelessnessPage extends Component {
               </StorySection>
             )
           })}
-
           <Grid container justify="center">
             <Grid item xl={10}>
               <Footnotes footnotes={[

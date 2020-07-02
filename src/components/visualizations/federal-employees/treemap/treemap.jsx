@@ -96,7 +96,9 @@ export default function Treemap(props) {
     <>
       <div id="tooltip" className="tooltip-module" />
       <div className={treemapStyles.treemapContainer}>
-        <svg width="1200" height="700" viewBox="0 0 1200 700" id="treemapSvg" className={treemapStyles.treemapVisualization}/>
+        <svg width="1200" height="700" viewBox="0 0 1200 700" id="treemapSvg" className={treemapStyles.treemapVisualization}>
+          <desc>Diagram showing a breakdown of the 24 CFO Act Agencies, and their respective personnel compensation amounts from Fiscal Year 2017.</desc>
+        </svg>
       </div>
     </>
   );

@@ -57,8 +57,9 @@ function DtsTile(props) {
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
       .append('g')
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
-    ;
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+    
+    svg.append('desc').append('title').text('Line graph of the Daily Treasury Statement with data from June 2005 through today.');
 
     x = d3.scaleTime().range([0, width]);
     y = d3.scaleLinear().range([height, 0]);
