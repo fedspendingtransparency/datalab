@@ -1,51 +1,80 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import downloadsStyles from "./downloads.module.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import { Grid, Container } from "@material-ui/core";
-import { withStyles } from "@material-ui/styles"
+import { Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
 import Radium from 'radium';
 import styleVariables from 'src/styles/variables.scss';
-import pageColorMap from '../../../utils/page-color';
+import FiscalDataLogo from 'src/svgs/powered-by-fiscal-data.svg';
+import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode'
 
 const Downloads = (props) => {
-  let fillColor = styleVariables.legacy;
-  
-  if (typeof window !== 'undefined') {
-    if (pageColorMap[window.location.pathname]) {
-      fillColor = pageColorMap[window.location.pathname];
-    }
-  }
-
-  const DownloadsContainer = withStyles(() => ({
-    'root': {
-      padding: 0,
-      margin: 0,
-      width: 'max-content',
-      '& *': {
-        color: '#555'
-      },
-      '&:hover': {
-        '& *': {
-          color: fillColor
-        },
-        '& div': {
-          textDecoration: 'underline'
-        }
-      },
-      '& a': {
-        '&:focus': {
-          '& *': {
-            color: fillColor
-          },
-          '& div': {
-            textDecoration: 'underline'
-          }
-        }
+  const inlineStyles = {
+    legacy: {
+      ':hover': {
+        color: styleVariables.legacyBlue
+      }
+    },
+    'colleges-and-universities': {
+      ':hover': {
+        color: styleVariables.cuRed
+      }
+    },
+    'competition-in-contracting': {
+      ':hover': {
+        color: styleVariables.dlExpressBlue
+      }
+    },
+    'rd-in-contracting': {
+      ':hover': {
+        color: styleVariables.rdBlue
+      }
+    },
+    'analyst-guide': {
+      ':hover': {
+        color: styleVariables.analystGuideBlue
+      }
+    },
+    'student-innovators-toolbox': {
+      ':hover': {
+        color: styleVariables.studentToolboxBlue
+      }
+    },
+    'federal-covid-spending': {
+      ':hover': {
+        color: styleVariables.covidPurple
       }
     }
-  }))(Container)
+  };
+
+  let selectedStyle = inlineStyles.legacy;
+
+  const [screenMode, setScreenMode] = useState(0);
+
+  if (typeof window !== 'undefined') {
+    const pathname = window.location.pathname.replace(/\//g, "");
+    const index = Object.keys(inlineStyles).indexOf(pathname);
+
+    if (index > -1) {
+      selectedStyle = inlineStyles[pathname];
+    }
+
+    const resizeWindow = () => {
+      const newMode = checkScreenMode(window.innerWidth);
+      if (newMode !== screenMode) {
+        setScreenMode(newMode);
+      }
+    }
+  
+    useEffect(() => {
+      resizeWindow();
+      window.addEventListener('resize', resizeWindow);
+      return () => {
+        window.removeEventListener('resize', resizeWindow);
+      }
+    }, []);
+  }
 
   function exportToJsonFile(jsonData) {
     if (typeof Blob === 'undefined') {
@@ -58,35 +87,36 @@ const Downloads = (props) => {
     const exportFileDefaultName = 'data.json';
 
     return (
-      <DownloadsContainer>
-        <a className={downloadsStyles.data} href={dataUri} download={exportFileDefaultName}>
-          <FontAwesomeIcon icon={faDownload} width={16} />
-          <div>&nbsp;Download</div>
-        </a>
-      </DownloadsContainer>
+      <a className={downloadsStyles.data} href={dataUri} download={exportFileDefaultName}>
+        <FontAwesomeIcon icon={faDownload} width={16} />
+        &nbsp;Download
+      </a>
     );
   }
+
+  const align = screenMode === ScreenModeEnum.mobile ? 'center' : 'flex-start';
 
   return (
     <Grid
       container
-      alignItems="flex-start"
+      alignItems={align}
       justify={props.justify || "flex-end"}
       direction="row"
       className={downloadsStyles.download}
       id={props.mobileSpace ? downloadsStyles.downloadMobile : ``}
     >
-      {props.date ? <span className={downloadsStyles.fadedModifier}>Updated as of {props.date} / </span> : ''}
-      {props.isJSON ?
-        exportToJsonFile(props.data)
-        :
-        <DownloadsContainer>
-          <a className={downloadsStyles.data} href={props.href}>
+      {props.withFiscalDataLogo && <FiscalDataLogo className={downloadsStyles.logo} />}
+      <div>
+        {props.date ? <span className={downloadsStyles.fadedModifier}>Updated as of {props.date} / </span> : ''}
+        {props.isJSON ?
+          exportToJsonFile(props.data)
+          :
+          <a className={downloadsStyles.data} style={selectedStyle} href={props.href}>
               <FontAwesomeIcon icon={faDownload} width={16} />
-              <div>&nbsp;Download</div>
+              &nbsp;Download
           </a>
-        </DownloadsContainer>
-      }
+        }
+      </div>
     </Grid>
   );
 };
