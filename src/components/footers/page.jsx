@@ -50,8 +50,8 @@ export default class PageFooter extends React.Component {
         <Grid item xs={12} xl={1} className={pageFooterStyles.ourSites}>
           <div>
             <div className={pageFooterStyles.title}>Our Sites</div>
-            <a target="_blank" rel="noopener noreferrer" href='https://github.com/fedspendingtransparency/datalab'>USASpending</a>
-            <a target="_blank" rel="noopener noreferrer" href='https://github.com/fedspendingtransparency/datalab'>Fiscal Data</a>
+            <a target="_blank" rel="noopener noreferrer" href='https://www.usaspending.gov/#/'>USASpending</a>
+            <a target="_blank" rel="noopener noreferrer" href='http://fiscaldata.treasury.gov/'>Fiscal Data</a>
           </div>
         </Grid>
         <Grid item xs={12} xl={4} className={pageFooterStyles.social}>
