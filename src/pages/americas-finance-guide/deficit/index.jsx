@@ -10,10 +10,8 @@ import { AFGHeader } from 'src/components/headers/headers';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
-import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import DeficitIntro from 'src/libs/ffg/src/deficit/intro/index.js';
-
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
@@ -22,7 +20,6 @@ import AnecdoteDeficitSVG from '../../../libs/assets/ffg/icons/anecdote-deficit.
 function ExploreDeficitPage(props) {
 	return (
 		<>
-
 			<SEO
   title="Data Lab - Explore Deficit – U.S. Treasury"
   description="In 2019, the federal government spent $984 billion more than it collected, resulting in a deficit."
