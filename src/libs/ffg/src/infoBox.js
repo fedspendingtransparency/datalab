@@ -25,7 +25,6 @@ function closeBox(trigger, box) {
 }
 
 export function triggerInfoBox() {
-	console.log('trigger');
 	const trigger = d3.select(this);
 	const id = trigger.attr('data-box-id');
 	const box = d3.select(`#${id}`);
