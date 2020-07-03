@@ -4,7 +4,7 @@ import { transition } from 'd3-transition';
 import { establishContainer, translator, fadeAndRemove } from '../../utils';
 import colors from '../../globalSass/colors.scss';
 import { chartWidth } from './widthManager';
-import { triggerInfoBox } from '../../infoBox';
+import { triggerInfoBox, triggerMainInfoBox } from '../../infoBox';
 
 const introWidth = 365;
 const radius = 75;
@@ -135,6 +135,7 @@ function initDot() {
 			radius,
 		}))
 		.ease();
+	triggerMainInfoBox();
 }
 
 export function startLegendAnimation(_config, _callback) {
