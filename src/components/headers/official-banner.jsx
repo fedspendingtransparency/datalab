@@ -22,16 +22,16 @@ class OfficialBanner extends React.Component {
 						|
 					</li>
 					<li className={styles.siteItem}>
-						<Link to="/" className={styles.siteLink}>
+						<a className={styles.siteLink} target="_blank" rel="noopener noreferrer" href="/">
 							Data Lab
-						</Link>
+						</a>
 					</li>
 					<li className={`${styles.siteItem} ${styles.itemSpacer}`} aria-hidden="true">
 						|
 					</li>
 					<li className={styles.siteItem}>
 						<a className={styles.siteLink} target="_blank" rel="noopener noreferrer" href="https://fiscaldata.treasury.gov/">
-							FiscalData.gov
+							Fiscal Data
 						</a>
 					</li>
 				</ul>
