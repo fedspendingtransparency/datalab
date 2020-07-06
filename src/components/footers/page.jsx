@@ -75,9 +75,9 @@ export default class PageFooter extends React.Component {
         <Grid item xs={12} lg={4}>
           <div className={pageFooterStyles.title}>Help</div>
           <p>For general inquiries or questions on Data Lab activities or operations, please contact:
-            <a href='mailto: media.relations@fiscal.treasury.gov?subject=Data Lab - Contact Us' rel='noopener noreferrer'>
-              <br /><br />
-              E: media.relations@fiscal.treasury.gov
+            <br /><br />
+            E: <a href='mailto: media.relations@fiscal.treasury.gov?subject=Data Lab - Contact Us' rel='noopener noreferrer'>
+              media.relations@fiscal.treasury.gov
             </a>
           </p>
         </Grid>
