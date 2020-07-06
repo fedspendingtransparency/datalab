@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styles from './official-banner.module.scss';
 
 import flag from '../../images/us_flag_small.png';
@@ -21,16 +22,16 @@ class OfficialBanner extends React.Component {
 						|
 					</li>
 					<li className={styles.siteItem}>
-						<a className={styles.siteLink} target="_blank" rel="noopener noreferrer" href="/">
+						<Link to="/" className={styles.siteLink}>
 							Data Lab
-						</a>
+						</Link>
 					</li>
 					<li className={`${styles.siteItem} ${styles.itemSpacer}`} aria-hidden="true">
 						|
 					</li>
 					<li className={styles.siteItem}>
 						<a className={styles.siteLink} target="_blank" rel="noopener noreferrer" href="https://fiscaldata.treasury.gov/">
-							Fiscal Data
+							FiscalData.gov
 						</a>
 					</li>
 				</ul>
