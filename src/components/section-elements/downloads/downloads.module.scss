@@ -35,7 +35,7 @@ a.data {
     }
 }
 
-@media (max-width: $phone - 1) {
+@media (max-width: $tablet - 1) {
     .download {
         flex-direction: column;
 
