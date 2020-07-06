@@ -1,50 +1,138 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { act, create } from 'react-test-renderer';
 import Share from './share';
 import shareStyles from './share.module.scss';
 
 describe('Share', () => {
-	let component = renderer.create();
-	renderer.act(() => {
-		component = renderer.create(
+	const title = 'Placeholder Title';
+	const text = 'Placeholder Text';
+	const location = {
+		pathname: '/placeholder/location/',
+		href: '/placeholder/location/'
+	}
+
+	let component = create();
+	act(() => {
+		component = create(
       <Share
-        location
-        href
-        siteUrl
-        pageUrl
-        
+        title={title}
+        text={text}
+        location={location}
       />
     );
 	});
 
 	const instance = component.root;
 
+	window.open = jest.fn();
+	const url = encodeURIComponent(instance.props.location.pathname);
+
 	it('expect the snapshot to match', () => {
 		expect(component.toJSON()).toMatchSnapshot();
 	});
 
-	it('expects the title to be rendered.', () => {
-		expect(instance.findByType('h1').children[0]).toBe(titleText);
-	});
+	it('expects the dropdown to show class when the button is clicked', async () => {
+		const button = instance.findAllByType('button')[0];
+		const popup = instance.findByProps({ id: 'sharePopup' });
+		expect(popup.props.className).not.toContain(shareStyles.show);
 
-	it('expects the body content to be rendered', () => {
-		expect(instance.findByProps({ className: accordionStyles.content }).children[0]).toBe(bodyText);
-	});
-
-	it('expects the .sr-only class to exist with screen reader assistance text.', () => {
-		const srText = instance.findByProps({ className: 'sr-only' });
-		expect(srText.children[0]).toBeDefined();
-	});
-
-	it('expects the accordion to toggle the "open" class when the button is clicked', async () => {
-		const button = instance.findByType('button');
-		const accordion = instance.findByType('section');
-		expect(accordion.props.className).not.toContain(accordionStyles.open);
-
-		renderer.act(() => {
-			button.props.onClick({ stopPropagation: () => {} });
+		act(() => {
+			button.props.onClick();
 		});
 
-		expect(accordion.props.className).toContain(accordionStyles.open);
+		expect(popup.props.className).toContain(shareStyles.show);
 	});
+
+	it('expects the Facebook button to be open the Facebook share window with the proper url', () => {
+		const button = instance.findAllByType('button')[0];
+		act(() => {
+			button.props.onClick();
+		});
+
+		const facebookButton = instance.findByProps({ id: 'facebook-button' });
+
+		act(() => {
+			facebookButton.props.onClick({
+				target: {
+					id: 'facebook-button'
+				}
+			});
+		});
+
+		expect(window.open).toHaveBeenCalledWith(
+			`https://www.facebook.com/sharer/sharer.php?u=${url}`,
+			'_blank',
+			'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'
+		);
+	})
+
+	it('expects the Twitter button to be open the Twitter share window with the proper url', () => {
+		const button = instance.findAllByType('button')[0];
+		act(() => {
+			button.props.onClick();
+		});
+
+		const twitterButton = instance.findByProps({ id: 'twitter-button' });
+
+		act(() => {
+			twitterButton.props.onClick({
+				target: {
+					id: 'twitter-button'
+				}
+			});
+		});
+
+		const twitterText = encodeURIComponent(instance.props.twitter || instance.props.text || instance.title);
+
+		expect(window.open).toHaveBeenCalledWith(
+			`https://twitter.com/intent/tweet?text=${twitterText}&url=${url}`,
+			'_blank',
+			'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'
+		);
+	})
+
+	it('expects the Reddit button to be open the Reddit share window with the proper url', () => {
+		const button = instance.findAllByType('button')[0];
+		act(() => {
+			button.props.onClick();
+		});
+
+		const redditButton = instance.findByProps({ id: 'reddit-button' });
+
+		act(() => {
+			redditButton.props.onClick({
+				target: {
+					id: 'reddit-button'
+				}
+			});
+		});
+
+		expect(window.open).toHaveBeenCalledWith(
+			`http://www.reddit.com/submit?url=${url}`,
+			'_blank',
+			'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'
+		);
+	})
+
+	it('expects the LinkedIn button to be open the LinkedIn share window with the proper url', () => {
+		const button = instance.findAllByType('button')[0];
+		act(() => {
+			button.props.onClick();
+		});
+		const linkedinButton = instance.findByProps({ id: 'linkedin-button' });
+
+		act(() => {
+			linkedinButton.props.onClick({
+				target: {
+					id: 'linkedin-button'
+				}
+			});
+		});
+
+		expect(window.open).toHaveBeenCalledWith(
+			`https://www.linkedin.com/shareArticle?mini=true&url=${url}`,
+			'_blank',
+			'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'
+		);
+	})
 });
