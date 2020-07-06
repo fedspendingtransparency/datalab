@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Share expect the snapshot to match 1`] = `
+<div
+  className="shareContainer"
+>
+  <div
+    className="popup newShare"
+  >
+    <button
+      aria-hidden="true"
+      className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-34 MuiButton-text vizShareIcon"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        <test-file-stub />
+        <span
+          className="shareText"
+        >
+          Share
+        </span>
+      </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
+    </button>
+    <span
+      className="popuptext right newpopup "
+      id="sharePopup"
+    >
+      <div
+        className="shareButtons"
+      >
+        <ul>
+          <li>
+            <button
+              className="shareLink"
+              id="facebook-button"
+              onClick={[Function]}
+              title="Share on Facebook"
+            >
+              <img
+                className="iconFacebook"
+                id="facebook-icon"
+                role="presentation"
+                src="test-file-stub"
+                style={
+                  Object {
+                    "height": "1.25rem",
+                    "width": "1.25rem",
+                  }
+                }
+              />
+              <span
+                className="shareButtonText"
+                id="facebook-label"
+              >
+                Facebook
+              </span>
+            </button>
+          </li>
+          <li>
+            <button
+              className="shareLink"
+              id="twitter-button"
+              onClick={[Function]}
+              title="Share on Twitter"
+            >
+              <img
+                className="iconTwitter"
+                id="twitter-icon"
+                role="presentation"
+                src="test-file-stub"
+                style={
+                  Object {
+                    "height": "1.25rem",
+                    "width": "1.25rem",
+                  }
+                }
+              />
+              <span
+                className="shareButtonText"
+                id="twitter-label"
+              >
+                Twitter
+              </span>
+            </button>
+          </li>
+          <li>
+            <button
+              className="shareLink"
+              id="reddit-button"
+              onClick={[Function]}
+              title="Share on Reddit"
+            >
+              <img
+                className="iconReddit"
+                id="reddit-icon"
+                role="presentation"
+                src="test-file-stub"
+                style={
+                  Object {
+                    "height": "1.25rem",
+                    "width": "1.25rem",
+                  }
+                }
+              />
+              <span
+                className="shareButtonText"
+                id="reddit-label"
+              >
+                Reddit
+              </span>
+            </button>
+          </li>
+          <li>
+            <button
+              className="shareLink"
+              id="linkedin-button"
+              onClick={[Function]}
+              title="Share on LinkedIn"
+            >
+              <img
+                className="iconLinkedin"
+                id="linkedin-icon"
+                role="presentation"
+                src="test-file-stub"
+                style={
+                  Object {
+                    "height": "1.25rem",
+                    "width": "1.25rem",
+                  }
+                }
+              />
+              <span
+                className="shareButtonText"
+                id="linkedin-label"
+              >
+                Linkedin
+              </span>
+            </button>
+          </li>
+          <li>
+            <button
+              className="shareLink"
+              id="email-button"
+              onClick={[Function]}
+              title="Share via Email"
+            >
+              <img
+                className="iconEnvelope"
+                id="email-icon"
+                role="presentation"
+                src="test-file-stub"
+                style={
+                  Object {
+                    "height": "1.25rem",
+                    "width": "1.25rem",
+                  }
+                }
+              />
+              <span
+                className="shareButtonText"
+                id="email-label"
+              >
+                Email
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </span>
+  </div>
+</div>
+`;
