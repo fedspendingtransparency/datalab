@@ -9,7 +9,7 @@ $col-padding: 15px;
     padding: 3rem 0 4rem;
 
     .title {
-      font-size: 1.0625rem;
+      font-size: 1rem;
       font-weight: 600;
       line-height: 1.24;
       letter-spacing: normal;
@@ -39,7 +39,9 @@ $col-padding: 15px;
       padding-right: 8px;
     }
 
-    .our-sites {      
+    .our-sites {
+      font-size: 0.9375rem;
+
       div {
         display: flex;
         flex-direction: column; 
