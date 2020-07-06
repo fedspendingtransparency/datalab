@@ -94,7 +94,7 @@ const Downloads = (props) => {
     );
   }
 
-  const align = screenMode === ScreenModeEnum.mobile ? 'center' : 'flex-start';
+  const align = screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet ? 'center' : 'flex-start';
 
   return (
     <Grid
