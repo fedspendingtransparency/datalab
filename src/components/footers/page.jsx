@@ -42,19 +42,19 @@ export default class PageFooter extends React.Component {
   render = () =>
     <div className={pageFooterStyles.pageFooter}>
       <Grid container className={pageFooterStyles.content}>
-        <Grid item xs={12} xl={2} className={pageFooterStyles.logo}>
+        <Grid item xs={12} lg={2} className={pageFooterStyles.logo}>
           <a target="_blank" rel="noopener noreferrer" href='/'>
             <DataLab fillColor='#666' />
           </a>
         </Grid>
-        <Grid item xs={12} xl={1} className={pageFooterStyles.ourSites}>
+        <Grid item xs={12} lg={2} className={pageFooterStyles.ourSites}>
           <div>
             <div className={pageFooterStyles.title}>Our Sites</div>
             <a target="_blank" rel="noopener noreferrer" href='https://www.usaspending.gov/#/'>USASpending</a>
             <a target="_blank" rel="noopener noreferrer" href='http://fiscaldata.treasury.gov/'>Fiscal Data</a>
           </div>
         </Grid>
-        <Grid item xs={12} xl={4} className={pageFooterStyles.social}>
+        <Grid item xs={12} lg={4} className={pageFooterStyles.social}>
           <div className={pageFooterStyles.title}>Connect With Us</div>
           <p>
             To join our mailing list, send a blank email with no subject to:{' '}
@@ -72,7 +72,7 @@ export default class PageFooter extends React.Component {
             <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt/'><LinkedIn /></a>
           </div>
         </Grid>
-        <Grid item xs={12} xl={5}>
+        <Grid item xs={12} lg={4}>
           <div className={pageFooterStyles.title}>Help</div>
           <p>For general inquiries or questions on Data Lab activities or operations, please contact:
             <a href='mailto: media.relations@fiscal.treasury.gov?subject=Data Lab - Contact Us' rel='noopener noreferrer'>

@@ -39,11 +39,7 @@ $col-padding: 15px;
       padding-right: 8px;
     }
 
-    .our-sites {
-      display: flex;
-      justify-content: center;
-      padding: 0;
-      
+    .our-sites {      
       div {
         display: flex;
         flex-direction: column; 
@@ -56,7 +52,7 @@ $col-padding: 15px;
   }
 }
 
-@media (min-width: $desktop-xl) {
+@media (min-width: $desktop) {
   .page-footer .content {
     div + div {
       padding: 0 $col-padding;
@@ -73,7 +69,7 @@ $col-padding: 15px;
   }
 }
 
-@media (max-width: $desktop-xl - 1) {
+@media (max-width: $desktop - 1) {
   .page-footer .content {
     text-align: center;
     max-width: 300px;
