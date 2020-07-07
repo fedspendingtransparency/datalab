@@ -20,6 +20,8 @@ $grey: #555555;
 }
 
 a.data {
+    display: flex;
+    align-items: center;
     color: $grey;
     margin-left: 12px;
     fill: $grey;
@@ -28,7 +30,6 @@ a.data {
     &:hover {
         color: $legacyBlue;
         text-decoration: underline;
-
         img {
             filter: brightness(0.5) sepia(1);
         }
