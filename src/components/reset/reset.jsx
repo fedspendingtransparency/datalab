@@ -22,7 +22,13 @@ const Reset = (props) => {
       color: '#555',
       '&:hover': {
         backgroundColor: 'transparent',
-        color: fillColor
+        color: fillColor,
+        textDecoration: 'underline'
+      },
+      '&:focus': {
+        backgroundColor: 'transparent',
+        color: fillColor,
+        textDecoration: 'underline'
       }
     }
   }))(Button)
