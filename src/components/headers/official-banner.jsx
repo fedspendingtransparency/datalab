@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styles from './official-banner.module.scss';
 
 import flag from '../../images/us_flag_small.png';
