@@ -48,7 +48,7 @@
 
 // "super mobile" - where logo shrinks
 @media (max-width: 450px) {
-  
+
   .official-banner {
     box-sizing: border-box;
     height: 29px;
@@ -57,5 +57,11 @@
   .site-list {
     display: none;
   }
-  
+
+}
+
+@media (max-width: 767px) {
+  .site-list {
+    display: none;
+  }
 }
