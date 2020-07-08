@@ -24,9 +24,8 @@ export default class ContractExplorerPage extends Component {
 
   render = () => <>
 		<SEO title='U.S. Treasury Data Lab – Contract Explorer'
-				 description="The U.S. Treasury’s Data Lab presents an analysis showing how the federal government uses contracts to buy the things it needs, spending approximately $500 billion on contracts each year."
-				 keywords={[`contracts`, `contractors`, `federal agencies`, `agencies`, `spending`, `government agency`, `government contract`,
-					 `appropriations`, `federal procurement`, `government procurement`, `sunburst`]} />
+				 description="Ever wonder who’s getting federal contracts and what agencies are awarding them? This analysis lets you explore contract-related information for FY17."
+				 keywords={[`contracts`, `federal contracts`, `federal agencies`, `agencies`, `government agency`, `government contract`, `procurement`, `appropriations`, `federal procurement`, `government procurement`, `sunburst`]} />
 
 		<ToolLayout title='Contract Federal Explorer'
 			introSentence="The federal government spends about $500 billion each year on contracts - that's roughly the size of Sweden's economy."

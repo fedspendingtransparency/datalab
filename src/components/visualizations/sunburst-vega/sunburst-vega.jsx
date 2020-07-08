@@ -31,9 +31,19 @@ export default class Sunburst extends React.Component {
   }
 
   componentDidMount() {
-    window.requestAnimationFrame(function() {
-      document.getElementsByTagName('canvas')[0].append('<p>alt text here</p>');
-    });
+    const altText = this.props.altText;
+
+    if(typeof window !== 'undefined') {
+      window.requestAnimationFrame(function () {
+        const el = document.getElementsByClassName('vega-embed')[0];
+        el.setAttribute('aria-labelledby', 'viz-description');
+        const node = document.createElement("p");
+        node.setAttribute('id', 'viz-description');
+        const textnode = document.createTextNode(altText);
+        node.appendChild(textnode);
+        el.insertAdjacentElement('afterend', node);
+      });
+    }
   }
 
   handleUnhover = () => {
