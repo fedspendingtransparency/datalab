@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import '@testing-library/jest-dom';
 import MoreAnalyses from './more-analyses';
 import moreAnalysesStyles from './more-analyses.module.scss';
 
