@@ -73,23 +73,30 @@ export default class PageHeader extends React.Component {
     this.setState({ showMobileMenu: !this.state.showMobileMenu });
   };
 
-  activateMenu = e => {
+  activateMenu = (e) => {
     if (!e.target.innerText) {
       return this.setState({ activeItem: null });
     }
     this.setState({ activeItem: e.target });
   };
 
-  deactivateMenu = e => {
+  deactivateMenu = (e) => {
     e.stopPropagation();
     this.state.activeItem.focus();
     this.setState({ activeItem: null });
   };
 
-  menuKeyUp = e => {
+  handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.menuKeyUp(e);
+    } else if (e.key === 'Tab') {
+      this.setState({ activeItem: null });
+    }
+  }
+
+  menuKeyUp = (e) => {
     if (e.key === 'Escape') {
       this.deactivateMenu(e);
-
     } else if (e.key === 'Enter') {
       e.stopPropagation();
       let menuItem;
@@ -97,6 +104,14 @@ export default class PageHeader extends React.Component {
         menuItem.focus();
       } else {
         this.activateMenu(e);
+      }
+    }
+  }
+
+  handleExitMenu = (e) => {
+    if (e.key === 'Tab') {
+      if ((document.activeElement.id === 'menu-first-item' && e.shiftKey) || (document.activeElement.id === 'menu-last-item' && !e.shiftKey)) {
+        this.deactivateMenu(e);
       }
     }
   }
@@ -144,13 +159,13 @@ export default class PageHeader extends React.Component {
                 className={styles.ulNav}
                 onKeyUp={this.menuKeyUp}
               >
-                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu} onKeyDown={this.handleKeyPress}>
                   <button className={styles.anchor}>Analyses <span className={styles.arrow}><Arrow /></span></button>
                 </li>
-                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu} onKeyDown={this.handleKeyPress}>
                   <button className={styles.anchor}>America's Finance Guide <span className={styles.arrow}><Arrow /></span></button>
                 </li>
-                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu}>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu} onKeyDown={this.handleKeyPress}>
                   <button className={styles.anchor}>Resources <span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item}>
@@ -163,8 +178,10 @@ export default class PageHeader extends React.Component {
         </div>
 
         <div className={`${styles.sub} ${isSticky ? ' ' + styles.tight : ``}`} style={{ top: this.props.isHome === true ? `` : `${skinnySub}px` }}>
-          <Dropdown activeItem={activeItem ? activeItem.innerText : null}
+          <Dropdown
+            activeItem={activeItem ? activeItem.innerText : null}
             mouseHandle={this.deactivateMenu}
+            handleExitMenu={this.handleExitMenu}
             data={this.props.megamenuItems}
           />
 
