@@ -1,30 +1,37 @@
-import React from "react"
-import styles from "./official-banner.module.scss";
-import { Link } from 'gatsby';
+import React from 'react';
+import styles from './official-banner.module.scss';
 
-import flag from "../../../src/images/us_flag_small.png";
+import flag from '../../images/us_flag_small.png';
 
 class OfficialBanner extends React.Component {
 	constructor(props) {
 		super(props);
-	};
+	}
 
 	render() {
 		return (
 			<header className={styles.officialBanner}>
 				<ul className={styles.siteList}>
 					<li className={styles.siteItem}>
-						<a className={styles.siteLink} href="https://www.usaspending.gov">
+						<a className={styles.siteLink} target="_blank" rel="noopener noreferrer" href="https://www.usaspending.gov">
 							USAspending.gov
-	    			</a>
+						</a>
 					</li>
 					<li className={`${styles.siteItem} ${styles.itemSpacer}`} aria-hidden="true">
 						|
-	  			</li>
+					</li>
 					<li className={styles.siteItem}>
-						<Link to={'/'} className={styles.siteLink}>
+						<a className={styles.siteLink} target="_blank" rel="noopener noreferrer" href="/">
 							Data Lab
-	    			</Link>
+						</a>
+					</li>
+					<li className={`${styles.siteItem} ${styles.itemSpacer}`} aria-hidden="true">
+						|
+					</li>
+					<li className={styles.siteItem}>
+						<a className={styles.siteLink} target="_blank" rel="noopener noreferrer" href="https://fiscaldata.treasury.gov/">
+							Fiscal Data
+						</a>
 					</li>
 				</ul>
 				<div className={styles.wrapper}>
@@ -34,7 +41,8 @@ class OfficialBanner extends React.Component {
 					<img
 						className={`${styles.flag} lazyload`}
 						src={flag}
-						alt="Data Lab Logo of an abstract American flag referencing a bar chart" />
+						alt="Data Lab Logo of an abstract American flag referencing a bar chart"
+					/>
 				</div>
 			</header>
 		);
@@ -42,5 +50,4 @@ class OfficialBanner extends React.Component {
 } // end class
 
 
-
-export default OfficialBanner
+export default OfficialBanner;
