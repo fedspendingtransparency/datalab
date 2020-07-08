@@ -42,9 +42,9 @@ function ExploreDeficitPage(props) {
 						</ControlBar>
 
 						<h1>
-							In
+							In&nbsp;
 							{AfgData.current_fy.value}
-							, the federal government spent
+							, the federal government spent&nbsp;
 							{AfgData.current_fy_deficit.value}
 							{' '}
 							more than it collected, resulting in a deficit.
@@ -55,13 +55,13 @@ function ExploreDeficitPage(props) {
 
 						<div className="debt-copy">
 							<p>
-								How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent
+								How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent&nbsp;
 								{AfgData.current_fy_spending.value}
 								{' '}
-								and collected
+								and collected&nbsp;
 								{AfgData.current_fy_revenue.value}
 								{' '}
-								in
+								in&nbsp;
 								{AfgData.current_fy.value}
 								, the government ran a deficit for the year.
 							</p>
@@ -100,10 +100,10 @@ function ExploreDeficitPage(props) {
 									<section id="debt-facts" className="facts__section">
 										<p>To pay for a deficit, the government takes on debt. The total debt that the government owes is essentially the accumulation of deficits over time, minus repayments of debt.</p>
 										<p>
-											*The
+											*The&nbsp;
 											{AfgData.added_debt_short.value}
 											{' '}
-											increase in federal debt actually consists of the
+											increase in federal debt actually consists of the&nbsp;
 											{AfgData.current_fy_deficit_short.value}
 											{' '}
 											deficit along with changes to operating cash balance, intergovernmental holdings, and other financial activities. In the visualization, the operating cash balance, intergovernmental holdings, and other financial activities were combined with the prior year debt balance for simplicity.
@@ -124,7 +124,7 @@ function ExploreDeficitPage(props) {
 								<div className="tour__part-one">
 									<h1>How has the federal deficit changed over time?</h1>
 									<p>
-										When you are done here, we encourage you to explore trends in the federal deficit since
+										When you are done here, we encourage you to explore trends in the federal deficit since&nbsp;
 										{AfgData.deficit_trend_start.value}
 										.
 									</p>
@@ -141,21 +141,21 @@ function ExploreDeficitPage(props) {
 						<div className="info-box" id="per-individual">
 							<img src={AnecdoteDeficitSVG} alt="anecdote icon" />
 							<p>
-								How much is
+								How much is&nbsp;
 								{AfgData.current_fy_deficit.value}
 								{' '}
-								in deficit spending? If you take the U.S. population estimate in
+								in deficit spending? If you take the U.S. population estimate in&nbsp;
 								{AfgData.current_fy.value}
 								{' '}
-								of
+								of&nbsp;
 								{AfgData.us_population.value}
 								{' '}
-								people
+								people&nbsp;
 								<a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">(U.S. Census Bureau)</a>
 								,
 								{AfgData.current_fy_deficit.value}
 								{' '}
-								would be equivalent to a little less than
+								would be equivalent to a little less than&nbsp;
 								{AfgData.deficit_per_individual.value}
 								{' '}
 								in deficit spending for every individual in the U.S.
@@ -165,7 +165,7 @@ function ExploreDeficitPage(props) {
 						<div className="info-box" id="billion-dollars">
 							<img src={AnecdoteDeficitSVG} alt="anecdote icon" />
 							<p>
-								In this visualization, one dot represents
+								In this visualization, one dot represents&nbsp;
 								{AfgData.dot_represents.value}
 								.
 							</p>
@@ -178,7 +178,7 @@ function ExploreDeficitPage(props) {
 								This visualization was created using the
 								<a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a>
 								{' '}
-								as the data source for federal government revenue, spending, and deficit and the
+								as the data source for federal government revenue, spending, and deficit and the&nbsp;
 								<a href={AfgData.current_mspd.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a>
 								{' '}
 								as the data source of federal debt.
