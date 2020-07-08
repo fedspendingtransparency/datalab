@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import downloadsStyles from "./downloads.module.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
@@ -7,15 +7,34 @@ import { withStyles } from "@material-ui/styles"
 import PropTypes from "prop-types";
 import Radium from 'radium';
 import styleVariables from 'src/styles/variables.scss';
+import FiscalDataLogo from 'src/svgs/powered-by-fiscal-data.svg';
 import pageColorMap from '../../../utils/page-color';
+import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode'
 
 const Downloads = (props) => {
   let fillColor = styleVariables.legacy;
   
+  const [screenMode, setScreenMode] = useState(0);
+
   if (typeof window !== 'undefined') {
     if (pageColorMap[window.location.pathname]) {
       fillColor = pageColorMap[window.location.pathname];
     }
+
+    const resizeWindow = () => {
+      const newMode = checkScreenMode(window.innerWidth);
+      if (newMode !== screenMode) {
+        setScreenMode(newMode);
+      }
+    }
+  
+    useEffect(() => {
+      resizeWindow();
+      window.addEventListener('resize', resizeWindow);
+      return () => {
+        window.removeEventListener('resize', resizeWindow);
+      }
+    }, []);
   }
 
   const DownloadsContainer = withStyles(() => ({
@@ -67,15 +86,22 @@ const Downloads = (props) => {
     );
   }
 
+  const align = screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet ? 'center' : 'flex-start';
+
   return (
     <Grid
       container
-      alignItems="flex-start"
+      alignItems={align}
       justify={props.justify || "flex-end"}
       direction="row"
       className={downloadsStyles.download}
       id={props.mobileSpace ? downloadsStyles.downloadMobile : ``}
     >
+      {props.withFiscalDataLogo &&
+        <a target="_blank" rel="noopener noreferrer" href="https://fiscaldata.treasury.gov/">
+          <FiscalDataLogo className={downloadsStyles.logo} />
+        </a>
+      }
       {props.date ? <span className={downloadsStyles.fadedModifier}>Updated as of {props.date} / </span> : ''}
       {props.isJSON ?
         exportToJsonFile(props.data)
