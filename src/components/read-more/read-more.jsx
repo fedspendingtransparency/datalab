@@ -35,11 +35,17 @@ export default class ReadMore extends React.Component {
 
     this.state = {
       clientHeight: 'auto',
-      isOpen: false
+      isOpen: false,
+      sectionId: this.props.sectionId
     };
   }
 
-  toggleReadMore = () => this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+  toggleReadMore = () => {
+    if(this.state.isOpen) {
+      location = `${window.location.pathname}#section-${this.state.sectionId}`;
+    }
+    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+  }
 
   render = () => {
     const inlineStyle = {
