@@ -1,5 +1,3 @@
-//TODO: resume logical page flow when shift/tabbing beyond current menu items
-
 import React from "react";
 import PropTypes from 'prop-types';
 import styles from './page.module.scss';
