@@ -5,6 +5,7 @@ import appendPolyfill from './utils/append-polyfill';
 import sunburstSpec from './utils/sunburst-spec';
 import './sunburst-vega.scss';
 import PropTypes from "prop-types"
+import * as d3 from 'd3v3';
 
 /* PLEASE DO NOT DELETE this import
   This code is used to transform the sunburst data in to code that's usable by Vega.  This should be handled on the data analyst
@@ -25,8 +26,14 @@ export default class Sunburst extends React.Component {
       selectedArc: this.props.default,
       previousArc: this.props.default
     };
-    
+
     this.signalListeners = { arcClick: this.handleClick, arcHover: this.handleHover, arcUnhover: this.handleUnhover };
+  }
+
+  componentDidMount() {
+    window.requestAnimationFrame(function() {
+      document.getElementsByTagName('canvas')[0].append('<p>alt text here</p>');
+    });
   }
 
   handleUnhover = () => {
