@@ -9,7 +9,7 @@ $col-padding: 15px;
     padding: 3rem 0 4rem;
 
     .title {
-      font-size: 1.0625rem;
+      font-size: 1rem;
       font-weight: 600;
       line-height: 1.24;
       letter-spacing: normal;
@@ -38,6 +38,19 @@ $col-padding: 15px;
     .social .contents a {
       padding-right: 8px;
     }
+
+    .our-sites {
+      font-size: 0.9375rem;
+
+      div {
+        display: flex;
+        flex-direction: column; 
+      }
+
+      a {
+        margin-bottom: .5rem;
+      }
+    }
   }
 }
 
@@ -52,18 +65,7 @@ $col-padding: 15px;
       text-align: center;
 
       svg {
-        width: 200px;
-      }
-    }
-
-    .social {
-      position: relative;
-      text-align: right;
-
-      .contents {
-        position: absolute;
-        bottom: 0;
-        right: 25px;
+        max-width: 90%;
       }
     }
   }
@@ -79,8 +81,18 @@ $col-padding: 15px;
       padding-bottom: 2rem;
     }
 
-    .social .title {
-      display: none;
+    .our-sites {
+      padding-bottom: 2rem;
+    }
+
+    .social {
+      p {
+        margin-bottom: 1rem;
+      }
+
+      .contents {
+        margin-bottom: 2rem;
+      }
     }
   }
 }
