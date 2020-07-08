@@ -1,0 +1,108 @@
+import React from 'react';
+import renderer from 'react-test-renderer';
+import MoreAnalyses from './more-analyses';
+import moreAnalysesStyles from './more-analyses.module.scss';
+
+import federal from 'src/images/more-analyses/federal.jpg';
+import workers from 'src/images/more-analyses/workers.jpg';
+import budget from 'src/images/more-analyses/budget.jpg';
+import competition from 'src/images/more-analyses/competition.jpg';
+import cu from 'src/images/more-analyses/cu.png';
+import homeless from 'src/images/more-analyses/homeless.png';
+import dts from 'src/images/more-analyses/dts.png';
+import explorer from 'src/images/more-analyses/explorer.png';
+import rd from 'src/images/more-analyses/rd.png';
+import covid from 'src/images/more-analyses/covid.png';
+import afg from 'src/images/more-analyses/afg.png';
+
+describe('More Analyses', () => {
+
+    const analysesHeading = 'More Analyses';
+    let instance;
+
+    const analyses = [{
+        href: 'federal-account-explorer',
+        imageSrc: federal,
+        altText: 'A close view of a withered copy of the Statement of the Income and Expenditures of the United States.',
+        title: 'Federal Account Explorer',
+        subtitle: 'Discover the federal government\'s spending accounts'
+      }, {
+        href: 'federal-employees',
+        imageSrc: workers,
+        altText: 'National Park Service Director talking with Junior Ranger wearing a vest with 32 badges, in front of the El Pueblo De Los Angeles Historic Monument.',
+        title: 'Federal Employees',
+        subtitle: 'Who works in government?'
+      }, {
+        href: 'budget-function',
+        imageSrc: budget,
+        altText: 'A close view of the back of a dollar bill focused on the Great Seal of the United States.',
+        title: 'Budget Function',
+        subtitle: 'Check out how federal spending is categorized'
+      }, {
+        href: 'competition-in-contracting',
+        imageSrc: competition,
+        altText: 'Five individuals racing on an orange race track covering four lanes.',
+        title: 'Competition in Contracting',
+        subtitle: 'How often do federal agencies compete for contracts?'
+      }, {
+        href: 'colleges-and-universities',
+        imageSrc: cu,
+        altText: 'A university building with three streets leading up to it, each has an icon representing financial aid, grants, and contracts respectively.',
+        title: 'Colleges and Universities',
+        subtitle: 'Federal investment in higher education'
+      }, {
+        href: 'homelessness-analysis',
+        imageSrc: homeless,
+        altText: 'A homeless person leaning against a street pole and additional homeless people stand against a building in the far background.',
+        title: 'Homelessness Analysis',
+        subtitle: 'Explore federal programs that address homelessness'
+      }, {
+        href: 'dts',
+        imageSrc: dts,
+        altText: 'Line graph of the Daily Treasury Statement with data from June 2005 through today.',
+        title: 'Visualizing the Daily Treasury Statement',
+        subtitle: 'How much does the federal government spend each day?'
+      }, {
+        href: 'contract-explorer',
+        imageSrc: explorer,
+        altText: 'A picture of a microscope with a sunburst image overlaid.',
+        title: 'Contract Explorer',
+        subtitle: 'Who receives federal contracts?'
+      },
+      {
+        href: 'federal-covid-spending',
+        imageSrc: covid,
+        altText: 'Woman standing with medical face mask on, social distanced between two others, with a cartoon image of the U.S. Capitol in the background.',
+        title: 'The Federal Response to COVID-19',
+        subtitle: 'How is the federal government funding relief efforts for COVID-19?'
+      },
+      {
+        href: 'americas-finance-guide',
+        imageSrc: afg,
+        altText: 'The Department of Treasury building, in Washington, D.C., that includes a bronze statue of Albert Gallatin, the fourth Secretary of the Treasury.',
+        title: 'America\'s Finance Guide',
+        subtitle: 'How much does the government spend and collect?'
+      }];
+
+    beforeAll(() => {
+        window.history.pushState({}, "Federal Account Explorer", "/federal-account-explorer");
+        const component = renderer.create(<MoreAnalyses/>);
+        instance = component.root;
+        console.log(window.location.pathname);
+      });
+
+    it('expect heading to be in place', () => {
+        expect(instance.findByProps({ className: moreAnalysesStyles.heading }).children[0]).toBe(analysesHeading);
+    });
+
+    it('expect federal account title', () => {
+        // cant find this? need to mock the html or something?
+        // anything past the `tiles` prop isn't getting rendered even though
+        // we set the window location to /federal-account-explorer
+        // indicies should be : [9, 6, 7, 2]
+        expect(instance.findByProps({classname: moreAnalysesStyles.title})).toBeDefined();
+    });
+
+
+
+}); 
