@@ -47,9 +47,9 @@ function ExploreDebtPage(props) {
 
 
 						<h1>
-							By the end of
+							By the end of&nbsp;
 							{AfgData.current_fy.value}
-							, the federal government had
+							, the federal government had&nbsp;
 							{AfgData.current_fy_debt.value}
 							{' '}
 							in federal debt.
@@ -60,7 +60,7 @@ function ExploreDebtPage(props) {
 
 						<div className="debt-copy">
 							<p>
-								How did we end up with
+								How did we end up with&nbsp;
 								{AfgData.current_fy_debt.value}
 								{' '}
 								in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to a person using his or her credit card for a purchase (rather than cash, check, or a debit card) and not paying the full credit card balance each month. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows.
@@ -117,7 +117,7 @@ function ExploreDebtPage(props) {
 								<div className="tour__part-one">
 									<h1>How has the federal debt changed over time?</h1>
 									<p>
-										When you are done here, we encourage you to explore trends in the federal debt since
+										When you are done here, we encourage you to explore trends in the federal debt since&nbsp;
 										{AfgData.debt_trend_start.value}
 										.
 									</p>
@@ -134,21 +134,21 @@ function ExploreDebtPage(props) {
 						<div className="info-box" id="per-individual">
 							<img src={AnecdoteDebtSVG} alt="anecdote icon" />
 							<p>
-								How much is
+								How much is&nbsp;
 								{AfgData.current_fy_debt.value}
 								{' '}
-								in federal debt? If you take the U.S. population estimate in
+								in federal debt? If you take the U.S. population estimate in&nbsp;
 								{AfgData.current_fy.value}
 								{' '}
-								of
+								of&nbsp;
 								{AfgData.us_population.value}
 								{' '}
-								people
+								people&nbsp;
 								<a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">(U.S. Census Bureau)</a>
 								,
 								{AfgData.current_fy_debt.value}
 								{' '}
-								would be equivalent to more than
+								would be equivalent to more than&nbsp;
 								{AfgData.debt_per_individual.value}
 								{' '}
 								for every individual in the U.S.
@@ -158,7 +158,7 @@ function ExploreDebtPage(props) {
 						<div className="info-box" id="billion-dollars">
 							<img src={AnecdoteDebtSVG} alt="anecdote icon" />
 							<p>
-								In this visualization, one dot represents
+								In this visualization, one dot represents&nbsp;
 								{AfgData.dot_represents.value}
 								.
 							</p>
@@ -170,10 +170,10 @@ function ExploreDebtPage(props) {
 					<section className="hwcta">
 						<AccordionList title="Data Sources and Methodology">
 							<p>
-								This visualization was created using the
+								This visualization was created using the&nbsp;
 								<a href={AfgData.current_mspd.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a>
 								{' '}
-								as the data source for federal debt of the United States and the
+								as the data source for federal debt of the United States and the&nbsp;
 								<a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a>
 								{' '}
 								as the data source for federal government revenue and spending.
