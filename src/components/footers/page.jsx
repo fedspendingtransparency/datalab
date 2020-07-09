@@ -1,5 +1,6 @@
 import React from 'react';
 import pageFooterStyles from './page.module.scss';
+import { Link } from 'gatsby';
 
 import { Grid } from '@material-ui/core';
 import DataLab from '../logos/datalab';
@@ -43,9 +44,9 @@ export default class PageFooter extends React.Component {
     <div className={pageFooterStyles.pageFooter}>
       <Grid container className={pageFooterStyles.content}>
         <Grid item xs={12} lg={2} className={pageFooterStyles.logo}>
-          <a target="_blank" rel="noopener noreferrer" href='/'>
+          <Link to='/'>
             <DataLab fillColor='#666' />
-          </a>
+          </Link>
         </Grid>
         <Grid item xs={12} lg={2} className={pageFooterStyles.ourSites}>
           <div>
