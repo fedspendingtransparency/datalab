@@ -49,9 +49,9 @@ countries_compared:
 country_compare_year:
   value: 2017
 country_comparison_mspd:
-  value: https://www.treasurydirect.gov/govt/reports/pd/mspd/2017/opdm092017.pdf
+  value: https://www.fiscaldata.treasury.gov/monthly-statement-public-debt/
 country_comparison_mts:
-  value: https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0917.pdf
+  value: https://fiscal.treasury.gov/reports-statements/mts/
 current_fy:
   value: 2019
 current_fy_debt:
@@ -73,9 +73,9 @@ current_fy_spending:
 current_fy_spending_short:
   value: $4.4 T
 current_mspd:
-  value: https://treasurydirect.gov/govt/reports/pd/mspd/2019/opds092019.pdf
+  value: https://www.fiscaldata.treasury.gov/monthly-statement-public-debt/
 current_mts:
-  value: https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0919.pdf
+  value: https://fiscal.treasury.gov/reports-statements/mts/
 dc_sf_miles:
   value: '741,000'
 dc_sf_trips:
