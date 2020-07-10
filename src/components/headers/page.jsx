@@ -28,7 +28,8 @@ export default class PageHeader extends React.Component {
       showMobileMenu: false,
       windowWidth: undefined,
       menuData: this.props.megamenuItems,
-      scrollButtonVisible: false
+      scrollButtonVisible: false,
+      showMenu: false
     };
   };
 
@@ -71,24 +72,43 @@ export default class PageHeader extends React.Component {
     this.setState(prevState => ({ showMobileMenu: !prevState.showMobileMenu }));
   };
 
-  activateMenu = (e) => {
+  focusMenu = (e) => {
     if (!e.target.innerText) {
       return this.setState({ activeItem: null });
     }
     this.setState({ activeItem: e.target });
   };
 
+  activateMenu = (e) => {
+    if (!e.target.innerText) {
+      return this.setState({
+        activeItem: null,
+        showMenu: false
+      });
+    }
+    this.setState({
+      activeItem: e.target,
+      showMenu: true
+    });
+  };
+
   deactivateMenu = (e) => {
     e.stopPropagation();
     this.state.activeItem.focus();
-    this.setState({ activeItem: null });
+    this.setState({
+      activeItem: null,
+      showMenu: false
+    });
   };
 
   handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       this.menuKeyUp(e);
     } else if (e.key === 'Tab') {
-      this.setState({ activeItem: null });
+      this.setState({
+        activeItem: null,
+        showMenu: false
+      });
     }
   }
 
@@ -96,12 +116,13 @@ export default class PageHeader extends React.Component {
     if (e.key === 'Escape') {
       this.deactivateMenu(e);
     } else if (e.key === 'Enter') {
+      this.setState({ showMenu: true })
       e.stopPropagation();
       let menuItem;
       if (menuItem = document.getElementById('menu-first-item')) {
         menuItem.focus();
       } else {
-        this.activateMenu(e);
+        this.focusMenu(e);
       }
     }
   }
@@ -136,7 +157,7 @@ export default class PageHeader extends React.Component {
 
   render() {
 
-    let { isSticky, skinnyTop, skinnySub, activeItem, showMobileMenu, isMobileTag, scrollButtonVisible } = this.state;
+    let { isSticky, skinnyTop, skinnySub, activeItem, showMenu, showMobileMenu, isMobileTag, scrollButtonVisible } = this.state;
 
     return <>
       <header id={styles.header} className={`${isSticky ? ' ' + styles.headerContainer : ``}`}>
@@ -157,13 +178,13 @@ export default class PageHeader extends React.Component {
                 className={styles.ulNav}
                 onKeyUp={this.menuKeyUp}
               >
-                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu} onKeyDown={this.handleKeyPress}>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.focusMenu} onKeyDown={this.handleKeyPress}>
                   <button className={styles.anchor}>Analyses <span className={styles.arrow}><Arrow /></span></button>
                 </li>
-                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu} onKeyDown={this.handleKeyPress}>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.focusMenu} onKeyDown={this.handleKeyPress}>
                   <button className={styles.anchor}>America's Finance Guide <span className={styles.arrow}><Arrow /></span></button>
                 </li>
-                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.activateMenu} onKeyDown={this.handleKeyPress}>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.focusMenu} onKeyDown={this.handleKeyPress}>
                   <button className={styles.anchor}>Resources <span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item}>
@@ -181,6 +202,7 @@ export default class PageHeader extends React.Component {
             mouseHandle={this.deactivateMenu}
             handleExitMenu={this.handleExitMenu}
             data={this.props.megamenuItems}
+            showMenu={showMenu}
           />
 
           {showMobileMenu

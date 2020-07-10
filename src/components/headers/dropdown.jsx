@@ -42,7 +42,7 @@ export default class Dropdown extends React.Component {
   }
 
   render() {
-    if (!this.props.activeItem) {
+    if (!this.props.showMenu) {
       return null;
     }
     const activeItem = this.props.activeItem.toString().trim();
