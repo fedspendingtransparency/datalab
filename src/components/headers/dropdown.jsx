@@ -106,14 +106,6 @@ export default class Dropdown extends React.Component {
             </section>
           </div>
         }
-        {
-          activeItem === "Glossary" &&
-          <div className={styles.dataList} onMouseLeave={this.props.mouseHandle} onKeyUp={this.menuKeyUp}>
-            <section className={`${styles.section} ${styles.glossary}`}>
-              <ul className={`${styles.ul} ${styles.ulGlossary}`}>{this.returnActiveList(this.state.data[4].glossary, true)}</ul>
-            </section>
-          </div>
-        }
       </div>
     )
   }
