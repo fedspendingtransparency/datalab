@@ -1,16 +1,16 @@
-import '../../../libs/ffg/src/globalSass/chapterIntroCommon.scss'
-import '../../../libs/ffg/src/globalSass/cg.scss'
-import '../../../libs/ffg/src/spending/intro/spending-intro.scss'
+import '../../../libs/ffg/src/globalSass/chapterIntroCommon.scss';
+import '../../../libs/ffg/src/globalSass/cg.scss';
+import '../../../libs/ffg/src/spending/intro/spending-intro.scss';
 
-import React from "react"
-import SEO from "../../../components/seo"
-import AfgData from "../../../libs/_data/object_mapping.yml"
-import Default from "../../../components/layouts/default/default"
+import React from "react";
+import SEO from "../../../components/seo";
+import AfgData from "../../../libs/_data/object_mapping.yml";
+import Default from "../../../components/layouts/default/default";
 import { AFGHeader } from '../../../components/headers/headers';
-import GdpTemplate from '../../../components/gdp-template/gdp-template'
-import AccordionList from '../../../components/accordion-list/accordion-list'
-import ControlBar from '../../../components/control-bar/control-bar'
-import Share from '../../../components/share/share'
+import GdpTemplate from '../../../components/gdp-template/gdp-template';
+import AccordionList from '../../../components/accordion-list/accordion-list';
+import ControlBar from '../../../components/control-bar/control-bar';
+import Share from '../../../components/share/share';
 import { Helmet } from 'react-helmet';
 import AfgNav from '../../.../../../components/afg-nav/afg-nav';
 
