@@ -155,9 +155,9 @@ med_deplete_year:
 monetary_policy:
   value: https://www.federalreserve.gov/monetarypolicy.htm
 mspd_homepage:
-  value: https://www.treasurydirect.gov/govt/reports/pd/mspd/mspd.htm
+  value: https://www.fiscaldata.treasury.gov/monthly-statement-public-debt/
 mts_homepage:
-  value: https://fiscal.treasury.gov/reports-statements/mts/
+  value: https://www.fiscaldata.treasury.gov/monthly-treasury-statement/
 number_of_salaries:
   value: 71 million
 number_trend_years:
@@ -165,9 +165,9 @@ number_trend_years:
 other_revenue_percent:
   value: 9%
 overview_mspd:
-  value: https://treasurydirect.gov/govt/reports/pd/mspd/2019/opds092019.pdf
+  value: https://www.fiscaldata.treasury.gov/monthly-statement-public-debt/
 overview_mts:
-  value: https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0919.pdf
+  value: https://www.fiscaldata.treasury.gov/monthly-treasury-statement/
 revenue_during_read:
   value: $1 million
 revenue_per_household:
