@@ -176,10 +176,10 @@ function ExploreDeficitPage(props) {
 						<AccordionList title="Data Sources and Methodology">
 							<p>
 								This visualization was created using the
-								<a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a>
+								<a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank"> Monthly Treasury Statement (MTS)</a>
 								{' '}
 								as the data source for federal government revenue, spending, and deficit and the&nbsp;
-								<a href={AfgData.current_mspd.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a>
+								<a href={AfgData.current_mspd.value} rel="noopener noreferrer" target="_blank"> Monthly Statement of the Public Debt (MSPD)</a>
 								{' '}
 								as the data source of federal debt.
 							</p>
