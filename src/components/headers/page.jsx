@@ -68,7 +68,7 @@ export default class PageHeader extends React.Component {
   };
 
   burgerClick = () => {
-    this.setState({ showMobileMenu: !this.state.showMobileMenu });
+    this.setState(prevState => ({ showMobileMenu: !prevState.showMobileMenu }));
   };
 
   activateMenu = (e) => {
