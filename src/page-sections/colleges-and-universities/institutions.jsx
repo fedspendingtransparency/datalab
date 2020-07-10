@@ -224,6 +224,7 @@ export default function Institutions(props) {
           data={GeoDataMapbox}
           showDetails={getClickedDetails}
           clickedSchool={clickedSchool}
+          altText={'U.S. map that displays FY2018 investment by regional cluster and institution. Institutional level data includes contracts, grants, and student aid.'}
         />
       </Grid>
       <Grid item xs={1}>
