@@ -14,34 +14,31 @@ import ScrollToTopButton from '../scroll-to-top-button/scroll-to-top-button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-class PageHeader extends React.Component {
+export default class PageHeader extends React.Component {
   constructor(props) {
     super(props);
-    // if we're NOT on the homepage...
-    // always set isSticky to true!
+    // if we're NOT on the homepage, always set isSticky to true!
     this.state = {
-      isSticky: props.isHome === false ? true : false,
+      isSticky: !props.isHome,
       isMobileTag: false,
       top: 0,
       skinnyTop: 26,
       skinnySub: 75,
-      activeItem: '',
+      activeItem: null,
       showMobileMenu: false,
       windowWidth: undefined,
       menuData: this.props.megamenuItems,
-      scrollButtonVisible: false
+      scrollButtonVisible: false,
+      showMenu: false
     };
   };
 
   componentDidMount() {
-
-    // check for mobile when window is avail...
-    const isMobile = window.innerWidth < 475; // 475 arbitrary value when burger hits wall (position absolute!)
-    this.setState({isMobileTag: isMobile});
+    this.setState({ isMobileTag: window.innerWidth < 475 }); // 475 arbitrary value when burger hits wall (position absolute!)
 
     if (typeof window !== 'undefined') {
       document.addEventListener('scroll', () => {
-        this.setState({ scrollButtonVisible: window.pageYOffset !== 0})
+        this.setState({ scrollButtonVisible: window.pageYOffset !== 0 })
 
         // homepage listener...
         if (this.props.isHome === true) {
@@ -71,33 +68,84 @@ class PageHeader extends React.Component {
     }
   };
 
-  handleMouseLeave = e => {
-    e.stopPropagation();
-    this.setState({ activeItem: ' ' });
+  burgerClick = () => {
+    this.setState(prevState => ({ showMobileMenu: !prevState.showMobileMenu }));
   };
 
-  burgerClick = () =>  {
-    this.setState({showMobileMenu: !this.state.showMobileMenu});
-  };
-
-  handleItemHover = e => {
+  focusMenu = (e) => {
     if (!e.target.innerText) {
-      return this.setState({activeItem: ' '});
+      return this.setState({ activeItem: null });
     }
-    this.setState({ activeItem: e.target.innerText });
+    this.setState({ activeItem: e.target });
   };
+
+  activateMenu = (e) => {
+    if (!e.target.innerText) {
+      return this.setState({
+        activeItem: null,
+        showMenu: false
+      });
+    }
+    this.setState({
+      activeItem: e.target,
+      showMenu: true
+    });
+  };
+
+  deactivateMenu = (e) => {
+    e.stopPropagation();
+    this.state.activeItem.focus();
+    this.setState({
+      activeItem: null,
+      showMenu: false
+    });
+  };
+
+  handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.menuKeyUp(e);
+    } else if (e.key === 'Tab') {
+      this.setState({
+        activeItem: null,
+        showMenu: false
+      });
+    }
+  }
+
+  menuKeyUp = (e) => {
+    if (e.key === 'Escape') {
+      this.deactivateMenu(e);
+    } else if (e.key === 'Enter') {
+      this.setState({ showMenu: true })
+      e.stopPropagation();
+      let menuItem;
+      if (menuItem = document.getElementById('menu-first-item')) {
+        menuItem.focus();
+      } else {
+        this.focusMenu(e);
+      }
+    }
+  }
+
+  handleExitMenu = (e) => {
+    if (e.key === 'Tab') {
+      if ((document.activeElement.id === 'menu-first-item' && e.shiftKey) || (document.activeElement.id === 'menu-last-item' && !e.shiftKey)) {
+        this.deactivateMenu(e);
+      }
+    }
+  }
 
   tagLineCheck = (isSticky) => {
     if (isSticky) {
       if (this.state.isMobileTag) {
-        return(<TagLineMobile/>);
+        return (<TagLineMobile />);
       }
-      return(<NoTagLine/>);
+      return (<NoTagLine />);
     } else {
       if (this.state.isMobileTag) {
-        return(<TagLineMobile/>);
+        return (<TagLineMobile />);
       }
-      return(<TagLine/>);
+      return (<TagLine />);
     }
   };
 
@@ -109,59 +157,63 @@ class PageHeader extends React.Component {
 
   render() {
 
-    let { isSticky, skinnyTop, skinnySub, activeItem, showMobileMenu, isMobileTag, scrollButtonVisible } = this.state;
+    let { isSticky, skinnyTop, skinnySub, activeItem, showMenu, showMobileMenu, isMobileTag, scrollButtonVisible } = this.state;
 
-    return (
-      <>
-        <header id={styles.header} className={`${isSticky ? ' ' + styles.headerContainer : ``}`}>
-          <div style={{top: this.props.isHome == true ? `` : `${skinnyTop}px`}} className={`${styles.main} ${isSticky ? styles.tight : ``} ${this.props.isHome ? `` : ``}`}>
-            <div className={`${styles.logoWrapper} ${!isSticky ? ' ' + styles.col : ``}`}>
-              <a href="/">
-                <div>
-                  {this.tagLineCheck(isSticky, isMobileTag)}
-                </div>
-              </a>
+    return <>
+      <header id={styles.header} className={`${isSticky ? ' ' + styles.headerContainer : ``}`}>
+        <div style={{ top: this.props.isHome == true ? `` : `${skinnyTop}px` }} className={`${styles.main} ${isSticky ? styles.tight : ``} ${this.props.isHome ? `` : ``}`}>
+          <div className={`${styles.logoWrapper} ${!isSticky ? ' ' + styles.col : ``}`}>
+            <a href="/">
+              <div>
+                {this.tagLineCheck(isSticky, isMobileTag)}
+              </div>
+            </a>
 
-              <nav className={`${styles.nav} ${isSticky ? ' ' + styles.tight : ``} ${this.props.isHome ? `` : ' ' + styles.tight}`}>
-                <span className={styles.toggle} onClick={this.burgerClick}>
-                  <FontAwesomeIcon icon={faBars} />
-                </span>
-                <ul className={styles.ulNav} id={styles.burgerMenu}>
-                  <li className={styles.item} onMouseOver={this.handleItemHover}>
-                    <button className={styles.anchor}>Analyses <span className={styles.arrow}><Arrow /></span></button>
-                  </li>
-                  <li className={styles.item} onMouseOver={this.handleItemHover}>
-                    <button className={styles.anchor}>America's Finance Guide <span className={styles.arrow}><Arrow /></span></button>
-                  </li>
-                  <li className={styles.item} onMouseOver={this.handleItemHover}>
-                    <button className={styles.anchor}>Resources <span className={styles.arrow}><Arrow /></span></button>
-                  </li>
-                  <li className={styles.item}>
-                    <button className={`${styles.anchor} ${styles.glossary}`}><span className={styles.arrow}><Book/></span> Glossary </button>
-                  </li>
-                </ul>
-              </nav>
-
-            </div>
-          </div>
-
-          <div className={`${styles.sub} ${isSticky ? ' ' + styles.tight : ``}`} style={{top: this.props.isHome === true ? `` : `${skinnySub}px`}}>
-            <Dropdown activeItem={activeItem}
-                      mouseHandle={this.handleMouseLeave}
-                      data={this.props.megamenuItems} />
-
-            { showMobileMenu
-              ? <MobileMenu showMenu={showMobileMenu} headerItems={this.props.headerItems} data={this.props.megamenuItems} />
-              : <></>
-            }
+            <nav className={`${styles.nav} ${isSticky ? ' ' + styles.tight : ``} ${this.props.isHome ? `` : ' ' + styles.tight}`}>
+              <span className={styles.toggle} onClick={this.burgerClick}>
+                <FontAwesomeIcon icon={faBars} />
+              </span>
+              <ul
+                id={styles.burgerMenu}
+                className={styles.ulNav}
+                onKeyUp={this.menuKeyUp}
+              >
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.focusMenu} onKeyDown={this.handleKeyPress}>
+                  <button className={styles.anchor}>Analyses <span className={styles.arrow}><Arrow /></span></button>
+                </li>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.focusMenu} onKeyDown={this.handleKeyPress}>
+                  <button className={styles.anchor}>America's Finance Guide <span className={styles.arrow}><Arrow /></span></button>
+                </li>
+                <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.focusMenu} onKeyDown={this.handleKeyPress}>
+                  <button className={styles.anchor}>Resources <span className={styles.arrow}><Arrow /></span></button>
+                </li>
+                <li className={styles.item}>
+                  <button className={`${styles.anchor} ${styles.glossary}`}><span className={styles.arrow}><Book /></span> Glossary </button>
+                </li>
+              </ul>
+            </nav>
 
           </div>
-        </header>
-        <ScrollToTopButton onClick={this.scrollToTop} visible={scrollButtonVisible} />
-        <Glossary />
-      </>
-    );
+        </div>
+
+        <div className={`${styles.sub} ${isSticky ? ' ' + styles.tight : ``}`} style={{ top: this.props.isHome === true ? `` : `${skinnySub}px` }}>
+          <Dropdown
+            activeItem={activeItem ? activeItem.innerText : null}
+            mouseHandle={this.deactivateMenu}
+            handleExitMenu={this.handleExitMenu}
+            data={this.props.megamenuItems}
+            showMenu={showMenu}
+          />
+
+          {showMobileMenu
+            ? <MobileMenu showMenu={showMobileMenu} headerItems={this.props.headerItems} data={this.props.megamenuItems} />
+            : <></>
+          }
+
+        </div>
+      </header>
+      <ScrollToTopButton onClick={this.scrollToTop} visible={scrollButtonVisible} />
+      <Glossary />
+    </>;
   }
 };
-
-export default PageHeader;
