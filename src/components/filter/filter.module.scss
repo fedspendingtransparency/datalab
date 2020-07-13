@@ -1,0 +1,56 @@
+@import 'src/styles/variables.scss';
+
+.container {
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 1.5rem;
+
+	.dropdown-icon {
+		margin-right: 10px;
+		height: 23px;
+	}
+
+	.heading {
+		font-size: 1.625rem;
+		font-weight: 300;
+		margin-right: 12px;
+		margin-top: 3px;
+	}
+
+	#dropdown-label {
+		display: none;
+	}
+}
+
+.dropdown-item {
+	display: flex;
+	align-items: center;
+	color: #666;
+	border-bottom: solid 1px #666;
+
+	&:last-child {
+		border-bottom: 0;
+	}
+
+	svg {
+		margin-right: 15px;
+  }
+}
+
+@media (max-width: $desktop - 1) {
+	.view-spending-by-container {
+		justify-content: center;
+		margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (max-width: $phone - 1) {
+  .view-spending-by-container {
+		flex-direction: column;
+		align-items: center;
+
+		.view-spending-by-heading {
+			margin-bottom: 6px;
+		}
+	}
+}
