@@ -89,7 +89,7 @@ a:focus {
     text-decoration: underline !important;
 }
 
-@media(max-width: $tablet) {
+@media(max-width: $tablet - 1) {
     .covidAccordion {
         margin-top: -87px;
         position: absolute;
@@ -97,5 +97,16 @@ a:focus {
         z-index: 1;
         background-color: $font-white;
         border: 1px solid $font-lightGrey;
+    }
+}
+
+@media (max-width: $phone - 1) {
+    .container {
+        position: relative;
+        margin-bottom: 50px;
+    }
+
+    .covidAccordion {
+        margin-top: -50px;
     }
 }
