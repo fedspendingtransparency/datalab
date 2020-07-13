@@ -49,9 +49,9 @@ countries_compared:
 country_compare_year:
   value: 2017
 country_comparison_mspd:
-  value: https://www.fiscaldata.treasury.gov/monthly-statement-public-debt/
+  value: https://fiscaldata.treasury.gov/datasets/monthly-statement-public-debt/
 country_comparison_mts:
-  value: https://www.fiscaldata.treasury.gov/monthly-treasury-statement/
+  value: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/
 current_fy:
   value: 2019
 current_fy_debt:
@@ -73,9 +73,9 @@ current_fy_spending:
 current_fy_spending_short:
   value: $4.4 T
 current_mspd:
-  value: https://www.fiscaldata.treasury.gov/monthly-statement-public-debt/
+  value: https://fiscaldata.treasury.gov/datasets/monthly-statement-public-debt/
 current_mts:
-  value: https://www.fiscaldata.treasury.gov/monthly-treasury-statement/
+  value: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/
 dc_sf_miles:
   value: '741,000'
 dc_sf_trips:
@@ -155,9 +155,9 @@ med_deplete_year:
 monetary_policy:
   value: https://www.federalreserve.gov/monetarypolicy.htm
 mspd_homepage:
-  value: https://www.fiscaldata.treasury.gov/monthly-statement-public-debt/
+  value: https://fiscaldata.treasury.gov/datasets/monthly-statement-public-debt/
 mts_homepage:
-  value: https://www.fiscaldata.treasury.gov/monthly-treasury-statement/
+  value: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/
 number_of_salaries:
   value: 71 million
 number_trend_years:
@@ -165,9 +165,9 @@ number_trend_years:
 other_revenue_percent:
   value: 9%
 overview_mspd:
-  value: https://www.fiscaldata.treasury.gov/monthly-statement-public-debt/
+  value: https://fiscaldata.treasury.gov/datasets/monthly-statement-public-debt/
 overview_mts:
-  value: https://www.fiscaldata.treasury.gov/monthly-treasury-statement/
+  value: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/
 revenue_during_read:
   value: $1 million
 revenue_per_household:
