@@ -160,10 +160,10 @@ export default class Bar extends React.Component {
 					</div>
 				</div>
 				{this.props.isModal ? '' :
-					<div className={`${styles.sideBudget} ${styles.topPad} ${boldOnHover}`}>
+					<div className={`${styles.sideBudget} ${styles.topPad} ${boldOnHover} ${this.props.totalBar ? styles.totalBarSideBudget : ''}`}>
 						<span>{this.props.total}</span>
 						<br/>
-						<span className={`${styles.sideBudgetTotal} ${boldOnHover}`}>{this.props.allTotal ? `of ${this.props.allTotal}` : ''}</span>
+						<span className={`${styles.sideBudgetTotal} ${this.props.totalBar ? styles.totalBarSideBudgetTotal : boldOnHover}`}>{this.props.allTotal ? `of ${this.props.allTotal}` : ''}</span>
 				</div>}
 			</div>
 		)

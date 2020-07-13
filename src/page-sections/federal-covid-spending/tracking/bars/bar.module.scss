@@ -149,6 +149,18 @@ svg {
     flex-basis: $budgetWidth;
     padding-left: 0.5rem;
     white-space: nowrap;
+
+    &.totalBarSideBudget {
+      font-weight: $bold;
+
+      span {
+        color: $covidPurple;
+      }
+
+      .totalBarSideBudgetTotal {
+        font-weight: 400;
+      }
+    }
   }
 
   .sideBudgetTotal {
