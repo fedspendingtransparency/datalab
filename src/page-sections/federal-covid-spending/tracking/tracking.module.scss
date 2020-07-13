@@ -1,18 +1,18 @@
 @import "./bars/bar.module.scss";
 
 h2 {
-    font-size: 2rem;
+	font-size: 2rem;
 }
 
 .legendContainer {
-    .legendAsOf {
+	.legendAsOf {
 		font-size: 1rem;
 		display: flex;
 		align-items: center;
 		margin-bottom: 2rem;
-    }
+	}
 
-    .legend {
+	.legend {
 		display: flex;
 		margin-bottom: 2rem;
 		padding: 6px;
@@ -22,7 +22,7 @@ h2 {
 			justify-content: center;
 
 			span {
-			font-size: 0.875rem;
+				font-size: 0.875rem;
 			}
 		}
 
@@ -52,7 +52,7 @@ h2 {
 			border: solid 1px #ddd;
 
 			div {
-			align-items: center;
+				align-items: center;
 			}
 		}
 
@@ -63,7 +63,7 @@ h2 {
 			margin: 0 0.5rem 0 1.5rem;
 
 			&:first-child {
-			margin-left: 0;
+				margin-left: 0;
 			}
 		}
 
@@ -78,27 +78,27 @@ h2 {
 		.unobligatedBar {
 			background: #f3e9ff;
 		}
-    }
+	}
 }
 
 .percentLegend {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    margin: 0 calc(#{$budgetWidth} - 2.5rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
-    color: #555;
-    height: 18px;
-    font-size: 14px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	margin: 0 calc(#{$budgetWidth} - 2.5rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
+	color: #555;
+	height: 18px;
+	font-size: 14px;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
 
-    span {
+	span {
 		font-size: 0.875rem;
 		font-weight: $bold;
-    }
+	}
 }
 
 .selectionAmountVal {
@@ -112,97 +112,60 @@ h2 {
 }
 
 .section-heading {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.view-spending-by-container {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 1.5rem;
-
-    .dropdown-icon {
-		margin-right: 10px;
-		height: 23px;
-    }
-
-    .view-spending-by-heading {
-		font-size: 1.625rem;
-		font-weight: 300;
-		margin-right: 12px;
-		margin-top: 3px;
-    }
-
-    #view-spending-by-dropdown-label {
-		display: none;
-    }
-}
-
-.dropdown-item {
-    display: flex;
-    align-items: center;
-    color: #666;
-    border-bottom: solid 1px #666;
-
-    &:last-child {
-		border-bottom: 0;
-    }
-
-    svg {
-		margin-right: 15px;
-    }
+	font-size: 2rem;
+	margin-bottom: 20px;
 }
 
 .infoModalBody {
-    .modalBlock {
+	.modalBlock {
 		height: 1.25rem;
 		width: 1.25rem;
 		margin-right: 1rem;
-    }
+	}
 
-    .heading {
+	.heading {
 		display: flex;
 		align-items: center;
 		font-size: 1.25rem;
 		font-weight: 600;
-    }
+	}
 
-    .outlayBar {
+	.outlayBar {
 		background: darken($covidPurple, 25%);
-    }
+	}
 
-    .obligatedBar {
+	.obligatedBar {
 		background: $covidPurple;
-    }
+	}
 
-    .unobligatedBar {
+	.unobligatedBar {
 		background: #f3e9ff;
-    }
+	}
 
-    p {
+	p {
 		margin-left: 36px;
-    }
+	}
 }
 
 .covidTitle {
-    font-size: 2rem;
-    color: #666;
-    line-height: 40px;
+	font-size: 2rem;
+	color: #666;
+	line-height: 40px;
 }
 
 .modal-title {
-    font-weight: 600;
+	font-weight: 600;
 }
 
 @media screen and (min-width: $phone) {
-    .blockContainer {
+	.blockContainer {
 		align-items: center;
 		height: 38px;
 
 		div:first-of-type {
 			margin-right: 1.5rem;
 		}
-    }
+	}
 
 	.selectionAmountVal {
 		font-size: 24px;
@@ -214,12 +177,7 @@ h2 {
 }
 
 @media (max-width: $desktop - 1) {
-    .view-spending-by-container {
-		justify-content: center;
-		margin-bottom: 0.5rem;
-    }
-
-    .legendContainer {
+	.legendContainer {
 		justify-content: center;
 
 		.legendAsOf {
@@ -229,76 +187,59 @@ h2 {
 		.legend {
 			align-items: flex-end;
 		}
-
-		.toggleContainer {
-			width: 100%;
-			margin-bottom: 0;
-		}
 	}
 	
-    .percentLegend {
+	.percentLegend {
 		margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
-    }
-
-    .view-spending-by-container {
-		justify-content: center;
-    }
+	}
 }
 
 @media screen and (max-width: $tablet - 1) {
-    .covidTitle {
+	.covidTitle {
 		font-size: 1.25rem;
 		color: #666;
 		line-height: 40px;
 		padding-bottom: 1.2rem;
-    }
+	}
 
-    .legendContainer {
-	.legend {
+	.legendContainer {
+		.legend {
 	    align-items: center;
 
 	    .blockContainer {
-			margin-top: 15px;
-			justify-content: space-around;
+				margin-top: 15px;
+				justify-content: space-around;
 	    }
+		}
 	}
-    }
-    .percentLegend {
+
+	.percentLegend {
 		margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
-    }
+	}
 }
 
 @media screen and (max-width: $phone - 1) {
-    .covidTitle {
+	.covidTitle {
 		font-size: 1.25rem;
 		color: #666;
 		line-height: 30px;
-    }
+	}
 
-    .percentLegend {
+	.percentLegend {
 		margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
-    }
+	}
 
-    .percentLegend > span {
+	.percentLegend > span {
 		font-size: 0.75rem;
 		font-weight: $bold;
-    }
+	}
 
-    .blockContainer {
+	.blockContainer {
 		flex-direction: column;
 		justify-content: space-around;
 		align-items: flex-start;
 		height: 76px;
-    }
-
-    .view-spending-by-container {
-		flex-direction: column;
-		align-items: center;
-
-		.view-spending-by-heading {
-			margin-bottom: 6px;
-		}
-    }
+	}
 
   .modal-title {
     font-size: 18px !important;
@@ -315,14 +256,14 @@ h2 {
 }
 
 @media screen and (max-width: $desktop - 1) and (min-width: $tablet) {
-    .section-heading {
+	.section-heading {
 		text-align: center;
 		font-size: 2rem;
-    }
+	}
 }
 
 @media screen and (max-width: $tablet - 1) {
-    .section-heading {
+	.section-heading {
 		font-size: 1.25rem;
-    }	
+	}	
 }

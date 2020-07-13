@@ -5,11 +5,6 @@ import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import Button from '@material-ui/core/Button';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import { withStyles } from '@material-ui/core/styles';
@@ -344,23 +339,6 @@ export default function Tracking(props) {
 		}
 	};
 
-	const InputComponent = withStyles(() => ({
-		input: {
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'space-between',
-			color: '#666',
-			fontSize: 26,
-			fontWeight: 300,
-			padding: '10px 26px 10px 12px',
-			borderBottom: 'solid 1px #666',
-			'&:focus': {
-				backgroundColor: 'transparent',
-				boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-			},
-		},
-	}))(InputBase);
-
 	const titleComponent = (
 		<>
 			<h2 className={styles.sectionHeading}>Progress of COVID-19 Spending</h2>
@@ -374,48 +352,12 @@ export default function Tracking(props) {
 			</AccordionList>
 			<ControlBar alignRightOnMobile>
 				<Share
-  siteUrl={props.location.origin}
-  pageUrl={`${props.location.pathname}#${props.sectionId}`}
-  title="Data Lab - COVID-19 Tracking - U.S. Treasury"
-  text="Curious how much #COVID-19 related funds have been spent? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/"
+					siteUrl={props.location.origin}
+					pageUrl={`${props.location.pathname}#${props.sectionId}`}
+					title="Data Lab - COVID-19 Tracking - U.S. Treasury"
+					text="Curious how much #COVID-19 related funds have been spent? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/"
 				/>
 			</ControlBar>
-			<div className={styles.viewSpendingByContainer}>
-				<div className={styles.viewSpendingByHeading}>View Spending By: </div>
-				<FormControl>
-					<InputLabel id={styles.viewSpendingByDropdownLabel} />
-					<Select
-  labelId={styles.viewSpendingByDropdownLabel}
-  className={styles.viewSpendingByDropdown}
-  input={<InputComponent />}
-  value={activeAccountFilter}
-  onChange={handleSpendingDropdownChange}
-  MenuProps={{
-							anchorOrigin: {
-								vertical: 'bottom',
-								horizontal: 'left',
-							},
-							transformOrigin: {
-								vertical: 'top',
-								horizontal: 'left',
-							},
-							getContentAnchorEl: null,
-						}}
-					>
-						{accountBreakdownOptions.map((option) => (
-							<MenuItem
-  key={option.name}
-  value={option.name}
-  className={styles.dropdownItem}
-							>
-								{option.icon}
-								{' '}
-								{option.name}
-							</MenuItem>
-						))}
-					</Select>
-				</FormControl>
-			</div>
 		</>
 	);
 
