@@ -681,7 +681,6 @@ export default function FederalPrograms(props) {
 			.attr('width', '100%')
 			.attr('height', mapHeight + margin.top + margin.bottom + 140)
 			.attr('transform', `translate(${0},${10})`)
-			.attr('id', 'p2_2_matrix')
 			.attr('aria-labelledby', 'p2-2-bar-desc')
 		;
 

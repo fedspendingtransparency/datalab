@@ -16,6 +16,11 @@ export default function Mapviz(props) {
 			const svg = d3.select('#mapSvg');
 			svg.selectAll('*').remove();
 
+			svg.attr('aria-labelledby', 'map-desc')
+				.append('desc')
+				.attr('id', 'map-desc')
+				.text('U.S. map showing the distribution of CFO Act Agency employees by agency and occupation. California, D.C., and Virginia had the most.');
+
 			const filteredData = [...data];
 
 			const initialStateData = Object.keys(states).reduce((a, c) => {
@@ -255,9 +260,7 @@ export default function Mapviz(props) {
 				</div>
 			</div>
 			<div className={mapStyles.mapContainer}>
-				<svg width="947" height="700" viewBox="0 0 1200 700" id="mapSvg" className={mapStyles.mapSvg} aria-labelledby="map-desc">
-					<desc id="map-desc">U.S. map showing the distribution of CFO Act Agency employees by agency and occupation. California, D.C., and Virginia had the most.</desc>
-				</svg>
+				<svg width="947" height="700" viewBox="0 0 1200 700" id="mapSvg" className={mapStyles.mapSvg} aria-labelledby="map-desc" />
 			</div>
 		</>
 	);
