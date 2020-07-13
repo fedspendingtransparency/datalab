@@ -42,7 +42,7 @@ export default function StorySectionHeading(props) {
 	}
 
 	const blurb = props.readMoreOnMobile && screenMode < ScreenModeEnum.tablet ? (
-		<ReadMore buttonStyle={props.readMoreStyle} collapsedHeight="5.5rem">
+		<ReadMore buttonStyle={props.readMoreStyle} sectionId={props.sectionId} collapsedHeight="5.5rem">
 			<div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
 		</ReadMore>
 	)
