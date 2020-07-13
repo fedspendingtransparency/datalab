@@ -78,7 +78,7 @@ export default class FederalCovidSpending extends React.Component {
       number: '02',
       subtext: 'The Flow of Funds',
       subblurb: 'How do federal dollars move from Congress to the American people?',
-      sectionTeaser: ['How do federal dollars ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>move from congress to the American people?</span>],
+      sectionTeaser: ['How do federal dollars ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>move from Congress to the American people?</span>],
       introBlurb: [
         <>
           <p key='section-2-p-1'>
