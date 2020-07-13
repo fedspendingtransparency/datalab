@@ -93,7 +93,7 @@ export default function Dendro(props) {
 			const baseSvg = d3.select('#tree-container').append('svg')
 				.attr('width', svgWidth)
 				.attr('height', svgHeight)
-				.attr('aria-labeledby', 'dendro-title')
+				.attr('aria-labelledby', 'dendro-title')
 				.attr('viewBox', `0 0 ${svgWidth} ${svgHeight}`)
 				.attr('id', 'svg-dendrogram')
 				.attr('class', 'overlay')
@@ -621,7 +621,7 @@ export default function Dendro(props) {
 									<div className="label-wrapper">
 										<input className="dendro-input-1" type="radio" id="contactChoice2" name="FiscalYear" value="fy17" onChange={props.radioCheck} />
 										<label className="dendro-input-1" htmlFor="contactChoice2">FY 17 </label>
-         </div>
+									</div>
 
 									<div className="label-wrapper">
 										<input className="dendro-input-1" type="radio" id="contactChoice1" name="FiscalYear" value="fy18" onChange={props.radioCheck} />
