@@ -96,10 +96,13 @@ export default function Dendro(props) {
       const baseSvg = d3.select('#tree-container').append('svg')
             .attr('width', svgWidth)
             .attr('height', svgHeight)
+            .attr('aria-labeledby', 'dendro-title')
             .attr("viewBox", `0 0 ${svgWidth} ${svgHeight}`)
             .attr('id', 'svg-dendrogram')
             .attr('class', 'overlay')
             .call(zoomListener);
+
+      baseSvg.append('desc').append('title').text('Dendrogram of Congressional appropriations from the Federal Accounts by agency and sub-agency for Fiscal Years 2017 to 2019.').attr('id', 'dendro-title');
 
       baseSvg.call(zoomListener).on("wheel.zoom", null); // dont let window scroll interfere with scroll for viz.
 

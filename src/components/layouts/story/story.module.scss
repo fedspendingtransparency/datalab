@@ -1,6 +1,5 @@
 @import "../../../styles/index.scss";
 
-$darkGrey: #666666;
 $mdGrey: #555555;
 
 h2 {
@@ -96,6 +95,14 @@ h2 {
   .intro-sentence,
   .context-statement {
     text-align: left;
+  }
+
+  .intro-sentence {
+    margin-bottom: 0;
+  }
+  
+  .context-statement {
+    margin-bottom: $margin-25;
   }
 
   .header-hero {

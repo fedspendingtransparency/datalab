@@ -167,7 +167,9 @@ function BarChart(props) {
         </div>
       </div>
       <div className={`fed-emp-bar-chart ${barChartStyles.barContainer}`}>
-        <svg width='900' height='500' viewBox='0 0 900 500' id='barChartSvg' className={barChartStyles.visBarChart} />
+        <svg width='900' height='500' viewBox='0 0 900 500' id='barChartSvg' className={barChartStyles.visBarChart}>
+          <desc>Interactive chart listing occupational categories across the CFO Act Agencies. Administration had 300,000 employees, the highest for any category.</desc>
+        </svg>
         {legend()}
       </div>
     </>

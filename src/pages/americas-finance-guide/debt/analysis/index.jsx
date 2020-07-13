@@ -92,16 +92,16 @@ function DebtAnalysisPage(props) {
                             <AccordionList title="Data Sources and Methodology">
                                 <p>
                                   <span>This analysis was created using the </span>
-                                  <a href={AfgData.current_mspd.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a>
-                                  <span>as the data source for federal debt of the United States and the </span>
-                                  <a href={AfgData.current_mts.value}rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a>
-                                  <span>as the data source for federal government revenue and spending. Average interest rates on federal debt come from </span>
+                                  <a href={AfgData.current_mspd.value} rel="noopener noreferrer" target="_blank"> Monthly Statement of the Public Debt (MSPD)</a>
+                                  <span> as the data source for federal debt of the United States and the </span>
+                                  <a href={AfgData.current_mts.value}rel="noopener noreferrer" target="_blank"> Monthly Treasury Statement (MTS)</a>
+                                  <span> as the data source for federal government revenue and spending. Average interest rates on federal debt come from </span>
                                   <a href={AfgData.treasury_direct_int_rates.value} rel="noopener noreferrer" target="_blank">TreasuryDirect.gov</a>.
-                                  <span>Holders of United States Treasury securities were identified using three sources: MSPD which contains detailed information on trust funds that own Treasury securities, the </span>
+                                  <span> Holders of United States Treasury securities were identified using three sources: MSPD which contains detailed information on trust funds that own Treasury securities, the </span>
                                   <a href={AfgData.tic_foreign_holders.value} rel="noopener noreferrer" target="_blank">Treasury International Capital (TIC)</a>
-                                  <span>System which identifies foreign holders of U.S. federal debt, and the </span>
+                                  <span> System which identifies foreign holders of U.S. federal debt, and the </span>
                                   <a href={AfgData.soma_domestic_securities.value} rel="noopener noreferrer" target="_blank">System Open Market Account (SOMA)</a>
-                                  <span>Holdings of Domestic Securities which reports Federal Reserve holdings of Treasury securities.</span>
+                                  <span> Holdings of Domestic Securities which reports Federal Reserve holdings of Treasury securities.</span>
                                 </p>
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>

@@ -52,10 +52,9 @@ export default class DTSPage extends React.Component {
             <span className='dts-tt-fytd-value'></span>
           </div>
         </div>
-
         <div className='dts-container'>
           {/* <div className='header-title'>Visualizing The Daily Treasury Statement</div>
-            <div className='header-subtitle'>How much does the federal government spend each day?</div> */}
+          <div className='header-subtitle'>How much does the federal government spend each day?</div> */}
           <div className='header-line-break'></div>
           <Grid container justify='space-between'>
             <Grid item xs={1} />
@@ -63,20 +62,17 @@ export default class DTSPage extends React.Component {
             <Grid item xs={1}>
               <ControlBar>
                 <Share location={this.props.location}
-                      title='Data Lab – Visualizing the Daily Treasury Statement – U.S. Treasury'
+                  title='Data Lab – Visualizing the Daily Treasury Statement – U.S. Treasury'
                 />
               </ControlBar>
             </Grid>
           </Grid>
-
-
           <div className='dts-controls-and-svg'>
             <div className='dts-header'>
               <div className='daily-spending-container'>
                 <div className='daily-spending-subtext'>Amount Spent On</div>
                 <div className='daily-spending-amount'>$0</div>
               </div>
-
               <div className='period-container'>
                 <div className='period-button-header'>Chart Range</div>
                 <div className='period-button-container'>
@@ -87,7 +83,6 @@ export default class DTSPage extends React.Component {
                   <div className='period-button' data-range='10y'>10Y</div>
                 </div>
               </div>
-
               <div className="frequency-container">
                 <label htmlFor="frequency-selector" className='frequency-selector-label'>Frequency</label>
                 <select id='frequency-selector' className='custom-select'>
@@ -96,23 +91,18 @@ export default class DTSPage extends React.Component {
                   <option value='fytd'>FYTD</option>
                 </select>
               </div>
-
               {/* <div className='category-container'> */}
               {/*   <label htmlFor="category-selector" className='category-select-label'>Categories</label> */}
               {/*   <select className='custom-select custom-select-start' id='category-selector'></select> */}
               {/* </div> */}
-
             </div>
             <DTS data={this.state.dtsData} />
           </div>
-
           <div className="dts-disclaimer">
             The Daily Treasury Statement (DTS) is published each day that the Federal Government is open. It provides data on the cash and debt operations of the U.S. Treasury based on reporting of the Treasury account balances by the Federal Reserve banks. For more information about the authoritative source of this dataset, please go to:
-            <a href="https://fsapps.fiscal.treasury.gov/dts/issues" className="dts-hyperlink">https://fsapps.fiscal.treasury.gov/dts/issues</a>
+            <a href="https://fiscaldata.treasury.gov/datasets/daily-treasury-statement/" className="dts-hyperlink" rel="noopener noreferrer" target="_blank"> https://fiscaldata.treasury.gov/datasets/daily-treasury-statement/</a>
           </div>
-
-          <Downloads href={'/data-lab-data/dts/dts.csv'} />
-
+          <Downloads href={'/data-lab-data/dts/dts.csv'} withFiscalDataLogo justify='space-between' />
         </div>
       </div>
     </ToolLayout>

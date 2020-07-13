@@ -59,13 +59,17 @@ export default function Mapviz(props) {
 
     const mapSvg = d3.select('#map_container')
       .append('svg')
-      .attr('id', 'svg')
+      .attr('id', 'map-svg')
       .attr('width', '100%')
       .attr('height', mapHeight)
       .attr('viewBox', '0 0 950 575')
       .attr('preserveAspectRatio', 'xMidYMid meet');
 
     mapSvg.append('circle').attr('id', 'tipfollowscursor_1');
+
+    d3.select('#map-svg')
+      .append('desc:desc')
+      .html('U.S. map showing homeless populations based on HUD Continuum of Care 2018 data. New York City had the highest concentration in the country, 78,676.')
 
     g = mapSvg.append('g')
       .attr('class', 'counties')

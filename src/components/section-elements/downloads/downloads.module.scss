@@ -26,17 +26,21 @@ a.data {
     cursor: pointer;
 
     &:hover {
-	color: $legacyBlue;
-	text-decoration: underline;
+        color: $legacyBlue;
+        text-decoration: underline;
 
-	img {
-	    filter: brightness(0.5) sepia(1);
-	}
+        img {
+            filter: brightness(0.5) sepia(1);
+        }
     }
 }
 
 @media (max-width: $tablet - 1) {
-    .download:global(.MuiGrid-container) {
-	justify-content: center;
+    .download {
+        flex-direction: column;
+
+        .logo {
+            margin-bottom: 1rem;
+        }
     }
 }
