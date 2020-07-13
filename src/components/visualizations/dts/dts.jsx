@@ -411,7 +411,7 @@ function DTS(props) {
 			const svg = d3.select('.svg-tsbfy-container').append('svg')
 				.attr('id', 'viz-tsbfy-wrapper')
 				.attr('role', 'img')
-				.attr('aria-labeledby', 'dts-bar-title')
+				.attr('aria-labelledby', 'dts-bar-title')
 				.attr('width', '750') // do we need this?
 				.attr('height', '500') // or this?
 				.attr('viewBox', '0 0 750 500'); // or this?
