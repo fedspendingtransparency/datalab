@@ -139,40 +139,40 @@ export default function CalloutBar(props) {
 		// joined label
 		if (barStatus.outlay === barState[2]) {
 			calloutComponent.push(<JoinedCallout
-  xStart={outlaySettings.outlaidBarMidpoint < threshold.outlayLabelOffset ? outlaySettings.outlaidBarMidpoint : threshold.outlayLabelOffset}
-  xMid={outlaySettings.labelMidpoint}
-  xEnd={obligatedSettings.labelMidpoint}
-  label1Offset={threshold.outlayLabelOffset}
-  label2Offset={obligatedSettings.labelOffset}
-  label1="Outlays"
-  label2="Obligations"
-  label1Amount={props.data[0].amount}
-  label1Percent={props.outlaid}
-  label2Amount={props.data[1].amount}
-  label2Percent={props.obligated}
-  isModal={props.isModal}
-  mobile={screenMode === ScreenModeEnum.mobile}
-			/>);
-		} else if (barStatus.outlay === barState[0]) {
-			calloutComponent.push(<StraightCallout
-  xStart={outlaySettings.defaultStartingPoint}
-  labelOffset={threshold.outlayLabelOffset}
-  label="Outlays"
-  labelAmount={props.data[0].amount}
-  labelPercent={props.outlaid}
-  isModal={props.isModal}
-  mobile={screenMode === ScreenModeEnum.mobile}
-			/>);
-		} else {
-			calloutComponent.push(<ElbowCallout
-  xStart={outlaySettings.outlaidBarMidpoint}
-  xEnd={outlaySettings.labelMidpoint}
-  labelOffset={threshold.outlayLabelOffset}
-  label="Outlays"
-  labelAmount={props.data[0].amount}
-  labelPercent={props.outlaid}
-  isModal={props.isModal}
-  mobile={screenMode === ScreenModeEnum.mobile}
+				xStart={outlaySettings.outlaidBarMidpoint < threshold.outlayLabelOffset ? outlaySettings.outlaidBarMidpoint : threshold.outlayLabelOffset}
+				xMid={outlaySettings.labelMidpoint}
+				xEnd={obligatedSettings.labelMidpoint}
+				label1Offset={threshold.outlayLabelOffset}
+				label2Offset={obligatedSettings.labelOffset}
+				label1="Outlays"
+				label2="Obligations"
+				label1Amount={props.data[0].amount}
+				label1Percent={props.outlaid}
+				label2Amount={props.data[1].amount}
+				label2Percent={props.obligated}
+				isModal={props.isModal}
+				mobile={screenMode === ScreenModeEnum.mobile}
+						/>);
+					} else if (barStatus.outlay === barState[0]) {
+						calloutComponent.push(<StraightCallout
+				xStart={outlaySettings.defaultStartingPoint}
+				labelOffset={threshold.outlayLabelOffset}
+				label="Outlays"
+				labelAmount={props.data[0].amount}
+				labelPercent={props.outlaid}
+				isModal={props.isModal}
+				mobile={screenMode === ScreenModeEnum.mobile}
+						/>);
+					} else {
+						calloutComponent.push(<ElbowCallout
+				xStart={outlaySettings.outlaidBarMidpoint}
+				xEnd={outlaySettings.labelMidpoint}
+				labelOffset={threshold.outlayLabelOffset}
+				label="Outlays"
+				labelAmount={props.data[0].amount}
+				labelPercent={props.outlaid}
+				isModal={props.isModal}
+				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		}
 	}
@@ -185,35 +185,35 @@ export default function CalloutBar(props) {
 
 		if (barStatus.obligated === barState[0]) {
 			calloutComponent.push(<StraightCallout
-  xStart={props.outlaid + props.obligated / 2}
-  labelOffset={threshold.obligatedLabelOffset > props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2 ? threshold.obligatedLabelOffset : props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2}
-  label="Obligations"
-  labelAmount={props.data[1].amount}
-  labelPercent={props.obligated}
-  isModal={props.isModal}
-  mobile={screenMode === ScreenModeEnum.mobile}
+				xStart={props.outlaid + props.obligated / 2}
+				labelOffset={threshold.obligatedLabelOffset > props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2 ? threshold.obligatedLabelOffset : props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2}
+				label="Obligations"
+				labelAmount={props.data[1].amount}
+				labelPercent={props.obligated}
+				isModal={props.isModal}
+				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		} else if (barStatus.obligated === barState[1]) {
 			calloutComponent.push(<ElbowCallout
-  xStart={props.outlaid + props.obligated / 2}
-  xEnd={obligatedSettings.labelOffset + threshold.outlayLabelWidth / 2}
-  labelOffset={obligatedSettings.labelOffset}
-  label="Obligations"
-  labelAmount={props.data[1].amount}
-  labelPercent={props.obligated}
-  isModal={props.isModal}
-  mobile={screenMode === ScreenModeEnum.mobile}
+				xStart={props.outlaid + props.obligated / 2}
+				xEnd={obligatedSettings.labelOffset + threshold.outlayLabelWidth / 2}
+				labelOffset={obligatedSettings.labelOffset}
+				label="Obligations"
+				labelAmount={props.data[1].amount}
+				labelPercent={props.obligated}
+				isModal={props.isModal}
+				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		} else if (barStatus.obligated === barState[3]) {
 			calloutComponent.push(<ReversedElbowCallout
-  xStart={props.outlaid + props.obligated / 2}
-  xEnd={threshold.obligatedLabelOffset + threshold.outlayLabelWidth / 2}
-  labelOffset={threshold.obligatedLabelOffset}
-  label="Obligations"
-  labelAmount={props.data[1].amount}
-  labelPercent={props.obligated}
-  isModal={props.isModal}
-  mobile={screenMode === ScreenModeEnum.mobile}
+				xStart={props.outlaid + props.obligated / 2}
+				xEnd={threshold.obligatedLabelOffset + threshold.outlayLabelWidth / 2}
+				labelOffset={threshold.obligatedLabelOffset}
+				label="Obligations"
+				labelAmount={props.data[1].amount}
+				labelPercent={props.obligated}
+				isModal={props.isModal}
+				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		} else if (barStatus.obligated === barState[4]) {
 			// reversed joined
@@ -222,19 +222,19 @@ export default function CalloutBar(props) {
 			};
 
 			calloutComponent.push(<ReversedJoinedCallout
-  xStart={(props.outlaid + props.obligated + props.unobligated / 2) - 0.5 > 95 ? (props.outlaid + props.obligated + props.unobligated / 2) - 0.5 : 95}
-  xMid={threshold.rightOffset}
-  xEnd={joinedOffsets.end}
-  label1Offset={joinedOffsets.end - threshold.obligatedLabelWidth / 2}
-  label2Offset={unobligatedLabelOffset}
-  label1="Obligations"
-  label2="Unobligated"
-  label1Amount={props.data[1].amount}
-  label1Percent={props.obligated}
-  label2Amount={props.data[2].amount}
-  label2Percent={props.unobligated}
-  isModal={props.isModal}
-  mobile={screenMode === ScreenModeEnum.mobile}
+				xStart={(props.outlaid + props.obligated + props.unobligated / 2) - 0.5 > 95 ? (props.outlaid + props.obligated + props.unobligated / 2) - 0.5 : 95}
+				xMid={threshold.rightOffset}
+				xEnd={joinedOffsets.end}
+				label1Offset={joinedOffsets.end - threshold.obligatedLabelWidth / 2}
+				label2Offset={unobligatedLabelOffset}
+				label1="Obligations"
+				label2="Unobligated"
+				label1Amount={props.data[1].amount}
+				label1Percent={props.obligated}
+				label2Amount={props.data[2].amount}
+				label2Percent={props.unobligated}
+				isModal={props.isModal}
+				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		}
 	}
@@ -242,24 +242,24 @@ export default function CalloutBar(props) {
 	function setUnobligated() {
 		if (barStatus.unobligated === barState[0]) {
 			calloutComponent.push(<StraightCallout
-  xStart={threshold.rightOffset}
-  labelOffset={unobligatedLabelOffset}
-  label="Unobligated"
-  labelAmount={props.data[2].amount}
-  labelPercent={props.unobligated}
-  isModal={props.isModal}
-  mobile={screenMode === ScreenModeEnum.mobile}
+				xStart={threshold.rightOffset}
+				labelOffset={unobligatedLabelOffset}
+				label="Unobligated"
+				labelAmount={props.data[2].amount}
+				labelPercent={props.unobligated}
+				isModal={props.isModal}
+				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		} else if (barStatus.unobligated === barState[1]) {
 			calloutComponent.push(<ReversedElbowCallout
-  xStart={props.outlaid + props.obligated + props.unobligated / 2 - 0.5}
-  xEnd={threshold.rightOffset}
-  labelOffset={unobligatedLabelOffset}
-  label="Unobligated"
-  labelAmount={props.data[2].amount}
-  labelPercent={props.unobligated}
-  isModal={props.isModal}
-  mobile={screenMode === ScreenModeEnum.mobile}
+				xStart={props.outlaid + props.obligated + props.unobligated / 2 - 0.5}
+				xEnd={threshold.rightOffset}
+				labelOffset={unobligatedLabelOffset}
+				label="Unobligated"
+				labelAmount={props.data[2].amount}
+				labelPercent={props.unobligated}
+				isModal={props.isModal}
+				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		}
 	}

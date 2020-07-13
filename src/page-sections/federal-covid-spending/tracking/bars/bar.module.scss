@@ -42,9 +42,7 @@ svg {
   justify-content: space-between;
 
   &:hover {
-    .sideLabel,
-    .sideBudget,
-    .totalBarSideLabel {
+    .boldOnHover {
       font-weight: $bold;
     }
 
