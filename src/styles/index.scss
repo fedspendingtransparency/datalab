@@ -253,10 +253,14 @@ h2.rd-viztitle {
   line-height: 0;
   vertical-align: super;
   font-size: smaller;
-  color: currentColor !important;
+  color: #2272ce;
 
   &:hover {
     text-decoration: underline;
+  }
+
+  &:focus {
+    color: #3e94cf;
   }
 }
 
