@@ -2,11 +2,11 @@
 
 .container {
     position: relative;
-    margin-bottom: 137px; // these are for R&D, which is the only use at this time
+    margin-bottom: 100px; // these are for R&D, which is the only use at this time
 }
 
 .accordion {
-    margin-top: -87px; // these are for R&D, which is the only use at this time
+    margin-top: -70px; // these are for R&D, which is the only use at this time
     position: absolute;
     width: 100%;
     z-index: 1;
@@ -17,7 +17,7 @@
 /* seperate for Covid page */
 /* dont want to overwrite other pages */
 .covidAccordion {
-    margin-top: -100px;
+    margin-top: -75px;
     position: absolute;
     width: 100%;
     z-index: 1;
