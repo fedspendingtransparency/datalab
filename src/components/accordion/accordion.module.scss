@@ -68,25 +68,25 @@
     line-height: 1.43rem;
     max-height: 0;
     transition: ease-in-out max-height 500ms;
+
+    a:not(:focus) {
+        color: $legacyBlue;
+    }
+    
+    a:hover {
+        text-decoration: underline !important;
+    }
+    
+    a:focus {
+        color: #3e94cf;
+        text-decoration: underline !important;
+    }
 }
 
 .open {
     .content {
         max-height: 1400px; // hack; larger than any content's height
     }
-}
-
-a:not(:focus) {
-    color: $legacyBlue;
-}
-
-a:hover {
-    text-decoration: underline !important;
-}
-
-a:focus {
-    color: #3e94cf;
-    text-decoration: underline !important;
 }
 
 @media(max-width: $tablet) {
