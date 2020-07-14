@@ -30,7 +30,9 @@ a.site-link {
   color: #ffffff;
   font-size: 0.8125rem;
   font-weight: 400;
-  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .item-spacer {

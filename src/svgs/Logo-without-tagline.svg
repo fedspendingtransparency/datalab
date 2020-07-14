@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="162px" height="27px" viewBox="0 0 162 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+<svg aria-labelledby="logo-wo-tagline-desc" role="img" width="162px" height="27px" viewBox="0 0 162 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+  <desc id="logo-wo-tagline-desc">
+    Data Lab Logo of an abstract American flag referencing a bar chart
+  </desc>
     <defs>
         <polygon id="path-1" points="0.186561351 0.568245818 13.1297569 0.568245818 13.1297569 15.7222866 0.186561351 15.7222866"></polygon>
         <polygon id="path-3" points="0 22.1803401 161.428415 22.1803401 161.428415 0 0 0"></polygon>

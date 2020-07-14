@@ -5,11 +5,11 @@ const pageColorMap = {
   '/colleges-and-universities/': globalStyles.cuRed,
   '/homelessness-analysis/': globalStyles.homelessAnalysisPurple,
   '/opioid-crisis/': globalStyles.opioidOrange,
-  '/rd-in-contracting/': globalStyles.rdBlue,
+  '/rd-in-contracting/': globalStyles.rdMdBlue,
   '/federal-employees/': globalStyles.legacyBlue,
   '/competition-in-contracting/': globalStyles.legacyBlue,
   '/contract-explorer/': globalStyles.legacyBlue,
-  '/dts/': globalStyles.legacyBlue,
+  '/dts/': globalStyles.dtsTeal,
   '/budget-function/': globalStyles.legacyBlue,
   '/federal-account-explorer/': globalStyles.legacyBlue,
 }

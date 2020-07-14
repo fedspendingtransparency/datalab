@@ -23,7 +23,7 @@ export default class ReadMore extends React.Component {
   };
 
   static defaultProps = {
-    collapsedHeight: '6rem',
+    collapsedHeight: '5.5rem',
     expandText: 'Read more...',
     collapseText: 'Read less...',
     animation: '1s ease',
