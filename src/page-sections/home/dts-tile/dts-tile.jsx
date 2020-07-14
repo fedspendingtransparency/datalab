@@ -55,17 +55,17 @@ function DtsTile(props) {
 		d3.select('.dtsm-img').selectAll('*').remove();
 
 		svg = d3.select('.dtsm-img').append('svg')
+			.attr('width', width + margin.left + margin.right)
+			.attr('height', height + margin.top + margin.bottom)
+			.attr('id', 'dtsm-img-svg')
 			.attr('role', 'img')
 			.attr('aria-labelledby', 'dts-tile-desc')
-			.attr('width', width + margin.left + margin.right)
-			.attr('height', height + margin.top + margin.bottom);
+			.append('g')
+			.attr('transform', `translate(${margin.left},${margin.top})`);
 
-		const desc = svg.append('desc');
+		const desc = d3.select('svg#dtsm-img-svg').append('desc');
 		desc.attr('id', 'dts-tile-desc');
 		desc.text('Line graph of the Daily Treasury Statement with data from June 2005 through today.');
-
-		svg.append('g')
-			.attr('transform', `translate(${margin.left},${margin.top})`);
 
 		x = d3.scaleTime().range([0, width]);
 		y = d3.scaleLinear().range([height, 0]);
