@@ -100,68 +100,72 @@ export default class Bar extends React.Component {
 		}
 	};
 
-	render = () =>
-		<div className={this.containerClass()}>
-			{this.props.isModal ?
-				'' :
-				<div
-					className={`${this.props.totalBar ? styles.totalBarSideLabel : styles.sideLabel} ${styles.topPad}`}
-					onClick={this.labelClickHandler}
-					onKeyUp={this.labelKeyUpHandler}
-					tabIndex={this.props.isModal || this.state.screenMode >= ScreenModeEnum.desktop || this.props.totalBar ? '' : '0'}
-				>
-					{this.props.totalBar ?
-						<span className={styles.totalBarLabel}>TOTAL U.S. GOVERNMENT FUNDING</span>
-						:
-						this.props.barLabel
-					}
-				</div>
-			}
-			<div className={styles.barContainer}>
-				<div
-					className={`
-            ${styles.bar}
-            ${this.props.isModal ? '' : styles.topPad}
-            ${this.props.isModal ? '' : styles.barBorder}
-            ${this.props.firstBar ? styles.firstBar : ''}
-            ${this.props.lastBar ? styles.lastBar : ''}
-           `}
-					style={{ cursor: this.state.screenMode < ScreenModeEnum.desktop || this.props.isModal || this.props.totalBar ? 'default' : 'pointer' }}
-					tabIndex={this.props.isModal || this.state.screenMode < ScreenModeEnum.desktop ? '' : '0'}
-					onClick={this.barClickHandler}
-					onKeyUp={this.barKeyUpHandler}
-				>
-					<svg
-						width='100%'
-						height={this.props.isModal ? '70px' : '56px'}
-						onMouseOver={this.onHover}
-						onMouseOut={this.onBlur}
+	render = () => {
+		const boldOnHover = this.props.totalBar ? '' : styles.boldOnHover;
+
+		return (
+			<div className={this.containerClass()}>
+				{this.props.isModal ?
+					'' :
+					<div
+						className={`${this.props.totalBar ? styles.totalBarSideLabel : styles.sideLabel} ${boldOnHover} ${styles.topPad}`}
+						onClick={this.labelClickHandler}
+						onKeyUp={this.labelKeyUpHandler}
+						tabIndex={this.props.isModal || this.state.screenMode >= ScreenModeEnum.desktop || this.props.totalBar ? '' : '0'}
 					>
-						<g style={{ display: this.props.isModal|| this.props.totalBar || this.state.showDetails ? 'block' : 'none' }}>
-							<CalloutBar
+						{this.props.totalBar ?
+							<span className={styles.totalBarLabel}>TOTAL U.S. GOVERNMENT FUNDING</span>
+							:
+							this.props.barLabel
+						}
+					</div>
+				}
+				<div className={styles.barContainer}>
+					<div
+						className={`
+							${styles.bar}
+							${this.props.isModal ? '' : styles.topPad}
+							${this.props.isModal ? '' : styles.barBorder}
+							${this.props.firstBar ? styles.firstBar : ''}
+							${this.props.lastBar ? styles.lastBar : ''}
+						`}
+						style={{ cursor: this.state.screenMode < ScreenModeEnum.desktop || this.props.isModal || this.props.totalBar ? 'default' : 'pointer' }}
+						tabIndex={this.props.isModal || this.state.screenMode < ScreenModeEnum.desktop ? '' : '0'}
+						onClick={this.barClickHandler}
+						onKeyUp={this.barKeyUpHandler}
+					>
+						<svg
+							width='100%'
+							height={this.props.isModal ? '70px' : '56px'}
+							onMouseOver={this.onHover}
+							onMouseOut={this.onBlur}
+						>
+							<g style={{ display: this.props.isModal|| this.props.totalBar || this.state.showDetails ? 'block' : 'none' }}>
+								<CalloutBar
+									outlaid={parseFloat(this.props.data[0].percent)}
+									obligated={parseFloat(this.props.data[1].percent)}
+									unobligated={parseFloat(this.props.data[2].percent)}
+									data={this.props.data}
+									isModal={this.props.isModal}
+								/>
+							</g>
+							<PercentBar
 								outlaid={parseFloat(this.props.data[0].percent)}
 								obligated={parseFloat(this.props.data[1].percent)}
 								unobligated={parseFloat(this.props.data[2].percent)}
 								data={this.props.data}
-								isModal={this.props.isModal}
+								barHeight={barHeight}
 							/>
-						</g>
-						<PercentBar
-							outlaid={parseFloat(this.props.data[0].percent)}
-							obligated={parseFloat(this.props.data[1].percent)}
-							unobligated={parseFloat(this.props.data[2].percent)}
-							data={this.props.data}
-							barHeight={barHeight}
-						/>
-					</svg>
+						</svg>
+					</div>
 				</div>
+				{this.props.isModal ? '' :
+					<div className={`${styles.sideBudget} ${styles.topPad} ${boldOnHover} ${this.props.totalBar ? styles.totalBarSideBudget : ''}`}>
+						<span>{this.props.total}</span>
+						<br/>
+						<span className={`${styles.sideBudgetTotal} ${this.props.totalBar ? styles.totalBarSideBudgetTotal : boldOnHover}`}>{this.props.allTotal ? `of ${this.props.allTotal}` : ''}</span>
+				</div>}
 			</div>
-			{this.props.isModal ? '' :
-				<div className={`${styles.sideBudget} ${styles.topPad}`}>
-					<span>{this.props.total}</span>
-					<br/>
-					<span className={styles.sideBudgetTotal}>{this.props.allTotal ? `of ${this.props.allTotal}` : ''}</span>
-			</div>}
-		</div>
-		;
+		)
+	}
 }
