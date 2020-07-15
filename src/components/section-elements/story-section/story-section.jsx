@@ -8,18 +8,18 @@ function StorySection(props) {
 		<Grid container justify="center" className={storySectionStyles.storySection}>
 			<Grid item xs={12} xl={10}>
 				<section id={`section-${props.header.anchor}`}>
+					<div className='anchor-padding' />
 					<StorySectionHeading
-  header={props.header.header}
-  number={props.header.number}
-  title={props.header.subtext}
-  teaser={props.header.sectionTeaser}
-  blurb={props.header.introBlurb}
-  accordion={props.header.accordion}
-  sectionId={props.header.anchor}
-  readMoreOnMobile={props.header.readMoreOnMobile}
-  readMoreStyle={props.header.readMoreStyle}
+						header={props.header.header}
+						number={props.header.number}
+						title={props.header.subtext}
+						teaser={props.header.sectionTeaser}
+						blurb={props.header.introBlurb}
+						accordion={props.header.accordion}
+						sectionId={props.header.anchor}
+						readMoreOnMobile={props.header.readMoreOnMobile}
+						readMoreStyle={props.header.readMoreStyle}
 					/>
-
 					<Grid container justify="center">
 						<Grid item xs={12}>
 							<div className={storySectionStyles.alignLeft}>

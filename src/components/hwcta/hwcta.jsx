@@ -68,13 +68,16 @@ function HWCTA(props) {
                 return (
                   item.content ?
                     <div key={key}>{item.content}</div>
-                    : <Grid container key={key} className={hwctaStyles.sourcesContainer}>
-                      <Grid item md={12} lg={6} className={hwctaStyles.sourcesItem}>
-                        <h3>{item.name}</h3>
-                      </Grid><Grid item md={12} lg={6} className={hwctaStyles.sourcesItem}>
-                        {item.sources}
+                    : <div id={item.anchor}>
+                      <div className='anchor-padding' />
+                      <Grid container key={key} className={hwctaStyles.sourcesContainer}>
+                        <Grid item md={12} lg={6} className={hwctaStyles.sourcesItem}>
+                          <h3>{item.name}</h3>
+                        </Grid><Grid item md={12} lg={6} className={hwctaStyles.sourcesItem}>
+                          {item.sources}
+                        </Grid>
                       </Grid>
-                    </Grid>
+                    </div>
                 )
               })}
             </section>

@@ -32,7 +32,7 @@ export default function CUHWCTA(props) {
     </>
   },
   {
-    name: <div id='cnuStepOne'>Step 1: Identifying Institutions</div>,
+    name: <div>Step 1: Identifying Institutions</div>,
     sources:
       <>
         <p>First, we identified educational institutions across the United States
@@ -50,10 +50,11 @@ export default function CUHWCTA(props) {
           <li>UnitID</li>
           <li>Latitude/Longitude</li>
         </ul>
-      </>
+      </>,
+    anchor: 'cnuStepOne'
   },
   {
-    name: <div id='cnuStepTwo'>Step 2: Connecting Institutions to Spending</div>,
+    name: <div>Step 2: Connecting Institutions to Spending</div>,
     sources:
       <>
         <p>Next, we connected the institutions to federal spending data using
@@ -110,10 +111,11 @@ export default function CUHWCTA(props) {
             </ul>
           </li>
         </ol>
-      </>
+      </>,
+    anchor: 'cnuStepTwo'
   },
   {
-    name: <div id='cnuStepThree'>Step 3: Identifying Institutions in the USAspending data</div>,
+    name: <div>Step 3: Identifying Institutions in the USAspending data</div>,
     sources:
       <>
         <p>
@@ -169,10 +171,11 @@ export default function CUHWCTA(props) {
           recent data available is for the 2016-2017 academic year. This data was used as a proxy for 2018 data in
           our calculated totals.
          </p>
-      </>
+      </>,
+    anchor: 'cnuStepThree'
   },
   {
-    name: <div id='cnuStepFour'>Step 4: Sorting Investments by Category</div>,
+    name: <div>Step 4: Sorting Investments by Category</div>,
     sources:
       <>
         <p>
@@ -188,10 +191,11 @@ export default function CUHWCTA(props) {
           <li>The file available for download includes all data used to form the chart, including the awarding
               federal agency and sub agency.</li>
         </ul>
-      </>
+      </>,
+    anchor: 'cnuStepFour'
   },
   {
-    name: <div id='cnuStepFive'>Step 5: Converting Academic Year Data to Fiscal Year</div>,
+    name: <div>Step 5: Converting Academic Year Data to Fiscal Year</div>,
     sources:
       <>
         <p>
@@ -204,7 +208,8 @@ export default function CUHWCTA(props) {
           Work Study, Perkins Loans, and Federal Supplemental Educational Opportunity Grant programs. In these
           instances, data is reported annually by calendar year.
           </p>
-      </>
+      </>,
+    anchor: 'cnuStepFive'
   }
   ]
 
