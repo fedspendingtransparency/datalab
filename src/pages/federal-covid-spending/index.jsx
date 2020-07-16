@@ -23,7 +23,7 @@ const BudgetAccordionContent = () => (
       For the COVID-19 special appropriations, agencies are required to include a special field called the <b>Disaster Emergency Fund Code (DEFC)</b> in their financial reporting. Data Lab is tracking COVID-19 appropriations through the spending lifecycle using the DEFC that maps to each piece of legislation.
     </p>
     <p>
-      To learn more about how we developed this analysis and download the raw data, visit the <a href="/federal-covid-spending/methodologies" target="_blank" rel="noopener noreferrer">Data Sources and Methodologies page</a>
+      To learn more about how we developed this analysis and download the raw data, visit the <a href="/federal-covid-spending/methodologies">Data Sources and Methodologies page</a>
     </p>
   </div>
 );
