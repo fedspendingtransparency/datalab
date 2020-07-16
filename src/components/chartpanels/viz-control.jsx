@@ -55,12 +55,14 @@ export default class VizControlPanel extends React.Component {
         <Search
           searchList={this.props.searchList}
           listDescription={this.props.listDescription}
+          listId={this.props.listId}
           alwaysShowList
           onSelect={this.props.onSelect}
         />
       </div>
       <div>
         <IconButton
+          id={`${this.props.listId}-search-button`}
           aria-label='search'
           className={styles.panelGroup}
           onClick={() => this.activateButton('search')}
