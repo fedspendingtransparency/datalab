@@ -156,7 +156,7 @@ export default class Search extends React.Component {
       prevElement.focus();
     } else if (e.key === 'Tab') {
       const elementId = e.shiftKey ? `${this.props.listId}-search-bar` : `${this.props.listId}-search-button`;
-      if (!this.props.showIcon) {
+      if (this.props.separateSearchIcon) {
         e.preventDefault();
         document.getElementById(elementId).focus();
       } else {
