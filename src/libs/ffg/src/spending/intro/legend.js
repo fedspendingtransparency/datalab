@@ -1,10 +1,9 @@
 import { select, selectAll } from 'd3-selection';
-import { transition } from 'd3-transition';
 import { establishContainer, translator, fadeAndRemove } from '../../utils';
 import colors from '../../globalSass/colors.scss';
 import { placeDots } from './placeDots';
 import { chartWidth } from './widthManager';
-import { triggerInfoBox, triggerMainInfoBox } from '../../infoBox';
+import { triggerInfoBox } from '../../infoBox';
 
 const d3 = { select, selectAll };
 const introWidth = 365;
@@ -65,7 +64,6 @@ function buildLegend() {
 		.duration(duration / 2)
 		.attr('opacity', 1)
 		.ease();
-	triggerMainInfoBox();
 }
 
 function addText() {
@@ -133,7 +131,6 @@ function initDot() {
 			radius,
 		}))
 		.ease();
-	triggerMainInfoBox();
 }
 
 export function startLegendAnimation(_config) {
