@@ -63,14 +63,7 @@ export default class FederalCovidSpending extends React.Component {
         </>
       ],
       viztitle: 'COVID-19 Supplemental Funding by Agency',
-      tagName: 'Budget',
-      accordion: (
-        <aside>
-          <Accordion title='How do you track $2.3 trillion?' color='#6F41A7' backgroundColor='#F3EAFF' isCovid>
-            {BudgetAccordionContent()}
-          </Accordion>
-        </aside>
-      )
+      tagName: 'Budget'
     },
     {
       section: 'The Flow of Funds',
@@ -123,7 +116,14 @@ export default class FederalCovidSpending extends React.Component {
         </>
       ],
       viztitle: 'Title for Tracking viz',
-      tagName: 'Tracking'
+      tagName: 'Tracking',
+      accordion: (
+        <aside>
+          <Accordion title='How do you track $2.57 trillion?' color='#6F41A7' backgroundColor='#F3EAFF' isCovid>
+            {BudgetAccordionContent()}
+          </Accordion>
+        </aside>
+      )
     }
   ];
 
