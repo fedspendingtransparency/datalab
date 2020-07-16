@@ -151,9 +151,8 @@ svg {
     white-space: nowrap;
 
     &.totalBarSideBudget {
-      font-weight: $bold;
-
       span {
+        font-weight: $semibold;
         color: $covidPurple;
       }
 
@@ -161,6 +160,10 @@ svg {
         font-weight: 400;
       }
     }
+  }
+
+  .sideBudgetOfTotal {
+    font-size: 0.875rem;
   }
 
   .sideBudgetTotal {
