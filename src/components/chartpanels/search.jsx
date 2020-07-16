@@ -143,18 +143,28 @@ export default class Search extends React.Component {
   }
 
   handleKeyPress = (e, index) => {
-    e.preventDefault();
     if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
       this.selectItem(this.state.filteredList[index])
     } else if (e.key === 'ArrowDown' & index !== this.state.filteredList.length - 1) {
+      e.preventDefault();
       const nextElement = document.getElementById(`${this.props.listId}-list-row-${index + 1}`)
       nextElement.focus();
     } else if (e.key === 'ArrowUp' && index !== 0) {
+      e.preventDefault();
       const prevElement = document.getElementById(`${this.props.listId}-list-row-${index - 1}`)
       prevElement.focus();
     } else if (e.key === 'Tab') {
       const elementId = e.shiftKey ? `${this.props.listId}-search-bar` : `${this.props.listId}-search-button`;
-      document.getElementById(elementId).focus();
+      if (!this.props.showIcon) {
+        e.preventDefault();
+        document.getElementById(elementId).focus();
+      } else {
+        this.setState({
+          expanded: false,
+          icon: 'search'
+        })
+      }
     }
   }
 
