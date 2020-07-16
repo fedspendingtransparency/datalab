@@ -24,7 +24,7 @@ class MobileMenu extends React.Component {
       return (
         <>
           <li className={styles.dataListLi} key={i}>
-            <Link to={item.link} className={styles.dataListA}>{item.name}</Link>
+            <a href={item.link} className={styles.dataListA}>{item.name}</a>
           </li>
           <hr className={styles.mobileHr} />
         </>
