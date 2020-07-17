@@ -273,7 +273,7 @@ export default function Tracking(props) {
 							</div>
 						</div>
 						<div className={styles.blockContainer}>
-							<IconButton className={styles.infoButton} onClick={openInfoModal}>
+							<IconButton className={styles.infoButton} onClick={openInfoModal} aria-label='Spending Definitions'>
 								<InfoOutlinedIcon className={styles.icon} />
 							</IconButton>
 						</div>
