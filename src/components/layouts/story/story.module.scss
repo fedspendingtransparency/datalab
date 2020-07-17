@@ -105,6 +105,12 @@ h2 {
     margin-bottom: $margin-25;
   }
 
+  .title,
+  .intro-sentence,
+  .context-statement {
+    text-align: left;
+  }
+
   .header-hero {
     margin-top: $margin-30;
     padding-bottom: $margin-25;
@@ -114,11 +120,5 @@ h2 {
 @media (max-width: $phone - 1) {
   .title {
     margin-top: 5rem;
-  }
-
-  .title,
-  .intro-sentence,
-  .context-statement {
-    text-align: left;
   }
 }
