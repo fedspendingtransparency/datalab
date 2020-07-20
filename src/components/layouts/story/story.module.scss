@@ -86,15 +86,15 @@ h2 {
   }
 }
 
+@media (min-width: $phone) and (max-width: $tablet - 1) {
+  .title {
+    margin-top: 100px;
+  }
+}
+
 @media (max-width: $tablet - 1) {
   .story-page {
     margin: 0 $margin-15 $margin-50;
-  }
-
-  .title,
-  .intro-sentence,
-  .context-statement {
-    text-align: left;
   }
 
   .intro-sentence {
@@ -105,8 +105,20 @@ h2 {
     margin-bottom: $margin-25;
   }
 
+  .title,
+  .intro-sentence,
+  .context-statement {
+    text-align: left;
+  }
+
   .header-hero {
     margin-top: $margin-30;
     padding-bottom: $margin-25;
+  }
+}
+
+@media (max-width: $phone - 1) {
+  .title {
+    margin-top: 5rem;
   }
 }
