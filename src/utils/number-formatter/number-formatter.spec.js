@@ -32,6 +32,18 @@ it('expect hundred trillion dollar amount to be formatted to 2 signficant digits
 	expect(formatNumber('dollars suffix', 567220000000000.989)).toBe('$570 T');
 });
 
+it('expect trillion dollar amount to be formatted to 3 signficant digits with decimal point', () => {
+	expect(formatNumber('dollars suffix', 5672200000000.889, 3)).toBe('$5.67 T');
+});
+
+it('expect ten trillion dollar amount to be formatted to 3 signficant digits with decimal point', () => {
+	expect(formatNumber('dollars suffix', 56722000000000.889, 3)).toBe('$56.7 T');
+});
+
+it('expect hundred trillion dollar amount to be formatted to 3 signficant digits', () => {
+	expect(formatNumber('dollars suffix', 567220000000000.889, 3)).toBe('$567 T');
+});
+
 it('expect hundred trillion dollar amount to be formatted to 3 signficant digits', () => {
 	expect(formatNumber('dollars suffix', 567220000000000.889, 3)).toBe('$567 T');
 });
