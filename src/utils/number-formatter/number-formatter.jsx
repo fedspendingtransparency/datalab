@@ -12,8 +12,7 @@ export default function formatNumber(type, number, sig = 2) {
 
 		// check if trillions
 		if (formatDollarsText(Math.round(num)).indexOf('T') > -1) {
-			value = value.replace('T', '');
-			return value === '0.0' ? '0' : `${value}T`;
+			return value === '0.0' ? '0' : value;
 		}
 
 		const abbreviation = value[value.length - 1];
