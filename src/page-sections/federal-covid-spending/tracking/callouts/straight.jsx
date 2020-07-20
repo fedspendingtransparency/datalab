@@ -42,7 +42,7 @@ export default function StraightCallout(props) {
 						y={defaults.textPosition + defaults.lineHeight}
 						fontSize={defaults.smFontSize}
 					>
-						{numberFormatter('dollars suffix', labelAmount)}
+						{numberFormatter('dollars suffix', labelAmount, 3)}
 					</text>
 				</>
 			);
@@ -66,7 +66,7 @@ export default function StraightCallout(props) {
 					className={styles.amountLabel}
 					style={{ fontWeight: mobile ? '600' : '0' }}
 				>
-					{numberFormatter('dollars suffix', labelAmount)}
+					{numberFormatter('dollars suffix', labelAmount, 3)}
 				</tspan>
 			</text>
 		);

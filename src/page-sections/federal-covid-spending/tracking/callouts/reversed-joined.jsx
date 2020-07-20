@@ -28,7 +28,7 @@ export default function ReversedJoinedCallout(props) {
 					</text>
 					<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
 						&nbsp;
-						{numberFormatter('dollars suffix', label1Amount)}
+						{numberFormatter('dollars suffix', label1Amount, 3)}
 					</text>
 
 					<text fill={defaults.fontColor} x={`${label2Offset + shiftLabel}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="600">
@@ -36,7 +36,7 @@ export default function ReversedJoinedCallout(props) {
 					</text>
 					<text fill={defaults.fontColor} x={`${label2Offset + shiftAmount}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
 						&nbsp;
-						{numberFormatter('dollars suffix', label2Amount)}
+						{numberFormatter('dollars suffix', label2Amount, 3)}
 					</text>
 				</>
 			);
@@ -46,7 +46,7 @@ export default function ReversedJoinedCallout(props) {
 				<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
 					<tspan className={styles.label} fontWeight="600">{label1}</tspan>
 					{' '}
-					{numberFormatter('dollars suffix', label1Amount)}
+					{numberFormatter('dollars suffix', label1Amount, 3)}
 				</text>
 				<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
 					<tspan className={styles.label} style={{ display: mobile ? 'none' : 'block' }} fontWeight="600">
@@ -57,7 +57,7 @@ export default function ReversedJoinedCallout(props) {
 						className={styles.amountLabel}
 						style={{ fontWeight: mobile ? '600' : '0' }}
 					>
-						{numberFormatter('dollars suffix', label2Amount)}
+						{numberFormatter('dollars suffix', label2Amount, 3)}
 					</tspan>
 				</text>
 			</>
