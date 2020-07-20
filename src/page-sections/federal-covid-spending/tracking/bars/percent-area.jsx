@@ -1,5 +1,5 @@
 import React from 'react';
-import numberFormatter from 'src/utils/number-formatter';
+import numberFormatter from 'src/utils/number-formatter/number-formatter';
 import styles from './bar.module.scss';
 
 export default function PercentBar(props) {

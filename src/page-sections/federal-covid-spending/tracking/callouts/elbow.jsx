@@ -5,7 +5,7 @@
 */
 import React from 'react';
 import PropTypes from 'prop-types';
-import numberFormatter from 'src/utils/number-formatter';
+import numberFormatter from 'src/utils/number-formatter/number-formatter';
 import defaults from './utils/defaults';
 import styles from '../bars/bar.module.scss';
 

@@ -6,7 +6,7 @@ import Paginator from './paginator';
 import './data-table.scss';
 import { Grid } from "@material-ui/core";
 import * as _ from "lodash";
-import numberFormatter from "src/utils/number-formatter";
+import numberFormatter from "src/utils/number-formatter/number-formatter";
 
 export default class DataTable extends React.Component {
   static propTypes = {

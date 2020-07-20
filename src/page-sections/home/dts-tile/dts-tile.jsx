@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import './dts-tile.scss';
 import './landing-dts.scss';
 import * as d3 from 'd3v4';
-import formatNumber from '../../../utils/number-formatter';
+import formatNumber from '../../../utils/number-formatter/number-formatter';
 
 function DtsTile(props) {
 	let svg;

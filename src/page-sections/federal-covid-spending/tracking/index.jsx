@@ -10,7 +10,7 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import { withStyles } from '@material-ui/core/styles';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
-import numberFormatter from 'src/utils/number-formatter';
+import numberFormatter from 'src/utils/number-formatter/number-formatter';
 import Share from 'src/components/share/share';
 import ModalReference from 'src/components/modal/modal';
 import { Grid } from '@material-ui/core';

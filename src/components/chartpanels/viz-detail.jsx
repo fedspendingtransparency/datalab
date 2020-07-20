@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Paper, IconButton } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import formatNumber from '../../utils/number-formatter';
+import formatNumber from '../../utils/number-formatter/number-formatter';
 
 export default class VizDetailPanel extends React.Component {
   constructor(props) {

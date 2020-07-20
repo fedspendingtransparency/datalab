@@ -1,5 +1,5 @@
 import React from 'react';
-import numberFormatter from 'src/utils/number-formatter';
+import numberFormatter from 'src/utils/number-formatter/number-formatter';
 import Grid from '@material-ui/core/Grid';
 import Bar from '../bars/bar';
 import styles from './modal.module.scss';
