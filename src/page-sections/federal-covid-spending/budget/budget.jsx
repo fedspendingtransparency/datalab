@@ -80,6 +80,7 @@ export default function Budget(props) {
 				href="/data/federal-covid-spending/tracking/covid19_response_viz1_2020-06-19.csv"
 				date="June 2020"
 				mobileSpace
+				justify="center"
 			/>
 		</>
 	);
