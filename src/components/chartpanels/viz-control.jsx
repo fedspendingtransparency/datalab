@@ -65,6 +65,7 @@ export default class VizControlPanel extends React.Component {
           alwaysShowList
           onSelect={this.props.onSelect}
           separateSearchIcon
+          hidden={!this.state.expanded}
         />
       </div>
       <div>

@@ -192,7 +192,7 @@ export default class Search extends React.Component {
         onKeyDown={(e) => this.handleKeyPress(e, index)}
         style={style}
         className={styles.row}
-        tabIndex={0}
+        tabIndex={this.props.hidden ? -1 : 0}
         id={`${this.props.listId}-list-row-${index}`}
       >
         {this.state.filteredList[index].display}
@@ -212,6 +212,7 @@ export default class Search extends React.Component {
       className={styles.filterInput}
       endAdornment={this.props.showIcon && this.filterBoxIcon()}
       id={`${this.props.listId}-search-bar`}
+      disabled={this.props.hidden}
     />
     <div style={{ height: this.state.expanded ? this.props.height : '0' }}>
       <AutoSizer>
