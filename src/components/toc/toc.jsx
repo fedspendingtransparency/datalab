@@ -29,11 +29,13 @@ const Toc = (props) => {
 	const anchorClassName = `${selectedStyle}Anchor`
 	const sectionClassName = `${selectedStyle}Section`
 
+	const lgGridSize = 12 / props.sections.length
+
 	return (
 		<section id={styles.TOC}>
 			<Grid container className={styles.container}>
 				{props.sections.map((item, key) => (
-					<Grid item key={key} className={`${styles.tile}`} xs={12} md={6} lg={3}>
+					<Grid item key={key} className={`${styles.tile}`} xs={12} md={6} lg={lgGridSize}>
 						<a href={`#section-${item.anchor}`} className={`${styles[anchorClassName]}`}>
 							<Grid container justify="center" className={styles.content}>
 								<Grid item className={styles.a}>
