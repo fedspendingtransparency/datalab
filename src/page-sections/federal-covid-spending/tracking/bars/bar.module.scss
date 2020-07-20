@@ -149,6 +149,7 @@ svg {
     flex-basis: $budgetWidth;
     padding-left: 0.5rem;
     white-space: nowrap;
+    overflow-x: auto;
 
     &.totalBarSideBudget {
       span {
