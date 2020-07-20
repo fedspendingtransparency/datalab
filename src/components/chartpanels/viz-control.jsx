@@ -41,7 +41,13 @@ export default class VizControlPanel extends React.Component {
     }
   }
 
-  toggleSearch = () => this.setState(prevState => ({ expanded: !prevState.expanded }));
+  toggleSearch = () => {
+    this.setState(prevState => ({ expanded: !prevState.expanded }), () => {
+      if (this.state.expanded) {
+        document.getElementById(`${this.props.listId}-search-bar`).focus();
+      }
+    })
+  };
 
   selectItem(id) {
     if (this.props.onSelect) {
