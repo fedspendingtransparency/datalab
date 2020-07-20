@@ -7,16 +7,18 @@ export default function formatNumber(type, number, sig = 2) {
 	const formatDollarsText = d3.format(`.${sig}s`);
 	let displayValue;
 
-	function additionalRounding(num) {
-		// check if trillions
+	function customRounding(num) {
+		let value = formatDollarsText(Math.round(num));
 
-		if (formatDollarsText(num).indexOf('T') > -1) {
-			const value = formatDollarsText(Math.round(num)).replace('T', '');
-			return parseFloat(value).toFixed(2).;
+		// check if trillions
+		if (formatDollarsText(Math.round(num)).indexOf('T') > -1) {
+			value = value.replace('T', '');
+			return value === '0.0' ? '0' : `${parseFloat(value).toFixed(2)}T`;
 		}
 
-		const value = formatDollarsText(Math.round(num)).replace('T', '');
-		return parseInt(value);
+		const abbreviation = value[value.length - 1];
+		value = value.substring(0, value.length - 1);
+		return value === '0.0' ? '0' : parseFloat(value).toFixed(0) + abbreviation;
 	}
 
 	if (isNaN(number)) {
@@ -32,18 +34,18 @@ export default function formatNumber(type, number, sig = 2) {
 	case 'dollars':
 		return formatDollars(Math.round(number));
 	case 'dollars text':
-		displayValue = additionalRounding(number);
+		displayValue = sig === 3 ? customRounding(number) : formatDollarsText(Math.round(number));
 		return (
-			`$${formatDollarsText(displayValue)
+			`$${displayValue
 				.replace('k', ' thousand')
 				.replace('M', ' million')
 				.replace('G', ' billion')
 				.replace('T', ' trillion')}`
 		);
 	case 'dollars suffix':
-		displayValue = additionalRounding(number);
+		displayValue = sig === 3 ? customRounding(number) : formatDollarsText(Math.round(number));
 		return (
-			`$${formatDollarsText(displayValue)
+			`$${displayValue
 				.replace('G', ' B')
 				.replace('M', ' M')
 				.replace('k', ' k')
