@@ -76,6 +76,9 @@ export default function Budget(props) {
 			<div className={styles.chartContainer}>
 				<Chart />
 			</div>
+			<div className={styles.sources}>
+				SOURCES: To be added
+			</div>
 			<Downloads
 				href="/data/federal-covid-spending/tracking/covid19_response_viz1_2020-06-19.csv"
 				date="June 2020"

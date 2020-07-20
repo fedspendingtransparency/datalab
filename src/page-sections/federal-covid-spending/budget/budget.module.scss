@@ -60,6 +60,11 @@
   cursor: pointer;
 }
 
+.sources {
+  margin: 15px 28px;
+  font-weight: 300;
+}
+
 @media (min-width: $desktop) {
   #pop-up {
     width: 554px;
