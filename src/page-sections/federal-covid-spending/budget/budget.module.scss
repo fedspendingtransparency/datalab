@@ -88,23 +88,20 @@
       height: 100%;
     }
   }
-}
 
-@media (max-width: $tablet) {
-    .chart-container {
-	    margin-bottom: 50px;
-    }
-}
-
-@media (max-width: $phone) {
-    .vizTitle {
-      font-size: 1.25rem;
-      font-weight: 300;
-    }
-}
-
-@media (max-width: $tablet - 1) {
   .vizTitle {
     font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .chart-container {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: $phone - 1) {
+  .vizTitle {
+    font-size: 1.25rem;
+    font-weight: 300;
   }
 }

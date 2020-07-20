@@ -16,7 +16,7 @@ const ControlBar = (props) => (
     <Hidden xsDown>
       <Grid container justify='flex-end' className={props.isFed ? controlBarStyles.fedControlBar : controlBarStyles.controlBar}>
         {Children.map(props.children, (child) => {
-          return <Grid className={controlBarStyles.child} item sm={child.type === "h2" ? 10 : 2}>
+          return <Grid className={`${controlBarStyles.child} ${child.type === "h2" ? '' : controlBarStyles.rightAlign}`} item sm={child.type === "h2" ? 10 : 2}>
                    {child}
                  </Grid>;
         })}

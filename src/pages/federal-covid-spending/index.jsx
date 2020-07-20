@@ -45,8 +45,8 @@ export default class FederalCovidSpending extends React.Component {
       anchor: 'budget',
       number: '01',
       subtext: 'Overview',
-      subblurb: 'How is the federal government allocating emergency funds for COVID-19?',
-      sectionTeaser: ['How is the federal government', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> allocating emergency funds of COVID-19?</span>],
+      subblurb: 'What types of financial relief is the government providing?',
+      sectionTeaser: ['What', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}> types of financial relief</span>, ' is the government providing?'],
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: [
@@ -57,12 +57,9 @@ export default class FederalCovidSpending extends React.Component {
           <p key='section-1-p-2'>
             Federal agencies play a critical role in COVID-19 relief efforts by executing and administering funding allocated to them through the appropriations process. Approximately 90% of special appropriations for COVID-19 are authorized to four agencies: <a href="https://home.treasury.gov/policy-issues/cares" target="_blank" rel='noopener noreferrer'>the Department of the Treasury</a> (Treasury), the <a href="https://www.sba.gov/page/coronavirus-covid-19-small-business-guidance-loan-resources" target="_blank" rel='noopener noreferrer'>Small Business Administration</a> (SBA), the <a href="https://www.hhs.gov/coronavirus/cares-act-provider-relief-fund/index.html" target="_blank" rel='noopener noreferrer'>Department of Health and Human Services</a> (HHS), and the <a href="https://www.dol.gov/coronavirus" target="_blank" rel='noopener noreferrer'>Department of Labor</a> (DOL).
           </p>
-          <p key='section-1-p-3'>
-            Each agency serves a unique mission and has been allocated supplemental funding to expand existing programs, or in some cases, establish new programs in response to the pandemic. For example, the Treasury issues Economic Impact Payments through the Internal Revenue Service’s tax system. Funding has also gone to DOL’s unemployment compensation programs and SBA’s grant and loan programs. Examples of new programs include the HHS Provider Relief Fund and Treasury’s Coronavirus Economic Stabilization Act Program. In Section 3, we dive deeper into each agency’s spending accounts for insight into how the agency is spending the money.
-          </p>
         </>
       ],
-      viztitle: 'COVID-19 Supplemental Funding by Agency',
+      viztitle: 'A breakdown of COVID-19 Financial Relief',
       tagName: 'Budget'
     },
     {

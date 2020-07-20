@@ -13,12 +13,16 @@
 
 .child {
   display: flex;
-  justify-content: flex-end;
   min-width: 5rem;
+  
   span {
     font-family: 'Source Sans Pro';
     font-size: 1rem;
   }
+}
+
+.rightAlign {
+  justify-content: flex-end;
 }
 
 @media screen and (min-width: $desktop-xl){
