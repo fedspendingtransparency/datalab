@@ -66,7 +66,7 @@ export default function CalloutBar(props) {
 				threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempOffsets.padding);
 
 			tempOffsets.obligatedMidPoint = Math.max(props.outlaid + props.obligated / 2,
-				threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempOffsets.padding + tempLabelLengths.obligatedPercentage / 4);
+				threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempOffsets.padding + tempLabelLengths.obligatedPercentage / 2);
 
 			tempOffsets.rightOffset = 100 - threshold.labelOffset;
 
@@ -199,7 +199,7 @@ export default function CalloutBar(props) {
 			calloutComponent.push(<JoinedCallout
 				xStart={outlaySettings.outlaidBarMidpoint < threshold.outlayLabelOffset ? outlaySettings.outlaidBarMidpoint : threshold.outlayLabelOffset}
 				xMid={offsets.outlayMidPoint - threshold.outlayLabelOffset}
-				xEnd={offsets.obligatedMidPoint}
+				xEnd={offsets.obligated + threshold.outlayLabelOffset}
 				label1Offset={threshold.outlayLabelOffset}
 				label2Offset={offsets.obligated}
 				label1="Outlays"
@@ -254,7 +254,7 @@ export default function CalloutBar(props) {
 		} else if (barStatus.obligated === barState[1]) {
 			calloutComponent.push(<ElbowCallout
 				xStart={props.outlaid + props.obligated / 2}
-				xEnd={offsets.obligatedMidPoint}
+				xEnd={offsets.obligatedMidPoint - threshold.outlayLabelOffset}
 				labelOffset={offsets.obligated}
 				label="Obligations"
 				labelAmount={props.data[1].amount}
