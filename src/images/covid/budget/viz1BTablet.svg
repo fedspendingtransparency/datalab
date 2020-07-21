@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="432px" height="150px" viewBox="0 0 432 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+    <title>Viz 1 - B Tablet</title>
+    <defs>
+        <polygon id="path-1" points="313 79 353 79 353 176 313 176"></polygon>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="40" height="97" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="SVG" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Tablet" transform="translate(-41.000000, -477.000000)">
+            <g id="Viz-1---B-Tablet" transform="translate(41.000000, 477.000000)">
+                <text id="NEW-AGENCY-FUNDING-$" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+                    <tspan x="106.35" y="57">NEW AGENCY </tspan>
+                    <tspan x="115.932" y="72">FUNDING</tspan>
+                    <tspan x="120.492" y="87" font-family="SourceSansPro-Bold, Source Sans Pro" font-weight="bold">$2.58 T</tspan>
+                </text>
+                <text id="Total-Estimated-Valu" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="18" font-weight="500" fill="#666666">
+                    <tspan x="8" y="18">Total Estimated Value of Appropriations  $3.48 T</tspan>
+                </text>
+                <path d="M1,104 L1,40 L382,40 L382,104" id="Path-21" stroke="#D8D8D8" stroke-dasharray="3,3"></path>
+                <polyline id="Path-21-Copy" stroke="#979797" stroke-width="0.5" points="1 107 1 99 279 99 279 107"></polyline>
+                <line x1="383" y1="127.56981" x2="389" y2="127.43019" id="Line-14-Copy-2" stroke="#979797" stroke-width="0.5" stroke-linecap="square"></line>
+                <text id="TAX-RELIEF-$902-B" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+                    <tspan x="392" y="117">TAX </tspan>
+                    <tspan x="392" y="132">RELIEF</tspan>
+                    <tspan x="392" y="147" font-family="SourceSansPro-Bold, Source Sans Pro" font-weight="bold">$902 B</tspan>
+                </text>
+                <g id="Purple-Bar" transform="translate(0.000000, 107.000000)" fill="#6F41A7">
+                    <rect id="Rectangle" x="225.543307" y="0" width="53.4566929" height="40"></rect>
+                    <rect id="Rectangle-Copy-13" x="5.12598425" y="0" width="218.952756" height="40"></rect>
+                    <rect id="Rectangle-Copy-14" x="2.19685039" y="0" width="1.46456693" height="40"></rect>
+                    <rect id="Rectangle-Copy-17" x="0" y="0" width="1" height="40"></rect>
+                </g>
+                <use id="Gray-Bar" stroke="#979797" mask="url(#mask-2)" stroke-width="2" fill="#D8D8D8" opacity="0.776204427" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4,3" transform="translate(333.000000, 127.500000) rotate(90.000000) translate(-333.000000, -127.500000) " xlink:href="#path-1"></use>
+                <line x1="192.5" y1="38.5" x2="192.5" y2="26.5" id="Line-14" stroke="#D8D8D8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3,3"></line>
+                <line x1="139.5" y1="98" x2="139.5" y2="90" id="Line-14-Copy" stroke="#979797" stroke-width="0.5" stroke-linecap="square"></line>
+            </g>
+        </g>
+    </g>
+</svg>

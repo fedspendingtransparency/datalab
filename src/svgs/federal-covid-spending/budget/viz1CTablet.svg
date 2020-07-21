@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="692px" height="148px" viewBox="0 0 692 148" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Viz 1 - C Tablet</title>
+    <defs>
+        <polygon id="path-1" points="311 78 351 78 351 175.420382 311 175.420382"></polygon>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="40" height="97.4203822" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <polygon id="path-3" points="517 -26 557 -26 557 280.178344 517 280.178344"></polygon>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="40" height="306.178344" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="SVG" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Tablet" transform="translate(-40.000000, -768.000000)">
+            <g id="Viz-1---C-Tablet" transform="translate(41.000000, 768.000000)">
+                <g id="Purple-Bar-Copy" transform="translate(0.000000, 107.000000)" fill="#6F41A7">
+                    <rect id="Rectangle" x="225.543307" y="0" width="53.4566929" height="40"></rect>
+                    <rect id="Rectangle-Copy-13" x="5.12598425" y="0" width="218.952756" height="40"></rect>
+                    <rect id="Rectangle-Copy-14" x="2.19685039" y="0" width="1.46456693" height="40"></rect>
+                    <rect id="Rectangle-Copy-17" x="0" y="0" width="1" height="40"></rect>
+                </g>
+                <polyline id="Path-21-Copy-2" stroke="#979797" stroke-width="0.5" points="0 108 0 99 278.343949 99 278.343949 108"></polyline>
+                <text id="NEW-AGENCY-FUNDING-$" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+                    <tspan x="106.391401" y="57">NEW AGENCY </tspan>
+                    <tspan x="115.973401" y="72">FUNDING</tspan>
+                    <tspan x="120.533401" y="87" font-family="SourceSansPro-Bold, Source Sans Pro" font-weight="bold">$2.58 T</tspan>
+                </text>
+                <text id="Total-Estimated-Fina" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="18" font-weight="500" fill="#666666">
+                    <tspan x="195" y="18">Total Estimated Financial Relief $6.16 T</tspan>
+                </text>
+                <path d="M0,105 L0,39 L690,39 L690,105" id="Path-21" stroke="#D8D8D8" stroke-dasharray="3,3"></path>
+                <text id="TAX-RELIEF-$902-B" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+                    <tspan x="322.167554" y="57">TAX </tspan>
+                    <tspan x="314.313554" y="72">RELIEF</tspan>
+                    <tspan x="314.007554" y="87" font-family="SourceSansPro-Bold, Source Sans Pro" font-weight="bold">$902 B</tspan>
+                </text>
+                <text id="POTENTIAL-CREDIT-$2." font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+                    <tspan x="489.219796" y="72">POTENTIAL CREDIT</tspan>
+                    <tspan x="518.367796" y="87" font-family="SourceSansPro-Bold, Source Sans Pro" font-weight="bold">$2.68 T</tspan>
+                </text>
+                <use id="Rectangle-Copy-19" stroke="#979797" mask="url(#mask-2)" stroke-width="2" fill="#D8D8D8" opacity="0.776204427" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4,3" transform="translate(331.000000, 126.710191) rotate(90.000000) translate(-331.000000, -126.710191) " xlink:href="#path-1"></use>
+                <use id="Rectangle-Copy-16" stroke="#4A1D7A" mask="url(#mask-4)" stroke-width="2" fill-opacity="0.202524038" fill="#4A1D7A" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4,3" transform="translate(537.000000, 127.089172) rotate(90.000000) translate(-537.000000, -127.089172) " xlink:href="#path-3"></use>
+                <line x1="345.366242" y1="37.5" x2="345.366242" y2="25.5" id="Line-14" stroke="#D8D8D8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3,3"></line>
+                <line x1="537.366242" y1="104" x2="537.366242" y2="96" id="Line-14-Copy-5" stroke="#979797" stroke-width="0.5" stroke-linecap="square"></line>
+                <line x1="139.538217" y1="99" x2="139.538217" y2="91" id="Line-14-Copy" stroke="#979797" stroke-width="0.5" stroke-linecap="square"></line>
+                <line x1="331.366242" y1="107" x2="331.366242" y2="99" id="Line-14-Copy-4" stroke="#979797" stroke-width="0.5" stroke-linecap="square"></line>
+            </g>
+        </g>
+    </g>
+</svg>
