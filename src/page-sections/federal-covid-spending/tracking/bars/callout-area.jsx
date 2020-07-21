@@ -38,7 +38,7 @@ export default function CalloutBar(props) {
 
 	const calculateLabelWidths = () => {
 		if (typeof document !== 'undefined') {
-			const newOffsets = {
+			const tempOffsets = {
 				padding: null,
 				outlayMidPoint: null,
 				unobligated: null,
@@ -49,36 +49,32 @@ export default function CalloutBar(props) {
 			};
 
 			const barWidth = document.getElementsByClassName(styles.bar)[0].getBoundingClientRect().width;
-			const newLabelLengths = {
+			const tempLabelLengths = {
 				outlayPercentage: Math.round(50 / barWidth * 100),
 				obligatedPercentage: Math.round(72 / barWidth * 100),
 				unobligatedPercentage: Math.round(77 / barWidth * 100),
 			};
 
-			newOffsets.padding = screenMode === ScreenModeEnum.tablet ? threshold.tabletPadding : screenMode === ScreenModeEnum.mobile ? threshold.mobilePadding : threshold.padding;
+			tempOffsets.padding = screenMode === ScreenModeEnum.tablet ? threshold.tabletPadding : screenMode === ScreenModeEnum.mobile ? threshold.mobilePadding : threshold.padding;
 
-			newOffsets.outlayMidPoint = threshold.outlayLabelOffset + newLabelLengths.outlayPercentage / 2;
+			tempOffsets.outlayMidPoint = threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage / 2;
 
-			newOffsets.unobligated = 100 - threshold.rightOffset - newLabelLengths.unobligatedPercentage;
-			newOffsets.unobligatedMidPoint = 100 - ((threshold.rightOffset - newLabelLengths.unobligatedPercentage) / 2);
+			// tempOffsets.unobligated = 100 - threshold.labelOffset - tempLabelLengths.unobligatedPercentage;
+			// tempOffsets.unobligatedMidPoint = 100 - threshold.labelOffset - (tempLabelLengths.unobligatedPercentage / 2);
 
-			newOffsets.obligated = threshold.outlayLabelOffset + threshold.outlayLabelWidth + newOffsets.padding;
-			newOffsets.obligatedMidPoint = threshold.outlayLabelOffset + newLabelLengths.outlayPercentage + newOffsets.padding + newLabelLengths.obligatedPercentage / 2;
+			tempOffsets.obligated = props.outlaid + props.obligated / 2 - tempLabelLengths.obligatedPercentage / 2;
+			tempOffsets.obligatedMidPoint = props.outlaid + props.obligated / 2;
 
-			newOffsets.rightOffset = 100 - threshold.rightOffset - newLabelLengths.unobligatedPercentage;
+			tempOffsets.rightOffset = 100 - threshold.labelOffset;
 
 
-			setLabelLengths(labelLengths);
-			setOffsets(newOffsets);
+			setLabelLengths(tempLabelLengths);
+			setOffsets(tempOffsets);
 		}
 
 		// check the width of the percentage bar
 		// calculate the label percentages and set the threshold
 	};
-
-	useEffect(() => {
-		resizeWindow();
-	}, []);
 
 	const resizeWindow = () => {
 		calculateLabelWidths();
@@ -87,6 +83,10 @@ export default function CalloutBar(props) {
 			setScreenMode(newMode);
 		}
 	};
+
+	useEffect(() => {
+		resizeWindow();
+	}, []);
 
 	useEffect(() => {
 		window.addEventListener('resize', resizeWindow);
