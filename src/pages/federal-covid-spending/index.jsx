@@ -59,7 +59,7 @@ export default class FederalCovidSpending extends React.Component {
           </p>
         </>
       ],
-      viztitle: 'A breakdown of COVID-19 Financial Relief',
+      viztitle: 'A Breakdown of COVID-19 Financial Relief',
       tagName: 'Budget'
     },
     {

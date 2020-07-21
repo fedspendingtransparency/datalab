@@ -38,7 +38,7 @@ export default function Budget(props) {
 	}
 
 	function Header() {
-		if (screenMode >= ScreenModeEnum.desktop) {
+		if (screenMode >= ScreenModeEnum.tablet) {
 			return (
 				<>
 					<ControlBar>
