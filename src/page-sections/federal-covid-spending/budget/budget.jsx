@@ -4,8 +4,13 @@ import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 
-import Desktop from 'src/svgs/federal-covid-spending/budget/viz1Desktop.svg';
-import Mobile from 'src/svgs/federal-covid-spending/budget/viz1Mobile.svg';
+import DesktopA from 'src/svgs/federal-covid-spending/budget/viz1ADesktop.svg';
+import DesktopB from 'src/svgs/federal-covid-spending/budget/viz1BDesktop.svg';
+import DesktopC from 'src/svgs/federal-covid-spending/budget/viz1CDesktop.svg';
+import MobileA from 'src/svgs/federal-covid-spending/budget/viz1AMobile.svg';
+import MobileB from 'src/svgs/federal-covid-spending/budget/viz1BMobile.svg';
+import MobileC from 'src/svgs/federal-covid-spending/budget/viz1CMobile.svg';
+import PurpleDot from 'src/svgs/federal-covid-spending/budget/purpleDot.svg';
 
 import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode'
 import styles from './budget.module.scss';
@@ -31,9 +36,9 @@ export default function Budget(props) {
 
 	function Chart() {
 		if (screenMode >= ScreenModeEnum.tablet) {
-			return <Desktop />;
+			return <DesktopA />;
 		}
-		return <Mobile />;
+		return <MobileA />;
 	}
 
 	function Header() {
