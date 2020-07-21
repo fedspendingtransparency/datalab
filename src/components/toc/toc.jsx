@@ -29,7 +29,7 @@ const Toc = (props) => {
 	const anchorClassName = `${selectedStyle}Anchor`
 	const sectionClassName = `${selectedStyle}Section`
 
-	const lgGridSize = 12 / props.sections.length
+	const lgGridSize = props.sections.length <= 4 ? (12 / props.sections.length) : 3;
 
 	return (
 		<section id={styles.TOC}>
