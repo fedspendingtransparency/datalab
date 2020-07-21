@@ -88,19 +88,16 @@ $fedEmpBlue: #2272ce;
 }
 
 .heading-red {
-  color: $cuRed;
   font-weight: 400;
   font-size: inherit;
 }
 
 .heading-orange {
-  color: $opioidOrange;
   font-weight: 400;
   font-size: inherit;
 }
 
 .heading-purple {
-  color: $covidPurple;
   font-weight: 600;
   font-size: inherit;
 }
@@ -133,8 +130,6 @@ $fedEmpBlue: #2272ce;
 
 @media (min-width: $desktop) {
   .header {
-    margin-left: 8%;
-
     .headerTitleContainer {
       margin-bottom: 50px;
 
@@ -174,6 +169,8 @@ $fedEmpBlue: #2272ce;
   }
 
   .header {
+    margin-bottom: 0;
+    
     .headerTitle {
       margin-top: 0;
       line-height: 3.125rem;
@@ -183,5 +180,19 @@ $fedEmpBlue: #2272ce;
   .headerNumber span {
     font-size: 1.5rem;
     margin: 0;
+  }
+}
+
+@media (min-width: $tablet) {
+  .heading-red {
+    color: $cuRed;
+  }
+  
+  .heading-orange {
+    color: $opioidOrange;
+  }
+  
+  .heading-purple {
+    color: $covidPurple;
   }
 }
