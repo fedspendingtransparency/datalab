@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="944px" height="148px" viewBox="0 0 944 148" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>VIZ 3 - C</title>
+    <defs>
+        <polygon id="path-1" points="432.5 61.5 472.5 61.5 472.5 194.5 432.5 194.5"></polygon>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="40" height="133" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <polygon id="path-3" points="713 -81 753 -81 753 337 713 337"></polygon>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="40" height="418" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="SVG" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-239.000000, -772.000000)">
+            <g id="VIZ-3---C" transform="translate(239.000000, 772.000000)">
+                <g id="Group-4" transform="translate(1.000000, 0.000000)">
+                    <polyline id="Path-21-Copy-2" stroke="#979797" stroke-width="0.5" points="0 108 0 99 380 99 380 108"></polyline>
+                    <text id="NEW-AGENCY-FUNDING-$" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+                        <tspan x="132.082" y="72">NEW AGENCY FUNDING</tspan>
+                        <tspan x="170.992" y="87" font-family="SourceSansPro-Bold, Source Sans Pro" font-weight="bold">$2.58 T</tspan>
+                    </text>
+                    <text id="Total-Estimated-Fina" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="18" font-weight="500" fill="#666666">
+                        <tspan x="316" y="18">Total Estimated Financial Relief $6.16 T</tspan>
+                    </text>
+                    <path d="M4.54747351e-13,105 L4.54747351e-13,41 L942,41 L942,105" id="Path-21" stroke="#D8D8D8" stroke-dasharray="3,3"></path>
+                    <text id="TAX-RELIEF-$902-B" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+                        <tspan x="427.262" y="72">TAX RELIEF</tspan>
+                        <tspan x="437.498" y="87" font-family="SourceSansPro-Bold, Source Sans Pro" font-weight="bold">$902 B</tspan>
+                    </text>
+                    <text id="POTENTIAL-CREDIT-$2." font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12" font-weight="normal" fill="#666666">
+                        <tspan x="684.844" y="72">POTENTIAL CREDIT</tspan>
+                        <tspan x="713.992" y="87" font-family="SourceSansPro-Bold, Source Sans Pro" font-weight="bold">$2.68 T</tspan>
+                    </text>
+                    <rect id="Rectangle" fill="#6F41A7" x="307" y="108" width="73" height="40"></rect>
+                    <rect id="Rectangle-Copy-13" fill="#6F41A7" x="6" y="108" width="299" height="40"></rect>
+                    <use id="Rectangle-Copy-19" stroke="#979797" mask="url(#mask-2)" stroke-width="2" fill="#D8D8D8" opacity="0.776204427" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4,3" transform="translate(452.500000, 128.000000) rotate(90.000000) translate(-452.500000, -128.000000) " xlink:href="#path-1"></use>
+                    <use id="Rectangle-Copy-16" stroke="#4A1D7A" mask="url(#mask-4)" stroke-width="2" fill-opacity="0.202524038" fill="#4A1D7A" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4,3" transform="translate(733.000000, 128.000000) rotate(90.000000) translate(-733.000000, -128.000000) " xlink:href="#path-3"></use>
+                    <line x1="471.5" y1="39.5" x2="471.5" y2="27.5" id="Line-14" stroke="#D8D8D8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3,3"></line>
+                    <line x1="733.5" y1="104" x2="733.5" y2="96" id="Line-14-Copy-5" stroke="#979797" stroke-width="0.5" stroke-linecap="square"></line>
+                    <line x1="190.5" y1="99" x2="190.5" y2="91" id="Line-14-Copy" stroke="#979797" stroke-width="0.5" stroke-linecap="square"></line>
+                    <line x1="455.5" y1="107" x2="455.5" y2="99" id="Line-14-Copy-4" stroke="#979797" stroke-width="0.5" stroke-linecap="square"></line>
+                </g>
+                <rect id="Rectangle-Copy-14" fill="#6F41A7" x="3" y="108" width="2" height="40"></rect>
+                <rect id="Rectangle-Copy-17" fill="#6F41A7" x="0" y="108" width="1" height="40"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
