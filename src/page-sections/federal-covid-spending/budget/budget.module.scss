@@ -60,6 +60,11 @@
   cursor: pointer;
 }
 
+.sources {
+  margin: 15px 28px;
+  font-weight: 300;
+}
+
 @media (min-width: $desktop) {
   #pop-up {
     width: 554px;
@@ -88,23 +93,9 @@
       height: 100%;
     }
   }
-}
 
-@media (max-width: $tablet) {
-    .chart-container {
-	    margin-bottom: 50px;
-    }
-}
-
-@media (max-width: $phone) {
-    .vizTitle {
-      font-size: 1.25rem;
-      font-weight: 300;
-    }
-}
-
-@media (max-width: $tablet - 1) {
   .vizTitle {
     font-size: 1.25rem;
+    font-weight: 400;
   }
 }
