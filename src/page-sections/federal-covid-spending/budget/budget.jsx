@@ -22,7 +22,6 @@ export default function Budget(props) {
     }
   
     useEffect(() => {
-      resizeWindow();
       window.addEventListener('resize', resizeWindow);
       return () => {
         window.removeEventListener('resize', resizeWindow);
@@ -69,6 +68,7 @@ export default function Budget(props) {
 			</>
 		);
 	}
+	console.log(screenMode)
 
 	return (
 		<>
