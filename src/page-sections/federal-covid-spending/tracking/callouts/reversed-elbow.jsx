@@ -15,12 +15,6 @@ export default function ReversedElbowCallout(props) {
 		xStart, xEnd, isModal, labelOffset, label, labelAmount, mobile,
 	} = props;
 
-	console.log(Math.abs(xStart - xEnd));
-
-	console.log(xStart);
-
-	console.log(xEnd);
-
 	function TextBlock() {
 		if (isModal) {
 			return (

@@ -249,6 +249,7 @@ export default function CalloutBar(props) {
 			/>);
 		} else if (calloutStates.obligated === calloutState[4]) {
 			// reversed joined
+			// TODO?  Where did the calculation for xStart come from
 			const joinedOffsets = {
 				end: props.isModal ? 50 : 45,
 			};
@@ -258,8 +259,8 @@ export default function CalloutBar(props) {
 				xStart={(props.outlaid + props.obligated + props.unobligated / 2) - 0.5 > 95 ? (props.outlaid + props.obligated + props.unobligated / 2) - 0.5 : 95}
 				xMid={threshold.rightOffset}
 				xEnd={joinedOffsets.end}
-				label1Offset={joinedOffsets.end - labelLengths.unobligatedPercentage / 2}
-				label2Offset={labelOffsets.unobligated}
+				label1Offset={screenMode === ScreenModeEnum.mobile ? joinedOffsets.end - 5 : joinedOffsets.end - labelLengths.unobligatedPercentage / 2}
+				label2Offset={screenMode === ScreenModeEnum.mobile ? 80 : labelOffsets.unobligated}
 				label1="Obligations"
 				label2="Unobligated"
 				label1Amount={props.data[1].amount}
@@ -272,12 +273,32 @@ export default function CalloutBar(props) {
 		}
 	};
 
+	const calculateUnobligatedSpecialCases = () => {
+		// Case for mobile and tablet modal
+		if ((screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet) && props.isModal) {
+			return threshold.rightOffset - labelLengths.unobligatedPercentage * 0.5;
+		}
+
+		/* Case for mobile view on the main page only, show amounts so have to handle mobile as a special case */
+		if (screenMode === ScreenModeEnum.mobile) {
+			return 100 - labelLengths.unobligatedPercentage / 2;
+		}
+
+		/* Case for tablet view on the main page, shows both the label and amount so have to handle mobile as a special case */
+		if (screenMode === ScreenModeEnum.tablet) {
+			return threshold.rightOffset - labelLengths.unobligatedPercentage * 0.75; // 3/4 of label to account for the label + amount
+		}
+
+		/* Case for desktop and Desktop XL view */
+		return labelOffsets.unobligated;
+	};
+
 	/* Select the callout component for unobligated, set props on component and push to the calloutComponent array */
 	const setUnobligated = () => {
 		if (calloutStates.unobligated === calloutState[0]) {
 			calloutComponent.push(<StraightCallout
 				xStart={threshold.rightOffset}
-				labelOffset={labelOffsets.unobligated}
+				labelOffset={calculateUnobligatedSpecialCases()}
 				label="Unobligated"
 				labelAmount={props.data[2].amount}
 				labelPercent={props.unobligated}
