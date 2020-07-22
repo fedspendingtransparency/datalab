@@ -213,6 +213,26 @@ export default function CalloutBar(props) {
 		}
 	};
 
+	const calculateReversedJoinedSpecialCasesLabel1 = (xEnd) => {
+		if (screenMode === ScreenModeEnum.mobile && !props.isModal) {
+			return xEnd - labelLengths.obligatedPercentage / 4;
+		}
+
+		return xEnd - labelLengths.unobligatedPercentage / 2;
+	};
+
+	const calculateReversedJoinedSpecialCasesLabel2 = () => {
+		if (screenMode === ScreenModeEnum.mobile && props.isModal) {
+			return 75;
+		}
+
+		if (screenMode === ScreenModeEnum.mobile) {
+			return 80;
+		}
+
+		return labelOffsets.unobligated;
+	};
+
 	/* Select the callout component for obligated, set props on component and push to the calloutComponent array */
 	const setObligated = () => {
 		if (calloutStates.obligated === calloutState[0]) {
@@ -249,18 +269,16 @@ export default function CalloutBar(props) {
 			/>);
 		} else if (calloutStates.obligated === calloutState[4]) {
 			// reversed joined
-			// TODO?  Where did the calculation for xStart come from
-			const joinedOffsets = {
-				end: props.isModal ? 50 : 45,
-			};
+			// Calculate end point for reverse joined callout
+			// NOTE:  The xEnd is relative from the right side NOT the left in this case
+			const xEnd = props.isModal ? 50 : 45;
 
-			// TODO?  Where did the calculation for xStart come from
 			calloutComponent.push(<ReversedJoinedCallout
-				xStart={(props.outlaid + props.obligated + props.unobligated / 2) - 0.5 > 95 ? (props.outlaid + props.obligated + props.unobligated / 2) - 0.5 : 95}
+				xStart={Math.max(props.outlaid + props.obligated + props.unobligated / 2 - 0.5, 95)}
 				xMid={threshold.rightOffset}
-				xEnd={joinedOffsets.end}
-				label1Offset={screenMode === ScreenModeEnum.mobile ? joinedOffsets.end - 5 : joinedOffsets.end - labelLengths.unobligatedPercentage / 2}
-				label2Offset={screenMode === ScreenModeEnum.mobile ? 80 : labelOffsets.unobligated}
+				xEnd={xEnd}
+				label1Offset={calculateReversedJoinedSpecialCasesLabel1(xEnd)}
+				label2Offset={calculateReversedJoinedSpecialCasesLabel2()}
 				label1="Obligations"
 				label2="Unobligated"
 				label1Amount={props.data[1].amount}
