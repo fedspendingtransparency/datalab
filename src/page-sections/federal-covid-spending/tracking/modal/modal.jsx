@@ -90,7 +90,7 @@ export default function CovidModal(props) {
 	function ContentHeader() {
 		if (props.mobileTablet) {
 			return (
-				<div style={{ paddingRight: '8px' }}>
+				<div id="covid-modal" style={{ paddingRight: '8px' }}>
 					<Bar
 						data={props.barData}
 						isModal

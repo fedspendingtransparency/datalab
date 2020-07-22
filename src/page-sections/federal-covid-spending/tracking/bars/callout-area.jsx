@@ -46,15 +46,6 @@ export default function CalloutBar(props) {
 	/* Each percentage bar will have three instances of a callout component in this array. */
 	const calloutComponent = [];
 
-	/* On browser resize, recalculate the label widths */
-	const resizeWindow = () => {
-		calculateLabelWidths();
-		const newMode = checkScreenMode(window.innerWidth);
-		if (newMode !== screenMode) {
-			setScreenMode(newMode);
-		}
-	};
-
 	/* Calculate the label widths based on the current browser width */
 	const calculateLabelWidths = () => {
 		if (typeof document !== 'undefined') {
@@ -97,6 +88,14 @@ export default function CalloutBar(props) {
 
 			setLabelLengths(tempLabelLengths);
 			setLabelOffsets(tempLabelOffsets);
+		}
+	};
+	/* On browser resize, recalculate the label widths */
+	const resizeWindow = () => {
+		calculateLabelWidths();
+		const newMode = checkScreenMode(window.innerWidth);
+		if (newMode !== screenMode) {
+			setScreenMode(newMode);
 		}
 	};
 
@@ -154,11 +153,11 @@ export default function CalloutBar(props) {
 				calloutStates.outlay = calloutState[2];
 				calloutStates.obligated = calloutState[2];
 			} else {
-				console.error('Uncaught condition 1.5 in callout bar');
+				console.error('Uncaught condition 1.5 in callout bar', calloutStates);
 				// calloutStates.obligated = calloutState[0];
 			}
 		} else {
-			console.error('Uncaught condition 2 in callout bar');
+			console.error('Uncaught condition 2 in callout bar', calloutStates);
 		}
 
 		if (props.unobligated < 100 - threshold.rightOffset) {
