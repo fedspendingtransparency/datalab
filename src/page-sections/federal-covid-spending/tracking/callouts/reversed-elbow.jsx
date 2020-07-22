@@ -14,15 +14,13 @@ export default function ReversedElbowCallout(props) {
 	const {
 		xStart, xEnd, isModal, labelOffset, label, labelAmount, mobile,
 	} = props;
-	const shiftLabel = label === 'Unobligated' ? 14 : 10;
-	const shiftAmount = label === 'Unobligated' ? 18 : 0;
 
 	function TextBlock() {
 		if (isModal) {
 			return (
 				<>
 					<text
-						fill={defaults.fontColor} x={`${labelOffset + shiftLabel}%`} y={defaults.textPosition}
+						fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition}
 						fontSize={defaults.mdFontSize}
 						fontWeight="600"
 					>
@@ -30,7 +28,7 @@ export default function ReversedElbowCallout(props) {
 					</text>
 					<text
   					fill={defaults.fontColor}
-						x={`${labelOffset + shiftAmount}%`}
+						x={`${labelOffset}%`}
 						y={defaults.textPosition + defaults.lineHeight}
 						fontSize={defaults.smFontSize}
 					>
