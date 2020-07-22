@@ -15,6 +15,12 @@ export default function ReversedElbowCallout(props) {
 		xStart, xEnd, isModal, labelOffset, label, labelAmount, mobile,
 	} = props;
 
+	console.log(Math.abs(xStart - xEnd));
+
+	console.log(xStart);
+
+	console.log(xEnd);
+
 	function TextBlock() {
 		if (isModal) {
 			return (
@@ -59,6 +65,22 @@ export default function ReversedElbowCallout(props) {
 	return (
 		<g className={styles.connector}>
 			<rect
+				fill="red"
+				x={`${xEnd}%`}
+				y={defaults.starterHeight}
+				width={defaults.lineStroke}
+				height={defaults.endingHeight}
+			/>
+
+			<rect
+				fill={defaults.lineColor}
+				x={`${xEnd}%`}
+				y={defaults.starterHeight}
+				width={`${Math.abs(xStart - xEnd)}%`}
+				height={defaults.lineStroke}
+			/>
+
+			<rect
 				fill={defaults.lineColor}
   			x={`${xStart}%`}
 				y="0"
@@ -66,21 +88,6 @@ export default function ReversedElbowCallout(props) {
 				height={defaults.starterHeight}
 			/>
 
-			<rect
-				fill={defaults.lineColor}
-				x={`${xEnd}%`}
-				y={defaults.starterHeight}
-				width={`${xStart - xEnd}%`}
-				height={defaults.lineStroke}
-			/>
-
-			<rect
-				fill={defaults.lineColor}
-				x={`${xEnd}%`}
-				y={defaults.starterHeight}
-				width={defaults.lineStroke}
-				height={defaults.endingHeight}
-			/>
 
 			<TextBlock />
 		</g>

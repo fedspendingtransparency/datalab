@@ -62,7 +62,7 @@ export default function ElbowCallout(props) {
 				fill={defaults.lineColor}
 				x={`${xStart}%`}
 				y={defaults.starterHeight}
-				width={`${xEnd - xStart}%`}
+				width={`${Math.abs(xEnd - xStart)}%`}
 				height={defaults.lineStroke}
 			/>
 

@@ -11,7 +11,7 @@ const threshold = {
 	mobileUnobligatedLabelOffset: 65,
 	tabletUnobligatedLabelOffset: 70,
 	modalUnobligatedLabelOffset: 73,
-	rightOffset: 90,
+	rightOffset: 92,
 };
 
 threshold.obligatedLabelOffset = parseFloat(threshold.outlayLabelOffset + threshold.outlayLabelWidth + threshold.padding);

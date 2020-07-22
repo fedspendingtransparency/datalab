@@ -34,19 +34,6 @@ export default function CalloutBar(props) {
 		unobligated: barState[1],
 	};
 
-	const extraPadding = () => {
-		if (props.isModal) {
-			if (screenMode === ScreenModeEnum.desktop_xl) {
-				return 30;
-			}
-
-			if (screenMode === ScreenModeEnum.desktop) {
-				return 20;
-			}
-		}
-		return 0;
-	};
-
 	const calculateLabelWidths = () => {
 		if (typeof document !== 'undefined') {
 			const tempOffsets = {
@@ -64,10 +51,6 @@ export default function CalloutBar(props) {
 
 			const barWidth = el.getBoundingClientRect().width;
 
-			console.log(barWidth);
-
-			const unobligatedDefault = props.isModal ? 200 : 110;
-
 			const tempLabelLengths = {
 				outlayPercentage: Math.round(50 / barWidth * 100),
 				obligatedPercentage: Math.round(72 / barWidth * 100),
@@ -76,31 +59,25 @@ export default function CalloutBar(props) {
 
 			tempOffsets.padding = screenMode === ScreenModeEnum.tablet ? threshold.tabletPadding : screenMode === ScreenModeEnum.mobile ? threshold.mobilePadding : threshold.padding;
 
-			const extraPadding = props.isModal && screenMode === ScreenModeEnum.desktop_xl ? 10 : 0;
-
 			tempOffsets.outlayMidPoint = threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage / 2;
 
 			tempOffsets.unobligated = 100 - threshold.labelOffset - tempLabelLengths.unobligatedPercentage;
 			tempOffsets.unobligatedMidPoint = 100 - threshold.labelOffset - (tempLabelLengths.unobligatedPercentage / 2);
 
-			console.log(tempOffsets.unobligated);
-			console.log(tempOffsets.unobligatedMidPoint);
-
-			tempOffsets.obligated = Math.max(props.outlaid + props.obligated / 2 - tempLabelLengths.obligatedPercentage / 2,
-				threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempOffsets.padding);
-
-			tempOffsets.obligatedMidPoint = Math.max(props.outlaid + props.obligated / 2,
-				threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempOffsets.padding + tempLabelLengths.obligatedPercentage / 2);
+			if (props.outlaid + props.obligated / 2 - tempLabelLengths.obligatedPercentage / 2
+			> threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempOffsets.padding) {
+				tempOffsets.obligated = props.outlaid + props.obligated / 2 - tempLabelLengths.obligatedPercentage / 2;
+				tempOffsets.obligatedMidPoint = props.outlaid + props.obligated / 2;
+			} else {
+				tempOffsets.obligated = threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempOffsets.padding;
+				tempOffsets.obligatedMidPoint = threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempOffsets.padding;
+			}
 
 			tempOffsets.rightOffset = 100 - threshold.labelOffset;
-
 
 			setLabelLengths(tempLabelLengths);
 			setOffsets(tempOffsets);
 		}
-
-		// check the width of the percentage bar
-		// calculate the label percentages and set the threshold
 	};
 
 	const resizeWindow = () => {
@@ -123,15 +100,7 @@ export default function CalloutBar(props) {
 	});
 
 	const padding = screenMode === ScreenModeEnum.tablet ? threshold.tabletPadding : screenMode === ScreenModeEnum.mobile ? threshold.mobilePadding : threshold.padding;
-	// const unobligatedLabelOffset = props.isModal && screenMode === ScreenModeEnum.mobile ? threshold.mobileUnobligatedLabelOffset : props.isModal ? threshold.modalUnobligatedLabelOffset : screenMode === ScreenModeEnum.tablet ? threshold.tabletUnobligatedLabelOffset : threshold.unobligatedLabelOffset;
 
-	// const outlayLabelMidPoint = threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2;
-	// const obligatedLabelMidPoint = threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding + threshold.obligatedLabelWidth / 2;
-	// const obligatedLabelOffset = threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding;
-	// const unObligatedLabelMidPoint = 100 - ((threshold.rightOffset - unobligatedLabelOffset) / 2);
-
-
-	// joined
 	if (props.outlaid + props.obligated < threshold.outlayLabelOffset) {
 		barStatus.outlay = barState[2];
 		barStatus.obligated = barState[2];
@@ -205,13 +174,7 @@ export default function CalloutBar(props) {
 		const outlaySettings = {
 			defaultStartingPoint: 3,
 			outlaidBarMidpoint: props.outlaid / 2,
-			// labelMidpoint: threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2,
 		};
-
-		// const obligatedSettings = {
-		// 	labelOffset: threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding,
-		// 	labelMidpoint: threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding + threshold.obligatedLabelWidth / 2,
-		// };
 
 		// joined label
 		if (barStatus.outlay === barState[2]) {
@@ -273,8 +236,8 @@ export default function CalloutBar(props) {
 		} else if (barStatus.obligated === barState[1]) {
 			calloutComponent.push(<ElbowCallout
 				xStart={props.outlaid + props.obligated / 2}
-				xEnd={offsets.obligatedMidPoint - threshold.outlayLabelOffset}
-				labelOffset={offsets.obligated}
+				xEnd={offsets.obligatedMidPoint}
+				labelOffset={offsets.obligated - threshold.outlayLabelOffset}
 				label="Obligations"
 				labelAmount={props.data[1].amount}
 				labelPercent={props.obligated}
@@ -283,8 +246,8 @@ export default function CalloutBar(props) {
 			/>);
 		} else if (barStatus.obligated === barState[3]) {
 			calloutComponent.push(<ReversedElbowCallout
-				xStart={props.outlaid + props.obligated / 2}
-				xEnd={offsets.obligatedMidPoint}
+				xEnd={parseFloat(props.outlaid + props.obligated / 2)}
+				xStart={offsets.obligated}
 				labelOffset={offsets.obligated}
 				label="Obligations"
 				labelAmount={props.data[1].amount}
@@ -330,7 +293,7 @@ export default function CalloutBar(props) {
 		} else if (barStatus.unobligated === barState[1]) {
 			calloutComponent.push(<ReversedElbowCallout
 				xStart={props.outlaid + props.obligated + props.unobligated / 2 - 0.5}
-				xEnd={threshold.rightOffset}
+				xEnd={offsets.unobligated}
 				labelOffset={offsets.unobligated}
 				label="Unobligated"
 				labelAmount={props.data[2].amount}
