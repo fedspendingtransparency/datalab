@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="418px" height="208px" viewBox="0 0 418 208" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Viz 1 - A Tablet</title>
+    <g id="SVG" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Tablet" transform="translate(-40.000000, -165.000000)">
+            <g id="Viz-1---A-Tablet" transform="translate(40.000000, 165.000000)">
+                <text id="New-Agency-Funding-$" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="18" font-weight="500" fill="#666666">
+                    <tspan x="0" y="18">New Agency Funding $2.58 T</tspan>
+                </text>
+                <text id="Phase-3.5:-Paycheck" font-family="SourceSansPro-Light, Source Sans Pro" font-size="12" font-weight="300" fill="#666666">
+                    <tspan x="314" y="48">Phase 3.5: </tspan>
+                    <tspan x="314" y="63" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Paycheck Protection </tspan>
+                    <tspan x="314" y="78" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Program and Health </tspan>
+                    <tspan x="314" y="93" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Care Enhancement </tspan>
+                    <tspan x="314" y="108" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Act</tspan>
+                </text>
+                <text id="Phase-3:-Coronavirus" font-family="SourceSansPro-Light, Source Sans Pro" font-size="12" font-weight="300" fill="#666666">
+                    <tspan x="219" y="48">Phase 3: </tspan>
+                    <tspan x="219" y="63" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Coronavirus Aid, </tspan>
+                    <tspan x="219" y="78" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Relief, and </tspan>
+                    <tspan x="219" y="93" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Economic </tspan>
+                    <tspan x="219" y="108" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Security Act</tspan>
+                </text>
+                <text id="Phase-2:-Families-Fi" font-family="SourceSansPro-Light, Source Sans Pro" font-size="12" font-weight="300" fill="#666666">
+                    <tspan x="145" y="48">Phase 2: </tspan>
+                    <tspan x="145" y="63" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Families </tspan>
+                    <tspan x="145" y="78" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">First </tspan>
+                    <tspan x="145" y="93" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Coronavirus </tspan>
+                    <tspan x="145" y="108" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Response </tspan>
+                    <tspan x="145" y="123" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Act</tspan>
+                </text>
+                <text id="Phase-1:-Coronavirus" font-family="SourceSansPro-Light, Source Sans Pro" font-size="12" font-weight="300" fill="#666666">
+                    <tspan x="8" y="48">Phase 1: </tspan>
+                    <tspan x="8" y="63" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Coronavirus </tspan>
+                    <tspan x="8" y="78" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Preparedness and </tspan>
+                    <tspan x="8" y="93" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Response Supplemental </tspan>
+                    <tspan x="8" y="108" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic">Appropriations Act, 2020</tspan>
+                </text>
+                <text id="$7-B-(&lt;1%)" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="12" font-weight="bold" fill="#666666">
+                    <tspan x="8" y="125">$7 B </tspan>
+                    <tspan x="8" y="140" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic" font-weight="300">(&lt;1%)</tspan>
+                </text>
+                <text id="$14-B-(1%)" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="12" font-weight="bold" fill="#666666">
+                    <tspan x="145" y="138">$14 B </tspan>
+                    <tspan x="145" y="153" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic" font-weight="300">(1%)</tspan>
+                </text>
+                <text id="$2.1-T-(80%)" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="12" font-weight="bold" fill="#666666">
+                    <tspan x="219" y="123">$2.1 T </tspan>
+                    <tspan x="219" y="138" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic" font-weight="300">(80%)</tspan>
+                </text>
+                <text id="$483-B-(19%)" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="12" font-weight="bold" fill="#666666">
+                    <tspan x="314" y="125">$483 B </tspan>
+                    <tspan x="314" y="140" font-family="SourceSansPro-LightItalic, Source Sans Pro" font-style="italic" font-weight="300">(19%)</tspan>
+                </text>
+                <polyline id="Line-4" stroke="#979797" stroke-width="0.5" transform="translate(214.000000, 106.500000) scale(1, -1) translate(-214.000000, -106.500000) " points="212 44 212 169 216 169"></polyline>
+                <polyline id="Line-3" stroke="#979797" stroke-width="0.5" transform="translate(3.000000, 106.000000) scale(1, -1) translate(-3.000000, -106.000000) " points="1 44 1 168 5 168"></polyline>
+                <g id="Bar" transform="translate(0.000000, 168.000000)" fill="#6F41A7">
+                    <rect id="Rectangle" x="225.543307" y="0" width="53.4566929" height="40"></rect>
+                    <rect id="Rectangle-Copy-13" x="5.12598425" y="0" width="218.952756" height="40"></rect>
+                    <rect id="Rectangle-Copy-14" x="2.19685039" y="0" width="1.46456693" height="40"></rect>
+                    <rect id="Rectangle-Copy-17" x="0" y="0" width="1" height="40"></rect>
+                </g>
+                <polyline id="Line-2" stroke="#979797" stroke-width="0.5" points="3 168 3 164.426473 134.143478 164.426473 134.143478 44 142 44"></polyline>
+                <polyline id="Line-2-Copy" stroke="#979797" stroke-width="0.5" points="251 168 251 164.426473 307.608696 164.426473 307.608696 44 311 44"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
