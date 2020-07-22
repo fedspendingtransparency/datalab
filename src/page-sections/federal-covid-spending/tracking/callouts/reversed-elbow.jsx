@@ -65,7 +65,7 @@ export default function ReversedElbowCallout(props) {
 	return (
 		<g className={styles.connector}>
 			<rect
-				fill="red"
+				fill={defaults.lineColor}
 				x={`${xEnd}%`}
 				y={defaults.starterHeight}
 				width={defaults.lineStroke}
