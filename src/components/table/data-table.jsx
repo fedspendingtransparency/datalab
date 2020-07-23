@@ -22,7 +22,8 @@ export default class DataTable extends React.Component {
       page: 1,
       perPage: 10,
       scrollToIndex: undefined,
-      sortBy: 'index'
+      sortBy: '0',
+      sortDirection: "ASC"
     };
 
     this.handleRowsScroll = this.handleRowsScroll.bind(this);
