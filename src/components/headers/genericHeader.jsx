@@ -11,6 +11,7 @@ export default class GenericHeader extends React.Component {
               megamenuItems={[
                 {
                   analyses: [
+                    { name: 'COVID-19 Funding', link: '/federal-covid-funding/' },
                     { name: 'Colleges and Universities', link: '/colleges-and-universities/' },
                     { name: 'Homelessness Analysis', link: '/homelessness-analysis/' },
                     { name: 'Federal Employees', link: '/federal-employees/' },
