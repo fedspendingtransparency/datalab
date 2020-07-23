@@ -171,6 +171,7 @@ function DTS(props) {
       allToSpending["today"] = transposeKVToArray("today");
       allToSpending["mtd"] = transposeKVToArray("mtd");
       allToSpending["fytd"] = transposeKVToArray("fytd");
+      console.log(allToSpending);
 
       todayAllCategorySpending = allToSpending["today"].slice(-1) ? allToSpending["today"].slice(-1)[0] : '';
 
@@ -904,14 +905,13 @@ function DTS(props) {
           masterMapping[key]["today"].push({
             name: key,
             values: optionsDict[key]["today"],
-            date: optionsDict[key]["today"][0].date,
-            footnote: optionsDict[key].footnote, // ''
-            color: lineColors[0]
+            date: optionsDict[key]["today"].date,
+            footnote: optionsDict[key].footnote, // ''            color: lineColors[0]
           });
           masterMapping[key]["mtd"].push({
             name: key,
             values: optionsDict[key]["mtd"],
-            date: optionsDict[key]["mtd"][0].date,
+            date: optionsDict[key]["mtd"].date,
             footnote: optionsDict[key].footnote, // ''
             color: lineColors[0]
           });
