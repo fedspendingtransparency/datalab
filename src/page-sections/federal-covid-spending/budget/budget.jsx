@@ -19,7 +19,7 @@ import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode'
 import styles from './budget.module.scss';
 
 export default function Budget(props) {
-	const [screenMode, setScreenMode] = useState(checkScreenMode(window.innerWidth));
+	const [screenMode, setScreenMode] = useState(typeof window !== 'undefined' ? checkScreenMode(window.innerWidth) : 0);
 
   if (typeof window !== 'undefined') {
     const resizeWindow = () => {
