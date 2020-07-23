@@ -8,142 +8,178 @@ import ReversedJoinedCallout from 'src/page-sections/federal-covid-spending/trac
 import JoinedCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/joined';
 import StraightCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/straight';
 import threshold from '../callouts/utils/thresholds';
-import Modal from '../modal/modal';
+import styles from './bar.module.scss';
 
 CalloutBar.propTypes = {
 	outlaid: PropTypes.number.isRequired,
 	obligated: PropTypes.number.isRequired,
 	unobligated: PropTypes.number.isRequired,
-	isModal: PropTypes.bool,
+	isModal: PropTypes.bool.isRequired,
 };
 
 export default function CalloutBar(props) {
-	const barState = ['straight', 'elbow', 'joined', 'reversed-elbow', 'reversed-joined'];
-
-	const barStatus = {
-		outlay: barState[1],
-		obligated: barState[1],
-		unobligated: barState[1],
-	};
-
 	const [screenMode, setScreenMode] = useState(0);
 
+	/* Label width for Outlays, Obligations, and Unobligated as a percentage
+	The following positions are estimates, the calculateLabelWidths function below calculates label widths
+	relative to the width of the percentage bar in the browser */
+	const [labelLengths, setLabelLengths] = useState({
+		outlayPercentage: 10,
+		obligatedPercentage: 14,
+		unobligatedPercentage: 15,
+	});
+
+	/* Position of the label from the left hand side of the bar chart
+	Positions range from 0 - 100% */
+	const [labelOffsets, setLabelOffsets] = useState(0);
+
+	/* The Callout lines can be one of the following states - straight, elbow, joined, reversed elbow or reversed joined */
+	const calloutState = ['straight', 'elbow', 'joined', 'reversed-elbow', 'reversed-joined'];
+
+	/* By default set the callout state for outlay, obligated and unobligated to elbow */
+	const calloutStates = {
+		outlay: calloutState[1],
+		obligated: calloutState[1],
+		unobligated: calloutState[1],
+	};
+
+	/* Each percentage bar will have three instances of a callout component in this array. */
+	const calloutComponent = [];
+
+	/* Calculate the label widths based on the current browser width */
+	const calculateLabelWidths = () => {
+		if (typeof document !== 'undefined') {
+			const tempLabelOffsets = {
+				padding: screenMode === ScreenModeEnum.tablet ? threshold.tabletPadding : screenMode === ScreenModeEnum.mobile ? threshold.mobilePadding : threshold.padding,
+				outlayMidPoint: null,
+				unobligated: null,
+				unobligatedMidPoint: null,
+				obligated: null,
+				obligatedMidPoint: null,
+				rightOffset: null,
+			};
+
+			const el = props.isModal ? document.getElementById('covid-modal').getElementsByClassName(styles.bar)[0]
+				: document.getElementsByClassName(styles.bar)[0];
+
+			const barWidth = el.getBoundingClientRect().width;
+
+			const tempLabelLengths = {
+				outlayPercentage: Math.round(50 / barWidth * 100),
+				obligatedPercentage: Math.round(72 / barWidth * 100),
+				unobligatedPercentage: Math.round(110 / barWidth * 100),
+			};
+
+			tempLabelOffsets.outlayMidPoint = threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage / 2;
+
+			tempLabelOffsets.unobligated = 100 - threshold.labelOffset - tempLabelLengths.unobligatedPercentage;
+			tempLabelOffsets.unobligatedMidPoint = 100 - threshold.labelOffset - (tempLabelLengths.unobligatedPercentage / 2);
+
+			if (props.outlaid + props.obligated / 2 - tempLabelLengths.obligatedPercentage / 2
+				> threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempLabelOffsets.padding) {
+				tempLabelOffsets.obligated = props.outlaid + props.obligated / 2 - tempLabelLengths.obligatedPercentage / 2;
+				tempLabelOffsets.obligatedMidPoint = props.outlaid + props.obligated / 2;
+			} else {
+				tempLabelOffsets.obligated = threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempLabelOffsets.padding;
+				tempLabelOffsets.obligatedMidPoint = threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempLabelOffsets.padding;
+			}
+
+			tempLabelOffsets.rightOffset = 100 - threshold.labelOffset;
+
+			setLabelLengths(tempLabelLengths);
+			setLabelOffsets(tempLabelOffsets);
+		}
+	};
+	/* On browser resize, recalculate the label widths */
 	const resizeWindow = () => {
+		calculateLabelWidths();
 		const newMode = checkScreenMode(window.innerWidth);
 		if (newMode !== screenMode) {
 			setScreenMode(newMode);
 		}
 	};
-	useEffect(() => {
-		resizeWindow();
-		window.addEventListener('resize', resizeWindow);
-		return () => {
-			window.removeEventListener('resize', resizeWindow);
-		};
-	});
 
-	const padding = screenMode === ScreenModeEnum.tablet ? threshold.tabletPadding : screenMode === ScreenModeEnum.mobile ? threshold.mobilePadding : threshold.padding;
-	const unobligatedLabelOffset = props.isModal && screenMode === ScreenModeEnum.mobile ? threshold.mobileUnobligatedLabelOffset : props.isModal ? threshold.modalUnobligatedLabelOffset : screenMode === ScreenModeEnum.tablet ? threshold.tabletUnobligatedLabelOffset : threshold.unobligatedLabelOffset;
-
-	const outlayLabelMidPoint = threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2;
-	const obligatedLabelMidPoint = threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding + threshold.obligatedLabelWidth / 2;
-	const obligatedLabelOffset = threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding;
-	const unObligatedLabelMidPoint = 100 - ((threshold.rightOffset - unobligatedLabelOffset) / 2);
-
-
-	// joined
-	if (props.outlaid + props.obligated < threshold.outlayLabelOffset) {
-		barStatus.outlay = barState[2];
-		barStatus.obligated = barState[2];
-	} else if (props.outlaid <= outlayLabelMidPoint) {
-		if (props.outlaid + props.obligated > threshold.rightOffset) {
-			barStatus.obligated = barState[0];
-			barStatus.unobligated = barState[3];
-		} else if (props.outlaid + props.obligated > unObligatedLabelMidPoint) {
-			barStatus.obligated = barState[3];
-		} else if (props.outlaid + props.obligated / 2 > obligatedLabelMidPoint) {
-			barStatus.outlay = barState[1];
-			barStatus.obligated = barState[0];
-		} else if (props.outlaid + props.obligated / 2 > obligatedLabelOffset) {
-			barStatus.outlay = barState[1];
-			barStatus.obligated = barState[0];
-		} else if (props.outlaid + props.obligated / 2 > outlayLabelMidPoint) {
-			barStatus.outlay = barState[1];
-			barStatus.obligated = barState[1];
-		} else if (props.outlaid + props.obligated / 2 <= outlayLabelMidPoint) {
-			barStatus.outlay = barState[2];
-			barStatus.obligated = barState[2];
-
-			// not sure about this state
-		} else if (props.outlaid + props.obligated / 2 <= obligatedLabelMidPoint) {
-			barStatus.outlay = barState[2];
-			barStatus.obligated = barState[2];
-		} else {
-			console.error('Uncaught condition 1 in callout bar');
-		}
-	} else if (props.outlaid > outlayLabelMidPoint) {
-		barStatus.outlay = barState[0];
-
-		if (props.outlaid > unobligatedLabelOffset - padding) {
-			barStatus.obligated = barState[4];
-			barStatus.unobligated = barState[4];
-		} else if (props.outlaid + props.obligated / 2 > obligatedLabelMidPoint) {
+	/* Determine which callout to draw based on the width of the outlay, obligated and unobligated percentages */
+	const setCalloutStates = () => {
+		if (props.outlaid + props.obligated < threshold.outlayLabelOffset) {
+			calloutStates.outlay = calloutState[2];
+			calloutStates.obligated = calloutState[2];
+		} else if (props.outlaid <= labelOffsets.outlayMidPoint) {
+			calloutStates.outlay = calloutState[1];
 			if (props.outlaid + props.obligated > threshold.rightOffset) {
-				barStatus.obligated = barState[4];
-				barStatus.unobligated = barState[4];
-			} else if (props.outlaid + props.obligated > unObligatedLabelMidPoint) {
-				barStatus.obligated = barState[4];
-				barStatus.unobligated = barState[4];
+				calloutStates.obligated = calloutState[0];
+				calloutStates.unobligated = calloutState[3];
+			} else if (props.outlaid + props.obligated > labelOffsets.unobligatedMidPoint) {
+				calloutStates.obligated = calloutState[3];
+			} else if (props.outlaid + props.obligated / 2 > labelOffsets.obligatedMidPoint) {
+				calloutStates.obligated = calloutState[0];
+			} else if (props.outlaid + props.obligated / 2 > labelOffsets.obligated) {
+				calloutStates.obligated = calloutState[0];
+			} else if (props.outlaid + props.obligated / 2 > labelOffsets.outlayMidPoint) {
+				calloutStates.obligated = calloutState[1];
+			} else if (props.outlaid + props.obligated / 2 <= labelOffsets.outlayMidPoint) {
+				calloutStates.outlay = calloutState[2];
+				calloutStates.obligated = calloutState[2];
+
+				// not sure about this state
+			} else if (props.outlaid + props.obligated / 2 <= labelOffsets.obligatedMidPoint) {
+				calloutStates.outlay = calloutState[2];
+				calloutStates.obligated = calloutState[2];
 			} else {
-				barStatus.obligated = barState[0];
+				console.error('Uncaught condition 1 in callout bar');
 			}
-		} else if (props.outlaid + props.obligated / 2 > outlayLabelMidPoint) {
-			barStatus.obligated = barState[1];
-		} else if (props.outlaid + props.obligated / 2 > outlayLabelMidPoint + padding) {
-			barStatus.obligated = barState[0];
+		} else if (props.outlaid > labelOffsets.outlayMidPoint) {
+			calloutStates.outlay = calloutState[0];
+			if (props.outlaid > labelOffsets.unobligated - labelOffsets.padding) {
+				calloutStates.obligated = calloutState[4];
+				calloutStates.unobligated = calloutState[4];
+			} else if (props.outlaid + props.obligated / 2 > labelOffsets.obligatedMidPoint) {
+				if (props.outlaid + props.obligated > threshold.rightOffset) {
+					calloutStates.obligated = calloutState[4];
+					calloutStates.unobligated = calloutState[4];
+				} else if (props.outlaid + props.obligated > labelOffsets.unobligatedMidPoint) {
+					calloutStates.obligated = calloutState[4];
+					calloutStates.unobligated = calloutState[4];
+				} else {
+					calloutStates.obligated = calloutState[0];
+				}
+			} else if (props.outlaid + props.obligated / 2 > labelOffsets.outlayMidPoint) {
+				calloutStates.obligated = calloutState[1];
+			} else if (props.outlaid + props.obligated / 2 > labelOffsets.outlayMidPoint + labelOffsets.padding) {
+				calloutStates.obligated = calloutState[0];
 
-			// not sure about this state
-		} else if (props.outlaid + props.obligated / 2 <= obligatedLabelMidPoint) {
-			barStatus.outlay = barState[2];
-			barStatus.obligated = barState[2];
+				// not sure about this state
+			} else if (props.outlaid + props.obligated / 2 <= labelOffsets.obligatedMidPoint) {
+				calloutStates.outlay = calloutState[2];
+				calloutStates.obligated = calloutState[2];
+			} else {
+				console.error('Uncaught condition 1.5 in callout bar', calloutStates);
+				// calloutStates.obligated = calloutState[0];
+			}
 		} else {
-			console.error('Uncaught condition 1.5 in callout bar');
-			// barStatus.obligated = barState[0];
+			console.error('Uncaught condition 2 in callout bar', calloutStates);
 		}
-	} else {
-		console.error('Uncaught condition 2 in callout bar');
-	}
 
-	if (props.unobligated < 100 - threshold.rightOffset) {
-		if (barStatus.unobligated !== barState[4]) barStatus.unobligated = barState[1];
-	} else if (barStatus.unobligated !== barState[4]) barStatus.unobligated = barState[0];
+		if (props.unobligated < 100 - threshold.rightOffset) {
+			if (calloutStates.unobligated !== calloutState[4]) calloutStates.unobligated = calloutState[1];
+		} else if (calloutStates.unobligated !== calloutState[4]) calloutStates.unobligated = calloutState[0];
+	};
 
-	const calloutComponent = [];
-
-	setOutlays();
-	setObligated();
-	setUnobligated();
-
-	function setOutlays() {
+	/* Select the callout component for outlay, set props on component and push to the calloutComponent array */
+	const setOutlays = () => {
 		const outlaySettings = {
-			defaultStartingPoint: 2,
+			defaultStartingPoint: 3,
 			outlaidBarMidpoint: props.outlaid / 2,
-			labelMidpoint: threshold.outlayLabelOffset + threshold.outlayLabelWidth / 2,
-		};
-
-		const obligatedSettings = {
-			labelOffset: threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding,
-			labelMidpoint: threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding + threshold.obligatedLabelWidth / 2,
 		};
 
 		// joined label
-		if (barStatus.outlay === barState[2]) {
+		if (calloutStates.outlay === calloutState[2]) {
 			calloutComponent.push(<JoinedCallout
-				xStart={outlaySettings.outlaidBarMidpoint < threshold.outlayLabelOffset ? outlaySettings.outlaidBarMidpoint : threshold.outlayLabelOffset}
-				xMid={outlaySettings.labelMidpoint}
-				xEnd={obligatedSettings.labelMidpoint}
+				xStart={Math.min(outlaySettings.outlaidBarMidpoint, threshold.outlayLabelOffset)}
+				xMid={labelOffsets.outlayMidPoint - threshold.outlayLabelOffset}
+				xEnd={labelOffsets.obligated + threshold.outlayLabelOffset}
 				label1Offset={threshold.outlayLabelOffset}
-				label2Offset={obligatedSettings.labelOffset}
+				label2Offset={labelOffsets.obligated}
 				label1="Outlays"
 				label2="Obligations"
 				label1Amount={props.data[0].amount}
@@ -152,9 +188,9 @@ export default function CalloutBar(props) {
 				label2Percent={props.obligated}
 				isModal={props.isModal}
 				mobile={screenMode === ScreenModeEnum.mobile}
-						/>);
-					} else if (barStatus.outlay === barState[0]) {
-						calloutComponent.push(<StraightCallout
+			/>);
+		} else if (calloutStates.outlay === calloutState[0]) {
+			calloutComponent.push(<StraightCallout
 				xStart={outlaySettings.defaultStartingPoint}
 				labelOffset={threshold.outlayLabelOffset}
 				label="Outlays"
@@ -162,11 +198,11 @@ export default function CalloutBar(props) {
 				labelPercent={props.outlaid}
 				isModal={props.isModal}
 				mobile={screenMode === ScreenModeEnum.mobile}
-						/>);
-					} else {
-						calloutComponent.push(<ElbowCallout
+			/>);
+		} else {
+			calloutComponent.push(<ElbowCallout
 				xStart={outlaySettings.outlaidBarMidpoint}
-				xEnd={outlaySettings.labelMidpoint}
+				xEnd={labelOffsets.outlayMidPoint - threshold.outlayLabelOffset}
 				labelOffset={threshold.outlayLabelOffset}
 				label="Outlays"
 				labelAmount={props.data[0].amount}
@@ -175,58 +211,74 @@ export default function CalloutBar(props) {
 				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		}
-	}
+	};
 
-	function setObligated() {
-		const obligatedSettings = {
-			labelOffset: threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding,
-			labelMidpoint: threshold.outlayLabelOffset + threshold.outlayLabelWidth + padding + threshold.obligatedLabelWidth / 2,
-		};
+	const calculateReversedJoinedSpecialCasesLabel1 = (xEnd) => {
+		if (screenMode === ScreenModeEnum.mobile && !props.isModal) {
+			return xEnd - labelLengths.obligatedPercentage / 4;
+		}
 
-		if (barStatus.obligated === barState[0]) {
+		return xEnd - labelLengths.unobligatedPercentage / 2;
+	};
+
+	const calculateReversedJoinedSpecialCasesLabel2 = () => {
+		if (screenMode === ScreenModeEnum.mobile && props.isModal) {
+			return 75;
+		}
+
+		if (screenMode === ScreenModeEnum.mobile) {
+			return 80;
+		}
+
+		return labelOffsets.unobligated;
+	};
+
+	/* Select the callout component for obligated, set props on component and push to the calloutComponent array */
+	const setObligated = () => {
+		if (calloutStates.obligated === calloutState[0]) {
 			calloutComponent.push(<StraightCallout
 				xStart={props.outlaid + props.obligated / 2}
-				labelOffset={threshold.obligatedLabelOffset > props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2 ? threshold.obligatedLabelOffset : props.outlaid + props.obligated / 2 - threshold.obligatedLabelWidth / 2}
+				labelOffset={labelOffsets.obligated}
 				label="Obligations"
 				labelAmount={props.data[1].amount}
 				labelPercent={props.obligated}
 				isModal={props.isModal}
 				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
-		} else if (barStatus.obligated === barState[1]) {
+		} else if (calloutStates.obligated === calloutState[1]) {
 			calloutComponent.push(<ElbowCallout
 				xStart={props.outlaid + props.obligated / 2}
-				xEnd={obligatedSettings.labelOffset + threshold.outlayLabelWidth / 2}
-				labelOffset={obligatedSettings.labelOffset}
+				xEnd={labelOffsets.obligatedMidPoint}
+				labelOffset={labelOffsets.obligated - threshold.outlayLabelOffset}
 				label="Obligations"
 				labelAmount={props.data[1].amount}
 				labelPercent={props.obligated}
 				isModal={props.isModal}
 				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
-		} else if (barStatus.obligated === barState[3]) {
+		} else if (calloutStates.obligated === calloutState[3]) {
 			calloutComponent.push(<ReversedElbowCallout
-				xStart={props.outlaid + props.obligated / 2}
-				xEnd={threshold.obligatedLabelOffset + threshold.outlayLabelWidth / 2}
-				labelOffset={threshold.obligatedLabelOffset}
+				xEnd={parseFloat(props.outlaid + props.obligated / 2)}
+				xStart={labelOffsets.obligated}
+				labelOffset={labelOffsets.obligated}
 				label="Obligations"
 				labelAmount={props.data[1].amount}
 				labelPercent={props.obligated}
 				isModal={props.isModal}
 				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
-		} else if (barStatus.obligated === barState[4]) {
+		} else if (calloutStates.obligated === calloutState[4]) {
 			// reversed joined
-			const joinedOffsets = {
-				end: props.isModal ? 50 : 45,
-			};
+			// Calculate end point for reverse joined callout
+			// NOTE:  The xEnd is relative from the right side NOT the left in this case
+			const xEnd = props.isModal ? 50 : 45;
 
 			calloutComponent.push(<ReversedJoinedCallout
-				xStart={(props.outlaid + props.obligated + props.unobligated / 2) - 0.5 > 95 ? (props.outlaid + props.obligated + props.unobligated / 2) - 0.5 : 95}
+				xStart={Math.max(props.outlaid + props.obligated + props.unobligated / 2 - 0.5, 95)}
 				xMid={threshold.rightOffset}
-				xEnd={joinedOffsets.end}
-				label1Offset={joinedOffsets.end - threshold.obligatedLabelWidth / 2}
-				label2Offset={unobligatedLabelOffset}
+				xEnd={xEnd}
+				label1Offset={calculateReversedJoinedSpecialCasesLabel1(xEnd)}
+				label2Offset={calculateReversedJoinedSpecialCasesLabel2()}
 				label1="Obligations"
 				label2="Unobligated"
 				label1Amount={props.data[1].amount}
@@ -237,24 +289,46 @@ export default function CalloutBar(props) {
 				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		}
-	}
+	};
 
-	function setUnobligated() {
-		if (barStatus.unobligated === barState[0]) {
+	const calculateUnobligatedSpecialCases = () => {
+		// Case for mobile and tablet modal
+		if ((screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet) && props.isModal) {
+			return threshold.rightOffset - labelLengths.unobligatedPercentage * 0.5;
+		}
+
+		/* Case for mobile view on the main page only, show amounts so have to handle mobile as a special case */
+		if (screenMode === ScreenModeEnum.mobile) {
+			return 100 - labelLengths.unobligatedPercentage / 2;
+		}
+
+		/* Case for tablet view on the main page, shows both the label and amount so have to handle mobile as a special case */
+		if (screenMode === ScreenModeEnum.tablet) {
+			return threshold.rightOffset - labelLengths.unobligatedPercentage * 0.75; // 3/4 of label to account for the label + amount
+		}
+
+		/* Case for desktop and Desktop XL view */
+		return labelOffsets.unobligated;
+	};
+
+	/* Select the callout component for unobligated, set props on component and push to the calloutComponent array */
+	const setUnobligated = () => {
+		if (calloutStates.unobligated === calloutState[0]) {
 			calloutComponent.push(<StraightCallout
 				xStart={threshold.rightOffset}
-				labelOffset={unobligatedLabelOffset}
+				labelOffset={calculateUnobligatedSpecialCases()}
 				label="Unobligated"
 				labelAmount={props.data[2].amount}
 				labelPercent={props.unobligated}
 				isModal={props.isModal}
 				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
-		} else if (barStatus.unobligated === barState[1]) {
+		} else if (calloutStates.unobligated === calloutState[1]) {
+			// Subtracted 0.5 from xStart position to add padding to the right side of the bar
 			calloutComponent.push(<ReversedElbowCallout
 				xStart={props.outlaid + props.obligated + props.unobligated / 2 - 0.5}
 				xEnd={threshold.rightOffset}
-				labelOffset={unobligatedLabelOffset}
+				labelOffset={labelOffsets.unobligated}
 				label="Unobligated"
 				labelAmount={props.data[2].amount}
 				labelPercent={props.unobligated}
@@ -262,7 +336,29 @@ export default function CalloutBar(props) {
 				mobile={screenMode === ScreenModeEnum.mobile}
 			/>);
 		}
-	}
+	};
+
+	/* Function to draw the callout bar based on a percentage - ie. 0 - 100% */
+	const drawCalloutBar = () => {
+		// determine if callouts are straight, joined, or elbow, then set callouts for outlay, obligated, and unobligated
+		setCalloutStates();
+		setOutlays();
+		setObligated();
+		setUnobligated();
+	};
+
+	useEffect(() => {
+		resizeWindow();
+	}, []);
+
+	useEffect(() => {
+		window.addEventListener('resize', resizeWindow);
+		return () => {
+			window.removeEventListener('resize', resizeWindow);
+		};
+	});
+
+	drawCalloutBar();
 
 	return (
 		<>
