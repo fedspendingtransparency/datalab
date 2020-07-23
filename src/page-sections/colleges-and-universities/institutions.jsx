@@ -48,8 +48,7 @@ export default function Institutions(props) {
       id: school.id,
       display: school.properties.Recipient
     }))
-    .sort((a, b) => a.display > b.display)
-    ;
+    .sort((a, b) => a.display > b.display);
 
   function filterByClicked(clickedId) {
     let filteredList = GeoDataMapbox.features.filter(x => x.id == clickedId);
@@ -89,7 +88,7 @@ export default function Institutions(props) {
   `);
 
   let schoolDetails = {};
-  const getClickedDetails = id => {
+  const getClickedDetails = (id) => {
     const schoolProperties = GeoDataMapbox.features.find(s => s.id === id).properties;
     const institutionName = schoolProperties.Recipient;
     const studentAid = dataTableData.find(s => s.Recipient === institutionName).student_aid;
@@ -97,14 +96,12 @@ export default function Institutions(props) {
     const invTop5 = {};
     panelDetails.investments.nodes
       .filter(node => node.source === institutionName)
-      .forEach(row => { invTop5[row.target] = row.value; })
-      ;
+      .forEach(row => { invTop5[row.target] = row.value; });
 
     const agencyTop5 = {};
     panelDetails.agencies.nodes
       .filter(node => node.source === institutionName)
-      .forEach(row => { agencyTop5[row.target] = row.value; })
-      ;
+      .forEach(row => { agencyTop5[row.target] = row.value; });
 
     schoolDetails = {
       'header': {
@@ -208,13 +205,14 @@ export default function Institutions(props) {
     <Grid container>
       <Grid item xs={1}>
         <Hidden mdDown>
-        <VizControlPanel
-          searchList={searchList}
-          listDescription='Search Institutions'
-          onSelect={filterByClicked}
-          switchView={switchView}
-        >
-          <GeolocationIcon />
+          <VizControlPanel
+            searchList={searchList}
+            listDescription='Search Institutions'
+            onSelect={filterByClicked}
+            switchView={switchView}
+            listId='search-institutions'
+          >
+            <GeolocationIcon />
           </VizControlPanel>
         </Hidden>
       </Grid>
@@ -234,13 +232,13 @@ export default function Institutions(props) {
           ref={detailPanelRef}
         />
       </Grid>
-    <DataTable
-      display={!chartView}
-      data={filteredTableData}
-      columnTitles={tableColumnTitles}
-      idName={'institutionsTable'}
-      ref={tableRef}
-    />
+      <DataTable
+        display={!chartView}
+        data={filteredTableData}
+        columnTitles={tableColumnTitles}
+        idName={'institutionsTable'}
+        ref={tableRef}
+      />
     </Grid>
 
     <Downloads

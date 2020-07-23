@@ -12,16 +12,6 @@ export default function StraightCallout(props) {
 	const {
 		xStart, isModal, labelOffset, label, labelAmount, mobile,
 	} = props;
-	const shiftLabel = label === 'Unobligated' ? 14 : 0;
-	let shiftAmount = 0;
-
-	if (label === 'Unobligated') {
-		if (isModal) {
-			shiftAmount = 18;
-		} else if (mobile) {
-			shiftAmount = 2;
-		}
-	}
 
 	function TextBlock() {
 		if (isModal) {
@@ -29,7 +19,7 @@ export default function StraightCallout(props) {
 				<>
 					<text
 						fill={defaults.fontColor}
-						x={`${labelOffset + shiftLabel}%`}
+						x={`${labelOffset}%`}
 						y={defaults.textPosition}
 						fontSize={defaults.mdFontSize}
 						fontWeight="600"
@@ -38,7 +28,7 @@ export default function StraightCallout(props) {
 					</text>
 					<text
 						fill={defaults.fontColor}
-						x={`${labelOffset + shiftAmount}%`}
+						x={`${labelOffset}%`}
 						y={defaults.textPosition + defaults.lineHeight}
 						fontSize={defaults.smFontSize}
 					>
@@ -50,7 +40,7 @@ export default function StraightCallout(props) {
 		return (
 			<text
   			fill={defaults.fontColor}
-  			x={`${labelOffset + shiftAmount}%`}
+  			x={`${labelOffset}%`}
 				y={defaults.textPosition}
 				fontSize={defaults.fontSize}
 			>

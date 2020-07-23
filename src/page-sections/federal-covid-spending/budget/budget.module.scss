@@ -2,6 +2,36 @@
 
 .chart-container {
   position: relative;
+  display: flex;
+
+  .svg-container {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      color: #555555;
+      font-weight: 300;
+      margin-bottom: 18px;
+    }
+
+    :not(span) {
+      margin-bottom: 41px;
+    }
+  }
+
+  .purple-dot-container {
+    width: 14px;
+    margin-right: 33px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
+
+    svg {
+      max-width: 14px;
+      margin-bottom: 6px;
+    }
+  }
 
   .budgetSvg {
     width: 100%;
@@ -60,10 +90,23 @@
   cursor: pointer;
 }
 
+.sources {
+  margin: 15px 28px;
+  font-weight: 300;
+}
+
 @media (min-width: $desktop) {
   #pop-up {
     width: 554px;
     top: 0;
+  }
+}
+
+@media (min-width: $tablet) {
+  .svg-container {
+    span {
+      width: 555px;
+    }
   }
 }
 
@@ -88,23 +131,15 @@
       height: 100%;
     }
   }
-}
 
-@media (max-width: $tablet) {
-    .chart-container {
-	    margin-bottom: 50px;
-    }
-}
-
-@media (max-width: $phone) {
-    .vizTitle {
-      font-size: 1.25rem;
-      font-weight: 300;
-    }
-}
-
-@media (max-width: $tablet - 1) {
   .vizTitle {
     font-size: 1.25rem;
+    font-weight: 400;
+  }
+
+  .svg-container {
+    span {
+      width: 320px;
+    }
   }
 }

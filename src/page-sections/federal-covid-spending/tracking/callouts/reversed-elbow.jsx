@@ -14,15 +14,13 @@ export default function ReversedElbowCallout(props) {
 	const {
 		xStart, xEnd, isModal, labelOffset, label, labelAmount, mobile,
 	} = props;
-	const shiftLabel = label === 'Unobligated' ? 14 : 10;
-	const shiftAmount = label === 'Unobligated' ? 18 : 0;
 
 	function TextBlock() {
 		if (isModal) {
 			return (
 				<>
 					<text
-						fill={defaults.fontColor} x={`${labelOffset + shiftLabel}%`} y={defaults.textPosition}
+						fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition}
 						fontSize={defaults.mdFontSize}
 						fontWeight="600"
 					>
@@ -30,7 +28,7 @@ export default function ReversedElbowCallout(props) {
 					</text>
 					<text
   					fill={defaults.fontColor}
-						x={`${labelOffset + shiftAmount}%`}
+						x={`${labelOffset}%`}
 						y={defaults.textPosition + defaults.lineHeight}
 						fontSize={defaults.smFontSize}
 					>
@@ -62,27 +60,28 @@ export default function ReversedElbowCallout(props) {
 		<g className={styles.connector}>
 			<rect
 				fill={defaults.lineColor}
+				x={`${xEnd}%`}
+				y={defaults.starterHeight}
+				width={defaults.lineStroke}
+				height={defaults.endingHeight}
+			/>
+
+			<rect
+				fill={defaults.lineColor}
+				x={`${xEnd}%`}
+				y={defaults.starterHeight}
+				width={`${Math.abs(xStart - xEnd)}%`}
+				height={defaults.lineStroke}
+			/>
+
+			<rect
+				fill={defaults.lineColor}
   			x={`${xStart}%`}
 				y="0"
 				width={defaults.lineStroke}
 				height={defaults.starterHeight}
 			/>
 
-			<rect
-				fill={defaults.lineColor}
-				x={`${xEnd}%`}
-				y={defaults.starterHeight}
-				width={`${xStart - xEnd}%`}
-				height={defaults.lineStroke}
-			/>
-
-			<rect
-				fill={defaults.lineColor}
-				x={`${xEnd}%`}
-				y={defaults.starterHeight}
-				width={defaults.lineStroke}
-				height={defaults.endingHeight}
-			/>
 
 			<TextBlock />
 		</g>

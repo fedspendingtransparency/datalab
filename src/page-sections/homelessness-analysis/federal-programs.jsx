@@ -930,6 +930,7 @@ export default function FederalPrograms(props) {
           listDescription='Search List of Contracts and Agencies'
           showIcon
           onSelect={searchSelect}
+          listId='contracts-and-agencies'
         />
       </div>
 

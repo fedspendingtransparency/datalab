@@ -40,7 +40,7 @@ export default function CovidModal(props) {
 							);
 						}
 						return (
-							<div key={key} style={{ paddingRight: '10px', paddingTop: '10px', paddingBottom: '10px' }}>
+							<div key={key} id="covid-modal" style={{ paddingRight: '10px', paddingTop: '10px', paddingBottom: '10px' }}>
 								<p style={{ marginBottom: '0', marginTop: '0.5rem' }}>
 									<span>
 										{i.Loan_Program_Account === 'Yes' ? <LIcon /> : <></>}
@@ -90,7 +90,7 @@ export default function CovidModal(props) {
 	function ContentHeader() {
 		if (props.mobileTablet) {
 			return (
-				<div style={{ paddingRight: '8px' }}>
+				<div id="covid-modal" style={{ paddingRight: '8px' }}>
 					<Bar
 						data={props.barData}
 						isModal
