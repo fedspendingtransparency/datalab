@@ -18,13 +18,87 @@ import PurpleDot from 'src/svgs/federal-covid-spending/budget/purpleDot.svg';
 import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode'
 import styles from './budget.module.scss';
 
+const desktopSVGs = [
+	{
+		img: DesktopA,
+		width: 497,
+		alt: "DesktopA placeholder alt text",
+	},
+	{
+		img: DesktopB,
+		width: 588,
+		alt: "DesktopB placeholder alt text",
+	},
+	{
+		img: DesktopC,
+		width: 944,
+		alt: "DesktopC placeholder alt text",
+	}
+]
+
+const mobileSVGs = [
+	{
+		img: MobileA,
+		width: 317,
+		alt: "MobileA placeholder alt text",
+	},
+	{
+		img: MobileB,
+		width: 315,
+		alt: "MobileB placeholder alt text",
+	},
+	{
+		img: MobileC,
+		width: 350,
+		alt: "MobileC placeholder alt text",
+	}
+]
+
+const tabletSVGs = [
+	{
+		img: TabletA,
+		width: 418,
+		alt: "TabletA placeholder alt text",
+	},
+	{
+		img: TabletB,
+		width: 432,
+		alt: "TabletB placeholder alt text",
+	},
+	{
+		img: TabletC,
+		width: 692,
+		alt: "TabletC placeholder alt text",
+	}
+]
+
+const desktopHeights = [285, 314, 225]
+const mobileHeights = [355, 427, 265]
+const tabletHeights = [285, 316, 225]
+
 export default function Budget(props) {
-	const [screenMode, setScreenMode] = useState(typeof window !== 'undefined' ? checkScreenMode(window.innerWidth) : 0);
+	const [screenMode, setScreenMode] = useState(0);
+
+	// All heights and widths are based on SVG sizes
+	const [svgs, setSvgs] = useState(mobileSVGs);
+	const [heights, setHeights] = useState(mobileHeights);
 
   if (typeof window !== 'undefined') {
     const resizeWindow = () => {
 			const newMode = checkScreenMode(window.innerWidth);
 			setScreenMode(newMode);
+			console.log(newMode)
+
+			if (newMode >= ScreenModeEnum.desktop) {
+				setSvgs(desktopSVGs);
+				setHeights(desktopHeights);
+			} else if (newMode === ScreenModeEnum.mobile) {
+				setSvgs(mobileSVGs);
+				setHeights(mobileHeights);
+			} else if (newMode === ScreenModeEnum.tablet) {
+				setSvgs(tabletSVGs);
+				setHeights(tabletHeights);
+			}
     }
   
     useEffect(() => {
@@ -47,51 +121,29 @@ export default function Budget(props) {
 		</svg>
 	)
 
-	// All heights and widths are based on SVG sizes
-	let firstHeight = 285
-	let secondHeight = 314
-	let thirdHeight = 225
-	let firstSVG = <img src={DesktopA} width={497} alt="DesktopA placeholder alt text"/>
-	let secondSVG = <img src={DesktopB} width={588} alt="DesktopB placeholder alt text"/>
-	let thirdSVG = <img src={DesktopC} alt="DesktopC placeholder alt text"/>
-	
-	if (screenMode === ScreenModeEnum.mobile) {
-		firstHeight = 355
-		secondHeight = 427
-		thirdHeight = 265
-		firstSVG = <img src={MobileA} width={317} alt="MobileA placeholder alt text"/>
-		secondSVG = <img src={MobileB} width={315} alt="MobileB placeholder alt text"/>
-		thirdSVG = <img src={MobileC} width={350} alt="MobileC placeholder alt text"/>
-	} else if (screenMode === ScreenModeEnum.tablet) {
-		secondHeight = 316
-		firstSVG = <img src={TabletA} width={418} alt="TabletA placeholder alt text"/>
-		secondSVG = <img src={TabletB} width={432} alt="TabletB placeholder alt text"/>
-		thirdSVG = <img src={TabletC} width={692} alt="TabletC placeholder alt text"/>
-	}
-
 	const Chart = () => <>
 			<div className={styles.purpleDotContainer}>
 				<PurpleDot />
-				<Rectangle height={firstHeight} />
+				<Rectangle height={heights[0]} />
 				<PurpleDot />
-				<Rectangle height={secondHeight} />
+				<Rectangle height={heights[1]} />
 				<PurpleDot />
-				<Rectangle height={thirdHeight} />
+				<Rectangle height={heights[2]} />
 				<PurpleDot />
 			</div>
 			<div className={styles.svgContainer}>
 				<span>
 					As of June 1, 2020, roughly <strong>$2.58 trillion</strong> in new budgetary resources have been made available for federal agencies to respond to the pandemic.
 				</span>
-				{firstSVG}
+				<img src={svgs[0].img} width={svgs[0].width} alt={svgs[0].alt} />
 				<span>
 					In addition to the new agency funding granted, the [legislation] mandated the government <strong>defer and reduce taxes to provide relief to individuals and businesses.</strong> As an example, this includes payroll tax deferrals, which mean companies can postpone the deposit and payment of the employer’s share of Social Security taxes. The Congressional Budget Office CBO estimated the two-year impact will be over $902 billion in tax relief.  
 				</span>
-				{secondSVG}
+				<img src={svgs[1].img} width={svgs[1].width} alt={svgs[1].alt} />
 				<span>
 					The four laws also funded <strong>direct and indirect loans which could result in up to $5.25 trillion in additional money flowing into the economy. </strong>
 				</span>
-				{thirdSVG}
+				<img src={svgs[2].img} width={svgs[2].width} alt={svgs[2].alt} />
 				<span>
 					Agencies play a critical role in COVID-19 relief efforts by disbursing the $2.58 trillion in funding allocated through the appropriations process. Next we look at the process of spending from Congressional appropriations to payments to individuals and businesses.
 				</span>
