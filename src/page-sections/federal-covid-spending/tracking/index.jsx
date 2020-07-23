@@ -10,7 +10,7 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import { withStyles } from '@material-ui/core/styles';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
-import numberFormatter from 'src/utils/number-formatter';
+import numberFormatter from 'src/utils/number-formatter/number-formatter';
 import Share from 'src/components/share/share';
 import ModalReference from 'src/components/modal/modal';
 import { Grid } from '@material-ui/core';
@@ -177,7 +177,7 @@ export default function Tracking(props) {
 		if (dataType === 'loans' || dataType === 'spending') {
 			return (
 				<p className={styles.selectionAmountValSmall}>
-					{selection ? ` of ${numberFormatter('dollars suffix', totalBudgetByAgency[selection])}` : ''}
+					{selection ? ` of ${numberFormatter('dollars suffix', totalBudgetByAgency[selection], 3)}` : ''}
 				</p>
 			);
 		}
@@ -193,7 +193,7 @@ export default function Tracking(props) {
 				{' '}
 			</span>,
 			<p className={styles.selectionAmountVal}>
-				{selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources) : ''}
+				{selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources, 3) : ''}
 			</p>,
 			modalTotalOfAmount(selectedBar),
 		];
@@ -233,8 +233,8 @@ export default function Tracking(props) {
   data={thisBar}
   totalBar={i.label === 'Total'}
   barLabel={i.label}
-  total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
-  allTotal={dataType !== 'total' ? numberFormatter('dollars suffix', totalBudgetByAgency[i.label]) : ''}
+  total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}
+  allTotal={dataType !== 'total' ? numberFormatter('dollars suffix', totalBudgetByAgency[i.label], 3) : ''}
   firstBar={key === 0}
   lastBar={key === chartData.length - 1}
   openModal={(e) => openModal(e, thisBar)}

@@ -1,5 +1,5 @@
 import React from 'react';
-import numberFormatter from 'src/utils/number-formatter';
+import numberFormatter from 'src/utils/number-formatter/number-formatter';
 import Grid from '@material-ui/core/Grid';
 import Bar from '../bars/bar';
 import styles from './modal.module.scss';
@@ -33,7 +33,7 @@ export default function CovidModal(props) {
 									</Grid>
 									<Grid item xs={2}>
 										<div className={styles.amount}>
-											<span>{numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}</span>
+											<span>{numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}</span>
 										</div>
 									</Grid>
 								</Grid>
@@ -51,7 +51,7 @@ export default function CovidModal(props) {
 										</b>
 									</span>
 									<span>
-										{numberFormatter('dollars suffix', i.Total_Budgetary_Resources)}
+										{numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}
 									</span>
 								</p>
 								<Bar
