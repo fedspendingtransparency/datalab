@@ -49,12 +49,12 @@ export default function Budget(props) {
 
 	// All heights and widths are based on SVG sizes
 	let firstHeight = 285
-	let secondHeight = 313
+	let secondHeight = 314
 	let thirdHeight = 225
 	let firstSVG = <img src={DesktopA} width={497} alt="DesktopA placeholder alt text"/>
 	let secondSVG = <img src={DesktopB} width={588} alt="DesktopB placeholder alt text"/>
 	let thirdSVG = <img src={DesktopC} alt="DesktopC placeholder alt text"/>
-
+	
 	if (screenMode === ScreenModeEnum.mobile) {
 		firstHeight = 355
 		secondHeight = 427
@@ -63,6 +63,7 @@ export default function Budget(props) {
 		secondSVG = <img src={MobileB} width={315} alt="MobileB placeholder alt text"/>
 		thirdSVG = <img src={MobileC} width={350} alt="MobileC placeholder alt text"/>
 	} else if (screenMode === ScreenModeEnum.tablet) {
+		secondHeight = 316
 		firstSVG = <img src={TabletA} width={418} alt="TabletA placeholder alt text"/>
 		secondSVG = <img src={TabletB} width={432} alt="TabletB placeholder alt text"/>
 		thirdSVG = <img src={TabletC} width={692} alt="TabletC placeholder alt text"/>
