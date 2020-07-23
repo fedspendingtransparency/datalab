@@ -12,7 +12,6 @@
       color: #555555;
       font-weight: 300;
       margin-bottom: 18px;
-      width: 555px;
     }
 
     :not(span) {
@@ -103,6 +102,14 @@
   }
 }
 
+@media (min-width: $tablet) {
+  .svg-container {
+    span {
+      width: 555px;
+    }
+  }
+}
+
 @media (min-width: $tablet) and (max-width: $desktop - 1) {
   #pop-up {
     width: 65%;
@@ -128,5 +135,11 @@
   .vizTitle {
     font-size: 1.25rem;
     font-weight: 400;
+  }
+
+  .svg-container {
+    span {
+      width: 320px;
+    }
   }
 }

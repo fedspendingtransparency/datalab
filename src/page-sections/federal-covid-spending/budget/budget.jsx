@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
-import ControlBar from '../../components/control-bar/control-bar';
-import Share from '../../components/share/share';
-import Downloads from '../../components/section-elements/downloads/downloads';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
+import Downloads from 'src/components/section-elements/downloads/downloads';
 
-import DesktopA from '../../../static/images/covid/viz1ADesktop.svg';
-import DesktopB from '../../../static/images/covid/viz1BDesktop.svg';
-import DesktopC from '../../../static/images/covid/viz1CDesktop.svg';
-import TabletA from '../../../static/images/covid/viz1ATablet.svg';
-import TabletB from '../../../static/images/covid/viz1BTablet.svg';
-import TabletC from '../../../static/images/covid/viz1CTablet.svg';
-import MobileA from '../../../static/images/covid/viz1AMobile.svg';
-import MobileB from '../../../static/images/covid/viz1BMobile.svg';
-import MobileC from '../../../static/images/covid/viz1CMobile.svg';
-import PurpleDot from '../../svgs/federal-covid-spending/budget/purpleDot.svg';
+import DesktopA from 'src/images/covid/budget/viz1ADesktop.svg';
+import DesktopB from 'src/images/covid/budget/viz1BDesktop.svg';
+import DesktopC from 'src/images/covid/budget/viz1CDesktop.svg';
+import TabletA from 'src/images/covid/budget/viz1ATablet.svg';
+import TabletB from 'src/images/covid/budget/viz1BTablet.svg';
+import TabletC from 'src/images/covid/budget/viz1CTablet.svg';
+import MobileA from 'src/images/covid/budget/viz1AMobile.svg';
+import MobileB from 'src/images/covid/budget/viz1BMobile.svg';
+import MobileC from 'src/images/covid/budget/viz1CMobile.svg';
+import PurpleDot from 'src/svgs/federal-covid-spending/budget/purpleDot.svg';
 
 import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode'
 import styles from './budget.module.scss';
@@ -24,9 +24,7 @@ export default function Budget(props) {
   if (typeof window !== 'undefined') {
     const resizeWindow = () => {
 			const newMode = checkScreenMode(window.innerWidth);
-      if (newMode !== screenMode) {
-        setScreenMode(newMode);
-      }
+			setScreenMode(newMode);
     }
   
     useEffect(() => {
@@ -49,24 +47,25 @@ export default function Budget(props) {
 		</svg>
 	)
 
+	// All heights and widths are based on SVG sizes
 	let firstHeight = 285
 	let secondHeight = 313
 	let thirdHeight = 225
-	let firstSVG = <img src={DesktopA} />
-	let secondSVG = <img src={DesktopB} />
-	let thirdSVG = <img src={DesktopC} />
+	let firstSVG = <img src={DesktopA} width={497} alt="DesktopA placeholder alt text"/>
+	let secondSVG = <img src={DesktopB} width={588} alt="DesktopB placeholder alt text"/>
+	let thirdSVG = <img src={DesktopC} alt="DesktopC placeholder alt text"/>
 
 	if (screenMode === ScreenModeEnum.mobile) {
-		firstHeight = 333
-		secondHeight = 339
-		thirdHeight = 221
-		firstSVG = <img src={MobileA} />
-		secondSVG = <img src={MobileB} />
-		thirdSVG = <img src={MobileC} />
+		firstHeight = 355
+		secondHeight = 427
+		thirdHeight = 265
+		firstSVG = <img src={MobileA} width={317} alt="MobileA placeholder alt text"/>
+		secondSVG = <img src={MobileB} width={315} alt="MobileB placeholder alt text"/>
+		thirdSVG = <img src={MobileC} width={350} alt="MobileC placeholder alt text"/>
 	} else if (screenMode === ScreenModeEnum.tablet) {
-		firstSVG = <img src={TabletA} />
-		secondSVG = <img src={TabletB} />
-		thirdSVG = <img src={TabletC} />
+		firstSVG = <img src={TabletA} width={418} alt="TabletA placeholder alt text"/>
+		secondSVG = <img src={TabletB} width={432} alt="TabletB placeholder alt text"/>
+		thirdSVG = <img src={TabletC} width={692} alt="TabletC placeholder alt text"/>
 	}
 
 	const Chart = () => <>
