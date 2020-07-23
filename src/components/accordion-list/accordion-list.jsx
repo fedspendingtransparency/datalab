@@ -61,10 +61,9 @@ export default class AccordionList extends React.Component {
 								style={this.styleOverrides()}
 							>
 								{this.props.title}
-								<button onClick={this.toggle} className={accordionStyles.toggle}>
+								<button onClick={this.toggle} className={accordionStyles.toggle} aria-label={this.state.closed ? 'Open toggle' : 'Close toggle'}>
 									<FontAwesomeIcon icon={faPlus} className={accordionStyles.plus} style={this.props.color ? { 'color': this.props.color } : {}} />
 									<FontAwesomeIcon icon={faMinus} className={accordionStyles.minus} style={this.props.color ? { 'color': this.props.color } : {}} />
-									<span className='sr-only'>toggle contents</span>
 								</button>
 							</h1>
 							<div className={accordionStyles.content}>
