@@ -168,7 +168,6 @@ export default function Tracking(props) {
 	const findModalTitle = () => {
 		if (selectedBar && selectedBar.label) {
 			const selectionAmount = data.total.nodes.find((item) => item.label === selectedBar.label);
-			// const totalofAll = data.total.nodes[0].Total_Budgetary_Resources;
 			return [
 				<span className={styles.modalTitle}>
 					{selectedBar.label}
@@ -200,7 +199,6 @@ export default function Tracking(props) {
 
 	const mainChart = () => {
 		const chartData = data.total.nodes;
-		// const chartData = limitBars ? barData.slice(0, limitBars) : barData;
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
 				amount: i.Amount_Outlayed,
@@ -221,7 +219,7 @@ export default function Tracking(props) {
 					barLabel={i.label}
 					loanProgramAcct={i.Loan_Program_Account}
 					total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}
-					allTotal={dataType !== 'total' ? numberFormatter('dollars suffix', totalBudgetByAgency[i.label], 3) : ''}
+					allTotal={numberFormatter('dollars suffix', totalBudgetByLaw[i.label], 3)}
 					firstBar={key === 0}
 					lastBar={key === chartData.length - 1}
 					openModal={(e) => openModal(e, i, thisBar)}
