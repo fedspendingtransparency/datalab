@@ -96,7 +96,7 @@ export default function Dendro(props) {
       const baseSvg = d3.select('#tree-container').append('svg')
             .attr('width', svgWidth)
             .attr('height', svgHeight)
-            .attr('aria-labeledby', 'dendro-title')
+            .attr('aria-labelledby', 'dendro-title')
             .attr("viewBox", `0 0 ${svgWidth} ${svgHeight}`)
             .attr('id', 'svg-dendrogram')
             .attr('class', 'overlay')

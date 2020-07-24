@@ -180,7 +180,7 @@ function DTS(props) {
     function init() {
       const w = d3.select('.dts-layout-manager').node().getBoundingClientRect().width;
 
-      d3.select('#svg-wrapper').attr('aria-labeledby', 'd3-title').attr('role', 'img').attr('width', w);
+      d3.select('#svg-wrapper').attr('aria-labelledby', 'd3-title').attr('role', 'img').attr('width', w);
 
       let title = d3.select("#svg-wrapper").append("desc");
       title.attr('id', 'd3-title');
@@ -403,7 +403,7 @@ function DTS(props) {
       var svg = d3.select(".svg-tsbfy-container").append("svg")
         .attr("id", "viz-tsbfy-wrapper")
         .attr('role', 'img')
-        .attr('aria-labeledby', 'dts-bar-title')
+        .attr('aria-labelledby', 'dts-bar-title')
         .attr("width", "750") // do we need this?
         .attr("height", "500") // or this?
         .attr("viewBox", "0 0 750 500"), // or this?

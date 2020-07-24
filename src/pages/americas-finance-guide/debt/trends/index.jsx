@@ -33,7 +33,7 @@ function DebtTrendsPage(props) {
             />
 
             <Default>
-							<AFGHeader />
+                <AFGHeader />
                 <AfgNav location={props.location} chapter={'debt'}></AfgNav>
 
                 <div className="cg-wrapper trends-common-wrapper debt-trends-wrapper">
@@ -50,7 +50,7 @@ function DebtTrendsPage(props) {
 
                         <div className="toggle-component toggle-component--debt clearfix">
                             <span className="toggle-component__label" data-target="debt-image">Debt</span>
-                            <button id="toggle-image" className="toggle-control">
+                            <button id="toggle-image" className="toggle-control" aria-label="Toggle image">
                                 <div className="toggle-control__background">
                                     <div className="toggle-control__dot"></div>
                                 </div>
