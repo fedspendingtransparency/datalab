@@ -39,16 +39,17 @@ export default function Tracking(props) {
 					Total_Budgetary_Resources
         }
       }
-			total: allCovid19ResponseViz3MainAgencyTotal20200619Csv {
+			total: allCovid19ResponseMain20200717Csv {
         nodes {
-					label: Agency
-					Percent_Outlaid
-					Percent_Obligated_Not_Outlaid
+					label: Legislation
+					Percent_Outlayed
+					Percent_Obligated_Not_Outlayed
 					Percent_Unobligated
-					Amount_Outlaid
+					Amount_Outlayed
 					Amount_Obligated
 					Amount_Unobligated
 					Total_Budgetary_Resources
+					Loan_Program_Account
         }
       }
 			loans: allCovid19ResponseViz3MainAgencyLoans20200619Csv {
@@ -88,9 +89,9 @@ export default function Tracking(props) {
 		accountsByAgency[item.fieldValue] = item.nodes;
 	});
 
-	const totalBudgetByAgency = {};
+	const totalBudgetByLaw = {};
 	data.total.nodes.forEach((item) => {
-		totalBudgetByAgency[item.label] = item.Total_Budgetary_Resources;
+		totalBudgetByLaw[item.label] = item.Total_Budgetary_Resources;
 	});
 
 	const [screenMode, setScreenMode] = useState(0);
@@ -177,7 +178,7 @@ export default function Tracking(props) {
 		if (dataType === 'loans' || dataType === 'spending') {
 			return (
 				<p className={styles.selectionAmountValSmall}>
-					{selection ? ` of ${numberFormatter('dollars suffix', totalBudgetByAgency[selection], 3)}` : ''}
+					{selection ? ` of ${numberFormatter('dollars suffix', totalBudgetByLaw[selection], 3)}` : ''}
 				</p>
 			);
 		}
@@ -217,11 +218,11 @@ export default function Tracking(props) {
 		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
-				amount: i.Amount_Outlaid,
-				percent: parseFloat(i.Percent_Outlaid).toFixed(2),
+				amount: i.Amount_Outlayed,
+				percent: parseFloat(i.Percent_Outlayed).toFixed(2),
 			}, {
 				amount: i.Amount_Obligated,
-				percent: parseFloat(i.Percent_Obligated_Not_Outlaid).toFixed(2),
+				percent: parseFloat(i.Percent_Obligated_Not_Outlayed).toFixed(2),
 			}, {
 				amount: i.Amount_Unobligated,
 				percent: parseFloat(i.Percent_Unobligated).toFixed(2),
@@ -229,16 +230,17 @@ export default function Tracking(props) {
 
 			return (
 				<Bar
-  key={key}
-  data={thisBar}
-  totalBar={i.label === 'Total'}
-  barLabel={i.label}
-  total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}
-  allTotal={dataType !== 'total' ? numberFormatter('dollars suffix', totalBudgetByAgency[i.label], 3) : ''}
-  firstBar={key === 0}
-  lastBar={key === chartData.length - 1}
-  openModal={(e) => openModal(e, thisBar)}
-  isModal={false}
+					key={key}
+					data={thisBar}
+					totalBar={i.label === 'Total'}
+					barLabel={i.label}
+					loanProgramAcct={i.Loan_Program_Account}
+					total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}
+					allTotal={dataType !== 'total' ? numberFormatter('dollars suffix', totalBudgetByLaw[i.label], 3) : ''}
+					firstBar={key === 0}
+					lastBar={key === chartData.length - 1}
+					openModal={(e) => openModal(e, thisBar)}
+					isModal={false}
 				/>
 			);
 		});
@@ -409,22 +411,22 @@ export default function Tracking(props) {
 				))}
 			</ModalReference>
 
-			{showLess >= data[dataType].nodes.length
-				? ''
-				: (
-					<SeeMoreButton fullWidth onClick={handleSeeMore}>
-						{limitBars
-							? (
-								<>
-									<div style={{ fontWeight: 600 }}>See More</div>
-							&nbsp;(
-									{data[dataType].nodes.length - limitBars}
-									)
-								</>
-							)
-							: <div style={{ fontWeight: 600 }}>See Less</div>}
-					</SeeMoreButton>
-				)}
+			{/* {showLess >= data[dataType].nodes.length */}
+			{/*	? '' */}
+			{/*	: ( */}
+			{/*		<SeeMoreButton fullWidth onClick={handleSeeMore}> */}
+			{/*			{limitBars */}
+			{/*				? ( */}
+			{/*					<> */}
+			{/*						<div style={{ fontWeight: 600 }}>See More</div> */}
+			{/*				&nbsp;( */}
+			{/*						{data[dataType].nodes.length - limitBars} */}
+			{/*						) */}
+			{/*					</> */}
+			{/*				) */}
+			{/*				: <div style={{ fontWeight: 600 }}>See Less</div>} */}
+			{/*		</SeeMoreButton> */}
+			{/*	)} */}
 
 			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-19.csv" date="June 2020" />
 		</>
