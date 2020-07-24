@@ -87,7 +87,7 @@ export default class MoreAnalyses extends React.Component {
 
   show = { // key is current page URL frag, value is array of analyses (above) to show
     'federal-employees': [8, 9, 0, 4],
-    'colleges-and-universities': [8, 8, 5, 6],
+    'colleges-and-universities': [8, 5, 9, 6],
     'dts': [8, 9, 2, 0],
     'federal-account-explorer': [8, 9, 6, 7],
     'contract-explorer': [8, 9, 3, 0],
