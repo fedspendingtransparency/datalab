@@ -147,7 +147,7 @@ export default class Bar extends React.Component {
 						tabIndex={this.props.isModal || this.state.screenMode >= ScreenModeEnum.desktop || this.props.totalBar ? '' : '0'}
 					>
 						{this.props.totalBar ?
-							<span className={styles.totalBarLabel}>TOTAL U.S. GOVERNMENT FUNDING</span>
+							<span className={styles.totalBarLabel}>New Agency Funding</span>
 							:
 							this.phaseLabel()
 						}
