@@ -17,6 +17,7 @@ function addCloseIcon() {
 	ReactDOM.render(<CloseIcon />, closeButton.node());
 	closeButton.lower();
 	closeButton.attr('class', closeButtonClass);
+	closeButton.attr('aria-label', 'Close');
 }
 
 function closeBox(trigger, box) {

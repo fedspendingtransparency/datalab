@@ -21,6 +21,7 @@ exports[`Accordion expect the snapshot to match 1`] = `
         >
           Placeholder Title
           <button
+            aria-label="Open toggle"
             className="toggle"
             onClick={[Function]}
           >
@@ -58,11 +59,6 @@ exports[`Accordion expect the snapshot to match 1`] = `
                 style={Object {}}
               />
             </svg>
-            <span
-              className="sr-only"
-            >
-              toggle contents
-            </span>
           </button>
         </h1>
         <div

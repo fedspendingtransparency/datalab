@@ -13,11 +13,11 @@ export default function CovidModal(props) {
 				<>
 					{props.data.map((i, key) => {
 						const _data = [{
-							amount: i.Amount_Outlaid,
-							percent: i.Percent_Outlaid,
+							amount: i.Amount_Outlayed,
+							percent: i.Percent_Outlayed,
 						}, {
 							amount: i.Amount_Obligated,
-							percent: i.Percent_Obligated_Not_Outlaid,
+							percent: i.Percent_Obligated_Not_Outlayed,
 						}, {
 							amount: i.Amount_Unobligated,
 							percent: i.Percent_Unobligated,
