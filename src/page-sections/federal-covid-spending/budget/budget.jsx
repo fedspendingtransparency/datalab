@@ -87,7 +87,6 @@ export default function Budget(props) {
     const resizeWindow = () => {
 			const newMode = checkScreenMode(window.innerWidth);
 			setScreenMode(newMode);
-			console.log(newMode)
 
 			if (newMode >= ScreenModeEnum.desktop) {
 				setSvgs(desktopSVGs);
