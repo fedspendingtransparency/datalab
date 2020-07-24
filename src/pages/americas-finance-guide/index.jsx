@@ -58,7 +58,7 @@ function OverviewPage(props) {
                 </div>
               </div>
               <div className="bp-header__scroll scroll-to">
-                <a href="#revenue-chapter"><FontAwesomeIcon icon={faAngleDown} width={20} className="fa fa-chevron-down"/></a>
+                <a href="#revenue-chapter" aria-label="Scroll to revenue chapter"><FontAwesomeIcon icon={faAngleDown} width={20} className="fa fa-chevron-down"/></a>
               </div>
             </div>
           </header>
@@ -238,7 +238,7 @@ function OverviewPage(props) {
               How did federal revenue and spending affect the <span className="chapter__divider--text-deficit">deficit</span> and federal <span className="chapter__divider--text-debt">debt</span> in {AfgData.current_fy.value}?
             </h1>
             <div className="deficit-debt-heading__arrow-container scroll-to">
-              <a href="#deficit-chapter"><FontAwesomeIcon icon={faAngleDown} width={11} className="fa fa-angle-down"/></a>
+              <a href="#deficit-chapter" aria-label="Scroll to deficit chapter"><FontAwesomeIcon icon={faAngleDown} width={11} className="fa fa-angle-down"/></a>
             </div>
           </section>
 

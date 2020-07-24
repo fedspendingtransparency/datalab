@@ -25,11 +25,6 @@ describe('Accordion', () => {
 		expect(instance.findByProps({ className: accordionStyles.content }).children[0]).toBe(bodyText);
 	});
 
-	it('expects the .sr-only class to exist with screen reader assistance text.', () => {
-		const srText = instance.findByProps({ className: 'sr-only' });
-		expect(srText.children[0]).toBeDefined();
-	});
-
 	it('expects the accordion to toggle the "open" class when the button is clicked', async () => {
 		const button = instance.findByType('button');
 		const accordion = instance.findByType('section');

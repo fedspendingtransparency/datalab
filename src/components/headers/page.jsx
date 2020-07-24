@@ -94,7 +94,7 @@ export default class PageHeader extends React.Component {
 
   deactivateMenu = (e) => {
     e.stopPropagation();
-    this.state.activeItem.focus();
+    if (e.key) this.state.activeItem.focus(); // should only focus on key press
     this.setState({
       activeItem: null,
       showMenu: false

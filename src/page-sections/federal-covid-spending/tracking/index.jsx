@@ -238,6 +238,7 @@ export default function Tracking(props) {
 					barLabel={i.label}
 					loanProgramAcct={i.Loan_Program_Account}
 					total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}
+					allTotal={dataType !== 'total' ? numberFormatter('dollars suffix', totalBudgetByAgency[i.label], 3) : ''}
 					firstBar={key === 0}
 					lastBar={key === chartData.length - 1}
 					openModal={(e) => openModal(e, i, thisBar)}
@@ -250,7 +251,7 @@ export default function Tracking(props) {
 			<>
 				<Grid container className={styles.legendContainer}>
 					<Grid item xs={12} lg={4} className={styles.legendAsOf}>
-						Data updated as of June 1, 2020
+						Data updated as of July 1, 2020
 					</Grid>
 					<Grid className={styles.legend}>
 						<div className={styles.blockContainer}>
@@ -276,7 +277,7 @@ export default function Tracking(props) {
 							</div>
 						</div>
 						<div className={styles.blockContainer}>
-							<IconButton className={styles.infoButton} onClick={openInfoModal}>
+							<IconButton className={styles.infoButton} onClick={openInfoModal} aria-label='Spending Definitions'>
 								<InfoOutlinedIcon className={styles.icon} />
 							</IconButton>
 						</div>
@@ -288,8 +289,8 @@ export default function Tracking(props) {
 					<span>100%</span>
 				</div>
 				<div
-  className={styles.barContainer}
-  aria-label="Horizontal stacked bar chart depicting the portion of total budgetary resources from the supplemental funding that have been obligated and outlaid to date. Data can be displayed by all accounts, spending accounts, or loan program accounts."
+					className={styles.barContainer}
+					aria-label="Horizontal stacked bar chart depicting the portion of total budgetary resources from the supplemental funding that have been obligated and outlaid to date. Data can be displayed by all accounts, spending accounts, or loan program accounts."
 				>
 					{table}
 				</div>
@@ -347,12 +348,12 @@ export default function Tracking(props) {
 			{mainChart()}
 
 			<ModalReference
-  open={isModalOpen}
-  close={closeModal}
-  title={findModalTitle()}
-  maxWidth={false}
-  maxHeight
-  paperStyle={paperStyle}
+				open={isModalOpen}
+				close={closeModal}
+				title={findModalTitle()}
+				maxWidth={false}
+				maxHeight
+				paperStyle={paperStyle}
 			>
 				<Modal
   bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
@@ -365,12 +366,12 @@ export default function Tracking(props) {
 			</ModalReference>
 
 			<ModalReference
-  open={isInfoModalOpen}
-  close={closeModal}
-  title="Spending Definitions"
-  titleStyle={{ fontWeight: 600 }}
-  maxWidth
-  maxHeight
+				open={isInfoModalOpen}
+				close={closeModal}
+				title="Spending Definitions"
+				titleStyle={{ fontWeight: 600 }}
+				maxWidth
+				maxHeight
 			>
 				{categories.map((c) => (
 					<div className={styles.infoModalBody}>
