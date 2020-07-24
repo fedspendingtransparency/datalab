@@ -71,23 +71,6 @@ export default function Tracking(props) {
 					}
 				}
       }
-			allData: allCovid19ResponseViz3ModalAgency20200619Csv {
-        group(field: Agency) {
-          fieldValue
-          nodes {
-						Account_Name
-						Agency
-						Amount_Obligated
-						Amount_Outlaid
-						Amount_Unobligated
-						Percent_Obligated_Not_Outlaid
-						Percent_Outlaid
-						Percent_Unobligated
-						Total_Budgetary_Resources
-            Loan_Program_Account
-          }
-        }
-      }
     }
 	`);
 
@@ -277,7 +260,7 @@ export default function Tracking(props) {
 							</div>
 						</div>
 						<div className={styles.blockContainer}>
-							<IconButton className={styles.infoButton} onClick={openInfoModal} aria-label='Spending Definitions'>
+							<IconButton className={styles.infoButton} onClick={openInfoModal} aria-label="Spending Definitions">
 								<InfoOutlinedIcon className={styles.icon} />
 							</IconButton>
 						</div>
