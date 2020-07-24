@@ -112,9 +112,6 @@ export default class Share extends Component {
   }
 
   render() {
-
-    // there is an article i read regarding using svgs
-    // we shouldn't be importing them as images! we should find a better way...
     const imageDimensions = { height: '1.25rem', width: '1.25rem' };
     const images = [
       {
