@@ -349,14 +349,11 @@ export default function CalloutBar(props) {
 
 	useEffect(() => {
 		resizeWindow();
-	}, []);
-
-	useEffect(() => {
 		window.addEventListener('resize', resizeWindow);
 		return () => {
 			window.removeEventListener('resize', resizeWindow);
 		};
-	});
+	}, []);
 
 	drawCalloutBar();
 
