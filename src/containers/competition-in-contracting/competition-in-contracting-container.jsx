@@ -4,7 +4,7 @@ import Barchart from 'src/components/visualizations/horizontal-barchart/barchart
 import competitionStyles from 'src/pages/competition-in-contracting/competition-in-contracting.module.scss';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import * as d3 from 'd3v3';
-import numberFormatter from 'src/utils/number-formatter';
+import numberFormatter from 'src/utils/number-formatter/number-formatter';
 import { Grid, Hidden } from '@material-ui/core';
 
 export class CompetitionInContractingContainer extends Component {

@@ -6,7 +6,7 @@ import Paginator from './paginator';
 import './data-table.scss';
 import { Grid } from "@material-ui/core";
 import * as _ from "lodash";
-import numberFormatter from "src/utils/number-formatter";
+import numberFormatter from "src/utils/number-formatter/number-formatter";
 
 export default class DataTable extends React.Component {
   static propTypes = {
@@ -22,7 +22,8 @@ export default class DataTable extends React.Component {
       page: 1,
       perPage: 10,
       scrollToIndex: undefined,
-      sortBy: 'index'
+      sortBy: '0',
+      sortDirection: "ASC"
     };
 
     this.handleRowsScroll = this.handleRowsScroll.bind(this);
@@ -64,15 +65,6 @@ export default class DataTable extends React.Component {
    * @param sortDirection - The direction to sort the data.
    */
   updateSort({ sortBy, sortDirection }) {
-    const { sortBy: prevSortBy, sortDirection: prevSortDirection } = this.state;
-
-    // If list was sorted DESC by this column.
-    // Rather than switch to ASC, return to "natural" order.
-    if (prevSortBy === sortBy && prevSortDirection === SortDirection.DESC) {
-      sortBy = null;
-      sortDirection = null;
-    }
-
     this.setState({ sortBy, sortDirection });
   }
 

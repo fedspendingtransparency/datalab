@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import defaults from './utils/defaults';
-import numberFormatter from '../../../../utils/number-formatter';
+import numberFormatter from '../../../../utils/number-formatter/number-formatter';
 import styles from '../bars/bar.module.scss';
 
 /* props
@@ -32,7 +32,7 @@ export default function ReversedElbowCallout(props) {
 						y={defaults.textPosition + defaults.lineHeight}
 						fontSize={defaults.smFontSize}
 					>
-						{numberFormatter('dollars suffix', labelAmount)}
+						{numberFormatter('dollars suffix', labelAmount, 3)}
 					</text>
 				</>
 			);
@@ -50,7 +50,7 @@ export default function ReversedElbowCallout(props) {
 					className={styles.amountLabel}
 					style={{ fontWeight: mobile ? '600' : '0' }}
 				>
-					{numberFormatter('dollars suffix', labelAmount)}
+					{numberFormatter('dollars suffix', labelAmount, 3)}
 				</tspan>
 			</text>
 		);
