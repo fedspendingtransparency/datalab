@@ -22,22 +22,24 @@ import SpendingAccountsIcon from '../../../svgs/federal-covid-spending/tracking/
 import AllAccountsIcon from '../../../svgs/federal-covid-spending/tracking/all-accounts-icon.svg';
 import styles from './tracking.module.scss';
 
-const showLess = 10; // bars to show when collapsed
-
 export default function Tracking(props) {
 	const data = useStaticQuery(graphql`
     query {
-      spending: allCovid19ResponseViz3MainAgencySpending20200619Csv {
-        nodes {
-					label: Agency
-					Percent_Outlaid
-					Percent_Obligated_Not_Outlaid
-					Percent_Unobligated
-					Amount_Outlaid
-					Amount_Obligated
-					Amount_Unobligated
-					Total_Budgetary_Resources
-        }
+      totalsByLaw: allCovid19ResponseModalAgencytotalbylaw20200717Csv {
+				group(field: Legislation) {
+          fieldValue
+					nodes {
+						label: Legislation
+						Agency
+						Percent_Outlayed
+						Percent_Obligated_Not_Outlayed
+						Percent_Unobligated
+						Amount_Outlayed
+						Amount_Obligated
+						Amount_Unobligated
+						Total_Budgetary_Resources
+					}
+				}
       }
 			total: allCovid19ResponseMain20200717Csv {
         nodes {
@@ -52,17 +54,22 @@ export default function Tracking(props) {
 					Loan_Program_Account
         }
       }
-			loans: allCovid19ResponseViz3MainAgencyLoans20200619Csv {
-        nodes {
-					label: Agency
-					Percent_Outlaid
-					Percent_Unobligated
-					Percent_Obligated_Not_Outlaid
-					Amount_Outlaid
-					Amount_Obligated
-					Amount_Unobligated
-					Total_Budgetary_Resources
-        }
+			accountsByType: allCovid19ResponseModalLoanacct20200717Csv {
+				group(field: Legislation) {
+          fieldValue
+					nodes {
+						label: Legislation
+						Agency
+						Percent_Outlayed
+						Percent_Obligated_Not_Outlayed
+						Percent_Unobligated
+						Amount_Outlayed
+						Amount_Obligated
+						Amount_Unobligated
+						Total_Budgetary_Resources
+						Loan_Program_Account
+					}
+				}
       }
 			allData: allCovid19ResponseViz3ModalAgency20200619Csv {
         group(field: Agency) {
@@ -84,9 +91,14 @@ export default function Tracking(props) {
     }
 	`);
 
-	const accountsByAgency = {};
-	data.allData.group.forEach((item) => {
-		accountsByAgency[item.fieldValue] = item.nodes;
+	const loanAccountsByLaw = {};
+	data.accountsByType.group.forEach((item) => {
+		loanAccountsByLaw[item.fieldValue] = item.nodes;
+	});
+
+	const totalAccountsByLaw = {};
+	data.totalsByLaw.group.forEach((item) => {
+		totalAccountsByLaw[item.fieldValue] = item.nodes;
 	});
 
 	const totalBudgetByLaw = {};
@@ -107,28 +119,18 @@ export default function Tracking(props) {
 		return () => {
 			window.removeEventListener('resize', resizeWindow);
 		};
-	});
+	}, []);
 
 	const [isInfoModalOpen, setInfoModalState] = useState(false);
 
 	const [selectedBar, setSelectedBar] = useState(null);
 	const [selectedBarData, setSelectedBarData] = useState(null);
-	const [dataType, setData] = useState('total');
-
-	const [limitBars, setLimitBars] = useState(showLess);
-	const handleSeeMore = () => {
-		if (!limitBars) {
-			location = `${window.location.pathname}#topofchart`;
-		}
-		setLimitBars(limitBars ? 0 : showLess);
-	};
-
-
 	const [isModalOpen, setModalState] = useState(false);
-	const openModal = (e, data) => {
+
+	const openModal = (e, el, barData) => {
 		setModalState(true);
-		setSelectedBar(e);
-		setSelectedBarData(data);
+		setSelectedBar(el);
+		setSelectedBarData(barData);
 	};
 
 	const openInfoModal = () => {
@@ -174,48 +176,48 @@ export default function Tracking(props) {
 	];
 
 
-	const modalTotalOfAmount = (selection) => {
-		if (dataType === 'loans' || dataType === 'spending') {
-			return (
-				<p className={styles.selectionAmountValSmall}>
-					{selection ? ` of ${numberFormatter('dollars suffix', totalBudgetByLaw[selection], 3)}` : ''}
-				</p>
-			);
+	const modalTotalOfAmount = (selection) => (
+		<p className={styles.selectionAmountValSmall}>
+			{selection ? ` of ${numberFormatter('dollars suffix', totalBudgetByLaw[selection], 3)}` : ''}
+		</p>
+	);
+
+	const findModalTitle = () => {
+		if (selectedBar && selectedBar.label) {
+			const selectionAmount = data.total.nodes.find((item) => item.label === selectedBar.label);
+			// const totalofAll = data.total.nodes[0].Total_Budgetary_Resources;
+			return [
+				<span className={styles.modalTitle}>
+					{selectedBar.label}
+					{' '}
+				</span>,
+				<p className={styles.selectionAmountVal}>
+					{selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources, 3) : ''}
+				</p>,
+				modalTotalOfAmount(selectedBar.label),
+			];
 		}
 		return <></>;
 	};
 
-	const findModalTitle = () => {
-		const selectionAmount = data[dataType].nodes.find((item) => item.label === selectedBar);
-		const totalofAll = data.total.nodes[0].Total_Budgetary_Resources;
-		return [
-			<span className={styles.modalTitle}>
-				{selectedBar}
-				{' '}
-			</span>,
-			<p className={styles.selectionAmountVal}>
-				{selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources, 3) : ''}
-			</p>,
-			modalTotalOfAmount(selectedBar),
-		];
-	};
-
 	const filterModalData = () => {
-		if (selectedBar && accountsByAgency) {
-			switch (dataType) {
-			case 'loans':
-				return accountsByAgency[selectedBar].filter((i) => i.Loan_Program_Account === 'Yes');
-			case 'spending':
-				return accountsByAgency[selectedBar].filter((i) => i.Loan_Program_Account === 'No');
+		if (selectedBar && selectedBar.label) {
+			switch (selectedBar.Loan_Program_Account) {
+			case 'Law Total':
+				return totalAccountsByLaw[selectedBar.label];
+			case 'No':
+				return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'No');
+			case 'Yes':
+				return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'Yes');
 			}
-			return accountsByAgency[selectedBar];
 		}
+
 		return null;
 	};
 
 	const mainChart = () => {
-		const barData = data[dataType].nodes;
-		const chartData = limitBars ? barData.slice(0, limitBars) : barData;
+		const chartData = data.total.nodes;
+		// const chartData = limitBars ? barData.slice(0, limitBars) : barData;
 		const table = chartData.map((i, key) => {
 			const thisBar = [{
 				amount: i.Amount_Outlayed,
@@ -236,10 +238,9 @@ export default function Tracking(props) {
 					barLabel={i.label}
 					loanProgramAcct={i.Loan_Program_Account}
 					total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}
-					allTotal={dataType !== 'total' ? numberFormatter('dollars suffix', totalBudgetByLaw[i.label], 3) : ''}
 					firstBar={key === 0}
 					lastBar={key === chartData.length - 1}
-					openModal={(e) => openModal(e, thisBar)}
+					openModal={(e) => openModal(e, i, thisBar)}
 					isModal={false}
 				/>
 			);
@@ -296,18 +297,6 @@ export default function Tracking(props) {
 		);
 	};
 
-	const SeeMoreButton = withStyles(() => ({
-		root: {
-			color: 'inherit',
-			'text-transform': 'capitalize',
-			'margin-top': '2rem',
-			'border-top': 'solid thin #eee',
-			'&:hover': {
-				color: 'inherit',
-			},
-		},
-	}))(Button);
-
 	const accountBreakdownOptions = [
 		{
 			name: 'All Accounts',
@@ -323,23 +312,6 @@ export default function Tracking(props) {
 		},
 	];
 	const [activeAccountFilter, setActiveAccountFilter] = useState(accountBreakdownOptions[0].name);
-
-	const handleSpendingDropdownChange = (e) => {
-		setActiveAccountFilter(e.target.value);
-		switch (e.target.value) {
-		case 'Spending Accounts':
-			setData('spending');
-			setLimitBars(data.spending.nodes.length >= showLess ? showLess : 0);
-			break;
-		case 'Loan Program Accounts':
-			setData('loans');
-			setLimitBars(data.loans.nodes.length >= showLess ? showLess : 0);
-			break;
-		default:
-			setData('total');
-			setLimitBars(data.total.nodes.length >= showLess ? showLess : 0);
-		}
-	};
 
 	const titleComponent = (
 		<>
@@ -383,7 +355,7 @@ export default function Tracking(props) {
   paperStyle={paperStyle}
 			>
 				<Modal
-  bar={selectedBar}
+  bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
   data={filterModalData()}
   barData={selectedBarData}
   isModal
@@ -410,23 +382,6 @@ export default function Tracking(props) {
 					</div>
 				))}
 			</ModalReference>
-
-			{/* {showLess >= data[dataType].nodes.length */}
-			{/*	? '' */}
-			{/*	: ( */}
-			{/*		<SeeMoreButton fullWidth onClick={handleSeeMore}> */}
-			{/*			{limitBars */}
-			{/*				? ( */}
-			{/*					<> */}
-			{/*						<div style={{ fontWeight: 600 }}>See More</div> */}
-			{/*				&nbsp;( */}
-			{/*						{data[dataType].nodes.length - limitBars} */}
-			{/*						) */}
-			{/*					</> */}
-			{/*				) */}
-			{/*				: <div style={{ fontWeight: 600 }}>See Less</div>} */}
-			{/*		</SeeMoreButton> */}
-			{/*	)} */}
 
 			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-19.csv" date="June 2020" />
 		</>
