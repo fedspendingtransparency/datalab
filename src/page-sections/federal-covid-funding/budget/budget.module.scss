@@ -21,7 +21,6 @@
 
   .purple-dot-container {
     width: 14px;
-    margin-right: 33px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,7 +138,19 @@
 
   .svg-container {
     span {
-      width: 320px;
+      width: 268px;
     }
+  }
+}
+
+@media (min-width: $phone) {
+  .purple-dot-container {
+    margin-right: 33px;
+  }
+}
+
+@media (max-width: $phone - 1) {
+  .purple-dot-container {
+    margin-right: 8px;
   }
 }
