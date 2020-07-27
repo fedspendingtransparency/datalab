@@ -86,7 +86,9 @@ export default function Tracking(props) {
 
 	const totalBudgetByLaw = {};
 	data.total.nodes.forEach((item) => {
-		totalBudgetByLaw[item.label] = item.Total_Budgetary_Resources;
+		if (item.Loan_Program_Account === 'Law Total') {
+			totalBudgetByLaw[item.label] = item.Total_Budgetary_Resources
+		}
 	});
 
 	const [screenMode, setScreenMode] = useState(0);
@@ -160,23 +162,34 @@ export default function Tracking(props) {
 
 
 	const modalTotalOfAmount = (selection) => (
-		<p className={styles.selectionAmountValSmall}>
+		<span className={styles.selectionAmountValSmall}>
 			{selection ? ` of ${numberFormatter('dollars suffix', totalBudgetByLaw[selection], 3)}` : ''}
-		</p>
+		</span>
 	);
 
 	const findModalTitle = () => {
 		if (selectedBar && selectedBar.label) {
 			const selectionAmount = data.total.nodes.find((item) => item.label === selectedBar.label);
+			let subtitle = 'Spending By Agency';
+			let ofTotalAmount;
+			let icon = <></>;
+			if (selectedBar.Loan_Program_Account === 'No') {
+				subtitle = 'General Account Spending';
+				ofTotalAmount = selectedBar.label;
+			} else if (selectedBar.Loan_Program_Account === 'Yes') {
+				subtitle = 'Loan Account Spending';
+				ofTotalAmount = selectedBar.label;
+				icon = <>&nbsp;<LIcon />&nbsp;</>
+			}
 			return [
 				<span className={styles.modalTitle}>
-					{selectedBar.label}
+					PHASE {selectedBar.label}: {icon} Progress of {subtitle}
 					{' '}
 				</span>,
-				<p className={styles.selectionAmountVal}>
-					{selectionAmount ? numberFormatter('dollars suffix', selectionAmount.Total_Budgetary_Resources, 3) : ''}
-				</p>,
-				modalTotalOfAmount(selectedBar.label),
+				<span className={styles.selectionAmountVal}>
+					{selectionAmount ? numberFormatter('dollars suffix', selectedBar.Total_Budgetary_Resources, 3) : ''}
+				</span>,
+				modalTotalOfAmount(ofTotalAmount),
 			];
 		}
 		return <></>;
@@ -321,6 +334,28 @@ export default function Tracking(props) {
 		width: '95%', padding: '10px 8px',
 	} : {};
 
+	let mainBar = <></>;
+
+	if (selectedBar) {
+		const mainBarData = [{
+			amount: selectedBar.Amount_Outlayed,
+			percent: parseFloat(selectedBar.Percent_Outlayed).toFixed(2),
+		}, {
+			amount: selectedBar.Amount_Obligated,
+			percent: parseFloat(selectedBar.Percent_Obligated_Not_Outlayed).toFixed(2),
+		}, {
+			amount: selectedBar.Amount_Unobligated,
+			percent: parseFloat(selectedBar.Percent_Unobligated).toFixed(2),
+		}];
+
+		mainBar = (
+			<Bar
+				data={mainBarData}
+				isModal
+			/>
+		);
+	}
+
 	return (
 		<>
 			{titleComponent}
@@ -337,12 +372,13 @@ export default function Tracking(props) {
 				paperStyle={paperStyle}
 			>
 				<Modal
-  bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
-  data={filterModalData()}
-  barData={selectedBarData}
-  isModal
-  activeAcc={activeAccountFilter}
-  mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+					bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
+					data={filterModalData()}
+					mainBar={mainBar}
+					barData={selectedBarData}
+					isModal
+					activeAcc={activeAccountFilter}
+					mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
 				/>
 			</ModalReference>
 

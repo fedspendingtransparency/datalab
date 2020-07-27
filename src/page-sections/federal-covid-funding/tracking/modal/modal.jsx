@@ -11,6 +11,15 @@ export default function CovidModal(props) {
 		if (props.data) {
 			return (
 				<>
+					{props.mobileTablet &&
+						<>
+							<div id="covid-modal">{props.mainBar}</div>
+							<div className={styles.mobileHeading}>
+								<div className={styles.mobileHeadingLabel}>Agency</div>
+								<div className={styles.mobileHeadingLabel}>Total Budget</div>
+							</div>
+						</>
+					}
 					{props.data.map((i, key) => {
 						const _data = [{
 							amount: i.Amount_Outlayed,
@@ -27,9 +36,8 @@ export default function CovidModal(props) {
 							return (
 								<Grid container key={key} className={styles.items} justify="center">
 									<Grid item xs={10} className={styles.account}>
-										<span>{i.Loan_Program_Account === 'Yes' ? <LIcon /> : <></>}</span>
+										{i.Agency}
 										{' '}
-										{i.Account_Name}
 									</Grid>
 									<Grid item xs={2}>
 										<div className={styles.amount}>
@@ -40,14 +48,12 @@ export default function CovidModal(props) {
 							);
 						}
 						return (
-							<div key={key} id="covid-modal" style={{ paddingRight: '10px', paddingTop: '10px', paddingBottom: '10px' }}>
-								<p style={{ marginBottom: '0', marginTop: '0.5rem' }}>
+							<div key={key} id="covid-modal" style={{ paddingRight: 10, paddingBottom: 27 }}>
+								<p style={{ marginBottom: 4, marginTop: 5 }}>
 									<span>
-										{i.Loan_Program_Account === 'Yes' ? <LIcon /> : <></>}
-										{' '}
 										<b>
+											{i.Agency}
 											{' '}
-											{i.Account_Name}
 										</b>
 									</span>
 									<span>
@@ -69,46 +75,8 @@ export default function CovidModal(props) {
 		return <></>;
 	}
 
-	function accountChecker() {
-		if (props.activeAcc === 'All Accounts') {
-			return <h2>Breakdown of All Agency Accounts</h2>;
-		} if (props.activeAcc === 'Spending Accounts') {
-			return <h2>Breakdown of Agency Spending Accounts</h2>;
-		}
-		return <h2>Breakdown of Agency Loan Program Accounts</h2>;
-	}
-
-	function mobileAccountChecker() {
-		if (props.activeAcc === 'All Accounts') {
-			return <div>Account</div>;
-		} if (props.activeAcc === 'Spending Accounts') {
-			return <div>Spending Account</div>;
-		}
-		return <div>Loan Program Account</div>;
-	}
-
-	function ContentHeader() {
-		if (props.mobileTablet) {
-			return (
-				<div id="covid-modal" style={{ paddingRight: '8px' }}>
-					<Bar
-						data={props.barData}
-						isModal
-						showDetails
-					/>
-					<Grid container className={styles.titles}>
-						<Grid item xs={6}>{mobileAccountChecker()}</Grid>
-						<Grid item xs={6} style={{ textAlign: 'right' }}>Total Budget</Grid>
-					</Grid>
-				</div>
-			);
-		}
-		return accountChecker();
-	}
-
 	return (
 		<div style={{ minWidth: window.innerWidth * 0.6, maxWidth: window.innerWidth * 0.9, overflowX: 'hidden' }}>
-			<ContentHeader />
 			<Content style={{ overflowX: 'hidden' }} />
 		</div>
 	);

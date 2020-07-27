@@ -98,7 +98,7 @@ class ModalReference extends React.Component {
       >
         <Fade in={open}>
           <div className={classes.paper} style={paperStyle}>
-            <div className={styles.title}>
+            <div className={styles.modalTitle}>
               <span style={titleStyle}>{title}</span>
               <CloseIcon className={styles.close} tabIndex='0' onClick={this.handleClose} onKeyUp={e => this.keyUpHandler(e)} />
             </div>

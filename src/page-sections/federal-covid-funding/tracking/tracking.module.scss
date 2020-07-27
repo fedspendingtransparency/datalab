@@ -157,6 +157,20 @@ h2 {
 	font-weight: 600;
 }
 
+@media (min-width: $desktop) {
+	.modal-title {
+		font-size: 24px;
+	}
+
+	.selectionAmountVal {
+		font-size: 24px;
+	}
+	
+	.selectionAmountValSmall {
+		font-size: 18px;
+	}
+}
+
 @media screen and (min-width: $phone) {
 	.blockContainer {
 		align-items: center;
@@ -165,14 +179,6 @@ h2 {
 		div:first-of-type {
 			margin-right: 1.5rem;
 		}
-	}
-
-	.selectionAmountVal {
-		font-size: 24px;
-	}
-  
-	.selectionAmountValSmall {
-		font-size: 18px;
 	}
 }
 
@@ -192,6 +198,18 @@ h2 {
 	.percentLegend {
 		margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
 	}
+
+	.modal-title {
+		font-size: 18px;
+	}
+
+  .selectionAmountVal {
+    font-size: 18px;
+  }
+  
+  .selectionAmountValSmall {
+    font-size: 16px;
+  }
 }
 
 @media screen and (max-width: $tablet - 1) {
@@ -244,14 +262,6 @@ h2 {
   .modal-title {
     font-size: 18px !important;
     font-weight: 600;
-  }
-
-  .selectionAmountVal {
-    font-size: 18px;
-  }
-  
-  .selectionAmountValSmall {
-    font-size: 14px;
   }
 }
 
