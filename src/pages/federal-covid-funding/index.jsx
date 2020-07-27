@@ -9,9 +9,9 @@ import Footnotes from "../../components/footnotes/footnotes";
 import SEO from '../../components/seo';
 import StorySection from 'src/components/section-elements/story-section/story-section';
 import Accordion from 'src/components/accordion/accordion';
-import Budget from '../../page-sections/federal-covid-spending/budget/budget';
-import Overview from '../../page-sections/federal-covid-spending/overview/overview';
-import Tracking from '../../page-sections/federal-covid-spending/tracking';
+import Budget from '../../page-sections/federal-covid-funding/budget/budget';
+import Overview from '../../page-sections/federal-covid-funding/overview/overview';
+import Tracking from '../../page-sections/federal-covid-funding/tracking';
 
 
 const BudgetAccordionContent = () => (
@@ -23,12 +23,12 @@ const BudgetAccordionContent = () => (
       For the COVID-19 special appropriations, agencies are required to include a special field called the <b>Disaster Emergency Fund Code (DEFC)</b> in their financial reporting. Data Lab is tracking COVID-19 appropriations through the spending lifecycle using the DEFC that maps to each piece of legislation.
     </p>
     <p>
-      To learn more about how we developed this analysis and download the raw data, visit the <a href="/federal-covid-spending/methodologies">Data Sources and Methodologies page</a>
+      To learn more about how we developed this analysis and download the raw data, visit the <a href="/federal-covid-funding/methodologies">Data Sources and Methodologies page</a>
     </p>
   </div>
 );
 
-export default class FederalCovidSpending extends React.Component {
+export default class FederalCovidFunding extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -108,7 +108,7 @@ export default class FederalCovidSpending extends React.Component {
             In this visualization, we explore the 180 agency spending accounts containing COVID-19 relief funding. These 180 accounts are just a small fraction of the 2,000 accounts used for regular spending. You can click or tab into the visualization to explore how much has been committed and spent by account.
           </p>
           <p key='section-3-p-3'>
-            This analysis will be updated monthly as new data becomes available. To learn more about how we developed this analysis and download the raw data, visit the <a href="/federal-covid-spending/methodologies">Data Sources and Methodologies page</a>.
+            This analysis will be updated monthly as new data becomes available. To learn more about how we developed this analysis and download the raw data, visit the <a href="/federal-covid-funding/methodologies">Data Sources and Methodologies page</a>.
           </p>
         </>
       ],

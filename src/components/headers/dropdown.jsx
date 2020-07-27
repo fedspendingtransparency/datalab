@@ -53,15 +53,15 @@ export default class Dropdown extends React.Component {
           <div className={styles.dataList} onMouseLeave={this.props.mouseHandle} onKeyUp={this.menuKeyUp}>
             <section className={`${styles.section} ${styles.analyses}`}>
               <h4 className={styles.sectionTitle}>Topical Analyses</h4>
-              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(0, 3), true)}</ul>
+              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(0, 4), true)}</ul>
             </section>
             <section className={`${styles.section} ${styles.analyses}`}>
               <h4 className={styles.sectionTitle}>Contract Analyses</h4>
-              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(3, 5))}</ul>
+              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(4, 6))}</ul>
             </section>
             <section className={`${styles.section} ${styles.analyses}`}>
               <h4 className={styles.sectionTitle}>Financial Data Visualizations</h4>
-              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(5, 8), false, true)}</ul>
+              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(6, 9), false, true)}</ul>
             </section>
           </div>
         }
