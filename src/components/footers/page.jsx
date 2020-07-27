@@ -66,11 +66,11 @@ export default class PageFooter extends React.Component {
             Visit our <a href='https://usaspending-help.zendesk.com/hc/en-us/community/topics' target='_blank' rel='noopener noreferrer'>Community Page today.</a>
           </p>
           <div className={pageFooterStyles.contents}>
-            <a target="_blank" rel="noopener noreferrer" href='https://github.com/fedspendingtransparency/datalab'><Github /></a>
-            <a target="_blank" rel="noopener noreferrer" href='https://data.world/usaspending'><Dataworld /></a>
-            <a target="_blank" rel="noopener noreferrer" href='https://twitter.com/usaspending'><Twitter /></a>
-            <a target="_blank" rel="noopener noreferrer" href='https://www.facebook.com/fiscalservice/'><Facebook /></a>
-            <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt/'><LinkedIn /></a>
+            <a target="_blank" rel="noopener noreferrer" href='https://github.com/fedspendingtransparency/datalab' aria-label='Github'><Github /></a>
+            <a target="_blank" rel="noopener noreferrer" href='https://data.world/usaspending' aria-label='Dataworld'><Dataworld /></a>
+            <a target="_blank" rel="noopener noreferrer" href='https://twitter.com/usaspending' aria-label='Twitter'><Twitter /></a>
+            <a target="_blank" rel="noopener noreferrer" href='https://www.facebook.com/fiscalservice/' aria-label='Facebook'><Facebook /></a>
+            <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt/' aria-label='LinkedIn'><LinkedIn /></a>
           </div>
         </Grid>
         <Grid item xs={12} lg={4}>

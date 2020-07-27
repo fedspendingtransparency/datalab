@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 
-import ElbowCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/elbow';
-import ReversedElbowCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/reversed-elbow';
-import ReversedJoinedCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/reversed-joined';
-import JoinedCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/joined';
-import StraightCallout from 'src/page-sections/federal-covid-spending/tracking/callouts/straight';
+import ElbowCallout from 'src/page-sections/federal-covid-funding/tracking/callouts/elbow';
+import ReversedElbowCallout from 'src/page-sections/federal-covid-funding/tracking/callouts/reversed-elbow';
+import ReversedJoinedCallout from 'src/page-sections/federal-covid-funding/tracking/callouts/reversed-joined';
+import JoinedCallout from 'src/page-sections/federal-covid-funding/tracking/callouts/joined';
+import StraightCallout from 'src/page-sections/federal-covid-funding/tracking/callouts/straight';
 import threshold from '../callouts/utils/thresholds';
 import styles from './bar.module.scss';
 
@@ -349,14 +349,11 @@ export default function CalloutBar(props) {
 
 	useEffect(() => {
 		resizeWindow();
-	}, []);
-
-	useEffect(() => {
 		window.addEventListener('resize', resizeWindow);
 		return () => {
 			window.removeEventListener('resize', resizeWindow);
 		};
-	});
+	}, []);
 
 	drawCalloutBar();
 

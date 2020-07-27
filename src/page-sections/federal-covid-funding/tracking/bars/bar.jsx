@@ -26,7 +26,8 @@ export default class Bar extends React.Component {
 		'hideBarLabels': PropTypes.bool,
 		'firstBar': PropTypes.bool,
 		'lastBar': PropTypes.bool,
-		'isModal': PropTypes.bool
+		'isModal': PropTypes.bool,
+		'loanProgramAcct': PropTypes.string
 	};
 
 	constructor(props) {
@@ -36,6 +37,14 @@ export default class Bar extends React.Component {
 			showDetails: false,
 			screenMode: null
 		};
+	}
+
+	phaseDetail = {
+		'1': 'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
+		'2': 'Families First Coronavirus Response Act',
+		'3': 'Coronavirus Aid, Relief, and Economic Security Act',
+		'3.5': 'Paycheck Protection Program and Health Care Enhancement Act'
+
 	}
 
 	barClickHandler = () => {
@@ -100,6 +109,30 @@ export default class Bar extends React.Component {
 		}
 	};
 
+	phaseLabel = () => {
+		switch (this.props.loanProgramAcct) {
+			case 'Law Total':
+				return (
+					<>
+						<div>Phase {this.props.barLabel}</div>
+						<br/>
+						<div>{this.phaseDetail[this.props.barLabel]}</div>
+					</>
+				)
+				break;
+			case 'No':
+				return (
+					<div>General Account Spending</div>
+				)
+				break;
+			case 'Yes':
+				return (
+					<div>Loan Account Spending</div>
+				)
+				break;
+		}
+	}
+
 	render = () => {
 		const boldOnHover = this.props.totalBar ? '' : styles.boldOnHover;
 
@@ -114,9 +147,9 @@ export default class Bar extends React.Component {
 						tabIndex={this.props.isModal || this.state.screenMode >= ScreenModeEnum.desktop || this.props.totalBar ? '' : '0'}
 					>
 						{this.props.totalBar ?
-							<span className={styles.totalBarLabel}>TOTAL U.S. GOVERNMENT FUNDING</span>
+							<span className={styles.totalBarLabel}>New Agency Funding</span>
 							:
-							this.props.barLabel
+							this.phaseLabel()
 						}
 					</div>
 				}
@@ -163,7 +196,7 @@ export default class Bar extends React.Component {
 					<div className={`${styles.sideBudget} ${styles.topPad} ${boldOnHover} ${this.props.totalBar ? styles.totalBarSideBudget : ''}`}>
 						<span className={styles.sideBudgetOfTotal}>{this.props.total}</span>
 						<br/>
-						<span className={`${styles.sideBudgetTotal} ${this.props.totalBar ? styles.totalBarSideBudgetTotal : boldOnHover}`}>{this.props.allTotal ? `of ${this.props.allTotal}` : ''}</span>
+						{/*<span className={`${styles.sideBudgetTotal} ${this.props.totalBar ? styles.totalBarSideBudgetTotal : boldOnHover}`}>{this.props.allTotal ? `of ${this.props.allTotal}` : ''}</span>*/}
 				</div>}
 			</div>
 		)

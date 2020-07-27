@@ -9,7 +9,7 @@ const Toc = (props) => {
 	const inlineStyles = {
 		legacy: 'legacy',
 		'colleges-and-universities': 'collegesAndUniversities',
-		'federal-covid-spending': 'federalCovidSpending',
+		'federal-covid-funding': 'federalCovidFunding',
 		'homelessness-analysis': 'homelessnessAnalysis',
 	}
 		
