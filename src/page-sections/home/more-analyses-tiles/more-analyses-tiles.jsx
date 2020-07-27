@@ -4,6 +4,7 @@ import moreAnalysesStyles from './more-analyses-tiles.module.scss';
 
 import { Grid } from '@material-ui/core';
 
+import homeless from 'src/images/more-analyses/homeless.png';
 import federal from 'src/images/more-analyses/federal.jpg';
 import workers from 'src/images/more-analyses/workers.jpg';
 import budget from 'src/images/more-analyses/budget.jpg';
@@ -17,11 +18,11 @@ const MoreAnalysesTiles = () => {
     title: 'Federal Account Explorer',
     subtitle: 'Discover the federal government\'s spending accounts'
   }, {
-    href: 'federal-employees',
-    imageSrc: workers,
-    title: 'Federal Employees',
-    subtitle: 'Who works in government?',
-    alt: 'National Park Service Director talking with Junior Ranger wearing a vest with 32 badges, in front of the El Pueblo De Los Angeles Historic Monument.'
+    href: 'homeless',
+    imageSrc: homeless,
+    title: 'Homelessness Analysis',
+    subtitle: 'Explore federal programs that address homelessness',
+    alt: 'A homeless person leaning against a street pole and additional homeless people stand against a building in the far background.',
   }, {
     href: 'budget-function',
     imageSrc: budget,
