@@ -18,6 +18,7 @@ import PurpleDot from 'src/svgs/federal-covid-spending/budget/purpleDot.svg';
 import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode'
 import styles from './budget.module.scss';
 
+// All heights and widths are based on SVG sizes
 const desktopSVGs = [
 	{
 		img: DesktopA,
@@ -39,17 +40,17 @@ const desktopSVGs = [
 const mobileSVGs = [
 	{
 		img: MobileA,
-		width: 317,
+		width: 261,
 		alt: "MobileA placeholder alt text",
 	},
 	{
 		img: MobileB,
-		width: 315,
+		width: 191,
 		alt: "MobileB placeholder alt text",
 	},
 	{
 		img: MobileC,
-		width: 350,
+		width: 266,
 		alt: "MobileC placeholder alt text",
 	}
 ]
@@ -73,13 +74,12 @@ const tabletSVGs = [
 ]
 
 const desktopHeights = [285, 314, 225]
-const mobileHeights = [355, 427, 265]
+const mobileHeights = [373, 465, 255]
 const tabletHeights = [285, 316, 225]
 
 export default function Budget(props) {
 	const [screenMode, setScreenMode] = useState(0);
 
-	// All heights and widths are based on SVG sizes
 	const [svgs, setSvgs] = useState(mobileSVGs);
 	const [heights, setHeights] = useState(mobileHeights);
 
@@ -87,7 +87,6 @@ export default function Budget(props) {
     const resizeWindow = () => {
 			const newMode = checkScreenMode(window.innerWidth);
 			setScreenMode(newMode);
-			console.log(newMode)
 
 			if (newMode >= ScreenModeEnum.desktop) {
 				setSvgs(desktopSVGs);
