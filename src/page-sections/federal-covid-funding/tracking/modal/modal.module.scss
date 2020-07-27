@@ -41,6 +41,21 @@
   padding-right: 10px;
 }
 
+.mobile-heading {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0 20px 0;
+  padding: 10px 0;
+  border-top: solid 1px #eeeeee;
+  border-bottom: solid 1px #eeeeee;
+
+  .mobile-heading-label {
+    font-size: .875rem;
+    font-weight: 300;
+    color: #555555
+  }
+}
+
 @media screen and (max-width: $phone - 1) {
   .account {
     position: relative;

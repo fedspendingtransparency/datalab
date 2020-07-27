@@ -172,16 +172,18 @@ export default function Tracking(props) {
 			const selectionAmount = data.total.nodes.find((item) => item.label === selectedBar.label);
 			let subtitle = 'Spending By Agency';
 			let ofTotalAmount;
+			let icon = <></>;
 			if (selectedBar.Loan_Program_Account === 'No') {
 				subtitle = 'General Account Spending';
-				ofTotalAmount = selectedBar.label
+				ofTotalAmount = selectedBar.label;
 			} else if (selectedBar.Loan_Program_Account === 'Yes') {
 				subtitle = 'Loan Account Spending';
-				ofTotalAmount = selectedBar.label
+				ofTotalAmount = selectedBar.label;
+				icon = <>&nbsp;<LIcon />&nbsp;</>
 			}
 			return [
 				<span className={styles.modalTitle}>
-					Phase {selectedBar.label}: Progress of {subtitle}
+					PHASE {selectedBar.label}: {icon} Progress of {subtitle}
 					{' '}
 				</span>,
 				<span className={styles.selectionAmountVal}>
@@ -332,6 +334,28 @@ export default function Tracking(props) {
 		width: '95%', padding: '10px 8px',
 	} : {};
 
+	let mainBar = <></>;
+
+	if (selectedBar) {
+		const mainBarData = [{
+			amount: selectedBar.Amount_Outlayed,
+			percent: parseFloat(selectedBar.Percent_Outlayed).toFixed(2),
+		}, {
+			amount: selectedBar.Amount_Obligated,
+			percent: parseFloat(selectedBar.Percent_Obligated_Not_Outlayed).toFixed(2),
+		}, {
+			amount: selectedBar.Amount_Unobligated,
+			percent: parseFloat(selectedBar.Percent_Unobligated).toFixed(2),
+		}];
+
+		mainBar = (
+			<Bar
+				data={mainBarData}
+				isModal
+			/>
+		);
+	}
+
 	return (
 		<>
 			{titleComponent}
@@ -350,6 +374,7 @@ export default function Tracking(props) {
 				<Modal
 					bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
 					data={filterModalData()}
+					mainBar={mainBar}
 					barData={selectedBarData}
 					isModal
 					activeAcc={activeAccountFilter}

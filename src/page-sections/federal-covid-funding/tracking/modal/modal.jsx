@@ -11,6 +11,15 @@ export default function CovidModal(props) {
 		if (props.data) {
 			return (
 				<>
+					{props.mobileTablet &&
+						<>
+							<div id="covid-modal">{props.mainBar}</div>
+							<div className={styles.mobileHeading}>
+								<div className={styles.mobileHeadingLabel}>Agency</div>
+								<div className={styles.mobileHeadingLabel}>Total Budget</div>
+							</div>
+						</>
+					}
 					{props.data.map((i, key) => {
 						const _data = [{
 							amount: i.Amount_Outlayed,
@@ -27,9 +36,8 @@ export default function CovidModal(props) {
 							return (
 								<Grid container key={key} className={styles.items} justify="center">
 									<Grid item xs={10} className={styles.account}>
-										<span>{i.Loan_Program_Account === 'Yes' ? <LIcon /> : <></>}</span>
-											{i.Agency}
-											{' '}
+										{i.Agency}
+										{' '}
 									</Grid>
 									<Grid item xs={2}>
 										<div className={styles.amount}>
@@ -43,8 +51,6 @@ export default function CovidModal(props) {
 							<div key={key} id="covid-modal" style={{ paddingRight: 10, paddingBottom: 27 }}>
 								<p style={{ marginBottom: 4, marginTop: 5 }}>
 									<span>
-										{i.Loan_Program_Account === 'Yes' ? <LIcon /> : <></>}
-										{' '}
 										<b>
 											{i.Agency}
 											{' '}
