@@ -71,7 +71,7 @@ export default class MoreAnalyses extends React.Component {
     subtitle: 'Who receives federal contracts?'
   },
   {
-    href: 'federal-covid-spending',
+    href: 'federal-covid-funding',
     imageSrc: covid,
     altText: 'Woman standing with medical face mask on, social distanced between two others, with a cartoon image of the U.S. Capitol in the background.',
     title: 'The Federal Response to COVID-19',
@@ -86,16 +86,16 @@ export default class MoreAnalyses extends React.Component {
   }];
 
   show = { // key is current page URL frag, value is array of analyses (above) to show
-    'federal-employees': [9, 0, 4, 5],
-    'colleges-and-universities': [9, 5, 6, 1],
-    'dts': [9, 2, 0, 7],
-    'federal-account-explorer': [9, 6, 7, 2],
-    'contract-explorer': [9, 3, 0, 2],
-    'homelessness-analysis': [9, 1, 4, 3],
-    'budget-function': [9, 0, 6, 1],
-    'competition-in-contracting': [9, 7, 5, 4],
-    'rd-in-contracting': [5, 4, 7, 6],
-    'federal-covid-spending': [9, 5, 7, 0]
+    'federal-employees': [8, 9, 0, 4],
+    'colleges-and-universities': [8, 5, 9, 6],
+    'dts': [8, 9, 2, 0],
+    'federal-account-explorer': [8, 9, 6, 7],
+    'contract-explorer': [8, 9, 3, 0],
+    'homelessness-analysis': [8, 9, 1, 4],
+    'budget-function': [8, 9, 0, 6],
+    'competition-in-contracting': [8, 9, 7, 5],
+    'rd-in-contracting': [8, 5, 4, 7],
+    'federal-covid-funding': [9, 5, 4, 6]
   };
 
   showAnything = () => {
