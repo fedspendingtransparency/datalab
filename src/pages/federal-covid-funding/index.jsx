@@ -108,7 +108,7 @@ export default class FederalCovidFunding extends React.Component {
             In this visualization, we explore the 180 agency spending accounts containing COVID-19 relief funding. These 180 accounts are just a small fraction of the 2,000 accounts used for regular spending. You can click or tab into the visualization to explore how much has been committed and spent by account.
           </p>
           <p key='section-3-p-3'>
-            This analysis will be updated monthly as new data becomes available. To learn more about how we developed this analysis and download the raw data, visit the <a href="/federal-covid-spending/methodologies">Data Sources and Methodologies page</a>.
+            This analysis will be updated monthly as new data becomes available. To learn more about how we developed this analysis and download the raw data, visit the <a href="/federal-covid-funding/methodologies">Data Sources and Methodologies page</a>.
           </p>
         </>
       ],

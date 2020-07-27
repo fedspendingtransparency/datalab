@@ -311,7 +311,7 @@ export default function Tracking(props) {
 					siteUrl={props.location.origin}
 					pageUrl={`${props.location.pathname}#${props.sectionId}`}
 					title="Data Lab - COVID-19 Tracking - U.S. Treasury"
-					text="Curious how much #COVID-19 related funds have been spent? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/"
+					text="Curious how much #COVID-19 related funds have been spent? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-funding/"
 				/>
 			</ControlBar>
 		</>

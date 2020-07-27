@@ -100,7 +100,7 @@ const Overview = (props) => {
           siteUrl={props.location.origin}
           pageUrl={props.location.pathname + '#' + props.sectionId}
           title='Data Lab - COVID-19 Overview - U.S. Treasury'
-          text='#DYK that #COVID19 funds from the federal government can be paid out through contracts, direct payments, grants or loans? Head to #DataLab to learn more. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'
+          text='#DYK that #COVID19 funds from the federal government can be paid out through contracts, direct payments, grants or loans? Head to #DataLab to learn more. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-funding/'
           hoverColor='#1302d9'
         />
       </ControlBar>
@@ -114,7 +114,7 @@ const Overview = (props) => {
         siteUrl={props.location.origin}
         pageUrl={props.location.pathname + '#' + props.sectionId}
         title='Data Lab - COVID-19 Overview - U.S. Treasury'
-        text='#DYK that #COVID19 funds from the federal government can be paid out through contracts, direct payments, grants or loans? Head to #DataLab to learn more. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-spending/'
+        text='#DYK that #COVID19 funds from the federal government can be paid out through contracts, direct payments, grants or loans? Head to #DataLab to learn more. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-funding/'
         hoverColor='#1302d9'
       />
     </ControlBar>
