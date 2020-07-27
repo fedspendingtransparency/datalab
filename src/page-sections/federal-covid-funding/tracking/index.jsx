@@ -2,12 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 
-
 import AccordionList from 'src/components/accordion-list/accordion-list';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import { withStyles } from '@material-ui/core/styles';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter/number-formatter';
@@ -17,12 +14,46 @@ import { Grid } from '@material-ui/core';
 import Modal from './modal/modal';
 import Bar from './bars/bar';
 import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
-import LoanProgramAccountsIcon from '../../../svgs/federal-covid-spending/tracking/loan-program-accounts-icon.svg';
-import SpendingAccountsIcon from '../../../svgs/federal-covid-spending/tracking/spending-accounts-icon.svg';
-import AllAccountsIcon from '../../../svgs/federal-covid-spending/tracking/all-accounts-icon.svg';
 import styles from './tracking.module.scss';
+import defaultImage from 'src/images/default-image.jpg';
 
 export default function Tracking(props) {
+
+	const phaseDetail = {
+		'1': {
+			title: 'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
+			loanAcct: 'no',
+			enactedDate: '3/6/2020',
+			svgs: {total: 'somepath'}
+		},
+		'2': {
+			title: 'Families First Coronavirus Response Act',
+			loanAcct: 'no',
+			enactedDate: '3/6/2020',
+			svgs: {total: 'somepath'}
+		},
+		'3': {
+			title: 'Coronavirus Aid, Relief, and Economic Security Act',
+			loanAcct: 'yes',
+			enactedDate: '3/6/2020',
+			svgs: {
+				total: 'somepath',
+				spending: 'somepath2',
+				loan: 'somepath3'
+			}
+		},
+		'3.5': {
+			title: 'Paycheck Protection Program and Health Care Enhancement Act',
+			loanAcct: 'yes',
+			enactedDate: '3/6/2020',
+			svgs: {
+				total: 'somepath',
+				spending: 'somepath2',
+				loan: 'somepath3'
+			}
+		}
+	}
+
 	const data = useStaticQuery(graphql`
     query {
       totalsByLaw: allCovid19ResponseModalAgencytotalbylaw20200717Csv {
@@ -109,7 +140,6 @@ export default function Tracking(props) {
 	const [isInfoModalOpen, setInfoModalState] = useState(false);
 
 	const [selectedBar, setSelectedBar] = useState(null);
-	const [selectedBarData, setSelectedBarData] = useState(null);
 	const [isModalOpen, setModalState] = useState(false);
 
 	const openModal = (e, el, barData) => {
@@ -210,6 +240,46 @@ export default function Tracking(props) {
 		return null;
 	};
 
+	const program = (i) => {
+		if(i.Loan_Program_Account !== 'Law Total') {
+			return null;
+		}
+
+		return (<>
+			<p>Phase {i.label}: {phaseDetail[`${i.label}`].title}</p>
+			<p>Enacted {phaseDetail[`${i.label}`].enactedDate}</p>
+			</>)
+	}
+	const phase = (i, thisBar) => {
+		let title;
+
+		switch (i.Loan_Program_Account) {
+		case 'Law Total':
+			title = 'Law Total';
+			break;
+		case 'No':
+			title = 'General Spending Account';
+			break;
+		case 'Yes':
+			title = 'Loan Program Account';
+			break;
+		}
+
+		return (
+			<>
+				{i.Loan_Program_Account === 'Law Total' ?
+					<>
+						<p>Phase {i.label}: {phaseDetail[`${i.label}`].title}</p>
+						<p>Enacted {phaseDetail[`${i.label}`].enactedDate}</p>
+					</>
+					: null
+				}
+				<p onClick={(e) => openModal(e, i, thisBar)}>{title}</p>
+				<img src={defaultImage} height='25' />
+			</>
+		)
+	}
+
 	const mainChart = () => {
 		const chartData = data.total.nodes;
 		const table = chartData.map((i, key) => {
@@ -225,19 +295,23 @@ export default function Tracking(props) {
 			}];
 
 			return (
-				<Bar
-					key={key}
-					data={thisBar}
-					totalBar={i.label === 'Total'}
-					barLabel={i.label}
-					loanProgramAcct={i.Loan_Program_Account}
-					total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}
-					allTotal={numberFormatter('dollars suffix', totalBudgetByLaw[i.label], 3)}
-					firstBar={key === 0}
-					lastBar={key === chartData.length - 1}
-					openModal={(e) => openModal(e, i, thisBar)}
-					isModal={false}
-				/>
+				<>
+					{i.label === 'Total' ?
+						<>
+							<p>New Agency Spending</p>
+							<Bar
+								key={key}
+								data={thisBar}
+								totalBar={i.label === 'Total'}
+								total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}
+								isModal={false}
+							/>
+						</>
+					:
+						phase(i, thisBar)
+					}
+
+				</>
 			);
 		});
 
@@ -277,11 +351,6 @@ export default function Tracking(props) {
 						</div>
 					</Grid>
 				</Grid>
-				<div className={styles.percentLegend}>
-					<span>0%</span>
-					<span>50%</span>
-					<span>100%</span>
-				</div>
 				<div
 					className={styles.barContainer}
 					aria-label="Horizontal stacked bar chart depicting the portion of total budgetary resources from the supplemental funding that have been obligated and outlaid to date. Data can be displayed by all accounts, spending accounts, or loan program accounts."
@@ -291,22 +360,6 @@ export default function Tracking(props) {
 			</>
 		);
 	};
-
-	const accountBreakdownOptions = [
-		{
-			name: 'All Accounts',
-			icon: <AllAccountsIcon className={styles.dropdownIcon} />,
-		},
-		{
-			name: 'Spending Accounts',
-			icon: <SpendingAccountsIcon className={styles.dropdownIcon} />,
-		},
-		{
-			name: 'Loan Program Accounts',
-			icon: <LoanProgramAccountsIcon className={styles.dropdownIcon} />,
-		},
-	];
-	const [activeAccountFilter, setActiveAccountFilter] = useState(accountBreakdownOptions[0].name);
 
 	const titleComponent = (
 		<>
@@ -375,9 +428,7 @@ export default function Tracking(props) {
 					bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
 					data={filterModalData()}
 					mainBar={mainBar}
-					barData={selectedBarData}
 					isModal
-					activeAcc={activeAccountFilter}
 					mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
 				/>
 			</ModalReference>
