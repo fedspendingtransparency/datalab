@@ -46,12 +46,12 @@ export default class ReadMore extends React.Component {
   }
 
   toggleReadMore = () => {
-    const { scrollX, scrollY } = window
+    const { pageXOffset, pageYOffset } = window
     if(this.state.isOpen) {
       location = `${window.location.pathname}#section-${this.state.sectionId}`;
     }
     this.setState(prevState => ({ isOpen: !prevState.isOpen }), () => {
-      window.scrollTo(scrollX, scrollY)
+      window.scrollTo(pageXOffset, pageYOffset)
     });
   }
 
