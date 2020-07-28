@@ -18,7 +18,7 @@ export default function ElbowCallout(props) {
 		if (isModal) {
 			return (
 				<>
-					<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="600">
+					<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition} fontSize={mobile ? defaults.smFontSize : defaults.mdFontSize} fontWeight="600">
 						{label}
 					</text>
 					<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>

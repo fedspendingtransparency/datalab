@@ -202,7 +202,7 @@ export default function Tracking(props) {
 			} else if (selectedBar.Loan_Program_Account === 'Yes') {
 				subtitle = 'Loan Account Spending';
 				ofTotalAmount = selectedBar.label;
-				icon = <>&nbsp;<LIcon />&nbsp;</>
+				icon = <>&nbsp;<LIcon height={22} width={22} />&nbsp;</>
 			}
 			return [
 				<span className={styles.modalTitle}>
