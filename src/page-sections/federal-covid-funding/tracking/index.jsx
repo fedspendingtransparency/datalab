@@ -26,45 +26,25 @@ export default function Tracking(props) {
 			loanAcct: 'no',
 			enactedDate: 'March 6, 2020',
 			height: '164',
-			svgs: {total: 'somepath'}
 		},
 		'2': {
 			title: 'Families First Coronavirus Response Act',
 			loanAcct: 'no',
 			enactedDate: 'March 18, 2020',
 			height: '198',
-			svgs: {total: 'somepath'}
 		},
 		'3': {
 			title: 'Coronavirus Aid, Relief, and Economic Security Act',
 			loanAcct: 'yes',
 			enactedDate: 'March 27, 2020',
 			height: '198',
-			svgs: {
-				total: 'somepath',
-				spending: 'somepath2',
-				loan: 'somepath3'
-			}
 		},
 		'3.5': {
 			title: 'Paycheck Protection Program and Health Care Enhancement Act',
 			loanAcct: 'yes',
 			enactedDate: 'April 24, 2020',
 			height: '198',
-			svgs: {
-				total: 'somepath',
-				spending: 'somepath2',
-				loan: 'somepath3'
-			}
 		}
-	}
-
-	const phaseSvgs = {
-		'1': {
-			total: 'somepath',
-			spending: 'somepath2',
-			loan: 'somepath3'
-		},
 	}
 
 	const data = useStaticQuery(graphql`
