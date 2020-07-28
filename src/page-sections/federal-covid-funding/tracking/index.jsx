@@ -16,6 +16,7 @@ import Bar from './bars/bar';
 import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
 import styles from './tracking.module.scss';
 import defaultImage from 'src/images/default-image.jpg';
+import PurpleDot from '../../../svgs/federal-covid-spending/budget/purpleDot.svg';
 
 export default function Tracking(props) {
 
@@ -24,18 +25,21 @@ export default function Tracking(props) {
 			title: 'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
 			loanAcct: 'no',
 			enactedDate: '3/6/2020',
+			height: '200',
 			svgs: {total: 'somepath'}
 		},
 		'2': {
 			title: 'Families First Coronavirus Response Act',
 			loanAcct: 'no',
 			enactedDate: '3/6/2020',
+			height: '200',
 			svgs: {total: 'somepath'}
 		},
 		'3': {
 			title: 'Coronavirus Aid, Relief, and Economic Security Act',
 			loanAcct: 'yes',
 			enactedDate: '3/6/2020',
+			height: '200',
 			svgs: {
 				total: 'somepath',
 				spending: 'somepath2',
@@ -46,12 +50,21 @@ export default function Tracking(props) {
 			title: 'Paycheck Protection Program and Health Care Enhancement Act',
 			loanAcct: 'yes',
 			enactedDate: '3/6/2020',
+			height: '200',
 			svgs: {
 				total: 'somepath',
 				spending: 'somepath2',
 				loan: 'somepath3'
 			}
 		}
+	}
+
+	const phaseSvgs = {
+		'1': {
+			total: 'somepath',
+			spending: 'somepath2',
+			loan: 'somepath3'
+		},
 	}
 
 	const data = useStaticQuery(graphql`
@@ -355,7 +368,24 @@ export default function Tracking(props) {
 					className={styles.barContainer}
 					aria-label="Horizontal stacked bar chart depicting the portion of total budgetary resources from the supplemental funding that have been obligated and outlaid to date. Data can be displayed by all accounts, spending accounts, or loan program accounts."
 				>
-					{table}
+					<div className={styles.vizContainer}>
+						<div className={styles.phaseDotsContainer}>
+							{Object.keys(phaseDetail).map((i, key) => {
+								return (
+									<>
+										<PurpleDot />
+										<svg width={8}>
+											<line x1="0" y1="0" x2="0" y2="200"
+														style={{"stroke":"grey","stroke-width":"2"}} />
+										</svg>
+									</>
+								)
+							})}
+						</div>
+						<div className={styles.chartContainer}>
+							{table}
+						</div>
+					</div>
 				</div>
 			</>
 		);

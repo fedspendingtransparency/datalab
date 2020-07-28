@@ -1,11 +1,13 @@
 require('dotenv').config({
 	path: `.env.${process.env.NODE_ENV}`,
 });
+
 const LoadablePlugin = require('@loadable/webpack-plugin');
 
 // window does not exist when we do builds.
 // to account for this, we will check and use null loaders.
 exports.onCreateWebpackConfig = ({ stage, actions, loaders }) => {
+
 	actions.setWebpackConfig({
 		devtool: 'eval-source-map',
 		plugins: [

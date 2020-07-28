@@ -4,6 +4,28 @@ h2 {
 	font-size: 2rem;
 }
 
+.vizContainer {
+	display: flex;
+	flex-direction: row;
+
+	.phaseDotsContainer {
+		display: flex;
+		flex-direction: column;
+
+		PurpleDot {
+
+		}
+
+		svg line {
+
+		}
+	}
+
+	.chartContainer {
+		flex: 1;
+	}
+}
+
 .legendContainer {
 	.legendAsOf {
 		font-size: 1rem;
@@ -165,7 +187,7 @@ h2 {
 	.selectionAmountVal {
 		font-size: 24px;
 	}
-	
+
 	.selectionAmountValSmall {
 		font-size: 18px;
 	}
@@ -194,7 +216,7 @@ h2 {
 			align-items: flex-end;
 		}
 	}
-	
+
 	.percentLegend {
 		margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
 	}
@@ -206,7 +228,7 @@ h2 {
   .selectionAmountVal {
     font-size: 18px;
   }
-  
+
   .selectionAmountValSmall {
     font-size: 16px;
   }
@@ -275,5 +297,5 @@ h2 {
 @media screen and (max-width: $tablet - 1) {
 	.section-heading {
 		font-size: 1.25rem;
-	}	
+	}
 }
