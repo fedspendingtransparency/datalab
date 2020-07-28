@@ -21,7 +21,7 @@ export default function StraightCallout(props) {
 						fill={defaults.fontColor}
 						x={`${labelOffset}%`}
 						y={defaults.textPosition}
-						fontSize={defaults.mdFontSize}
+						fontSize={mobile ? defaults.smFontSize : defaults.mdFontSize}
 						fontWeight="600"
 					>
 						{label}

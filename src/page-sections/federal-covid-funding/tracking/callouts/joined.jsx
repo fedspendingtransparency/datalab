@@ -20,14 +20,14 @@ export default function JoinedCallout(props) {
 		if (isModal) {
 			return (
 				<>
-					<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="600">
+					<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition} fontSize={mobile ? defaults.smFontSize : defaults.mdFontSize} fontWeight="600">
 						{label1}
 					</text>
 					<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
 						{numberFormatter('dollars suffix', label1Amount, 3)}
 					</text>
 
-					<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition} fontSize={defaults.mdFontSize} fontWeight="600">
+					<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition} fontSize={mobile ? defaults.smFontSize : defaults.mdFontSize} fontWeight="600">
 						{label2}
 					</text>
 					<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>

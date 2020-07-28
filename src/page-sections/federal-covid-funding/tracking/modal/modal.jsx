@@ -51,10 +51,10 @@ export default function CovidModal(props) {
 							<div key={key} id="covid-modal" style={{ paddingRight: 10, paddingBottom: 27 }}>
 								<p style={{ marginBottom: 4, marginTop: 5 }}>
 									<span>
-										<b>
+										<span className={styles.agencyName}>
 											{i.Agency}
 											{' '}
-										</b>
+										</span>
 									</span>
 									<span>
 										{numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}

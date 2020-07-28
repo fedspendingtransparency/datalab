@@ -56,6 +56,11 @@
   }
 }
 
+.agency-name {
+  font-weight: 600;
+  color: #555555;
+}
+
 @media screen and (max-width: $phone - 1) {
   .account {
     position: relative;
