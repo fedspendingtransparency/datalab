@@ -241,10 +241,10 @@ export default function Tracking(props) {
 			title = 'Law Total';
 			break;
 		case 'No':
-			title = 'General Spending Account';
+			title = 'General Account Spending';
 			break;
 		case 'Yes':
-			title = 'Loan Program Account';
+			title = 'Loan Account Spending';
 			break;
 		}
 
