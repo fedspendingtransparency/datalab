@@ -14,7 +14,7 @@ h2 {
 		flex-direction: column;
 		align-items: center;
 		margin-right: 20px;
-		margin-top: 8px;
+		margin-top: 6px;
 
 	}
 
@@ -32,6 +32,26 @@ h2 {
 		color: #555555;
 		text-transform: uppercase;
 		margin-bottom: 5px;
+	}
+
+	.enactedDate {
+		font-size: 0.875rem;
+		font-style: italic;
+		color: #666666;
+		margin-bottom: 21px;
+	}
+
+	.barTitle {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: $legacyBlue;
+		text-transform: uppercase;
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
 	}
 
 }

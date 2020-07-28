@@ -24,22 +24,22 @@ export default function Tracking(props) {
 		'1': {
 			title: 'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
 			loanAcct: 'no',
-			enactedDate: '3/6/2020',
-			height: '200',
+			enactedDate: 'March 6, 2020',
+			height: '164',
 			svgs: {total: 'somepath'}
 		},
 		'2': {
 			title: 'Families First Coronavirus Response Act',
 			loanAcct: 'no',
-			enactedDate: '3/6/2020',
-			height: '200',
+			enactedDate: 'March 18, 2020',
+			height: '198',
 			svgs: {total: 'somepath'}
 		},
 		'3': {
 			title: 'Coronavirus Aid, Relief, and Economic Security Act',
 			loanAcct: 'yes',
-			enactedDate: '3/6/2020',
-			height: '200',
+			enactedDate: 'March 27, 2020',
+			height: '198',
 			svgs: {
 				total: 'somepath',
 				spending: 'somepath2',
@@ -49,8 +49,8 @@ export default function Tracking(props) {
 		'3.5': {
 			title: 'Paycheck Protection Program and Health Care Enhancement Act',
 			loanAcct: 'yes',
-			enactedDate: '3/6/2020',
-			height: '200',
+			enactedDate: 'April 24, 2020',
+			height: '198',
 			svgs: {
 				total: 'somepath',
 				spending: 'somepath2',
@@ -252,7 +252,7 @@ export default function Tracking(props) {
 
 		return null;
 	};
-	
+
 	const phase = (i, thisBar) => {
 		let title;
 
@@ -275,12 +275,18 @@ export default function Tracking(props) {
 						<div className={styles.phaseTitle}>
 							Phase {i.label}: {phaseDetail[`${i.label}`].title}
 						</div>
-						<div>Enacted {phaseDetail[`${i.label}`].enactedDate}</div>
+						<div className={styles.enactedDate}>Enacted {phaseDetail[`${i.label}`].enactedDate}</div>
 					</>
 					: null
 				}
-				<p onClick={(e) => openModal(e, i, thisBar)}>{title}</p>
-				<img src={defaultImage} height='25' />
+
+				{phaseDetail[`${i.label}`].loanAcct === 'yes' || i.Loan_Program_Account === 'Law Total' ?
+					<>
+						<div className={styles.barTitle} onClick={(e) => openModal(e, i, thisBar)}>{title}</div>
+						<img src={defaultImage} height='25'/>
+					</>
+					: null
+				}
 			</>
 		)
 	}
@@ -365,9 +371,9 @@ export default function Tracking(props) {
 							{Object.keys(phaseDetail).map((i, key) => {
 								return (
 									<>
-										<PurpleDot />
-										<svg width={2}>
-											<line x1="0" y1="0" x2="0" y2="200"
+										<PurpleDot width={11} />
+										<svg width={1} height={phaseDetail[i].height} style={{'marginTop': '2px'}}>
+											<line x1="0" y1="0" x2="0" y2={phaseDetail[i].height}
 														style={{"stroke":"#c6c6c6","stroke-width":"1"}} />
 										</svg>
 									</>
