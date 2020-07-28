@@ -47,6 +47,7 @@ h2 {
 		color: $legacyBlue;
 		text-transform: uppercase;
 		cursor: pointer;
+		text-decoration: none;
 
 		&:hover {
 			text-decoration: underline;
@@ -257,13 +258,17 @@ h2 {
 		font-size: 18px;
 	}
 
-  .selectionAmountVal {
-    font-size: 18px;
-  }
+	.selectionAmountVal {
+	font-size: 18px;
+	}
 
-  .selectionAmountValSmall {
-    font-size: 16px;
-  }
+	.selectionAmountValSmall {
+	font-size: 16px;
+	}
+
+	.barTitle {
+		text-decoration: underline !important;
+	}
 }
 
 @media screen and (max-width: $tablet - 1) {
@@ -276,17 +281,33 @@ h2 {
 
 	.legendContainer {
 		.legend {
-	    align-items: center;
+			align-items: center;
 
-	    .blockContainer {
-				margin-top: 15px;
-				justify-content: space-around;
-	    }
+			.blockContainer {
+					margin-top: 15px;
+					justify-content: space-around;
+			}
 		}
 	}
 
 	.percentLegend {
 		margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+	}
+
+	.section-heading {
+		font-size: 1.25rem;
+	}
+
+	.phaseTitle {
+		font-size: 0.875rem !important;
+	}
+
+	.enactedDate {
+		font-size: 0.75rem !important;
+	}
+
+	.barTitle {
+		font-size: 0.875rem !important;
 	}
 }
 
@@ -326,8 +347,3 @@ h2 {
 	}
 }
 
-@media screen and (max-width: $tablet - 1) {
-	.section-heading {
-		font-size: 1.25rem;
-	}
-}

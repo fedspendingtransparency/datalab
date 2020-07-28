@@ -282,8 +282,19 @@ export default function Tracking(props) {
 
 				{phaseDetail[`${i.label}`].loanAcct === 'yes' || i.Loan_Program_Account === 'Law Total' ?
 					<>
-						<div className={styles.barTitle} onClick={(e) => openModal(e, i, thisBar)}>{title}</div>
+						<a tabIndex= '0'
+							className={styles.barTitle}
+							 onClick={(e) => openModal(e, i, thisBar)}>
+							{i.Loan_Program_Account === 'Yes' ?
+									<>
+										<LIcon />
+										&nbsp;&nbsp;{title}
+									</>
+									: title}
+						</a>
+						<br/>
 						<img src={defaultImage} height='25'/>
+						<br/>
 					</>
 					: null
 				}
