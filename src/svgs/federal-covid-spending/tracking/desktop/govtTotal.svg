@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class='' width="911px" height="95px" viewBox="0 0 911 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bar-1 copy</title>
+    <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Viz-3---SVG-Export" transform="translate(-279.000000, -310.000000)">
+            <g id="bar-1---total-govt" transform="translate(279.000000, 272.000000)">
+                <g id="bar-1-copy" transform="translate(0.000000, 38.000000)">
+                    <rect id="unobligated" fill="#F3E9FF" x="424" y="0" width="424" height="40"></rect>
+                    <rect id="obligated" fill="#6F41A7" x="212" y="0" width="212" height="40"></rect>
+                    <rect id="outlays" fill="#331E4D" x="0" y="0" width="212" height="40"></rect>
+                    <text id="$2.58T" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="16" font-weight="bold" fill="#6F41A7">
+                        <tspan x="863" y="26">$2.58T</tspan>
+                    </text>
+                    <text id="Outlays-$1.31T" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                        <tspan x="0" y="73">Outlays</tspan>
+                        <tspan x="46.256" y="73" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                        <tspan x="0" y="91" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$1.31T</tspan>
+                    </text>
+                    <text id="Obligations-$1.46T" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                        <tspan x="283.955" y="73">Obligations</tspan>
+                        <tspan x="299.089" y="91" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$1.46T</tspan>
+                    </text>
+                    <text id="Unobligated-$1.12T" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                        <tspan x="774.108" y="73">Unobligated</tspan>
+                        <tspan x="809.178" y="91" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$1.12T</tspan>
+                    </text>
+                    <line x1="10.5" y1="40" x2="10.5" y2="55" id="Line" stroke="#C6C6C6"></line>
+                    <line x1="318.5" y1="40" x2="318.5" y2="55" id="Line-Copy-5" stroke="#C6C6C6"></line>
+                    <line x1="837.5" y1="40" x2="837.5" y2="55" id="Line-Copy-2" stroke="#C6C6C6"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

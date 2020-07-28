@@ -18,6 +18,26 @@ import styles from './tracking.module.scss';
 import defaultImage from 'src/images/default-image.jpg';
 import PurpleDot from '../../../svgs/federal-covid-spending/budget/purpleDot.svg';
 
+import GovtTotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/govtTotal.svg'
+import Phase1SVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase1.svg'
+import Phase2SVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase2.svg'
+import Phase3TotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase3Total.svg'
+import Phase3GeneralSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase3General.svg'
+import Phase3LoanSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase3Loan.svg'
+import Phase35TotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase35Total.svg'
+import Phase35GeneralSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase35General.svg'
+import Phase35LoanSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase35Loan.svg'
+
+import GovtTotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/govtTotal.svg'
+import Phase1MobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase1.svg'
+import Phase2MobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase2.svg'
+import Phase3TotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase3Total.svg'
+import Phase3GeneralMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase3General.svg'
+import Phase3LoanMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase3Loan.svg'
+import Phase35TotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35Total.svg'
+import Phase35GeneralMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35General.svg'
+import Phase35LoanMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35Loan.svg'
+
 export default function Tracking(props) {
 
 	const phaseDetail = {
@@ -44,6 +64,80 @@ export default function Tracking(props) {
 			loanAcct: 'yes',
 			enactedDate: 'April 24, 2020',
 			height: '198',
+		}
+	}
+
+	const phaseDesktopSVGs = {
+		'Total': {
+			height: '164',
+			svgs: {
+				'Law Total': GovtTotalSVG
+			}
+		},
+		'1': {
+			height: '164',
+			svgs: {
+				'Law Total': Phase1SVG
+			}
+		},
+		'2': {
+			height: '164',
+			svgs: {
+				'Law Total': Phase2SVG
+			}
+		},
+		'3': {
+			height: '164',
+			svgs: {
+				'Law Total': Phase3TotalSVG,
+				'No': Phase3GeneralSVG,
+				'Yes': Phase3LoanSVG
+			}
+		},
+		'3.5': {
+			height: '164',
+			svgs: {
+				'Law Total': Phase35TotalSVG,
+				'No': Phase35GeneralSVG,
+				'Yes': Phase35LoanSVG
+			}
+		}
+	}
+
+	const phaseMobileSVGs = {
+		'Total': {
+			height: '164',
+			svgs: {
+				'Law Total': GovtTotalMobileSVG
+			}
+		},
+		'1': {
+			height: '164',
+			svgs: {
+				'Law Total': Phase1MobileSVG
+			}
+		},
+		'2': {
+			height: '164',
+			svgs: {
+				'Law Total': Phase2MobileSVG
+			}
+		},
+		'3': {
+			height: '164',
+			svgs: {
+				'Law Total': Phase3TotalMobileSVG,
+				'No': Phase3GeneralMobileSVG,
+				'Yes': Phase3LoanMobileSVG
+			}
+		},
+		'3.5': {
+			height: '164',
+			svgs: {
+				'Law Total': Phase35TotalMobileSVG,
+				'No': Phase35GeneralMobileSVG,
+				'Yes': Phase35LoanMobileSVG
+			}
 		}
 	}
 
@@ -233,7 +327,7 @@ export default function Tracking(props) {
 		return null;
 	};
 
-	const phase = (i, thisBar) => {
+	const phase = (i, thisBar, SectionTag) => {
 		let title;
 
 		switch (i.Loan_Program_Account) {
@@ -273,7 +367,7 @@ export default function Tracking(props) {
 									: title}
 						</a>
 						<br/>
-						<img src={defaultImage} height='25'/>
+						<SectionTag />
 						<br/>
 					</>
 					: null
@@ -296,21 +390,17 @@ export default function Tracking(props) {
 				percent: parseFloat(i.Percent_Unobligated).toFixed(2),
 			}];
 
+			const SectionTag = phaseDesktopSVGs[i.label].svgs[i.Loan_Program_Account];
+
 			return (
-				<>
+			<>
 					{i.label === 'Total' ?
 						<>
 							<div className={styles.totalHeading}>New Agency Funding</div>
-							<Bar
-								key={key}
-								data={thisBar}
-								totalBar={i.label === 'Total'}
-								total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}
-								isModal={false}
-							/>
+							<SectionTag />
 						</>
 					:
-						phase(i, thisBar)
+						phase(i, thisBar, SectionTag)
 					}
 
 				</>

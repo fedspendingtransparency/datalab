@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="391px" height="85px" viewBox="0 0 391 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bar - phase 3 loan</title>
+    <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Viz-3---SVG-Export" transform="translate(-279.000000, -1302.000000)">
+            <g id="law-3" transform="translate(279.000000, 911.000000)">
+                <g id="bar-1-copy-3" transform="translate(0.000000, 363.000000)">
+                    <g id="bar---phase-3-loan" transform="translate(0.000000, 28.000000)">
+                        <text id="Outlays-$304B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                            <tspan x="0" y="63">Outlays</tspan>
+                            <tspan x="46.256" y="63" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                            <tspan x="0" y="81" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$304B</tspan>
+                        </text>
+                        <text id="Obligations-$333B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                            <tspan x="147" y="63">Obligations</tspan>
+                            <tspan x="216.09" y="63" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                            <tspan x="147" y="81" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$333B</tspan>
+                        </text>
+                        <text id="Unobligated-$565B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                            <tspan x="317" y="63">Unobligated</tspan>
+                            <tspan x="317" y="81" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$565B</tspan>
+                        </text>
+                        <path d="M179,30 L179,34.6176471 C179,35.7222166 178.104569,36.6176471 177,36.6176471 L33,36.6176471 C31.8954305,36.6176471 31,37.5130776 31,38.6176471 L31,45 L31,45" id="Line-Copy-7" stroke="#C6C6C6" stroke-linecap="round" transform="translate(105.000000, 37.500000) scale(-1, 1) translate(-105.000000, -37.500000) "></path>
+                        <path d="M344,30 L344,34.6176471 C344,35.7222166 343.104569,36.6176471 342,36.6176471 L229,36.6176471 C227.895431,36.6176471 227,37.5130776 227,38.6176471 L227,45 L227,45" id="Line-Copy-8" stroke="#C6C6C6" stroke-linecap="round" transform="translate(285.500000, 37.500000) scale(-1, 1) translate(-285.500000, -37.500000) "></path>
+                        <line x1="4" y1="30" x2="4" y2="45" id="Line" stroke="#C6C6C6"></line>
+                        <rect id="unobligated" fill="#F3E9FF" x="54" y="0" width="205" height="30"></rect>
+                        <rect id="obligated" fill="#6F41A7" x="7" y="0" width="47" height="30"></rect>
+                        <rect id="outlays" fill="#331E4D" x="0" y="0" width="7" height="30"></rect>
+                        <text id="$898B" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="14" font-weight="bold" fill="#555555">
+                            <tspan x="267" y="20">$898B</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

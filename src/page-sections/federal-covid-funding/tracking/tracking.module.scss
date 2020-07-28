@@ -18,6 +18,12 @@ h2 {
 
 	}
 
+	.chartContainer {
+		svg:not(:global(#lIcon)) {
+			margin-bottom: 60px;
+		}
+	}
+
 	.totalHeading {
 		text-transform: uppercase;
 		color: $covidPurple;
