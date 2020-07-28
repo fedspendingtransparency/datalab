@@ -311,7 +311,7 @@ export default function Tracking(props) {
 				<>
 					{i.label === 'Total' ?
 						<>
-							<p>New Agency Spending</p>
+							<div className={styles.totalHeading}>New Agency Funding</div>
 							<Bar
 								key={key}
 								data={thisBar}
@@ -374,9 +374,9 @@ export default function Tracking(props) {
 								return (
 									<>
 										<PurpleDot />
-										<svg width={8}>
+										<svg width={2}>
 											<line x1="0" y1="0" x2="0" y2="200"
-														style={{"stroke":"grey","stroke-width":"2"}} />
+														style={{"stroke":"#c6c6c6","stroke-width":"1"}} />
 										</svg>
 									</>
 								)

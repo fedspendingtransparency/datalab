@@ -1,4 +1,5 @@
 @import "./bars/bar.module.scss";
+@import "../../../styles/variables.scss";
 
 h2 {
 	font-size: 2rem;
@@ -11,18 +12,18 @@ h2 {
 	.phaseDotsContainer {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
+		margin-right: 20px;
+		margin-top: 8px;
 
-		PurpleDot {
-
-		}
-
-		svg line {
-
-		}
 	}
 
-	.chartContainer {
-		flex: 1;
+	.totalHeading {
+		text-transform: uppercase;
+		color: $covidPurple;
+		font-size: 1.125rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
 	}
 }
 
