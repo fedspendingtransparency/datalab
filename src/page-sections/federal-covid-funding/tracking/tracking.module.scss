@@ -16,10 +16,16 @@ h2 {
 		margin-right: 20px;
 		margin-top: 6px;
 
+		svg.line {
+			margin-top: 0.5rem;
+			margin-bottom: 0.5rem;
+		}
+
 	}
 
 	.chartContainer {
 		svg:not(:global(#lIcon)) {
+			margin-top: 0.5rem;
 			margin-bottom: 60px;
 		}
 	}
@@ -29,7 +35,6 @@ h2 {
 		color: $covidPurple;
 		font-size: 1.125rem;
 		font-weight: 600;
-		margin-bottom: 1rem;
 	}
 
 	.phaseTitle {

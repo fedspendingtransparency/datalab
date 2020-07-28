@@ -45,49 +45,45 @@ export default function Tracking(props) {
 			title: 'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
 			loanAcct: 'no',
 			enactedDate: 'March 6, 2020',
-			height: '164',
 		},
 		'2': {
 			title: 'Families First Coronavirus Response Act',
 			loanAcct: 'no',
 			enactedDate: 'March 18, 2020',
-			height: '198',
 		},
 		'3': {
 			title: 'Coronavirus Aid, Relief, and Economic Security Act',
 			loanAcct: 'yes',
 			enactedDate: 'March 27, 2020',
-			height: '198',
 		},
 		'3.5': {
 			title: 'Paycheck Protection Program and Health Care Enhancement Act',
 			loanAcct: 'yes',
 			enactedDate: 'April 24, 2020',
-			height: '198',
 		}
 	}
 
 	const phaseDesktopSVGs = {
 		'Total': {
-			height: '164',
+			height: '176',
 			svgs: {
 				'Law Total': GovtTotalSVG
 			}
 		},
 		'1': {
-			height: '164',
+			height: '186',
 			svgs: {
 				'Law Total': Phase1SVG
 			}
 		},
 		'2': {
-			height: '164',
+			height: '190',
 			svgs: {
 				'Law Total': Phase2SVG
 			}
 		},
 		'3': {
-			height: '164',
+			height: '602',
 			svgs: {
 				'Law Total': Phase3TotalSVG,
 				'No': Phase3GeneralSVG,
@@ -95,7 +91,7 @@ export default function Tracking(props) {
 			}
 		},
 		'3.5': {
-			height: '164',
+			height: '0',
 			svgs: {
 				'Law Total': Phase35TotalSVG,
 				'No': Phase35GeneralSVG,
@@ -449,12 +445,14 @@ export default function Tracking(props) {
 				>
 					<div className={styles.vizContainer}>
 						<div className={styles.phaseDotsContainer}>
-							{Object.keys(phaseDetail).map((i, key) => {
+							{['Total', '1', '2', '3', '3.5'].map((i, key) => {
+								console.log(i);
+								console.log(phaseDesktopSVGs[i].height);
 								return (
 									<>
 										<PurpleDot width={11} />
-										<svg width={1} height={phaseDetail[i].height} style={{'marginTop': '2px'}}>
-											<line x1="0" y1="0" x2="0" y2={phaseDetail[i].height}
+										<svg class='line' width={1} height={phaseDesktopSVGs[i].height} style={{'marginTop': '2px'}}>
+											<line x1="0" y1="0" x2="0" y2={phaseDesktopSVGs[i].height}
 														style={{"stroke":"#c6c6c6","stroke-width":"1"}} />
 										</svg>
 									</>
