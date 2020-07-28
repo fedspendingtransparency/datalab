@@ -13,9 +13,9 @@ import ModalReference from 'src/components/modal/modal';
 import { Grid } from '@material-ui/core';
 import Modal from './modal/modal';
 import Bar from './bars/bar';
-import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
 import styles from './tracking.module.scss';
-import defaultImage from 'src/images/default-image.jpg';
+
+import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
 import PurpleDot from '../../../svgs/federal-covid-spending/budget/purpleDot.svg';
 
 import GovtTotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/govtTotal.svg'
@@ -65,25 +65,25 @@ export default function Tracking(props) {
 
 	const phaseDesktopSVGs = {
 		'Total': {
-			height: '176',
+			height: '174',
 			svgs: {
 				'Law Total': GovtTotalSVG
 			}
 		},
 		'1': {
-			height: '186',
+			height: '182',
 			svgs: {
 				'Law Total': Phase1SVG
 			}
 		},
 		'2': {
-			height: '190',
+			height: '184',
 			svgs: {
 				'Law Total': Phase2SVG
 			}
 		},
 		'3': {
-			height: '602',
+			height: '598',
 			svgs: {
 				'Law Total': Phase3TotalSVG,
 				'No': Phase3GeneralSVG,
@@ -451,7 +451,7 @@ export default function Tracking(props) {
 								return (
 									<>
 										<PurpleDot width={11} />
-										<svg class='line' width={1} height={phaseDesktopSVGs[i].height} style={{'marginTop': '2px'}}>
+										<svg class='line' width={1} height={phaseDesktopSVGs[i].height}>
 											<line x1="0" y1="0" x2="0" y2={phaseDesktopSVGs[i].height}
 														style={{"stroke":"#c6c6c6","stroke-width":"1"}} />
 										</svg>
