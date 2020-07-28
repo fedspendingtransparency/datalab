@@ -22,8 +22,7 @@ svg {
 }
 
 .totalBar {
-  background-color: $lightBackground;
-  border-bottom: $chartBorder;
+  margin-bottom: 80px;
 
   .sideLabel,
   .sideBudget,
@@ -40,20 +39,6 @@ svg {
 .container {
   display: flex;
   justify-content: space-between;
-
-  &:hover {
-    .boldOnHover {
-      font-weight: $bold;
-    }
-
-    :not .totalBar {
-      cursor: pointer;
-    }
-  }
-
-  .topPad {
-    padding-top: 1rem;
-  }
 
   .sideLabel {
     flex-basis: $labelWidth;
@@ -80,45 +65,9 @@ svg {
     display: flex;
     flex-flow: row wrap;
 
-    background-image: linear-gradient(
-      to right,
-      transparent,
-      transparent 24.8%,
-      $background-gray-warm-light 24.8%,
-      $background-gray-warm-light 25%,
-      transparent 25%,
-      transparent 49.8%,
-      $background-gray-warm-light 49.8%,
-      $background-gray-warm-light 50%,
-      transparent 50%,
-      transparent 74.8%,
-      $background-gray-warm-light 74.8%,
-      $background-gray-warm-light 75%,
-      transparent 75%
-    );
-
     .bar {
       position: relative;
       width: 100%;
-
-      &.barBorder {
-        border-left: $chartBorder;
-        border-right: $chartBorder;
-      }
-
-      &.firstBar {
-        border-top: $chartBorder;
-      }
-
-      &.lastBar {
-        border-bottom: $chartBorder;
-        padding-bottom: 1rem;
-      }
-
-      .callout {
-        position: absolute;
-        width: 100%;
-      }
 
       .barLabels {
         display: flex;

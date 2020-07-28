@@ -1,8 +1,63 @@
 @import "./bars/bar.module.scss";
+@import "../../../styles/variables.scss";
 
 h2 {
 	font-size: 2rem;
 }
+
+.vizContainer {
+	display: flex;
+	flex-direction: row;
+
+	.phaseDotsContainer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-right: 20px;
+		margin-top: 6px;
+
+	}
+
+	.totalHeading {
+		text-transform: uppercase;
+		color: $covidPurple;
+		font-size: 1.125rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+	}
+
+	.phaseTitle {
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: #555555;
+		text-transform: uppercase;
+		margin-bottom: 5px;
+	}
+
+	.enactedDate {
+		font-size: 0.875rem;
+		font-style: italic;
+		color: #666666;
+		margin-bottom: 21px;
+	}
+
+	.barTitle {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: $legacyBlue;
+		text-transform: uppercase;
+		cursor: pointer;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+	}
+
+}
+
+
 
 .legendContainer {
 	.legendAsOf {
@@ -165,7 +220,7 @@ h2 {
 	.selectionAmountVal {
 		font-size: 24px;
 	}
-	
+
 	.selectionAmountValSmall {
 		font-size: 18px;
 	}
@@ -194,7 +249,7 @@ h2 {
 			align-items: flex-end;
 		}
 	}
-	
+
 	.percentLegend {
 		margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
 	}
@@ -203,13 +258,17 @@ h2 {
 		font-size: 18px;
 	}
 
-  .selectionAmountVal {
-    font-size: 18px;
-  }
-  
-  .selectionAmountValSmall {
-    font-size: 16px;
-  }
+	.selectionAmountVal {
+	font-size: 18px;
+	}
+
+	.selectionAmountValSmall {
+	font-size: 16px;
+	}
+
+	.barTitle {
+		text-decoration: underline !important;
+	}
 }
 
 @media screen and (max-width: $tablet - 1) {
@@ -222,17 +281,33 @@ h2 {
 
 	.legendContainer {
 		.legend {
-	    align-items: center;
+			align-items: center;
 
-	    .blockContainer {
-				margin-top: 15px;
-				justify-content: space-around;
-	    }
+			.blockContainer {
+					margin-top: 15px;
+					justify-content: space-around;
+			}
 		}
 	}
 
 	.percentLegend {
 		margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+	}
+
+	.section-heading {
+		font-size: 1.25rem;
+	}
+
+	.phaseTitle {
+		font-size: 0.875rem !important;
+	}
+
+	.enactedDate {
+		font-size: 0.75rem !important;
+	}
+
+	.barTitle {
+		font-size: 0.875rem !important;
 	}
 }
 
@@ -272,8 +347,3 @@ h2 {
 	}
 }
 
-@media screen and (max-width: $tablet - 1) {
-	.section-heading {
-		font-size: 1.25rem;
-	}	
-}
