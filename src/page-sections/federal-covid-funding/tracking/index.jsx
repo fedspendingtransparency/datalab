@@ -252,17 +252,7 @@ export default function Tracking(props) {
 
 		return null;
 	};
-
-	const program = (i) => {
-		if(i.Loan_Program_Account !== 'Law Total') {
-			return null;
-		}
-
-		return (<>
-			<p>Phase {i.label}: {phaseDetail[`${i.label}`].title}</p>
-			<p>Enacted {phaseDetail[`${i.label}`].enactedDate}</p>
-			</>)
-	}
+	
 	const phase = (i, thisBar) => {
 		let title;
 
@@ -282,8 +272,10 @@ export default function Tracking(props) {
 			<>
 				{i.Loan_Program_Account === 'Law Total' ?
 					<>
-						<p>Phase {i.label}: {phaseDetail[`${i.label}`].title}</p>
-						<p>Enacted {phaseDetail[`${i.label}`].enactedDate}</p>
+						<div className={styles.phaseTitle}>
+							Phase {i.label}: {phaseDetail[`${i.label}`].title}
+						</div>
+						<div>Enacted {phaseDetail[`${i.label}`].enactedDate}</div>
 					</>
 					: null
 				}
