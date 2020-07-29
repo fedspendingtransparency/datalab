@@ -140,7 +140,6 @@ h2 {
 	display: flex;
 	justify-content: space-between;
 	align-content: center;
-	margin: 0 calc(#{$budgetWidth} - 2.5rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
 	color: #555;
 	height: 18px;
 	font-size: 14px;
@@ -269,9 +268,9 @@ h2 {
 		}
 	}
 
-	.percentLegend {
-		margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
-	}
+	// .percentLegend {
+	// 	margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
+	// }
 
 	.modal-title {
 		font-size: 18px;
@@ -309,9 +308,9 @@ h2 {
 		}
 	}
 
-	.percentLegend {
-		margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
-	}
+	// .percentLegend {
+	// 	margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+	// }
 
 	.section-heading {
 		font-size: 1.25rem;
@@ -337,9 +336,9 @@ h2 {
 		line-height: 30px;
 	}
 
-	.percentLegend {
-		margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
-	}
+	// .percentLegend {
+	// 	margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+	// }
 
 	.percentLegend > span {
 		font-size: 0.75rem;

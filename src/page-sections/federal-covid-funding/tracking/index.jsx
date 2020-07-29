@@ -12,8 +12,11 @@ import Share from 'src/components/share/share';
 import ModalReference from 'src/components/modal/modal';
 import { Grid } from '@material-ui/core';
 import Modal from './modal/modal';
+
 import Bar from './bars/bar';
-import CalloutBar from './bars/callout-area.jsx';
+import ModalPercentBar from '../tracking/bars/percent-bar.jsx';
+//import StraightCallout from '../tracking/callouts/straight.jsx';
+
 import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
 
 import styles from './tracking.module.scss';
@@ -47,7 +50,9 @@ export default function Tracking(props) {
       enactedDate: 'April 24, 2020',
       height: '198',
     }
-  }
+  };
+
+  const modal_percent_data = [{amount: 0, percent: 33.333333}, {amount: 0, percent: 33.333333}, {amount: 0, percent: 33.333333}];
 
   const data = useStaticQuery(graphql`
     query {
@@ -446,6 +451,14 @@ export default function Tracking(props) {
 	paperStyle={paperStyle}
       >
         <div className={styles.scaleContainer}><p>Represented on a 100% scale</p></div>
+        {/* <ModalPercentBar */}
+        {/*   data={[]} */}
+        {/* /> */}
+        <div className={styles.percentLegend}>
+	  <span>0%</span>
+	  <span>50%</span>
+	  <span>100%</span>
+	</div>
 	<Modal
 	  bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
 	  data={filterModalData()}
