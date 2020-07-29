@@ -59,7 +59,6 @@ export default class Bar extends React.Component {
 	// };
 
 	componentDidMount() {
-          console.log(this.props.data);
 		this.resizeWindow();
 		window.addEventListener('resize', this.resizeWindow);
 	}

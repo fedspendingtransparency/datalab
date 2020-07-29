@@ -12,11 +12,7 @@ import Share from 'src/components/share/share';
 import ModalReference from 'src/components/modal/modal';
 import { Grid } from '@material-ui/core';
 import Modal from './modal/modal';
-
 import Bar from './bars/bar';
-import ModalPercentBar from '../tracking/bars/percent-bar.jsx';
-//import StraightCallout from '../tracking/callouts/straight.jsx';
-
 import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
 
 import styles from './tracking.module.scss';
@@ -178,15 +174,15 @@ export default function Tracking(props) {
       name: 'Loan Program Accounts',
       icon: <LIcon />,
       infoModalDescription: <>
-       <p>
-	 These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
-	 agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.
-       </p>
-       <p>
-	 Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
-	 direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.
-       </p>
-     </>,
+                              <p>
+	                        These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
+	                        agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.
+                              </p>
+                              <p>
+	                        Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
+	                        direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.
+                              </p>
+                            </>,
     },
   ];
 
@@ -435,6 +431,14 @@ export default function Tracking(props) {
     );
   }
 
+  const checkPercentScale = () => {
+    if (screenMode === ScreenModeEnum.tablet) {
+      return <PercentScaleTablet/>;
+    } else {
+      return <PercentScale/>;
+    }
+  };
+
   return (
     <>
       {titleComponent}
@@ -451,14 +455,6 @@ export default function Tracking(props) {
 	paperStyle={paperStyle}
       >
         <div className={styles.scaleContainer}><p>Represented on a 100% scale</p></div>
-        {/* <ModalPercentBar */}
-        {/*   data={[]} */}
-        {/* /> */}
-        <div className={styles.percentLegend}>
-	  <span>0%</span>
-	  <span>50%</span>
-	  <span>100%</span>
-	</div>
 	<Modal
 	  bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
 	  data={filterModalData()}
