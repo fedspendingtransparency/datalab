@@ -100,27 +100,27 @@ export default function Tracking(props) {
 		}
 	}
 
-	const phaseMobileSVGs = {
+	const phaseTabletSVGs = {
 		'Total': {
-			height: '164',
+			height: '160',
 			svgs: {
 				'Law Total': GovtTotalMobileSVG
 			}
 		},
 		'1': {
-			height: '164',
+			height: '172',
 			svgs: {
 				'Law Total': Phase1MobileSVG
 			}
 		},
 		'2': {
-			height: '164',
+			height: '174',
 			svgs: {
 				'Law Total': Phase2MobileSVG
 			}
 		},
 		'3': {
-			height: '164',
+			height: '558',
 			svgs: {
 				'Law Total': Phase3TotalMobileSVG,
 				'No': Phase3GeneralMobileSVG,
@@ -128,7 +128,44 @@ export default function Tracking(props) {
 			}
 		},
 		'3.5': {
-			height: '164',
+			height: '0',
+			svgs: {
+				'Law Total': Phase35TotalMobileSVG,
+				'No': Phase35GeneralMobileSVG,
+				'Yes': Phase35LoanMobileSVG
+			}
+		}
+	}
+
+	const phaseMobileSVGs = {
+		'Total': {
+			height: '160',
+			svgs: {
+				'Law Total': GovtTotalMobileSVG
+			}
+		},
+		'1': {
+			height: '172',
+			svgs: {
+				'Law Total': Phase1MobileSVG
+			}
+		},
+		'2': {
+			height: '174',
+			svgs: {
+				'Law Total': Phase2MobileSVG
+			}
+		},
+		'3': {
+			height: '558',
+			svgs: {
+				'Law Total': Phase3TotalMobileSVG,
+				'No': Phase3GeneralMobileSVG,
+				'Yes': Phase3LoanMobileSVG
+			}
+		},
+		'3.5': {
+			height: '0',
 			svgs: {
 				'Law Total': Phase35TotalMobileSVG,
 				'No': Phase35GeneralMobileSVG,
@@ -206,29 +243,38 @@ export default function Tracking(props) {
 	});
 
 	const [screenMode, setScreenMode] = useState(0);
-	const resizeWindow = () => {
-		const newMode = checkScreenMode(window.innerWidth);
-		if (newMode !== screenMode) {
+	const [svgs, setSvgs] = useState(phaseMobileSVGs);
+
+	if (typeof window !== 'undefined') {
+		const resizeWindow = () => {
+			const newMode = checkScreenMode(window.innerWidth);
+			if (newMode === ScreenModeEnum.mobile) {
+				setSvgs(phaseMobileSVGs);
+			} else if (newMode === ScreenModeEnum.tablet) {
+				setSvgs(phaseTabletSVGs);
+			} else {
+				setSvgs(phaseDesktopSVGs);
+			}
 			setScreenMode(newMode);
-		}
-	};
-	useEffect(() => {
-		resizeWindow();
-		window.addEventListener('resize', resizeWindow);
-		return () => {
-			window.removeEventListener('resize', resizeWindow);
 		};
-	}, []);
+
+		useEffect(() => {
+			resizeWindow();
+			window.addEventListener('resize', resizeWindow);
+			return () => {
+				window.removeEventListener('resize', resizeWindow);
+			};
+		}, []);
+	}
 
 	const [isInfoModalOpen, setInfoModalState] = useState(false);
 
 	const [selectedBar, setSelectedBar] = useState(null);
 	const [isModalOpen, setModalState] = useState(false);
 
-	const openModal = (e, el, barData) => {
+	const openModal = (e, el) => {
 		setModalState(true);
 		setSelectedBar(el);
-		setSelectedBarData(barData);
 	};
 
 	const openInfoModal = () => {
@@ -386,8 +432,7 @@ export default function Tracking(props) {
 				percent: parseFloat(i.Percent_Unobligated).toFixed(2),
 			}];
 
-			const SectionTag = phaseDesktopSVGs[i.label].svgs[i.Loan_Program_Account];
-
+			const SectionTag = svgs[i.label].svgs[i.Loan_Program_Account];
 			return (
 			<>
 					{i.label === 'Total' ?
@@ -446,13 +491,11 @@ export default function Tracking(props) {
 					<div className={styles.vizContainer}>
 						<div className={styles.phaseDotsContainer}>
 							{['Total', '1', '2', '3', '3.5'].map((i, key) => {
-								console.log(i);
-								console.log(phaseDesktopSVGs[i].height);
 								return (
 									<>
 										<PurpleDot width={11} />
-										<svg class='line' width={1} height={phaseDesktopSVGs[i].height}>
-											<line x1="0" y1="0" x2="0" y2={phaseDesktopSVGs[i].height}
+										<svg class='line' width={1} height={svgs[i].height}>
+											<line x1="0" y1="0" x2="0" y2={svgs[i].height}
 														style={{"stroke":"#c6c6c6","stroke-width":"1"}} />
 										</svg>
 									</>
