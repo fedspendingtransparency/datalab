@@ -38,6 +38,16 @@ import Phase35TotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobi
 import Phase35GeneralMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35General.svg'
 import Phase35LoanMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35Loan.svg'
 
+import GovtTotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/govtTotal.svg'
+import Phase1TabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase1.svg'
+import Phase2TabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase2.svg'
+import Phase3TotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase3Total.svg'
+import Phase3GeneralTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase3General.svg'
+import Phase3LoanTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase3Loan.svg'
+import Phase35TotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35Total.svg'
+import Phase35GeneralTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35General.svg'
+import Phase35LoanTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35Loan.svg'
+
 export default function Tracking(props) {
 
 	const phaseDetail = {
@@ -65,25 +75,25 @@ export default function Tracking(props) {
 
 	const phaseDesktopSVGs = {
 		'Total': {
-			height: '174',
+			height: '190',
 			svgs: {
 				'Law Total': GovtTotalSVG
 			}
 		},
 		'1': {
-			height: '182',
+			height: '158',
 			svgs: {
 				'Law Total': Phase1SVG
 			}
 		},
 		'2': {
-			height: '184',
+			height: '152',
 			svgs: {
 				'Law Total': Phase2SVG
 			}
 		},
 		'3': {
-			height: '598',
+			height: '615',
 			svgs: {
 				'Law Total': Phase3TotalSVG,
 				'No': Phase3GeneralSVG,
@@ -102,37 +112,37 @@ export default function Tracking(props) {
 
 	const phaseTabletSVGs = {
 		'Total': {
-			height: '160',
+			height: '190',
 			svgs: {
-				'Law Total': GovtTotalMobileSVG
+				'Law Total': GovtTotalTabletSVG
 			}
 		},
 		'1': {
-			height: '172',
+			height: '182',
 			svgs: {
-				'Law Total': Phase1MobileSVG
+				'Law Total': Phase1TabletSVG
 			}
 		},
 		'2': {
-			height: '174',
+			height: '154',
 			svgs: {
-				'Law Total': Phase2MobileSVG
+				'Law Total': Phase2TabletSVG
 			}
 		},
 		'3': {
-			height: '558',
+			height: '612',
 			svgs: {
-				'Law Total': Phase3TotalMobileSVG,
-				'No': Phase3GeneralMobileSVG,
-				'Yes': Phase3LoanMobileSVG
+				'Law Total': Phase3TotalTabletSVG,
+				'No': Phase3GeneralTabletSVG,
+				'Yes': Phase3LoanTabletSVG
 			}
 		},
 		'3.5': {
 			height: '0',
 			svgs: {
-				'Law Total': Phase35TotalMobileSVG,
-				'No': Phase35GeneralMobileSVG,
-				'Yes': Phase35LoanMobileSVG
+				'Law Total': Phase35TotalTabletSVG,
+				'No': Phase35GeneralTabletSVG,
+				'Yes': Phase35LoanTabletSVG
 			}
 		}
 	}
@@ -145,19 +155,19 @@ export default function Tracking(props) {
 			}
 		},
 		'1': {
-			height: '172',
+			height: '160',
 			svgs: {
 				'Law Total': Phase1MobileSVG
 			}
 		},
 		'2': {
-			height: '174',
+			height: '152',
 			svgs: {
 				'Law Total': Phase2MobileSVG
 			}
 		},
 		'3': {
-			height: '558',
+			height: '544',
 			svgs: {
 				'Law Total': Phase3TotalMobileSVG,
 				'No': Phase3GeneralMobileSVG,
@@ -409,7 +419,7 @@ export default function Tracking(props) {
 									: title}
 						</a>
 						<br/>
-						<SectionTag />
+						<SectionTag  />
 						<br/>
 					</>
 					: null

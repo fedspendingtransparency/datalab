@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class='govtTotal' width="659px" height="95px" viewBox="0 0 659 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>01. govt total</title>
+    <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Viz-3---SVG-Export-Tablet" transform="translate(-70.000000, -238.000000)">
+            <g id="01.-govt-total" transform="translate(70.000000, 238.000000)">
+                <text id="Outlays-$1.31T" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                    <tspan x="0" y="73">Outlays</tspan>
+                    <tspan x="46.256" y="73" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                    <tspan x="0" y="91" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$1.31T</tspan>
+                </text>
+                <text id="Obligations-$1.46T" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                    <tspan x="190.455" y="73">Obligations</tspan>
+                    <tspan x="205.589" y="91" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$1.46T</tspan>
+                </text>
+                <text id="Unobligated-$1.12T" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                    <tspan x="526.108" y="73">Unobligated</tspan>
+                    <tspan x="561.178" y="91" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$1.12T</tspan>
+                </text>
+                <line x1="589.5" y1="40" x2="589.5" y2="55" id="Line-Copy-2" stroke="#C6C6C6"></line>
+                <line x1="225.5" y1="40" x2="225.5" y2="55" id="Line-Copy-5" stroke="#C6C6C6"></line>
+                <line x1="10.5" y1="40" x2="10.5" y2="55" id="Line" stroke="#C6C6C6"></line>
+                <rect id="unobligated" fill="#F3E9FF" x="0" y="0" width="600" height="40"></rect>
+                <rect id="obligated" fill="#6F41A7" x="150" y="0" width="150" height="40"></rect>
+                <rect id="outlays" fill="#331E4D" x="0" y="0" width="150" height="40"></rect>
+                <text id="$2.58T" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="16" font-weight="bold" fill="#6F41A7">
+                    <tspan x="611" y="26">$2.58T</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

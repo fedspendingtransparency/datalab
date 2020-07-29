@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class='loan' width="315px" height="85px" viewBox="0 0 315 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>06. phase 3 loan</title>
+    <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Viz-3---SVG-Export-Tablet" transform="translate(-70.000000, -1220.000000)">
+            <g id="06.-phase-3-loan" transform="translate(70.000000, 1220.000000)">
+                <text id="Outlays-$304B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                    <tspan x="0" y="63">Outlays</tspan>
+                    <tspan x="46.256" y="63" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                    <tspan x="0" y="81" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$304B</tspan>
+                </text>
+                <text id="Obligations-$333B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                    <tspan x="109" y="63">Obligations</tspan>
+                    <tspan x="178.09" y="63" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                    <tspan x="109" y="81" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$333B</tspan>
+                </text>
+                <text id="Unobligated-$565B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                    <tspan x="241" y="63">Unobligated</tspan>
+                    <tspan x="241" y="81" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$565B</tspan>
+                </text>
+                <path d="M141,30 L141,34.6176471 C141,35.7222166 140.104569,36.6176471 139,36.6176471 L26,36.6176471 C24.8954305,36.6176471 24,37.5130776 24,38.6176471 L24,45 L24,45" id="Line-Copy-7" stroke="#C6C6C6" stroke-linecap="round" transform="translate(82.500000, 37.500000) scale(-1, 1) translate(-82.500000, -37.500000) "></path>
+                <path d="M270,30 L270,34.6176471 C270,35.7222166 269.104569,36.6176471 268,36.6176471 L170,36.6176471 C168.895431,36.6176471 168,37.5130776 168,38.6176471 L168,45 L168,45" id="Line-Copy-8" stroke="#C6C6C6" stroke-linecap="round" transform="translate(219.000000, 37.500000) scale(-1, 1) translate(-219.000000, -37.500000) "></path>
+                <line x1="4" y1="30" x2="4" y2="45" id="Line" stroke="#C6C6C6"></line>
+                <rect id="unobligated" fill="#F3E9FF" x="0" y="0" width="209" height="30"></rect>
+                <rect id="obligated" fill="#6F41A7" x="6" y="0" width="38" height="30"></rect>
+                <rect id="outlays" fill="#331E4D" x="0" y="0" width="6" height="30"></rect>
+                <text id="$898B" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="14" font-weight="bold" fill="#555555">
+                    <tspan x="219" y="20">$898B</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

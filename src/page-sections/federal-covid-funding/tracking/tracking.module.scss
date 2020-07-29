@@ -24,9 +24,14 @@ h2 {
 	}
 
 	.chartContainer {
-		svg:not(:global(#lIcon)) {
-			margin-top: 0.5rem;
-			margin-bottom: 60px;
+		svg:global(.govtTotal), svg:global(.lawTotal), svg:global(.spending) {
+			margin-top: 10px;
+			margin-bottom: 80px;
+		}
+
+		svg:global(.lawTotalOnly), svg:global(.loan) {
+			margin-top: 10px;
+			margin-bottom: 30px;
 		}
 	}
 
@@ -320,6 +325,17 @@ h2 {
 
 	.barTitle {
 		font-size: 0.875rem !important;
+	}
+
+	.chartContainer {
+		svg:global(.govtTotal), svg:global(.lawTotal), svg:global(.spending) {
+		margin-bottom: 60px !important;
+	}
+
+		svg:global(.lawTotalOnly), svg:global(.loan) {
+		margin-top: 10px;
+		margin-bottom: 40px !important;
+	}
 	}
 }
 

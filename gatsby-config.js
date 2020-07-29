@@ -1,7 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: 'Data Lab',
-		description: 'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
+		description: 'Data Lab - Visualizations to help you understand government finance.',
 		author: '@gatsbyjs',
 	},
 	plugins: [
@@ -9,7 +9,6 @@ module.exports = {
 		'gatsby-plugin-root-import',
 		'gatsby-plugin-material-ui',
 		'gatsby-plugin-react-helmet',
-		'gatsby-plugin-emotion',
 		{
 			resolve: 'gatsby-plugin-sass',
 			options: {
