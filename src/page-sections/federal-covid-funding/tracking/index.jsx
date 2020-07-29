@@ -5,6 +5,8 @@ import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import IconButton from '@material-ui/core/IconButton';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter/number-formatter';
@@ -271,7 +273,7 @@ export default function Tracking(props) {
 								onKeyDown={openLawSummaryModal}
 								tabIndex={0}
 							>
-								<InfoOutlinedIcon className={styles.icon} />
+								<FontAwesomeIcon icon={faInfoCircle} className={styles.icon} />
 								Law Summary
 							</span>
 						</div>
