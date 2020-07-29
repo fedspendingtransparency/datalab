@@ -171,6 +171,24 @@ h2 {
 	margin-bottom: 20px;
 }
 
+.scaleContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
+    text-aign: center;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+    background: #666;
+    width: 240px;
+    height: 30px;
+    align-content: center;
+    align-items: center;
+};
+
 .infoModalBody {
 	.modalBlock {
 		height: 1.25rem;
