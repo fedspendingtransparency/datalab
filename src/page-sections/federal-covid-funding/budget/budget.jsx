@@ -185,7 +185,7 @@ export default function Budget(props) {
 				SOURCES: To be added
 			</div>
 			<Downloads
-				href="/data/federal-covid-spending/tracking/covid19_response_viz1_2020-06-19.csv"
+				href="/data/federal-covid-spending/tracking/covid19_Viz_1_Data_Download_2020_07_29.csv"
 				date="July 2020"
 				mobileSpace
 				justify={screenMode <= ScreenModeEnum.tablet ? "center" : ""}

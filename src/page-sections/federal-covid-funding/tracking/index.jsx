@@ -502,7 +502,7 @@ export default function Tracking(props) {
 				<div>Placeholder text</div>
 			</ModalReference>
 
-			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-19.csv" date="June 2020" />
+			<Downloads href="covid19_response_download_2020-07-17.csv" date="June 2020" />
 		</>
 	);
 }
