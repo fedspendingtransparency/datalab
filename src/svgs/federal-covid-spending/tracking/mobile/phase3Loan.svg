@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg class='loan' width="324px" height="75px" viewBox="0 0 324 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>06. phase 3 loan</title>
+<svg class='loan' aria-labelledby='phase3loan-desc' width="324px" height="75px" viewBox="0 0 324 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <desc id="phase3loan-desc">Alt text goes here</desc>
     <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Viz-3---SVG-Export-Mobile" transform="translate(-37.000000, -1287.000000)">
             <g id="Group-3" transform="translate(15.000000, 128.000000)">
