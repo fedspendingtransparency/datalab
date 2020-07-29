@@ -24,14 +24,14 @@ h2 {
 	}
 
 	.chartContainer {
-		svg:global(.govtTotal), svg:global(.lawTotal), svg:global(.spending) {
-			margin-top: 10px;
-			margin-bottom: 80px;
-		}
-
-		svg:global(.lawTotalOnly), svg:global(.loan) {
+		svg:global(.lawTotal), svg:global(.spending) {
 			margin-top: 10px;
 			margin-bottom: 30px;
+		}
+
+		svg:global(.govtTotal), svg:global(.lawTotalOnly), svg:global(.loan) {
+			margin-top: 10px;
+			margin-bottom: 80px;
 		}
 	}
 
@@ -328,14 +328,14 @@ h2 {
 	}
 
 	.chartContainer {
-		svg:global(.govtTotal), svg:global(.lawTotal), svg:global(.spending) {
-		margin-bottom: 60px !important;
-	}
+		svg:global(.lawTotal), svg:global(.spending) {
+			margin-top: 10px;
+			margin-bottom: 40px !important;
+		}
 
-		svg:global(.lawTotalOnly), svg:global(.loan) {
-		margin-top: 10px;
-		margin-bottom: 40px !important;
-	}
+		svg:global(.govtTotal), svg:global(.lawTotalOnly), svg:global(.loan) {
+			margin-bottom: 60px !important;
+		}
 	}
 }
 
