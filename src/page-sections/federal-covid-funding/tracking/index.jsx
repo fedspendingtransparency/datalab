@@ -14,6 +14,7 @@ import Share from 'src/components/share/share';
 import ModalReference from 'src/components/modal/modal';
 import { Grid } from '@material-ui/core';
 import Modal from './modal/modal';
+import LawSummaryModal from './law-summary-modal/modal';
 import Bar from './bars/bar';
 import styles from './tracking.module.scss';
 
@@ -257,6 +258,7 @@ export default function Tracking(props) {
 
 	const [isInfoModalOpen, setInfoModalState] = useState(false);
 	const [isLawSummaryModalOpen, setLawSummaryModalState] = useState(false);
+	const [lawSummaryModalPhase, setLawSummaryModalPhase] = useState(1);
 
 	const [selectedBar, setSelectedBar] = useState(null);
 	const [isModalOpen, setModalState] = useState(false);
@@ -270,16 +272,19 @@ export default function Tracking(props) {
 		setInfoModalState(true);
 	};
 
+	const openLawSummaryModal = (e, phase) => {
+		if (!e.key || e.key === 'Enter') {
+			setLawSummaryModalPhase(phase)
+			setLawSummaryModalState(true);
+		}
+	}
+
 	const closeModal = () => {
 		setModalState(false);
 		setInfoModalState(false);
 		setLawSummaryModalState(false);
 		setSelectedBar(null);
 	};
-
-	const openLawSummaryModal = (e) => {
-		if (!e.key || e.key === 'Enter') setLawSummaryModalState(true);
-	}
 
 	const categories = [
 		{
@@ -401,8 +406,8 @@ export default function Tracking(props) {
 							<span
 								id={`law-${item.label}-summary-button`}
 								className={styles.lawSummary}
-								onClick={openLawSummaryModal}
-								onKeyDown={openLawSummaryModal}
+								onClick={(e) => openLawSummaryModal(e, item.label)}
+								onKeyDown={(e) => openLawSummaryModal(e, item.label)}
 								tabIndex={0}
 							>
 								<FontAwesomeIcon icon={faInfoCircle} className={styles.icon} />
@@ -634,20 +639,11 @@ export default function Tracking(props) {
 					</div>
 				))}
 			</ModalReference>
-
-			<ModalReference
-				open={isLawSummaryModalOpen}
-				close={closeModal}
-				title="Placeholder Title"
-				maxWidth
-				maxHeight
-			>
-				<div>Placeholder text</div>
-			</ModalReference>
-
-			<div className={styles.reference} >
-				Find out more about how COVID-19 funding was categorized, who received financial awards, and which government programs were funded on the new COVID-19 page on <a href='https://www.usaspending.gov' target='_blank' rel='noopener noreferrer'>USAspending.gov</a>
-			</div>
+			<LawSummaryModal
+				isOpen={isLawSummaryModalOpen}
+				closeModal={closeModal}
+				phase={lawSummaryModalPhase}
+			/>
 			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-19.csv" date="June 2020" />
 		</>
 	);
