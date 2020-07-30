@@ -396,10 +396,10 @@ export default function Tracking(props) {
 							Phase {item.label}: {phaseDetail[`${item.label}`].title}
 						</div>
 						<div className={styles.enactedDate}>
-							Enacted {phaseDetail[`${i.label}`].enactedDate}
+							Enacted {phaseDetail[`${item.label}`].enactedDate}
 							<span className={styles.lawSummaryDivider}>|</span>
 							<span
-								id={`law-${i.label}-summary-button`}
+								id={`law-${item.label}-summary-button`}
 								className={styles.lawSummary}
 								onClick={openLawSummaryModal}
 								onKeyDown={openLawSummaryModal}
