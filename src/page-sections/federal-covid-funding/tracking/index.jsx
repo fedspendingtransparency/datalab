@@ -460,14 +460,14 @@ export default function Tracking(props) {
 		)
 	}
  	const PhaseWrapper = (props) => {
-		console.log(props);
 		return (<div className={styles.phaseContainer}>
-			<div className={styles.purpleDotContainer}>
-				<PurpleDot width={11} />
-				<div className={styles.line}></div>
+			<div className={styles.phaseDotsContainer}>
+				<PurpleDot />
+				{props.hideLine ? null :
+					<div className={styles.line}></div>}
 			</div>
 			<div className={styles.phaseBody}>
-				{props.child}
+				{props.children}
 			</div>
 		</div>);
 	};
@@ -481,26 +481,39 @@ export default function Tracking(props) {
 				case 'govtTotal':
 					SectionTag = svgs['Total'].svgs['Law Total'];
 					return (
-						<PhaseWrapper child={<><div className={styles.totalHeading}>New Agency Funding</div><SectionTag /></>} />
+						<PhaseWrapper>
+							<div className={styles.totalHeading}>New Agency Funding</div>
+							<SectionTag />
+						</PhaseWrapper>
 					);
 					break;
 				case '1':
 				case '2':
 					SectionTag = svgs[phaseItem].svgs['Law Total'];
 					return (
-						<PhaseWrapper child={phase(chartData[phaseItem]['Law Total'], SectionTag)} />
+						<PhaseWrapper>
+							{phase(chartData[phaseItem]['Law Total'], SectionTag)}
+						</PhaseWrapper>
 					)
 					break;
 				case '3':
-				case '3.5':
 					return (
-						<div>
-							<PurpleDot width={11} />
+						<PhaseWrapper>
 							{['Law Total', 'No', 'Yes'].map((item, key) => {
 								SectionTag = svgs[phaseItem].svgs[item];
 								return phase(chartData[phaseItem][item], SectionTag);
 							})}
-						</div>
+						</PhaseWrapper>
+					)
+					break;
+				case '3.5':
+					return (
+						<PhaseWrapper hideLine={true}>
+							{['Law Total', 'No', 'Yes'].map((item, key) => {
+								SectionTag = svgs[phaseItem].svgs[item];
+								return phase(chartData[phaseItem][item], SectionTag);
+							})}
+						</PhaseWrapper>
 					)
 					break;
 			}
@@ -547,111 +560,6 @@ export default function Tracking(props) {
 					aria-label="Horizontal stacked bar chart depicting the portion of total budgetary resources from the supplemental funding that have been obligated and outlaid to date. Data can be displayed by all accounts, spending accounts, or loan program accounts."
 				>
 					<div className={styles.vizContainer}>
-						<div className={styles.phaseDotsContainer}>
-							{/*{['Total', '1', '2', '3', '3.5'].map((i, key) => {*/}
-							{/*	return (*/}
-							{/*		<>*/}
-							{/*			<PurpleDot width={11} />*/}
-							{/*			<svg class='line' width={1} height={svgs[i].height}>*/}
-							{/*				<line x1="0" y1="0" x2="0" y2={svgs[i].height}*/}
-							{/*							style={{"stroke":"#c6c6c6","stroke-width":"1"}} />*/}
-							{/*			</svg>*/}
-							{/*		</>*/}
-							{/*	)*/}
-							{/*})}*/}
-						</div>
-						<div className={styles.chartContainer}>
-							{table}
-						</div>
-					</div>
-				</div>
-			</>
-		);
-	};
-
-
-	const mainChart2 = () => {
-		const chartData = data.total.nodes;
-		const table = chartData.map((i, key) => {
-			const thisBar = [{
-				amount: i.Amount_Outlayed,
-				percent: parseFloat(i.Percent_Outlayed).toFixed(2),
-			}, {
-				amount: i.Amount_Obligated,
-				percent: parseFloat(i.Percent_Obligated_Not_Outlayed).toFixed(2),
-			}, {
-				amount: i.Amount_Unobligated,
-				percent: parseFloat(i.Percent_Unobligated).toFixed(2),
-			}];
-
-			return (
-			<>
-					{i.label === 'Total' ?
-						<>
-
-						</>
-					: null
-						// phase(i, thisBar, SectionTag)
-					}
-
-				</>
-			);
-		});
-
-		return (
-			<>
-				<Grid container className={styles.legendContainer}>
-					<Grid item xs={12} lg={4} className={styles.legendAsOf}>
-						Data updated as of July 1, 2020
-					</Grid>
-					<Grid className={styles.legend}>
-						<div className={styles.blockContainer}>
-							<div>
-								<>
-									<span className={`${styles.block} ${categories[0].legendStyle}`} />
-									<span>{categories[0].name}</span>
-								</>
-								<>
-									<span className={`${styles.block} ${categories[1].legendStyle}`} />
-									<span>{categories[1].name}</span>
-								</>
-							</div>
-							<div>
-								<>
-									<span className={`${styles.block} ${categories[2].legendStyle}`} />
-									<span>{categories[2].name}</span>
-								</>
-								<>
-									<span className={styles.block}>{categories[3].icon}</span>
-									<span>{categories[3].name}</span>
-								</>
-							</div>
-						</div>
-						<div className={styles.blockContainer}>
-							<IconButton className={styles.infoButton} onClick={openInfoModal} aria-label="Spending Definitions">
-								<InfoOutlinedIcon className={styles.icon} />
-							</IconButton>
-						</div>
-					</Grid>
-				</Grid>
-				<div
-					className={styles.barContainer}
-					aria-label="Horizontal stacked bar chart depicting the portion of total budgetary resources from the supplemental funding that have been obligated and outlaid to date. Data can be displayed by all accounts, spending accounts, or loan program accounts."
-				>
-					<div className={styles.vizContainer}>
-						<div className={styles.phaseDotsContainer}>
-							{/*{['Total', '1', '2', '3', '3.5'].map((i, key) => {*/}
-							{/*	return (*/}
-							{/*		<>*/}
-							{/*			<PurpleDot width={11} />*/}
-							{/*			<svg class='line' width={1} height={svgs[i].height}>*/}
-							{/*				<line x1="0" y1="0" x2="0" y2={svgs[i].height}*/}
-							{/*							style={{"stroke":"#c6c6c6","stroke-width":"1"}} />*/}
-							{/*			</svg>*/}
-							{/*		</>*/}
-							{/*	)*/}
-							{/*})}*/}
-						</div>
 						<div className={styles.chartContainer}>
 							{table}
 						</div>

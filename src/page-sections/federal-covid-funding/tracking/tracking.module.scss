@@ -6,22 +6,6 @@ h2 {
 }
 
 .vizContainer {
-	display: flex;
-	flex-direction: row;
-
-	.phaseDotsContainer {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin-right: 20px;
-		margin-top: 6px;
-
-		svg:global(.line) {
-			margin-top: 4px;
-			margin-bottom: 4px;
-		}
-
-	}
 
 	.chartContainer {
 		svg:global(.lawTotal), svg:global(.spending) {
@@ -35,6 +19,26 @@ h2 {
 		}
 	}
 
+	.phaseContainer {
+		display: flex;
+		flex-direction: row;
+
+		.phaseDotsContainer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-right: 20px;
+			margin-top: 6px;
+
+
+			.line {
+				border-left: 1px solid #d8d8d8;
+				height: calc(100% - 16px);
+				margin-top: calc(10% + 8px);
+			}
+		}
+
+	}
 	.totalHeading {
 		text-transform: uppercase;
 		color: $covidPurple;
