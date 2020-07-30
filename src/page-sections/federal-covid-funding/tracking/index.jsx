@@ -491,7 +491,7 @@ export default function Tracking(props) {
 					</div>
 				))}
 			</ModalReference>
-			
+
 			<ModalReference
 				open={isLawSummaryModalOpen}
 				close={closeModal}
@@ -502,7 +502,7 @@ export default function Tracking(props) {
 				<div>Placeholder text</div>
 			</ModalReference>
 
-			<Downloads href="covid19_response_download_2020-07-17.csv" date="June 2020" />
+			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.csv" date="June 2020" />
 		</>
 	);
 }
