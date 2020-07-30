@@ -22,17 +22,17 @@ import styles from './budget.module.scss';
 const desktopSVGs = [
 	{
 		img: DesktopA,
-		width: 497,
+		width: 726,
 		alt: "DesktopA placeholder alt text",
 	},
 	{
 		img: DesktopB,
-		width: 588,
+		width: 914,
 		alt: "DesktopB placeholder alt text",
 	},
 	{
 		img: DesktopC,
-		width: 944,
+		width: 945,
 		alt: "DesktopC placeholder alt text",
 	}
 ]
@@ -40,17 +40,17 @@ const desktopSVGs = [
 const mobileSVGs = [
 	{
 		img: MobileA,
-		width: 261,
+		width: 309,
 		alt: "MobileA placeholder alt text",
 	},
 	{
 		img: MobileB,
-		width: 191,
+		width: 344,
 		alt: "MobileB placeholder alt text",
 	},
 	{
 		img: MobileC,
-		width: 266,
+		width: 333,
 		alt: "MobileC placeholder alt text",
 	}
 ]
@@ -58,22 +58,22 @@ const mobileSVGs = [
 const tabletSVGs = [
 	{
 		img: TabletA,
-		width: 418,
+		width: 541,
 		alt: "TabletA placeholder alt text",
 	},
 	{
 		img: TabletB,
-		width: 432,
+		width: 669,
 		alt: "TabletB placeholder alt text",
 	},
 	{
 		img: TabletC,
-		width: 692,
+		width: 689,
 		alt: "TabletC placeholder alt text",
 	}
 ]
 
-const desktopHeights = [285, 314, 225]
+const desktopHeights = [290, 314, 218]
 const mobileHeights = [373, 465, 255]
 const tabletHeights = [285, 316, 225]
 
