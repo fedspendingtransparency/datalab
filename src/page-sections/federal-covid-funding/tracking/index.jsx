@@ -65,7 +65,7 @@ export default function Tracking(props) {
 			enactedDate: 'March 18, 2020',
 		},
 		'3': {
-			title: 'Coronavirus Aid, Relief, and Economic Security Act',
+			title: 'Coronavirus Aid, Relief, and Economic Security Act (CARES ACT)',
 			loanAcct: 'yes',
 			enactedDate: 'March 27, 2020',
 		},
