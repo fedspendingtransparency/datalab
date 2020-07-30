@@ -80,7 +80,7 @@ class ModalReference extends React.Component {
   }
 
   render() {
-    const { classes, children, title, titleStyle, paperStyle } = this.props;
+    const { classes, children, title, titleStyle, paperStyle, contentStyle } = this.props;
     const { open, maxWidth, maxHeight } = this.state;
 
     return (
@@ -102,7 +102,7 @@ class ModalReference extends React.Component {
               <span style={titleStyle}>{title}</span>
               <CloseIcon className={styles.close} tabIndex='0' onClick={this.handleClose} onKeyUp={e => this.keyUpHandler(e)} />
             </div>
-            <div className={styles.content} style={{ maxWidth, maxHeight }}>
+            <div className={styles.content} style={{ maxWidth, maxHeight, ...contentStyle }}>
               {children}
             </div>
           </div>

@@ -14,6 +14,7 @@ import Share from 'src/components/share/share';
 import ModalReference from 'src/components/modal/modal';
 import { Grid } from '@material-ui/core';
 import Modal from './modal/modal';
+import LawSummaryModal from './law-summary-modal/modal';
 import Bar from './bars/bar';
 import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
 import styles from './tracking.module.scss';
@@ -134,6 +135,7 @@ export default function Tracking(props) {
 
 	const [isInfoModalOpen, setInfoModalState] = useState(false);
 	const [isLawSummaryModalOpen, setLawSummaryModalState] = useState(false);
+	const [lawSummaryModalPhase, setLawSummaryModalPhase] = useState(1);
 
 	const [selectedBar, setSelectedBar] = useState(null);
 	const [isModalOpen, setModalState] = useState(false);
@@ -148,16 +150,19 @@ export default function Tracking(props) {
 		setInfoModalState(true);
 	};
 
+	const openLawSummaryModal = (e, phase) => {
+		if (!e.key || e.key === 'Enter') {
+			setLawSummaryModalPhase(phase)
+			setLawSummaryModalState(true);
+		}
+	}
+
 	const closeModal = () => {
 		setModalState(false);
 		setInfoModalState(false);
 		setLawSummaryModalState(false);
 		setSelectedBar(null);
 	};
-
-	const openLawSummaryModal = (e) => {
-		if (!e.key || e.key === 'Enter') setLawSummaryModalState(true);
-	}
 
 	const categories = [
 		{
@@ -269,8 +274,8 @@ export default function Tracking(props) {
 							<span
 								id={`law-${i.label}-summary-button`}
 								className={styles.lawSummary}
-								onClick={openLawSummaryModal}
-								onKeyDown={openLawSummaryModal}
+								onClick={(e) => openLawSummaryModal(e, i.label)}
+								onKeyDown={(e) => openLawSummaryModal(e, i.label)}
 								tabIndex={0}
 							>
 								<FontAwesomeIcon icon={faInfoCircle} className={styles.icon} />
@@ -491,18 +496,12 @@ export default function Tracking(props) {
 					</div>
 				))}
 			</ModalReference>
-
-			<ModalReference
-				open={isLawSummaryModalOpen}
-				close={closeModal}
-				title="Placeholder Title"
-				maxWidth
-				maxHeight
-			>
-				<div>Placeholder text</div>
-			</ModalReference>
-
-			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.csv" date="June 2020" />
+			<LawSummaryModal
+				isOpen={isLawSummaryModalOpen}
+				closeModal={closeModal}
+				phase={lawSummaryModalPhase}
+			/>
+			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-19.csv" date="June 2020" />
 		</>
 	);
 }

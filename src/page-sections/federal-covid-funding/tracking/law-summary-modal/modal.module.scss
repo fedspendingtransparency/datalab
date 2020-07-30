@@ -1,0 +1,51 @@
+@import 'src/styles/variables.scss';
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: $font-title;
+
+  .enacted-date {
+    font-size: 1.125rem;
+    font-weight: 300;
+    font-style: italic;
+    white-space: nowrap;
+  }
+}
+
+.content-container {
+  div, span, a {
+    color: $font-title;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+  }
+
+  .bullet-point-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  ul {
+    margin: 10px 0 30px 0;
+    padding-left: 18px;
+  }
+
+  .footnote {
+    text-align: center;
+    border-top: solid 1px #eeeeee;
+    font-size: .875rem;
+    font-weight: 300;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+}
