@@ -111,6 +111,9 @@ const C19HWTCA = ({ location }) => {
           <sup>5</sup> Detailed instructions on how agencies should be classified is provided here: <a href='https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker' target='_blank' rel='noopener noreferrer'>https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a>.
           The list of shared agencies identified by FREC can be found here: <a href='https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker' target='_blank' rel='noopener noreferrer'>https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a>
         </p>
+        <p>
+          For a complete download of the data, download this file: <a href='/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.xlsx' target='_blank' rel='noopener noreferrer'> COVID-19 Response Data</a>
+        </p>
       </>
     )
   }];
