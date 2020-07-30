@@ -87,7 +87,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
         {
           title: 'Business, Government, and Institutions',
           bulletPoints: [
-            '40B in new grants to states, local, tribal, and territorial governments for the response to the pandemic through FEMA',
+            '$40B in new grants to states, local, tribal, and territorial governments for the response to the pandemic through FEMA',
             'Grants and assistance for education, airports and transit systems, and economic development',
             'Loans and loan guarantees for businesses, including funding for the Paycheck Protection Program (PPP) and to expand other Small Business Administration (SBA) loan programs',
             'Approximately $500B appropriated to Treasury for direct loans, loan guarantees, or other support for various businesses, including airlines and businesses critical to national security',
@@ -160,5 +160,5 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
     </ModalReference>
   );
 }
- 
+
 export default LawSummaryModal;
