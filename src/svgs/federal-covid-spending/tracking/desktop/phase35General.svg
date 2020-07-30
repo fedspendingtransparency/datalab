@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class='spending' aria-labelledby='phase35gen-desc' width="403px" height="36px" viewBox="0 0 403 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <desc id="phase35gen-desc">Alt text goes here</desc>
+    <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Viz-3---SVG-Export" transform="translate(-279.000000, -1696.000000)">
+            <g id="law-4" transform="translate(279.000000, 1465.000000)">
+                <g id="bar-1-copy-2" transform="translate(0.000000, 203.000000)">
+                    <g id="bar---phase-3.5-general" transform="translate(0.000000, 28.000000)">
+                        <text id="Outlays-$80B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                            <tspan x="162" y="14">Outlays</tspan>
+                            <tspan x="208.256" y="14" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                            <tspan x="162" y="32" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$80B</tspan>
+                        </text>
+                        <text id="Obligations-$92B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                            <tspan x="234" y="14">Obligations</tspan>
+                            <tspan x="303.09" y="14" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                            <tspan x="234" y="32" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$92B</tspan>
+                        </text>
+                        <text id="Unobligated-$20B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                            <tspan x="329" y="14">Unobligated</tspan>
+                            <tspan x="329" y="32" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$20B</tspan>
+                        </text>
+                        <path d="M142,8 L136,8 C134.895431,8 134,8.8954305 134,10 L134,26 C134,27.1045695 134.895431,28 136,28 L142,28 L142,28" id="Line-2" stroke="#C6C6C6" stroke-linecap="round"></path>
+                        <line x1="133.5" y1="18.5" x2="93.5" y2="18.5" id="Line-4" stroke="#C6C6C6" stroke-linecap="round"></line>
+                        <rect id="unobligated" fill="#F3E9FF" x="27" y="3" width="5" height="30"></rect>
+                        <rect id="obligated" fill="#6F41A7" x="23" y="3" width="4" height="30"></rect>
+                        <rect id="outlays" fill="#331E4D" x="0" y="3" width="23" height="30"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
