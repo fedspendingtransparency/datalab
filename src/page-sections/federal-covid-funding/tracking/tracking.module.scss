@@ -370,6 +370,10 @@ h2 {
     font-size: 18px !important;
     font-weight: 600;
   }
+
+	.phaseDotsContainer {
+		margin-right: 10px;
+	}
 }
 
 @media screen and (max-width: $desktop - 1) and (min-width: $tablet) {
