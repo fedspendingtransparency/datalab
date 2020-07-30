@@ -21,35 +21,35 @@ import styles from './tracking.module.scss';
 import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
 import PurpleDot from '../../../svgs/federal-covid-spending/purpleDot.svg';
 
-import GovtTotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/govtTotal.svg'
-import Phase1SVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase1.svg'
-import Phase2SVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase2.svg'
-import Phase3TotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase3Total.svg'
-import Phase3GeneralSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase3General.svg'
-import Phase3LoanSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase3Loan.svg'
-import Phase35TotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase35Total.svg'
-import Phase35GeneralSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase35General.svg'
-import Phase35LoanSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase35Loan.svg'
+import GovtTotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/govtTotal.svg';
+import Phase1SVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase1.svg';
+import Phase2SVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase2.svg';
+import Phase3TotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase3Total.svg';
+import Phase3GeneralSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase3General.svg';
+import Phase3LoanSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase3Loan.svg';
+import Phase35TotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase35Total.svg';
+import Phase35GeneralSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase35General.svg';
+import Phase35LoanSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase35Loan.svg';
 
-import GovtTotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/govtTotal.svg'
-import Phase1MobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase1.svg'
-import Phase2MobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase2.svg'
-import Phase3TotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase3Total.svg'
-import Phase3GeneralMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase3General.svg'
-import Phase3LoanMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase3Loan.svg'
-import Phase35TotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35Total.svg'
-import Phase35GeneralMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35General.svg'
-import Phase35LoanMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35Loan.svg'
+import GovtTotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/govtTotal.svg';
+import Phase1MobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase1.svg';
+import Phase2MobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase2.svg';
+import Phase3TotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase3Total.svg';
+import Phase3GeneralMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase3General.svg';
+import Phase3LoanMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase3Loan.svg';
+import Phase35TotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35Total.svg';
+import Phase35GeneralMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35General.svg';
+import Phase35LoanMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35Loan.svg';
 
-import GovtTotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/govtTotal.svg'
-import Phase1TabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase1.svg'
-import Phase2TabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase2.svg'
-import Phase3TotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase3Total.svg'
-import Phase3GeneralTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase3General.svg'
-import Phase3LoanTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase3Loan.svg'
-import Phase35TotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35Total.svg'
-import Phase35GeneralTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35General.svg'
-import Phase35LoanTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35Loan.svg'
+import GovtTotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/govtTotal.svg';
+import Phase1TabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase1.svg';
+import Phase2TabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase2.svg';
+import Phase3TotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase3Total.svg';
+import Phase3GeneralTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase3General.svg';
+import Phase3LoanTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase3Loan.svg';
+import Phase35TotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35Total.svg';
+import Phase35GeneralTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35General.svg';
+import Phase35LoanTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35Loan.svg';
 
 export default function Tracking(props) {
 
@@ -307,12 +307,10 @@ export default function Tracking(props) {
 			icon: <LIcon />,
 			infoModalDescription: <>
 				<p>
-					These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
-					agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.
+                                  This spending includes funds from accounts which are used to finance and administer <a target="_blank" href="https://www.usaspending.gov/#/?glossary=direct-loan">direct loans</a> or <a target="_blank" href="https://www.usaspending.gov/#/?glossary=guaranteed-insured-loan">guaranteed loan</a> programs through an intermediary lender. The amounts do not show the total <a target="_blank" href="https://www.usaspending.gov/#/?glossary=face-value">face value</a> of loans and loan guarantees that lenders have disbursed to businesses or individuals. Instead, they show the estimated <a target="_blank" href="https://www.usaspending.gov/#/?glossary=subsidy-cost">subsidy cost</a> of those loans and loan guarantees and the cost of servicing and running the programs.
 				</p>
 				<p>
-					Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
-					direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.
+                                  Visit the usaspending.gov/covid-19 page to see more detail on the face value of loans.
 				</p>
 			</>,
 		},

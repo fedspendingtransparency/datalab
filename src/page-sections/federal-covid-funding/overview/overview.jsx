@@ -57,9 +57,9 @@ const Overview = (props) => {
     </Grid>
   );
 
-  let chartComponent = <img src={DesktopChart} alt="section-2-desktop-svg" />;
+  let chartComponent = <img src={DesktopChart} alt="Process flow diagram of COVID-19 supplemental funding from appropriations to obligations and ending with outlays." />;
   if (screenWidth < 992 && screenWidth >= 768) {
-    chartComponent = <img src={TabletChart} alt="section-2-tablet-svg" />;
+    chartComponent = <img src={TabletChart} alt="Process flow diagram of COVID-19 supplemental funding from appropriations to obligations and ending with outlays." />;
   }
 
   const visualizationComponent = screenWidth < 768 ? (
@@ -67,15 +67,15 @@ const Overview = (props) => {
       <Grid container className={overviewStyles.overviewMobileContainer}>
         {appropriationsSection}
         <Grid item className={overviewStyles.overviewMobileSvgContainer}>
-          <img src={MobileChartA} alt="section-2-mobile-svg-a" />
+          <img src={MobileChartA} alt="Process flow diagram of COVID-19 supplemental funding from appropriations to obligations and ending with outlays." />
         </Grid>
         {obligationsSection}
         <Grid item className={overviewStyles.overviewMobileSvgContainer}>
-          <img src={MobileChartB} alt="section-2-mobile-svg-b" />
+          <img src={MobileChartB} alt="Process flow diagram of COVID-19 supplemental funding from appropriations to obligations and ending with outlays." />
         </Grid>
         {outlaysSection}
         <Grid item className={overviewStyles.overviewMobileSvgContainer}>
-          <img src={MobileChartC} alt="section-2-mobile-svg-c" />
+          <img src={MobileChartC} alt="Process flow diagram of COVID-19 supplemental funding from appropriations to obligations and ending with outlays." />
         </Grid>
       </Grid>
     </>
