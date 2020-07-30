@@ -307,7 +307,7 @@ export default function Tracking(props) {
 			icon: <LIcon />,
 			infoModalDescription: <>
 				<p>
-                                  This spending includes funds from accounts which are used to finance and administer <a href="https://www.usaspending.gov/#/?glossary=direct-loan">direct loans</a> or <a href="https://www.usaspending.gov/#/?glossary=guaranteed-insured-loan">guaranteed loan</a> programs through an intermediary lender. The amounts do not show the total <a href="https://www.usaspending.gov/#/?glossary=face-value">face value</a> of loans and loan guarantees that lenders have disbursed to businesses or individuals. Instead, they show the estimated <a href="https://www.usaspending.gov/#/?glossary=subsidy-cost">subsidy cost</a> of those loans and loan guarantees and the cost of servicing and running the programs.
+                                  This spending includes funds from accounts which are used to finance and administer <a target="_blank" href="https://www.usaspending.gov/#/?glossary=direct-loan">direct loans</a> or <a target="_blank" href="https://www.usaspending.gov/#/?glossary=guaranteed-insured-loan">guaranteed loan</a> programs through an intermediary lender. The amounts do not show the total <a target="_blank" href="https://www.usaspending.gov/#/?glossary=face-value">face value</a> of loans and loan guarantees that lenders have disbursed to businesses or individuals. Instead, they show the estimated <a target="_blank" href="https://www.usaspending.gov/#/?glossary=subsidy-cost">subsidy cost</a> of those loans and loan guarantees and the cost of servicing and running the programs.
 				</p>
 				<p>
                                   Visit the usaspending.gov/covid-19 page to see more detail on the face value of loans.
