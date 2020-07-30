@@ -22,17 +22,17 @@ import styles from './budget.module.scss';
 const desktopSVGs = [
   {
     img: DesktopA,
-    width: 497,
+    width: 726,
     alt: "Bar chart of new agency funding through the four phases of COVID-19 appropriations, the largest funding coming from Phase 3 and the CARES Act.",
   },
   {
     img: DesktopB,
-    width: 588,
+    width: 914,
     alt: "Bar chart of the total estimated value of legislation ($3.48T), which include New Agency Funding ($2.58T) and Tax Relief ($902B).",
   },
   {
     img: DesktopC,
-    width: 944,
+    width: 945,
     alt: "Bar chart showing total estimated lending ($3.91T) broken down by utilized lending ($765B) and available lending ($3.15T).",
   }
 ];
@@ -40,17 +40,17 @@ const desktopSVGs = [
 const mobileSVGs = [
   {
     img: MobileA,
-    width: 261,
+    width: 309,
     alt: "Bar chart of new agency funding through the four phases of COVID-19 appropriations, the largest funding coming from Phase 3 and the CARES Act.",
   },
   {
     img: MobileB,
-    width: 191,
+    width: 344,
     alt: "Bar chart of the total estimated value of legislation ($3.48T), which include New Agency Funding ($2.58T) and Tax Relief ($902B).",
   },
   {
     img: MobileC,
-    width: 266,
+    width: 333,
     alt: "Bar chart showing total estimated lending ($3.91T) broken down by utilized lending ($765B) and available lending ($3.15T).",
   }
 ];
@@ -58,24 +58,24 @@ const mobileSVGs = [
 const tabletSVGs = [
   {
     img: TabletA,
-    width: 418,
+    width: 541,
     alt: "Bar chart of new agency funding through the four phases of COVID-19 appropriations, the largest funding coming from Phase 3 and the CARES Act.",
   },
   {
     img: TabletB,
-    width: 432,
+    width: 669,
     alt: "Bar chart of the total estimated value of legislation ($3.48T), which include New Agency Funding ($2.58T) and Tax Relief ($902B).",
   },
   {
     img: TabletC,
-    width: 692,
+    width: 689,
     alt: "Bar chart showing total estimated lending ($3.91T) broken down by utilized lending ($765B) and available lending ($3.15T).",
   }
 ];
 
-const desktopHeights = [290, 314, 218]
-const mobileHeights = [392, 444, 255]
-const tabletHeights = [294, 316, 212]
+const desktopHeights = [290, 314, 218];
+const mobileHeights = [392, 444, 255];
+const tabletHeights = [294, 316, 212];
 
 export default function Budget(props) {
   const [screenMode, setScreenMode] = useState(0);
