@@ -645,6 +645,9 @@ export default function Tracking(props) {
 				<div>Placeholder text</div>
 			</ModalReference>
 
+			<div className={styles.reference} >
+				Find out more about how COVID-19 funding was categorized, who received financial awards, and which government programs were funded on the new COVID-19 page on <a href='https://www.usaspending.gov' target='_blank' rel='noopener noreferrer'>USAspending.gov</a>
+			</div>
 			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-19.csv" date="June 2020" />
 		</>
 	);
