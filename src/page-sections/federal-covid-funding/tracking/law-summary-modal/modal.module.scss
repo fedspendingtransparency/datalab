@@ -4,7 +4,8 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 10px;
-  
+  color: $font-title;
+
   .enacted-date {
     font-size: 1.125rem;
     font-weight: 300;
@@ -14,6 +15,10 @@
 }
 
 .content-container {
+  div, span, a {
+    color: $font-title;
+  }
+
   .subtitle {
     font-size: 1.125rem;
     font-weight: 600;
