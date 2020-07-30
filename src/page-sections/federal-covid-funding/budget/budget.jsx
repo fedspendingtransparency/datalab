@@ -13,7 +13,7 @@ import TabletC from 'src/images/covid/budget/viz1CTablet.svg';
 import MobileA from 'src/images/covid/budget/viz1AMobile.svg';
 import MobileB from 'src/images/covid/budget/viz1BMobile.svg';
 import MobileC from 'src/images/covid/budget/viz1CMobile.svg';
-import PurpleDot from 'src/svgs/federal-covid-spending/budget/purpleDot.svg';
+import PurpleDot from 'src/svgs/federal-covid-spending/purpleDot.svg';
 
 import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode';
 import styles from './budget.module.scss';
@@ -73,9 +73,9 @@ const tabletSVGs = [
   }
 ];
 
-const desktopHeights = [285, 314, 225];
-const mobileHeights = [373, 465, 255];
-const tabletHeights = [285, 316, 225];
+const desktopHeights = [290, 314, 218]
+const mobileHeights = [392, 444, 255]
+const tabletHeights = [294, 316, 212]
 
 export default function Budget(props) {
   const [screenMode, setScreenMode] = useState(0);

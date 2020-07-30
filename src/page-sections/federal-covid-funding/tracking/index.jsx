@@ -19,7 +19,7 @@ import Bar from './bars/bar';
 import styles from './tracking.module.scss';
 
 import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
-import PurpleDot from '../../../svgs/federal-covid-spending/budget/purpleDot.svg';
+import PurpleDot from '../../../svgs/federal-covid-spending/purpleDot.svg';
 
 import GovtTotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/govtTotal.svg';
 import Phase1SVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase1.svg';
@@ -642,7 +642,7 @@ export default function Tracking(props) {
 				closeModal={closeModal}
 				phase={lawSummaryModalPhase}
 			/>
-			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-19.csv" date="June 2020" />
+			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.csv" date="June 2020" />
 		</>
 	);
 }
