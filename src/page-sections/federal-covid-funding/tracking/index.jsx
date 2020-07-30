@@ -5,6 +5,8 @@ import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import IconButton from '@material-ui/core/IconButton';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter/number-formatter';
@@ -71,12 +73,6 @@ export default function Tracking(props) {
 			loanAcct: 'yes',
 			enactedDate: 'April 24, 2020',
 		}
-	}
-
-	const translateDataType = {
-		'Law Total': 'total',
-		'No': 'spending',
-		'Yes': 'loan'
 	}
 
 	const phaseDesktopSVGs = {
@@ -260,6 +256,7 @@ export default function Tracking(props) {
 	}
 
 	const [isInfoModalOpen, setInfoModalState] = useState(false);
+	const [isLawSummaryModalOpen, setLawSummaryModalState] = useState(false);
 
 	const [selectedBar, setSelectedBar] = useState(null);
 	const [isModalOpen, setModalState] = useState(false);
@@ -276,8 +273,13 @@ export default function Tracking(props) {
 	const closeModal = () => {
 		setModalState(false);
 		setInfoModalState(false);
+		setLawSummaryModalState(false);
 		setSelectedBar(null);
 	};
+
+	const openLawSummaryModal = (e) => {
+		if (!e.key || e.key === 'Enter') setLawSummaryModalState(true);
+	}
 
 	const categories = [
 		{
@@ -362,7 +364,6 @@ export default function Tracking(props) {
 	};
 
 	const phase = (item, SectionTag) => {
-		console.log(item);
 		let title;
 		const thisBar = [{
 			amount: item.Amount_Outlayed,
@@ -394,7 +395,20 @@ export default function Tracking(props) {
 						<div className={styles.phaseTitle}>
 							Phase {item.label}: {phaseDetail[`${item.label}`].title}
 						</div>
-						<div className={styles.enactedDate}>Enacted {phaseDetail[`${item.label}`].enactedDate}</div>
+						<div className={styles.enactedDate}>
+							Enacted {phaseDetail[`${i.label}`].enactedDate}
+							<span className={styles.lawSummaryDivider}>|</span>
+							<span
+								id={`law-${i.label}-summary-button`}
+								className={styles.lawSummary}
+								onClick={openLawSummaryModal}
+								onKeyDown={openLawSummaryModal}
+								tabIndex={0}
+							>
+								<FontAwesomeIcon icon={faInfoCircle} className={styles.icon} />
+								Law Summary
+							</span>
+						</div>
 					</>
 					: null
 				}
@@ -619,6 +633,16 @@ export default function Tracking(props) {
 						{c.infoModalDescription}
 					</div>
 				))}
+			</ModalReference>
+
+			<ModalReference
+				open={isLawSummaryModalOpen}
+				close={closeModal}
+				title="Placeholder Title"
+				maxWidth
+				maxHeight
+			>
+				<div>Placeholder text</div>
 			</ModalReference>
 
 			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-19.csv" date="June 2020" />
