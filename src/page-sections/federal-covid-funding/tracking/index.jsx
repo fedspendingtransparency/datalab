@@ -73,114 +73,74 @@ export default function Tracking(props) {
 		}
 	}
 
+	const translateDataType = {
+		'Law Total': 'total',
+		'No': 'spending',
+		'Yes': 'loan'
+	}
+
 	const phaseDesktopSVGs = {
-		'Total': {
-			height: '190',
-			svgs: {
+		'Total':  {
 				'Law Total': GovtTotalSVG
-			}
 		},
-		'1': {
-			height: '158',
-			svgs: {
+		'1':  {
 				'Law Total': Phase1SVG
-			}
 		},
 		'2': {
-			height: '152',
-			svgs: {
 				'Law Total': Phase2SVG
-			}
 		},
-		'3': {
-			height: '615',
-			svgs: {
-				'Law Total': Phase3TotalSVG,
-				'No': Phase3GeneralSVG,
-				'Yes': Phase3LoanSVG
-			}
+		'3': {'Law Total': Phase3TotalSVG,
+				'Spending': Phase3GeneralSVG,
+				'Loan': Phase3LoanSVG
 		},
 		'3.5': {
-			height: '0',
-			svgs: {
 				'Law Total': Phase35TotalSVG,
-				'No': Phase35GeneralSVG,
-				'Yes': Phase35LoanSVG
-			}
+				'Spending': Phase35GeneralSVG,
+				'Loan': Phase35LoanSVG
 		}
 	}
 
 	const phaseTabletSVGs = {
 		'Total': {
-			height: '192',
-			svgs: {
 				'Law Total': GovtTotalTabletSVG
-			}
 		},
 		'1': {
-			height: '208',
-			svgs: {
 				'Law Total': Phase1TabletSVG
-			}
 		},
 		'2': {
-			height: '202',
-			svgs: {
 				'Law Total': Phase2TabletSVG
-			}
 		},
 		'3': {
-			height: '560',
-			svgs: {
 				'Law Total': Phase3TotalTabletSVG,
-				'No': Phase3GeneralTabletSVG,
-				'Yes': Phase3LoanTabletSVG
-			}
+				'Spending': Phase3GeneralTabletSVG,
+				'Loan': Phase3LoanTabletSVG
 		},
 		'3.5': {
-			height: '0',
-			svgs: {
 				'Law Total': Phase35TotalTabletSVG,
-				'No': Phase35GeneralTabletSVG,
-				'Yes': Phase35LoanTabletSVG
-			}
+				'Spending': Phase35GeneralTabletSVG,
+				'Loan': Phase35LoanTabletSVG
 		}
 	}
 
 	const phaseMobileSVGs = {
 		'Total': {
-			height: '160',
-			svgs: {
-				'Law Total': GovtTotalMobileSVG
-			}
+			'Law Total': GovtTotalMobileSVG
 		},
 		'1': {
-			height: '160',
-			svgs: {
-				'Law Total': Phase1MobileSVG
-			}
+			'Law Total': Phase1MobileSVG
 		},
 		'2': {
-			height: '152',
-			svgs: {
-				'Law Total': Phase2MobileSVG
-			}
+			'Law Total': Phase2MobileSVG
 		},
 		'3': {
-			height: '544',
-			svgs: {
-				'Law Total': Phase3TotalMobileSVG,
-				'No': Phase3GeneralMobileSVG,
-				'Yes': Phase3LoanMobileSVG
-			}
+			'Law Total': Phase3TotalMobileSVG,
+			'Spending': Phase3GeneralMobileSVG,
+			'Loan': Phase3LoanMobileSVG
 		},
 		'3.5': {
-			height: '0',
-			svgs: {
 				'Law Total': Phase35TotalMobileSVG,
-				'No': Phase35GeneralMobileSVG,
-				'Yes': Phase35LoanMobileSVG
-			}
+				'Spending': Phase35GeneralMobileSVG,
+				'Loan': Phase35LoanMobileSVG
 		}
 	}
 
@@ -265,11 +225,11 @@ export default function Tracking(props) {
 			break;
 		case 'No':
 			if(phaseDetail[item.label].loanAcct === 'yes') {
-				accountsByPhase[item.label]['No'] = item;
+				accountsByPhase[item.label]['Spending'] = item;
 			}
 			break;
 		case 'Yes':
-			accountsByPhase[item.label]['Yes'] = item;
+			accountsByPhase[item.label]['Loan'] = item;
 			break;
 		}
 	})
@@ -402,6 +362,7 @@ export default function Tracking(props) {
 	};
 
 	const phase = (item, SectionTag) => {
+		console.log(item);
 		let title;
 		const thisBar = [{
 			amount: item.Amount_Outlayed,
@@ -479,7 +440,7 @@ export default function Tracking(props) {
 
 			switch(phaseItem) {
 				case 'govtTotal':
-					SectionTag = svgs['Total'].svgs['Law Total'];
+					SectionTag = svgs['Total']['Law Total'];
 					return (
 						<PhaseWrapper>
 							<div className={styles.totalHeading}>New Agency Funding</div>
@@ -489,7 +450,7 @@ export default function Tracking(props) {
 					break;
 				case '1':
 				case '2':
-					SectionTag = svgs[phaseItem].svgs['Law Total'];
+					SectionTag = svgs[phaseItem]['Law Total'];
 					return (
 						<PhaseWrapper>
 							{phase(chartData[phaseItem]['Law Total'], SectionTag)}
@@ -499,8 +460,8 @@ export default function Tracking(props) {
 				case '3':
 					return (
 						<PhaseWrapper>
-							{['Law Total', 'No', 'Yes'].map((item, key) => {
-								SectionTag = svgs[phaseItem].svgs[item];
+							{['Law Total', 'Spending', 'Loan'].map((item, key) => {
+								SectionTag = svgs[phaseItem][item];
 								return phase(chartData[phaseItem][item], SectionTag);
 							})}
 						</PhaseWrapper>
@@ -509,8 +470,8 @@ export default function Tracking(props) {
 				case '3.5':
 					return (
 						<PhaseWrapper hideLine={true}>
-							{['Law Total', 'No', 'Yes'].map((item, key) => {
-								SectionTag = svgs[phaseItem].svgs[item];
+							{['Law Total', 'Spending', 'Loan'].map((item, key) => {
+								SectionTag = svgs[phaseItem][item];
 								return phase(chartData[phaseItem][item], SectionTag);
 							})}
 						</PhaseWrapper>
