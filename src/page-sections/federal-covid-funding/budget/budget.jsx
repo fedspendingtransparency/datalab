@@ -99,7 +99,7 @@ export default function Budget(props) {
 				setHeights(tabletHeights);
 			}
     }
-  
+
     useEffect(() => {
 			resizeWindow()
       window.addEventListener('resize', resizeWindow);
@@ -108,7 +108,7 @@ export default function Budget(props) {
       }
     }, []);
 	}
-	
+
 	const Rectangle = ({ height }) => (
 		<svg style={{ height }}>
 			<rect
@@ -136,7 +136,7 @@ export default function Budget(props) {
 				</span>
 				<img src={svgs[0].img} width={svgs[0].width} alt={svgs[0].alt} />
 				<span>
-					In addition to the new agency funding granted, the [legislation] mandated the government <strong>defer and reduce taxes to provide relief to individuals and businesses.</strong> As an example, this includes payroll tax deferrals, which mean companies can postpone the deposit and payment of the employer’s share of Social Security taxes. The Congressional Budget Office CBO estimated the two-year impact will be over $902 billion in tax relief.  
+					In addition to the new agency funding granted, the [legislation] mandated the government <strong>defer and reduce taxes to provide relief to individuals and businesses.</strong> As an example, this includes payroll tax deferrals, which mean companies can postpone the deposit and payment of the employer’s share of Social Security taxes. The Congressional Budget Office CBO estimated the two-year impact will be over $902 billion in tax relief.
 				</span>
 				<img src={svgs[1].img} width={svgs[1].width} alt={svgs[1].alt} />
 				<span>
@@ -180,9 +180,6 @@ export default function Budget(props) {
 			<Header />
 			<div className={styles.chartContainer}>
 				<Chart />
-			</div>
-			<div className={styles.sources}>
-				SOURCES: To be added
 			</div>
 			<Downloads
 				href="/data/federal-covid-spending/tracking/covid19_response_viz1_2020-06-19.csv"
