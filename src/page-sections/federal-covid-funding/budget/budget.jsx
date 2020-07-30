@@ -13,7 +13,7 @@ import TabletC from 'src/images/covid/budget/viz1CTablet.svg';
 import MobileA from 'src/images/covid/budget/viz1AMobile.svg';
 import MobileB from 'src/images/covid/budget/viz1BMobile.svg';
 import MobileC from 'src/images/covid/budget/viz1CMobile.svg';
-import PurpleDot from 'src/svgs/federal-covid-spending/budget/purpleDot.svg';
+import PurpleDot from 'src/svgs/federal-covid-spending/purpleDot.svg';
 
 import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode'
 import styles from './budget.module.scss';

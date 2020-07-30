@@ -19,7 +19,7 @@ import Bar from './bars/bar';
 import styles from './tracking.module.scss';
 
 import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
-import PurpleDot from '../../../svgs/federal-covid-spending/budget/purpleDot.svg';
+import PurpleDot from '../../../svgs/federal-covid-spending/purpleDot.svg';
 
 import GovtTotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/govtTotal.svg'
 import Phase1SVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase1.svg'
