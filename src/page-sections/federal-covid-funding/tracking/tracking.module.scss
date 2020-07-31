@@ -108,6 +108,10 @@ h2 {
 	.barDiv:hover a {
 		text-decoration: underline;
 	}
+
+	.barContainer {
+		border-bottom: 1px solid #ddd;
+	}
 		
 }
 
@@ -120,6 +124,15 @@ h2 {
 #phase-anchor:hover {
 	cursor: pointer;
 	text-decoration: underline;
+}
+
+.footerBlurb {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: center;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
 }
 
 .legendContainer {
