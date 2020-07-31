@@ -108,7 +108,7 @@ h2 {
 	.barDiv:hover a {
 		text-decoration: underline;
 	}
-		
+
 }
 
  svg:global(.lawTotalOnly), svg:global(.loan), svg:global(.spending), svg:global(.lawTotal) {
@@ -256,6 +256,8 @@ h2 {
 };
 
 .infoModalBody {
+	margin-top: 1rem;
+
 	.modalBlock {
 		height: 1.25rem;
 		width: 1.25rem;
@@ -265,7 +267,7 @@ h2 {
 	.heading {
 		display: flex;
 		align-items: center;
-		font-size: 1.25rem;
+		font-size: 1.125rem;
 		font-weight: 600;
 	}
 
