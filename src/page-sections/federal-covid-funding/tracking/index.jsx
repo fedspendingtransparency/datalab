@@ -665,7 +665,7 @@ export default function Tracking(props) {
 			<div className={styles.footerBlurb}>
 				<p>
 				Find out more about how COVID-19 funding was categorized, who received financial awards, and which government programs<br></br>
-        		were funded on the new COVID-19 page on <a href='http://usaspending.gov/covid-19'> USAspending.gov</a>
+        		were funded on the new COVID-19 page on <a target="_blank" href='http://usaspending.gov/covid-19'> USAspending.gov</a>
 				</p>
 			</div>
 
