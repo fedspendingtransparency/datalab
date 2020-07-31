@@ -32,7 +32,7 @@ const Overview = (props) => {
       <div className={overviewStyles.overviewNumber}>1</div>
       <div className={overviewStyles.overviewSubtitle}>Appropriations</div>
       <div className={overviewStyles.overviewText}>
-        After an appropriation law is passed, The Treasury issues funds to specific agency spending accounts.
+        After an appropriations law is passed, The Treasury issues funds to specific agency spending accounts.
       </div>
     </Grid>
   );
