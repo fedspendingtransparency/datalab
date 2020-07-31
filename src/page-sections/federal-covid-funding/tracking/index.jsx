@@ -319,10 +319,10 @@ export default function Tracking(props) {
 			icon: <LIcon />,
 			infoModalDescription: <>
 				<p>
-					This spending includes funds from accounts which are used to finance and administer <a target="_blank" href="https://www.usaspending.gov/#/?glossary=direct-loan">direct loans</a> or <a target="_blank" href="https://www.usaspending.gov/#/?glossary=guaranteed-insured-loan">guaranteed loan</a> programs through an intermediary lender. The amounts do not show the total <a target="_blank" href="https://www.usaspending.gov/#/?glossary=face-value">face value</a> of loans and loan guarantees that lenders have disbursed to businesses or individuals. Instead, they show the estimated <a target="_blank" href="https://www.usaspending.gov/#/?glossary=subsidy-cost">subsidy cost</a> of those loans and loan guarantees and the cost of servicing and running the programs.
+					This spending includes funds from accounts which are used to finance and administer <a target="_blank" href="https://www.usaspending.gov/#/?glossary=direct-loan">direct loans</a> or <a target="_blank" href="https://www.usaspending.gov/#/?glossary=guaranteed-insured-loans">guaranteed loan</a> programs through an intermediary lender. The amounts do not show the total <a target="_blank" href="https://www.usaspending.gov/#/?glossary=face-value">face value</a> of loans and loan guarantees that lenders have disbursed to businesses or individuals. Instead, they show the estimated <a target="_blank" href="https://www.usaspending.gov/#/?glossary=subsidy-cost">subsidy cost</a> of those loans and loan guarantees and the cost of servicing and running the programs.
 				</p>
 				<p>
-					Visit the usaspending.gov/covid-19 page to see more detail on the face value of loans.
+					Visit the <a target="_blank" href="https://www.usaspending.gov/#/disaster/covid-19">usaspending.gov/covid-19</a> page to see more detail on the face value of loans.
 				</p>
 			</>,
 		},
@@ -566,7 +566,7 @@ export default function Tracking(props) {
 			<AccordionList title="Instructions">
 				<ul>
 					<li>Click or tap on any bar graph label in this visualization to see the breakdown of obligations and outlays for each phase by agency.</li>
-					<li>To see details of the laws for each phase, click or tap on Law Summary.</li>
+					<li>To see details about the law for each phase, click or tap on Law Summary.</li>
 					<li>To exit the pop-up, click or tap the X.</li>
 				</ul>
 			</AccordionList>
