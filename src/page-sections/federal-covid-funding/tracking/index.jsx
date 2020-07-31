@@ -552,10 +552,9 @@ export default function Tracking(props) {
 			<h2 className={styles.sectionHeading}>Progress of COVID-19 Spending</h2>
 			<AccordionList title="Instructions">
 				<ul>
-					<li>Hover over a bar or agency in the chart to see the detailed values of outlays, obligations, and unobligated funds.</li>
-					<li>By clicking on a single bar within the chart, you can see the breakdown of obligations and outlays for each spending account by agency. Spending is tracked by account.</li>
+					<li>Click or tap on any bar graph label in this visualization to see the breakdown of obligations and outlays for each phase by agency.</li>
+					<li>To see details of the laws for each phase, click or tap on Law Summary.</li>
 					<li>To exit the pop-up, click or tap the X.</li>
-					<li>To expand the list agencies, click or tap See More.</li>
 				</ul>
 			</AccordionList>
 			<ControlBar alignRightOnMobile>
@@ -642,7 +641,7 @@ export default function Tracking(props) {
 				closeModal={closeModal}
 				phase={lawSummaryModalPhase}
 			/>
-			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.csv" date="June 2020" />
+			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.csv" date="July 2020" />
 		</>
 	);
 }
