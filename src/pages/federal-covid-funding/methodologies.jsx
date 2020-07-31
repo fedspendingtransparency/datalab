@@ -54,25 +54,29 @@ const C19HWTCA = ({ location }) => {
         <li>
           <strong>Agency funding to-date:</strong> The value of the four supplemental laws passed by Congress is approximately $2.58 trillion. This value reflects the total value of appropriation warrants made to agencies’ TAS accounts to date for each of the four laws passed
         </li>
-        <li>
-          Appropriation warrants reflect Congressional action to fund programs and provide each agency the amount of money they are authorized to withdraw from the General Fund of the U.S. Government and period of availability of those funds. The total estimated value of the four laws only includes current appropriation warrants issued, which could change. The value of each law could change because there are parts of the laws that do not state explicit program costs or limits on the total funding that can be used to meet the law’s requirements. This could also result in additional appropriations being issued to fulfill the law’s intent if the original appropriation is exhausted
-        </li>
-        <li>
-	  H.R. 6074 Coronavirus Preparedness and Response Supplemental Appropriations Act (CPRSAA) totaled an estimated $7 billion
-        </li>
-        <li>
-          H.R. 6201 Families First Coronavirus Response Act (FFCRA) totaled an estimated $14 billion
-        </li>
-        <li>
-	  H.R. 748 Coronavirus Aid, Relief, and Economic Security (CARES) Act totaled an estimated $2.07 trillion in funding
-        </li>
-        <li>
-	  H.R. 266 Paycheck Protection Program and Health Care Enhancement Act (PPP HCEA) totaled an estimated $483 billion
-        </li>
-        <li><strongg>Estimated Tax Relief:</strong> The total value of estimated deferred and reduced taxes provided by the FFCRA4 and CARES Act<sup>5</sup> are taken from the CBO’s analysis of each law. The tax relief value is the sum of the CBO’s estimated two year (FY 2020 through 2021) estimated tax revenue impact for each law</li>
+        <ul>
+          <li>
+            Appropriation warrants reflect Congressional action to fund programs and provide each agency the amount of money they are authorized to withdraw from the General Fund of the U.S. Government and period of availability of those funds. The total estimated value of the four laws only includes current appropriation warrants issued, which could change. The value of each law could change because there are parts of the laws that do not state explicit program costs or limits on the total funding that can be used to meet the law’s requirements. This could also result in additional appropriations being issued to fulfill the law’s intent if the original appropriation is exhausted
+          </li>
+          <li>
+      H.R. 6074 Coronavirus Preparedness and Response Supplemental Appropriations Act (CPRSAA) totaled an estimated $7 billion
+          </li>
+          <li>
+            H.R. 6201 Families First Coronavirus Response Act (FFCRA) totaled an estimated $14 billion
+          </li>
+          <li>
+      H.R. 748 Coronavirus Aid, Relief, and Economic Security (CARES) Act totaled an estimated $2.07 trillion in funding
+          </li>
+          <li>
+      H.R. 266 Paycheck Protection Program and Health Care Enhancement Act (PPP HCEA) totaled an estimated $483 billion
+          </li>
+        </ul>
+        <li><strong>Estimated Tax Relief:</strong> The total value of estimated deferred and reduced taxes provided by the FFCRA4 and CARES Act<sup>5</sup> are taken from the CBO’s analysis of each law. The tax relief value is the sum of the CBO’s estimated two year (FY 2020 through 2021) estimated tax revenue impact for each law</li>
         <li><strong>Total Estimated Lending and Utilization:</strong>The estimated value of lending is equal to the sum of the credit, direct and indirect loans made available with funding provided by the four supplemental appropriations</li>
+        <ul>
         <li>Estimated total loan and loan guarantee values were calculated for each program using information provided by each agency. Loan and loan guarantees funded by the supplemental appropriations include: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers, Credit Assistance for Air Carriers and Businesses Critical to National Security,<sup>6</sup> and the Small Business Administration’s Economic Injury Disaster Loans (EIDL)<sup>7</sup> and Paycheck Protection Program (PPP),<sup>8</sup> as well as the total estimated credit made available through the Federal Reserve Emergency Lending facilities<sup>9</sup></li>
         <li>Total utilized lending was calculated using the most recent data on current reported loans and loan guarantees issued as of the publishing date provided by each agency: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers<sup>10</sup>, Credit Assistance for Air Carriers and Businesses Critical to National Security<sup>11</sup>, and the Small Business Administration’s Economic Injury Disaster Loans (EIDL)<sup>12</sup> and Paycheck Protection Program (PPP)<sup>13</sup>. Current utilization of Federal Reserve Emergency Lending facilities was provided by the Department of the Treasury. Data on loan guarantees issued for the USDA’s Rural Development Business and Industry CARES Act Program was not available and is therefore reported as zero reported lending utilized</li>
+        </ul>
       </ul>
     )
   },{
@@ -128,7 +132,7 @@ const C19HWTCA = ({ location }) => {
                                  <sup>7</sup> Estimated value of total potential EIDL direct loans estimated using the FY 2020 credit subsidy rate for the program <a target="_blank" href="https://www.govinfo.gov/content/pkg/BUDGET-2020-FCS/pdf/BUDGET-2020-FCS.pdf">https://www.govinfo.gov/content/pkg/BUDGET-2020-FCS/pdf/BUDGET-2020-FCS.pdf</a>
                                </p>
                                <p>
-                                 <sup>8</sup> Total potential value of loan guarantees to be made available in the PPP program was provided by the <a target="_blank" href="https://www.sba.gov/document/report-paycheck-protection-program-report-through-july-17-2020">Small Business Administration</a>
+                                 <sup>8</sup> Total potential value of loan guarantees to be made available in the PPP program was provided by the Small Business Administration.
                                </p>
                                <p>
                                  <sup>9</sup> See Federal Reserve statements: <a target="_blank" href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20200409a.htm">https://www.federalreserve.gov/newsevents/pressreleases/monetary20200409a.htm</a>,
@@ -160,7 +164,9 @@ const C19HWTCA = ({ location }) => {
                                  <sup>17</sup> Detailed instructions on how agencies should be classified is provided here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md">https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md.</a>
                                  The list of shared agencies identified by FREC can be found here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker">https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a>
                                </p>
-                             </>
+                               <p>For a complete download of the data, download this file: <a href='/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.xlsx'>COVID-19 Response Data</a>
+                               </p>
+                               </>
                            )
                          }];
 
