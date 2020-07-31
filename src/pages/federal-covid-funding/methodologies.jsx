@@ -3,7 +3,7 @@ import HWCTA from '../../components/hwcta/hwcta';
 import styles from '../../components/hwcta/hwcta.module.scss';
 
 const C19HWTCA = ({ location }) => {
-  const title = 'COVID-19';
+  const title = 'The Federal Response to COVID-19';
 
   const dataSources = [{
     name: <>Value of supplemental appropriations:</>,
@@ -19,7 +19,7 @@ const C19HWTCA = ({ location }) => {
           Estimated tax revenue impact for each law from the  <a href='https://www.cbo.gov/' target='_blank' rel='noopener noreferrer'>Congressional Budget Office (CBO)</a>
         </li>
         <li>
-          Agency program statements, CBO analysis for each law, the Federal Credit Supplements to the President’s Fiscal Year (FY) 2021 budget<sup>2</sup> and funding notices published to the federal register were used to estimate the potential credit, direct loans and loan guarantees
+          Agency program statements, CBO analysis for each law, the Federal Credit Supplements to the President’s Fiscal Year (FY) 2021 budget<sup>2</sup> and funding notices published to the federal register were used to estimate the potential credit, direct loans, and loan guarantees
         </li>
       </ul>
     )
@@ -72,10 +72,10 @@ const C19HWTCA = ({ location }) => {
           </li>
         </ul>
         <li><strong>Estimated Tax Relief:</strong> The total value of estimated deferred and reduced taxes provided by the FFCRA<sup>4</sup> and CARES Act<sup>5</sup> are taken from the CBO’s analysis of each law. The tax relief value is the sum of the CBO’s estimated two year (FY 2020 through 2021) estimated tax revenue impact for each law</li>
-        <li><strong>Total Estimated Lending and Utilization:</strong>The estimated value of lending is equal to the sum of the credit, direct and indirect loans made available with funding provided by the four supplemental appropriations</li>
+        <li><strong>Total Estimated Lending and Utilization:</strong>The estimated value of lending is equal to the sum of the credit, direct, and indirect loans made available with funding provided by the four supplemental appropriations</li>
         <ul>
-        <li>Estimated total loan and loan guarantee values were calculated for each program using information provided by each agency. Loan and loan guarantees funded by the supplemental appropriations include: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers, Credit Assistance for Air Carriers and Businesses Critical to National Security,<sup>6</sup> and the Small Business Administration’s Economic Injury Disaster Loans (EIDL)<sup>7</sup> and Paycheck Protection Program (PPP),<sup>8</sup> as well as the total estimated credit made available through the Federal Reserve Emergency Lending facilities<sup>9</sup></li>
-        <li>Total utilized lending was calculated using the most recent data on current reported loans and loan guarantees issued as of the publishing date provided by each agency: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers<sup>10</sup>, Credit Assistance for Air Carriers and Businesses Critical to National Security<sup>11</sup>, and the Small Business Administration’s Economic Injury Disaster Loans (EIDL)<sup>12</sup> and Paycheck Protection Program (PPP)<sup>13</sup>. Current utilization of Federal Reserve Emergency Lending facilities was provided by the Department of the Treasury. Data on loan guarantees issued for the USDA’s Rural Development Business and Industry CARES Act Program was not available and is therefore reported as zero reported lending utilized</li>
+        <li>Estimated total loan and loan guarantee values were calculated for each program using information provided by each agency. Loan and loan guarantees funded by the supplemental appropriations include: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers, Credit Assistance for Air Carriers and Businesses Critical to National Security,<sup>6</sup> and the Small Business Administration’s Economic Injury Disaster Loans (EIDL),<sup>7</sup> and Paycheck Protection Program (PPP),<sup>8</sup> as well as the total estimated credit made available through the Federal Reserve Emergency Lending facilities<sup>9</sup></li>
+        <li>Total utilized lending was calculated using the most recent data on current reported loans and loan guarantees issued as of the publishing date provided by each agency: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers<sup>10</sup>, Credit Assistance for Air Carriers and Businesses Critical to National Security<sup>11</sup>, and the Small Business Administration’s Economic Injury Disaster Loans (EIDL),<sup>12</sup> and Paycheck Protection Program (PPP)<sup>13</sup>. Current utilization of Federal Reserve Emergency Lending facilities was provided by the Department of the Treasury. Data on loan guarantees issued for the USDA’s Rural Development Business and Industry CARES Act Program was not available and is therefore reported as zero reported lending utilized</li>
         </ul>
       </ul>
     )
@@ -111,7 +111,7 @@ const C19HWTCA = ({ location }) => {
                            content: (
                              <>
                                <p>
-                                 <sup>1</sup> An appropriation warrant is issued following the passage of a law reflecting the individual amounts appropriated by Congress, by appropriation symbol, on the books of the U. S. Treasury. These warrants provide agencies the authority to then obligate and outlay, or spend, funds. More information on the appropriations process can be found here: <a href="https://tfm.fiscal.treasury.gov/v1/p2/c200.html">https://tfm.fiscal.treasury.gov/v1/p2/c200.html</a>
+                                 <sup>1</sup> An appropriation warrant is issued following the passage of a law reflecting the individual amounts appropriated by Congress, by appropriation symbol, on the books of the U. S. Treasury. These warrants provide agencies the authority to then obligate and outlay, or spend funds. More information on the appropriations process can be found here: <a href="https://tfm.fiscal.treasury.gov/v1/p2/c200.html">https://tfm.fiscal.treasury.gov/v1/p2/c200.html</a>
                                </p>
                                <p>
                                  <sup>2</sup> <a target="_blank" href="https://www.whitehouse.gov/omb/supplemental-materials/">https://www.whitehouse.gov/omb/supplemental-materials/</a>
