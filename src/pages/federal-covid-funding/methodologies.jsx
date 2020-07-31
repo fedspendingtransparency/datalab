@@ -10,7 +10,7 @@ const C19HWTCA = ({ location }) => {
     sources: (
       <ul>
         <li>
-          Appropriation warrants for H.R. 6074, H.R. 6201, H.R. 748, and H.R. 266
+          Appropriation warrants<sup>1</sup> for H.R. 6074, H.R. 6201, H.R. 748, and H.R. 266
         </li>
         <li>
           Full text of each law from the <a href='https://www.congress.gov/' target='_blank' rel='noopener noreferrer'>Library of Congress</a>
@@ -19,7 +19,7 @@ const C19HWTCA = ({ location }) => {
           Estimated tax revenue impact for each law from the  <a href='https://www.cbo.gov/' target='_blank' rel='noopener noreferrer'>Congressional Budget Office (CBO)</a>
         </li>
         <li>
-          Agency program statements, CBO analysis for each law, the Federal Credit Supplements to the President’s Fiscal Year (FY) 2021 budget2 and funding notices published to the federal register were used to estimate the potential credit, direct loans and loan guarantees
+          Agency program statements, CBO analysis for each law, the Federal Credit Supplements to the President’s Fiscal Year (FY) 2021 budget<sup>2</sup> and funding notices published to the federal register were used to estimate the potential credit, direct loans and loan guarantees
         </li>
       </ul>
     )
@@ -71,7 +71,7 @@ const C19HWTCA = ({ location }) => {
       H.R. 266 Paycheck Protection Program and Health Care Enhancement Act (PPP HCEA) totaled an estimated $483 billion
           </li>
         </ul>
-        <li><strong>Estimated Tax Relief:</strong> The total value of estimated deferred and reduced taxes provided by the FFCRA4 and CARES Act<sup>5</sup> are taken from the CBO’s analysis of each law. The tax relief value is the sum of the CBO’s estimated two year (FY 2020 through 2021) estimated tax revenue impact for each law</li>
+        <li><strong>Estimated Tax Relief:</strong> The total value of estimated deferred and reduced taxes provided by the FFCRA<sup>4</sup> and CARES Act<sup>5</sup> are taken from the CBO’s analysis of each law. The tax relief value is the sum of the CBO’s estimated two year (FY 2020 through 2021) estimated tax revenue impact for each law</li>
         <li><strong>Total Estimated Lending and Utilization:</strong>The estimated value of lending is equal to the sum of the credit, direct and indirect loans made available with funding provided by the four supplemental appropriations</li>
         <ul>
         <li>Estimated total loan and loan guarantee values were calculated for each program using information provided by each agency. Loan and loan guarantees funded by the supplemental appropriations include: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers, Credit Assistance for Air Carriers and Businesses Critical to National Security,<sup>6</sup> and the Small Business Administration’s Economic Injury Disaster Loans (EIDL)<sup>7</sup> and Paycheck Protection Program (PPP),<sup>8</sup> as well as the total estimated credit made available through the Federal Reserve Emergency Lending facilities<sup>9</sup></li>
