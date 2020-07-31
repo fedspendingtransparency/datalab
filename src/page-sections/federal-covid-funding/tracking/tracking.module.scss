@@ -6,24 +6,44 @@ h2 {
 }
 
 .vizContainer {
-	display: flex;
-	flex-direction: row;
 
-	.phaseDotsContainer {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin-right: 20px;
-		margin-top: 6px;
+	.chartContainer {
+		svg:global(.lawTotal), svg:global(.spending) {
+			margin-top: 10px;
+			margin-bottom: 30px;
+		}
 
+		svg:global(.govtTotal), svg:global(.lawTotalOnly), svg:global(.loan) {
+			margin-top: 10px;
+			margin-bottom: 80px;
+		}
 	}
 
+	.phaseContainer {
+		display: flex;
+		flex-direction: row;
+
+		.phaseDotsContainer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-right: 20px;
+			margin-top: 6px;
+
+
+			.line {
+				border-left: 1px solid #d8d8d8;
+				height: calc(100% - 16px);
+				margin-top: calc(10% + 8px);
+			}
+		}
+
+	}
 	.totalHeading {
 		text-transform: uppercase;
 		color: $covidPurple;
 		font-size: 1.125rem;
 		font-weight: 600;
-		margin-bottom: 1rem;
 	}
 
 	.phaseTitle {
@@ -31,14 +51,44 @@ h2 {
 		font-weight: 600;
 		color: #555555;
 		text-transform: uppercase;
-		margin-bottom: 5px;
+		margin-bottom: 2px;
 	}
 
 	.enactedDate {
+		display: flex;
+		align-items: center;
 		font-size: 0.875rem;
 		font-style: italic;
 		color: #666666;
 		margin-bottom: 21px;
+
+		.lawSummaryDivider {
+			font-size: 1.25rem;
+			color: #c6c6c6;
+			margin: 0 10px;
+		}
+
+		.lawSummary {
+			display: flex;
+			align-items: center;
+			font-size: 0.875rem;
+			font-style: normal;
+			font-weight: 600;
+			color: #2273CE;
+			cursor: pointer;
+
+			.icon {
+				padding: 0;
+				margin-right: .5rem;
+				height: 0.875rem;
+				width: 0.875rem;
+				color: #2273CE;
+			}
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 
 	.barTitle {
@@ -56,8 +106,6 @@ h2 {
 	}
 
 }
-
-
 
 .legendContainer {
 	.legendAsOf {
@@ -244,7 +292,7 @@ h2 {
 	}
 }
 
-@media screen and (min-width: $phone) {
+@media (min-width: $phone) {
 	.blockContainer {
 		align-items: center;
 		height: 38px;
@@ -289,7 +337,7 @@ h2 {
 	}
 }
 
-@media screen and (max-width: $tablet - 1) {
+@media (max-width: $tablet - 1) {
 	.covidTitle {
 		font-size: 1.25rem;
 		color: #666;
@@ -324,12 +372,28 @@ h2 {
 		font-size: 0.75rem !important;
 	}
 
+	.lawSummary {
+		font-size: 0.75rem !important;
+		text-decoration: underline;
+	}
+
 	.barTitle {
 		font-size: 0.875rem !important;
 	}
+
+	.chartContainer {
+		svg:global(.lawTotal), svg:global(.spending) {
+			margin-top: 10px;
+			margin-bottom: 40px !important;
+		}
+
+		svg:global(.govtTotal), svg:global(.lawTotalOnly), svg:global(.loan) {
+			margin-bottom: 60px !important;
+		}
+	}
 }
 
-@media screen and (max-width: $phone - 1) {
+@media (max-width: $phone - 1) {
 	.covidTitle {
 		font-size: 1.25rem;
 		color: #666;
@@ -356,9 +420,13 @@ h2 {
     font-size: 18px !important;
     font-weight: 600;
   }
+
+	.phaseDotsContainer {
+		margin-right: 10px;
+	}
 }
 
-@media screen and (max-width: $desktop - 1) and (min-width: $tablet) {
+@media (max-width: $desktop - 1) and (min-width: $tablet) {
 	.section-heading {
 		text-align: center;
 		font-size: 2rem;

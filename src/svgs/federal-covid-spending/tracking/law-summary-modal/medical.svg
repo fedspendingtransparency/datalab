@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="79px" height="85px" viewBox="0 0 79 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+    <desc>medical placeholder alt text</desc>
+    <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Viz-3---Modal---Law-Summaries" transform="translate(-64.000000, -313.000000)">
+            <g id="Modal---Phase-1" transform="translate(40.000000, 120.000000)">
+                <g id="medical" transform="translate(24.000000, 187.000000)">
+                    <g id="icon_medical" transform="translate(0.000000, 6.000000)">
+                        <path d="M68,0.5 L68.5,83.5 L9.5,83.5 L9.5,1 L68,0.5 Z" id="Rectangle" stroke="#4A1D7A" fill-opacity="0.5" fill="#F3E9FF"></path>
+                        <polygon id="Stroke-2" stroke="#4A2B78" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" points="0.5 80.0267 47.916 80.0267 47.916 50.4997 0.5 50.4997"></polygon>
+                        <path d="M23,78.597207 C23,81.359262 20.7607967,83.5977 18,83.5977 C15.2392033,83.5977 13,81.359262 13,78.597207 C13,75.8351519 15.2392033,73.5977 18,73.5977 C20.7607967,73.5977 23,75.8351519 23,78.597207 Z" id="Stroke-5" stroke="#4A2B78" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <circle id="Oval" fill-opacity="0.335828234" fill="#6F41A7" cx="18" cy="78.5977" r="3"></circle>
+                        <path d="M48,59 L54,59 C54,59 57.4876,59.3924 59.2436,61.1484 L66.7946,66.5924 L76.2776,69.9294 L76.2636,76.0754 L77.6826,76.0754 L77.6826,80.0274 L72.6776,80.0274 L48,80 L48,59 Z" id="Stroke-8" stroke="#4A2B78" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <line x1="47.916" y1="80.0271" x2="61.79" y2="80.0271" id="Fill-9" fill="#FEFEFE"></line>
+                        <line x1="47.916" y1="80.0271" x2="61.79" y2="80.0271" id="Stroke-10" stroke="#4A2B78" stroke-linecap="round" stroke-linejoin="round"></line>
+                        <polygon id="Stroke-12" stroke="#4A2B78" fill-opacity="0.408134834" fill="#6F41A7" stroke-linecap="round" stroke-linejoin="round" points="51.2529 61.3913 51.2529 67.5583 61.7899 67.5583 61.7899 65.8023 56.2009 61.4833"></polygon>
+                        <line x1="1" y1="71.0977" x2="48" y2="71.0977" id="Stroke-13" stroke="#4A2B78" stroke-linecap="round" stroke-linejoin="round"></line>
+                        <line x1="1" y1="68.0977" x2="48" y2="68.0977" id="Stroke-14" stroke="#4A2B78" stroke-linecap="round" stroke-linejoin="round"></line>
+                        <polygon id="Stroke-15" fill="#4A1D7A" points="4.568 53.646 4.568 52 6.083 52 6.083 53.646 7.499 52.823 8.355 54.502 6.84 55.194 8.355 55.984 7.532 57.368 6.182 56.379 6.182 58.113 4.568 58.113 4.568 56.281 3.153 57.334 2 55.753 3.778 55.056 2.263 54.239 3.153 52.625"></polygon>
+                        <path d="M72,79.000493 C72,81.7625481 69.7607967,84 67,84 C64.2392033,84 62,81.7625481 62,79.000493 C62,76.238438 64.2392033,74 67,74 C69.7607967,74 72,76.238438 72,79.000493 Z" id="Stroke-7" stroke="#4A2B78" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <circle id="Oval-Copy" fill-opacity="0.335828234" fill="#6F41A7" cx="67" cy="79" r="3"></circle>
+                        <polygon id="Rectangle" fill="#FFFFFF" points="52 62 54 62 58 67 56 67"></polygon>
+                        <rect id="Rectangle" fill-opacity="0.292640953" fill="#6F41A7" x="1" y="68" width="47" height="3"></rect>
+                        <rect id="Rectangle" stroke="#4A1D7A" fill-opacity="0.327879152" fill="#6F41A7" x="33.5" y="27.5" width="11" height="15"></rect>
+                        <polygon id="Rectangle" fill="#FFFFFF" points="38.9034961 28 41.4 28 34.2 38.4020994 34.2 34.9883545"></polygon>
+                        <polygon id="Rectangle-Copy-7" fill="#FFFFFF" points="42.5034961 28 43.8 28 34.2 41.3018799 34.2 39.8242188"></polygon>
+                        <rect id="Rectangle" stroke="#4A1D7A" fill-opacity="0.327879152" fill="#6F41A7" x="17.5" y="27.5" width="11" height="15"></rect>
+                        <polygon id="Rectangle" fill="#FFFFFF" points="22.9034961 28 25.4 28 18.2 38.4020994 18.2 34.9883545"></polygon>
+                        <polygon id="Rectangle-Copy-7" fill="#FFFFFF" points="26.5034961 28 27.8 28 18.2 41.3018799 18.2 39.8242188"></polygon>
+                        <rect id="Rectangle" stroke="#4A1D7A" fill-opacity="0.327879152" fill="#6F41A7" x="49.5" y="27.5" width="11" height="15"></rect>
+                        <polygon id="Rectangle" fill="#FFFFFF" points="54.9034961 28 57.4 28 50.2 38.4020994 50.2 34.9883545"></polygon>
+                        <polygon id="Rectangle-Copy-7" fill="#FFFFFF" points="58.5034961 28 59.8 28 50.2 41.3018799 50.2 39.8242188"></polygon>
+                        <path d="M39,4.5 C41.3468778,4.5 43.4718669,5.45157949 45.0101437,6.98985628 C46.5484205,8.52813307 47.5,10.6531222 47.5,13 C47.5,15.3472385 46.5485344,17.472137 45.0103953,19.010276 C43.4720962,20.5485752 41.3470005,21.5 39,21.5 C36.6526388,21.5 34.5276338,20.548689 32.9894724,19.0105276 C31.451311,17.4723662 30.5,15.3473612 30.5,13 C30.5,10.6529995 31.4514248,8.52790384 32.989724,6.9896047 C34.527863,5.45146565 36.6527615,4.5 39,4.5 Z" id="Stroke-3" stroke="#4A1D7A" fill="#FFFFFF"></path>
+                        <polygon id="Fill-5" fill="#4A2B78" points="37.5917512 14.3857573 34 14.3857573 34 11.6164751 37.5917512 11.6164751 37.5917512 8 40.4093516 8 40.4093516 11.6164751 44 11.6164751 44 14.3857573 40.4093516 14.3857573 40.4093516 18 37.5917512 18"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

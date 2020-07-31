@@ -5,6 +5,8 @@ import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import IconButton from '@material-ui/core/IconButton';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import numberFormatter from 'src/utils/number-formatter/number-formatter';
@@ -12,45 +14,134 @@ import Share from 'src/components/share/share';
 import ModalReference from 'src/components/modal/modal';
 import { Grid } from '@material-ui/core';
 import Modal from './modal/modal';
+import LawSummaryModal from './law-summary-modal/modal';
 import Bar from './bars/bar';
-import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
-
 import styles from './tracking.module.scss';
-import defaultImage from 'src/images/default-image.jpg';
-import PurpleDot from '../../../svgs/federal-covid-spending/budget/purpleDot.svg';
+
+import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
+import PurpleDot from '../../../svgs/federal-covid-spending/purpleDot.svg';
+
+import GovtTotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/govtTotal.svg';
+import Phase1SVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase1.svg';
+import Phase2SVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase2.svg';
+import Phase3TotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase3Total.svg';
+import Phase3GeneralSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase3General.svg';
+import Phase3LoanSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase3Loan.svg';
+import Phase35TotalSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase35Total.svg';
+import Phase35GeneralSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase35General.svg';
+import Phase35LoanSVG from 'src/svgs/federal-covid-spending/tracking/desktop/phase35Loan.svg';
+
+import GovtTotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/govtTotal.svg';
+import Phase1MobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase1.svg';
+import Phase2MobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase2.svg';
+import Phase3TotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase3Total.svg';
+import Phase3GeneralMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase3General.svg';
+import Phase3LoanMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase3Loan.svg';
+import Phase35TotalMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35Total.svg';
+import Phase35GeneralMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35General.svg';
+import Phase35LoanMobileSVG from 'src/svgs/federal-covid-spending/tracking/mobile/phase35Loan.svg';
+
+import GovtTotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/govtTotal.svg';
+import Phase1TabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase1.svg';
+import Phase2TabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase2.svg';
+import Phase3TotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase3Total.svg';
+import Phase3GeneralTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase3General.svg';
+import Phase3LoanTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase3Loan.svg';
+import Phase35TotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35Total.svg';
+import Phase35GeneralTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35General.svg';
+import Phase35LoanTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35Loan.svg';
 
 export default function Tracking(props) {
 
-  const phaseDetail = {
-    '1': {
-      title: 'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
-      loanAcct: 'no',
-      enactedDate: 'March 6, 2020',
-      height: '164',
-    },
-    '2': {
-      title: 'Families First Coronavirus Response Act',
-      loanAcct: 'no',
-      enactedDate: 'March 18, 2020',
-      height: '198',
-    },
-    '3': {
-      title: 'Coronavirus Aid, Relief, and Economic Security Act',
-      loanAcct: 'yes',
-      enactedDate: 'March 27, 2020',
-      height: '198',
-    },
-    '3.5': {
-      title: 'Paycheck Protection Program and Health Care Enhancement Act',
-      loanAcct: 'yes',
-      enactedDate: 'April 24, 2020',
-      height: '198',
-    }
-  };
+	const phaseDetail = {
+		'1': {
+			title: 'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
+			loanAcct: 'no',
+			enactedDate: 'March 6, 2020',
+		},
+		'2': {
+			title: 'Families First Coronavirus Response Act',
+			loanAcct: 'no',
+			enactedDate: 'March 18, 2020',
+		},
+		'3': {
+			title: 'Coronavirus Aid, Relief, and Economic Security Act (CARES ACT)',
+			loanAcct: 'yes',
+			enactedDate: 'March 27, 2020',
+		},
+		'3.5': {
+			title: 'Paycheck Protection Program and Health Care Enhancement Act',
+			loanAcct: 'yes',
+			enactedDate: 'April 24, 2020',
+		}
+	}
 
-  const modal_percent_data = [{amount: 0, percent: 33.333333}, {amount: 0, percent: 33.333333}, {amount: 0, percent: 33.333333}];
+	const phaseDesktopSVGs = {
+		'Total':  {
+				'Law Total': GovtTotalSVG
+		},
+		'1':  {
+				'Law Total': Phase1SVG
+		},
+		'2': {
+				'Law Total': Phase2SVG
+		},
+		'3': {'Law Total': Phase3TotalSVG,
+				'Spending': Phase3GeneralSVG,
+				'Loan': Phase3LoanSVG
+		},
+		'3.5': {
+				'Law Total': Phase35TotalSVG,
+				'Spending': Phase35GeneralSVG,
+				'Loan': Phase35LoanSVG
+		}
+	}
 
-  const data = useStaticQuery(graphql`
+	const phaseTabletSVGs = {
+		'Total': {
+				'Law Total': GovtTotalTabletSVG
+		},
+		'1': {
+				'Law Total': Phase1TabletSVG
+		},
+		'2': {
+				'Law Total': Phase2TabletSVG
+		},
+		'3': {
+				'Law Total': Phase3TotalTabletSVG,
+				'Spending': Phase3GeneralTabletSVG,
+				'Loan': Phase3LoanTabletSVG
+		},
+		'3.5': {
+				'Law Total': Phase35TotalTabletSVG,
+				'Spending': Phase35GeneralTabletSVG,
+				'Loan': Phase35LoanTabletSVG
+		}
+	}
+
+	const phaseMobileSVGs = {
+		'Total': {
+			'Law Total': GovtTotalMobileSVG
+		},
+		'1': {
+			'Law Total': Phase1MobileSVG
+		},
+		'2': {
+			'Law Total': Phase2MobileSVG
+		},
+		'3': {
+			'Law Total': Phase3TotalMobileSVG,
+			'Spending': Phase3GeneralMobileSVG,
+			'Loan': Phase3LoanMobileSVG
+		},
+		'3.5': {
+				'Law Total': Phase35TotalMobileSVG,
+				'Spending': Phase35GeneralMobileSVG,
+				'Loan': Phase35LoanMobileSVG
+		}
+	}
+
+	const data = useStaticQuery(graphql`
     query {
       totalsByLaw: allCovid19ResponseModalAgencytotalbylaw20200717Csv {
 				group(field: Legislation) {
@@ -101,389 +192,458 @@ export default function Tracking(props) {
     }
 	`);
 
-  const loanAccountsByLaw = {};
-  data.accountsByType.group.forEach((item) => {
-    loanAccountsByLaw[item.fieldValue] = item.nodes;
-  });
+	const loanAccountsByLaw = {};
+	data.accountsByType.group.forEach((item) => {
+		loanAccountsByLaw[item.fieldValue] = item.nodes;
+	});
 
-  const totalAccountsByLaw = {};
-  data.totalsByLaw.group.forEach((item) => {
-    totalAccountsByLaw[item.fieldValue] = item.nodes;
-  });
+	const totalAccountsByLaw = {};
+	data.totalsByLaw.group.forEach((item) => {
+		totalAccountsByLaw[item.fieldValue] = item.nodes;
+	});
 
-  const totalBudgetByLaw = {};
-  data.total.nodes.forEach((item) => {
-    if (item.Loan_Program_Account === 'Law Total') {
-      totalBudgetByLaw[item.label] = item.Total_Budgetary_Resources
-    }
-  });
+	const totalBudgetByLaw = {};
+	data.total.nodes.forEach((item) => {
+		if (item.Loan_Program_Account === 'Law Total') {
+			totalBudgetByLaw[item.label] = item.Total_Budgetary_Resources
+		}
+	});
 
-  const [screenMode, setScreenMode] = useState(0);
-  const resizeWindow = () => {
-    const newMode = checkScreenMode(window.innerWidth);
-    if (newMode !== screenMode) {
-      setScreenMode(newMode);
-    }
-  };
-  useEffect(() => {
-    resizeWindow();
-    window.addEventListener('resize', resizeWindow);
-    return () => {
-      window.removeEventListener('resize', resizeWindow);
-    };
-  }, []);
+	const accountsByPhase = {};
+	data.total.nodes.forEach((item) => {
+		switch(item.Loan_Program_Account) {
+		case 'Law Total':
+			if(item.label === 'Total') {
+				accountsByPhase['govtTotal'] = item;
+			} else {
+				accountsByPhase[item.label] = {};
+				accountsByPhase[item.label]['Law Total'] = item;
+			}
+			break;
+		case 'No':
+			if(phaseDetail[item.label].loanAcct === 'yes') {
+				accountsByPhase[item.label]['Spending'] = item;
+			}
+			break;
+		case 'Yes':
+			accountsByPhase[item.label]['Loan'] = item;
+			break;
+		}
+	})
 
-  const [isInfoModalOpen, setInfoModalState] = useState(false);
+	const [screenMode, setScreenMode] = useState(0);
+	const [svgs, setSvgs] = useState(phaseMobileSVGs);
 
-  const [selectedBar, setSelectedBar] = useState(null);
-  const [isModalOpen, setModalState] = useState(false);
+	if (typeof window !== 'undefined') {
+		const resizeWindow = () => {
+			const newMode = checkScreenMode(window.innerWidth);
+			if (newMode === ScreenModeEnum.mobile) {
+				setSvgs(phaseMobileSVGs);
+			} else if (newMode === ScreenModeEnum.tablet) {
+				setSvgs(phaseTabletSVGs);
+			} else {
+				setSvgs(phaseDesktopSVGs);
+			}
+			setScreenMode(newMode);
+		};
 
-  const openModal = (e, el, barData) => {
-    setModalState(true);
-    setSelectedBar(el);
-    setSelectedBarData(barData);
-  };
-
-  const openInfoModal = () => {
-    setInfoModalState(true);
-  };
-
-  const closeModal = () => {
-    setModalState(false);
-    setInfoModalState(false);
-    setSelectedBar(null);
-  };
-
-  const categories = [
-    {
-      name: 'Outlays',
-      legendStyle: styles.outlayBar,
-      infoModalDescription: <p>The amount an agency paid toward an obligation. Outlays are also counted as obligations.</p>,
-    },
-    {
-      name: 'Obligations',
-      legendStyle: styles.obligatedBar,
-      infoModalDescription: <p>The amount an agency promised to pay for a particular purchase. Obligations include outlays.</p>,
-    },
-    {
-      name: 'Unobligated',
-      legendStyle: styles.unobligatedBar,
-      infoModalDescription: <p>The amount funded to an agency but not yet obligated.</p>,
-    },
-    {
-      name: 'Loan Program Accounts',
-      icon: <LIcon />,
-      infoModalDescription: <>
-                              <p>
-	                        These accounts include both direct loans and government-backed, or guaranteed, loans. For these accounts, obligations represent the
-	                        agency setting aside money to either disperse direct loans or stand-up a guaranteed loan program through an intermediary lender.
-                              </p>
-                              <p>
-	                        Agencies outlay funds for loan guarantee serving costs, and when a loan is forgiven and if the loan defaults. Therefore, recently funded loan account outlays only reflect
-	                        direct loan disbursements and the cost of servicing and running loan programs. Agencies do not report when a lender disperses a guaranteed loan to a business or individual.
-                              </p>
-                            </>,
-    },
-  ];
-
-
-  const modalTotalOfAmount = (selection) => (
-    <span className={styles.selectionAmountValSmall}>
-      {selection ? ` of ${numberFormatter('dollars suffix', totalBudgetByLaw[selection], 3)}` : ''}
-    </span>
-  );
-
-  const findModalTitle = () => {
-    if (selectedBar && selectedBar.label) {
-      const selectionAmount = data.total.nodes.find((item) => item.label === selectedBar.label);
-      let subtitle = 'Spending By Agency';
-      let ofTotalAmount;
-      let icon = <></>;
-      if (selectedBar.Loan_Program_Account === 'No') {
-	subtitle = 'General Account Spending';
-	ofTotalAmount = selectedBar.label;
-      } else if (selectedBar.Loan_Program_Account === 'Yes') {
-	subtitle = 'Loan Account Spending';
-	ofTotalAmount = selectedBar.label;
-	icon = <>&nbsp;<LIcon height={22} width={22} />&nbsp;</>;
-      }
-      return [
-	<span className={styles.modalTitle}>
-	  PHASE {selectedBar.label}: {icon} Progress of {subtitle}
-	  {' '}
-	</span>,
-	<span className={styles.selectionAmountVal}>
-	  {selectionAmount ? numberFormatter('dollars suffix', selectedBar.Total_Budgetary_Resources, 3) : ''}
-	</span>,
-	modalTotalOfAmount(ofTotalAmount),
-      ];
-    }
-    return <></>;
-  };
-
-  const filterModalData = () => {
-    if (selectedBar && selectedBar.label) {
-      switch (selectedBar.Loan_Program_Account) {
-      case 'Law Total':
-	return totalAccountsByLaw[selectedBar.label];
-      case 'No':
-	return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'No');
-      case 'Yes':
-	return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'Yes');
-      }
-    }
-
-    return null;
-  };
-
-  const phase = (i, thisBar) => {
-    let title;
-
-    switch (i.Loan_Program_Account) {
-    case 'Law Total':
-      title = 'Law Total';
-      break;
-    case 'No':
-      title = 'General Account Spending';
-      break;
-    case 'Yes':
-      title = 'Loan Account Spending';
-      break;
-    }
-
-    return (
-      <>
-	{i.Loan_Program_Account === 'Law Total' ?
-	 <>
-	   <div className={styles.phaseTitle}>
-	     Phase {i.label}: {phaseDetail[`${i.label}`].title}
-	   </div>
-	   <div className={styles.enactedDate}>Enacted {phaseDetail[`${i.label}`].enactedDate}</div>
-	 </>
-	 : null
+		useEffect(() => {
+			resizeWindow();
+			window.addEventListener('resize', resizeWindow);
+			return () => {
+				window.removeEventListener('resize', resizeWindow);
+			};
+		}, []);
 	}
 
-	{phaseDetail[`${i.label}`].loanAcct === 'yes' || i.Loan_Program_Account === 'Law Total' ?
-	 <>
-	   <a tabIndex= '0'
-	      className={styles.barTitle}
-	      onClick={(e) => openModal(e, i, thisBar)}>
-	     {i.Loan_Program_Account === 'Yes' ?
-	      <>
-		<LIcon />
-		&nbsp;&nbsp;{title}
-	      </>
-	      : title}
-	   </a>
-	   <br/>
-	   <img src={defaultImage} height='25'/>
-	   <br/>
-	 </>
-	 : null
+	const [isInfoModalOpen, setInfoModalState] = useState(false);
+	const [isLawSummaryModalOpen, setLawSummaryModalState] = useState(false);
+	const [lawSummaryModalPhase, setLawSummaryModalPhase] = useState(1);
+
+	const [selectedBar, setSelectedBar] = useState(null);
+	const [isModalOpen, setModalState] = useState(false);
+
+	const openModal = (e, el) => {
+		setModalState(true);
+		setSelectedBar(el);
+	};
+
+	const openInfoModal = () => {
+		setInfoModalState(true);
+	};
+
+	const openLawSummaryModal = (e, phase) => {
+		if (!e.key || e.key === 'Enter') {
+			setLawSummaryModalPhase(phase)
+			setLawSummaryModalState(true);
+		}
 	}
-      </>
-    )
-  }
 
-  const mainChart = () => {
-    const chartData = data.total.nodes;
-    const table = chartData.map((i, key) => {
-      const thisBar = [{
-	amount: i.Amount_Outlayed,
-	percent: parseFloat(i.Percent_Outlayed).toFixed(2),
-      }, {
-	amount: i.Amount_Obligated,
-	percent: parseFloat(i.Percent_Obligated_Not_Outlayed).toFixed(2),
-      }, {
-	amount: i.Amount_Unobligated,
-	percent: parseFloat(i.Percent_Unobligated).toFixed(2),
-      }];
+	const closeModal = () => {
+		setModalState(false);
+		setInfoModalState(false);
+		setLawSummaryModalState(false);
+		setSelectedBar(null);
+	};
 
-      return (
-	<>
-	  {i.label === 'Total' ?
-	   <>
-	     <div className={styles.totalHeading}>New Agency Funding</div>
-	     <Bar
-	       key={key}
-	       data={thisBar}
-	       totalBar={i.label === 'Total'}
-	       total={numberFormatter('dollars suffix', i.Total_Budgetary_Resources, 3)}
-	       isModal={false}
-	     />
-	   </>
-	   :
-	   phase(i, thisBar)
-	  }
+	const categories = [
+		{
+			name: 'Outlays',
+			legendStyle: styles.outlayBar,
+			infoModalDescription: <p>The amount an agency paid toward an obligation. Outlays are also counted as obligations.</p>,
+		},
+		{
+			name: 'Obligations',
+			legendStyle: styles.obligatedBar,
+			infoModalDescription: <p>The amount an agency promised to pay for a particular purchase. Obligations include outlays.</p>,
+		},
+		{
+			name: 'Unobligated',
+			legendStyle: styles.unobligatedBar,
+			infoModalDescription: <p>The amount funded to an agency but not yet obligated.</p>,
+		},
+		{
+			name: 'Loan Program Accounts',
+			icon: <LIcon />,
+			infoModalDescription: <>
+				<p>
+                                  This spending includes funds from accounts which are used to finance and administer <a target="_blank" href="https://www.usaspending.gov/#/?glossary=direct-loan">direct loans</a> or <a target="_blank" href="https://www.usaspending.gov/#/?glossary=guaranteed-insured-loan">guaranteed loan</a> programs through an intermediary lender. The amounts do not show the total <a target="_blank" href="https://www.usaspending.gov/#/?glossary=face-value">face value</a> of loans and loan guarantees that lenders have disbursed to businesses or individuals. Instead, they show the estimated <a target="_blank" href="https://www.usaspending.gov/#/?glossary=subsidy-cost">subsidy cost</a> of those loans and loan guarantees and the cost of servicing and running the programs.
+				</p>
+				<p>
+                                  Visit the usaspending.gov/covid-19 page to see more detail on the face value of loans.
+				</p>
+			</>,
+		},
+	];
 
-	</>
-      );
-    });
 
-    return (
-      <>
-	<Grid container className={styles.legendContainer}>
-	  <Grid item xs={12} lg={4} className={styles.legendAsOf}>
-	    Data updated as of July 1, 2020
-	  </Grid>
-	  <Grid className={styles.legend}>
-	    <div className={styles.blockContainer}>
-	      <div>
-		<>
-		  <span className={`${styles.block} ${categories[0].legendStyle}`} />
-		  <span>{categories[0].name}</span>
-		</>
-		<>
-		  <span className={`${styles.block} ${categories[1].legendStyle}`} />
-		  <span>{categories[1].name}</span>
-		</>
-	      </div>
-	      <div>
-		<>
-		  <span className={`${styles.block} ${categories[2].legendStyle}`} />
-		  <span>{categories[2].name}</span>
-		</>
-		<>
-		  <span className={styles.block}>{categories[3].icon}</span>
-		  <span>{categories[3].name}</span>
-		</>
-	      </div>
-	    </div>
-	    <div className={styles.blockContainer}>
-	      <IconButton className={styles.infoButton} onClick={openInfoModal} aria-label="Spending Definitions">
-		<InfoOutlinedIcon className={styles.icon} />
-	      </IconButton>
-	    </div>
-	  </Grid>
-	</Grid>
-	<div
-	  className={styles.barContainer}
-	  aria-label="Horizontal stacked bar chart depicting the portion of total budgetary resources from the supplemental funding that have been obligated and outlaid to date. Data can be displayed by all accounts, spending accounts, or loan program accounts."
-	>
-	  <div className={styles.vizContainer}>
-	    <div className={styles.phaseDotsContainer}>
-	      {Object.keys(phaseDetail).map((i, key) => {
+	const modalTotalOfAmount = (selection) => (
+		<span className={styles.selectionAmountValSmall}>
+			{selection ? ` of ${numberFormatter('dollars suffix', totalBudgetByLaw[selection], 3)}` : ''}
+		</span>
+	);
+
+	const findModalTitle = () => {
+		if (selectedBar && selectedBar.label) {
+			const selectionAmount = data.total.nodes.find((item) => item.label === selectedBar.label);
+			let subtitle = 'Spending By Agency';
+			let ofTotalAmount;
+			let icon = <></>;
+			if (selectedBar.Loan_Program_Account === 'No') {
+				subtitle = 'General Account Spending';
+				ofTotalAmount = selectedBar.label;
+			} else if (selectedBar.Loan_Program_Account === 'Yes') {
+				subtitle = 'Loan Account Spending';
+				ofTotalAmount = selectedBar.label;
+				icon = <>&nbsp;<LIcon height={22} width={22} />&nbsp;</>
+			}
+			return [
+				<span className={styles.modalTitle}>
+					PHASE {selectedBar.label}: {icon} Progress of {subtitle}
+					{' '}
+				</span>,
+				<span className={styles.selectionAmountVal}>
+					{selectionAmount ? numberFormatter('dollars suffix', selectedBar.Total_Budgetary_Resources, 3) : ''}
+				</span>,
+				modalTotalOfAmount(ofTotalAmount),
+			];
+		}
+		return <></>;
+	};
+
+	const filterModalData = () => {
+		if (selectedBar && selectedBar.label) {
+			switch (selectedBar.Loan_Program_Account) {
+			case 'Law Total':
+				return totalAccountsByLaw[selectedBar.label];
+			case 'No':
+				return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'No');
+			case 'Yes':
+				return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'Yes');
+			}
+		}
+
+		return null;
+	};
+
+	const phase = (item, SectionTag) => {
+		let title;
+		const thisBar = [{
+			amount: item.Amount_Outlayed,
+			percent: parseFloat(item.Percent_Outlayed).toFixed(2),
+		}, {
+			amount: item.Amount_Obligated,
+			percent: parseFloat(item.Percent_Obligated_Not_Outlayed).toFixed(2),
+		}, {
+			amount: item.Amount_Unobligated,
+			percent: parseFloat(item.Percent_Unobligated).toFixed(2),
+		}];
+
+		switch (item.Loan_Program_Account) {
+		case 'Law Total':
+			title = 'Law Total';
+			break;
+		case 'No':
+			title = 'General Account Spending';
+			break;
+		case 'Yes':
+			title = 'Loan Account Spending';
+			break;
+		}
+
 		return (
-		  <>
-		    <PurpleDot width={11} />
-		    <svg width={1} height={phaseDetail[i].height} style={{'marginTop': '2px'}}>
-		      <line x1="0" y1="0" x2="0" y2={phaseDetail[i].height}
-			    style={{"stroke":"#c6c6c6","stroke-width":"1"}} />
-		    </svg>
-		  </>
+			<>
+				{item.Loan_Program_Account === 'Law Total' ?
+					<>
+						<div className={styles.phaseTitle}>
+							Phase {item.label}: {phaseDetail[`${item.label}`].title}
+						</div>
+						<div className={styles.enactedDate}>
+							Enacted {phaseDetail[`${item.label}`].enactedDate}
+							<span className={styles.lawSummaryDivider}>|</span>
+							<span
+								id={`law-${item.label}-summary-button`}
+								className={styles.lawSummary}
+								onClick={(e) => openLawSummaryModal(e, item.label)}
+								onKeyDown={(e) => openLawSummaryModal(e, item.label)}
+								tabIndex={0}
+							>
+								<FontAwesomeIcon icon={faInfoCircle} className={styles.icon} />
+								Law Summary
+							</span>
+						</div>
+					</>
+					: null
+				}
+
+				{phaseDetail[`${item.label}`].loanAcct === 'yes' || item.Loan_Program_Account === 'Law Total' ?
+					<>
+						<a tabIndex= '0'
+							className={styles.barTitle}
+							 onClick={(e) => openModal(e, item, thisBar)}>
+							{item.Loan_Program_Account === 'Yes' ?
+									<>
+										<LIcon />
+										&nbsp;&nbsp;{title}
+									</>
+									: title}
+						</a>
+						<br/>
+						<SectionTag  />
+						<br/>
+					</>
+					: null
+				}
+			</>
 		)
-	      })}
-	    </div>
-	    <div className={styles.chartContainer}>
-	      {table}
-	    </div>
-	  </div>
-	</div>
-      </>
-    );
-  };
+	}
+ 	const PhaseWrapper = (props) => {
+		return (<div className={styles.phaseContainer}>
+			<div className={styles.phaseDotsContainer}>
+				<PurpleDot />
+				{props.hideLine ? null :
+					<div className={styles.line}></div>}
+			</div>
+			<div className={styles.phaseBody}>
+				{props.children}
+			</div>
+		</div>);
+	};
 
-  const titleComponent = (
-    <>
-      <h2 className={styles.sectionHeading}>Progress of COVID-19 Spending</h2>
-      <AccordionList title="Instructions">
-	<ul>
-	  <li>Hover over a bar or agency in the chart to see the detailed values of outlays, obligations, and unobligated funds.</li>
-	  <li>By clicking on a single bar within the chart, you can see the breakdown of obligations and outlays for each spending account by agency. Spending is tracked by account.</li>
-	  <li>To exit the pop-up, click or tap the X.</li>
-	  <li>To expand the list agencies, click or tap See More.</li>
-	</ul>
-      </AccordionList>
-      <ControlBar alignRightOnMobile>
-	<Share
-	  siteUrl={props.location.origin}
-	  pageUrl={`${props.location.pathname}#${props.sectionId}`}
-	  title="Data Lab - COVID-19 Tracking - U.S. Treasury"
-	  text="Curious how much #COVID-19 related funds have been spent? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-funding/"
-	/>
-      </ControlBar>
-    </>
-  );
+	const mainChart = () => {
+		const chartData = accountsByPhase;
+		const table = ['govtTotal', '1', '2', '3', '3.5'].map((phaseItem, key) => {
+		let SectionTag;
 
-  const paperStyle = typeof window !== 'undefined' && window.innerWidth < 576 ? {
-    width: '95%', padding: '10px 8px',
-  } : {};
+			switch(phaseItem) {
+				case 'govtTotal':
+					SectionTag = svgs['Total']['Law Total'];
+					return (
+						<PhaseWrapper>
+							<div className={styles.totalHeading}>New Agency Funding</div>
+							<SectionTag />
+						</PhaseWrapper>
+					);
+					break;
+				case '1':
+				case '2':
+					SectionTag = svgs[phaseItem]['Law Total'];
+					return (
+						<PhaseWrapper>
+							{phase(chartData[phaseItem]['Law Total'], SectionTag)}
+						</PhaseWrapper>
+					)
+					break;
+				case '3':
+					return (
+						<PhaseWrapper>
+							{['Law Total', 'Spending', 'Loan'].map((item, key) => {
+								SectionTag = svgs[phaseItem][item];
+								return phase(chartData[phaseItem][item], SectionTag);
+							})}
+						</PhaseWrapper>
+					)
+					break;
+				case '3.5':
+					return (
+						<PhaseWrapper hideLine={true}>
+							{['Law Total', 'Spending', 'Loan'].map((item, key) => {
+								SectionTag = svgs[phaseItem][item];
+								return phase(chartData[phaseItem][item], SectionTag);
+							})}
+						</PhaseWrapper>
+					)
+					break;
+			}
+		});
 
-  let mainBar = <></>;
+		return (
+			<>
+				<Grid container className={styles.legendContainer}>
+					<Grid item xs={12} lg={4} className={styles.legendAsOf}>
+						Data updated as of July 1, 2020
+					</Grid>
+					<Grid className={styles.legend}>
+						<div className={styles.blockContainer}>
+							<div>
+								<>
+									<span className={`${styles.block} ${categories[0].legendStyle}`} />
+									<span>{categories[0].name}</span>
+								</>
+								<>
+									<span className={`${styles.block} ${categories[1].legendStyle}`} />
+									<span>{categories[1].name}</span>
+								</>
+							</div>
+							<div>
+								<>
+									<span className={`${styles.block} ${categories[2].legendStyle}`} />
+									<span>{categories[2].name}</span>
+								</>
+								<>
+									<span className={styles.block}>{categories[3].icon}</span>
+									<span>{categories[3].name}</span>
+								</>
+							</div>
+						</div>
+						<div className={styles.blockContainer}>
+							<IconButton className={styles.infoButton} onClick={openInfoModal} aria-label="Spending Definitions">
+								<InfoOutlinedIcon className={styles.icon} />
+							</IconButton>
+						</div>
+					</Grid>
+				</Grid>
+				<div
+					className={styles.barContainer}
+					aria-label="Horizontal stacked bar chart depicting the portion of total budgetary resources from the supplemental funding that have been obligated and outlaid to date. Data can be displayed by all accounts, spending accounts, or loan program accounts."
+				>
+					<div className={styles.vizContainer}>
+						<div className={styles.chartContainer}>
+							{table}
+						</div>
+					</div>
+				</div>
+			</>
+		);
+	};
 
-  if (selectedBar) {
-    const mainBarData = [{
-      amount: selectedBar.Amount_Outlayed,
-      percent: parseFloat(selectedBar.Percent_Outlayed).toFixed(2),
-    }, {
-      amount: selectedBar.Amount_Obligated,
-      percent: parseFloat(selectedBar.Percent_Obligated_Not_Outlayed).toFixed(2),
-    }, {
-      amount: selectedBar.Amount_Unobligated,
-      percent: parseFloat(selectedBar.Percent_Unobligated).toFixed(2),
-    }];
+	const titleComponent = (
+		<>
+			<h2 className={styles.sectionHeading}>Progress of COVID-19 Spending</h2>
+			<AccordionList title="Instructions">
+				<ul>
+					<li>Hover over a bar or agency in the chart to see the detailed values of outlays, obligations, and unobligated funds.</li>
+					<li>By clicking on a single bar within the chart, you can see the breakdown of obligations and outlays for each spending account by agency. Spending is tracked by account.</li>
+					<li>To exit the pop-up, click or tap the X.</li>
+					<li>To expand the list agencies, click or tap See More.</li>
+				</ul>
+			</AccordionList>
+			<ControlBar alignRightOnMobile>
+				<Share
+					siteUrl={props.location.origin}
+					pageUrl={`${props.location.pathname}#${props.sectionId}`}
+					title="Data Lab - COVID-19 Tracking - U.S. Treasury"
+					text="Curious how much #COVID-19 related funds have been spent? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-funding/"
+				/>
+			</ControlBar>
+		</>
+	);
 
-    mainBar = (
-      <Bar
-	data={mainBarData}
-	isModal
-      />
-    );
-  }
+	const paperStyle = typeof window !== 'undefined' && window.innerWidth < 576 ? {
+		width: '95%', padding: '10px 8px',
+	} : {};
 
-  const checkPercentScale = () => {
-    if (screenMode === ScreenModeEnum.tablet) {
-      return <PercentScaleTablet/>;
-    } else {
-      return <PercentScale/>;
-    }
-  };
+	let mainBar = <></>;
 
-  return (
-    <>
-      {titleComponent}
+	if (selectedBar) {
+		const mainBarData = [{
+			amount: selectedBar.Amount_Outlayed,
+			percent: parseFloat(selectedBar.Percent_Outlayed).toFixed(2),
+		}, {
+			amount: selectedBar.Amount_Obligated,
+			percent: parseFloat(selectedBar.Percent_Obligated_Not_Outlayed).toFixed(2),
+		}, {
+			amount: selectedBar.Amount_Unobligated,
+			percent: parseFloat(selectedBar.Percent_Unobligated).toFixed(2),
+		}];
 
-      <a id="topofchart" />
-      {mainChart()}
+		mainBar = (
+			<Bar
+				data={mainBarData}
+				isModal
+			/>
+		);
+	}
 
-      <ModalReference
-	open={isModalOpen}
-	close={closeModal}
-	title={findModalTitle()}
-	maxWidth={false}
-	maxHeight
-	paperStyle={paperStyle}
-      >
-        <div className={styles.scaleContainer}><p>Represented on a 100% scale</p></div>
-	<Modal
-	  bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
-	  data={filterModalData()}
-	  mainBar={mainBar}
-	  isModal
-	  mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
-	/>
-      </ModalReference>
+	return (
+		<>
+			{titleComponent}
 
-      <ModalReference
-	open={isInfoModalOpen}
-	close={closeModal}
-	title="Spending Definitions"
-	titleStyle={{ fontWeight: 600 }}
-	maxWidth
-	maxHeight
-      >
-	{categories.map((c) => (
-	  <div className={styles.infoModalBody}>
-	    <div className={styles.heading}>
-	      <div className={`${styles.modalBlock} ${c.legendStyle || ''}`}>{c.icon}</div>
-	      {c.name}
-	    </div>
-	    {c.infoModalDescription}
-	  </div>
-	))}
-      </ModalReference>
+			<a id="topofchart" />
+			{mainChart()}
 
-      <Downloads href="/data/federal-covid-spending/tracking/covid19_response_viz3_modal_agency2020-06-19.csv" date="June 2020" />
-    </>
-  );
+			<ModalReference
+				open={isModalOpen}
+				close={closeModal}
+				title={findModalTitle()}
+				maxWidth={false}
+				maxHeight
+				paperStyle={paperStyle}
+			>
+				<div className={styles.scaleContainer}><p>Represented on a 100% scale</p></div>
+				<Modal
+					bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
+					data={filterModalData()}
+					mainBar={mainBar}
+					isModal
+					mobileTablet={screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet}
+				/>
+			</ModalReference>
+
+			<ModalReference
+				open={isInfoModalOpen}
+				close={closeModal}
+				title="Spending Definitions"
+				titleStyle={{ fontWeight: 600 }}
+				maxWidth
+				maxHeight
+			>
+				{categories.map((c) => (
+					<div className={styles.infoModalBody}>
+						<div className={styles.heading}>
+							<div className={`${styles.modalBlock} ${c.legendStyle || ''}`}>{c.icon}</div>
+							{c.name}
+						</div>
+						{c.infoModalDescription}
+					</div>
+				))}
+			</ModalReference>
+			<LawSummaryModal
+				isOpen={isLawSummaryModalOpen}
+				closeModal={closeModal}
+				phase={lawSummaryModalPhase}
+			/>
+			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.csv" date="June 2020" />
+		</>
+	);
 }

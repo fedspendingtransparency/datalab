@@ -5,7 +5,7 @@
   </a>
 </p>
 <h1 align="center">
-  Data Lab Upgrade Prototype
+  Data Lab
 </h1>
 
 ## 🚀 Quick start
