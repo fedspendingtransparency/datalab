@@ -77,45 +77,46 @@ export default function Tracking(props) {
 	}
 
 	const phaseDesktopSVGs = {
-		'Total':  {
-				'Law Total': GovtTotalSVG
+		'Total': {
+			'Law Total': GovtTotalSVG
 		},
-		'1':  {
-				'Law Total': Phase1SVG
+		'1': {
+			'Law Total': Phase1SVG
 		},
 		'2': {
-				'Law Total': Phase2SVG
+			'Law Total': Phase2SVG
 		},
-		'3': {'Law Total': Phase3TotalSVG,
-				'Spending': Phase3GeneralSVG,
-				'Loan': Phase3LoanSVG
+		'3': {
+			'Law Total': Phase3TotalSVG,
+			'Spending': Phase3GeneralSVG,
+			'Loan': Phase3LoanSVG
 		},
 		'3.5': {
-				'Law Total': Phase35TotalSVG,
-				'Spending': Phase35GeneralSVG,
-				'Loan': Phase35LoanSVG
+			'Law Total': Phase35TotalSVG,
+			'Spending': Phase35GeneralSVG,
+			'Loan': Phase35LoanSVG
 		}
 	}
 
 	const phaseTabletSVGs = {
 		'Total': {
-				'Law Total': GovtTotalTabletSVG
+			'Law Total': GovtTotalTabletSVG
 		},
 		'1': {
-				'Law Total': Phase1TabletSVG
+			'Law Total': Phase1TabletSVG
 		},
 		'2': {
-				'Law Total': Phase2TabletSVG
+			'Law Total': Phase2TabletSVG
 		},
 		'3': {
-				'Law Total': Phase3TotalTabletSVG,
-				'Spending': Phase3GeneralTabletSVG,
-				'Loan': Phase3LoanTabletSVG
+			'Law Total': Phase3TotalTabletSVG,
+			'Spending': Phase3GeneralTabletSVG,
+			'Loan': Phase3LoanTabletSVG
 		},
 		'3.5': {
-				'Law Total': Phase35TotalTabletSVG,
-				'Spending': Phase35GeneralTabletSVG,
-				'Loan': Phase35LoanTabletSVG
+			'Law Total': Phase35TotalTabletSVG,
+			'Spending': Phase35GeneralTabletSVG,
+			'Loan': Phase35LoanTabletSVG
 		}
 	}
 
@@ -135,11 +136,12 @@ export default function Tracking(props) {
 			'Loan': Phase3LoanMobileSVG
 		},
 		'3.5': {
-				'Law Total': Phase35TotalMobileSVG,
-				'Spending': Phase35GeneralMobileSVG,
-				'Loan': Phase35LoanMobileSVG
+			'Law Total': Phase35TotalMobileSVG,
+			'Spending': Phase35GeneralMobileSVG,
+			'Loan': Phase35LoanMobileSVG
 		}
 	}
+
 
 	const data = useStaticQuery(graphql`
     query {
@@ -211,23 +213,23 @@ export default function Tracking(props) {
 
 	const accountsByPhase = {};
 	data.total.nodes.forEach((item) => {
-		switch(item.Loan_Program_Account) {
-		case 'Law Total':
-			if(item.label === 'Total') {
-				accountsByPhase['govtTotal'] = item;
-			} else {
-				accountsByPhase[item.label] = {};
-				accountsByPhase[item.label]['Law Total'] = item;
-			}
-			break;
-		case 'No':
-			if(phaseDetail[item.label].loanAcct === 'yes') {
-				accountsByPhase[item.label]['Spending'] = item;
-			}
-			break;
-		case 'Yes':
-			accountsByPhase[item.label]['Loan'] = item;
-			break;
+		switch (item.Loan_Program_Account) {
+			case 'Law Total':
+				if (item.label === 'Total') {
+					accountsByPhase['govtTotal'] = item;
+				} else {
+					accountsByPhase[item.label] = {};
+					accountsByPhase[item.label]['Law Total'] = item;
+				}
+				break;
+			case 'No':
+				if (phaseDetail[item.label].loanAcct === 'yes') {
+					accountsByPhase[item.label]['Spending'] = item;
+				}
+				break;
+			case 'Yes':
+				accountsByPhase[item.label]['Loan'] = item;
+				break;
 		}
 	})
 
@@ -268,6 +270,16 @@ export default function Tracking(props) {
 		setSelectedBar(el);
 	};
 
+	const openModalTag = (e, el, isSvg) => {
+		if (isSvg && screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet) {
+			return null;
+		}
+		if (!e.key || e.key === 'Enter') {
+			setModalState(true);
+			setSelectedBar(el);
+		}
+	}
+
 	const openInfoModal = () => {
 		setInfoModalState(true);
 	};
@@ -307,10 +319,10 @@ export default function Tracking(props) {
 			icon: <LIcon />,
 			infoModalDescription: <>
 				<p>
-                                  This spending includes funds from accounts which are used to finance and administer <a target="_blank" href="https://www.usaspending.gov/#/?glossary=direct-loan">direct loans</a> or <a target="_blank" href="https://www.usaspending.gov/#/?glossary=guaranteed-insured-loan">guaranteed loan</a> programs through an intermediary lender. The amounts do not show the total <a target="_blank" href="https://www.usaspending.gov/#/?glossary=face-value">face value</a> of loans and loan guarantees that lenders have disbursed to businesses or individuals. Instead, they show the estimated <a target="_blank" href="https://www.usaspending.gov/#/?glossary=subsidy-cost">subsidy cost</a> of those loans and loan guarantees and the cost of servicing and running the programs.
+					This spending includes funds from accounts which are used to finance and administer <a target="_blank" href="https://www.usaspending.gov/#/?glossary=direct-loan">direct loans</a> or <a target="_blank" href="https://www.usaspending.gov/#/?glossary=guaranteed-insured-loan">guaranteed loan</a> programs through an intermediary lender. The amounts do not show the total <a target="_blank" href="https://www.usaspending.gov/#/?glossary=face-value">face value</a> of loans and loan guarantees that lenders have disbursed to businesses or individuals. Instead, they show the estimated <a target="_blank" href="https://www.usaspending.gov/#/?glossary=subsidy-cost">subsidy cost</a> of those loans and loan guarantees and the cost of servicing and running the programs.
 				</p>
 				<p>
-                                  Visit the usaspending.gov/covid-19 page to see more detail on the face value of loans.
+					Visit the usaspending.gov/covid-19 page to see more detail on the face value of loans.
 				</p>
 			</>,
 		},
@@ -354,12 +366,12 @@ export default function Tracking(props) {
 	const filterModalData = () => {
 		if (selectedBar && selectedBar.label) {
 			switch (selectedBar.Loan_Program_Account) {
-			case 'Law Total':
-				return totalAccountsByLaw[selectedBar.label];
-			case 'No':
-				return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'No');
-			case 'Yes':
-				return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'Yes');
+				case 'Law Total':
+					return totalAccountsByLaw[selectedBar.label];
+				case 'No':
+					return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'No');
+				case 'Yes':
+					return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'Yes');
 			}
 		}
 
@@ -380,15 +392,15 @@ export default function Tracking(props) {
 		}];
 
 		switch (item.Loan_Program_Account) {
-		case 'Law Total':
-			title = 'Law Total';
-			break;
-		case 'No':
-			title = 'General Account Spending';
-			break;
-		case 'Yes':
-			title = 'Loan Account Spending';
-			break;
+			case 'Law Total':
+				title = 'Law Total';
+				break;
+			case 'No':
+				title = 'General Account Spending';
+				break;
+			case 'Yes':
+				title = 'Loan Account Spending';
+				break;
 		}
 
 		return (
@@ -417,27 +429,28 @@ export default function Tracking(props) {
 				}
 
 				{phaseDetail[`${item.label}`].loanAcct === 'yes' || item.Loan_Program_Account === 'Law Total' ?
-					<>
-						<a tabIndex= '0'
+					<div className={styles.barDiv}>
+						<a tabIndex='0'
+							id="phase-anchor"
 							className={styles.barTitle}
-							 onClick={(e) => openModal(e, item, thisBar)}>
+							onClick={(e) => openModal(e, item, thisBar)}>
 							{item.Loan_Program_Account === 'Yes' ?
-									<>
-										<LIcon />
+								<>
+									<LIcon />
 										&nbsp;&nbsp;{title}
-									</>
-									: title}
+								</>
+								: title}
 						</a>
-						<br/>
-						<SectionTag  />
-						<br/>
-					</>
+						<br />
+						<SectionTag onClick={(e) => openModalTag(e, item, thisBar, true)} onKeyDown={(e) => openModalTag(e, item, thisBar, true)} />
+						<br />
+					</div>
 					: null
 				}
 			</>
 		)
 	}
- 	const PhaseWrapper = (props) => {
+	const PhaseWrapper = (props) => {
 		return (<div className={styles.phaseContainer}>
 			<div className={styles.phaseDotsContainer}>
 				<PurpleDot />
@@ -453,9 +466,9 @@ export default function Tracking(props) {
 	const mainChart = () => {
 		const chartData = accountsByPhase;
 		const table = ['govtTotal', '1', '2', '3', '3.5'].map((phaseItem, key) => {
-		let SectionTag;
+			let SectionTag;
 
-			switch(phaseItem) {
+			switch (phaseItem) {
 				case 'govtTotal':
 					SectionTag = svgs['Total']['Law Total'];
 					return (
@@ -552,10 +565,9 @@ export default function Tracking(props) {
 			<h2 className={styles.sectionHeading}>Progress of COVID-19 Spending</h2>
 			<AccordionList title="Instructions">
 				<ul>
-					<li>Hover over a bar or agency in the chart to see the detailed values of outlays, obligations, and unobligated funds.</li>
-					<li>By clicking on a single bar within the chart, you can see the breakdown of obligations and outlays for each spending account by agency. Spending is tracked by account.</li>
+					<li>Click or tap on any bar graph label in this visualization to see the breakdown of obligations and outlays for each phase by agency.</li>
+					<li>To see details of the laws for each phase, click or tap on Law Summary.</li>
 					<li>To exit the pop-up, click or tap the X.</li>
-					<li>To expand the list agencies, click or tap See More.</li>
 				</ul>
 			</AccordionList>
 			<ControlBar alignRightOnMobile>
@@ -649,7 +661,7 @@ export default function Tracking(props) {
 				closeModal={closeModal}
 				phase={lawSummaryModalPhase}
 			/>
-			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.csv" date="June 2020" />
+			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.csv" date="July 2020" />
 		</>
 	);
 }

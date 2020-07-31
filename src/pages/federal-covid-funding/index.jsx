@@ -17,10 +17,10 @@ import Tracking from '../../page-sections/federal-covid-funding/tracking';
 const BudgetAccordionContent = () => (
   <div className={styles.accordionContents}>
     <p>
-      All of the data in this analysis comes from agencies’ certified monthly reporting to the <a target='_blank' rel='noopener noreferrer' href="https://www.fiscal.treasury.gov/gtas/">Treasury’s Governmentwide Treasury Account Symbol (GTAS) Adjusted Trial Balance System</a>. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for certifying their reporting and ensuring their data is correct.
+      All of the data in this analysis comes from agencies’ certified monthly reporting to the <a target='_blank' rel='noopener noreferrer' href="https://www.fiscal.treasury.gov/gtas/">Treasury’s Governmentwide Treasury Account Symbol (GTAS) Adjusted Trial Balance System</a>. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for certifying all of the agency’s reporting, and ensuring the data is correct.
     </p>
     <p>
-      For the COVID-19 special appropriations, agencies are required to include a special field called the <b>Disaster Emergency Fund Code (DEFC)</b> in their financial reporting. Data Lab is tracking COVID-19 appropriations through the spending lifecycle using the DEFC that maps to each piece of legislation.
+      For the COVID-19 special appropriations, agencies are required to include a special field called the <b>Disaster Emergency Fund Code (DEFC)</b> in their financial reporting. Data Lab is tracking COVID-19 appropriations through the spending lifecycle using the DEFC that can be used to map transactions to each piece of legislation.
     </p>
   </div>
 );
@@ -69,7 +69,7 @@ In this analysis, we explore the four COVID-19 supplemental appropriation laws p
       introBlurb: [
         <>
           <p key='section-2-p-1'>
-There are many steps in the process to move the $2.58 trillion in supplemental funds through the full budget lifecycle to the American people. In this section, we follow the flow of money by breaking down a few key terms and explaining how agencies spend supplemental funding. 
+There are many steps in the process to move the $2.58 trillion in supplemental funds through the full budget lifecycle to the American people. In this section, we follow the flow of money by breaking down a few key terms and explaining how agencies spend supplemental funding.
           </p>
           <p key='section-2-p-2'>
             After a special appropriations law passes, it is the role of the Department of the Treasury (Treasury) to review the new legislation and issue funds to agencies’ spending accounts. The <a href="https://www.usaspending.gov/#/?glossary=appropriation" target="_blank" rel='noopener noreferrer'>appropriations</a> process gives agencies the authority to begin using funding according to the purpose assigned in the law. To spend the money, agencies obligate the funds to different programs through contracts, direct payments, grants, or loans. When agencies make an <a href="https://www.usaspending.gov/#/?glossary=obligation" target="_blank" rel='noopener noreferrer'>obligation</a>, they create a binding agreement to use the funds for a particular purpose. An example of an obligation is an agency setting aside adequate funds when it enters into a contract with a vendor to purchase <a href="https://www.usaspending.gov/#/award/CONT_AWD_75A50120C00030_7505_-NONE-_-NONE-" target="_blank" rel='noopener noreferrer'>personal protective equipment, such as masks</a>.
@@ -78,7 +78,7 @@ There are many steps in the process to move the $2.58 trillion in supplemental f
             Creating an obligation doesn’t mean the money has been paid, only that the agency has promised to pay the funds. In many cases, the recipients of funds may be required to do something before receiving payment, such as delivering equipment or supplies.
           </p>
           <p key='section-2-p-4'>
-            The final step in the process is making a payment, which is called an <a href="https://www.usaspending.gov/#/?glossary=outlay" target="_blank" rel='noopener noreferrer'>outlay</a>. This is the step where the agencies authorize the Treasury to issue funds toward a direct payment, grant, loan, or contract to individuals, businesses, or other organizations.
+            The final step in the process is making a payment, which is called an <a href="https://www.usaspending.gov/#/?glossary=outlay" target="_blank" rel='noopener noreferrer'>outlay</a>. This is the step where the agencies authorize the Treasury to issue a payment to individuals, businesses, or other organizations.
           </p>
         </>
       ],
@@ -92,14 +92,14 @@ There are many steps in the process to move the $2.58 trillion in supplemental f
       anchor: 'tracking',
       number: '03',
       subtext: 'Tracking Spending',
-      subblurb: 'How much emergency funding has been spent?',
-      sectionTeaser: ['How much emergency funding ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>has been spent?</span>],
+      subblurb: 'How much funding has been spent?',
+      sectionTeaser: ['How much supplemental funding ', <span key='teaser-callout' className={storyHeadingStyles.headingPurple}>has been spent?</span>],
       readMoreOnMobile: true,
       readMoreStyle: { color: globalStyles.covidColor },
       introBlurb: [
         <>
           <p key='section-3-p-1'>
-Ninety-two percent of the $2.58 trillion in COVID-19 funding was appropriated to four agencies: The Treasury, Health and Human Services, Labor, and the Small Business Administration (SBA). Of those funds, roughly half, or $1.27 trillion, were allocated to fund loan and loan guarantee programs. These funds will be used to generate an estimated $3.91 trillion in loans and loan guarantees to businesses and individuals. This includes loans which will be disbursed directly by the government, like the SBA’s Economic Injury Disaster Loan (EIDL) Program. It also includes funds for loan guarantee programs, such as the SBA’s Paycheck Protection Program (PPP), which are disbursed by partner financial institutions.
+Ninety-two percent of the $2.58 trillion in COVID-19 funding was appropriated to four agencies: The Treasury, Health and Human Services, Labor, and the Small Business Administration (SBA). Of those funds, roughly half, or $1.27 trillion, were allocated to fund loan and loan guarantee programs. These funds will be used to generate an estimated $3.92 trillion in loans and loan guarantees to businesses and individuals. This includes loans which will be disbursed directly by the government, like the SBA’s Economic Injury Disaster Loan (EIDL) Program. It also includes funds for loan guarantee programs, such as the SBA’s Paycheck Protection Program (PPP), which are disbursed by partner financial institutions.
           </p>
           <p key='section-3-p-2'>
 As of July 1, the federal government had made $1.46 trillion in obligations, of which $1.31 trillion was outlayed. These totals were calculated from agencies’ certified monthly reporting to the Treasury’s Governmentwide Treasury Account Symbol Adjusted Trial Balance System (GTAS).
@@ -125,7 +125,7 @@ This analysis will be updated monthly as new data becomes available. To learn mo
     <StoryLayout
       title='The Federal Response To COVID-19'
       introSentence='How is the federal government funding relief efforts for COVID-19?'
-      contextStatement='Data Lab explores how supplemental funding for COVID-19 makes its way from Congress into the economy. We break down the steps taken by federal agencies to use the $2.3 trillion and track the status so you can see how much has been spent.'
+      contextStatement='Data Lab explores how supplemental funding for COVID-19 makes its way from Congress into the economy. We break down the steps taken by federal agencies to use the $2.58 trillion and track the status of funds so you can see how much has been spent.'
       sectionToc={this.sections}
       hwctaLink={this.props.location.pathname + '/methodologies'}
     >

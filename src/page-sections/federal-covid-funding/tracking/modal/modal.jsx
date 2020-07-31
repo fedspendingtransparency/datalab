@@ -2,7 +2,8 @@ import React from 'react';
 import numberFormatter from 'src/utils/number-formatter/number-formatter';
 import Grid from '@material-ui/core/Grid';
 import Bar from '../bars/bar';
-import PercentScale from '../../../../svgs/federal-covid-spending/tracking/scale-line.svg';
+import ScaleLine from '../../../../svgs/federal-covid-spending/tracking/scale-line.svg';
+
 import styles from './modal.module.scss';
 
 export default function CovidModal(props) {
@@ -76,7 +77,7 @@ export default function CovidModal(props) {
 
 	return (
 		<div style={{ minWidth: window.innerWidth * 0.6, maxWidth: window.innerWidth * 0.9, overflowX: 'hidden' }}>
-			<PercentScale />
+			<ScaleLine/>
 			<Content style={{ overflowX: 'hidden' }} />
 		</div>
 	);

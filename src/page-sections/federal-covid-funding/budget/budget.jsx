@@ -33,7 +33,7 @@ const desktopSVGs = [
   {
     img: DesktopC,
     width: 945,
-    alt: "Bar chart showing total estimated lending ($3.91T) broken down by utilized lending ($765B) and available lending ($3.15T).",
+    alt: "Bar chart showing total estimated lending ($3.92T) broken down by utilized lending ($765B) and available lending ($3.15T).",
   }
 ];
 
@@ -51,7 +51,7 @@ const mobileSVGs = [
   {
     img: MobileC,
     width: 333,
-    alt: "Bar chart showing total estimated lending ($3.91T) broken down by utilized lending ($765B) and available lending ($3.15T).",
+    alt: "Bar chart showing total estimated lending ($3.92T) broken down by utilized lending ($765B) and available lending ($3.15T).",
   }
 ];
 
@@ -69,13 +69,13 @@ const tabletSVGs = [
   {
     img: TabletC,
     width: 689,
-    alt: "Bar chart showing total estimated lending ($3.91T) broken down by utilized lending ($765B) and available lending ($3.15T).",
+    alt: "Bar chart showing total estimated lending ($3.92T) broken down by utilized lending ($765B) and available lending ($3.15T).",
   }
 ];
 
-const desktopHeights = [290, 314, 218];
-const mobileHeights = [392, 444, 255];
-const tabletHeights = [294, 316, 212];
+const desktopHeights = [338, 313, 300];
+const mobileHeights = [502, 444, 432];
+const tabletHeights = [338, 313, 300];
 
 export default function Budget(props) {
   const [screenMode, setScreenMode] = useState(0);
@@ -132,19 +132,19 @@ export default function Budget(props) {
 	                </div>
 	                <div className={styles.svgContainer}>
 	                  <span>
-		            As of June 1, 2020, roughly <strong>$2.58 trillion in new budgetary resources</strong> have been made available for federal agencies to respond to the pandemic.
+		            As of July 1, 2020, roughly <strong>$2.58 trillion in new budgetary resources</strong> have been made available for federal agencies to respond to the pandemic.  Agencies can use this funding for contracts, grants, loans and other assistance, as well as direct payments like the Economic Impact Payments (EIP) appropriated in Phase 3.
 	                  </span>
 	                  <img src={svgs[0].img} width={svgs[0].width} alt={svgs[0].alt} />
 	                  <span>
-		            In addition to the new agency funding granted, the [legislation] mandated the government <strong>defer and reduce taxes to provide relief to individuals and businesses.</strong> As an example, this includes payroll tax deferrals, which mean companies can postpone the deposit and payment of the employer’s share of Social Security taxes. The Congressional Budget Office CBO estimated the two-year impact will be over $902 billion in tax relief.
+		            In addition to granting new agency funding, the legislation mandated the government <strong>defer and reduce taxes to provide relief to individuals and businesses.</strong> As an example, this includes payroll tax deferrals, which mean companies can postpone the deposit and payment of the employer’s share of Social Security taxes. The Congressional Budget Office (CBO) estimated the two-year impact will be over $902 billion in tax relief.
 	                  </span>
 	                  <img src={svgs[1].img} width={svgs[1].width} alt={svgs[1].alt} />
 	                  <span>
-The four laws included <strong>funding for credit, loan and loan guarantee programs, which could result in an estimated total of $3.91 trillion in total lending.</strong><a id="fr1" href="#fn1" className="footnoteref">1</a> To date $765 billion in credit, loans and loan guarantees have been reported and more than $3 trillion remain available. This includes the Federal Reserve’s emergency lending facilities, which have reported $88 billion utilized out of $2.3 trillion in potential credit.
+The four laws included <strong>funding for credit, loan and loan guarantee programs, which could result in an estimated total of $3.92 trillion in total lending.</strong><a id="fr1" href="#fn1" className="footnoteref">1</a> As of July 23, 2020, $765 billion in credit, loans and loan guarantees have been reported and more than $3 trillion remain available. This includes the Federal Reserve’s emergency lending facilities, which have reported $88 billion utilized out of $2.3 trillion in potential credit.
 	                  </span>
 	                  <img src={svgs[2].img} width={svgs[2].width} alt={svgs[2].alt} />
 	                  <span>
-The CARES Act and other supplemental legislation are providing financial relief in response to the pandemic through agency funding, tax deferrals, and lending. While the total impact of this legislation may not be measured until years from now, agencies are already playing a critical role by disbursing the $2.58 trillion in funding allocated through the appropriations process. Next, we look at the process of how funds are spent, from Congressional appropriations to payments to individuals and businesses. 
+The CARES Act and other supplemental legislation are providing financial relief in response to the pandemic through agency funding, tax deferrals, and lending. While the total impact of this legislation may not be measured until years from now, agencies are already playing a critical role by disbursing the $2.58 trillion in funding allocated through the appropriations process. Next, we look at the process of how funds are spent, from Congressional appropriations to payments to individuals and businesses.
 	                  </span>
 	                </div>
 	              </>;
@@ -182,7 +182,7 @@ The CARES Act and other supplemental legislation are providing financial relief 
 	<Chart />
       </div>
       <Downloads
-	href="/data/federal-covid-spending/budget/covid19_Viz_1_Data_Download_2020_07_29.csv"
+	href="/data/federal-covid-spending/budget/covid19_Viz_1_Data_Download_2020_07_30.csv"
 	date="July 2020"
 	mobileSpace
 	justify={screenMode <= ScreenModeEnum.tablet ? "center" : ""}

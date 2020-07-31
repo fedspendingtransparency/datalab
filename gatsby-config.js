@@ -1,7 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: 'Data Lab',
-		description: 'Data Lab - Visualizations to help you understand government finance.',
+		description: 'The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending.',
 		author: '@gatsbyjs',
 	},
 	plugins: [

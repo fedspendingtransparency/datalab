@@ -40,8 +40,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
         {
           title: 'Medical Care & Research',
           bulletPoints: [
-            'Over $1B in medical care funding for the Defense Health Program, Veterans Health Administration, and Indian Health Services, with the majority of funds going to the  Public Health and Social Services Emergency Fund, for reimbursements to providers and hospitals',
-            'Funding for epidemiology, infectious disease control and mitigation'
+            'Over $1B in medical care funding for the Defense Health Program, Veterans Health Administration, and Indian Health Services, with the majority of funds going to the  Public Health and Social Services Emergency Fund, for reimbursements to providers and hospitals'
           ],
           icon: <Medical />
         },
@@ -71,16 +70,16 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
           title: 'Medical Care & Research',
           bulletPoints: [
             'More than $125B allocated to medical care and research with large portion going to the Public Health and Social Services Emergency Fund, for reimbursements to providers and hospitals',
-            'Over $25B in funding was also provided for the development of vaccines and therapies, to purchase supplies for the Strategic National Stockpile, and to government agencies including CDC, NIH, and other HHS agencies, as well as Veterans Affairs, and military health programs for the response to COVID-19'
+            'Over $25B in funding was also provided for the development of vaccines and therapies, to purchase supplies for the Strategic National Stockpile, and to government agencies including Center for Disease Control, National Institutes of Health, and other Health and Human Services agencies, as well as Veterans Affairs, and military health programs for the response to COVID-19 '
           ],
           icon: <Medical />
         },
         {
           title: 'Individuals',
           bulletPoints: [
-            'Funding for programs that directly assist individuals such as rental assistance programs through HUD and supplemental nutrition programs through USDA',
+            'Funding for programs that directly assist individuals such as rental assistance programs through the Department of Housing and Urban Development and supplemental nutrition programs through USDA',
             'Expanded unemployment benefits including an increase in the weekly benefit amount by $600 through July 31, 2020 and extended eligibility requirements',
-            'Individuals tax credits of $1,200 per qualifying adult and $500 per dependent child ',
+            'Individuals tax credits of $1,200 per qualifying adult and $500 per dependent child',
           ],
           icon: <Individuals />
         },
@@ -104,14 +103,14 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
         {
           title: 'Medical Care & Research',
           bulletPoints: [
-            'An additional $100B allocated to medical care and research with large portion going to the Public Health and Social Services Emergency Fund',
+            'An additional $100B allocated to medical care and research with a large portion going to the Public Health and Social Services Emergency Fund',
           ],
           icon: <Medical />
         },
         {
           title: 'Business, Government, and Institutions',
           bulletPoints: [
-            'Additional $62B for EIDL loans and grants, and more than $300B for the PPP',
+            'Additional $62B Economic Injury Disaster loans and grants, and more than $300B for the Paycheck Protection Program (PPP)',
           ],
           icon: <Government />
         },

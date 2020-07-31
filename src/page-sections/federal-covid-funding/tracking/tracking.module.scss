@@ -105,6 +105,21 @@ h2 {
 
 	}
 
+	.barDiv:hover a {
+		text-decoration: underline;
+	}
+		
+}
+
+ svg:global(.lawTotalOnly), svg:global(.loan), svg:global(.spending), svg:global(.lawTotal) {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+#phase-anchor:hover {
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 .legendContainer {
@@ -347,6 +362,10 @@ h2 {
 		color: #666;
 		line-height: 40px;
 		padding-bottom: 1.2rem;
+	}
+
+	#phase-anchor {
+		text-decoration: underline;
 	}
 
 	.legendContainer {
