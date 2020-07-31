@@ -17,9 +17,7 @@ const Logo = props => {
       role="img"
       aria-labelledby="logo-title"
     >
-      <desc>
-        <title id="logo-title">Data Lab Logo of an abstract American flag referencing a bar chart.</title>
-      </desc>
+      <desc id="logo-title">Data Lab Logo of an abstract American flag referencing a bar chart.</desc>
       <defs>
         <polygon
           id='logo-path-1'

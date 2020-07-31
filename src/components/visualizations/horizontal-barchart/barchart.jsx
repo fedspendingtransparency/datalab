@@ -257,8 +257,8 @@ function Barchart(props) {
 	return (
 		<>
 			<div id={tooltipStyles.tooltip} className={tooltipStyles.tooltipModule} />
-			<svg width="1200" height="700" viewBox="0 0 1200 700" id="barchartSvg" className={props._svgClass}>
-				<desc>Bar Chart displaying competitive ($320 billion) and non-competitive ($190 billion) contract procurement for CFO Act agencies during Fiscal Year 2017.</desc>
+			<svg width="1200" height="700" viewBox="0 0 1200 700" id="barchartSvg" className={props._svgClass} aria-labelledby="bar-desc">
+				<desc id="bar-desc">Bar Chart displaying competitive ($320 billion) and non-competitive ($190 billion) contract procurement for CFO Act agencies during Fiscal Year 2017.</desc>
 			</svg>
 		</>
 	);
