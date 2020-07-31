@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg class='spending' aria-labelledby='phase3gen-desc' tabindex="0" width="391px" height="85px" viewBox="0 0 391 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <desc id="phase3gen-desc">Horizontal stacked bar chart of budgetary resources ($1.18T) allocated to general account spending from the Phase 3 legislation.</desc>
-    <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <desc id="phase3gen-desc">Horizontal stacked bar chart of budgetary resources ($1.18T) allocated to general account spending from the Phase 3 legislation.</desc>    <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Viz-3---SVG-Export" transform="translate(-279.000000, -1159.000000)">
             <g id="law-3" transform="translate(279.000000, 911.000000)">
                 <g id="bar-1-copy-2" transform="translate(0.000000, 220.000000)">
                     <g id="bar---phase-3-general" transform="translate(0.000000, 28.000000)">
-                        <text id="Outlays-$577B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                        <text id="Outlays-$668B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
                             <tspan x="0" y="63">Outlays</tspan>
                             <tspan x="46.256" y="63" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
-                            <tspan x="0" y="81" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$577B</tspan>
+                            <tspan x="0" y="81" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$668B</tspan>
                         </text>
-                        <text id="Obligations-$652B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                        <text id="Obligations-$755B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
                             <tspan x="147" y="63">Obligations</tspan>
                             <tspan x="216.09" y="63" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
-                            <tspan x="147" y="81" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$652B</tspan>
+                            <tspan x="147" y="81" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$755B</tspan>
                         </text>
-                        <text id="Unobligated-$522B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                        <text id="Unobligated-$421B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
                             <tspan x="317" y="63">Unobligated</tspan>
-                            <tspan x="317" y="81" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$522B</tspan>
+                            <tspan x="317" y="81" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$421B</tspan>
                         </text>
                         <line x1="10.5" y1="30" x2="10.5" y2="45" id="Line" stroke="#C6C6C6"></line>
                         <line x1="201.5" y1="30" x2="201.5" y2="45" id="Line-Copy" stroke="#C6C6C6"></line>
