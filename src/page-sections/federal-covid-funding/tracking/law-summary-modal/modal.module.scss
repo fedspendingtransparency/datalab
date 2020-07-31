@@ -49,3 +49,24 @@
     padding-top: 20px;
   }
 }
+
+@media (max-width: $tablet - 1) {
+
+  .title {
+    font-size: 1.125rem !important;
+  }
+  .content-container {
+    svg {
+      width: 56px;
+    }
+
+    li {
+      font-size: 0.875rem !important;
+    }
+
+    .subtitle, .bulletPointTitle {
+      font-size: 1rem !important;
+      font-weight: 600;
+    }
+  }
+}
