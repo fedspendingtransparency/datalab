@@ -77,9 +77,9 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
         {
           title: 'Individuals',
           bulletPoints: [
-            'Funding for programs that directly assist individuals such as rental assistance programs through HUD and supplemental nutrition programs through USDA',
+            'Funding for programs that directly assist individuals such as rental assistance programs through the Department of Housing and Urban Development and supplemental nutrition programs through USDA',
             'Expanded unemployment benefits including an increase in the weekly benefit amount by $600 through July 31, 2020 and extended eligibility requirements',
-            'Individuals tax credits of $1,200 per qualifying adult and $500 per dependent child ',
+            'Individuals tax credits of $1,200 per qualifying adult and $500 per dependent child',
           ],
           icon: <Individuals />
         },
@@ -103,14 +103,14 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
         {
           title: 'Medical Care & Research',
           bulletPoints: [
-            'An additional $100B allocated to medical care and research with large portion going to the Public Health and Social Services Emergency Fund',
+            'An additional $100B allocated to medical care and research with a large portion going to the Public Health and Social Services Emergency Fund',
           ],
           icon: <Medical />
         },
         {
           title: 'Business, Government, and Institutions',
           bulletPoints: [
-            'Additional $62B for EIDL loans and grants, and more than $300B for the PPP',
+            'Additional $62B Economic Injury Disaster loans and grants, and more than $300B for the Paycheck Protection Program (PPP)',
           ],
           icon: <Government />
         },
