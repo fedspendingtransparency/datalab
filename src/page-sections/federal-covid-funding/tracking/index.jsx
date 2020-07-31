@@ -566,7 +566,7 @@ export default function Tracking(props) {
 			<AccordionList title="Instructions">
 				<ul>
 					<li>Click or tap on any bar graph label in this visualization to see the breakdown of obligations and outlays for each phase by agency.</li>
-					<li>To see details of the laws for each phase, click or tap on Law Summary.</li>
+					<li>To see details about the law for each phase, click or tap on Law Summary.</li>
 					<li>To exit the pop-up, click or tap the X.</li>
 				</ul>
 			</AccordionList>
