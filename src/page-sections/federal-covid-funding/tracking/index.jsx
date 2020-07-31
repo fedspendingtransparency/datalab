@@ -315,7 +315,7 @@ export default function Tracking(props) {
 			infoModalDescription: <p>The amount funded to an agency but not yet obligated.</p>,
 		},
 		{
-			name: 'Loan Program Accounts',
+			name: 'Loan Account Spending',
 			icon: <LIcon />,
 			infoModalDescription: <>
 				<p>
@@ -607,6 +607,8 @@ export default function Tracking(props) {
 		);
 	}
 
+	const infoModalTitleSize = ScreenModeEnum.mobile ? '1.125rem' : '1.5rem';
+
 	return (
 		<>
 			{titleComponent}
@@ -628,7 +630,7 @@ export default function Tracking(props) {
 					<span>50%</span>
 					<span>100%</span>
 				</div>
-				
+
 				<Modal
 					bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
 					data={filterModalData()}
@@ -642,7 +644,7 @@ export default function Tracking(props) {
 				open={isInfoModalOpen}
 				close={closeModal}
 				title="Spending Definitions"
-				titleStyle={{ fontWeight: 600 }}
+				titleStyle={{ fontWeight: 600, fontSize: infoModalTitleSize, height: '40px' }}
 				maxWidth
 				maxHeight
 			>
