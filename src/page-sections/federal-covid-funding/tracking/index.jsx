@@ -367,11 +367,11 @@ export default function Tracking(props) {
 		if (selectedBar && selectedBar.label) {
 			switch (selectedBar.Loan_Program_Account) {
 				case 'Law Total':
-					return totalAccountsByLaw[selectedBar.label];
+					return totalAccountsByLaw[selectedBar.label].sort((b,a) => (parseFloat(a.Total_Budgetary_Resources) > parseFloat(b.Total_Budgetary_Resources)) ? 1 : -1 );
 				case 'No':
-					return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'No');
+					return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'No').sort((b,a) => (parseFloat(a.Total_Budgetary_Resources) > parseFloat(b.Total_Budgetary_Resources)) ? 1 : -1 );
 				case 'Yes':
-					return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'Yes');
+					return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'Yes').sort((b,a) => (parseFloat(a.Total_Budgetary_Resources) > parseFloat(b.Total_Budgetary_Resources)) ? 1 : -1 );
 			}
 		}
 
