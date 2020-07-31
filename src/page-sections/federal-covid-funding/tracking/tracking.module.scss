@@ -198,8 +198,12 @@ h2 {
 	letter-spacing: normal;
 
 	span {
-		font-size: 0.875rem;
+		font-size: 1rem;
 		font-weight: $bold;
+	}
+
+	span:nth-child(2) {
+		margin-left: 15px;
 	}
 }
 
@@ -355,6 +359,12 @@ h2 {
 			}
 		}
 	}
+
+	.percentLegend > span {
+		font-size: 0.875rem;
+		font-weight: $bold;
+	}
+
 
 	// .percentLegend {
 	// 	margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);

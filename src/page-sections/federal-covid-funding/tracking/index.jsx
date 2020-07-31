@@ -611,6 +611,12 @@ export default function Tracking(props) {
 				paperStyle={paperStyle}
 			>
 				<div className={styles.scaleContainer}><p>Represented on a 100% scale</p></div>
+				<div className={styles.percentLegend}>
+					<span>0%</span>
+					<span>50%</span>
+					<span>100%</span>
+				</div>
+				
 				<Modal
 					bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
 					data={filterModalData()}
