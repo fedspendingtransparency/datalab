@@ -73,7 +73,7 @@ const tabletSVGs = [
   }
 ];
 
-const desktopHeights = [290, 314, 218];
+const desktopHeights = [338, 314, 218];
 const mobileHeights = [392, 444, 255];
 const tabletHeights = [294, 316, 212];
 
@@ -182,7 +182,7 @@ The CARES Act and other supplemental legislation are providing financial relief 
 	<Chart />
       </div>
       <Downloads
-	href="/data/federal-covid-spending/budget/covid19_Viz_1_Data_Download_2020_07_29.csv"
+	href="/data/federal-covid-spending/budget/covid19_Viz_1_Data_Download_2020_07_30.csv"
 	date="July 2020"
 	mobileSpace
 	justify={screenMode <= ScreenModeEnum.tablet ? "center" : ""}
