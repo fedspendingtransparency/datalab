@@ -203,7 +203,6 @@ h2 {
 	display: flex;
 	justify-content: space-between;
 	align-content: center;
-	margin: 0 calc(#{$budgetWidth} - 2.5rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
 	color: #555;
 	height: 18px;
 	font-size: 14px;
@@ -214,8 +213,12 @@ h2 {
 	letter-spacing: normal;
 
 	span {
-		font-size: 0.875rem;
+		font-size: 1rem;
 		font-weight: $bold;
+	}
+
+	span:nth-child(2) {
+		margin-left: 15px;
 	}
 }
 
@@ -234,6 +237,23 @@ h2 {
 	margin-bottom: 20px;
 }
 
+.scaleContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+    background: #666;
+    width: 240px;
+    height: 30px;
+    align-content: center;
+    align-items: center;
+};
 
 .infoModalBody {
 	.modalBlock {
@@ -315,9 +335,9 @@ h2 {
 		}
 	}
 
-	.percentLegend {
-		margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
-	}
+	// .percentLegend {
+	// 	margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
+	// }
 
 	.modal-title {
 		font-size: 18px;
@@ -359,9 +379,15 @@ h2 {
 		}
 	}
 
-	.percentLegend {
-		margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+	.percentLegend > span {
+		font-size: 0.875rem;
+		font-weight: $bold;
 	}
+
+
+	// .percentLegend {
+	// 	margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+	// }
 
 	.section-heading {
 		font-size: 1.25rem;
@@ -403,9 +429,9 @@ h2 {
 		line-height: 30px;
 	}
 
-	.percentLegend {
-		margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
-	}
+	// .percentLegend {
+	// 	margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+	// }
 
 	.percentLegend > span {
 		font-size: 0.75rem;
