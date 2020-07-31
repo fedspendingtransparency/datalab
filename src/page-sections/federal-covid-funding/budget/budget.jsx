@@ -73,9 +73,9 @@ const tabletSVGs = [
   }
 ];
 
-const desktopHeights = [290, 314, 218];
-const mobileHeights = [392, 444, 255];
-const tabletHeights = [294, 316, 212];
+const desktopHeights = [338, 313, 300];
+const mobileHeights = [502, 444, 432];
+const tabletHeights = [338, 313, 300];
 
 export default function Budget(props) {
   const [screenMode, setScreenMode] = useState(0);
@@ -182,7 +182,7 @@ The CARES Act and other supplemental legislation are providing financial relief 
 	<Chart />
       </div>
       <Downloads
-	href="/data/federal-covid-spending/budget/covid19_Viz_1_Data_Download_2020_07_29.csv"
+	href="/data/federal-covid-spending/budget/covid19_Viz_1_Data_Download_2020_07_30.csv"
 	date="July 2020"
 	mobileSpace
 	justify={screenMode <= ScreenModeEnum.tablet ? "center" : ""}
