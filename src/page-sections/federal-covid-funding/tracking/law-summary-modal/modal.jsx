@@ -40,8 +40,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
         {
           title: 'Medical Care & Research',
           bulletPoints: [
-            'Over $1B in medical care funding for the Defense Health Program, Veterans Health Administration, and Indian Health Services, with the majority of funds going to the  Public Health and Social Services Emergency Fund, for reimbursements to providers and hospitals',
-            'Funding for epidemiology, infectious disease control and mitigation'
+            'Over $1B in medical care funding for the Defense Health Program, Veterans Health Administration, and Indian Health Services, with the majority of funds going to the  Public Health and Social Services Emergency Fund, for reimbursements to providers and hospitals'
           ],
           icon: <Medical />
         },
@@ -71,7 +70,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
           title: 'Medical Care & Research',
           bulletPoints: [
             'More than $125B allocated to medical care and research with large portion going to the Public Health and Social Services Emergency Fund, for reimbursements to providers and hospitals',
-            'Over $25B in funding was also provided for the development of vaccines and therapies, to purchase supplies for the Strategic National Stockpile, and to government agencies including CDC, NIH, and other HHS agencies, as well as Veterans Affairs, and military health programs for the response to COVID-19'
+            'Over $25B in funding was also provided for the development of vaccines and therapies, to purchase supplies for the Strategic National Stockpile, and to government agencies including Center for Disease Control, National Institutes of Health, and other Health and Human Services agencies, as well as Veterans Affairs, and military health programs for the response to COVID-19 '
           ],
           icon: <Medical />
         },
