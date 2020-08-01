@@ -143,6 +143,7 @@ This analysis will be updated monthly as new data becomes available. To learn mo
           </StorySection>
         );
       })}
+
       <Grid container justify="center">
         <Grid item xs={10}>
           <Footnotes
