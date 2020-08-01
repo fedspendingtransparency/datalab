@@ -23,7 +23,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
           icon: <Medical />
         },
         {
-          title: 'Business, Government, and Institutions',
+          title: 'Business, Government & Institutions',
           bulletPoints: [
             'Emergency preparedness for the Department of State consular programs',
             '$1B in economic assistance to other countries'

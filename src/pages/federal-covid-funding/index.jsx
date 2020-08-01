@@ -17,7 +17,7 @@ import Tracking from '../../page-sections/federal-covid-funding/tracking';
 const BudgetAccordionContent = () => (
   <div className={styles.accordionContents}>
     <p>
-      All of the data in this analysis comes from agencies’ certified monthly reporting to the <a target='_blank' rel='noopener noreferrer' href="https://www.fiscal.treasury.gov/gtas/">Treasury’s Governmentwide Treasury Account Symbol (GTAS) Adjusted Trial Balance System</a>. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for certifying all of the agency’s reporting, and ensuring the data is correct.
+    All of the data in this analysis comes from agencies’ certified monthly reporting to the <a href="" target="_blank">Treasury’s Governmentwide Treasury Account Symbol Adjusted Trial Balance System (GTAS)</a>. Agencies are also mandated to report spending to <a href="USAspending.gov" target="_blank"></a> on a monthly basis, starting in July 2020. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for certifying all of the agency’s reporting, and ensuring the data is correct.
     </p>
     <p>
       For the COVID-19 special appropriations, agencies are required to include a special field called the <b>Disaster Emergency Fund Code (DEFC)</b> in their financial reporting. Data Lab is tracking COVID-19 appropriations through the spending lifecycle using the DEFC that can be used to map transactions to each piece of legislation.
@@ -49,7 +49,7 @@ export default class FederalCovidFunding extends React.Component {
       introBlurb: [
         <>
           <p key='section-1-p-1'>
-To aid the nation’s recovery from the coronavirus disease 2019 (COVID-19) pandemic, the U.S. Congress passed four special appropriations laws for the federal government to use in relief efforts.<a id="fr1" href="#fn1" className="footnoteref">1</a> The largest of these was the Coronavirus Aid, Relief, and Economic Security (CARES) Act, which provides approximately $2.07 trillion and is the largest supplemental appropriation in American history.
+To aid the nation’s recovery from the coronavirus disease 2019 (COVID-19) pandemic, the U.S. Congress passed four special appropriations laws for the federal government to use in relief efforts. The largest of these was the Coronavirus Aid, Relief, and Economic Security (CARES) Act, which provides approximately $2.07 trillion and is the largest supplemental appropriation in American history.
           </p>
           <p key='section-1-p-2'>
 In this analysis, we explore the four COVID-19 supplemental appropriation laws passed by the U.S. Congress, starting with the amount of funding budgeted for agencies and how that money can provide financial relief. Next, we walk through the process of how the money moves from appropriations to individuals and businesses, and finally, we dive into how agencies are spending the money.
@@ -113,7 +113,7 @@ This analysis will be updated monthly as new data becomes available. To learn mo
       tagName: 'Tracking',
       accordion: (
         <aside>
-          <Accordion title='How do you track $2.58 trillion?' color='#6F41A7' backgroundColor='#F3EAFF' isCovid>
+          <Accordion title='How do you track $2.8 trillion?' color='#6F41A7' backgroundColor='#F3EAFF' isCovid>
             {BudgetAccordionContent()}
           </Accordion>
         </aside>
