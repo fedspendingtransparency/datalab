@@ -53,7 +53,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
           icon: <Individuals />
         },
         {
-          title: 'Business, Government, and Institutions',
+          title: 'Business, Government & Institutions',
           bulletPoints: [
             'Funding provided to the IRS to implement new tax credits for individuals and businesses',
           ],
@@ -84,7 +84,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
           icon: <Individuals />
         },
         {
-          title: 'Business, Government, and Institutions',
+          title: 'Business, Government & Institutions',
           bulletPoints: [
             '$40B in new grants to states, local, tribal, and territorial governments for the response to the pandemic through FEMA',
             'Grants and assistance for education, airports and transit systems, and economic development',
@@ -108,7 +108,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
           icon: <Medical />
         },
         {
-          title: 'Business, Government, and Institutions',
+          title: 'Business, Government & Institutions',
           bulletPoints: [
             'Additional $62B Economic Injury Disaster loans and grants, and more than $300B for the Paycheck Protection Program (PPP)',
           ],
