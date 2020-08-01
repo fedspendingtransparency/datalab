@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg class='spending' aria-labelledby='phase3gen-desc' tabindex="0" width="315px" height="85px" viewBox="0 0 315 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class='spending' aria-labelledby='phase3gen-desc' tabindex="0" width="315px" height="85px" viewBox="0 0 315 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
     <desc id="phase3gen-desc">Horizontal stacked bar chart of budgetary resources ($1.18T) allocated to general account spending from the Phase 3 legislation.</desc>
     <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Viz-3---SVG-Export-Tablet" transform="translate(-70.000000, -1077.000000)">

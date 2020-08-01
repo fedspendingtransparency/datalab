@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="lawTotalSvg" class="lawTotalOnly lawTotal" tabindex="0" aria-labelledby='phase1-desc' width="365px" height="40px" viewBox="0 0 365 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="lawTotalSvg" class="lawTotalOnly lawTotal" tabindex="0" aria-labelledby='phase1-desc' width="365px" height="40px" viewBox="0 0 365 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
     <desc id="phase1-desc">Horizontal stacked bar chart of total budgetary resources from the Phase 1 legislation ($7B) that have been obligated and outlayed ($849) to date.</desc>
     <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Viz-3---SVG-Export" transform="translate(-279.000000, -580.000000)">
