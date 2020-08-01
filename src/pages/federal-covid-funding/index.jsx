@@ -69,7 +69,7 @@ In this analysis, we explore the four COVID-19 supplemental appropriation laws p
       introBlurb: [
         <>
           <p key='section-2-p-1'>
-There are many steps in the process to move the $2.8 trillion in supplemental funds through the full budget lifecycle to the American people. In this section, we follow the flow of money by breaking down a few key terms and explaining how agencies spend supplemental funding.
+There are many steps in the process to move the $2.58 trillion in supplemental funds through the full budget lifecycle to the American people. In this section, we follow the flow of money by breaking down a few key terms and explaining how agencies spend supplemental funding.
           </p>
           <p key='section-2-p-2'>
             After a special appropriations law passes, it is the role of the Department of the Treasury (Treasury) to review the new legislation and issue funds to agencies’ spending accounts. The <a href="https://www.usaspending.gov/#/?glossary=appropriation" target="_blank" rel='noopener noreferrer'>appropriations</a> process gives agencies the authority to begin using funding according to the purpose assigned in the law. To spend the money, agencies obligate the funds to different programs through contracts, direct payments, grants, or loans. When agencies make an <a href="https://www.usaspending.gov/#/?glossary=obligation" target="_blank" rel='noopener noreferrer'>obligation</a>, they create a binding agreement to use the funds for a particular purpose. An example of an obligation is an agency setting aside adequate funds when it enters into a contract with a vendor to purchase <a href="https://www.usaspending.gov/#/award/CONT_AWD_75A50120C00030_7505_-NONE-_-NONE-" target="_blank" rel='noopener noreferrer'>personal protective equipment, such as masks</a>.
@@ -113,7 +113,7 @@ This analysis will be updated monthly as new data becomes available. To learn mo
       tagName: 'Tracking',
       accordion: (
         <aside>
-          <Accordion title='How do you track $2.8 trillion?' color='#6F41A7' backgroundColor='#F3EAFF' isCovid>
+          <Accordion title='How do you track $2.58 trillion?' color='#6F41A7' backgroundColor='#F3EAFF' isCovid>
             {BudgetAccordionContent()}
           </Accordion>
         </aside>
