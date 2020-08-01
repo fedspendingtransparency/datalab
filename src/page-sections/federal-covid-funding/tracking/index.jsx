@@ -319,10 +319,10 @@ export default function Tracking(props) {
 			icon: <LIcon />,
 			infoModalDescription: <>
 				<p>
-					This spending includes funds from accounts which are used to finance and administer direct loans or guaranteed loan programs through an intermediary lender. The amounts do not show the total face value of loans and loan guarantees that lenders have disbursed to businesses or individuals or when a PPP loan is forgiven. Instead, they show the estimated subsidy cost of those loans and loan guarantees and the cost of servicing and running the programs.
+					This spending includes funds from accounts which are used to finance and administer <a href="https://www.usaspending.gov/#/?glossaryglossary=direct-loan">direct loans</a> or <a href="https://www.usaspending.gov/#/?glossary=guaranteed-insured-loans">guaranteed loan</a> programs through an intermediary lender. The amounts do not show the total <a href="https://usaspending.gov/#/?glossary=face-value">face value</a> of loans and loan guarantees that lenders have disbursed to businesses or individuals or when a PPP loan is forgiven. Instead, they show the estimated <a href="https://usaspending.gov/#/?glossary=subsidy-cost">subsidy cost</a> of those loans and loan guarantees and the cost of servicing and running the programs.
 				</p>
 				<p>
-					Visit the <a target="_blank" href="https://www.usaspending.gov/#/disaster/covid-19">usaspending.gov/covid-19</a> page to see more detail on the face value of loans.
+					Visit the <a target="_blank" href="https://usaspending.gov/covid-19">usaspending.gov/covid-19</a> page to see more detail on the face value of loans.
 				</p>
 			</>,
 		},
