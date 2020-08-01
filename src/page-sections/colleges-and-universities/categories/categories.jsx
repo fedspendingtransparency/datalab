@@ -248,6 +248,7 @@ const Categories = () => {
 						listDescription='Search Categories'
 						onSelect={searchItemSelected}
 						switchView={switchView}
+						listId='search-categories'
 					>
 						<img src={SunburstIcon} />
 					</VizControlPanel>

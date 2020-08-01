@@ -136,7 +136,9 @@ const Agencies = (props) => {
             searchList={searchList}
             listDescription='Search Agencies'
             onSelect={searchItemSelected}
-            switchView={switchView} >
+            switchView={switchView}
+            listId='search-agencies'
+          >
             <BubbleChartOutlinedIcon />
           </VizControlPanel>
         </Hidden>

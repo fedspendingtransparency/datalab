@@ -2,11 +2,10 @@
 
 .content {
   overflow-y: auto;
-  padding-top: 20px;
 }
 
-.title {
+.modal-title {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  border-bottom: 1px solid #ddd;
 }

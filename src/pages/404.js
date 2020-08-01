@@ -9,7 +9,9 @@ import { Link } from "gatsby";
 const NotFoundPage = () => {
 	return (
 		<HeaderOnly _containerClass='four-oh-four' _headerClass='four-oh-four__header'>
-			<SEO title='404: Not found'/>
+			<SEO
+				title='404: Not found'
+				description="The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending." />
 			<div id='four-oh-four'>
 				<div className='four-container'>
 					<h1>Oops!</h1>

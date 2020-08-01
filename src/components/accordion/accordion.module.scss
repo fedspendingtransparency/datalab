@@ -2,11 +2,11 @@
 
 .container {
     position: relative;
-    margin-bottom: 137px; // these are for R&D, which is the only use at this time
+    margin-bottom: 100px; // these are for R&D, which is the only use at this time
 }
 
 .accordion {
-    margin-top: -87px; // these are for R&D, which is the only use at this time
+    margin-top: -70px; // these are for R&D, which is the only use at this time
     position: absolute;
     width: 100%;
     z-index: 1;
@@ -17,7 +17,7 @@
 /* seperate for Covid page */
 /* dont want to overwrite other pages */
 .covidAccordion {
-    margin-top: -100px;
+    margin-top: -75px;
     position: absolute;
     width: 100%;
     z-index: 1;
@@ -66,24 +66,47 @@
 .content {
     overflow: hidden;
     line-height: 1.43rem;
-
     max-height: 0;
     transition: ease-in-out max-height 500ms;
+
+    a:not(:focus) {
+        color: $legacyBlue;
+    }
+    
+    a:hover {
+        text-decoration: underline !important;
+    }
+    
+    a:focus {
+        color: #3e94cf;
+        text-decoration: underline !important;
+    }
 }
 
 .open {
     .content {
-	max-height: 1400px; // hack; larger than any content's height
+        max-height: 1400px; // hack; larger than any content's height
     }
 }
 
-@media(max-width: $tablet) {
+@media(max-width: $tablet - 1) {
     .covidAccordion {
-	margin-top: -87px;
-	position: absolute;
-	width: 100%;
-	z-index: 1;
-	background-color: $font-white;
-	border: 1px solid $font-lightGrey;
+        margin-top: -87px;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        background-color: $font-white;
+        border: 1px solid $font-lightGrey;
+    }
+}
+
+@media (max-width: $phone - 1) {
+    .container {
+        position: relative;
+        margin-bottom: 50px;
+    }
+
+    .covidAccordion {
+        margin-top: -50px;
     }
 }

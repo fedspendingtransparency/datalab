@@ -1,0 +1,157 @@
+@import "../../../../styles/variables.scss";
+
+$chartBorder: 1px solid #ddd;
+$labelWidth: 11.5rem;
+$mobileLabelWidth: 28%;
+$budgetWidth: 5.5rem;
+$mobileBudgetWidth: 22%;
+$lightBackground: #fafafa;
+
+svg {
+  .outlayBar {
+    fill: #331e4d;
+  }
+
+  .obligatedBar {
+    fill: $covidPurple;
+  }
+
+  .unobligatedBar {
+    fill: #f3e9ff;
+  }
+}
+
+.totalBar {
+  margin-bottom: 80px;
+
+  .sideLabel,
+  .sideBudget,
+  .totalBarSideLabel {
+    color: $covidPurple;
+  }
+}
+
+.totalBarBudgetLabel {
+  font-weight: $bold;
+  font-size: 0.875rem;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  .sideLabel {
+    flex-basis: $labelWidth;
+    min-width: $labelWidth;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    color: $font-title;
+  }
+
+  .totalBarSideLabel {
+    flex-basis: $labelWidth;
+    min-width: $labelWidth;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    .totalBarLabel {
+      font-weight: $bold;
+      font-size: 0.875rem;
+    }
+  }
+
+  .barContainer {
+    flex-basis: 100%;
+    display: flex;
+    flex-flow: row wrap;
+
+    .bar {
+      position: relative;
+      width: 100%;
+
+      .barLabels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        margin: 0 0.25rem;
+
+        .outlayLabel {
+          min-width: 5.5rem;
+          text-align: left;
+        }
+
+        .obligatedLabel {
+          min-width: 6.5rem;
+          text-align: center;
+        }
+
+        .unobligatedLabel {
+          min-width: 7.5rem;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .sideBudget {
+    flex-basis: $budgetWidth;
+    padding-left: 0.5rem;
+    white-space: nowrap;
+    overflow-x: auto;
+
+    &.totalBarSideBudget {
+      span {
+        font-weight: $semibold;
+        color: $covidPurple;
+      }
+
+      .totalBarSideBudgetTotal {
+        font-weight: 400;
+      }
+    }
+  }
+
+  .sideBudgetOfTotal {
+    font-size: 0.875rem;
+  }
+
+  .sideBudgetTotal {
+    font-style: italic;
+    font-size: 0.75rem;
+  }
+
+  .sideBudget span {
+    color: $font-title;
+  }
+}
+
+
+g.connector {
+  rect {
+    fill-opacity: 0.5;
+  }
+}
+
+@media screen and (max-width: $desktop - 1) {
+  .sideLabel {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+
+@media screen and (max-width: $tablet - 1) {
+  .sideLabel,
+  .totalBarSideLabel {
+    flex-basis: $mobileLabelWidth !important;
+    min-width: $mobileLabelWidth !important;
+    padding-right: 0.5rem;
+  }
+
+  .sideBudget {
+    flex-basis: $mobileBudgetWidth !important;
+    padding-left: 0.5rem;
+    white-space: nowrap;
+  }
+}

@@ -11,104 +11,105 @@ import SecondaryTile from 'src/page-sections/home/secondary-tile/stacked-layout/
 import SEO from 'src/components/seo';
 
 import afg from 'src/images/home/CG-GIF_sm_2019.gif';
+import covid from 'src/images/home/covid.png';
 import cu from 'src/images/home/collegehomepage.svg';
 import homelessImg from 'src/images/home/homelessness.png';
 import explorer from 'src/images/home/contractexplorersunburst.png';
 import homeStyles from './index.module.scss';
 
 function IndexPage() {
-	return (
-		<Home>
-			<SEO
-  title="Data Lab - U.S. Treasury"
-  description="The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending."
-  keywords={[
-					'Federal spending',
-					'data',
-					'visualizations',
-					'contracts',
-					'accounts',
-					'grants',
-					'federal programs',
-					'federal financial data',
-					'government spending',
-					'government programs',
-					'government contracts',
-				]}
-			/>
-			<Grid
-  container
-  spacing={3}
-  justify="center"
-  className={homeStyles.featuredTileRow}
-			>
-				<Grid item md={12} lg={8} className={homeStyles.featuredTile}>
-					<FeatureTile
-  href="americas-finance-guide"
-  imgSrc={afg}
-  isMain
-  imgAlt="The Department of Treasury building, in Washington, D.C., that includes a bronze statue of Albert Gallatin, the fourth Secretary of the Treasury."
-  heading="Your Guide to America's Finances"
-  body="Your Guide to America's Finances is an overview of federal government finances in 2019, providing information on spending, revenue, the deficit, and debt. The Guide, which is created by Treasury's Data Lab, presents a series of interactive visualizations to allow you to explore these categories and how they have changed over time. Ultimately, the Guide seeks to provide a comprehensive overview of the trillions of dollars collected and spent by the federal government each year."
-  mobileBody="The Guide presents straightforward information about the federal government's spending and revenue, as well as the deficit and debt in 2019."
-					/>
-				</Grid>
-				<Grid item md={12} lg={4}>
-					<DtsTile
-  href="dts"
-  heading="Visualizing the Daily Treasury Statement"
-  title="How much does the federal government spend each day?"
-					/>
-					<Grid item>
-						<SecondaryTile
-  heading="Homelessness Analysis"
-  subheading="Explore federal programs that address homelessness"
-  href="homelessness-analysis"
-  imgSrc={homelessImg}
-  imgAlt="A homeless person leaning against a street pole and additional homeless people stand against a building in the far background."
-  body="On a single night in 2018, more than 550,000 people experienced homelessness in the United States. With our visualization you can explore federal spending on programs that address homelessness and where individuals experiencing homeless are located."
-						/>
-					</Grid>
-				</Grid>
-			</Grid>
+  return (
+    <Home>
+      <SEO
+        title="Data Lab - U.S. Treasury"
+        description="The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending."
+        keywords={[
+	  'Federal spending',
+	  'data',
+	  'visualizations',
+	  'contracts',
+	  'accounts',
+	  'grants',
+	  'federal programs',
+	  'federal financial data',
+	  'government spending',
+	  'government programs',
+	  'government contracts',
+	]}
+      />
+      <Grid
+        container
+        spacing={3}
+        justify="center"
+        className={homeStyles.featuredTileRow}
+      >
+	<Grid item md={12} lg={8} className={homeStyles.featuredTile}>
+	  <FeatureTile
+            href="federal-covid-funding"
+            imgSrc={covid}
+            isMain
+            imgAlt="Woman standing with medical face mask on, social distanced between two others, with a cartoon image of the U.S. Capitol in the background."
+            heading="The Federal Response to COVID-19"
+            body="To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress passed four special appropriations laws, which provide multiple forms of financial relief through agency spending, tax relief, and lending. As of July 1, approximately half of the $2.58 trillion in available funding has been obligated. In this analysis, we break down how the funding provides financial relief, explain the process of how the money moves from legislation to the American people, and track the progress of spending."
+            mobileBody="Follow along as Data Lab tracks the flow of four emergency funding laws for COVID-19. As of July 1, government agencies have reported $1.3 trillion in spending."
+	  />
+	</Grid>
+	<Grid item md={12} lg={4}>
+	  <DtsTile
+            href="dts"
+            heading="Visualizing the Daily Treasury Statement"
+            title="How much does the federal government spend each day?"
+	  />
+	  <Grid item>
+	    <SecondaryTile
+              heading="Your Guide to America's Finances"
+              subheading="How much does the government spend and collect?"
+              href="americas-finance-guide"
+              imgSrc={afg}
+              imgAlt="The Department of Treasury building, in Washington, D.C., that includes a bronze statue of Albert Gallatin, the fourth Secretary of the Treasury."
+              body="Your guide to understanding the trillions of dollars that make up the federal balance sheet. Our interactive visualizations walk you through federal spending, revenue, the deficit, and debt."
+	    />
+	  </Grid>
+	</Grid>
+      </Grid>
 
-			{/* The more analyses is outside of the more analyses section on purpose */}
-			<Grid item xs={12}>
-				<p className={homeStyles.heading}>More Analyses</p>
-			</Grid>
+      {/* The more analyses is outside of the more analyses section on purpose */}
+      <Grid item xs={12}>
+	<p className={homeStyles.heading}>More Analyses</p>
+      </Grid>
 
-			<Grid container spacing={3} className={homeStyles.moreAnalysesRow}>
-				<Grid item md={12} lg={6}>
-					<MoreAnalysesTiles />
-				</Grid>
-				<Grid item md={12} lg={6} className={homeStyles.featuredTile}>
-					<FeatureTile
-  href="colleges-and-universities"
-  imgSrc={cu}
-  imgAlt="A university building with three streets leading up to it, each has an icon representing financial aid, grants, and contracts respectively."
-  heading="Federal Investment in Higher Education"
-  body="The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities through grants, contracts, and student aid. This interactive analysis gives you an opportunity to search schools and discover how much the government has invested in that institution. In the visualizations you can also break down the investment by federal agency and view data by investment category."
-  mobileBody="The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities. Dive in and search by individual schools, federal agencies, or investment categories!"
-					/>
-				</Grid>
-			</Grid>
+      <Grid container spacing={3} className={homeStyles.moreAnalysesRow}>
+	<Grid item md={12} lg={6}>
+	  <MoreAnalysesTiles />
+	</Grid>
+	<Grid item md={12} lg={6} className={homeStyles.featuredTile}>
+	  <FeatureTile
+            href="colleges-and-universities"
+            imgSrc={cu}
+            imgAlt="A university building with three streets leading up to it, each has an icon representing financial aid, grants, and contracts respectively."
+            heading="Federal Investment in Higher Education"
+            body="The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities through grants, contracts, and student aid. This interactive analysis gives you an opportunity to search schools and discover how much the government has invested in that institution. In the visualizations you can also break down the investment by federal agency and view data by investment category."
+            mobileBody="The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities. Dive in and search by individual schools, federal agencies, or investment categories!"
+	  />
+	</Grid>
+      </Grid>
 
-			<div className={homeStyles.featuredRow}>
-				<FeatureRow
-  href="contract-explorer"
-  heading="Contract Explorer"
-  title="Who receives federal contracts?"
-  blurb="Ever wonder who's getting federal contracts and what agencies are awarding them? This tool lets you explore contract-related information for FY18, including which organizations received federal contracts, contract amounts, awarding agencies and sub-agencies, and the types of goods or services contract recipients provided to the federal government."
-  imgSrc={explorer}
-  imgAlt="A picture of a microscope with a sunburst image overlaid."
-				/>
-			</div>
+      <div className={homeStyles.featuredRow}>
+	<FeatureRow
+          href="contract-explorer"
+          heading="Contract Explorer"
+          title="Who receives federal contracts?"
+          blurb="Ever wonder who's getting federal contracts and what agencies are awarding them? This tool lets you explore contract-related information for FY18, including which organizations received federal contracts, contract amounts, awarding agencies and sub-agencies, and the types of goods or services contract recipients provided to the federal government."
+          imgSrc={explorer}
+          imgAlt="A picture of a microscope with a sunburst image overlaid."
+	/>
+      </div>
 
-			<div className={homeStyles.resourceRow}>
-				<ResourcesRow />
-			</div>
-		</Home>
-	);
+      <div className={homeStyles.resourceRow}>
+	<ResourcesRow />
+      </div>
+    </Home>
+  );
 }
 
 export default IndexPage;

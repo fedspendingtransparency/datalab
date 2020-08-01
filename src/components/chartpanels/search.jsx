@@ -45,6 +45,7 @@ export default class Search extends React.Component {
     'height': PropTypes.number,
     'initItem': PropTypes.string,
     'listDescription': PropTypes.string.isRequired,
+    'listId': PropTypes.string.isRequired,
     'showIcon': PropTypes.bool,
     'alwaysShowList': PropTypes.bool,
     'onSelect': PropTypes.func
@@ -64,22 +65,26 @@ export default class Search extends React.Component {
     this.state = {
       currentValue: initItem,
       expanded: this.props.alwaysShowList,
-      icon: initItem ? 'clear' : 'search'
+      icon: initItem ? 'clear' : 'search',
+      filteredList: []
     }
 
-    this.filteredList = this.props.searchList;
     this.cache = new CellMeasurerCache({
       fixedWidth: true,
       defaultHeight: this.props.height
     });
   }
 
+  componentDidMount() {
+    this.setState({ filteredList: this.props.searchList })
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.searchList !== this.props.searchList) {
-      this.filteredList = this.props.searchList;
       this.setState({
         currentValue: '',
-        icon: 'search'
+        icon: 'search',
+        filteredList: this.props.searchList
       });
     }
 
@@ -98,10 +103,10 @@ export default class Search extends React.Component {
         this.setState(prevState => ({ expanded: !prevState.expanded }));
       }
     } else {
-      this.filteredList = this.props.searchList;
       this.setState({
         currentValue: '',
-        icon: 'search'
+        icon: 'search',
+        filteredList: this.props.searchList
       });
     }
   }
@@ -113,7 +118,7 @@ export default class Search extends React.Component {
   filterSearch(event) {
     const currentValue = event.target.value;
     const filter = new RegExp(currentValue, 'i');
-    this.filteredList = this.props.searchList.filter(n =>
+    const filteredList = this.props.searchList.filter(n =>
       n.filterText ?
         n.filterText.search(filter) !== -1 :
         n.display.search(filter) !== -1
@@ -122,7 +127,8 @@ export default class Search extends React.Component {
     this.setState({
       currentValue: currentValue,
       expanded: true,
-      icon: currentValue ? 'clear' : 'search'
+      icon: currentValue ? 'clear' : 'search',
+      filteredList
     });
   }
 
@@ -133,6 +139,32 @@ export default class Search extends React.Component {
     });
     if (this.props.onSelect) {
       this.props.onSelect(i.id);
+    }
+  }
+
+  handleKeyPress = (e, index) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.selectItem(this.state.filteredList[index])
+    } else if (e.key === 'ArrowDown' & index !== this.state.filteredList.length - 1) {
+      e.preventDefault();
+      const nextElement = document.getElementById(`${this.props.listId}-list-row-${index + 1}`)
+      nextElement.focus();
+    } else if (e.key === 'ArrowUp' && index !== 0) {
+      e.preventDefault();
+      const prevElement = document.getElementById(`${this.props.listId}-list-row-${index - 1}`)
+      prevElement.focus();
+    } else if (e.key === 'Tab') {
+      const elementId = e.shiftKey ? `${this.props.listId}-search-bar` : `${this.props.listId}-search-button`;
+      if (this.props.separateSearchIcon) {
+        e.preventDefault();
+        document.getElementById(elementId).focus();
+      } else {
+        this.setState({
+          expanded: false,
+          icon: 'search'
+        })
+      }
     }
   }
 
@@ -149,18 +181,21 @@ export default class Search extends React.Component {
 
   row = ({ key, index, style, parent }) => (
     <CellMeasurer
-      key={'search-list' + key}
+      key={`search-list${key}`}
       cache={this.cache}
       parent={parent}
       columnIndex={0}
       rowIndex={index}
     >
       <div
-        onClick={() => this.selectItem(this.filteredList[index])}
+        onClick={() => this.selectItem(this.state.filteredList[index])}
+        onKeyDown={(e) => this.handleKeyPress(e, index)}
         style={style}
         className={styles.row}
+        tabIndex={this.props.hidden ? -1 : 0}
+        id={`${this.props.listId}-list-row-${index}`}
       >
-        {this.filteredList[index].display}
+        {this.state.filteredList[index].display}
       </div>
     </CellMeasurer>
   );
@@ -176,6 +211,8 @@ export default class Search extends React.Component {
       fullWidth
       className={styles.filterInput}
       endAdornment={this.props.showIcon && this.filterBoxIcon()}
+      id={`${this.props.listId}-search-bar`}
+      disabled={this.props.hidden}
     />
     <div style={{ height: this.state.expanded ? this.props.height : '0' }}>
       <AutoSizer>
@@ -184,11 +221,12 @@ export default class Search extends React.Component {
             height={height}
             width={width}
             rowRenderer={this.row}
-            rowCount={this.filteredList.length}
+            rowCount={this.state.filteredList.length}
             deferredMeasurementCache={this.cache}
             rowHeight={this.cache.rowHeight}
             className={styles.searchlist}
             ref={this.setListRef}
+            tabIndex={-1}
           >
             {this.row}
           </List>

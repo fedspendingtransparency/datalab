@@ -14,7 +14,7 @@ export default {
         <Grid container justify="space-between" spacing={2}>
           <Grid item xs={12} lg={6}>
             <a href='https://raw.githubusercontent.com/USAspendingexplorer/USAspending-explorer/master/Images/Screenshots/Screen%20Shot%202017-06-16%20at%202.57.19%20PM.png' target='_blank'
-               rel='noopener noreferrer'><img className={styles.projectImage} src={capstone}/></a>
+               rel='noopener noreferrer'><img className={styles.projectImage} src={capstone} aria-label='The DATA Act Capstone Project' /></a>
             <h1>The DATA Act Capstone Project</h1>
             <p>Building an open source tool to make federal spending data more accessible and easy to navigate.</p>
             <p className={styles.sourceInfo}>Syracuse University | Maxwell School of Citizenship and Public Affairs</p>

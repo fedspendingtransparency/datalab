@@ -41,7 +41,13 @@ export default class VizControlPanel extends React.Component {
     }
   }
 
-  toggleSearch = () => this.setState(prevState => ({ expanded: !prevState.expanded }));
+  toggleSearch = () => {
+    this.setState(prevState => ({ expanded: !prevState.expanded }), () => {
+      if (this.state.expanded) {
+        document.getElementById(`${this.props.listId}-search-bar`).focus();
+      }
+    })
+  };
 
   selectItem(id) {
     if (this.props.onSelect) {
@@ -55,12 +61,16 @@ export default class VizControlPanel extends React.Component {
         <Search
           searchList={this.props.searchList}
           listDescription={this.props.listDescription}
+          listId={this.props.listId}
           alwaysShowList
           onSelect={this.props.onSelect}
+          separateSearchIcon
+          hidden={!this.state.expanded}
         />
       </div>
       <div>
         <IconButton
+          id={`${this.props.listId}-search-button`}
           aria-label='search'
           className={styles.panelGroup}
           onClick={() => this.activateButton('search')}

@@ -1,0 +1,478 @@
+@import "./bars/bar.module.scss";
+@import "../../../styles/variables.scss";
+
+h2 {
+	font-size: 2rem;
+}
+
+.vizContainer {
+
+	.chartContainer {
+		svg:global(.lawTotal), svg:global(.spending) {
+			margin-top: 10px;
+			margin-bottom: 30px;
+		}
+
+		svg:global(.govtTotal), svg:global(.lawTotalOnly), svg:global(.loan) {
+			margin-top: 10px;
+			margin-bottom: 80px;
+		}
+	}
+
+	.phaseContainer {
+		display: flex;
+		flex-direction: row;
+
+		.phaseDotsContainer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-right: 20px;
+			margin-top: 6px;
+
+
+			.line {
+				border-left: 1px solid #d8d8d8;
+				height: calc(100% - 16px);
+				margin-top: calc(10% + 8px);
+			}
+		}
+
+	}
+	.totalHeading {
+		text-transform: uppercase;
+		color: $covidPurple;
+		font-size: 1.125rem;
+		font-weight: 600;
+	}
+
+	.phaseTitle {
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: #555555;
+		text-transform: uppercase;
+		margin-bottom: 2px;
+	}
+
+	.enactedDate {
+		display: flex;
+		align-items: center;
+		font-size: 0.875rem;
+		font-style: italic;
+		color: #666666;
+		margin-bottom: 21px;
+
+		.lawSummaryDivider {
+			font-size: 1.25rem;
+			color: #c6c6c6;
+			margin: 0 10px;
+		}
+
+		.lawSummary {
+			display: flex;
+			align-items: center;
+			font-size: 0.875rem;
+			font-style: normal;
+			font-weight: 600;
+			color: #2273CE;
+			cursor: pointer;
+
+			.icon {
+				padding: 0;
+				margin-right: .5rem;
+				height: 0.875rem;
+				width: 0.875rem;
+				color: #2273CE;
+			}
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.barTitle {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: $legacyBlue;
+		text-transform: uppercase;
+		cursor: pointer;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+	}
+
+	.barDiv:hover a {
+		text-decoration: underline;
+	}
+
+}
+
+ svg:global(.lawTotalOnly), svg:global(.loan), svg:global(.spending), svg:global(.lawTotal) {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+#phase-anchor:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.footerBlurb {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: center;
+	text-align: center;
+	font-weight: 300;
+	padding: 25px 0;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+}
+
+.legendContainer {
+	.legendAsOf {
+		font-size: 1rem;
+		display: flex;
+		align-items: center;
+		margin-bottom: 2rem;
+	}
+
+	.legend {
+		display: flex;
+		margin-bottom: 2rem;
+		padding: 6px;
+
+		div {
+			display: flex;
+			justify-content: center;
+
+			span {
+				font-size: 0.875rem;
+			}
+		}
+
+		div:last-of-type {
+			border-left: none;
+		}
+
+		.infoButton {
+			padding: 0;
+			font-size: 1rem;
+			color: #fff;
+			background-color: #2273CE;
+		}
+
+		.infoButton:hover {
+			background-color: #666;
+		}
+
+		.infoButton:focus {
+			outline: solid 1px blue;
+		}
+
+		.blockContainer {
+			display: flex;
+			background: $lightBackground;
+			padding: 6px;
+			border: solid 1px #ddd;
+
+			div {
+				align-items: center;
+			}
+		}
+
+		.block {
+			display: inline-block;
+			height: 1.125rem;
+			width: 1.125rem;
+			margin: 0 0.5rem 0 1.5rem;
+
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+
+		.outlayBar {
+			background: darken($covidPurple, 25%);
+		}
+
+		.obligatedBar {
+			background: $covidPurple;
+		}
+
+		.unobligatedBar {
+			background: #f3e9ff;
+		}
+	}
+}
+
+.percentLegend {
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	color: #555;
+	height: 18px;
+	font-size: 14px;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+
+	span {
+		font-size: 1rem;
+		font-weight: $bold;
+	}
+
+	span:nth-child(2) {
+		margin-left: 15px;
+	}
+}
+
+.selectionAmountVal {
+	display: inline;
+	font-weight: 300;
+}
+
+.selectionAmountValSmall {
+	display: inline;
+	font-weight: 300;
+}
+
+.section-heading {
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.scaleContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+    background: #666;
+    width: 240px;
+    height: 30px;
+    align-content: center;
+    align-items: center;
+};
+
+.infoModalBody {
+	margin-top: 1rem;
+
+	.modalBlock {
+		height: 1.25rem;
+		width: 1.25rem;
+		margin-right: 1rem;
+	}
+
+	.heading {
+		display: flex;
+		align-items: center;
+		font-size: 1.125rem;
+		font-weight: 600;
+	}
+
+	.outlayBar {
+		background: darken($covidPurple, 25%);
+	}
+
+	.obligatedBar {
+		background: $covidPurple;
+	}
+
+	.unobligatedBar {
+		background: #f3e9ff;
+	}
+
+	p {
+		margin-left: 36px;
+	}
+}
+
+.covidTitle {
+	font-size: 2rem;
+	color: #666;
+	line-height: 40px;
+}
+
+.modal-title {
+	font-weight: 600;
+	color: #555555;
+}
+
+@media (min-width: $desktop) {
+	.modal-title {
+		font-size: 24px;
+	}
+
+	.selectionAmountVal {
+		font-size: 24px;
+	}
+
+	.selectionAmountValSmall {
+		font-size: 18px;
+	}
+}
+
+@media (min-width: $phone) {
+	.blockContainer {
+		align-items: center;
+		height: 38px;
+
+		div:first-of-type {
+			margin-right: 1.5rem;
+		}
+	}
+}
+
+@media (max-width: $desktop - 1) {
+	.legendContainer {
+		justify-content: center;
+
+		.legendAsOf {
+			justify-content: center;
+		}
+
+		.legend {
+			align-items: flex-end;
+		}
+	}
+
+	// .percentLegend {
+	// 	margin: 0 calc(#{$budgetWidth} - 3rem) 0.5rem calc(#{$labelWidth} - 0.5rem);
+	// }
+
+	.modal-title {
+		font-size: 18px;
+	}
+
+	.selectionAmountVal {
+	font-size: 18px;
+	}
+
+	.selectionAmountValSmall {
+	font-size: 16px;
+	}
+
+	.barTitle {
+		text-decoration: underline !important;
+	}
+}
+
+@media (max-width: $tablet - 1) {
+	.covidTitle {
+		font-size: 1.25rem;
+		color: #666;
+		line-height: 40px;
+		padding-bottom: 1.2rem;
+	}
+
+	#phase-anchor {
+		text-decoration: underline;
+	}
+
+	.legendContainer {
+		.legend {
+			align-items: center;
+
+			.blockContainer {
+					margin-top: 15px;
+					justify-content: space-around;
+			}
+		}
+	}
+
+	.percentLegend > span {
+		font-size: 0.875rem;
+		font-weight: $bold;
+	}
+
+
+	// .percentLegend {
+	// 	margin: 0 calc(#{$mobileBudgetWidth} - 4.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+	// }
+
+	.section-heading {
+		font-size: 1.25rem;
+	}
+
+	.phaseTitle {
+		font-size: 0.875rem !important;
+	}
+
+	.enactedDate {
+		font-size: 0.75rem !important;
+	}
+
+	.lawSummary {
+		font-size: 0.75rem !important;
+		text-decoration: underline;
+	}
+
+	.barTitle {
+		font-size: 0.875rem !important;
+	}
+
+	.chartContainer {
+		svg:global(.lawTotal), svg:global(.spending) {
+			margin-top: 10px;
+			margin-bottom: 40px !important;
+		}
+
+		svg:global(.govtTotal), svg:global(.lawTotalOnly), svg:global(.loan) {
+			margin-bottom: 60px !important;
+		}
+	}
+}
+
+@media (max-width: $phone - 1) {
+	.covidTitle {
+		font-size: 1.25rem;
+		color: #666;
+		line-height: 30px;
+	}
+
+	// .percentLegend {
+	// 	margin: 0 calc(#{$mobileBudgetWidth} - 3.25rem) 0.5rem calc(#{$mobileLabelWidth} - 0.5rem);
+	// }
+
+	.percentLegend > span {
+		font-size: 0.75rem;
+		font-weight: $bold;
+	}
+
+	.blockContainer {
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: flex-start;
+		height: 76px;
+	}
+
+  .modal-title {
+    font-size: 18px !important;
+    font-weight: 600;
+  }
+
+	.phaseDotsContainer {
+		margin-right: 10px;
+	}
+}
+
+@media (max-width: $desktop - 1) and (min-width: $tablet) {
+	.section-heading {
+		text-align: center;
+		font-size: 2rem;
+	}
+}
+

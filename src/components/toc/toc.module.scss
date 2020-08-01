@@ -15,7 +15,7 @@ $mdGrey: #555555;
     color: $font-title;
     font-size: 1rem;
     text-transform: uppercase;
-    max-width: 200px;
+    // max-width: 200px;
     line-height: 17px;
     text-align: left;
     margin-top: 10px;
@@ -51,7 +51,7 @@ $mdGrey: #555555;
     }
   }
 
-  .federal-covid-spending-anchor:hover {
+  .federal-covid-funding-anchor:hover {
     color: $covidPurple;
     * {
       color: $covidPurple !important;
@@ -75,7 +75,7 @@ $mdGrey: #555555;
     color: $cuRed;
   }
   
-  .federal-covid-spending-section {
+  .federal-covid-funding-section {
     color: $covidPurple;
   }
   
