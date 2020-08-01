@@ -367,11 +367,11 @@ export default function Tracking(props) {
 		if (selectedBar && selectedBar.label) {
 			switch (selectedBar.Loan_Program_Account) {
 				case 'Law Total':
-					return totalAccountsByLaw[selectedBar.label].sort((b,a) => (parseFloat(a.Total_Budgetary_Resources) > parseFloat(b.Total_Budgetary_Resources)) ? 1 : -1 );
+					return totalAccountsByLaw[selectedBar.label].sort((b, a) => (parseFloat(a.Total_Budgetary_Resources) > parseFloat(b.Total_Budgetary_Resources)) ? 1 : -1);
 				case 'No':
-					return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'No').sort((b,a) => (parseFloat(a.Total_Budgetary_Resources) > parseFloat(b.Total_Budgetary_Resources)) ? 1 : -1 );
+					return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'No').sort((b, a) => (parseFloat(a.Total_Budgetary_Resources) > parseFloat(b.Total_Budgetary_Resources)) ? 1 : -1);
 				case 'Yes':
-					return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'Yes').sort((b,a) => (parseFloat(a.Total_Budgetary_Resources) > parseFloat(b.Total_Budgetary_Resources)) ? 1 : -1 );
+					return loanAccountsByLaw[selectedBar.label].filter((i) => i.Loan_Program_Account === 'Yes').sort((b, a) => (parseFloat(a.Total_Budgetary_Resources) > parseFloat(b.Total_Budgetary_Resources)) ? 1 : -1);
 			}
 		}
 
@@ -607,6 +607,8 @@ export default function Tracking(props) {
 		);
 	}
 
+	const infoModalTitleSize = ScreenModeEnum.mobile ? '1.125rem' : '1.5rem';
+
 	return (
 		<>
 			{titleComponent}
@@ -628,7 +630,7 @@ export default function Tracking(props) {
 					<span>50%</span>
 					<span>100%</span>
 				</div>
-				
+
 				<Modal
 					bar={selectedBar && selectedBar.label ? selectedBar.label : ''}
 					data={filterModalData()}
@@ -642,7 +644,7 @@ export default function Tracking(props) {
 				open={isInfoModalOpen}
 				close={closeModal}
 				title="Spending Definitions"
-				titleStyle={{ fontWeight: 600 }}
+				titleStyle={{ fontWeight: 600, fontSize: infoModalTitleSize, height: '40px' }}
 				maxWidth
 				maxHeight
 			>
@@ -661,6 +663,15 @@ export default function Tracking(props) {
 				closeModal={closeModal}
 				phase={lawSummaryModalPhase}
 			/>
+
+			<div className={styles.footerBlurb}>
+				<p>
+				Find out more about how COVID-19 funding was categorized, who received financial awards, and which government programs<br></br>
+        		were funded on the new COVID-19 page on <a target="_blank" href='http://usaspending.gov/covid-19'> USAspending.gov</a>
+				</p>
+			</div>
+
+
 			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.csv" date="July 2020" />
 		</>
 	);
