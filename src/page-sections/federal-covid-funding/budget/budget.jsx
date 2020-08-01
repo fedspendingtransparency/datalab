@@ -73,9 +73,9 @@ const tabletSVGs = [
   }
 ];
 
-const desktopHeights = [338, 313, 300];
-const mobileHeights = [502, 444, 432];
-const tabletHeights = [338, 313, 300];
+const desktopHeights = [338, 311, 325];
+const mobileHeights = [504, 446, 478];
+const tabletHeights = [338, 313, 330];
 
 export default function Budget(props) {
   const [screenMode, setScreenMode] = useState(0);
