@@ -73,9 +73,9 @@ const tabletSVGs = [
   }
 ];
 
-const desktopHeights = [338, 313, 300];
-const mobileHeights = [502, 444, 432];
-const tabletHeights = [338, 313, 300];
+const desktopHeights = [338, 311, 325];
+const mobileHeights = [504, 446, 478];
+const tabletHeights = [338, 313, 330];
 
 export default function Budget(props) {
   const [screenMode, setScreenMode] = useState(0);
@@ -140,7 +140,7 @@ export default function Budget(props) {
 	                  </span>
 	                  <img src={svgs[1].img} width={svgs[1].width} alt={svgs[1].alt} />
 	                  <span>
-The four laws included <strong>funding for credit, loan and loan guarantee programs, which could result in an estimated total of $3.92 trillion in total lending.</strong><a id="fr1" href="#fn1" className="footnoteref">1</a> As of July 23, 2020, $765 billion in credit, loans and loan guarantees have been reported and more than $3 trillion remain available. This includes six loan programs: the Federal Reserve's emergency lending facilities, two programs managed by the Small Business Administration, two managed by the Department of the Treasury, and one by the Department of Agriculture.
+The four laws included <strong>funding for credit, loans and loan guarantee programs, which could result in an estimated total of $3.92 trillion in total lending.</strong><a id="fr1" href="#fn1" className="footnoteref">1</a> As of July 23, 2020, $765 billion in credit, loans and loan guarantees have been reported and more than $3 trillion remain available. This includes six loan programs: the Federal Reserve's emergency lending facilities, two programs managed by the Small Business Administration, two managed by the Department of the Treasury, and one by the Department of Agriculture.
 	                  </span>
 	                  <img src={svgs[2].img} width={svgs[2].width} alt={svgs[2].alt} />
 	                  <span>

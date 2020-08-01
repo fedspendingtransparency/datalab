@@ -17,7 +17,7 @@ import Tracking from '../../page-sections/federal-covid-funding/tracking';
 const BudgetAccordionContent = () => (
   <div className={styles.accordionContents}>
     <p>
-    All of the data in this analysis comes from agencies’ certified monthly reporting to the <a href="https://www.fiscal.treasury.gov/gtas/" target="_blank">Treasury’s Governmentwide Treasury Account Symbol Adjusted Trial Balance System (GTAS)</a>. Agencies are also mandated to report spending to <a href="USAspending.gov" target="_blank"></a> on a monthly basis, starting in July 2020. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for certifying all of the agency’s reporting, and ensuring the data is correct.
+    All of the data in this analysis comes from agencies’ certified monthly reporting to the <a href="https://www.fiscal.treasury.gov/gtas/" target="_blank">Treasury’s Governmentwide Treasury Account Symbol Adjusted Trial Balance System (GTAS)</a>. Agencies are also mandated to report spending to USAspending.gov on a monthly basis, starting in July 2020. While the Treasury validates the data by comparing it to information from other systems, each federal agency’s Chief Financial Officer (CFO) is responsible for certifying all of the agency’s reporting, and ensuring the data is correct.
     </p>
     <p>
       For the COVID-19 special appropriations, agencies are required to include a special field called the <b>Disaster Emergency Fund Code (DEFC)</b> in their financial reporting. Data Lab is tracking COVID-19 appropriations through the spending lifecycle using the DEFC that can be used to map transactions to each piece of legislation.
