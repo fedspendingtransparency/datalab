@@ -671,8 +671,7 @@ export default function Tracking(props) {
 				</p>
 			</div>
 
-
-			<Downloads href="/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.csv" date="July 2020" />
+			<Downloads href="/data/federal-covid-spending/tracking/covid19_Viz_3_Data_Download_2020-07-17.csv" date="July 2020" />
 		</>
 	);
 }
