@@ -110,7 +110,7 @@ const C19HWTCA = ({ location }) => {
     content: (
       <>
         <p id="fn1">
-          <sup><a href="#fr1">1</a></sup> An appropriation warrant is issued following the passage of a law reflecting the individual amounts appropriated by Congress, by appropriation symbol, on the books of the U. S. Treasury. These warrants provide agencies the authority to then obligate and outlay, or spend funds. More information on the appropriations process can be found here: <a href="https://tfm.fiscal.treasury.gov/v1/p2/c200.html">https://tfm.fiscal.treasury.gov/v1/p2/c200.html</a>
+          <sup><a href="#fr1">1</a></sup> An appropriation warrant is issued following the passage of a law reflecting the individual amounts appropriated by Congress, by appropriation symbol, on the books of the U. S. Treasury. These warrants provide agencies the authority to then obligate and outlay, or spend funds. More information on the appropriations process can be found here: <a target="_blank" href="https://tfm.fiscal.treasury.gov/v1/p2/c200.html">https://tfm.fiscal.treasury.gov/v1/p2/c200.html</a>
         </p>
         <p id="fn2">
           <sup><a href="#fr2">2</a></sup> <a target="_blank" href="https://www.whitehouse.gov/omb/supplemental-materials/">https://www.whitehouse.gov/omb/supplemental-materials/</a>
