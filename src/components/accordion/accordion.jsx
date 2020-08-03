@@ -30,14 +30,12 @@ export default class AccordionList extends React.Component {
     e.stopPropagation();
     this.setState(state => {
       if (state.closed) {
-	this.children.current.style.visibility = 'visible';
+        this.children.current.style.visibility = 'visible';
       } else {
-	setTimeout(
-	  () => this.children.current.style.visibility = 'hidden'
-	  , 500 // should be same as CSS transition
-	);
+        setTimeout(
+          () => this.children.current.style.visibility = 'hidden', 500 // should be same as CSS transition
+        );
       }
-
       return { closed: !state.closed };
     });
   }
@@ -56,24 +54,24 @@ export default class AccordionList extends React.Component {
   render = () => (
     <div className={styles.container}>
       <section
-	className={`${this.props.isCovid ? styles.covidAccordion : styles.accordion} ${this.state.closed ? '' : styles.open}`}
-	style={this.props.color ? { 'borderColor': this.props.color } : {}}
+        className={`${this.props.isCovid ? styles.covidAccordion : styles.accordion} ${this.state.closed ? '' : styles.open}`}
+        style={this.props.color ? { 'borderColor': this.props.color } : {}}
       >
-	<h1
-	  onClick={this.toggle}
-	  className={this.props.isCovid ? styles.covidHeading : styles.heading}
-	  style={this.styleOverrides()}
-	>
-	  {this.props.title}
-	  <button onClick={this.toggle} className={styles.toggle} aria-label='show or hide details'>
-	    <span className={styles.expandIcon} style={this.props.color ? { 'color': this.props.color } : {}} >
-	      {this.state.closed ? '+' : '\u2013'}
-	    </span>
-	  </button>
-	</h1>
-	<div ref={this.children} className={styles.content} style={{ 'visibility': 'hidden' }}>
-	  {this.props.children}
-	</div>
+        <h1
+          onClick={this.toggle}
+          className={this.props.isCovid ? styles.covidHeading : styles.heading}
+          style={this.styleOverrides()}
+        >
+          {this.props.title}
+          <button onClick={this.toggle} className={styles.toggle} aria-label='show or hide details'>
+            <span className={styles.expandIcon} style={this.props.color ? { 'color': this.props.color } : {}} >
+              {this.state.closed ? '+' : '\u2013'}
+            </span>
+          </button>
+        </h1>
+        <div ref={this.children} className={styles.content} style={{ 'visibility': 'hidden' }}>
+          {this.props.children}
+        </div>
       </section>
     </div>
   );

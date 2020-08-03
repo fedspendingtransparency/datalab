@@ -2,7 +2,6 @@
   "name": "datalab-gatsby",
   "private": true,
   "version": "1.0.0",
-  "author": "Andrea Blackwell <blackwell_andrea@bah.com>, Brett Varney <brett.varney@kc.frb.org>, Jack Killilea <killilea_jack@bah.com>, Matthew Brown <matthew.brown@kc.frb.org>",
   "dependencies": {
     "@date-io/core": "^1.3.13",
     "@emotion/core": "^10.0.28",
@@ -28,6 +27,7 @@
     "d3-interpolate": "^1.3.2",
     "d3-selection": "^1.4.1",
     "d3-tip": "^0.9.1",
+    "d3-transition": "^1.3.2",
     "d3v3": "npm:d3@^3.0.0",
     "d3v4": "npm:d3@^4.0.0",
     "d3v5": "npm:d3@^5.0.0",
@@ -38,7 +38,6 @@
     "gatsby": "^2.18.17",
     "gatsby-core-utils": "^1.0.34",
     "gatsby-image": "^2.0.37",
-    "gatsby-plugin-emotion": "^4.3.4",
     "gatsby-plugin-google-analytics": "^2.1.31",
     "gatsby-plugin-manifest": "^2.0.28",
     "gatsby-plugin-material-ui": "^2.1.6",

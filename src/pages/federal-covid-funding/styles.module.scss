@@ -1,0 +1,23 @@
+@import "../../styles/variables.scss";
+
+$highlightColor: $covidPurple;
+$left-indent: 20px;
+
+.accordion-contents {
+  text-align: justify;
+  font-size: 1rem;
+  padding: 0 27px 22px $left-indent;
+
+  p {
+    margin: 0 0 0.5rem 0;
+    padding-bottom: 0.5rem;
+    font-weight: 300;
+  }
+
+  .heading {
+    font-weight: $bold;
+    color: $highlightColor;
+    line-height: 1.5rem;
+  }
+}
+

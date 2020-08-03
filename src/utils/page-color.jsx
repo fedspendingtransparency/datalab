@@ -1,7 +1,7 @@
 import globalStyles from 'src/styles/variables.scss';
 
 const pageColorMap = {
-  '/federal-covid-spending/': globalStyles.covidColor,
+  '/federal-covid-funding/': globalStyles.covidColor,
   '/colleges-and-universities/': globalStyles.cuRed,
   '/homelessness-analysis/': globalStyles.homelessAnalysisPurple,
   '/opioid-crisis/': globalStyles.opioidOrange,

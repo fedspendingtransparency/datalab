@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class='lawTotalOnly lawTotal' aria-labelledby='phase2-desc' width="378px" height="40px" viewBox="0 0 378 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+    <desc id="phase2-desc">Horizontal stacked bar chart of total budgetary resources from the Phase 2 legislation ($14B) that have been obligated and outlayed ($6B) to date.</desc>
+    <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Viz-3---SVG-Export-Tablet" transform="translate(-70.000000, -706.000000)">
+            <g id="03.-phase-2" transform="translate(70.000000, 706.000000)">
+                <text id="Outlays-$6B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                    <tspan x="137" y="16">Outlays</tspan>
+                    <tspan x="183.256" y="16" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                    <tspan x="137" y="34" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$6B</tspan>
+                </text>
+                <text id="Obligations-$8B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                    <tspan x="209" y="16">Obligations</tspan>
+                    <tspan x="278.09" y="16" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                    <tspan x="209" y="34" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$8B</tspan>
+                </text>
+                <text id="Unobligated-$6B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                    <tspan x="304" y="16">Unobligated</tspan>
+                    <tspan x="304" y="34" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$6B</tspan>
+                </text>
+                <path d="M112,2 L106,2 C104.895431,2 104,2.8954305 104,4 L104,36 C104,37.1045695 104.895431,38 106,38 L112,38 L112,38" id="Line-2" stroke="#C6C6C6" stroke-linecap="round"></path>
+                <line x1="103.5" y1="20.5" x2="63.5" y2="20.5" id="Line-4" stroke="#C6C6C6" stroke-linecap="round"></line>
+                <rect id="unobligated" fill="#F3E9FF" x="4" y="0" width="4" height="40"></rect>
+                <rect id="obligated" fill="#6F41A7" x="0" y="0" width="4" height="40"></rect>
+                <text id="$14B" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="16" font-weight="bold" fill="#555555">
+                    <tspan x="16" y="26">$14B</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Paper, IconButton } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import formatNumber from '../../utils/number-formatter';
+import formatNumber from '../../utils/number-formatter/number-formatter';
 
 export default class VizDetailPanel extends React.Component {
   constructor(props) {
@@ -81,7 +81,7 @@ export default class VizDetailPanel extends React.Component {
   render = () => (
     <div className={'viz-details-container' + (this.state.expanded ? ' expanded' : '')}>
       <Paper className='details'>
-        <IconButton className='closeButton' onClick={() => this.closeDetails()}>
+        <IconButton className='closeButton' onClick={() => this.closeDetails()} aria-label='Close'>
           <HighlightOffIcon />
         </IconButton>
         {this.renderDetails()}

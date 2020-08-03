@@ -64,7 +64,7 @@ function SpendingTrendsPage(props) {
                             <div className="trend-chart">
                                 <div id="spending-chart-toggle" className="toggle-component toggle-component--spending clearfix" data-active="function">
                                     <span className="toggle-component__label">Category</span>
-                                    <button id="toggle-spending-data-type" className="toggle-control">
+                                    <button id="toggle-spending-data-type" className="toggle-control" aria-label="Toggle spending data type">
                                         <div className="toggle-control__background">
                                             <div className="toggle-control__dot"></div>
                                         </div>

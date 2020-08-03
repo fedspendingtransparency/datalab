@@ -1,0 +1,70 @@
+@import "../../../../styles/variables.scss";
+
+.titles {
+  font-size: 0.875rem;
+  color: #666666;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.items {
+  margin-bottom: 30px;
+}
+
+.amount {
+  flex: 1;
+  display: flex;
+  width: 55px;
+  height: 36px;
+  background-color: #eeeeee;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+
+  span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #555555;
+  }
+
+}
+
+.account {
+  height: 36px;
+  font-size: .875rem;
+  font-weight: 600;
+  color: #555555;
+  padding-right: 10px;
+}
+
+.mobile-heading {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0 20px 0;
+  padding: 10px 0;
+  border-top: solid 1px #eeeeee;
+  border-bottom: solid 1px #eeeeee;
+
+  .mobile-heading-label {
+    font-size: .875rem;
+    font-weight: 300;
+    color: #555555
+  }
+}
+
+.agency-name {
+  font-weight: 600;
+  color: #555555;
+}
+
+@media screen and (max-width: $phone - 1) {
+  .account {
+    position: relative;
+    height: auto;
+    min-height: 100%;
+  }
+}

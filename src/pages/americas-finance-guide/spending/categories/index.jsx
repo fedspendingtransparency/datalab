@@ -44,7 +44,7 @@ function SpendingCategoriesPage(props) {
                             <h2 className="chart-title">
                                 <div id="spending-chart-toggle" className="spending-chart-toggle clearfix" data-active="function">
                                     <span className="spending-chart-toggle__label spending-chart-toggle__label--categories" >Category</span>
-                                    <button id="toggle-spending-data-type" className="toggle-control">
+                                    <button id="toggle-spending-data-type" className="toggle-control" aria-label="Toggle spending data type">
                                         <div className="toggle-control__background">
                                             <div className="toggle-control__dot"></div>
                                         </div>
