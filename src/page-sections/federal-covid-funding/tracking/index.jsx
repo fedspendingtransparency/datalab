@@ -667,7 +667,7 @@ export default function Tracking(props) {
 
 			<div className={styles.footerBlurb}>
 				<p>
-				Continue exploring COVID-19 spending data by visiting <a href="https://usaspending.gov/covid-19" target="_blank">USAspending.gov/covid-19</a>
+				Continue exploring COVID-19 spending data by visiting <a href="https://usaspending.gov/covid-19" target="_blank">USAspending.gov/covid-19</a>.
 				</p>
 			</div>
 
