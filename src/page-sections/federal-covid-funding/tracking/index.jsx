@@ -647,6 +647,7 @@ export default function Tracking(props) {
 				titleStyle={{ fontWeight: 600, fontSize: infoModalTitleSize, height: '40px' }}
 				maxWidth
 				maxHeight
+				customMaxWidth={screenMode >= ScreenModeEnum.desktop ? 0.5 : null}
 			>
 				{categories.map((c) => (
 					<div className={styles.infoModalBody}>
