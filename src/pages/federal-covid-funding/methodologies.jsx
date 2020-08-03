@@ -44,8 +44,7 @@ const C19HWTCA = ({ location }) => {
         </li>
       </ul>
     )
-  }
-  ];
+  }];
 
   const methodologies = [{
     name: <>Legislation values:</>,
@@ -59,16 +58,16 @@ const C19HWTCA = ({ location }) => {
             Appropriation warrants reflect Congressional action to fund programs and provide each agency the amount of money they are authorized to withdraw from the General Fund of the U.S. Government and period of availability of those funds. The total estimated value of the four laws only includes current appropriation warrants issued, which could change. The value of each law could change because there are parts of the laws that do not state explicit program costs or limits on the total funding that can be used to meet the law’s requirements. This could also result in additional appropriations being issued to fulfill the law’s intent if the original appropriation is exhausted
           </li>
           <li>
-      H.R. 6074 Coronavirus Preparedness and Response Supplemental Appropriations Act (CPRSAA) totaled an estimated $7 billion
+            H.R. 6074 Coronavirus Preparedness and Response Supplemental Appropriations Act (CPRSAA) totaled an estimated $7 billion
           </li>
           <li>
             H.R. 6201 Families First Coronavirus Response Act (FFCRA) totaled an estimated $14 billion
           </li>
           <li>
-      H.R. 748 Coronavirus Aid, Relief, and Economic Security (CARES) Act totaled an estimated $2.07 trillion in funding
+            H.R. 748 Coronavirus Aid, Relief, and Economic Security (CARES) Act totaled an estimated $2.07 trillion in funding
           </li>
           <li>
-      H.R. 266 Paycheck Protection Program and Health Care Enhancement Act (PPP HCEA) totaled an estimated $483 billion
+            H.R. 266 Paycheck Protection Program and Health Care Enhancement Act (PPP HCEA) totaled an estimated $483 billion
           </li>
         </ul>
         <li><strong>Estimated Tax Relief:</strong> The total value of estimated deferred and reduced taxes provided by the FFCRA<a id="fr4" href="#fn4" className="footnoteref">4</a> and CARES Act<a id="fr5" href="#fn5" className="footnoteref">5</a> are taken from the CBO’s analysis of each law. The tax relief value is the sum of the CBO’s estimated two year (FY 2020 through 2021) estimated tax revenue impact for each law</li>
@@ -79,7 +78,7 @@ const C19HWTCA = ({ location }) => {
         </ul>
       </ul>
     )
-  },{
+  }, {
     name: <>Calculating total spending:</>,
     sources: (
       <ul>
@@ -104,80 +103,80 @@ const C19HWTCA = ({ location }) => {
           Agency totals were aggregated using TAS account data at the Allocation Transfer Agency (ATA) identifier. In cases where the ATA is null, the Agency Identifier (AID) is used, with a few exceptions. Agencies that use a shared AID were aggregated using the Financial Reporting Entity Code (FREC), and certain armed forces agencies were classified as Department of Defense following the logic used to classify agencies on USAspending.gov.<a id="fr17" href="#fn17" className="footnoteref">17</a>
         </li>
       </ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                             )
-    }];
+    )
+  }];
 
-                         const notes = [{
-                           content: (
-                             <>
-                               <p id="fn1">
-                                 <sup><a href="#fr1">1</a></sup> An appropriation warrant is issued following the passage of a law reflecting the individual amounts appropriated by Congress, by appropriation symbol, on the books of the U. S. Treasury. These warrants provide agencies the authority to then obligate and outlay, or spend funds. More information on the appropriations process can be found here: <a href="https://tfm.fiscal.treasury.gov/v1/p2/c200.html">https://tfm.fiscal.treasury.gov/v1/p2/c200.html</a>
-                               </p>
-                               <p id="fn2">
-                                 <sup><a href="#fr2">2</a></sup> <a target="_blank" href="https://www.whitehouse.gov/omb/supplemental-materials/">https://www.whitehouse.gov/omb/supplemental-materials/</a>
-                               </p>
-                               <p id="fn3">
-                                 <sup><a href="#fr3">3</a></sup> CBO report: <a target="_blank" href="https://www.cbo.gov/system/files/2020-06/56403-CBO-covid-legislation.pdf">https://www.cbo.gov/system/files/2020-06/56403-CBO-covid-legislation.pdf</a>
-                               </p>
-                               <p id="fn4">
-                                 <sup><a href="#fr4">4</a></sup> <a target="_blank" href="https://www.cbo.gov/system/files/2020-04/HR6201.pdf">https://www.cbo.gov/system/files/2020-04/HR6201.pdf</a>
-                               </p>
-                               <p id="fn5">
-                                 <sup><a href="#fr5">5</a></sup> <a target="_blank" href="https://www.cbo.gov/system/files/2020-04/hr748.pdf">https://www.cbo.gov/system/files/2020-04/hr748.pdf</a>
-                               </p>
-                               <p id="fn6">
-                                 <sup><a href="#fr6">6</a></sup> Estimate value of direct and indirect loans for these two Treasury programs was generated using the CBO’s analysis of the CARES Act: <a target="_blank" href="https://www.cbo.gov/system/files/2020-04/hr748.pdf">https://www.cbo.gov/system/files/2020-04/hr748.pdf</a>
-                               </p>
-                               <p id="fn7">
-                                 <sup><a href="#fr7">7</a></sup> Estimated value of total potential EIDL direct loans estimated using the FY 2020 credit subsidy rate for the program <a target="_blank" href="https://www.govinfo.gov/content/pkg/BUDGET-2020-FCS/pdf/BUDGET-2020-FCS.pdf">https://www.govinfo.gov/content/pkg/BUDGET-2020-FCS/pdf/BUDGET-2020-FCS.pdf</a>
-                               </p>
-                               <p id="fn8">
-                                 <sup><a href="#fr8">8</a></sup> Total potential value of loan guarantees to be made available in the PPP program was provided by the Small Business Administration.
-                               </p>
-                               <p id="fn9">
-                                 <sup><a href="#fr9">9</a></sup> See Federal Reserve statements: <a target="_blank" href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20200409a.htm">https://www.federalreserve.gov/newsevents/pressreleases/monetary20200409a.htm</a>,
-                                 and term sheets for the Main Street Lending Program term sheet: <a target="_blank" href="https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200608a1.pdf">https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200608a1.pdf</a>, and Term Asset-Backed Securities Loan Facility:
-                                 <a target="_blank" href="https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200512a1.pdf">https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200512a1.pdf</a>
-                               </p>
-                               <p id="fn10">
-                                 <sup><a href="#fr10">10</a></sup> <a target="_blank" href="https://home.treasury.gov/policy-issues/cares/preserving-jobs-for-american-industry/payroll-support-program-payments">https://home.treasury.gov/policy-issues/cares/preserving-jobs-for-american-industry/payroll-support-program-payments</a>
-                               </p>
-                               <p id="fn11">
-                                 <sup><a href="#fr11">11</a></sup> <a target="_blank" href="https://home.treasury.gov/policy-issues/cares/preserving-jobs-for-american-industry/loans-to-air-carriers-eligible-businesses-and-national-security-businesses">https://home.treasury.gov/policy-issues/cares/preserving-jobs-for-american-industry/loans-to-air-carriers-eligible-businesses-and-national-security-businesses</a>
-                               </p>
-                               <p id="fn12">
-                                 <sup><a href="#fr12">12</a></sup> <a target="_blank" href="https://www.sba.gov/document/report-covid-19-eidl-loans-report-07-15-20">https://www.sba.gov/document/report-covid-19-eidl-loans-report-07-15-20</a>
-                               </p>
-                               <p id="fn13">
-                                 <sup><a href="#fr13">13</a></sup> <a target="_blank" href="https://www.sba.gov/document/report-paycheck-protection-program-report-through-july-17-2020">https://www.sba.gov/document/report-paycheck-protection-program-report-through-july-17-2020</a>
-                               </p>
-                               <p id="fn14">
-                                 <sup><a href="#fr14">14</a></sup> OMB Guidance on reporting requirements and DEFC values provided for the four laws are provided in OMB M20-21: <a target="_blank" href="https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf">https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf</a>
-                               </p>
-                               <p id="fn15">
-                                 <sup><a href="#fr15">15</a></sup> Values were calculated according to the USSGL Supplement of the Treasury Financial Manual - Section V: Crosswalks to Standard External Reports for FY 2020 GTAS Reporting, SF 133: Report on Budget Execution and Budgetary Resources & Schedule P Budget Program and Financing Schedule. <a target="_blank" href="https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_1/sec5/sec5_sf133_schp_2020.xlsx">https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_1/sec5/sec5_sf133_schp_2020.xlsx</a>
-                               </p>
-                               <p id="fn16">
-                                 <sup><a href="#fr16">16</a></sup> GTAS data is collected monthly and agencies report data for all transactions occurring through the end of the prior month. The GTAS reporting schedule can be found here: <a target="_blank" href="https://fiscal.treasury.gov/files/gtas/fy-2020-reporting-window-schedule.pdf ">https://fiscal.treasury.gov/files/gtas/fy-2020-reporting-window-schedule.pdf</a>
-                               </p>
-                               <p id="fn17">
-                                 <sup><a href="#fr17">17</a></sup> Detailed instructions on how agencies should be classified is provided here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md">https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md.</a>
-                                 The list of shared agencies identified by FREC can be found here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker">https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a>
-                               </p>
-                               <p>For a complete download of the data, download this file: <a href='/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.xlsx'>COVID-19 Response Data</a>
-                               </p>
-                               </>
-                           )
-                         }];
+  const notes = [{
+    content: (
+      <>
+        <p id="fn1">
+          <sup><a href="#fr1">1</a></sup> An appropriation warrant is issued following the passage of a law reflecting the individual amounts appropriated by Congress, by appropriation symbol, on the books of the U. S. Treasury. These warrants provide agencies the authority to then obligate and outlay, or spend funds. More information on the appropriations process can be found here: <a href="https://tfm.fiscal.treasury.gov/v1/p2/c200.html">https://tfm.fiscal.treasury.gov/v1/p2/c200.html</a>
+        </p>
+        <p id="fn2">
+          <sup><a href="#fr2">2</a></sup> <a target="_blank" href="https://www.whitehouse.gov/omb/supplemental-materials/">https://www.whitehouse.gov/omb/supplemental-materials/</a>
+        </p>
+        <p id="fn3">
+          <sup><a href="#fr3">3</a></sup> CBO report: <a target="_blank" href="https://www.cbo.gov/system/files/2020-06/56403-CBO-covid-legislation.pdf">https://www.cbo.gov/system/files/2020-06/56403-CBO-covid-legislation.pdf</a>
+        </p>
+        <p id="fn4">
+          <sup><a href="#fr4">4</a></sup> <a target="_blank" href="https://www.cbo.gov/system/files/2020-04/HR6201.pdf">https://www.cbo.gov/system/files/2020-04/HR6201.pdf</a>
+        </p>
+        <p id="fn5">
+          <sup><a href="#fr5">5</a></sup> <a target="_blank" href="https://www.cbo.gov/system/files/2020-04/hr748.pdf">https://www.cbo.gov/system/files/2020-04/hr748.pdf</a>
+        </p>
+        <p id="fn6">
+          <sup><a href="#fr6">6</a></sup> Estimate value of direct and indirect loans for these two Treasury programs was generated using the CBO’s analysis of the CARES Act: <a target="_blank" href="https://www.cbo.gov/system/files/2020-04/hr748.pdf">https://www.cbo.gov/system/files/2020-04/hr748.pdf</a>
+        </p>
+        <p id="fn7">
+          <sup><a href="#fr7">7</a></sup> Estimated value of total potential EIDL direct loans estimated using the FY 2020 credit subsidy rate for the program <a target="_blank" href="https://www.govinfo.gov/content/pkg/BUDGET-2020-FCS/pdf/BUDGET-2020-FCS.pdf">https://www.govinfo.gov/content/pkg/BUDGET-2020-FCS/pdf/BUDGET-2020-FCS.pdf</a>
+        </p>
+        <p id="fn8">
+          <sup><a href="#fr8">8</a></sup> Total potential value of loan guarantees to be made available in the PPP program was provided by the Small Business Administration.
+        </p>
+        <p id="fn9">
+          <sup><a href="#fr9">9</a></sup> See Federal Reserve statements: <a target="_blank" href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20200409a.htm">https://www.federalreserve.gov/newsevents/pressreleases/monetary20200409a.htm</a>,
+          and term sheets for the Main Street Lending Program term sheet: <a target="_blank" href="https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200608a1.pdf">https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200608a1.pdf</a>, and Term Asset-Backed Securities Loan Facility:
+          <a target="_blank" href="https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200512a1.pdf">https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200512a1.pdf</a>
+        </p>
+        <p id="fn10">
+          <sup><a href="#fr10">10</a></sup> <a target="_blank" href="https://home.treasury.gov/policy-issues/cares/preserving-jobs-for-american-industry/payroll-support-program-payments">https://home.treasury.gov/policy-issues/cares/preserving-jobs-for-american-industry/payroll-support-program-payments</a>
+        </p>
+        <p id="fn11">
+          <sup><a href="#fr11">11</a></sup> <a target="_blank" href="https://home.treasury.gov/policy-issues/cares/preserving-jobs-for-american-industry/loans-to-air-carriers-eligible-businesses-and-national-security-businesses">https://home.treasury.gov/policy-issues/cares/preserving-jobs-for-american-industry/loans-to-air-carriers-eligible-businesses-and-national-security-businesses</a>
+        </p>
+        <p id="fn12">
+          <sup><a href="#fr12">12</a></sup> <a target="_blank" href="https://www.sba.gov/document/report-covid-19-eidl-loans-report-07-15-20">https://www.sba.gov/document/report-covid-19-eidl-loans-report-07-15-20</a>
+        </p>
+        <p id="fn13">
+          <sup><a href="#fr13">13</a></sup> <a target="_blank" href="https://www.sba.gov/document/report-paycheck-protection-program-report-through-july-17-2020">https://www.sba.gov/document/report-paycheck-protection-program-report-through-july-17-2020</a>
+        </p>
+        <p id="fn14">
+          <sup><a href="#fr14">14</a></sup> OMB Guidance on reporting requirements and DEFC values provided for the four laws are provided in OMB M20-21: <a target="_blank" href="https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf">https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf</a>
+        </p>
+        <p id="fn15">
+          <sup><a href="#fr15">15</a></sup> Values were calculated according to the USSGL Supplement of the Treasury Financial Manual - Section V: Crosswalks to Standard External Reports for FY 2020 GTAS Reporting, SF 133: Report on Budget Execution and Budgetary Resources & Schedule P Budget Program and Financing Schedule. <a target="_blank" href="https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_1/sec5/sec5_sf133_schp_2020.xlsx">https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_1/sec5/sec5_sf133_schp_2020.xlsx</a>
+        </p>
+        <p id="fn16">
+          <sup><a href="#fr16">16</a></sup> GTAS data is collected monthly and agencies report data for all transactions occurring through the end of the prior month. The GTAS reporting schedule can be found here: <a target="_blank" href="https://fiscal.treasury.gov/files/gtas/fy-2020-reporting-window-schedule.pdf ">https://fiscal.treasury.gov/files/gtas/fy-2020-reporting-window-schedule.pdf</a>
+        </p>
+        <p id="fn17">
+          <sup><a href="#fr17">17</a></sup> Detailed instructions on how agencies should be classified is provided here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md">https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md.</a>
+          The list of shared agencies identified by FREC can be found here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker">https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a>
+        </p>
+        <p>For a complete download of the data, download this file: <a href='/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.xlsx'>COVID-19 Response Data</a>
+        </p>
+        </>
+    )
+  }];
 
-                         return (
-                           <HWCTA
-                             location={location}
-                             title={title}
-                             dataSources={dataSources}
-                             methodologies={methodologies}
-                             notes={notes} />
-                         );
-                        };
+  return (
+    <HWCTA
+      location={location}
+      title={title}
+      dataSources={dataSources}
+      methodologies={methodologies}
+      notes={notes} />
+  );
+};
 
-  export default C19HWTCA;
+export default C19HWTCA;
