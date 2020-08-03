@@ -136,6 +136,11 @@ h2 {
 	a {
 		color: #2273CE;
 	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
 }
 
 .legendContainer {
