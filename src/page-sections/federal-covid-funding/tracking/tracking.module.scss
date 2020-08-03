@@ -250,21 +250,21 @@ h2 {
 }
 
 .scaleContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-    font-weight: 600;
-    font-stretch: normal;
-    font-style: italic;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #ffffff;
-    background: #666;
-    width: 240px;
-    height: 30px;
-    align-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: italic;
+	line-height: normal;
+	letter-spacing: normal;
+	color: #ffffff;
+	background: #666;
+	width: 240px;
+	height: 30px;
+	align-content: center;
+	align-items: center;
 };
 
 .infoModalBody {
@@ -279,7 +279,6 @@ h2 {
 	.heading {
 		display: flex;
 		align-items: center;
-		font-size: 1.125rem;
 		font-weight: 600;
 	}
 
@@ -297,6 +296,14 @@ h2 {
 
 	p {
 		margin-left: 36px;
+	}
+
+	a {
+		color: #2273CE;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }
 
@@ -332,6 +339,12 @@ h2 {
 
 		div:first-of-type {
 			margin-right: 1.5rem;
+		}
+	}
+
+	.infoModalBody {
+		.heading {
+			font-size: 1.125rem;
 		}
 	}
 }
@@ -432,6 +445,16 @@ h2 {
 
 		svg:global(.govtTotal), svg:global(.lawTotalOnly), svg:global(.loan) {
 			margin-bottom: 60px !important;
+		}
+	}
+
+	.infoModalBody {
+		.heading {
+			font-size: 1rem;
+		}
+
+		p {
+			font-size: 0.875rem;
 		}
 	}
 }

@@ -607,7 +607,7 @@ export default function Tracking(props) {
 		);
 	}
 
-	const infoModalTitleSize = ScreenModeEnum.mobile ? '1.125rem' : '1.5rem';
+	const infoModalTitleSize = screenMode === ScreenModeEnum.mobile ? '1.125rem' : '1.5rem';
 
 	return (
 		<>
@@ -647,6 +647,7 @@ export default function Tracking(props) {
 				titleStyle={{ fontWeight: 600, fontSize: infoModalTitleSize, height: '40px' }}
 				maxWidth
 				maxHeight
+				customMaxWidth={screenMode >= ScreenModeEnum.desktop ? 0.5 : null}
 			>
 				{categories.map((c) => (
 					<div className={styles.infoModalBody}>

@@ -53,13 +53,20 @@ class ModalReference extends React.Component {
     window.removeEventListener('resize', this.handleResize);
   }
 
-  componentWillReceiveProps({open}) {
-    this.setState({open: open});
+  componentWillReceiveProps({ open, customMaxWidth }) {
+    let widthMultiplier = .70;
+    if (customMaxWidth) widthMultiplier = this.props.customMaxWidth;
+    this.setState({
+      open,
+      maxWidth: this.props.maxWidth ? window.innerWidth * widthMultiplier : null
+    });
   }
 
   handleResize = () => {
+    let widthMultiplier = .70;
+    if (this.props.customMaxWidth) widthMultiplier = this.props.customMaxWidth;
     this.setState({
-      maxWidth: this.props.maxWidth ? window.innerWidth * .70 : null,
+      maxWidth: this.props.maxWidth ? window.innerWidth * widthMultiplier : null,
       maxHeight: this.props.maxHeight ? window.innerHeight * .80 : null
     })
   }
