@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg class='govtTotal' aria-labelledby='total-desc' width="659px" height="95px" viewBox="0 0 659 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+<svg class='govtTotal' aria-labelledby='total-desc' role="img" width="659px" height="95px" viewBox="0 0 659 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <desc id="total-desc">Horizontal stacked bar chart of total budgetary resources from the supplemental funding that have been obligated and outlayed ($1.31T) to date.</desc>
     <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Viz-3---SVG-Export-Tablet" transform="translate(-70.000000, -238.000000)">
@@ -25,9 +25,9 @@
                 <line x1="563.5" y1="40" x2="563.5" y2="55" id="Line-Copy-2" stroke="#C6C6C6"></line>
                 <line x1="225.5" y1="40" x2="225.5" y2="55" id="Line-Copy-5" stroke="#C6C6C6"></line>
                 <line x1="10.5" y1="40" x2="10.5" y2="55" id="Line" stroke="#C6C6C6"></line>
-                <rect id="unobligated" fill="#F3E9FF" x="0" y="0" width="600" height="40"></rect>
-                <rect id="obligated" fill="#6F41A7" x="150" y="0" width="150" height="40"></rect>
-                <rect id="outlays" fill="#331E4D" x="0" y="0" width="150" height="40"></rect>
+                <rect id="unobligated" fill="#F3E9FF" x="340" y="0" width="260" height="40"></rect>
+                <rect id="obligated" fill="#6F41A7" x="305" y="0" width="35" height="40"></rect>
+                <rect id="outlays" fill="#331E4D" x="0" y="0" width="305" height="40"></rect>
                 <text id="$2.58T" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="16" font-weight="bold" fill="#6F41A7">
                     <tspan x="611" y="26">$2.58T</tspan>
                 </text>
