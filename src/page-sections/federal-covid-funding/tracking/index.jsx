@@ -607,7 +607,7 @@ export default function Tracking(props) {
 		);
 	}
 
-	const infoModalTitleSize = ScreenModeEnum.mobile ? '1.125rem' : '1.5rem';
+	const infoModalTitleSize = screenMode === ScreenModeEnum.mobile ? '1.125rem' : '1.5rem';
 
 	return (
 		<>
