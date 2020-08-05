@@ -37,6 +37,15 @@
   }
 }
 
+.padding-container {
+  height: 0;
+
+  .anchor {
+    position: relative;
+    bottom: 60px;
+  }
+}
+
 @media (min-width: $desktop) {
   [id="footnotes"] {
     margin-top: 5rem;
