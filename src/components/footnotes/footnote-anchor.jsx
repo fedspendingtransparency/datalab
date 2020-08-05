@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './footnotes.module.scss';
 
-const FootnotePadding = ({ footnoteId }) => {
+const FootnoteAnchor = ({ footnoteId }) => {
   return (
     <span className={styles.paddingContainer}>
       <span id={footnoteId} className={styles.anchor} />
@@ -9,4 +9,4 @@ const FootnotePadding = ({ footnoteId }) => {
   );
 }
  
-export default FootnotePadding;
+export default FootnoteAnchor;

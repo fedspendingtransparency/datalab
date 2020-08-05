@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import FootnotePadding from './footnote-padding';
+import FootnoteAnchor from './footnote-anchor';
 import styles from './footnotes.module.scss';
 
 export default class Footnotes extends React.Component {
@@ -25,7 +25,7 @@ export default class Footnotes extends React.Component {
 			{this.props.footnotes.map((footnote, i) =>
 				<div key={i} className={styles.footnote}>
 					<div className={styles.number}>
-						<FootnotePadding footnoteId={`fn${i + 1}`} />
+						<FootnoteAnchor footnoteId={`fn${i + 1}`} />
 						<a href={`#fr${i + 1}`}>{i + 1}</a>
 					</div>
 					<div className={styles.content}>{footnote}</div>
