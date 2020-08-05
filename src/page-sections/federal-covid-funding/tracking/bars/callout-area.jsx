@@ -126,7 +126,7 @@ export default function CalloutBar(props) {
 				calloutStates.outlay = calloutState[2];
 				calloutStates.obligated = calloutState[2];
 			} else {
-				console.error('Uncaught condition 1 in callout bar');
+				if (labelOffsets !== 0) console.error('Uncaught condition 1 in callout bar');
 			}
 		} else if (props.outlaid > labelOffsets.outlayMidPoint) {
 			calloutStates.outlay = calloutState[0];
@@ -153,11 +153,11 @@ export default function CalloutBar(props) {
 				calloutStates.outlay = calloutState[2];
 				calloutStates.obligated = calloutState[2];
 			} else {
-				console.error('Uncaught condition 1.5 in callout bar', calloutStates);
+				if (labelOffsets !== 0) console.error('Uncaught condition 1.5 in callout bar', calloutStates);
 				// calloutStates.obligated = calloutState[0];
 			}
 		} else {
-			console.error('Uncaught condition 2 in callout bar', calloutStates);
+			if (labelOffsets !== 0) console.error('Uncaught condition 2 in callout bar', calloutStates);
 		}
 
 		if (props.unobligated < 100 - threshold.rightOffset) {
@@ -340,11 +340,13 @@ export default function CalloutBar(props) {
 
 	/* Function to draw the callout bar based on a percentage - ie. 0 - 100% */
 	const drawCalloutBar = () => {
-		// determine if callouts are straight, joined, or elbow, then set callouts for outlay, obligated, and unobligated
-		setCalloutStates();
-		setOutlays();
-		setObligated();
-		setUnobligated();
+		if(labelOffsets !== 0) {
+			// determine if callouts are straight, joined, or elbow, then set callouts for outlay, obligated, and unobligated
+			setCalloutStates();
+			setOutlays();
+			setObligated();
+			setUnobligated();
+		}
 	};
 
 	useEffect(() => {
