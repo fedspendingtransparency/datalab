@@ -39,8 +39,7 @@ const StoryLayout = (props) => {
   
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const { pathname } = window.location
-      setColor(pageColorMap[pathname.split('/').join('')])
+      setColor(pageColorMap[window.location.pathname.split('/').join('')])
     }
   }, [props.color])
 
