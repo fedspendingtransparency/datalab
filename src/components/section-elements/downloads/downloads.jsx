@@ -17,8 +17,8 @@ const Downloads = (props) => {
   const [screenMode, setScreenMode] = useState(0);
 
   if (typeof window !== 'undefined') {
-    if (pageColorMap[window.location.pathname]) {
-      fillColor = pageColorMap[window.location.pathname];
+    if (pageColorMap[window.location.pathname.split('/').join('')]) {
+      fillColor = pageColorMap[window.location.pathname.split('/').join('')];
     }
 
     const resizeWindow = () => {
