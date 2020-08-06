@@ -390,6 +390,10 @@ h2 {
 	.barTitle {
 		text-decoration: underline !important;
 	}
+
+	.lawSummary {
+		text-decoration: underline;
+	}
 }
 
 @media (max-width: $tablet - 1) {
@@ -439,7 +443,6 @@ h2 {
 
 	.lawSummary {
 		font-size: 0.75rem !important;
-		text-decoration: underline;
 	}
 
 	.barTitle {
