@@ -26,7 +26,7 @@ export default class Footnotes extends React.Component {
 				<div key={i} className={styles.footnote}>
 					<div className={styles.number}>
 						<FootnoteAnchor footnoteId={`fn${i + 1}`} />
-						<a href={`#fr${i + 1}`}>{i + 1}</a>
+						<sup><a href={`#fr${i + 1}`}>{i + 1}</a></sup>
 					</div>
 					<div className={styles.content}>{footnote}</div>
 				</div>
