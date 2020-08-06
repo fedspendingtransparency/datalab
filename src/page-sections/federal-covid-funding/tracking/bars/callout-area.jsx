@@ -64,23 +64,22 @@ export default function CalloutBar(props) {
 				unobligated: null,
 				obligated: null,
 				obligatedMidPoint: null,
-				rightOffset: 100 - threshold.labelOffset,
+				rightOffset: null,
 			};
 
 			const el = props.isModal ? document.getElementById('covid-modal').getElementsByClassName(styles.bar)[0]
 				: document.getElementsByClassName(styles.bar)[0];
 			const barWidth = el.getBoundingClientRect().width;
-			const unobligatedOffsetPx = ScreenModeEnum.mobile || ScreenModeEnum.tablet ? 40 : 15;
 
 			const tempLabelLengths = {
 				outlayPercentage: Math.round(50 / barWidth * 100),
 				obligatedPercentage: Math.round(72 / barWidth * 100),
 				unobligatedPercentage: Math.round(72 / barWidth * 100),
 				padding: Math.round(25 / barWidth * 100),
-				unobligatedOffset: Math.round(unobligatedOffsetPx / barWidth * 100)
+				unobligatedRightPadding: ScreenModeEnum.mobile || ScreenModeEnum.tablet ? Math.round(40 / barWidth * 100) : 2
 			};
 
-			tempLabelOffsets.rightOffset = 100 - tempLabelLengths.unobligatedOffset;
+			tempLabelOffsets.rightOffset = 100 - tempLabelLengths.unobligatedRightPadding;
 			tempLabelOffsets.outlayMidPoint = threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage / 2;
 			tempLabelOffsets.unobligated = tempLabelOffsets.rightOffset - tempLabelLengths.unobligatedPercentage;
 			tempLabelOffsets.obligated = threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempLabelLengths.padding;
