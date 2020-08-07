@@ -136,7 +136,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
       paperStyle={{ width: 554 }}
       contentStyle={{ borderTop: 'solid 1px #eeeeee' }}
       maxHeight
-      customMaxHeight={.70}
+      customMaxHeight={.60}
     >
       <Grid container className={styles.contentContainer}>
         <Grid item xs={12} className={styles.subtitle}>
