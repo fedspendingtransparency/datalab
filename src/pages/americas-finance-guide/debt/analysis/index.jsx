@@ -9,7 +9,8 @@ import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
-import { Helmet } from 'react-helmet';
+import Og from '../../../../components/og-tag/og';
+import ffgDebtImg from '../../../../images/ffg/social-media-share-debt.jpg';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import DebtCards from "src/libs/ffg/src/debt/analysis/cards";
 
@@ -27,6 +28,8 @@ function DebtAnalysisPage(props) {
                 excerpt='Explore this section to learn more about who owns U.S. debt, how much it costs to maintain the debt, and how interest rates affect debt expenses.'
                 keywords={[`debt, national debt, federal debt, U.S.debt, interest rate, interest expense, total debt, cost of debt, cost to maintain debt, federal government’s debt, US investors, social security, Federal Reserve, China,Japan, Brazil top owners of US debt, monthly statement of the public debt, MSPD`]}
             />
+
+            <Og socialMediaImage={ffgDebtImg} />
 
             <Default>
 							  <AFGHeader />

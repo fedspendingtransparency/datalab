@@ -12,11 +12,10 @@ import GdpTemplate from 'src/components/gdp-template/gdp-template';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
-import { Helmet } from 'react-helmet';
+import Og from '../../../components/og-tag/og';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import DebtIntro from 'src/libs/ffg/src/debt/intro/index.js';
-
-
+import ffgDebtImg from '../../../images/ffg/social-media-share-debt.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDebtSVG from '../../../libs/assets/ffg/icons/anecdote-debt.svg';
@@ -25,11 +24,13 @@ function ExploreDebtPage(props) {
 	return (
 		<>
 			<SEO
-  title="Data Lab - Explore Federal Debt – U.S. Treasury"
-  description="By the end of 2019, the government had $22.7 trillion in federal debt."
-  excerpt="How did we end up with $22.7 trillion in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to people using their credit card for a purchase rather than cash, check, or a debit card. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows."
+				title="Data Lab - Explore Federal Debt – U.S. Treasury"
+				description="By the end of 2019, the government had $22.7 trillion in federal debt."
+				excerpt="How did we end up with $22.7 trillion in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to people using their credit card for a purchase rather than cash, check, or a debit card. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows."
 				keywords={['debt, national debt, federal debt, U.S. debt, deficit vs. debt, deficit, national deficit, interest, surplus, spending exceeds income, spending exceeds revenue, federal deficit, total debt, federal government’s debt, monthly statement of the public debt, MSPD']}
 			/>
+
+			<Og socialMediaImage={ffgDebtImg} />
 
 			<Default>
 				<AFGHeader />
@@ -39,8 +40,8 @@ function ExploreDebtPage(props) {
 					<div className="ffg-wrapper debt-intro">
 						<ControlBar>
 							<Share
-  location={props.location}
-  title="Data Lab - Explore Federal Debt – U.S. Treasury"
+								location={props.location}
+								title="Data Lab - Explore Federal Debt – U.S. Treasury"
 								twitter="How much is the federal debt? Check out #YourGuide for visualizations and .CSV data to do your own analysis. #DataLab #OpenGov"
 							/>
 						</ControlBar>

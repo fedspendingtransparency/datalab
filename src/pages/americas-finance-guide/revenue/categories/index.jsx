@@ -12,6 +12,9 @@ import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import AfgNav from 'src/components/afg-nav/afg-nav';
+import ffgRevenueImg from '../../../../images/ffg/social-media-share-revenue.jpg';
+import Og from '../../../../components/og-tag/og';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -33,6 +36,8 @@ function RevenueCategoriesPage(props) {
                 excerpt='Most of the revenue the government collects comes from taxes from individuals, small businesses, and corporations. Other sources of federal revenue include excise, estate, and other taxes and fees.'
                 keywords={[`federal revenue, revenue categories, individual taxes, corporate taxes, excise tax, estate tax, payroll tax, Social Security, Medicare, trust fund`]}
             />
+
+            <Og socialMediaImage={ffgRevenueImg} />
 
             <Default>
 							<AFGHeader />

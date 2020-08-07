@@ -11,9 +11,10 @@ import GdpTemplate from 'src/components/gdp-template/gdp-template';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
-import { Helmet } from 'react-helmet';
+import Og from '../../../components/og-tag/og';
 import AnecdoteRevenueSVG from 'src/libs/assets/ffg/icons/anecdote-revenue.svg';
 import DefinitionSVG from 'src/libs/assets/ffg/icons/definition.svg';
+import ffgRevenueImg from '../../../images/ffg/social-media-share-revenue.jpg';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import RevenueIntro from 'src/libs/ffg/src/revenue/intro/index';
 
@@ -29,6 +30,8 @@ function RevenueAndGdpPage(props) {
   excerpt="Federal revenue consists mostly of individual, corporate, and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal Year."
   keywords={['revenue, federal revenue, U.S. revenue, gdp, receipts, income taxes, corporate taxes']}
 			/>
+			
+			<Og socialMediaImage={ffgRevenueImg} />
 
 			<Default>
 				<AFGHeader />

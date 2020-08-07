@@ -9,6 +9,8 @@ import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
+import Og from '../../../../components/og-tag/og';
+import ffgDebtImg from '../../../../images/ffg/social-media-share-debt.jpg';
 import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 
@@ -31,8 +33,10 @@ function DebtCountryComparisonPage(props) {
                 keywords={[` debt, national debt, federal debt, U.S. debt, interest rate, interest expense, total debt, cost of debt, GDP, gross domestic product, debt of US.S. compared to other countries, China, Japan, France, Germany, United Kingdom, India owners of US debt, monthly statement of the public debt, MSPD`]}
             />
 
+            <Og socialMediaImage={ffgDebtImg} />
+
             <Default>
-							<AFGHeader />
+                <AFGHeader />
                 <AfgNav location={props.location} chapter={'debt'}></AfgNav>
 
                 <div className="cg-wrapper country-common-wrapper">
@@ -42,7 +46,7 @@ function DebtCountryComparisonPage(props) {
                                 location={props.location}
                                 title='Data Lab - Debt Country Comparison – U.S. Treasury'
                                 twitter='How does the federal debt of the U.S. compare to other countries? Check out Your Guide to America’s Finances for data from 169 countries.  Check out the site’s data visualizations, then download .CSV files of the data to perform your own analysis. #YourGuide #DataLab #OpenGov"'
-                                />
+                            />
                         </ControlBar>
 
                         <h1>Compare the Federal Debt of the United States to Other Countries</h1>
@@ -57,7 +61,7 @@ function DebtCountryComparisonPage(props) {
                                     <div className="chapter-link__learn-more">Learn more about</div>
                                     Federal Revenue
                                 </div>
-                                <FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right tour__angle-right"/>
+                                <FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right tour__angle-right" />
                             </a>
                         </div>
 
@@ -72,7 +76,7 @@ function DebtCountryComparisonPage(props) {
 
                         <section className="hwcta">
                             <AccordionList title="Data Sources and Methodology">
-                                <p>This visualization was created using the <a href={AfgData.country_comparison_mspd.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source for federal government debt of the United States. Gross domestic product (GDP) figures come from the <a href={AfgData.imf_gdp.value} rel="noopener noreferrer" target="_blank">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>. Debt figures for countries other than the United States also come from the <a href={AfgData.imf_debt.value} rel="noopener noreferrer" target="_blank">IMF WEOD</a>. Since debt figures were provided in the national currency for the selected countries, the numbers were subsequently converted to U.S. dollars. Currency conversion rates were pulled from <a href={AfgData.xe_conversion.value} rel="noopener noreferrer" target="_blank">XE.com</a> for {AfgData.xe_conversion_date.value}; the last day of the U.S. federal government's fiscal year.</p>
+                                <p>This visualization was created using the <a href={AfgData.country_comparison_mspd.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source for federal government debt of the United States. Gross domestic product (GDP) figures come from the <a href={AfgData.imf_gdp.value} rel="noopener noreferrer" target="_blank">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>. Debt figures for countries other than the United States also come from the <a href={AfgData.imf_debt.value} rel="noopener noreferrer" target="_blank">IMF WEOD</a>. Since debt figures were provided in the national currency for the selected countries, the numbers were subsequently converted to U.S. dollars. Currency conversion rates were pulled from <a href={AfgData.xe_conversion.value} rel="noopener noreferrer" target="_blank">XE.com</a> for {AfgData.xe_conversion_date.value}; the last day of the U.S. federal government's fiscal year.</p>
                                 <p>The conversion of debt figures to U.S. dollars makes comparisons among countries more convenient. However, the implied burden of debt may be misrepresented for a given country if the majority of that nation's debt was denominated in a currency other than U.S. dollars, and the currency in which the debt was held had an abnormal valuation relative to the U.S. dollar on the date of currency conversion.</p>
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>

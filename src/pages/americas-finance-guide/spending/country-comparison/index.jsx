@@ -11,6 +11,8 @@ import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
+import Og from '../../../../components/og-tag/og';
+import ffgSpendingImg from '../../../../images/ffg/social-media-share-spending.jpg'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -30,6 +32,8 @@ function SpendingCountryComparisonPage(props) {
                 excerpt=' Check out total spending of the United States compared to 169 different countries in 2017. In this section, figures are presented using financial data from 2017 which allows us to provide you with the most recent spending data. In 2017, the United States spent $4 trillion, which is equivalent to about 21% of U.S. gross domestic product (GDP).'
                 keywords={[`spending, federal spending, U.S. spending, gross domestic product, GDP,  federal spending per capita, country comparison, federal spending of the United States compared to other countries`]}
             />
+
+            <Og socialMediaImage={ffgSpendingImg} />
 
             <Default>
 							<AFGHeader />

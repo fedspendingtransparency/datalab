@@ -11,6 +11,8 @@ import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
+import ffvDeficitImg from '../../../../images/ffg/social-media-share-deficit.jpg';
+import Og from '../../../../components/og-tag/og';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,8 +34,10 @@ function DeficitCountryComparisonPage(props) {
                 keywords={[`Deficit, federal deficit, U.S.deficit, national deficit,  debt, national debt, federal debt, U.S. debt compared to other countries`]}
             />
 
+            <Og socialMediaImage={ffvDeficitImg} />
+
             <Default>
-							<AFGHeader />
+                <AFGHeader />
                 <AfgNav location={props.location} chapter={'deficit'}></AfgNav>
 
                 <div className="cg-wrapper country-common-wrapper">
@@ -43,7 +47,7 @@ function DeficitCountryComparisonPage(props) {
                                 location={props.location}
                                 title='Data Lab - Deficit Country Comparison – U.S. Treasury'
                                 twitter='How does the U.S. deficit compare with other countries? Check out Your Guide America’s Finances for data from 169 countries, then download .CSV data files to perform your own analysis. #YourGuide #DataLab #OpenGov'
-                                />
+                            />
                         </ControlBar>
 
                         <h1>Compare the Federal Deficit of the United States to Other Countries</h1>
@@ -73,8 +77,8 @@ function DeficitCountryComparisonPage(props) {
 
                         <section className="hwcta">
                             <AccordionList title="Data Sources and Methodology">
-                                <p>The visualization was created using the <a href={AfgData.country_comparison_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue, spending, and deficit of the United States. Gross domestic product (GDP) figures for the United States come from the <a href={AfgData.bea_gdp.value} rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. GDP data for countries other than the United States comes from the <a href={AfgData.imf_gdp.value} rel="noopener noreferrer" target="_blank">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>.</p>
-                                <p>In researching potential data sources for information on the revenue and spending of other governments for the country comparison module, we chose the <a href={AfgData.cia_world_factbook.value} rel="noopener noreferrer" target="_blank">CIA World Factbook</a> because it provides the best comparison for the following reasons:</p>
+                                <p>The visualization was created using the <a href={AfgData.country_comparison_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue, spending, and deficit of the United States. Gross domestic product (GDP) figures for the United States come from the <a href={AfgData.bea_gdp.value} rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. GDP data for countries other than the United States comes from the <a href={AfgData.imf_gdp.value} rel="noopener noreferrer" target="_blank">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>.</p>
+                                <p>In researching potential data sources for information on the revenue and spending of other governments for the country comparison module, we chose the <a href={AfgData.cia_world_factbook.value} rel="noopener noreferrer" target="_blank">CIA World Factbook</a> because it provides the best comparison for the following reasons:</p>
                                 <ul>
                                     <li>the number of countries with {AfgData.country_compare_year.value} data,</li>
                                     <li>relative consistency with the level of government measured (central government only as a standard),</li>
