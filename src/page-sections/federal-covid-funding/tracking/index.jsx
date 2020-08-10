@@ -645,6 +645,7 @@ export default function Tracking(props) {
 				close={closeModal}
 				title="Spending Definitions"
 				titleStyle={{ fontWeight: 600, fontSize: infoModalTitleSize, height: '40px' }}
+				paperStyle={{ maxWidth: 554 }}
 				maxWidth
 				maxHeight
 				customMaxWidth={screenMode >= ScreenModeEnum.desktop ? 0.5 : null}
