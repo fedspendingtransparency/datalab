@@ -18,7 +18,7 @@ const MoreAnalysesTiles = () => {
     title: 'Federal Account Explorer',
     subtitle: 'Discover the federal government\'s spending accounts'
   }, {
-    href: 'homeless',
+    href: 'homeless-analysis',
     imageSrc: homeless,
     title: 'Homelessness Analysis',
     subtitle: 'Explore federal programs that address homelessness',
