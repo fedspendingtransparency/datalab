@@ -19,7 +19,7 @@ class MobileMenu extends React.Component {
     };
   }
 
-  returnActiveList = data => {
+  returnActiveList = (data) => {
     return data.map((item, i) => {
       return (
         <>
@@ -31,6 +31,7 @@ class MobileMenu extends React.Component {
       );
     });
   };
+
 
   handleClick = (dropdown) => {
     switch (dropdown) {
@@ -49,48 +50,58 @@ class MobileMenu extends React.Component {
     };
   };
 
+  handleExit = (e) => {
+    if (e.key === 'Escape') {
+      this.props.burgerClick();
+    }
+    if (e.key === 'Tab') {
+      if ((document.activeElement.id === 'analyses' && e.shiftKey) || (document.activeElement.id === 'glossary' && !e.shiftKey)) {
+        this.props.burgerClick();
+      }
+    }
+  }
+
   render() {
-    const show = this.props.showMenu;
 
     return (
       <>
         <div>
-          <ul className={`${styles.mobile} ${show ? `` : styles.hidden}`}>
-            <li className={styles.item} data-id='0' onClick={() => this.handleClick('Analyses')}>Analyses<span className={styles.arrow} onClick={() => this.handleClick('Analyses')}> <Arrow /></span></li>
-            <ul className={`${styles.toggleList} ${this.state.analysesCheck ? `` : ' ' + styles.hidden}`}>{this.returnActiveList(this.state.data[0].analyses)}</ul>
+          <ul className={`${styles.mobile} ${this.state.isShowing ? `` : styles.hidden}`}>
+            <li className={styles.item} data-id='0' id="analyses" tabIndex="0" onKeyDown={(e) => {this.handleClick('Analyses'); this.handleExit(e); } } onClick={() => this.handleClick('Analyses')}>Analyses<span className={styles.arrow} onClick={() => this.handleClick('Analyses')}> <Arrow /></span></li>
+            <ul className={`${styles.toggleList} ${this.state.analysesCheck ? `` : ' ' + styles.hidden}`}>{this.returnActiveList(this.state.data[0].analyses, true)}</ul>
             {/* <li className={styles.item} data-id='1' onClick={this.handleClick}>DataLab Express<span className={styles.arrow}> <Arrow/></span></li> */}
             {/* <ul className={`${styles.toggleList} ${this.state.clickedItem == 'DataLab Express ' ? `` : ' ' + styles.hidden}`}>{this.returnActiveList(this.state.data[1].express)}</ul> */}
-            <li className={styles.item} data-id='2' onClick={() => this.handleClick("America's Finance Guide")}>America's Finance Guide<span className={styles.arrow} onClick={() => this.handleClick("America's Finance Guide")}> <Arrow /></span></li>
+            <li className={styles.item} data-id='2' tabIndex="0" onKeyDown={() => { this.handleClick("America's Finance Guide"); this.handleExit(e); }} onClick={() => this.handleClick("America's Finance Guide")}>America's Finance Guide<span className={styles.arrow} onClick={() => this.handleClick("America's Finance Guide")}> <Arrow /></span></li>
             <ul className={`${styles.toggleList} ${this.state.afgCheck ? `` : ' ' + styles.hidden}`}>
               <li className={styles.dataListLi}>
                 <Link to={'/americas-finance-guide/'} className={styles.dataListA} >Overview</Link>
               </li>
               <hr className={styles.mobileHr} />
               <li className={styles.dataListLi}>
-								<Link to={'/americas-finance-guide/revenue/'} className={styles.dataListA}>Revenue</Link>
+                <Link to={'/americas-finance-guide/revenue/'} className={styles.dataListA}>Revenue</Link>
               </li>
               <hr className={styles.mobileHr} />
               <li className={styles.dataListLi}>
-								<Link to={'/americas-finance-guide/spending/'} className={styles.dataListA}>Spending</Link>
+                <Link to={'/americas-finance-guide/spending/'} className={styles.dataListA}>Spending</Link>
               </li>
               <hr className={styles.mobileHr} />
               <li className={styles.dataListLi}>
-								<Link to={'/americas-finance-guide/deficit/'} className={styles.dataListA}>Deficit</Link>
+                <Link to={'/americas-finance-guide/deficit/'} className={styles.dataListA}>Deficit</Link>
               </li>
               <hr className={styles.mobileHr} />
               <li className={styles.dataListLi}>
-								<Link to={'/americas-finance-guide/debt/'} className={styles.dataListA}>Debt</Link>
+                <Link to={'/americas-finance-guide/debt/'} className={styles.dataListA}>Debt</Link>
               </li>
               <hr className={styles.mobileHr} />
             </ul>
-            <li className={styles.item} data-id='3' onClick={() => this.handleClick("Resources")}>Resources<span className={styles.arrow} onClick={() => this.handleClick('Resources')}> <Arrow /></span></li>
+            <li className={styles.item} data-id='3' tabIndex="0" onKeyDown={() => {this.handleClick("Resources"); this.handleExit(e); }} onClick={() => this.handleClick("Resources")}>Resources<span className={styles.arrow} onClick={() => this.handleClick('Resources')}> <Arrow /></span></li>
             <ul className={`${styles.toggleList} ${this.state.resourcesCheck ? `` : ' ' + styles.hidden}`}>{this.returnActiveList(this.state.data[3].resources)}</ul>
-            <li className={`${styles.item} ${styles.glossary}`} data-id='4' onClick={() => this.handleClick("Glossary")}><span className={styles.arrow}><Book /></span> Glossary</li>
+            <li className={`${styles.item} ${styles.glossary}`} data-id='4' tabIndex="0" id="glossary" onKeyDown={(e) => { this.handleClick("Glossary"); this.handleExit(e); }} onClick={() => this.handleClick("Glossary")}><span className={styles.arrow}><Book /></span> Glossary</li>
           </ul>
           <Dropdown clickedItem={this.state.clickedItem}
             data={this.state.data} />
         </div>
-        <Glossary/>
+        <Glossary />
       </>
     );
   };

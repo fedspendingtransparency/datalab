@@ -291,6 +291,16 @@ ul.ul-nav {
   }
 }
 
+.burgerButton {
+  display: none;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+}
+
 .mobile {
   display: none;
 }

@@ -68,7 +68,7 @@ export default class PageHeader extends React.Component {
     }
   };
 
-  burgerClick = () => {
+  burgerClick = (e) => {
     this.setState(prevState => ({ showMobileMenu: !prevState.showMobileMenu }));
   };
 
@@ -170,9 +170,13 @@ export default class PageHeader extends React.Component {
             </a>
 
             <nav className={`${styles.nav} ${isSticky ? ' ' + styles.tight : ``} ${this.props.isHome ? `` : ' ' + styles.tight}`}>
-              <span className={styles.toggle} onClick={this.burgerClick}>
-                <FontAwesomeIcon icon={faBars} />
-              </span>
+              
+              <button className={styles.burgerButton} onClick={this.burgerClick} tabIndex="0">
+                <span className={styles.toggle}>
+                  <FontAwesomeIcon icon={faBars} />
+                </span>
+              </button>
+                
               <ul
                 id={styles.burgerMenu}
                 className={styles.ulNav}
@@ -206,7 +210,7 @@ export default class PageHeader extends React.Component {
           />
 
           {showMobileMenu
-            ? <MobileMenu showMenu={showMobileMenu} headerItems={this.props.headerItems} data={this.props.megamenuItems} />
+            ? <MobileMenu showMenu={showMobileMenu} burgerClick={this.burgerClick} headerItems={this.props.headerItems} data={this.props.megamenuItems} />
             : <></>
           }
 
