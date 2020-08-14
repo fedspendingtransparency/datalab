@@ -15,9 +15,7 @@ import AfgNav from 'src/components/afg-nav/afg-nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from '../../../../components/headers/headers';
-import ffvDeficitImg from '../../../../images/ffg/social-media-share-deficit.jpg';
 import Og from '../../../../components/og-tag/og';
-
 
 function DeficitTrendsPage(props) {
 	const tabContainer = '#surplusComponent',
@@ -55,7 +53,7 @@ function DeficitTrendsPage(props) {
 			keywords={[`Deficit, surplus, national deficit, debt, national debt, federal deficit, U.S. deficit, spending, revenue, money going out, money coming in, debtdeficit vs. debt, deficit trends, balanced budget`]}
 		/>
 
-		<Og socialMediaImage={ffvDeficitImg} />
+		<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-deficit.jpg"}/>
 
 		<Default>
 			<AFGHeader />

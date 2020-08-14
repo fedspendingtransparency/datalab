@@ -14,7 +14,6 @@ import Share from 'src/components/share/share';
 import Og from '../../../components/og-tag/og';
 import AnecdoteRevenueSVG from 'src/libs/assets/ffg/icons/anecdote-revenue.svg';
 import DefinitionSVG from 'src/libs/assets/ffg/icons/definition.svg';
-import ffgRevenueImg from '../../../images/ffg/social-media-share-revenue.jpg';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import RevenueIntro from 'src/libs/ffg/src/revenue/intro/index';
 
@@ -31,7 +30,7 @@ function RevenueAndGdpPage(props) {
   keywords={['revenue, federal revenue, U.S. revenue, gdp, receipts, income taxes, corporate taxes']}
 			/>
 			
-			<Og socialMediaImage={ffgRevenueImg} />
+			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-revenue.jpg"} />
 
 			<Default>
 				<AFGHeader />

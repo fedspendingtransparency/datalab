@@ -12,7 +12,7 @@ import Share from '../../components/share/share';
 import { Helmet } from 'react-helmet';
 import BpToc from '../../components/bpToc/bpToc';
 import AfgAnecdote from '../../libs/ffg/src/anecdote/anecdote';
-import ffgOverviewImg from '../../images/ffg/social-media-share-overview.jpg';
+// import ffgOverviewImg from '../../images/ffg/social-media-share-overview.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleDown, faStreetView } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from '../../components/headers/headers';
@@ -32,7 +32,7 @@ export default function OverviewPage(props) {
         keywords={[`federal, revenue, federal income, federal taxes, federal spending, deficit, debt`]}
       />
 
-      <Og socialMediaImage={ffgOverviewImg}/>
+      <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-overview.jpg"}/>
 
       <Default>
         <AFGHeader />

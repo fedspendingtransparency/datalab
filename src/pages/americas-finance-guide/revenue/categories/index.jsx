@@ -12,9 +12,7 @@ import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import AfgNav from 'src/components/afg-nav/afg-nav';
-import ffgRevenueImg from '../../../../images/ffg/social-media-share-revenue.jpg';
 import Og from '../../../../components/og-tag/og';
-
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -37,7 +35,7 @@ function RevenueCategoriesPage(props) {
                 keywords={[`federal revenue, revenue categories, individual taxes, corporate taxes, excise tax, estate tax, payroll tax, Social Security, Medicare, trust fund`]}
             />
 
-            <Og socialMediaImage={ffgRevenueImg} />
+            <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-revenue.jpg"}/>
 
             <Default>
 							<AFGHeader />

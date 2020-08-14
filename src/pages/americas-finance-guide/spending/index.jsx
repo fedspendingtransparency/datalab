@@ -33,7 +33,7 @@ function SpendingAndGdpPage(props) {
   keywords={['federal spending, outlays, U.S. spending, U.S. revenue, gross domestic product, GDP, deficit, debt, mandatory spending, discretionary spending']}
 			/>
 
-			<Og socialMediaImage={ffgSpendingImg} />
+			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />
 
 			<Default>
 				<AFGHeader />

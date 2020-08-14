@@ -12,7 +12,6 @@ import Share from 'src/components/share/share'
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import SpendingCategories from 'src/libs/ffg/src/spending/categories/index.js';
 import Og from '../../../../components/og-tag/og';
-import ffgSpendingImg from '../../../../images/ffg/social-media-share-spending.jpg'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faSearch, faSortAlphaDown, faSortAlphaUp, faSortAmountDown, faSortAmountUp } from '@fortawesome/free-solid-svg-icons';
@@ -27,7 +26,7 @@ function SpendingCategoriesPage(props) {
                 keywords={[`federal spending, revenue, federal revenue, U.S. spending, social security, national defense, medicare, health,  interest from debt, veteran’s benefits`]}
             />
 
-            <Og socialMediaImage={ffgSpendingImg} />
+            <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />
 
             <Default>
 							<AFGHeader />

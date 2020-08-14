@@ -11,7 +11,6 @@ import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
-import ffvDeficitImg from '../../../../images/ffg/social-media-share-deficit.jpg';
 import Og from '../../../../components/og-tag/og';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 
@@ -34,7 +33,7 @@ function DeficitCountryComparisonPage(props) {
                 keywords={[`Deficit, federal deficit, U.S.deficit, national deficit,  debt, national debt, federal debt, U.S. debt compared to other countries`]}
             />
 
-            <Og socialMediaImage={ffvDeficitImg} />
+            <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-revenue.jpg"}/>
 
             <Default>
                 <AFGHeader />

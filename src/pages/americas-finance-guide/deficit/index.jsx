@@ -17,8 +17,6 @@ import DeficitIntro from 'src/libs/ffg/src/deficit/intro/index.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDeficitSVG from '../../../libs/assets/ffg/icons/anecdote-deficit.svg';
-import ffvDeficitImg from '../../../images/ffg/social-media-share-deficit.jpg';
-
 
 function ExploreDeficitPage(props) {
 	return (
@@ -30,7 +28,7 @@ function ExploreDeficitPage(props) {
   keywords={['Deficit, federal deficit, national deficit, spending, revenue, U.S. deficit money going out, money coming in, debt, national debt, federal debt, deficit vs. debt']}
 			/>
 
-			<Og socialMediaImage={ffvDeficitImg} />
+			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-deficit.jpg"} />
 
 			<Default>
 				<AFGHeader />

@@ -10,7 +10,6 @@ import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import Og from '../../../../components/og-tag/og';
-import ffgDebtImg from '../../../../images/ffg/social-media-share-debt.jpg';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import DebtCards from "src/libs/ffg/src/debt/analysis/cards";
 
@@ -29,7 +28,7 @@ function DebtAnalysisPage(props) {
                 keywords={[`debt, national debt, federal debt, U.S.debt, interest rate, interest expense, total debt, cost of debt, cost to maintain debt, federal government’s debt, US investors, social security, Federal Reserve, China,Japan, Brazil top owners of US debt, monthly statement of the public debt, MSPD`]}
             />
 
-            <Og socialMediaImage={ffgDebtImg} />
+            <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-debt.jpg"}/>
 
             <Default>
 							  <AFGHeader />

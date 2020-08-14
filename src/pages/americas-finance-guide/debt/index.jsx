@@ -15,7 +15,6 @@ import Share from 'src/components/share/share';
 import Og from '../../../components/og-tag/og';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import DebtIntro from 'src/libs/ffg/src/debt/intro/index.js';
-import ffgDebtImg from '../../../images/ffg/social-media-share-debt.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDebtSVG from '../../../libs/assets/ffg/icons/anecdote-debt.svg';
@@ -30,7 +29,7 @@ function ExploreDebtPage(props) {
 				keywords={['debt, national debt, federal debt, U.S. debt, deficit vs. debt, deficit, national deficit, interest, surplus, spending exceeds income, spending exceeds revenue, federal deficit, total debt, federal government’s debt, monthly statement of the public debt, MSPD']}
 			/>
 
-			<Og socialMediaImage={ffgDebtImg} />
+			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-debt.jpg"}/>
 
 			<Default>
 				<AFGHeader />

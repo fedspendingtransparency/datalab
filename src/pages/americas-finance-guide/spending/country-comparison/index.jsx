@@ -12,7 +12,6 @@ import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import Og from '../../../../components/og-tag/og';
-import ffgSpendingImg from '../../../../images/ffg/social-media-share-spending.jpg'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -33,7 +32,7 @@ function SpendingCountryComparisonPage(props) {
                 keywords={[`spending, federal spending, U.S. spending, gross domestic product, GDP,  federal spending per capita, country comparison, federal spending of the United States compared to other countries`]}
             />
 
-            <Og socialMediaImage={ffgSpendingImg} />
+            <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />
 
             <Default>
 							<AFGHeader />

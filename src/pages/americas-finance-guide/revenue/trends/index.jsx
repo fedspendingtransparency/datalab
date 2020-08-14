@@ -32,7 +32,7 @@ function RevenueTrendsPage(props) {
                 keywords={[`federal revenue, revenue trends over time, federal revenue sources, federal income sources, U.S. revenue categories`]}
             />
 
-            <Og socialMediaImage={ffgRevenueImg} />
+            <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-revenue.jpg"} />
 
             <Default>
                 <AFGHeader />

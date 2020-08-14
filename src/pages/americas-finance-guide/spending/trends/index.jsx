@@ -11,8 +11,6 @@ import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import Og from '../../../../components/og-tag/og';
-import ffgSpendingImg from '../../../../images/ffg/social-media-share-spending.jpg'
-
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faSlidersH } from '@fortawesome/free-solid-svg-icons';
@@ -33,7 +31,7 @@ function SpendingTrendsPage(props) {
                 keywords={[`federal spending, , revenue, federal revenue, U.S. spending, gross domestic product, GDP, deficit, debt, federal spending trends over time`]}
             />
 
-            <Og socialMediaImage={ffgSpendingImg} />
+            <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />
 
             <Default>
 							<AFGHeader />

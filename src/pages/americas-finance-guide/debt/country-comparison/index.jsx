@@ -10,7 +10,6 @@ import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import Og from '../../../../components/og-tag/og';
-import ffgDebtImg from '../../../../images/ffg/social-media-share-debt.jpg';
 import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 
@@ -33,7 +32,7 @@ function DebtCountryComparisonPage(props) {
                 keywords={[` debt, national debt, federal debt, U.S. debt, interest rate, interest expense, total debt, cost of debt, GDP, gross domestic product, debt of US.S. compared to other countries, China, Japan, France, Germany, United Kingdom, India owners of US debt, monthly statement of the public debt, MSPD`]}
             />
 
-            <Og socialMediaImage={ffgDebtImg} />
+            <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-debt.jpg"}/>
 
             <Default>
                 <AFGHeader />
