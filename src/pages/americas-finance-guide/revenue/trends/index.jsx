@@ -10,6 +10,8 @@ import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
+import ffgRevenueImg from '../../../../images/ffg/social-media-share-revenue.jpg';
+import Og from '../../../../components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -30,8 +32,10 @@ function RevenueTrendsPage(props) {
                 keywords={[`federal revenue, revenue trends over time, federal revenue sources, federal income sources, U.S. revenue categories`]}
             />
 
+            <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-revenue.jpg"} />
+
             <Default>
-							<AFGHeader />
+                <AFGHeader />
                 <AfgNav location={props.location} chapter={'revenue'}></AfgNav>
 
                 <div className="cg-wrapper trends-common-wrapper">
@@ -41,7 +45,7 @@ function RevenueTrendsPage(props) {
                                 location={props.location}
                                 title="Data Lab - Federal Revenue Trends – U.S. Treasury"
                                 twitter="Wondering how federal revenue has changed over the years? Your Guide to America’s Finances has the .CSV data file. Download and perform your own analysis. #YourGuide #DataLab #OpenGov"
-                                />
+                            />
                         </ControlBar>
 
                         <h1>Federal Revenue Trends Over Time</h1>
@@ -56,7 +60,7 @@ function RevenueTrendsPage(props) {
                                         <h1>How does the revenue of the United States compare to other countries?</h1>
                                         <p>When you're done here, see how revenue collected by the U.S. government compares to other countries.</p>
                                     </div>
-                                    <a href="/americas-finance-guide/revenue/country-comparison/" className="tour__link">Continue<FontAwesomeIcon width={7} icon={faAngleRight} className="fas fa-chevron-right"/></a>
+                                    <a href="/americas-finance-guide/revenue/country-comparison/" className="tour__link">Continue<FontAwesomeIcon width={7} icon={faAngleRight} className="fas fa-chevron-right" /></a>
                                 </section>
                             </div>
 
@@ -72,7 +76,7 @@ function RevenueTrendsPage(props) {
 
                         <section className="hwcta">
                             <AccordionList title="Data Sources and Methodology">
-                                <p>The visualization was created using <a href={AfgData.mts_homepage.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. Some categories from the MTS have been renamed in order to be more easily understood. <a href={AfgData.bls_cpiu.value} rel="noopener noreferrer" target="_blank">The Bureau of Labor Statistics (BLS) Consumer Price Index for All Urban Consumers (CPI-U)</a> was used to adjust revenue in fiscal years {AfgData.inflation_adj_years.value} for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time.</p>
+                                <p>The visualization was created using <a href={AfgData.mts_homepage.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. Some categories from the MTS have been renamed in order to be more easily understood. <a href={AfgData.bls_cpiu.value} rel="noopener noreferrer" target="_blank">The Bureau of Labor Statistics (BLS) Consumer Price Index for All Urban Consumers (CPI-U)</a> was used to adjust revenue in fiscal years {AfgData.inflation_adj_years.value} for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time.</p>
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>
                                     <ul>

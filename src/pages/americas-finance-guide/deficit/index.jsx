@@ -5,6 +5,7 @@ import 'src/libs/ffg/src/deficit/intro/deficit-intro.scss';
 import React from 'react';
 import SEO from 'src/components/seo';
 import AfgData from 'src/libs/_data/object_mapping.yml';
+import Og from '../../../components/og-tag/og';
 import Default from 'src/components/layouts/default/default';
 import { AFGHeader } from 'src/components/headers/headers';
 import AccordionList from 'src/components/accordion-list/accordion-list';
@@ -26,6 +27,8 @@ function ExploreDeficitPage(props) {
   excerpt="How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent $4.4 trillion and collected $3.5 trillion in 2019, the government ran a deficit for the year."
   keywords={['Deficit, federal deficit, national deficit, spending, revenue, U.S. deficit money going out, money coming in, debt, national debt, federal debt, deficit vs. debt']}
 			/>
+
+			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-deficit.jpg"} />
 
 			<Default>
 				<AFGHeader />

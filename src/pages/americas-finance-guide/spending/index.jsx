@@ -16,6 +16,8 @@ import AccordionList from '../../../components/accordion-list/accordion-list';
 import ControlBar from '../../../components/control-bar/control-bar';
 import Share from '../../../components/share/share';
 import AfgNav from '../../../components/afg-nav/afg-nav';
+import Og from '../../../components/og-tag/og';
+import ffgSpendingImg from '../../../images/ffg/social-media-share-spending.jpg'
 
 import AnecdoteSpendingSVG from '../../../libs/assets/ffg/icons/anecdote-spending.svg';
 import DefinitionSpendingSVG from '../../../libs/assets/ffg/icons/definition.svg';
@@ -30,6 +32,8 @@ function SpendingAndGdpPage(props) {
 				excerpt="Where does all the money go? Most government spending is concentrated on programs that ensure the health and well-being of the people of the United States. Explore how spending compares to the size of the economy or to federal revenue."
   keywords={['federal spending, outlays, U.S. spending, U.S. revenue, gross domestic product, GDP, deficit, debt, mandatory spending, discretionary spending']}
 			/>
+
+			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />
 
 			<Default>
 				<AFGHeader />
