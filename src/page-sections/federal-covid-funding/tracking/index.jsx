@@ -474,7 +474,7 @@ export default function Tracking(props) {
 					return (
 						<PhaseWrapper>
 							<div className={styles.totalHeading}>New Agency Funding</div>
-							<SectionTag />
+							<SectionTag title='test' totalDesc='blah' children={<text>hi</text>} />
 						</PhaseWrapper>
 					);
 					break;
