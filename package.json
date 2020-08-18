@@ -1,7 +1,7 @@
 {
   "name": "datalab-gatsby",
   "version": "1.0.0",
-  "description": "The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending.",
+  "description": "The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending. ",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
