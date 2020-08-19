@@ -8,21 +8,16 @@ import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
-import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from '../../../../components/headers/headers';
+import SpendingTrends from 'src/libs/ffg/src/spending/trends/index.js';
 
 function SpendingTrendsPage(props) {
     return (
         <>
-
-            <Helmet>
-                <script defer src="/americas-finance-guide/spending/trends.js"></script>
-            </Helmet>
-
             <SEO
                 title='Data Lab - Federal Spending Trends – U.S. Treasury'
                 description='Find out how federal spending has changed over time.'
@@ -92,7 +87,7 @@ function SpendingTrendsPage(props) {
 
                                 <div className="hint">Click a spending category to view more</div>
 
-                                <div id="viz"></div>
+                                <SpendingTrends />
                             </div>
                         </div>
 

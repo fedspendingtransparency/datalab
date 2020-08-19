@@ -126,4 +126,7 @@ export default function SpendingTrends() {
     renderChart(data);
     changeDataTypeClickFunctions();
   }, []);
+
+
+  return(<div id='viz'></div>)
 }
