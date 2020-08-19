@@ -10,6 +10,7 @@ import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
+import Og from '../../../../components/og-tag/og';
 import GdpTemplate from 'src/components/gdp-template/gdp-template'
 import AfgNav from 'src/components/afg-nav/afg-nav';
 
@@ -24,6 +25,8 @@ function DebtTrendsPage(props) {
             <Helmet>
                 <script defer src="/americas-finance-guide/debt/trends.js"></script>
             </Helmet>
+
+			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-debt.jpg"}/>
 
             <SEO
                 title='Data Lab - Federal Debt Trends – U.S. Treasury'
