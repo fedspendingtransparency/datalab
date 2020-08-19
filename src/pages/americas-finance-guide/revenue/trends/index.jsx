@@ -8,21 +8,16 @@ import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
-import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from '../../../../components/headers/headers';
+import RevenueTrends from 'src/libs/ffg/src/revenue/trends/index.js';
 
 function RevenueTrendsPage(props) {
     return (
         <>
-
-            <Helmet>
-                <script defer src="/americas-finance-guide/revenue/trends.js"></script>
-            </Helmet>
-
             <SEO
                 title='Data Lab - Federal Revenue Trends – U.S. Treasury'
                 description='Find out how federal revenue has changed over time.'
@@ -64,7 +59,7 @@ function RevenueTrendsPage(props) {
                                 <h2 className="chart-title">Federal Revenue Trends over Time by Category</h2>
                                 <div className="hint">Click a revenue category to view more</div>
 
-                                <div id="viz"></div>
+                                <RevenueTrends />
                             </div>
                         </div>
 

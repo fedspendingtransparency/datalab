@@ -67,26 +67,6 @@ function SpendingTrendsPage(props) {
                                     <span className="toggle-component__label">Agency</span>
                                 </div>
 
-                                <div id="show-hide">
-                                    <button id="activate-show-hide">Filter <FontAwesomeIcon icon={faSlidersH} width={11} className="fa fa-sliders-h"/></button>
-                                    <div id="show-hide-tray">
-                                        <div className='show-hide__buttons'>
-                                            <div className='show-hide__buttons--left'>
-                                                <button id="select-all">Select All</button>
-                                                <button id="select-none">Remove All</button>
-                                            </div>
-                                            <div className='show-hide__buttons--right'>
-                                                <button id="reset-filters-button">Reset</button>
-                                                <button id="save-filters-button">Save</button>
-                                            </div>
-                                        </div>
-
-                                        <div id="show-hide-list"></div>
-                                    </div>
-                                </div>
-
-                                <div className="hint">Click a spending category to view more</div>
-
                                 <SpendingTrends />
                             </div>
                         </div>
