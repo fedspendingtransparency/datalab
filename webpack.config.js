@@ -73,30 +73,6 @@ const devServer = {
 
 module.exports = [{
 	entry: {
-		index: './src/libs/ffg/src/bigPicture/index.js',
-	},
-	devtool,
-	devServer,
-	mode,
-	optimization: {
-		minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
-	},
-	plugins: [
-		new MiniCssExtractPlugin({
-			filename: '[name].css',
-			chunkFilename: '[id].css',
-		}),
-	],
-	output: {
-		filename: '[name].js',
-		path: `${__dirname}/static/americas-finance-guide/`,
-		publicPath: '/static/americas-finance-guide/',
-	},
-	module: {
-		rules: moduleRules,
-	},
-}, {
-	entry: {
 		countryComparison: './src/libs/ffg/src/revenue/countries/index.js',
 	},
 	devtool,
