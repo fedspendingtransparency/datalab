@@ -12,11 +12,11 @@ import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import Og from '../../../../components/og-tag/og';
+import SpendingCountryComparison from '../../../../libs/ffg/src/spending/countries';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from '../../../../components/headers/headers';
-import SpendingCountries from '../../../../libs/ffg/src/spending/countries';
 
 function SpendingCountryComparisonPage(props) {
     return (
@@ -60,7 +60,7 @@ function SpendingCountryComparisonPage(props) {
                         <div className="country-chart">
                             <h2 className="chart-title">Country Comparison</h2>
                             <div className="hint">Click <span className="sort-button-placeholder"></span> to sort columns.</div>
-                            <SpendingCountries />
+                            <SpendingCountryComparison />
                         </div>
                         <div className="clearfix"></div>
                         <section className="hwcta">

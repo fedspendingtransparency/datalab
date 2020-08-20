@@ -39,7 +39,7 @@ const incomeConfig = {
     }
 };
 
-const RevenueCountries = () => {
+const RevenueCountryComparison = () => {
     useEffect(() => {
         loadSourceData(CountryData);
         chartInit(incomeConfig);
@@ -50,4 +50,4 @@ const RevenueCountries = () => {
     );
 }
  
-export default RevenueCountries;
+export default RevenueCountryComparison;

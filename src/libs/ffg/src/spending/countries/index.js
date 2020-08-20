@@ -40,7 +40,7 @@ const spendingConfig = {
     }
 };
 
-const SpendingCountries = () => {
+const SpendingCountryComparison = () => {
     useEffect(() => {
         loadSourceData(CountryData);
         chartInit(spendingConfig);
@@ -51,4 +51,4 @@ const SpendingCountries = () => {
     );
 }
  
-export default SpendingCountries;
+export default SpendingCountryComparison;
