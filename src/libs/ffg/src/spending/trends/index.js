@@ -13,7 +13,7 @@ import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 
 export default function SpendingTrends() {
 // IE shim
-  if (!Element.prototype.matches) {
+  if (typeof window !== 'undefined' && !Element.prototype.matches) {
     Element.prototype.matches = Element.prototype.msMatchesSelector;
   }
 

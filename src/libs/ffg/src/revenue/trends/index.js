@@ -10,7 +10,7 @@ import CategoryData from '../../../../assets/ffg/data/federal_revenue_trends.csv
 
 export default function RevenueTrends() {
 // IE shim
-	if (!Element.prototype.matches) {
+	if (typeof window !== 'undefined' && !Element.prototype.matches) {
 		Element.prototype.matches = Element.prototype.msMatchesSelector;
 	}
 
