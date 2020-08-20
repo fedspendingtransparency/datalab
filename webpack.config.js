@@ -97,7 +97,6 @@ module.exports = [{
 	},
 }, {
 	entry: {
-		trends: './src/libs/ffg/src/revenue/trends/index.js',
 		countryComparison: './src/libs/ffg/src/revenue/countries/index.js',
 	},
 	devtool,
@@ -123,7 +122,6 @@ module.exports = [{
 }, {
 	entry: {
 		countryComparison: './src/libs/ffg/src/spending/countries/index.js',
-		trends: './src/libs/ffg/src/spending/trends/index.js',
 	},
 	devtool,
 	devServer,
