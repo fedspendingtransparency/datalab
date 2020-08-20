@@ -43,7 +43,7 @@ const RevenueCountries = () => {
     useEffect(() => {
         loadSourceData(CountryData);
         chartInit(incomeConfig);
-    })
+    }, [])
 
     return (
         <div id="viz" />
