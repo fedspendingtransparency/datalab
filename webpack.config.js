@@ -169,7 +169,6 @@ module.exports = [{
 	},
 }, {
 	entry: {
-		trends: './src/libs/ffg/src/debt/trends/index.js',
 		countryComparison: './src/libs/ffg/src/debt/countries/index.js',
 	},
 	devtool,
