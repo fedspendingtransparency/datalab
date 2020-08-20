@@ -13,6 +13,7 @@ import Share from 'src/components/share/share'
 import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import Og from '../../../../components/og-tag/og';
+import RevenueCountries from '../../../../libs/ffg/src/revenue/countries';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -69,7 +70,7 @@ function RevenueCountryComparisonPage(props) {
                             <h2 className="chart-title">Country Comparison</h2>
                             <div className="hint">Click <span className="sort-button-placeholder"></span> to sort columns</div>
 
-                            <div id="viz"></div>
+                            <RevenueCountries />
                         </div>
 
                         <div className="clearfix"></div>

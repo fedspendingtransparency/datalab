@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { loadSourceData } from './data';
 import { chartInit } from './chart';
 import CountryData from '../../../../assets/ffg/data/revenue_country_comparison.csv';
@@ -38,5 +39,15 @@ const incomeConfig = {
     }
 };
 
-loadSourceData(CountryData);
-chartInit(incomeConfig);
+const RevenueCountries = () => {
+    useEffect(() => {
+        loadSourceData(CountryData);
+        chartInit(incomeConfig);
+    })
+
+    return (
+        <div id="viz" />
+    );
+}
+ 
+export default RevenueCountries;
