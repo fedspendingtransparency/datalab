@@ -43,6 +43,13 @@ const RevenueCountryComparison = () => {
     useEffect(() => {
         loadSourceData(CountryData);
         chartInit(incomeConfig);
+
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', () => {
+                loadSourceData(CountryData);
+                chartInit(incomeConfig);
+            });
+        }
     }, [])
 
     return (
