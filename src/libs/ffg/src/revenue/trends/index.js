@@ -63,7 +63,7 @@ export default function RevenueTrends() {
 
 	useEffect(() => {
 		init();
-	}, []);
+	});
 
 
 	return (<div id='viz'></div>)

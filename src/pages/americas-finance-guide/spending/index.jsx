@@ -209,7 +209,7 @@ function SpendingAndGdpPage(props) {
 							<div className="afg__download--div">
 								<div className="afg__download--heading">Download Source Data</div>
 								<ul>
-									<li><a href="/americas-finance-guide/afgData/federal_spending_gdp.csv" download="federal_spending_gdp.csv">federal_spending_gdp.csv</a></li>
+									<li><a href="/americas-finance-guide/data/federal_spending_gdp.csv" download="federal_spending_gdp.csv">federal_spending_gdp.csv</a></li>
 								</ul>
 							</div>
 						</AccordionList>

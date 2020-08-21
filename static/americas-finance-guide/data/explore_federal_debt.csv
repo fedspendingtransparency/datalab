@@ -1,0 +1,5 @@
+"year","category","amount","source_url","source_url_name"
+2019,"federal debt",2.2719402e+13,"https://treasurydirect.gov/govt/reports/pd/mspd/2019/opds092019.pdf","Monthly Statement of the Public Debt"
+2019,"federal deficit",-984388026331,"https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0919.pdf","Monthly Treasury Statement"
+2019,"gdp",2.13403e+13,"https://apps.bea.gov/iTable/index_nipa.cfm","Bureau of Economic Analysis"
+2019,"federal debt percent of gdp",1.0666385915493,"NA","NA"

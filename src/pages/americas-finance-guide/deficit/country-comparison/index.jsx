@@ -74,7 +74,7 @@ function DeficitCountryComparisonPage(props) {
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>
                                     <ul>
-                                        <li><a href="/americas-finance-guide/afgData/deficit_country_comparison.csv" download="deficit_country_comparison.csv">deficit_country_comparison.csv</a></li>
+                                        <li><a href="/americas-finance-guide/data/deficit_country_comparison.csv" download="deficit_country_comparison.csv">deficit_country_comparison.csv</a></li>
                                     </ul>
                                 </div>
                             </AccordionList>

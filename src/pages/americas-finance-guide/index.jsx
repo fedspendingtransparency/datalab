@@ -414,10 +414,10 @@ export default function OverviewPage(props) {
               <div className="afg__download--div">
                 <div className="afg__download--heading">Download Source Data</div>
                 <ul>
-                  <li><a href="/americas-finance-guide/afgData/overview_federal_revenue.csv" download="overview_federal_revenue.csv">overview_federal_revenue.csv</a></li>
-                  <li><a href="/americas-finance-guide/afgData/overview_federal_spending.csv" download="overview_federal_spending.csv">overview_federal_spending.csv</a></li>
-                  <li><a href="/americas-finance-guide/afgData/overview_federal_deficit.csv" download="overview_federal_deficit.csv">overview_federal_deficit.csv</a></li>
-                  <li><a href="/americas-finance-guide/afgData/overview_federal_debt.csv" download="overview_federal_debt.csv">overview_federal_debt.csv</a></li>
+                  <li><a href="/americas-finance-guide/data/overview_federal_revenue.csv" download="overview_federal_revenue.csv">overview_federal_revenue.csv</a></li>
+                  <li><a href="/americas-finance-guide/data/overview_federal_spending.csv" download="overview_federal_spending.csv">overview_federal_spending.csv</a></li>
+                  <li><a href="/americas-finance-guide/data/overview_federal_deficit.csv" download="overview_federal_deficit.csv">overview_federal_deficit.csv</a></li>
+                  <li><a href="/americas-finance-guide/data/overview_federal_debt.csv" download="overview_federal_debt.csv">overview_federal_debt.csv</a></li>
                 </ul>
               </div>
             </AccordionList>

@@ -108,9 +108,9 @@ function DebtAnalysisPage(props) {
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>
                                     <ul>
-                                        <li><a href="/americas-finance-guide/afgData/federal_debt_cost.csv" download="federal_debt_cost.csv">federal_debt_cost.csv</a></li>
-                                        <li><a href="/americas-finance-guide/afgData/federal_debt_average_int_rates.csv" download="federal_debt_average_int_rates.csv">federal_debt_average_int_rates.csv</a></li>
-                                        <li><a href="/americas-finance-guide/afgData/who_owns_federal_debt.csv" download="who_owns_federal_debt.csv">who_owns_federal_debt.csv</a></li>
+                                        <li><a href="/americas-finance-guide/data/federal_debt_cost.csv" download="federal_debt_cost.csv">federal_debt_cost.csv</a></li>
+                                        <li><a href="/americas-finance-guide/data/federal_debt_average_int_rates.csv" download="federal_debt_average_int_rates.csv">federal_debt_average_int_rates.csv</a></li>
+                                        <li><a href="/americas-finance-guide/data/who_owns_federal_debt.csv" download="who_owns_federal_debt.csv">who_owns_federal_debt.csv</a></li>
                                     </ul>
                                 </div>
                             </AccordionList>

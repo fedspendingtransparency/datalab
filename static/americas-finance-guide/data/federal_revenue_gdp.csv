@@ -1,0 +1,5 @@
+"year","category","amount","source_url","source_url_name"
+2019,"federal revenue",3462195610149,"https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0919.pdf","Monthly Treasury Statement"
+2019,"federal spending",4446583636480,"https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0919.pdf","Monthly Treasury Statement"
+2019,"gdp",2.13403e+13,"https://apps.bea.gov/iTable/index_nipa.cfm","Bureau of Economic Analysis"
+2019,"federal revenue percent of gdp",0.162544394842676,NA,NA

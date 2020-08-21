@@ -75,7 +75,7 @@ function RevenueTrendsPage(props) {
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>
                                     <ul>
-                                        <li><a href="/americas-finance-guide/afgData/federal_revenue_trends.csv" download="federal_revenue_trends.csv">federal_revenue_trends.csv</a></li>
+                                        <li><a href="/americas-finance-guide/data/federal_revenue_trends.csv" download="federal_revenue_trends.csv">federal_revenue_trends.csv</a></li>
                                     </ul>
                                 </div>
                             </AccordionList>
