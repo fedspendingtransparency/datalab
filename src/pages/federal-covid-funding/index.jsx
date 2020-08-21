@@ -99,10 +99,10 @@ There are many steps in the process to move the ${CovidCopy.totalbudgetresources
       introBlurb: [
         <>
           <p key='section-3-p-1'>
-Ninety-two percent of the $2.58 trillion in COVID-19 funding was appropriated to four agencies: The Treasury, Health and Human Services, Labor, and the Small Business Administration (SBA). Of those funds, roughly half, or $1.27 trillion, were allocated to fund loan and loan guarantee programs. These funds could be used to generate an estimated $3.92 trillion in loans and loan guarantees to businesses and individuals. This includes loans which will be disbursed directly by the government, like the SBA’s Economic Injury Disaster Loan (EIDL) Program. It also includes funds for loan guarantee programs, such as the SBA’s Paycheck Protection Program (PPP), which are disbursed by partner financial institutions.
+Ninety-two percent of the ${CovidCopy.totalbudgetresources} trillion in COVID-19 funding was appropriated to four agencies: The Treasury, Health and Human Services, Labor, and the Small Business Administration (SBA). Of those funds, roughly half, or ${CovidCopy.loanspending_trillions} trillion, were allocated to fund loan and loan guarantee programs. These funds could be used to generate an estimated ${CovidCopy.totcredit_trillions} trillion in loans and loan guarantees to businesses and individuals.  This includes loans which will be disbursed directly by the government, like the SBA’s Economic Injury Disaster Loan (EIDL) Program. It also includes funds for loan guarantee programs, such as the SBA’s Paycheck Protection Program (PPP), which are disbursed by partner financial institutions.
           </p>
           <p key='section-3-p-2'>
-As of July 1, the federal government had made $1.46 trillion in obligations, of which $1.31 trillion was outlayed. These totals were calculated from agencies’ certified monthly reporting to the Treasury’s Governmentwide Treasury Account Symbol Adjusted Trial Balance System (GTAS).
+            As of {CovidCopy.monthday}, the federal government had made ${CovidCopy.totobligations_trillions} trillion in obligations, of which ${CovidCopy.totoutlays_trillions} trillion was outlayed. These totals were calculated from agencies’ certified monthly reporting to the Treasury’s Governmentwide Treasury Account Symbol Adjusted Trial Balance System (GTAS).
           </p>
           <p key='section-3-p-3'>
 This analysis will be updated monthly as new data becomes available. To learn more about how we developed this analysis and download the raw data, visit the <a href="/federal-covid-funding/methodologies">Data Sources and Methodologies</a> page.
@@ -113,7 +113,11 @@ This analysis will be updated monthly as new data becomes available. To learn mo
       tagName: 'Tracking',
       accordion: (
         <aside>
-          <Accordion title='How do you track $2.58 trillion?' color='#6F41A7' backgroundColor='#F3EAFF' isCovid>
+          <Accordion
+            title={`How do you track $${CovidCopy.totalbudgetresources} trillion?`}
+            color='#6F41A7'
+            backgroundColor='#F3EAFF'
+            isCovid>
             {BudgetAccordionContent()}
           </Accordion>
         </aside>

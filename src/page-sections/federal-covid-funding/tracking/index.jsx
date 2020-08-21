@@ -50,6 +50,7 @@ import Phase3LoanTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet
 import Phase35TotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35Total.svg';
 import Phase35GeneralTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35General.svg';
 import Phase35LoanTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35Loan.svg';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-21.yml'
 
 export default function Tracking(props) {
 
@@ -672,7 +673,9 @@ export default function Tracking(props) {
 				</p>
 			</div>
 
-			<Downloads href="/data/federal-covid-spending/tracking/covid19_Viz_3_Data_Download_2020-07-17.csv" date="July 2020" />
+			<Downloads
+				href={`/data/federal-covid-spending/tracking/${CovidCopy.viz3csv}`}
+				date={CovidCopy.vizdates} />
 		</>
 	);
 }
