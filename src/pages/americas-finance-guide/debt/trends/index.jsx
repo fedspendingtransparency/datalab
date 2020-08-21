@@ -9,7 +9,6 @@ import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
-import { Helmet } from 'react-helmet';
 import Og from '../../../../components/og-tag/og';
 import GdpTemplate from 'src/components/gdp-template/gdp-template'
 import AfgNav from 'src/components/afg-nav/afg-nav';
@@ -17,16 +16,12 @@ import AfgNav from 'src/components/afg-nav/afg-nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from 'src/components/headers/headers';
+import DebtTrendsToggle from 'src/libs/ffg/src/debt/trends/index';
 
 function DebtTrendsPage(props) {
     return (
-        <>
-
-            <Helmet>
-                <script defer src="/americas-finance-guide/debt/trends.js"></script>
-            </Helmet>
-
-			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-debt.jpg"}/>
+      <>
+			  <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-debt.jpg"}/>
 
             <SEO
                 title='Data Lab - Federal Debt Trends – U.S. Treasury'
@@ -51,15 +46,7 @@ function DebtTrendsPage(props) {
 
                         <h1>Federal Debt Trends Over Time</h1>
 
-                        <div className="toggle-component toggle-component--debt clearfix">
-                            <span className="toggle-component__label" data-target="debt-image">Debt</span>
-                            <button id="toggle-image" className="toggle-control" aria-label="Toggle image">
-                                <div className="toggle-control__background">
-                                    <div className="toggle-control__dot"></div>
-                                </div>
-                            </button>
-                            <span className="toggle-component__label" data-target="gdp-image">Debt to GDP</span>
-                        </div>
+                        <DebtTrendsToggle />
 
                         <div className="trend-chart-container">
                             <img id="debt-image" className="trend-chart-container__image trend-chart-container__image--active" src="/americas-finance-guide/images/debt-trend.svg" alt="Federal debt steadily rose from $5.7 trillion in 2000 to $10 trillion in 2008. In response to actions taken to address the Great Recession, federal debt increased at a faster rate after 2008. Federal debt rose from $10 trillion in 2008 to $16 trillion in 2012. Federal debt exceeded $20 trillion for the first time in 2017 and reached $22.7 trillion by the end of 2019. "></img>
