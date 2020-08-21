@@ -3,7 +3,6 @@ import '../../../libs/ffg/src/globalSass/cg.scss';
 import '../../../libs/ffg/src/spending/intro/spending-intro.scss';
 
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import SpendingIntro from 'src/libs/ffg/src/spending/intro/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
