@@ -471,21 +471,23 @@ export function chartInit(_config) {
     }
 }
 
-window.addEventListener('resize', function () {
-    if (debounce) {
-        clearTimeout(debounce);
-    }
-
-    if(previousWidth === window.innerWidth){
-        return;
-    }
-
-    previousWidth = window.innerWidth;
-    setContainer();
-
-    if(isMobile()){
-        debounce = setTimeout(redrawMobile, 100, config, data);
-    } else {
-        debounce = setTimeout(redraw, 100);
-    }
-});
+if (typeof window !== 'undefined') {
+    window.addEventListener('resize', function () {
+        if (debounce) {
+            clearTimeout(debounce);
+        }
+    
+        if(previousWidth === window.innerWidth){
+            return;
+        }
+    
+        previousWidth = window.innerWidth;
+        setContainer();
+    
+        if(isMobile()){
+            debounce = setTimeout(redrawMobile, 100, config, data);
+        } else {
+            debounce = setTimeout(redraw, 100);
+        }
+    });
+}

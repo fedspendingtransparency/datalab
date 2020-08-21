@@ -92,8 +92,7 @@
     "serve": "gatsby serve",
     "test": "jest",
     "coverage": "jest --coverage",
-    "check-outdated": "check-outdated",
-    "webpackBuild": "webpack"
+    "check-outdated": "check-outdated"
   },
   "repository": {
     "type": "git",
