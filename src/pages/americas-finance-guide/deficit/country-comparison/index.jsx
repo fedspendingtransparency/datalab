@@ -10,7 +10,6 @@ import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
-import { Helmet } from 'react-helmet';
 import Og from '../../../../components/og-tag/og';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import DefecitCountryComparison from '../../../../libs/ffg/src/deficit/countries';
@@ -22,9 +21,6 @@ import { AFGHeader } from '../../../../components/headers/headers';
 function DeficitCountryComparisonPage(props) {
     return (
         <>
-            <Helmet>
-                <script defer src="/americas-finance-guide/deficit/countryComparison.js"></script>
-            </Helmet>
             <SEO
                 title='Data Lab - Deficit Country Comparison – U.S. Treasury'
                 description='Compare the federal deficit of the United States to other countries.'

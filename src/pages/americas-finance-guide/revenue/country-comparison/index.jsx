@@ -10,7 +10,6 @@ import { AFGHeader } from 'src/components/headers/headers';
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
-import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import Og from '../../../../components/og-tag/og';
 import RevenueCountryComparison from '../../../../libs/ffg/src/revenue/countries';
@@ -21,9 +20,6 @@ import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 function RevenueCountryComparisonPage(props) {
     return (
         <>
-            <Helmet>
-                <script defer src="/americas-finance-guide/revenue/countryComparison.js"></script>
-            </Helmet>
             <SEO
                 title='Data Lab - Revenue Country Comparison – U.S. Treasury'
                 description='Compare revenue of the United States to 169 different countries.'

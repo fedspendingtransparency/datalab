@@ -10,7 +10,6 @@ import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import Og from '../../../../components/og-tag/og';
-import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import DebtCountryComparison from '../../../../libs/ffg/src/debt/countries';
 
@@ -21,9 +20,6 @@ import { AFGHeader } from '../../../../components/headers/headers';
 function DebtCountryComparisonPage(props) {
     return (
         <>
-            <Helmet>
-                <script defer src="/americas-finance-guide/debt/countryComparison.js"></script>
-            </Helmet>
             <SEO
                 title='Data Lab - Debt Country Comparison – U.S. Treasury'
                 description='Compare the federal debt of the United States to other countries.'

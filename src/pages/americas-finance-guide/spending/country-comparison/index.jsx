@@ -9,7 +9,6 @@ import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
-import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import Og from '../../../../components/og-tag/og';
 import SpendingCountryComparison from '../../../../libs/ffg/src/spending/countries';
@@ -21,9 +20,6 @@ import { AFGHeader } from '../../../../components/headers/headers';
 function SpendingCountryComparisonPage(props) {
     return (
         <>
-            <Helmet>
-                <script defer src="/americas-finance-guide/spending/countryComparison.js"></script>
-            </Helmet>
             <SEO
                 title='Data Lab - Spending Country Comparison – U.S. Treasury'
                 description='Compare federal spending of the United States to other countries.'
