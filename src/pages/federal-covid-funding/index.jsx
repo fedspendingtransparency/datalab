@@ -12,7 +12,7 @@ import Accordion from 'src/components/accordion/accordion';
 import Budget from '../../page-sections/federal-covid-funding/budget/budget';
 import Overview from '../../page-sections/federal-covid-funding/overview/overview';
 import Tracking from '../../page-sections/federal-covid-funding/tracking';
-
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-21.yml'
 
 const BudgetAccordionContent = () => (
   <div className={styles.accordionContents}>
@@ -125,14 +125,14 @@ This analysis will be updated monthly as new data becomes available. To learn mo
     <StoryLayout
       title='The Federal Response To COVID-19'
       introSentence='How is the federal government funding relief efforts for COVID-19?'
-      contextStatement='Data Lab explores how supplemental funding for COVID-19 makes its way from Congress into the economy. We break down the steps taken by federal agencies to use the $2.58 trillion and track the status of funds so you can see how much has been spent.'
+      contextStatement={'Data Lab explores how supplemental funding for COVID-19 makes its way from Congress into the economy. We break down the steps taken by federal agencies to use the $' + CovidCopy.totalbudgetresources + ' trillion and track the status of funds so you can see how much has been spent.'}
       sectionToc={this.sections}
       hwctaLink={this.props.location.pathname + '/methodologies'}
     >
       <SEO
         title='Data Lab – The Federal Response to COVID-19 – U.S. Treasury'
         description='SEO description'
-        keywords={['federal spending', 'government spending', 'economic relief', 'relief package', 'economic stimulus', 'obligations', 'appropriations', 'covid', 'coronavirus', 'COVID19']}
+        keywords={['federal spending', 'government spending', 'economic relief', 'relief p ackage', 'economic stimulus', 'obligations', 'appropriations', 'covid', 'coronavirus', 'COVID19']}
       />
 
       {this.sections.map((item, key) => {

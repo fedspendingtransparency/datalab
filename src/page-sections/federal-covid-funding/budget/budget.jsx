@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Grid } from '@material-ui/core';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Downloads from 'src/components/section-elements/downloads/downloads';
@@ -15,6 +14,7 @@ import MobileA from 'src/images/covid/budget/viz1AMobile.svg';
 import MobileB from 'src/images/covid/budget/viz1BMobile.svg';
 import MobileC from 'src/images/covid/budget/viz1CMobile.svg';
 import PurpleDot from 'src/svgs/federal-covid-spending/purpleDot.svg';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-21.yml'
 
 import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode';
 import styles from './budget.module.scss';

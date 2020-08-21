@@ -2,7 +2,6 @@ import 'src/libs/ffg/src/globalSass/cg.scss'
 import 'src/libs/ffg/src/debt/analysis/debt-analysis.scss'
 
 import React from "react"
-import { Link } from "gatsby"
 import SEO from "src/components/seo"
 import AfgData from "src/libs/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
