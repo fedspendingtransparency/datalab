@@ -34,7 +34,7 @@ const desktopSVGs = [
   {
     img: DesktopC,
     width: 945,
-    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trill + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavail_trill + "T).",
+    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillion + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavail_trill + "T).",
   }
 ];
 

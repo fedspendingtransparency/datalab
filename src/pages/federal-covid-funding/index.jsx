@@ -136,7 +136,7 @@ This analysis will be updated monthly as new data becomes available. To learn mo
       <SEO
         title='Data Lab – The Federal Response to COVID-19 – U.S. Treasury'
         description='SEO description'
-        keywords={['federal spending', 'government spending', 'economic relief', 'relief p ackage', 'economic stimulus', 'obligations', 'appropriations', 'covid', 'coronavirus', 'COVID19']}
+        keywords={['federal spending', 'government spending', 'economic relief', 'relief package', 'economic stimulus', 'obligations', 'appropriations', 'covid', 'coronavirus', 'COVID19']}
       />
 
       {this.sections.map((item, key) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import FootnoteAnchor from '../../components/footnotes/footnote-anchor';
 import HWCTA from '../../components/hwcta/hwcta';
-import styles from '../../components/hwcta/hwcta.module.scss';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-21.yml'
 
 const C19HWTCA = ({ location }) => {
   const title = 'The Federal Response to COVID-19';
@@ -52,23 +52,23 @@ const C19HWTCA = ({ location }) => {
     sources: (
       <ul>
         <li>
-          <strong>Agency funding to-date:</strong> The value of the four supplemental laws passed by Congress is approximately $2.58 trillion. This value reflects the total value of appropriation warrants made to agencies’ TAS accounts to date for each of the four laws passed
+          <strong>Agency funding to-date:</strong> The value of the four supplemental laws passed by Congress is approximately ${CovidCopy.totalbudgetresources} trillion. This value reflects the total value of appropriation warrants made to agencies’ TAS accounts to date for each of the four laws passed
         </li>
         <ul>
           <li>
             Appropriation warrants reflect Congressional action to fund programs and provide each agency the amount of money they are authorized to withdraw from the General Fund of the U.S. Government and period of availability of those funds. The total estimated value of the four laws only includes current appropriation warrants issued, which could change. The value of each law could change because there are parts of the laws that do not state explicit program costs or limits on the total funding that can be used to meet the law’s requirements. This could also result in additional appropriations being issued to fulfill the law’s intent if the original appropriation is exhausted
           </li>
           <li>
-            H.R. 6074 Coronavirus Preparedness and Response Supplemental Appropriations Act (CPRSAA) totaled an estimated $7 billion
+            H.R. 6074 Coronavirus Preparedness and Response Supplemental Appropriations Act (CPRSAA) totaled an estimated {CovidCopy.law1} billion
           </li>
           <li>
-            H.R. 6201 Families First Coronavirus Response Act (FFCRA) totaled an estimated $14 billion
+            H.R. 6201 Families First Coronavirus Response Act (FFCRA) totaled an estimated ${CovidCopy.law2} billion
           </li>
           <li>
-            H.R. 748 Coronavirus Aid, Relief, and Economic Security (CARES) Act totaled an estimated $2.07 trillion in funding
+            H.R. 748 Coronavirus Aid, Relief, and Economic Security (CARES) Act totaled an estimated ${CovidCopy.law3} trillion in funding
           </li>
           <li>
-            H.R. 266 Paycheck Protection Program and Health Care Enhancement Act (PPP HCEA) totaled an estimated $483 billion
+            H.R. 266 Paycheck Protection Program and Health Care Enhancement Act (PPP HCEA) totaled an estimated ${CovidCopy.law4} billion
           </li>
         </ul>
         <li><strong>Estimated Tax Relief:</strong> The total value of estimated deferred and reduced taxes provided by the FFCRA<a href="#fn4" className="footnoteref"><FootnoteAnchor footnoteId="fr4" />4</a> and CARES Act<a href="#fn5" className="footnoteref"><FootnoteAnchor footnoteId="fr5" />5</a> are taken from the CBO’s analysis of each law. The tax relief value is the sum of the CBO’s estimated two year (FY 2020 through 2021) estimated tax revenue impact for each law</li>
