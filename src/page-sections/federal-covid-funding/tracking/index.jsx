@@ -55,25 +55,32 @@ import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_y
 export default function Tracking(props) {
 
 	const phaseDetail = {
+		'govtTotal': {
+			altText: 'text here'
+		},
 		'1': {
 			title: 'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
 			loanAcct: 'no',
 			enactedDate: 'March 6, 2020',
+			altText: 'text here',
 		},
 		'2': {
 			title: 'Families First Coronavirus Response Act',
 			loanAcct: 'no',
 			enactedDate: 'March 18, 2020',
+			altText: 'text here'
 		},
 		'3': {
 			title: 'Coronavirus Aid, Relief, and Economic Security Act (CARES ACT)',
 			loanAcct: 'yes',
 			enactedDate: 'March 27, 2020',
+			altText: 'text here'
 		},
 		'3.5': {
 			title: 'Paycheck Protection Program and Health Care Enhancement Act',
 			loanAcct: 'yes',
 			enactedDate: 'April 24, 2020',
+			altText: 'text here'
 		}
 	}
 
@@ -81,56 +88,56 @@ export default function Tracking(props) {
 		'Total': {
 			'Law Total': {
 				svg: GovtTotalSVG,
-				width: 500,
-				altText: 'text here'
+				width: 911,
+				className: 'govtTotal'
 			}
 		},
 		'1': {
 			'Law Total': {
 				svg: Phase1SVG,
-				width: 500,
-				altText: 'text here'
+				width: 365,
+				className: 'lawTotalOnly'
 			}
 		},
 		'2': {
 			'Law Total': {
 				svg: Phase2SVG,
-				width: 500,
-				altText: 'text here'
+				width: 378,
+				className: 'lawTotalOnly'
 			}
 		},
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalSVG,
-				width: 500,
-				altText: 'text here'
+				width: 654,
+				className: 'lawTotal'
 			},
 			'Spending': {
 				svg: Phase3GeneralSVG,
-				width: 500,
-				altText: 'text here'
+				width: 391,
+				className: 'spending'
 			},
 			'Loan': {
 				svg: Phase3LoanSVG,
-				width: 500,
-				altText: 'text here'
+				width: 391,
+				className: 'loan'
 			},
 		},
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalSVG,
-				width: 500,
-				altText: 'text here'
+				width: 391,
+				className: 'lawTotal'
 			},
 			'Spending': {
 				svg: Phase35GeneralSVG,
-				width: 500,
-				altText: 'text here'
+				width: 403,
+				className: 'spending'
 			},
 			'Loan': {
 				svg: Phase35LoanSVG,
-				width: 500,
-				altText: 'text here'
+				width: 479,
+				className: 'loan'
 			},
 		}
 	}
@@ -552,9 +559,10 @@ export default function Tracking(props) {
 						</a>
 						<br />
 						<img
+							className={SectionTag.className}
 							src={SectionTag.svg}
 							width={SectionTag.width}
-							alt={SectionTag.altText}
+							alt={phaseDetail[item.label].altText}
 							onClick={(e) => openModalTag(e, item, thisBar, true)}
 							 onKeyDown={(e) => openModalTag(e, item, thisBar, true)} />
 						<br />
@@ -589,9 +597,11 @@ export default function Tracking(props) {
 						<PhaseWrapper>
 							<div className={styles.totalHeading}>New Agency Funding</div>
 							<img
+								className={SectionTag.className}
 								src={SectionTag.svg}
 								width={SectionTag.width}
 								alt={SectionTag.altText}
+								alt={phaseDetail['govtTotal'].altText}
 							/>
 						</PhaseWrapper>
 					);

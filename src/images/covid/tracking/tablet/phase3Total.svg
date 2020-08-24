@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg class='lawTotal' aria-labelledby='phase3total-desc' width="539px" height="95px" viewBox="0 0 539 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
-    <desc id="phase3total-desc">Horizontal stacked bar chart of total budgetary resources from the Phase 3 legislation ($2.07T) that have been obligated and outlayed ($972B) to date.</desc>
+<svg width="539px" height="95px" viewBox="0 0 539 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>04. phase 3 total</title>
     <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Viz-3---SVG-Export-Tablet" transform="translate(-70.000000, -924.000000)">
             <g id="04.-phase-3-total" transform="translate(70.000000, 924.000000)">
-                <text id="Outlays-$972B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                <text id="Outlays-$1.11T" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
                     <tspan x="0" y="73">Outlays</tspan>
                     <tspan x="46.256" y="73" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
-                    <tspan x="0" y="91" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$972B</tspan>
+                    <tspan x="0" y="91" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$1.11T</tspan>
                 </text>
-                <text id="Obligations-$1.09T" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
-                    <tspan x="264" y="73">Obligations</tspan>
-                    <tspan x="333.09" y="73" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
-                    <tspan x="264" y="91" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$1.09T</tspan>
+                <text id="Obligations-$1.24T" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                    <tspan x="238" y="73">Obligations</tspan>
+                    <tspan x="307.09" y="73" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                    <tspan x="238" y="91" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$1.24T</tspan>
                 </text>
-                <text id="Unobligated-$986B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
-                    <tspan x="407.108" y="73">Unobligated</tspan>
-                    <tspan x="444.936" y="91" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$986B</tspan>
+                <text id="Unobligated-$835B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                    <tspan x="407" y="73">Unobligated</tspan>
+                    <tspan x="407" y="91" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$835B</tspan>
                 </text>
                 <line x1="470.5" y1="40" x2="470.5" y2="55" id="Line-Copy-2" stroke="#C6C6C6"></line>
                 <line x1="10.5" y1="40" x2="10.5" y2="55" id="Line" stroke="#C6C6C6"></line>
-                <line x1="294.5" y1="40" x2="294.5" y2="55" id="Line-Copy-4" stroke="#C6C6C6"></line>
-                <rect id="unobligated" fill="#F3E9FF" x="0" y="0" width="481" height="40"></rect>
-                <rect id="obligated" fill="#6F41A7" x="226" y="0" width="27" height="40"></rect>
-                <rect id="outlays" fill="#331E4D" x="0" y="0" width="226" height="40"></rect>
+                <line x1="272.5" y1="40" x2="272.5" y2="55" id="Line-Copy-4" stroke="#C6C6C6"></line>
+                <rect id="unobligated" fill="#F3E9FF" x="287" y="0" width="194" height="40"></rect>
+                <rect id="obligated" fill="#6F41A7" x="258" y="0" width="29" height="40"></rect>
+                <rect id="outlays" fill="#331E4D" x="0" y="0" width="258" height="40"></rect>
                 <text id="$2.07T" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="16" font-weight="bold" fill="#555555">
                     <tspan x="491" y="26">$2.07T</tspan>
                 </text>

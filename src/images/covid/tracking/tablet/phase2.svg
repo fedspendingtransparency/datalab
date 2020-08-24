@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg class='lawTotalOnly lawTotal' aria-labelledby='phase2-desc' width="378px" height="40px" viewBox="0 0 378 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
-    <desc id="phase2-desc">Horizontal stacked bar chart of total budgetary resources from the Phase 2 legislation ($14B) that have been obligated and outlayed ($6B) to date.</desc>
+<svg width="378px" height="40px" viewBox="0 0 378 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>03. phase 2</title>
     <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Viz-3---SVG-Export-Tablet" transform="translate(-70.000000, -706.000000)">
             <g id="03.-phase-2" transform="translate(70.000000, 706.000000)">
-                <text id="Outlays-$6B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                <text id="Outlays-$7B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
                     <tspan x="137" y="16">Outlays</tspan>
                     <tspan x="183.256" y="16" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
-                    <tspan x="137" y="34" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$6B</tspan>
+                    <tspan x="137" y="34" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$7B</tspan>
                 </text>
                 <text id="Obligations-$8B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
                     <tspan x="209" y="16">Obligations</tspan>

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg class='loan' aria-labelledby='phase35loan-desc' width="462px" height="36px" viewBox="0 0 462 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
-    <desc id="phase35loan-desc">Horizontal stacked bar chart of budgetary resources ($371B) allocated to loan account spending from the Phase 3 legislation.</desc>
+<svg width="462px" height="36px" viewBox="0 0 462 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>09. phase 3.5 loan</title>
     <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Viz-3---SVG-Export-Tablet" transform="translate(-70.000000, -1731.000000)">
             <g id="09.-phase-3.5-loan" transform="translate(70.000000, 1731.000000)">
-                <text id="Outlays-$251B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                <text id="Outlays-$264B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
                     <tspan x="221" y="14">Outlays</tspan>
                     <tspan x="267.256" y="14" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
-                    <tspan x="221" y="32" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$251B</tspan>
+                    <tspan x="221" y="32" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$264B</tspan>
                 </text>
-                <text id="Obligations-$267B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                <text id="Obligations-$274B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
                     <tspan x="293" y="14">Obligations</tspan>
                     <tspan x="362.09" y="14" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
-                    <tspan x="293" y="32" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$267B</tspan>
+                    <tspan x="293" y="32" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$274B</tspan>
                 </text>
-                <text id="Unobligated-$105B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
+                <text id="Unobligated-$98B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="14" font-weight="500" fill="#666666">
                     <tspan x="388" y="14">Unobligated</tspan>
-                    <tspan x="388" y="32" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$105B</tspan>
+                    <tspan x="388" y="32" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$98B</tspan>
                 </text>
                 <path d="M196,8 L190,8 C188.895431,8 188,8.8954305 188,10 L188,26 C188,27.1045695 188.895431,28 190,28 L196,28 L196,28" id="Line-2" stroke="#C6C6C6" stroke-linecap="round"></path>
                 <line x1="187.5" y1="18.5" x2="147.5" y2="18.5" id="Line-4" stroke="#C6C6C6" stroke-linecap="round"></line>
-                <rect id="unobligated" fill="#F3E9FF" x="0" y="3" width="86" height="30"></rect>
-                <rect id="obligated" fill="#6F41A7" x="53" y="3" width="13" height="30"></rect>
-                <rect id="outlays" fill="#331E4D" x="0" y="3" width="53" height="30"></rect>
+                <rect id="unobligated" fill="#F3E9FF" x="63" y="3" width="23" height="30"></rect>
+                <rect id="obligated" fill="#6F41A7" x="61" y="3" width="2" height="30"></rect>
+                <rect id="outlays" fill="#331E4D" x="0" y="3" width="61" height="30"></rect>
                 <text id="$371-B" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="14" font-weight="bold" fill="#555555">
                     <tspan x="96" y="23">$371 B</tspan>
                 </text>
