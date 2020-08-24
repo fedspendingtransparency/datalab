@@ -56,31 +56,51 @@ export default function Tracking(props) {
 
 	const phaseDetail = {
 		'govtTotal': {
-			altText: 'text here'
+			altText: `Horizontal stacked bar chart of total budgetary resources from the supplemental funding that have been obligated and outlayed ($${CovidCopy.totoutlays_trillions}T) to date. `
 		},
 		'1': {
 			title: 'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
 			loanAcct: 'no',
 			enactedDate: 'March 6, 2020',
-			altText: 'text here',
+			'Law Total': {
+				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 1 legislation ($${CovidCopy.law1}B) that have been obligated and outlayed ($${CovidCopy.law1outlays_bill}B) to date. `
+			}
 		},
 		'2': {
 			title: 'Families First Coronavirus Response Act',
 			loanAcct: 'no',
 			enactedDate: 'March 18, 2020',
-			altText: 'text here'
+			'Law Total': {
+				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 2 legislation ($${CovidCopy.law2}B) that have been obligated and outlayed ($${CovidCopy.law2outlays_bill}B) to date. `
+			}
 		},
 		'3': {
 			title: 'Coronavirus Aid, Relief, and Economic Security Act (CARES ACT)',
 			loanAcct: 'yes',
 			enactedDate: 'March 27, 2020',
-			altText: 'text here'
+			'Law Total': {
+				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 3 legislation ($${CovidCopy.law3}T) that have been obligated and outlayed ($${CovidCopy.law3outlays_trill}T) to date.`
+			},
+			'Spending': {
+				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law3gen_trill}T) allocated to general account spending from the Phase 3 legislation. `
+			},
+			'Loan': {
+				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law3loans_bill}T) allocated to loan account spending from the Phase 3 legislation.`
+			}
 		},
 		'3.5': {
 			title: 'Paycheck Protection Program and Health Care Enhancement Act',
 			loanAcct: 'yes',
 			enactedDate: 'April 24, 2020',
-			altText: 'text here'
+			'Law Total': {
+				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 3.5 legislation ($${CovidCopy.law4}B) that have been obligated and outlayed ($${CovidCopy.law4outlays_bill}B) to date.`
+			},
+			'Spending': {
+				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law4gen_bill}B) allocated to general account spending from the Phase 3.5 legislation.`
+			},
+			'Loan': {
+				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law4loans_bill}B) allocated to loan account spending from the Phase 3 legislation.`
+			}
 		}
 	}
 
@@ -146,56 +166,47 @@ export default function Tracking(props) {
 		'Total': {
 			'Law Total': {
 				svg: GovtTotalTabletSVG,
-				width: 500,
-				altText: 'text here'
+				width: 658,
 			}
 		},
 		'1': {
 			'Law Total': {
 				svg: Phase1TabletSVG,
-				width: 500,
-				altText: 'text here'
+				width: 365,
 			}
 		},
 		'2': {
 			'Law Total': {
 				svg: Phase2TabletSVG,
-				width: 500,
-				altText: 'text here'
+				width: 378,
 			}
 		},
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalTabletSVG,
-				width: 500,
-				altText: 'text here'
+				width: 539,
 			},
 			'Spending': {
 				svg: Phase3GeneralTabletSVG,
-				width: 500,
-				altText: 'text here'
+				width: 391,
 			},
 			'Loan': {
 				svg: Phase3LoanTabletSVG,
-				width: 500,
-				altText: 'text here'
+				width: 315,
 			},
 		},
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalTabletSVG,
-				width: 500,
-				altText: 'text here'
+				width: 319,
 			},
 			'Spending': {
 				svg: Phase35GeneralTabletSVG,
-				width: 500,
-				altText: 'text here'
+				width: 402,
 			},
 			'Loan': {
 				svg: Phase35LoanTabletSVG,
-				width: 500,
-				altText: 'text here'
+				width: 462,
 			},
 		}
 	}
@@ -204,56 +215,47 @@ export default function Tracking(props) {
 		'Total': {
 			'Law Total': {
 				svg: GovtTotalMobileSVG,
-				width: 500,
-				altText: 'text here'
+				width: 323,
 			}
 		},
 		'1': {
 			'Law Total': {
 				svg: Phase1MobileSVG,
-				width: 500,
-				altText: 'text here'
+				width: 310,
 			}
 		},
 		'2': {
 			'Law Total': {
 				svg: Phase2MobileSVG,
-				width: 500,
-				altText: 'text here'
+				width: 310,
 			}
 		},
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalMobileSVG,
-				width: 500,
-				altText: 'text here'
+				width: 324,
 			},
 			'Spending': {
 				svg: Phase3GeneralMobileSVG,
-				width: 500,
-				altText: 'text here'
+				width: 324,
 			},
 			'Loan': {
 				svg: Phase3LoanMobileSVG,
-				width: 500,
-				altText: 'text here'
+				width: 324,
 			},
 		},
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalMobileSVG,
-				width: 500,
-				altText: 'text here'
+				width: 324,
 			},
 			'Spending': {
 				svg: Phase35GeneralMobileSVG,
-				width: 500,
-				altText: 'text here'
+				width: 324,
 			},
 			'Loan': {
 				svg: Phase35LoanMobileSVG,
-				width: 500,
-				altText: 'text here'
+				width: 324,
 			},
 		}
 	}
@@ -524,10 +526,10 @@ export default function Tracking(props) {
 				{item.Loan_Program_Account === 'Law Total' ?
 					<>
 						<div className={styles.phaseTitle}>
-							Phase {item.label}: {phaseDetail[`${item.label}`].title}
+							Phase {item.label}: {phaseDetail[item.label].title}
 						</div>
 						<div className={styles.enactedDate}>
-							Enacted {phaseDetail[`${item.label}`].enactedDate}
+							Enacted {phaseDetail[item.label].enactedDate}
 							<span className={styles.lawSummaryDivider}>|</span>
 							<span
 								id={`law-${item.label}-summary-button`}
@@ -544,7 +546,7 @@ export default function Tracking(props) {
 					: null
 				}
 
-				{phaseDetail[`${item.label}`].loanAcct === 'yes' || item.Loan_Program_Account === 'Law Total' ?
+				{phaseDetail[item.label].loanAcct === 'yes' || item.Loan_Program_Account === 'Law Total' ?
 					<div className={styles.barDiv}>
 						<a tabIndex='0'
 							id="phase-anchor"
@@ -562,7 +564,7 @@ export default function Tracking(props) {
 							className={SectionTag.className}
 							src={SectionTag.svg}
 							width={SectionTag.width}
-							alt={phaseDetail[item.label].altText}
+							alt={phaseDetail[item.label][item.Loan_Program_Account].altText}
 							onClick={(e) => openModalTag(e, item, thisBar, true)}
 							 onKeyDown={(e) => openModalTag(e, item, thisBar, true)} />
 						<br />
