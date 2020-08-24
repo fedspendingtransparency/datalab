@@ -50,7 +50,7 @@ import Phase3LoanTabletSVG from 'src/images/covid/tracking/tablet/phase3Loan.svg
 import Phase35TotalTabletSVG from 'src/images/covid/tracking/tablet/phase35Total.svg';
 import Phase35GeneralTabletSVG from 'src/images/covid/tracking/tablet/phase35General.svg';
 import Phase35LoanTabletSVG from 'src/images/covid/tracking/tablet/phase35Loan.svg';
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-21.yml'
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-24.yml'
 
 export default function Tracking(props) {
 
@@ -655,7 +655,7 @@ export default function Tracking(props) {
 			<>
 				<Grid container className={styles.legendContainer}>
 					<Grid item xs={12} lg={4} className={styles.legendAsOf}>
-						Data updated as of ${CovidCopy.reportingdate}
+						Data updated as of {CovidCopy.reportingdate}
 					</Grid>
 					<Grid className={styles.legend}>
 						<div className={styles.blockContainer}>

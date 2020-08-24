@@ -14,7 +14,7 @@ import MobileA from 'src/images/covid/budget/viz1AMobile.svg';
 import MobileB from 'src/images/covid/budget/viz1BMobile.svg';
 import MobileC from 'src/images/covid/budget/viz1CMobile.svg';
 import PurpleDot from 'src/svgs/federal-covid-spending/purpleDot.svg';
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-21.yml'
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-24.yml'
 
 import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode';
 import styles from './budget.module.scss';
@@ -34,7 +34,7 @@ const desktopSVGs = [
   {
     img: DesktopC,
     width: 945,
-    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillions + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavail_trill + "T).",
+    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillions + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavailprecise_trill + "T).",
   }
 ];
 
@@ -52,7 +52,7 @@ const mobileSVGs = [
   {
     img: MobileC,
     width: 333,
-    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillions + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavail_trill + "T).",
+    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillions + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavailprecise_trill + "T).",
   }
 ];
 
@@ -70,7 +70,7 @@ const tabletSVGs = [
   {
     img: TabletC,
     width: 689,
-    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillions + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavail_trill + "T).",
+    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillions + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavailprecise_trill + "T).",
   }
 ];
 

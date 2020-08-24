@@ -1,7 +1,7 @@
 import React from 'react';
 import FootnoteAnchor from '../../components/footnotes/footnote-anchor';
 import HWCTA from '../../components/hwcta/hwcta';
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-21.yml'
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-24.yml'
 
 const C19HWTCA = ({ location }) => {
   const title = 'The Federal Response to COVID-19';
