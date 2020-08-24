@@ -190,7 +190,7 @@ function SpendingAndGdpPage(props) {
 	      <img src={AnecdoteSpendingSVG} alt="anecdote icon" />
 	      <p>
 		In this visualization, one dot represents
-		{AfgData.dot_represents.value}
+		{' '}{AfgData.dot_represents.value}
 		{' '}
 		of federal spending.
 		{' '}
