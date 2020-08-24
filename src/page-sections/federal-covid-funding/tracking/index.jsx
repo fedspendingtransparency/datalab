@@ -107,7 +107,7 @@ export default function Tracking(props) {
 				className: 'spending'
 			},
 			'Loan': {
-				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law4loans_bill}B) allocated to loan account spending from the Phase 3 legislation.`,
+				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law4loans_bill}B) allocated to loan account spending from the Phase 3.5 legislation.`,
 				className: 'loan'
 			}
 		}
@@ -655,7 +655,7 @@ export default function Tracking(props) {
 			<>
 				<Grid container className={styles.legendContainer}>
 					<Grid item xs={12} lg={4} className={styles.legendAsOf}>
-						Data updated as of July 1, 2020
+						Data updated as of ${CovidCopy.reportingdate}
 					</Grid>
 					<Grid className={styles.legend}>
 						<div className={styles.blockContainer}>

@@ -52,7 +52,7 @@ const mobileSVGs = [
   {
     img: MobileC,
     width: 333,
-    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trill + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavail_trill + "T).",
+    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillions + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavail_trill + "T).",
   }
 ];
 
@@ -70,7 +70,7 @@ const tabletSVGs = [
   {
     img: TabletC,
     width: 689,
-    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trill + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavail_trill + "T).",
+    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillions + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavail_trill + "T).",
   }
 ];
 

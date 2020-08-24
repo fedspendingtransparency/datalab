@@ -49,7 +49,7 @@ export default class FederalCovidFunding extends React.Component {
       introBlurb: [
         <>
           <p key='section-1-p-1'>
-To aid the nation’s recovery from the coronavirus disease 2019 (COVID-19) pandemic, the U.S. Congress passed four special appropriations laws for the federal government to use in relief efforts. The largest of these was the Coronavirus Aid, Relief, and Economic Security (CARES) Act, which provides approximately $2.07 trillion and is the largest supplemental appropriation in American history.
+To aid the nation’s recovery from the coronavirus disease 2019 (COVID-19) pandemic, the U.S. Congress passed four special appropriations laws for the federal government to use in relief efforts. The largest of these was the Coronavirus Aid, Relief, and Economic Security (CARES) Act, which provides approximately $${CovidCopy.carestotal_round} trillion and is the largest supplemental appropriation in American history.
           </p>
           <p key='section-1-p-2'>
 In this analysis, we explore the four COVID-19 supplemental appropriation laws passed by the U.S. Congress, starting with the amount of funding budgeted for agencies and how that money can provide financial relief. Next, we walk through the process of how the money moves from appropriations to individuals and businesses, and finally, we dive into how agencies are spending the money.
