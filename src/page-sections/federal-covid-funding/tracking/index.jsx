@@ -56,14 +56,16 @@ export default function Tracking(props) {
 
 	const phaseDetail = {
 		'govtTotal': {
-			altText: `Horizontal stacked bar chart of total budgetary resources from the supplemental funding that have been obligated and outlayed ($${CovidCopy.totoutlays_trillions}T) to date. `
+			altText: `Horizontal stacked bar chart of total budgetary resources from the supplemental funding that have been obligated and outlayed ($${CovidCopy.totoutlays_trillions}T) to date. `,
+			className: 'govtTotal'
 		},
 		'1': {
 			title: 'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
 			loanAcct: 'no',
 			enactedDate: 'March 6, 2020',
 			'Law Total': {
-				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 1 legislation ($${CovidCopy.law1}B) that have been obligated and outlayed ($${CovidCopy.law1outlays_bill}B) to date. `
+				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 1 legislation ($${CovidCopy.law1}B) that have been obligated and outlayed ($${CovidCopy.law1outlays_bill}B) to date. `,
+				className: 'lawTotalOnly'
 			}
 		},
 		'2': {
@@ -71,7 +73,8 @@ export default function Tracking(props) {
 			loanAcct: 'no',
 			enactedDate: 'March 18, 2020',
 			'Law Total': {
-				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 2 legislation ($${CovidCopy.law2}B) that have been obligated and outlayed ($${CovidCopy.law2outlays_bill}B) to date. `
+				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 2 legislation ($${CovidCopy.law2}B) that have been obligated and outlayed ($${CovidCopy.law2outlays_bill}B) to date. `,
+				className: 'lawTotalOnly'
 			}
 		},
 		'3': {
@@ -79,13 +82,16 @@ export default function Tracking(props) {
 			loanAcct: 'yes',
 			enactedDate: 'March 27, 2020',
 			'Law Total': {
-				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 3 legislation ($${CovidCopy.law3}T) that have been obligated and outlayed ($${CovidCopy.law3outlays_trill}T) to date.`
+				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 3 legislation ($${CovidCopy.law3}T) that have been obligated and outlayed ($${CovidCopy.law3outlays_trill}T) to date.`,
+				className: 'lawTotal'
 			},
 			'Spending': {
-				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law3gen_trill}T) allocated to general account spending from the Phase 3 legislation. `
+				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law3gen_trill}T) allocated to general account spending from the Phase 3 legislation. `,
+				className: 'spending'
 			},
 			'Loan': {
-				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law3loans_bill}T) allocated to loan account spending from the Phase 3 legislation.`
+				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law3loans_bill}T) allocated to loan account spending from the Phase 3 legislation.`,
+				className: 'loan'
 			}
 		},
 		'3.5': {
@@ -93,13 +99,16 @@ export default function Tracking(props) {
 			loanAcct: 'yes',
 			enactedDate: 'April 24, 2020',
 			'Law Total': {
-				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 3.5 legislation ($${CovidCopy.law4}B) that have been obligated and outlayed ($${CovidCopy.law4outlays_bill}B) to date.`
+				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 3.5 legislation ($${CovidCopy.law4}B) that have been obligated and outlayed ($${CovidCopy.law4outlays_bill}B) to date.`,
+				className: 'lawTotal'
 			},
 			'Spending': {
-				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law4gen_bill}B) allocated to general account spending from the Phase 3.5 legislation.`
+				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law4gen_bill}B) allocated to general account spending from the Phase 3.5 legislation.`,
+				className: 'spending'
 			},
 			'Loan': {
-				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law4loans_bill}B) allocated to loan account spending from the Phase 3 legislation.`
+				altText: `Horizontal stacked bar chart of budgetary resources ($${CovidCopy.law4loans_bill}B) allocated to loan account spending from the Phase 3 legislation.`,
+				className: 'loan'
 			}
 		}
 	}
@@ -109,21 +118,18 @@ export default function Tracking(props) {
 			'Law Total': {
 				svg: GovtTotalSVG,
 				width: 911,
-				className: 'govtTotal'
 			}
 		},
 		'1': {
 			'Law Total': {
 				svg: Phase1SVG,
 				width: 365,
-				className: 'lawTotalOnly'
 			}
 		},
 		'2': {
 			'Law Total': {
 				svg: Phase2SVG,
 				width: 378,
-				className: 'lawTotalOnly'
 			}
 		},
 		'3': {
@@ -498,6 +504,8 @@ export default function Tracking(props) {
 
 	const phase = (item, SectionTag) => {
 		let title;
+		let barType;
+
 		const thisBar = [{
 			amount: item.Amount_Outlayed,
 			percent: parseFloat(item.Percent_Outlayed).toFixed(2),
@@ -512,12 +520,15 @@ export default function Tracking(props) {
 		switch (item.Loan_Program_Account) {
 			case 'Law Total':
 				title = 'Law Total';
+				barType = 'Law Total';
 				break;
 			case 'No':
 				title = 'General Account Spending';
+				barType = 'Spending';
 				break;
 			case 'Yes':
 				title = 'Loan Account Spending';
+				barType = 'Loan';
 				break;
 		}
 
@@ -561,10 +572,10 @@ export default function Tracking(props) {
 						</a>
 						<br />
 						<img
-							className={SectionTag.className}
+							className={phaseDetail[item.label][barType].className}
 							src={SectionTag.svg}
 							width={SectionTag.width}
-							alt={phaseDetail[item.label][item.Loan_Program_Account].altText}
+							alt={phaseDetail[item.label][barType].altText}
 							onClick={(e) => openModalTag(e, item, thisBar, true)}
 							 onKeyDown={(e) => openModalTag(e, item, thisBar, true)} />
 						<br />
@@ -599,7 +610,7 @@ export default function Tracking(props) {
 						<PhaseWrapper>
 							<div className={styles.totalHeading}>New Agency Funding</div>
 							<img
-								className={SectionTag.className}
+								className={phaseDetail['govtTotal'].className}
 								src={SectionTag.svg}
 								width={SectionTag.width}
 								alt={SectionTag.altText}
