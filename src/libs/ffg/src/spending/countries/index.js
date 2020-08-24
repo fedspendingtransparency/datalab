@@ -44,6 +44,13 @@ const SpendingCountryComparison = () => {
     useEffect(() => {
         loadSourceData(CountryData);
         chartInit(spendingConfig);
+        
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', () => {
+                loadSourceData(CountryData);
+                chartInit(spendingConfig);
+            });
+        }
     }, []);
 
     return (

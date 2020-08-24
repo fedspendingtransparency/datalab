@@ -2,7 +2,7 @@ import 'src/libs/ffg/src/globalSass/chapterIntroCommon.scss';
 import 'src/libs/ffg/src/globalSass/cg.scss';
 import 'src/libs/ffg/src/revenue/intro/revenue-intro.scss';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import SEO from 'src/components/seo';
 import AfgData from 'src/libs/_data/object_mapping.yml';
 import Default from 'src/components/layouts/default/default';
@@ -16,18 +16,22 @@ import AnecdoteRevenueSVG from 'src/libs/assets/ffg/icons/anecdote-revenue.svg';
 import DefinitionSVG from 'src/libs/assets/ffg/icons/definition.svg';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import RevenueIntro from 'src/libs/ffg/src/revenue/intro/index';
+import { setFactsTrigger } from '../../../libs/ffg/src/spending/intro/compareManager';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 
 function RevenueAndGdpPage(props) {
+	useEffect(() => {
+		setFactsTrigger()
+	}, [])
 	return (
 		<>
 			<SEO
-  title="Data Lab - Federal Revenue and GDP – U.S. Treasury"
-  description="In 2019, the government collected $3.5 trillion in federal revenue"
-  excerpt="Federal revenue consists mostly of individual, corporate, and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal Year."
-  keywords={['revenue, federal revenue, U.S. revenue, gdp, receipts, income taxes, corporate taxes']}
+				title="Data Lab - Federal Revenue and GDP – U.S. Treasury"
+				description="In 2019, the government collected $3.5 trillion in federal revenue"
+				excerpt="Federal revenue consists mostly of individual, corporate, and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal Year."
+				keywords={['revenue, federal revenue, U.S. revenue, gdp, receipts, income taxes, corporate taxes']}
 			/>
 
 			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-revenue.jpg"} />
@@ -41,8 +45,8 @@ function RevenueAndGdpPage(props) {
 						<ControlBar>
 							<Share
 								location={props.location}
-  title="Data Lab - Federal Revenue and GDP – U.S. Treasury"
-  twitter="How does federal revenue compare to spending and the size of the economy? Download the .CSV data files from Your Guide to America’s Finances and perform your own analysis! #YourGuide #DataLab #OpenGov"
+								title="Data Lab - Federal Revenue and GDP – U.S. Treasury"
+								twitter="How does federal revenue compare to spending and the size of the economy? Download the .CSV data files from Your Guide to America’s Finances and perform your own analysis! #YourGuide #DataLab #OpenGov"
 							/>
 						</ControlBar>
 
