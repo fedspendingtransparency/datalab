@@ -11,7 +11,7 @@ import TabletChart from '../../../images/covid/overview/tablet-chart.svg';
 import MobileChartA from '../../../images/covid/overview/mobile-chart-a.svg';
 import MobileChartB from '../../../images/covid/overview/mobile-chart-b.svg';
 import MobileChartC from '../../../images/covid/overview/mobile-chart-c.svg';
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-21.yml'
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-24.yml'
 
 const Overview = (props) => {
   const [screenWidth, setScreenWidth] = useState(0);
