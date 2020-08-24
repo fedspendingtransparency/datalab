@@ -117,7 +117,7 @@ function RevenueAndGdpPage(props) {
 	      <div className="intro-math intro-hidden">
 		<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
 		{AfgData.dot_number_revenue.value}
-		dots x
+		{' '}dots x
 		{' '}
 		{AfgData.dot_represents.value}
 		{' '}
@@ -152,17 +152,17 @@ function RevenueAndGdpPage(props) {
 		  <section id="spending-facts" className="facts__section">
 		    <h1>
 		      In Fiscal Year
-		      {AfgData.current_fy.value}
+		      {' '}{AfgData.current_fy.value}
 		      , the federal government spent
-		      {AfgData.current_fy_spending.value}
+		      {' '}{AfgData.current_fy_spending.value}
 		      .
 		    </h1>
 		    <p>
 		      Since the government spent more than it collected, the deficit for
-		      {AfgData.current_fy.value}
+		      {' '}{AfgData.current_fy.value}
 		      {' '}
 		      was
-		      {AfgData.current_fy_deficit.value}
+		      {' '}{AfgData.current_fy_deficit.value}
 		      .
 		    </p>
 		    <p>
@@ -173,9 +173,9 @@ function RevenueAndGdpPage(props) {
 		  <section id="gdp-facts" className="facts__section">
 		    <h1>
 		      In Fiscal Year
-		      {AfgData.current_fy.value}
+		      {' '}{AfgData.current_fy.value}
 		      , federal revenue was equal to
-		      {AfgData.revenue_percent_gdp.value}
+		      {' '}{AfgData.revenue_percent_gdp.value}
 		      {' '}
 		      of total gross domestic product (GDP), or economic activity, of the United States that year (
 		      {AfgData.current_fy_gdp.value}

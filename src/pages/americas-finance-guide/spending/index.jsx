@@ -98,18 +98,18 @@ function SpendingAndGdpPage(props) {
 		  <section id="revenue-facts" className="facts__section">
 		    <h1>
 		      In Fiscal Year
-		      {AfgData.current_fy.value}
+		      {' '}{AfgData.current_fy.value}
 		      , the federal government collected
-		      {AfgData.current_fy_revenue.value}
+		      {' '}{AfgData.current_fy_revenue.value}
 		      {' '}
 		      in federal revenue.
 		    </h1>
 		    <p>
 		      Since the government spent more than it collected, the deficit for
-		      {AfgData.current_fy.value}
+		      {' '}{AfgData.current_fy.value}
 		      {' '}
 		      was
-		      {AfgData.current_fy_deficit.value}
+		      {' '}{AfgData.current_fy_deficit.value}
 		      .
 		    </p>
 		    <p>
@@ -120,9 +120,9 @@ function SpendingAndGdpPage(props) {
 		  <section id="gdp-facts" className="facts__section">
 		    <h1>
 		      In Fiscal Year
-		      {AfgData.current_fy.value}
+		      {' '}{AfgData.current_fy.value}
 		      , federal spending was equal to
-		      {AfgData.spending_percent_gdp.value}
+		      {' '}{AfgData.spending_percent_gdp.value}
 		      {' '}
 		      of the total gross domestic product (GDP), or economic activity, of the United States that year (
 		      {AfgData.current_fy_gdp.value}
@@ -131,7 +131,7 @@ function SpendingAndGdpPage(props) {
 
 		    <p>
 		      Why do we compare federal spending to gross domestic product? One reason is to give a reference point for the size of the federal government, as measured by the amount it spends. U.S. gross domestic product is much larger than government spending, because it includes all the economic activity of the entire nation. Government spending equates to roughly
-		      {AfgData.spending_proportion.value}
+		      {' '}{AfgData.spending_proportion.value}
 		      {' '}
 		      of the goods produced and services provided in the United States.
 		    </p>
