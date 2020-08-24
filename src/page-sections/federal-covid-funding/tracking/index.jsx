@@ -50,6 +50,7 @@ import Phase3LoanTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet
 import Phase35TotalTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35Total.svg';
 import Phase35GeneralTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35General.svg';
 import Phase35LoanTabletSVG from 'src/svgs/federal-covid-spending/tracking/tablet/phase35Loan.svg';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-21.yml'
 
 export default function Tracking(props) {
 
@@ -145,7 +146,7 @@ export default function Tracking(props) {
 
 	const data = useStaticQuery(graphql`
     query {
-      totalsByLaw: allCovid19ResponseModalAgencytotalbylaw20200717Csv {
+      totalsByLaw: allCovid19ResponseModalAgencytotalbylaw20200821Csv {
 				group(field: Legislation) {
           fieldValue
 					nodes {
@@ -161,7 +162,7 @@ export default function Tracking(props) {
 					}
 				}
       }
-			total: allCovid19ResponseMain20200717Csv {
+			total: allCovid19ResponseMain20200819Csv {
         nodes {
 					label: Legislation
 					Percent_Outlayed
@@ -174,7 +175,7 @@ export default function Tracking(props) {
 					Loan_Program_Account
         }
       }
-			accountsByType: allCovid19ResponseModalLoanacct20200717Csv {
+			accountsByType: allCovid19ResponseModal20200819Csv {
 				group(field: Legislation) {
           fieldValue
 					nodes {
@@ -672,7 +673,9 @@ export default function Tracking(props) {
 				</p>
 			</div>
 
-			<Downloads href="/data/federal-covid-spending/tracking/covid19_Viz_3_Data_Download_2020-07-17.csv" date="July 2020" />
+			<Downloads
+				href={`/data/federal-covid-spending/tracking/${CovidCopy.viz3csv}`}
+				date={CovidCopy.vizdates} />
 		</>
 	);
 }
