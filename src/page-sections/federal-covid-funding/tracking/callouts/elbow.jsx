@@ -51,7 +51,7 @@ export default function ElbowCallout(props) {
 	return (
 		<g className={styles.connector}>
 			<rect
-  			fill={defaults.lineColor}
+				fill={defaults.lineColor}
 				x={`${xStart}%`}
 				y="0"
 				width={defaults.lineStroke}
