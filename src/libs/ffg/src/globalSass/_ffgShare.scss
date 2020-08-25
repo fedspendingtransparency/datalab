@@ -5,6 +5,7 @@
 
     &.ffg-share--big-picture {
         max-width: 1200px;
+        margin: 0 auto;
         padding-right: 1rem;
     }
 
@@ -15,14 +16,5 @@
 
     .newpopup {
         top: 25px !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .ffg-share {
- 	&.ffg-share--big-picture {
- 	    margin-top: 2.5rem; // 40px
-	    padding-right: 0;
- 	}
     }
 }
