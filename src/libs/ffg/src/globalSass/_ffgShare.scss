@@ -18,11 +18,14 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .ffg-share {
  	&.ffg-share--big-picture {
  	    margin-top: 2.5rem; // 40px
 	    padding-right: 0;
  	}
+	.MuiGrid-container {
+	    justify-content: space-evenly;
+	}
     }
 }
