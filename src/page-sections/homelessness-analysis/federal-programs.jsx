@@ -116,7 +116,7 @@ export default function FederalPrograms(props) {
 			.attr('id', 'p2_1_map')
 			.attr('width', '100%')
 			.attr('height', '350px')
-			.attr('aria-labelledby', 'p2-map-desc')
+			.attr('aria-labelledby', 'p2_1_map')
 		;
 
 		contactPanel = d3.select('#CoCcontact')

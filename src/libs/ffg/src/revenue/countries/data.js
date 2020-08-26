@@ -77,25 +77,16 @@ export function prepareData(_config) {
     sourceData.forEach(r => {
         let curCountry = handleSpecialCharacterCountries(r.country);
 
-        let isCountryAdded = false;
-        masterData.countryList.forEach((country) => {
-            if (country.display === r.country) {
-                isCountryAdded = true;
-            }
-        })
-
-        if (!isCountryAdded) {
-            masterData.countryList.push({
-                display: r.country,
-                plainName: curCountry
-            });
-        }
+        masterData.countryList.push({
+            display: r.country,
+            plainName: curCountry
+        });
 
         masterData.indexed[r.country] = r;
 
         if (config.amountInverse) {
-            masterData.indexed[r.country][activeSortField] = 0 - r[activeSortField];
-            masterData.indexed[r.country][config.gdpField] = 0 - r[config.gdpField];
+            masterData.indexed[r.country][activeSortField] = 0 - masterData.indexed[r.country][activeSortField];
+            masterData.indexed[r.country][config.gdpField] = 0 - masterData.indexed[r.country][config.gdpField];
         }
 
         captureSources(r);

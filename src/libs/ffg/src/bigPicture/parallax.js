@@ -1,14 +1,12 @@
-if (typeof window !== 'undefined') {
-    window.addEventListener('scroll', e => {
-        const scrollY = window.pageYOffset,
-          background = document.querySelector('.bp-header__bg');
+window.addEventListener('scroll', e => {
+    const scrollY = window.pageYOffset,
+        background = document.querySelector('.bp-header__bg');
 
-        if (window.innerWidth < 800) {
-            return;
-        }
+    if (window.innerWidth < 800) {
+        return;
+    }
 
-        if (background) {
-            background.style.top = `-${scrollY * 0.3}px`;
-        }
-    });
-}
+    if(background){
+        background.style.top = `-${scrollY * 0.3}px`;
+    }
+});

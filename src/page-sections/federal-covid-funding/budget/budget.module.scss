@@ -3,30 +3,32 @@
 .chart-container {
   position: relative;
   display: flex;
-  flex-direction: column;
 
-  .phase-container {
+  .svg-container {
     display: flex;
+    flex-direction: column;
 
-    .phase-dots-container {
-      display: flex;
-			flex-direction: column;
-			align-items: center;
-      margin-top: 6px;
-
-			.line {
-				border-left: 1px solid #d8d8d8;
-				height: calc(100% - 16px);
-				margin-top: calc(10% + 8px);
-			}
+    span {
+      color: #555555;
+      font-weight: 300;
+      margin-bottom: 18px;
     }
 
-    .phase-body {
-      margin-bottom: 30px;
+    :not(span) {
+      margin-bottom: 41px;
+    }
+  }
 
-      img {
-        margin-top: 13px;
-      }
+  .purple-dot-container {
+    width: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
+
+    svg {
+      max-width: 14px;
+      margin-bottom: 6px;
     }
   }
 
@@ -137,13 +139,13 @@
 }
 
 @media (min-width: $phone) {
-  .phase-dots-container {
+  .purple-dot-container {
     margin-right: 33px;
   }
 }
 
 @media (max-width: $phone - 1) {
-  .phase-dots-container {
+  .purple-dot-container {
     margin-right: 8px;
   }
 }

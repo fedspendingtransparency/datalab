@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class='lawTotalOnly lawTotal' aria-labelledby='phase2-desc' width="310px" height="40px" viewBox="0 0 310 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+    <desc id="phase2-desc">Horizontal stacked bar chart of total budgetary resources from the Phase 2 legislation ($14B) that have been obligated and outlayed ($6B) to date.</desc>
+    <g id="Viz-3-(v2)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Viz-3---SVG-Export-Mobile" transform="translate(-37.000000, -783.000000)">
+            <g id="Group-3" transform="translate(15.000000, 128.000000)">
+                <g id="graph" transform="translate(0.000000, 148.000000)">
+                    <g id="phase-2" transform="translate(22.000000, 399.000000)">
+                        <g id="bar-1" transform="translate(0.000000, 80.000000)">
+                            <g id="03.-phase-2" transform="translate(0.000000, 28.000000)">
+                                <text id="Outlays-$849M" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="12" font-weight="500" fill="#666666">
+                                    <tspan x="106" y="17">Outlays</tspan>
+                                    <tspan x="145.648" y="17" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                                    <tspan x="106" y="32" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$849M</tspan>
+                                </text>
+                                <text id="Obligations-$5B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="12" font-weight="500" fill="#666666">
+                                    <tspan x="166" y="17">Obligations</tspan>
+                                    <tspan x="225.22" y="17" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal"></tspan>
+                                    <tspan x="166" y="32" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$5B</tspan>
+                                </text>
+                                <text id="Unobligated-$2B" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="12" font-weight="500" fill="#666666">
+                                    <tspan x="246" y="17">Unobligated</tspan>
+                                    <tspan x="246" y="32" font-family="SourceSansPro-Regular, Source Sans Pro" font-weight="normal">$2B</tspan>
+                                </text>
+                                <path d="M86,5 L80,5 C78.8954305,5 78,5.8954305 78,7 L78,33 C78,34.1045695 78.8954305,35 80,35 L86,35 L86,35" id="Line-2" stroke="#C6C6C6" stroke-linecap="round"></path>
+                                <line x1="77.5" y1="20.5" x2="60.5" y2="20.5" id="Line-4" stroke="#C6C6C6" stroke-linecap="round"></line>
+                                <rect id="unobligated" fill="#F3E9FF" x="4" y="0" width="4" height="40"></rect>
+                                <rect id="obligated" fill="#6F41A7" x="0" y="0" width="4" height="40"></rect>
+                                <text id="$14B" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="16" font-weight="bold" fill="#555555">
+                                    <tspan x="16" y="26">$14B</tspan>
+                                </text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

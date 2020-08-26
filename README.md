@@ -44,3 +44,11 @@
     ```
 
     Your site is now running at `http://localhost:9000`
+
+1.  **To Build Americas Finance Guide Assets**
+
+    From the root directory of the app run
+
+    ```sh
+    npm run webpackBuild
+    ```

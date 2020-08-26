@@ -15,7 +15,7 @@ const ToolLayout = (props) => {
   
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setColor(pageColorMap[window.location.pathname.split('/').join('')])
+      setColor(pageColorMap[window.location.pathname])
     }
   }, [props.color])
 

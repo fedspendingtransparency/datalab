@@ -53,7 +53,6 @@ export default function Treemap() {
       .attr('class', 'chart')
       .append('svg:svg')
       .attr('id', 'tree-svg')
-      .attr('aria-labelledby', 'tree-desc')
       .attr('height', `${h}`)
       .attr('viewBox', `0 0 ${w} ${h}`)
       .append('svg:g')
@@ -62,7 +61,6 @@ export default function Treemap() {
     
     d3.select('#tree-svg')
       .append('desc:desc')
-      .attr('id', 'tree-desc')
       .html('Visualization of Continuum of Care regional 2018 data such as homeless population, sheltered beds available, and median gross rent.')
 
     cluster.forEach((d) => {
