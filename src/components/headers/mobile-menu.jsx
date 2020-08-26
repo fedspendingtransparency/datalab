@@ -21,6 +21,17 @@ class MobileMenu extends React.Component {
 
   returnActiveList = data => {
     return data.map((item, i) => {
+      const matchy = /(:?api|:?fiscal)/g;
+      if (item.link.match(matchy)) {
+        return (
+          <>
+            <li className={styles.dataListLi} key={i}>
+              <a href={item.link} target="_blank" className={styles.dataListA}>{item.name}</a>
+            </li>
+            <hr className={styles.mobileHr} />
+          </>
+        );
+      }
       return (
         <>
           <li className={styles.dataListLi} key={i}>
