@@ -35,7 +35,7 @@ export default class Dropdown extends React.Component {
       if (last && key === data.length - 1) id = 'menu-last-item';
       return (
         <li key={key} className={styles.li} onKeyDown={this.menuItemKeyUp} role="none">
-          <a id={id} href={item.link} className={styles.a} role="menuitem">{item.name}</a>
+          <a id={id} href={item.link} className={styles.a} role="menuitem" aria-label={item.name}>{item.name}</a>
         </li>
       );
     });
