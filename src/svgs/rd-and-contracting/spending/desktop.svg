@@ -151,7 +151,7 @@
             <rect id="Detail-Icon" x="0" y="0" width="31.6875" height="31.6875"></rect>
           </g>
         </g>
-        <text focusable="true" tabIndex="0" id="SHOW-DETAILS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300" fill="#666666">
+        <text focusable="true" tabIndex="0" id="SHOW-DETAILS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="1rem" font-weight="300" fill="#666666">
           <tspan id="Show-Details-Text" x="43" y="17">SHOW DETAILS</tspan>
         </text>
       </g>

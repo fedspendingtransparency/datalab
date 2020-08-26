@@ -9,7 +9,7 @@
 	  cursor: pointer;
  	}
      #Graph-Title {
-        font-size: 18px;
+        font-size: 1.125rem;
         font-weight: 600;
         color: #555555;
      }
@@ -74,7 +74,7 @@
                 <tspan x="262" y="135">&lt; 1%</tspan>
             </text>
         </g>
-        <g id="Bottom-Labels" transform="translate(82.000000, 233.000000)" fill="#666666" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+        <g id="Bottom-Labels" transform="translate(82.000000, 233.000000)" fill="#666666" font-family="SourceSansPro-Light, Source Sans Pro" font-size="1rem" font-weight="300">
             <text id="DHS">
                 <tspan x="0" y="16">DHS</tspan>
             </text>
@@ -91,7 +91,7 @@
                 <tspan x="279" y="16">VA</tspan>
             </text>
         </g>
-        <g id="Right-axis" transform="translate(411.000000, 79.000000)" fill="#666666" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+        <g id="Right-axis" transform="translate(411.000000, 79.000000)" fill="#666666" font-family="SourceSansPro-Light, Source Sans Pro" font-size="1rem" font-weight="300">
             <text id="1%">
                 <tspan x="0" y="121">1%</tspan>
             </text>
@@ -102,7 +102,7 @@
                 <tspan x="0" y="16">3%</tspan>
             </text>
         </g>
-        <g id="Left-axis" transform="translate(9.000000, 53.000000)" fill="#666666" font-family="SourceSansPro-Light, Source Sans Pro" font-size="16" font-weight="300">
+        <g id="Left-axis" transform="translate(9.000000, 53.000000)" fill="#666666" font-family="SourceSansPro-Light, Source Sans Pro" font-size="1rem" font-weight="300">
             <text id="$-50-M">
                 <tspan x="8" y="165">$ 50 M</tspan>
             </text>
@@ -128,7 +128,7 @@
                 <tspan x="0" y="16">$ 400 M</tspan>
             </text>
         </g>
-        <text id="Graph-Title" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="16" font-weight="500" fill="#5A5A5A" transform="translate(-63.000000, 0.000000)">
+        <text id="Graph-Title" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="1rem" font-weight="500" fill="#5A5A5A" transform="translate(-63.000000, 0.000000)">
             <tspan x="131" y="33" font-size="22">In Focus: DHS, AID, DoEd, DOC, VA</tspan>
         </text>
         <g id="street-view-solid" transform="translate(21.000000, 13.000000)" fill="#0332FF" fill-rule="nonzero" x="0">
