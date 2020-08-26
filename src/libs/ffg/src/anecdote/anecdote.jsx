@@ -284,7 +284,7 @@ export default function AfgAnecdote() {
 
 	useEffect(() => {
 		anecdoteInit();
-	});
+	},[]);
 
 	return (
 		<>

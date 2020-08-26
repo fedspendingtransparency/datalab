@@ -41,7 +41,7 @@ export default class ReadMore extends React.Component {
 
   componentDidMount() {
     if (typeof window !== 'undefined') {
-      this.setState({ color: pageColorMap[window.location.pathname] });
+      this.setState({ color: pageColorMap[window.location.pathname.split('/').join('')] });
     }
   }
 

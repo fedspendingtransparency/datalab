@@ -11,6 +11,7 @@ import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import SpendingCategories from 'src/libs/ffg/src/spending/categories/index.js';
+import Og from '../../../../components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faSearch, faSortAlphaDown, faSortAlphaUp, faSortAmountDown, faSortAmountUp } from '@fortawesome/free-solid-svg-icons';
@@ -24,6 +25,8 @@ function SpendingCategoriesPage(props) {
                 excerpt='You can explore $4.4 trillion in spending either by category or by agency.  Curious to find out more? Dive deeper to see spending details by sub-category and other options.'
                 keywords={[`federal spending, revenue, federal revenue, U.S. spending, social security, national defense, medicare, health,  interest from debt, veteran’s benefits`]}
             />
+
+            <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />
 
             <Default>
 							<AFGHeader />
@@ -129,7 +132,7 @@ function SpendingCategoriesPage(props) {
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>
                                     <ul>
-                                        <li><a href="/americas-finance-guide/afgData/federal_spending_categories.csv" download="federal_spending_categories.csv">federal_spending_categories.csv</a></li>
+                                        <li><a href="/americas-finance-guide/data/federal_spending_categories.csv" download="federal_spending_categories.csv">federal_spending_categories.csv</a></li>
                                     </ul>
                                 </div>
                             </AccordionList>

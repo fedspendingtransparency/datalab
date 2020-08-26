@@ -13,6 +13,7 @@ import loadable from '@loadable/component';
 import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
 import Footnotes from "../../components/footnotes/footnotes"
 import { Grid } from "@material-ui/core"
+import FootnoteAnchor from "../../components/footnotes/footnote-anchor";
 
 const Geography = loadable(() => import('src/page-sections/homelessness-analysis/geography'),
   {
@@ -56,12 +57,12 @@ export default class HomelessnessPage extends Component {
           sectionTeaser: ["How individuals experiencing homelessness ", <span key='teaser-callout' className='homeless-analysis-header-callout'>are counted</span>],
           introBlurb: <div><p>People experiencing homelessness are counted once a year (in late January) by grantees who
           receive funding from the U.S Department of Housing and Urban Development's (HUD) Continuum of Care program. This program is the largest federal
-            program related to homelessness.<a id='fr1' href='#fn1' className='footnoteref'>1</a> It requires grantees to collect reliable data on the total
-            number of people experiencing homelessness who reside in the grantee's geographic area.<a id='fr2' href='#fn2' className='footnoteref'>2</a></p>
+            program related to homelessness.<a href='#fn1' className='footnoteref'><FootnoteAnchor footnoteId='fr1' />1</a> It requires grantees to collect reliable data on the total
+            number of people experiencing homelessness who reside in the grantee's geographic area.<a href='#fn2' className='footnoteref'><FootnoteAnchor footnoteId='fr2' />2</a></p>
             <p>State and local governments create the Continuum of Care regions. These regional divisions reflect how each community organizes
             itself and applies for funding from HUD's Continuum of Care program. HUD allows Continuum of
             Care grantees to use multiple approaches to complete their count, if necessary. Grantees may use a
-              census approach, a sampling approach, or a combination of the methods.<a href='#fn3' id='fr3' className='footnoteref'>3</a></p></div>,
+              census approach, a sampling approach, or a combination of the methods.<a href='#fn3' className='footnoteref'><FootnoteAnchor footnoteId='fr3' />3</a></p></div>,
           tagName: "geography",
         },
         {
@@ -77,8 +78,8 @@ export default class HomelessnessPage extends Component {
               services including education, employment, housing resources, and more.</p>
             <p>Our analysis identified 33 federal programs that explicitly flagged homeless individuals
             as beneficiaries. These included programs that named homeless individuals as primary
-              targets of services or as one of the program's target recipient groups.<a id='fr4' href='#fn4'
-                className='footnoteref'>4</a> We found that
+              targets of services or as one of the program's target recipient groups.<a href='#fn4'
+                className='footnoteref'><FootnoteAnchor footnoteId='fr4' />4</a> We found that
             programs targeting homelessness focus either on all individuals experiencing homelessness,
             or on a subset, such as veterans or youth. These programs provide various types of assistance,
             which we divided into six categories: housing, food, education, employment, health, and support
@@ -90,16 +91,16 @@ export default class HomelessnessPage extends Component {
               numerous examples show federal funding works as part of a larger network of support.
             </p>
             <p>
-              For example, the city of New York spent $3.2 billion on homelessness programs in 2019,<a id='fr5' href='#fn5' className='footnoteref'>5</a> compared with about $134
+              For example, the city of New York spent $3.2 billion on homelessness programs in 2019,<a href='#fn5' className='footnoteref'><FootnoteAnchor footnoteId='fr5' />5</a> compared with about $134
               million from federal programs (including those where homeless individuals are one of several beneficiaries).
             </p>
             <p>
-              The city of San Francisco expects to spend $305 million on similar programs in 2019,<a id='fr6' href='#fn6' className='footnoteref'>6</a> compared to the $43 million
-              they received in federal funding.<a id='fr7' href='#fn7' className='footnoteref'>7</a>
+              The city of San Francisco expects to spend $305 million on similar programs in 2019,<a href='#fn6' className='footnoteref'><FootnoteAnchor footnoteId='fr6' />6</a> compared to the $43 million
+              they received in federal funding.<a href='#fn7' className='footnoteref'><FootnoteAnchor footnoteId='fr7' />7</a>
             </p>
             <p>
               And, to cite an example of private funding, the Church of Latter Day Saints donated $42 million between 2007 and 2017 to build housing
-              in Salt Lake City for people experiencing chronic homelessness.<a id='fr8' href='#fn8' className='footnoteref'>8</a>
+              in Salt Lake City for people experiencing chronic homelessness.<a href='#fn8' className='footnoteref'><FootnoteAnchor footnoteId='fr8' />8</a>
             </p>
           </div>,
           tagName: "federalPrograms",
