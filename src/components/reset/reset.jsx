@@ -11,7 +11,7 @@ const Reset = (props) => {
   let fillColor = legacyBlue;
 
   if (typeof window !== 'undefined') {
-    fillColor = pageColorMap[window.location.pathname.split('/').join('')]
+    fillColor = pageColorMap[window.location.pathname]
   }
 
   const StyledButton = withStyles(() => ({

@@ -1,33 +1,30 @@
 (function () {
-    if (typeof window !== 'undefined') {
-        function onLinkClick(e) {
-            var target = e.srcElement,
-              targetSelector,
-              targetElement;
+    function onLinkClick(e) {
+        var target = e.srcElement,
+            targetSelector, targetElement;
 
-            if (target.nodeName !== 'A') {
-                target = target.parentElement
-            }
-
-            targetSelector = target.getAttribute("href");
-            targetElement = document.querySelector(targetSelector);
-
-            e.preventDefault();
-
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        if (target.nodeName !== 'A') {
+            target = target.parentElement
         }
 
-        function attachHandlers() {
-            const scrollToEls = document.querySelectorAll('.scroll-to');
+        targetSelector = target.getAttribute("href");
+        targetElement = document.querySelector(targetSelector);
 
-            for (let i = scrollToEls.length; i--;) {
-                scrollToEls[i].addEventListener("click", onLinkClick);
-            }
-        }
+        e.preventDefault();
 
-        attachHandlers();
+        targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
     }
+
+    function attachHandlers() {
+        const scrollToEls = document.querySelectorAll('.scroll-to');
+        
+        for(let i = scrollToEls.length; i--;){
+            scrollToEls[i].addEventListener("click", onLinkClick);
+        }
+    }
+
+    attachHandlers();
 })();

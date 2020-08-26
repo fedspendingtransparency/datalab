@@ -82,8 +82,6 @@ dc_sf_trips:
   value: 132
 debt_average_salary_type:
   value: a Public Relations Specialist
-debt_interest_rates:
-  value: https://fiscaldata.treasury.gov/datasets/average-interest-rates-treasury-securities/
 debt_gdp_high:
   value: 2019
 debt_gdp_low:

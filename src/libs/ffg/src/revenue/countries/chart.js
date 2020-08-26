@@ -10,7 +10,7 @@ import { selectedCountries } from './selectedCountryManager';
 import { createDonut } from "../donut";
 import { redrawMobile, updateMobileTableList, sortMobileTable } from './chartmobile';
 import './selectCountry.scss';
-import { setData, prepareData } from './data';
+import { setData, prepareData, setMobileData } from './data';
 import { renderSortIcon, updateIcons } from './sortIcon';
 import { pan } from './pan';
 
@@ -90,17 +90,16 @@ function addBarGroups() {
     if (!enterGroups.size()) {
         return;
     }
-
     enterGroups.append('rect')
         .attr('width', 0)
         .attr('height', dimensions.barHeight)
         .attr('x', scales.x(0))
         .attr('y', dimensions.rowHeight / 2 - dimensions.barHeight / 2)
-        .attr('fill', function(d) {
+        .attr('fill', function(d){
             return d[config.amountField] > 0 ? primaryColor : negativeColor;
         })
         .attr('fill-opacity', 0.5)
-        .attr('stroke', function(d) {
+        .attr('stroke', function(d){
             return d[config.amountField] > 0 ? primaryColor : negativeColor;
         })
         .attr('stroke-width', 1)
@@ -471,3 +470,22 @@ export function chartInit(_config) {
         redraw();
     }
 }
+
+window.addEventListener('resize', function () {
+    if (debounce) {
+        clearTimeout(debounce);
+    }
+
+    if(previousWidth === window.innerWidth){
+        return;
+    }
+
+    previousWidth = window.innerWidth;
+    setContainer();
+
+    if(isMobile()){
+        debounce = setTimeout(redrawMobile, 100, config, data);
+    } else {
+        debounce = setTimeout(redraw, 100);
+    }
+});

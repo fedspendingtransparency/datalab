@@ -205,6 +205,4 @@ export function revealCompare() {
 	}, 500);
 }
 
-export function setFactsTrigger() {
-	d3.selectAll('.facts__trigger').on('click', toggleFacts);
-}
+d3.selectAll('.facts__trigger').on('click', toggleFacts);

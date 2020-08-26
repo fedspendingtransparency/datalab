@@ -2,13 +2,14 @@ import 'src/libs/ffg/src/globalSass/cg.scss'
 import 'src/libs/ffg/src/debt/analysis/debt-analysis.scss'
 
 import React from "react"
+import { Link } from "gatsby"
 import SEO from "src/components/seo"
 import AfgData from "src/libs/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
-import Og from '../../../../components/og-tag/og';
+import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import DebtCards from "src/libs/ffg/src/debt/analysis/cards";
 
@@ -26,8 +27,6 @@ function DebtAnalysisPage(props) {
                 excerpt='Explore this section to learn more about who owns U.S. debt, how much it costs to maintain the debt, and how interest rates affect debt expenses.'
                 keywords={[`debt, national debt, federal debt, U.S.debt, interest rate, interest expense, total debt, cost of debt, cost to maintain debt, federal government’s debt, US investors, social security, Federal Reserve, China,Japan, Brazil top owners of US debt, monthly statement of the public debt, MSPD`]}
             />
-
-            <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-debt.jpg"}/>
 
             <Default>
 							  <AFGHeader />
@@ -97,7 +96,7 @@ function DebtAnalysisPage(props) {
                                   <span> as the data source for federal debt of the United States and the </span>
                                   <a href={AfgData.current_mts.value}rel="noopener noreferrer" target="_blank"> Monthly Treasury Statement (MTS)</a>
                                   <span> as the data source for federal government revenue and spending. Average interest rates on federal debt come from </span>
-                                  <a href={AfgData.debt_interest_rates.value} rel="noopener noreferrer" target="_blank">FiscalData.gov</a>.
+                                  <a href={AfgData.treasury_direct_int_rates.value} rel="noopener noreferrer" target="_blank">TreasuryDirect.gov</a>.
                                   <span> Holders of United States Treasury securities were identified using three sources: MSPD which contains detailed information on trust funds that own Treasury securities, the </span>
                                   <a href={AfgData.tic_foreign_holders.value} rel="noopener noreferrer" target="_blank">Treasury International Capital (TIC)</a>
                                   <span> System which identifies foreign holders of U.S. federal debt, and the </span>
@@ -107,9 +106,9 @@ function DebtAnalysisPage(props) {
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>
                                     <ul>
-                                        <li><a href="/americas-finance-guide/data/federal_debt_cost.csv" download="federal_debt_cost.csv">federal_debt_cost.csv</a></li>
-                                        <li><a href="/americas-finance-guide/data/federal_debt_average_int_rates.csv" download="federal_debt_average_int_rates.csv">federal_debt_average_int_rates.csv</a></li>
-                                        <li><a href="/americas-finance-guide/data/who_owns_federal_debt.csv" download="who_owns_federal_debt.csv">who_owns_federal_debt.csv</a></li>
+                                        <li><a href="/americas-finance-guide/afgData/federal_debt_cost.csv" download="federal_debt_cost.csv">federal_debt_cost.csv</a></li>
+                                        <li><a href="/americas-finance-guide/afgData/federal_debt_average_int_rates.csv" download="federal_debt_average_int_rates.csv">federal_debt_average_int_rates.csv</a></li>
+                                        <li><a href="/americas-finance-guide/afgData/who_owns_federal_debt.csv" download="who_owns_federal_debt.csv">who_owns_federal_debt.csv</a></li>
                                     </ul>
                                 </div>
                             </AccordionList>

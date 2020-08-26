@@ -8,12 +8,12 @@ h2 {
 .vizContainer {
 
 	.chartContainer {
-		img:global(.lawTotal), img:global(.spending) {
+		svg:global(.lawTotal), svg:global(.spending) {
 			margin-top: 10px;
 			margin-bottom: 30px;
 		}
 
-		img:global(.govtTotal), img:global(.lawTotalOnly), img:global(.loan) {
+		svg:global(.govtTotal), svg:global(.lawTotalOnly), svg:global(.loan) {
 			margin-top: 10px;
 			margin-bottom: 80px;
 		}
@@ -111,7 +111,7 @@ h2 {
 
 }
 
- img:global(.lawTotalOnly), img:global(.loan), img:global(.spending), img:global(.lawTotal) {
+ svg:global(.lawTotalOnly), svg:global(.loan), svg:global(.spending), svg:global(.lawTotal) {
 	&:hover {
 		cursor: pointer;
 	}
@@ -140,7 +140,6 @@ h2 {
 	a:hover {
 		text-decoration: underline;
 	}
-
 }
 
 .legendContainer {
@@ -259,21 +258,21 @@ h2 {
 }
 
 .scaleContainer {
-	display: flex;
-	justify-content: center;
-	margin-top: .5rem;
-	margin-bottom: .5rem;
-	font-weight: 600;
-	font-stretch: normal;
-	font-style: italic;
-	line-height: normal;
-	letter-spacing: normal;
-	color: #ffffff;
-	background: #666;
-	width: 240px;
-	height: 30px;
-	align-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+    background: #666;
+    width: 240px;
+    height: 30px;
+    align-content: center;
+    align-items: center;
 };
 
 .infoModalBody {
@@ -288,6 +287,7 @@ h2 {
 	.heading {
 		display: flex;
 		align-items: center;
+		font-size: 1.125rem;
 		font-weight: 600;
 	}
 
@@ -305,14 +305,6 @@ h2 {
 
 	p {
 		margin-left: 36px;
-	}
-
-	a {
-		color: #2273CE;
-
-		&:hover {
-			text-decoration: underline;
-		}
 	}
 }
 
@@ -350,12 +342,6 @@ h2 {
 			margin-right: 1.5rem;
 		}
 	}
-
-	.infoModalBody {
-		.heading {
-			font-size: 1.125rem;
-		}
-	}
 }
 
 @media (max-width: $desktop - 1) {
@@ -389,10 +375,6 @@ h2 {
 
 	.barTitle {
 		text-decoration: underline !important;
-	}
-
-	.lawSummary {
-		text-decoration: underline;
 	}
 }
 
@@ -443,6 +425,7 @@ h2 {
 
 	.lawSummary {
 		font-size: 0.75rem !important;
+		text-decoration: underline;
 	}
 
 	.barTitle {
@@ -450,23 +433,13 @@ h2 {
 	}
 
 	.chartContainer {
-		img:global(.lawTotal), img:global(.spending) {
+		svg:global(.lawTotal), svg:global(.spending) {
 			margin-top: 10px;
 			margin-bottom: 40px !important;
 		}
 
-		img:global(.govtTotal), img:global(.lawTotalOnly), img:global(.loan) {
+		svg:global(.govtTotal), svg:global(.lawTotalOnly), svg:global(.loan) {
 			margin-bottom: 60px !important;
-		}
-	}
-
-	.infoModalBody {
-		.heading {
-			font-size: 1rem;
-		}
-
-		p {
-			font-size: 0.875rem;
 		}
 	}
 }

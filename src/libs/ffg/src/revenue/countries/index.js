@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { loadSourceData } from './data';
 import { chartInit } from './chart';
 import CountryData from '../../../../assets/ffg/data/revenue_country_comparison.csv';
@@ -39,22 +38,5 @@ const incomeConfig = {
     }
 };
 
-const RevenueCountryComparison = () => {
-    useEffect(() => {
-        loadSourceData(CountryData);
-        chartInit(incomeConfig);
-
-        if (typeof window !== 'undefined') {
-            window.addEventListener('resize', () => {
-                loadSourceData(CountryData);
-                chartInit(incomeConfig);
-            });
-        }
-    }, [])
-
-    return (
-        <div id="viz" />
-    );
-}
- 
-export default RevenueCountryComparison;
+loadSourceData(CountryData);
+chartInit(incomeConfig);

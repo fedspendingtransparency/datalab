@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import '../../revenue/countries/selectCountry.scss';
 import { loadSourceData } from '../../revenue/countries/data';
 import CountryData from '../../../../assets/ffg/data/debt_country_comparison.csv';
@@ -40,23 +39,5 @@ const spendingConfig = {
     }
 };
 
-const DebtCountryComparison = () => {
-    useEffect(() => {
-        loadSourceData(CountryData);
-        chartInit(spendingConfig);
-
-        if (typeof window !== 'undefined') {
-            window.addEventListener('resize', () => {
-                loadSourceData(CountryData);
-                chartInit(spendingConfig);
-            });
-        }
-    }, [])
-
-    return (
-        <div id="viz" className="debt-country" />
-    );
-}
- 
-export default DebtCountryComparison;
-
+loadSourceData(CountryData);
+chartInit(spendingConfig);
