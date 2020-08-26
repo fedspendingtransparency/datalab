@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Grid } from '@material-ui/core';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Downloads from 'src/components/section-elements/downloads/downloads';
+import FootnoteAnchor from 'src/components/footnotes/footnote-anchor';
 
 import DesktopA from 'src/images/covid/budget/viz1ADesktop.svg';
 import DesktopB from 'src/images/covid/budget/viz1BDesktop.svg';
@@ -14,11 +14,12 @@ import MobileA from 'src/images/covid/budget/viz1AMobile.svg';
 import MobileB from 'src/images/covid/budget/viz1BMobile.svg';
 import MobileC from 'src/images/covid/budget/viz1CMobile.svg';
 import PurpleDot from 'src/svgs/federal-covid-spending/purpleDot.svg';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-24.yml'
 
 import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode';
 import styles from './budget.module.scss';
 
-// All heights and widths are based on SVG sizes
+// All widths are based on SVG sizes
 const desktopSVGs = [
   {
     img: DesktopA,
@@ -28,12 +29,12 @@ const desktopSVGs = [
   {
     img: DesktopB,
     width: 914,
-    alt: "Bar chart of the total estimated value of legislation ($3.48T), which include New Agency Funding ($2.58T) and Tax Relief ($902B).",
+    alt: "Bar chart of the total estimated value of legislation ($" + CovidCopy.legislationvalue_trill + "T), which include New Agency Funding ($" + CovidCopy.totalbudgetresources + "T) and Tax Relief ($" + CovidCopy.taxrelief_billion + "B).",
   },
   {
     img: DesktopC,
     width: 945,
-    alt: "Bar chart showing total estimated lending ($3.92T) broken down by utilized lending ($765B) and available lending ($3.15T).",
+    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillions + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavailprecise_trill + "T).",
   }
 ];
 
@@ -46,12 +47,12 @@ const mobileSVGs = [
   {
     img: MobileB,
     width: 344,
-    alt: "Bar chart of the total estimated value of legislation ($3.48T), which include New Agency Funding ($2.58T) and Tax Relief ($902B).",
+    alt: "Bar chart of the total estimated value of legislation ($" + CovidCopy.legislationvalue_trill + "T), which include New Agency Funding ($" + CovidCopy.totalbudgetresources + "T) and Tax Relief ($" + CovidCopy.taxrelief_billion + "B).",
   },
   {
     img: MobileC,
     width: 333,
-    alt: "Bar chart showing total estimated lending ($3.92T) broken down by utilized lending ($765B) and available lending ($3.15T).",
+    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillions + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavailprecise_trill + "T).",
   }
 ];
 
@@ -64,24 +65,19 @@ const tabletSVGs = [
   {
     img: TabletB,
     width: 669,
-    alt: "Bar chart of the total estimated value of legislation ($3.48T), which include New Agency Funding ($2.58T) and Tax Relief ($902B).",
+    alt: "Bar chart of the total estimated value of legislation ($" + CovidCopy.legislationvalue_trill + "T), which include New Agency Funding ($" + CovidCopy.totalbudgetresources + "T) and Tax Relief ($" + CovidCopy.taxrelief_billion + "B).",
   },
   {
     img: TabletC,
     width: 689,
-    alt: "Bar chart showing total estimated lending ($3.92T) broken down by utilized lending ($765B) and available lending ($3.15T).",
+    alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillions + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavailprecise_trill + "T).",
   }
 ];
-
-const desktopHeights = [338, 311, 325];
-const mobileHeights = [504, 446, 478];
-const tabletHeights = [338, 313, 330];
 
 export default function Budget(props) {
   const [screenMode, setScreenMode] = useState(0);
 
   const [svgs, setSvgs] = useState(mobileSVGs);
-  const [heights, setHeights] = useState(mobileHeights);
 
   if (typeof window !== 'undefined') {
     const resizeWindow = () => {
@@ -89,14 +85,11 @@ export default function Budget(props) {
       setScreenMode(newMode);
 
       if (newMode >= ScreenModeEnum.desktop) {
-	setSvgs(desktopSVGs);
-	setHeights(desktopHeights);
+        setSvgs(desktopSVGs);
       } else if (newMode === ScreenModeEnum.mobile) {
-	setSvgs(mobileSVGs);
-	setHeights(mobileHeights);
+        setSvgs(mobileSVGs);
       } else if (newMode === ScreenModeEnum.tablet) {
-	setSvgs(tabletSVGs);
-	setHeights(tabletHeights);
+        setSvgs(tabletSVGs);
       }
     };
 
@@ -109,45 +102,48 @@ export default function Budget(props) {
     }, []);
   }
 
-  const Rectangle = ({ height }) => (
-    <svg style={{ height }}>
-      <rect
-	fill='#d8d8d8'
-	x='50%'
-	width='1'
-	height={height}
-      />
-    </svg>
-  );
+  const PhaseWrapper = (props) => {
+		return (
+      <div className={styles.phaseContainer}>
+        <div className={styles.phaseDotsContainer}>
+          <PurpleDot />
+          {props.hideLine ? null :
+            <div className={styles.line}></div>}
+        </div>
+        <div className={styles.phaseBody}>
+          {props.children}
+        </div>
+      </div>
+    );
+	};
 
   const Chart = () => <>
-	                <div className={styles.purpleDotContainer}>
-	                  <PurpleDot />
-	                  <Rectangle height={heights[0]} />
-	                  <PurpleDot />
-	                  <Rectangle height={heights[1]} />
-	                  <PurpleDot />
-	                  <Rectangle height={heights[2]} />
-	                  <PurpleDot />
-	                </div>
-	                <div className={styles.svgContainer}>
-	                  <span>
-		            As of July 1, 2020, roughly <strong>$2.58 trillion in new budgetary resources</strong> have been made available for federal agencies to respond to the pandemic.  Agencies can use this funding for contracts, grants, loans, and other assistance, as well as direct payments like the Economic Impact Payments (EIP) appropriated in Phase 3.
-	                  </span>
-	                  <img src={svgs[0].img} width={svgs[0].width} alt={svgs[0].alt} />
-	                  <span>
-		            In addition to granting new agency funding, the legislation also mandated the government <strong>defer and reduce taxes to provide relief to individuals and businesses.</strong> As an example, this includes payroll tax deferrals, which means companies can postpone the deposit and payment of the employer’s share of Social Security taxes. The Congressional Budget Office (CBO) estimated the two-year impact will be over $902 billion in tax relief.
-	                  </span>
-	                  <img src={svgs[1].img} width={svgs[1].width} alt={svgs[1].alt} />
-	                  <span>
-The four laws included <strong>funding for credit, loans and loan guarantee programs, which could result in an estimated total of $3.92 trillion in total lending.</strong><a id="fr1" href="#fn1" className="footnoteref">1</a> As of July 23, 2020, $765 billion in credit, loans and loan guarantees have been reported and more than $3 trillion remain available. This includes six loan programs: the Federal Reserve's emergency lending facilities, two programs managed by the Small Business Administration, two managed by the Department of the Treasury, and one by the Department of Agriculture.
-	                  </span>
-	                  <img src={svgs[2].img} width={svgs[2].width} alt={svgs[2].alt} />
-	                  <span>
-The CARES Act and other supplemental legislation are providing financial relief in response to the pandemic through agency funding, tax deferrals, and lending. While the total impact of this legislation may not be measured until years from now, agencies are already playing a critical role by disbursing the $2.58 trillion in funding allocated through the appropriations process. Next, we look at the process of how funds are spent, from Congressional appropriations to payments to individuals and businesses.
-	                  </span>
-	                </div>
-	              </>;
+    <PhaseWrapper>
+      <span>
+        As of {CovidCopy.reportingdate}, roughly <strong>${CovidCopy.totalbudgetresources} trillion in new budgetary resources</strong> have been made available for federal agencies to respond to the pandemic.  Agencies can use this funding for contracts, grants, loans, and other assistance, as well as direct payments like the Economic Impact Payments (EIP) appropriated in Phase 3.
+      </span>
+      <img src={svgs[0].img} width={svgs[0].width} alt={svgs[0].alt} />
+    </PhaseWrapper>
+    <PhaseWrapper>
+      <span>
+        In addition to granting new agency funding, the legislation also mandated the government <strong>defer and reduce taxes to provide relief to individuals and businesses.</strong> As an example, this includes payroll tax deferrals, which means companies can postpone the deposit and payment of the employer’s share of Social Security taxes. The Congressional Budget Office (CBO) estimated the two-year impact will be over ${CovidCopy.taxrelief_billion} billion in tax relief.
+      </span>
+      <img src={svgs[1].img} width={svgs[1].width} alt={svgs[1].alt} />
+    </PhaseWrapper>
+    <PhaseWrapper>
+      <span>
+        The four laws included <strong>funding for credit, loans and loan guarantee programs, which could result in an estimated total of ${CovidCopy.totcredit_trillions} trillion in total lending.</strong><a href="#fn1" className="footnoteref"><FootnoteAnchor footnoteId="fr1" />1</a> As of {CovidCopy.reportingdate}, ${CovidCopy.creditused_bill} billion in credit, loans and loan guarantees have been reported and more than ${CovidCopy.creditavail_trill} trillion remain available. This includes the Federal Reserve’s emergency lending facilities, which have reported ${CovidCopy.frbused_bill} billion utilized out of ${CovidCopy.frbavail_trill} trillion in potential credit.
+
+        {/*This includes six loan programs: the Federal Reserve's emergency lending facilities, two programs managed by the Small Business Administration, two managed by the Department of the Treasury, and one by the Department of Agriculture.*/}
+      </span>
+      <img src={svgs[2].img} width={svgs[2].width} alt={svgs[2].alt} />
+    </PhaseWrapper>
+    <PhaseWrapper hideLine>
+      <span>
+        The CARES Act and other supplemental legislation are providing financial relief in response to the pandemic through agency funding, tax deferrals, and lending. While the total impact of this legislation may not be measured until years from now, agencies are already playing a critical role by disbursing the ${CovidCopy.totalbudgetresources} trillion in funding allocated through the appropriations process. Next, we look at the process of how funds are spent, from Congressional appropriations to payments to individuals and businesses.
+      </span>
+    </PhaseWrapper>
+  </>;
 
   const Header = () => (screenMode >= ScreenModeEnum.tablet)
 	?
@@ -166,11 +162,11 @@ The CARES Act and other supplemental legislation are providing financial relief 
     <h2 className={styles.vizTitle}>{props.section.viztitle}</h2>
     <ControlBar alignRightOnMobile>
       <Share
-	siteUrl={props.location.origin}
-	pageUrl={`${props.location.pathname}#${props.sectionId}`}
-	title="Data Lab - COVID-19 tracking stuff - U.S. Treasury"
-	text="Interested in learning about #COVID19 supplemental funding? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-funding/"
-	hoverColor="#1302d9"
+        siteUrl={props.location.origin}
+        pageUrl={`${props.location.pathname}#${props.sectionId}`}
+        title="Data Lab - COVID-19 tracking stuff - U.S. Treasury"
+        text="Interested in learning about #COVID19 supplemental funding? Head over to #DataLab to view our newest analysis, The Federal Response to COVID-19. #OpenData #Transparency http://datalab.usaspending.gov/federal-covid-funding/"
+        hoverColor="#1302d9"
       />
     </ControlBar>
   </>;
@@ -179,13 +175,13 @@ The CARES Act and other supplemental legislation are providing financial relief 
     <>
       <Header />
       <div className={styles.chartContainer}>
-	<Chart />
+        <Chart />
       </div>
       <Downloads
-	href="/data/federal-covid-spending/budget/covid19_Viz_1_Data_Download_2020_07_30.csv"
-	date="July 2020"
-	mobileSpace
-	justify={screenMode <= ScreenModeEnum.tablet ? "center" : ""}
+        href={"/data/federal-covid-spending/budget/" + CovidCopy.viz1csv}
+        date={CovidCopy.vizdates}
+        mobileSpace
+        justify={screenMode <= ScreenModeEnum.tablet ? "center" : ""}
       />
     </>
   );

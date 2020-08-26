@@ -41,7 +41,7 @@ export default class Share extends Component {
 
   componentDidMount() {
     if (typeof window !== 'undefined') {
-      this.setState({ fillColor: pageColorMap[window.location.pathname] })
+      this.setState({ fillColor: pageColorMap[window.location.pathname.split('/').join('')] })
     }
   }
 

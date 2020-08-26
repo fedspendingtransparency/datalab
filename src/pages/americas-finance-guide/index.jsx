@@ -1,8 +1,9 @@
 import '../../libs/ffg/src/globalSass/cg.scss';
 import '../../libs/ffg/src/bigPicture/scss/bp.scss';
 
-import React from "react";
+import React, { useEffect } from "react";
 import SEO from "../../components/seo";
+import Og from '../../components/og-tag/og';
 import AfgData from "../../libs/_data/object_mapping.yml";
 import Default from "../../components/layouts/default/default";
 import AccordionList from '../../components/accordion-list/accordion-list';
@@ -11,18 +12,22 @@ import Share from '../../components/share/share';
 import { Helmet } from 'react-helmet';
 import BpToc from '../../components/bpToc/bpToc';
 import AfgAnecdote from '../../libs/ffg/src/anecdote/anecdote';
-
+// import ffgOverviewImg from '../../images/ffg/social-media-share-overview.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleDown, faStreetView } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from '../../components/headers/headers';
 
-function OverviewPage(props) {
+import 'src/libs/ffg/src/bigPicture/parallax';
+import 'src/libs/ffg/src/bigPicture/scrollTo';
+import smoothscroll from 'smoothscroll-polyfill';
+
+export default function OverviewPage(props) {
+  useEffect(() => {
+    smoothscroll.polyfill();
+  }, []);
+
   return (
     <>
-      <Helmet>
-        <script defer src="/americas-finance-guide/index.js"></script>
-      </Helmet>
-
       <SEO
         title=' Data Lab - Your Guide to America’s Finances – U.S. Treasury'
         description='Explore U.S. revenue, spending, deficit, and debt with Your Guide to America’s Finances, an accessible and open-source guide to federal finances.'
@@ -30,8 +35,10 @@ function OverviewPage(props) {
         keywords={[`federal, revenue, federal income, federal taxes, federal spending, deficit, debt`]}
       />
 
+      <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-overview.jpg"}/>
+
       <Default>
-	<AFGHeader />
+        <AFGHeader />
         <div className="cg-wrapper bp-wrapper">
           <header>
             <div className="bp-header">
@@ -58,7 +65,7 @@ function OverviewPage(props) {
                 </div>
               </div>
               <div className="bp-header__scroll scroll-to">
-                <a href="#revenue-chapter" aria-label="Scroll to revenue chapter"><FontAwesomeIcon icon={faAngleDown} width={20} className="fa fa-chevron-down"/></a>
+                <a href="#revenue-chapter" aria-label="Scroll to revenue chapter"><FontAwesomeIcon icon={faAngleDown} width={20} className="fa fa-chevron-down" /></a>
               </div>
             </div>
           </header>
@@ -77,7 +84,7 @@ function OverviewPage(props) {
                     {/* <!-- controls --> */}
                     <div className="anecdote__controls">
                       <button className="anecdote__trigger">
-                        <FontAwesomeIcon icon={faStreetView} width={11} className="fas fa-street-view"/> <span className="anecdote__teaser"> Show me what {AfgData.current_fy_revenue_short.value} is equal to</span>
+                        <FontAwesomeIcon icon={faStreetView} width={11} className="fas fa-street-view" /> <span className="anecdote__teaser"> Show me what {AfgData.current_fy_revenue_short.value} is equal to</span>
                       </button>
                     </div>
 
@@ -115,7 +122,7 @@ function OverviewPage(props) {
                         </div>
                         <div className="anecdote__nav-control"></div>
                       </div>
-                      <a href="/americas-finance-guide/revenue/" className="anecdote__cta link-button">Go Explore Revenue <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right"/></a>
+                      <a href="/americas-finance-guide/revenue/" className="anecdote__cta link-button">Go Explore Revenue <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right" /></a>
                     </div>
                   </section>
 
@@ -135,7 +142,7 @@ function OverviewPage(props) {
                       <div className="link-button__text--bottom cg-learn-more-button-text">Federal Revenue</div>
                     </div>
                     <div className="link-button__icon--block">
-                      <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right cg-learn-more-button-text"/>
+                      <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right cg-learn-more-button-text" />
                     </div>
                   </a>
                 </div>
@@ -164,7 +171,7 @@ function OverviewPage(props) {
                     {/* <!-- controls --> */}
                     <div className="anecdote__controls">
                       <button className="anecdote__trigger">
-                        <FontAwesomeIcon icon={faStreetView} width={11} className="fas fa-street-view"/>
+                        <FontAwesomeIcon icon={faStreetView} width={11} className="fas fa-street-view" />
                         <span className="anecdote__teaser"> Show me what {AfgData.current_fy_spending_short.value} is equal to</span></button>
                     </div>
 
@@ -201,7 +208,7 @@ function OverviewPage(props) {
                         </div>
                         <div className="anecdote__nav-control"></div>
                       </div>
-                      <a href="/americas-finance-guide/spending/" className="anecdote__cta link-button" >Go Explore Spending <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right"/></a>
+                      <a href="/americas-finance-guide/spending/" className="anecdote__cta link-button" >Go Explore Spending <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right" /></a>
                     </div>
                   </section>
 
@@ -221,7 +228,7 @@ function OverviewPage(props) {
                       <div className="link-button__text--bottom cg-learn-more-button-text">Federal Spending</div>
                     </div>
                     <div className="link-button__icon--block">
-                      <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right cg-learn-more-button-text"/>
+                      <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right cg-learn-more-button-text" />
                     </div>
                   </a>
                 </div>
@@ -238,7 +245,7 @@ function OverviewPage(props) {
               How did federal revenue and spending affect the <span className="chapter__divider--text-deficit">deficit</span> and federal <span className="chapter__divider--text-debt">debt</span> in {AfgData.current_fy.value}?
             </h1>
             <div className="deficit-debt-heading__arrow-container scroll-to">
-              <a href="#deficit-chapter" aria-label="Scroll to deficit chapter"><FontAwesomeIcon icon={faAngleDown} width={11} className="fa fa-angle-down"/></a>
+              <a href="#deficit-chapter" aria-label="Scroll to deficit chapter"><FontAwesomeIcon icon={faAngleDown} width={11} className="fa fa-angle-down" /></a>
             </div>
           </section>
 
@@ -257,7 +264,7 @@ function OverviewPage(props) {
                     {/* <!-- controls --> */}
                     <div className="anecdote__controls">
                       <button className="anecdote__trigger">
-                        <FontAwesomeIcon icon={faStreetView} width={11} className="fas fa-street-view"/>
+                        <FontAwesomeIcon icon={faStreetView} width={11} className="fas fa-street-view" />
                         <span className="anecdote__teaser"> Show me what {AfgData.current_fy_deficit_short.value} is equal to</span></button>
                     </div>
 
@@ -289,7 +296,7 @@ function OverviewPage(props) {
                         <div className="anecdote__nav-control"></div>
                       </div>
                       <a href="/americas-finance-guide/deficit/" className="anecdote__cta link-button">Go Explore Deficit
-                        <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right"/></a>
+                        <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right" /></a>
                     </div>
                   </section>
 
@@ -309,7 +316,7 @@ function OverviewPage(props) {
                       <div className="link-button__text--bottom cg-learn-more-button-text">Federal Deficit</div>
                     </div>
                     <div className="link-button__icon--block">
-                      <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right cg-learn-more-button-text"/>
+                      <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right cg-learn-more-button-text" />
                     </div>
                   </a>
                 </div>
@@ -338,7 +345,7 @@ function OverviewPage(props) {
                     {/* <!-- controls --> */}
                     <div className="anecdote__controls">
                       <button className="anecdote__trigger">
-                        <FontAwesomeIcon icon={faStreetView} width={11} className="fas fa-street-view"/>
+                        <FontAwesomeIcon icon={faStreetView} width={11} className="fas fa-street-view" />
                         <span className="anecdote__teaser"> Show me what {AfgData.current_fy_debt_short.value} is equal to</span></button>
                     </div>
 
@@ -360,14 +367,14 @@ function OverviewPage(props) {
                               <p>{AfgData.current_fy_debt.value} equates to a little less than <strong>{AfgData.debt_per_individual.value}</strong> per individual in the U.S.</p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-3-outline.svg" alt=""></img>
                               <p>That is equal to the <strong>average salary of {AfgData.debt_average_salary_type.value}</strong>.</p>
-                              <p className="source">Source - <a href={AfgData.bls_occ_employment .value} rel="noopener noreferrer" target="_blank">Bureau of Labor Statistics</a> & <a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                              <p className="source">Source - <a href={AfgData.bls_occ_employment.value} rel="noopener noreferrer" target="_blank">Bureau of Labor Statistics</a> & <a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
                             </div>
                           </div>
                         </div>
                         <div className="anecdote__nav-control"></div>
                       </div>
                       <a href="/americas-finance-guide/debt/" className="anecdote__cta link-button">Go Explore Debt
-                        <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right"/></a>
+                        <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right" /></a>
                     </div>
                   </section>
 
@@ -388,7 +395,7 @@ function OverviewPage(props) {
                       <div className="link-button__text--bottom cg-learn-more-button-text">Federal Debt</div>
                     </div>
                     <div className="link-button__icon--block">
-                      <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right cg-learn-more-button-text"/>
+                      <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right cg-learn-more-button-text" />
                     </div>
                   </a>
                 </div>
@@ -402,15 +409,15 @@ function OverviewPage(props) {
 
           <section className="hwcta">
             <AccordionList title="Data Sources and Methodology">
-              <p>This analysis was conducted using the <a href={AfgData.mts_homepage.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue and spending of the United States and the <a href={AfgData.mspd_homepage.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source for federal debt.</p>
-              <p>U.S. Census Bureau data was used for <a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">population</a> and <a href={AfgData.census_household.value} rel="noopener noreferrer" target="_blank">household</a> estimates. Median home price estimates are also provided by the U.S. Census Bureau. Rent estimates come from the <a href={AfgData.hud_median_rent.value} rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development (HUD)</a>. The Bureau of Labor Statistics (BLS) <a href={AfgData.bls_occ_employment.value} rel="noopener noreferrer" target="_blank">Occupational Employment Statistics</a> was used for wage estimates. Information on the amount of credit card debt added by Americans comes from the Federal Reserve Bank of New York’s <a href={AfgData.frbny_microecon.value} rel="noopener noreferrer" target="_blank">Center for Microeconomic Data</a>. The annual 10-K reports of the top S&P 500 companies were compiled in order to find the equivalent revenue from companies to match the federal government’s revenue for the year. The <a href={AfgData.artba_road_cost.value} rel="noopener noreferrer" target="_blank">American Road and Transportation Builders Association</a> provides information about the cost of building new roads derived from the cost models of different states.</p>
+              <p>This analysis was conducted using the <a href={AfgData.mts_homepage.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue and spending of the United States and the <a href={AfgData.mspd_homepage.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source for federal debt.</p>
+              <p>U.S. Census Bureau data was used for <a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">population</a> and <a href={AfgData.census_household.value} rel="noopener noreferrer" target="_blank">household</a> estimates. Median home price estimates are also provided by the U.S. Census Bureau. Rent estimates come from the <a href={AfgData.hud_median_rent.value} rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development (HUD)</a>. The Bureau of Labor Statistics (BLS) <a href={AfgData.bls_occ_employment.value} rel="noopener noreferrer" target="_blank">Occupational Employment Statistics</a> was used for wage estimates. Information on the amount of credit card debt added by Americans comes from the Federal Reserve Bank of New York’s <a href={AfgData.frbny_microecon.value} rel="noopener noreferrer" target="_blank">Center for Microeconomic Data</a>. The annual 10-K reports of the top S&P 500 companies were compiled in order to find the equivalent revenue from companies to match the federal government’s revenue for the year. The <a href={AfgData.artba_road_cost.value} rel="noopener noreferrer" target="_blank">American Road and Transportation Builders Association</a> provides information about the cost of building new roads derived from the cost models of different states.</p>
               <div className="afg__download--div">
                 <div className="afg__download--heading">Download Source Data</div>
                 <ul>
-                  <li><a href="/americas-finance-guide/afgData/overview_federal_revenue.csv" download="overview_federal_revenue.csv">overview_federal_revenue.csv</a></li>
-                  <li><a href="/americas-finance-guide/afgData/overview_federal_spending.csv" download="overview_federal_spending.csv">overview_federal_spending.csv</a></li>
-                  <li><a href="/americas-finance-guide/afgData/overview_federal_deficit.csv" download="overview_federal_deficit.csv">overview_federal_deficit.csv</a></li>
-                  <li><a href="/americas-finance-guide/afgData/overview_federal_debt.csv" download="overview_federal_debt.csv">overview_federal_debt.csv</a></li>
+                  <li><a href="/americas-finance-guide/data/overview_federal_revenue.csv" download="overview_federal_revenue.csv">overview_federal_revenue.csv</a></li>
+                  <li><a href="/americas-finance-guide/data/overview_federal_spending.csv" download="overview_federal_spending.csv">overview_federal_spending.csv</a></li>
+                  <li><a href="/americas-finance-guide/data/overview_federal_deficit.csv" download="overview_federal_deficit.csv">overview_federal_deficit.csv</a></li>
+                  <li><a href="/americas-finance-guide/data/overview_federal_debt.csv" download="overview_federal_debt.csv">overview_federal_debt.csv</a></li>
                 </ul>
               </div>
             </AccordionList>
@@ -419,7 +426,7 @@ function OverviewPage(props) {
           <div className="historical-quote">
             <blockquote>We might hope to see the finances of the Union as <strong>clear and intelligible as a merchant's books</strong>, so that every member of Congress, and <strong>every person</strong> of any mind in the Union should be able to <strong>comprehend them</strong>, to investigate abuses, and consequently to control them.</blockquote>
             <img role="presentation" className="historical-quote__image" src="/americas-finance-guide/images/jefferson.png" alt=""></img>
-            <p className="historical-quote__credit"><strong>Thomas Jefferson</strong> to Albert Gallatin, 1802<br/>(edited)</p>
+            <p className="historical-quote__credit"><strong>Thomas Jefferson</strong> to Albert Gallatin, 1802<br />(edited)</p>
           </div>
 
           <div className="about-us">
@@ -430,9 +437,8 @@ function OverviewPage(props) {
           </div>
         </div>
       </Default>
-      <AfgAnecdote/>
+      <AfgAnecdote />
     </>
   )
 }
 
-export default OverviewPage
