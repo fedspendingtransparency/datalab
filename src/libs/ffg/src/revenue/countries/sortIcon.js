@@ -4,20 +4,20 @@ import { getActiveSort } from './data';
 import { transition } from 'd3-transition';
 import colors from '../../globalSass/colors.scss';
 
-const d3 = { select },
-    iconHeight = 16,
-    triangleWidthHalf = 4,
-    triangleTop = iconHeight - triangleWidthHalf - 2,
-    lineLengths = [8, 6, 4, 2],
-    lineLengthsAsc = lineLengths.slice().reverse(),
-    lineStart = triangleWidthHalf * 2 + 2,
-    lineYOffset = 4,
-    sortIcons = {},
-    colorFade = 300,
-    barAnimation = 400,
-    colorInactive = '#ddd';
+const d3 = { select };
+const iconHeight = 16;
+const triangleWidthHalf = 4;
+const triangleTop = iconHeight - triangleWidthHalf - 2;
+const lineLengths = [8, 6, 4, 2];
+const lineLengthsAsc = lineLengths.slice().reverse();
+const lineStart = triangleWidthHalf * 2 + 2;
+const lineYOffset = 4;
+const sortIcons = {};
+const colorFade = 300;
+const barAnimation = 400;
+const colorInactive = '#ddd';
 
-let colorPrimary, legendIconExists;
+let colorPrimary;
 
 function setIconColor(k) {
     const activeSort = this;
@@ -66,8 +66,6 @@ function setSortDirection(k) {
 function addIconToLegend() {
     const placeholder = d3.select('.sort-button-placeholder');
 
-    legendIconExists = true;
-
     renderSortIcon(placeholder, 'legend', colorPrimary);
 
     placeholder.selectAll('line').attr('stroke', colorPrimary);
@@ -87,10 +85,10 @@ export function updateIcons() {
 }
 
 export function renderSortIcon(container, legend, color) {
-    const parent = (legend) ? container.append('svg').attr('width', 18).attr('height', 16) : d3.select(container),
-        parentBox = (legend) ? null : getElementBox(parent),
-        sortType = parent.attr('data-type'),
-        iconGroup = parent.append('g');
+    const parent = (legend) ? container.append('svg').attr('width', 18).attr('height', 16) : d3.select(container);
+    const parentBox = (legend) ? null : getElementBox(parent);
+    const sortType = parent.attr('data-type');
+    const iconGroup = parent.append('g');
 
     colorPrimary = color;
 
@@ -135,9 +133,5 @@ export function renderSortIcon(container, legend, color) {
 
     if (!legend) {
         sortIcons[sortType] = iconGroup;
-    }
-
-    if (!legendIconExists) {
-        addIconToLegend();
     }
 }

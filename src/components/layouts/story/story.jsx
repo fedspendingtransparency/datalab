@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Default from '../default/default';
 import { Grid } from '@material-ui/core';
-import HwctaLink from '../../hwcta-link/hwcta-link';
+import HWCTALink from '../../hwcta-link/hwcta-link';
 import MoreAnalyses from '../../more-analyses/more-analyses';
 import { StorypageHeader } from '../../headers/headers';
 import Toc from '../../toc/toc';
@@ -39,7 +39,7 @@ const StoryLayout = (props) => {
   
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setColor(pageColorMap[window.location.pathname])
+      setColor(pageColorMap[window.location.pathname.split('/').join('')])
     }
   }, [props.color])
 
@@ -51,7 +51,7 @@ const StoryLayout = (props) => {
       {props.children}
 
       <div className={styles.hwcta}>
-        <HwctaLink
+        <HWCTALink
           url={props.hwctaLink || '#'}
           fillColor={color}
         />
