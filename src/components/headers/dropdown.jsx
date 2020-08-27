@@ -34,8 +34,8 @@ export default class Dropdown extends React.Component {
       if (first && key === 0) id = 'menu-first-item';
       if (last && key === data.length - 1) id = 'menu-last-item';
       return (
-        <li key={key} className={styles.li} onKeyDown={this.menuItemKeyUp}>
-          <a id={id} href={item.link} className={styles.a}>{item.name}</a>
+        <li key={key} className={styles.li} onKeyDown={this.menuItemKeyUp} role="none">
+          <a id={id} href={item.link} className={styles.a} role="menuitem" aria-label={item.name}>{item.name}</a>
         </li>
       );
     });
@@ -53,15 +53,15 @@ export default class Dropdown extends React.Component {
           <div className={styles.dataList} onMouseLeave={this.props.mouseHandle} onKeyUp={this.menuKeyUp}>
             <section className={`${styles.section} ${styles.analyses}`}>
               <h4 className={styles.sectionTitle}>Topical Analyses</h4>
-              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(0, 4), true)}</ul>
+              <ul className={`${styles.ul} ${styles.ulAnalyses}`} role="menubar" aria-label="Topical Analyses">{this.returnActiveList(this.state.data[0].analyses.slice(0, 4), true)}</ul>
             </section>
             <section className={`${styles.section} ${styles.analyses}`}>
               <h4 className={styles.sectionTitle}>Contract Analyses</h4>
-              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(4, 6))}</ul>
+              <ul className={`${styles.ul} ${styles.ulAnalyses}`} role="menubar" aria-label="Contract Analyses">{this.returnActiveList(this.state.data[0].analyses.slice(4, 6))}</ul>
             </section>
             <section className={`${styles.section} ${styles.analyses}`}>
               <h4 className={styles.sectionTitle}>Financial Data Visualizations</h4>
-              <ul className={`${styles.ul} ${styles.ulAnalyses}`}>{this.returnActiveList(this.state.data[0].analyses.slice(6, 9), false, true)}</ul>
+              <ul className={`${styles.ul} ${styles.ulAnalyses}`} role="menubar" aria-label="Financial Data Visualizations">{this.returnActiveList(this.state.data[0].analyses.slice(6, 9), false, true)}</ul>
             </section>
           </div>
         }
@@ -78,23 +78,23 @@ export default class Dropdown extends React.Component {
           <div className={styles.dataList} onMouseLeave={this.props.mouseHandle} onKeyUp={this.menuKeyUp}>
             <section className={styles.section}>
               <h4 className={styles.sectionTitle}>Overview</h4>
-              <ul className={styles.ulFfg}>{this.returnActiveList(this.state.data[2].ffg.slice(0, 1), true)}</ul>
+              <ul className={styles.ulFfg} role="menubar" aria-label="Overview">{this.returnActiveList(this.state.data[2].ffg.slice(0, 1), true)}</ul>
             </section>
             <section className={styles.section}>
               <h4 className={styles.sectionTitle}>Revenue</h4>
-              <ul className={styles.ulFfg}>{this.returnActiveList(this.state.data[2].ffg.slice(1, 5))}</ul>
+              <ul className={styles.ulFfg} role="menubar" aria-label="Revenue">{this.returnActiveList(this.state.data[2].ffg.slice(1, 5))}</ul>
             </section>
             <section className={styles.section}>
               <h4 className={styles.sectionTitle}>Spending</h4>
-              <ul className={styles.ulFfg}>{this.returnActiveList(this.state.data[2].ffg.slice(5, 9))}</ul>
+              <ul className={styles.ulFfg} role="menubar" aria-label="Spending">{this.returnActiveList(this.state.data[2].ffg.slice(5, 9))}</ul>
             </section>
             <section className={styles.section}>
               <h4 className={styles.sectionTitle}>Deficit</h4>
-              <ul className={styles.ulFfg}>{this.returnActiveList(this.state.data[2].ffg.slice(9, 12))}</ul>
+              <ul className={styles.ulFfg} role="menubar" aria-label="Deficit">{this.returnActiveList(this.state.data[2].ffg.slice(9, 12))}</ul>
             </section>
             <section className={styles.section}>
               <h4 className={styles.sectionTitle}>Debt</h4>
-              <ul className={styles.ulFfg}>{this.returnActiveList(this.state.data[2].ffg.slice(12, 16), false, true)}</ul>
+              <ul className={styles.ulFfg} role="menubar" aria-label="Debt">{this.returnActiveList(this.state.data[2].ffg.slice(12, 16), false, true)}</ul>
             </section>
           </div>
         }
