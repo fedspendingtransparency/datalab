@@ -1,7 +1,7 @@
 {
   "name": "datalab-gatsby",
   "version": "1.0.0",
-  "description": "The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending.",
+  "description": "The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending. ",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
@@ -17,6 +17,10 @@
     "check-outdated": "^2.3.2",
     "classnames": "^2.2.6",
     "csv-loader": "^3.0.3",
+    "d3-axis": "^2.0.0",
+    "d3-brush": "^2.0.0",
+    "d3-dispatch": "^2.0.0",
+    "d3-interpolate": "^2.0.1",
     "d3-scale": "^3.2.1",
     "d3-selection": "^1.4.1",
     "d3-tip": "^0.9.1",
@@ -24,6 +28,7 @@
     "d3-zoom": "^1.8.3",
     "d3v3": "npm:d3@^3.0.0",
     "d3v4": "npm:d3@^4.0.0",
+    "d3v5": "npm:d3@^5.0.0",
     "dotenv": "^8.1.0",
     "flexboxgrid": "^6.3.1",
     "gatsby": "^2.18.17",
@@ -95,8 +100,7 @@
     "serve": "gatsby serve",
     "test": "jest",
     "coverage": "jest --coverage",
-    "check-outdated": "check-outdated",
-    "webpackBuild": "webpack"
+    "check-outdated": "check-outdated"
   },
   "repository": {
     "type": "git",

@@ -11,11 +11,14 @@ export default function formatNumber(type, number, sig = 2) {
   function customRounding(num) {
   	let value = formatDollarsText(Math.round(num));
 
+    const subvalue = value.substring(0, value.length - 1);
+    if (subvalue === "0.0" || subvalue === '00') {
+      return '0';
+    }
+
     // If trillions, always use the requested significant figures
     if (value.indexOf("T") > -1) {
-      return value === "0.0"
-        ? "0"
-        : value
+      return value;
     }
 
     /*

@@ -14,28 +14,29 @@ import {createDonut} from "../donut";
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition, range }
 
 const mobileDimensions = {
-        minChartWidth: 320,
-        totalHeight : 0,
-        minRowHeight: 60,
-        rowHeight: 50,
-        barHeight: 16,
-        countryColumnWidth: 220,
-        gdpColumnWidth: 100,
-        header: 50,
-        barYOffset: 3
-    },
-    donutOffset = 5,
-    donutRadius = mobileDimensions.rowHeight / 2 - donutOffset,
-    scales = {
-        x : 0
-    },
-    scrollbarWidth = 20,
-    addRemoveDuration = 1000,
-    barFadeTime = 1000,
-    fontSize = parseFloat(getComputedStyle(document.body).fontSize),
-    maskClass = 'drop-shadow-mask';
+    minChartWidth: 320,
+    totalHeight : 0,
+    minRowHeight: 60,
+    rowHeight: 50,
+    barHeight: 16,
+    countryColumnWidth: 220,
+    gdpColumnWidth: 100,
+    header: 50,
+    barYOffset: 3
+};
+const donutOffset = 5;
+const donutRadius = mobileDimensions.rowHeight / 2 - donutOffset;
+const scales = {
+    x : 0
+};
+const scrollbarWidth = 20;
+const addRemoveDuration = 1000;
+const barFadeTime = 1000;
+const maskClass = 'drop-shadow-mask';
 
-let config, data, svg, primaryColor, negativeColor, legendEl;
+let config, data, svg, primaryColor, negativeColor, legendEl, fontSize;
+
+if (typeof window !== 'undefined') fontSize = parseFloat(getComputedStyle(document.body).fontSize);
 
 function buildCountryBoxDropShadow(dataLength) {
     const dropShadow = svg.select('.drop-shadow-base');

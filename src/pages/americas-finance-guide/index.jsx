@@ -1,7 +1,7 @@
 import '../../libs/ffg/src/globalSass/cg.scss';
 import '../../libs/ffg/src/bigPicture/scss/bp.scss';
 
-import React from "react";
+import React, { useEffect } from "react";
 import SEO from "../../components/seo";
 import Og from '../../components/og-tag/og';
 import AfgData from "../../libs/_data/object_mapping.yml";
@@ -17,14 +17,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleDown, faStreetView } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from '../../components/headers/headers';
 
+import 'src/libs/ffg/src/bigPicture/parallax';
+import 'src/libs/ffg/src/bigPicture/scrollTo';
+import smoothscroll from 'smoothscroll-polyfill';
+
 export default function OverviewPage(props) {
+  useEffect(() => {
+    smoothscroll.polyfill();
+  }, []);
+
   return (
     <>
-
-      <Helmet>
-        <script defer src="/americas-finance-guide/index.js"></script>
-      </Helmet>
-
       <SEO
         title=' Data Lab - Your Guide to America’s Finances – U.S. Treasury'
         description='Explore U.S. revenue, spending, deficit, and debt with Your Guide to America’s Finances, an accessible and open-source guide to federal finances.'
@@ -411,10 +414,10 @@ export default function OverviewPage(props) {
               <div className="afg__download--div">
                 <div className="afg__download--heading">Download Source Data</div>
                 <ul>
-                  <li><a href="/americas-finance-guide/afgData/overview_federal_revenue.csv" download="overview_federal_revenue.csv">overview_federal_revenue.csv</a></li>
-                  <li><a href="/americas-finance-guide/afgData/overview_federal_spending.csv" download="overview_federal_spending.csv">overview_federal_spending.csv</a></li>
-                  <li><a href="/americas-finance-guide/afgData/overview_federal_deficit.csv" download="overview_federal_deficit.csv">overview_federal_deficit.csv</a></li>
-                  <li><a href="/americas-finance-guide/afgData/overview_federal_debt.csv" download="overview_federal_debt.csv">overview_federal_debt.csv</a></li>
+                  <li><a href="/americas-finance-guide/data/overview_federal_revenue.csv" download="overview_federal_revenue.csv">overview_federal_revenue.csv</a></li>
+                  <li><a href="/americas-finance-guide/data/overview_federal_spending.csv" download="overview_federal_spending.csv">overview_federal_spending.csv</a></li>
+                  <li><a href="/americas-finance-guide/data/overview_federal_deficit.csv" download="overview_federal_deficit.csv">overview_federal_deficit.csv</a></li>
+                  <li><a href="/americas-finance-guide/data/overview_federal_debt.csv" download="overview_federal_debt.csv">overview_federal_debt.csv</a></li>
                 </ul>
               </div>
             </AccordionList>

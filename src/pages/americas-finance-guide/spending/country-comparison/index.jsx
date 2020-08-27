@@ -9,9 +9,9 @@ import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
-import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import Og from '../../../../components/og-tag/og';
+import SpendingCountryComparison from '../../../../libs/ffg/src/spending/countries';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -20,24 +20,16 @@ import { AFGHeader } from '../../../../components/headers/headers';
 function SpendingCountryComparisonPage(props) {
     return (
         <>
-
-            <Helmet>
-                <script defer src="/americas-finance-guide/spending/countryComparison.js"></script>
-            </Helmet>
-
             <SEO
                 title='Data Lab - Spending Country Comparison – U.S. Treasury'
                 description='Compare federal spending of the United States to other countries.'
                 excerpt=' Check out total spending of the United States compared to 169 different countries in 2017. In this section, figures are presented using financial data from 2017 which allows us to provide you with the most recent spending data. In 2017, the United States spent $4 trillion, which is equivalent to about 21% of U.S. gross domestic product (GDP).'
                 keywords={[`spending, federal spending, U.S. spending, gross domestic product, GDP,  federal spending per capita, country comparison, federal spending of the United States compared to other countries`]}
             />
-
             <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />
-
             <Default>
-							<AFGHeader />
+                <AFGHeader />
                 <AfgNav location={props.location} chapter={'spending'}></AfgNav>
-
                 <div className="cg-wrapper country-common-wrapper">
                     <div className="ffg-wrapper">
                         <ControlBar>
@@ -45,11 +37,9 @@ function SpendingCountryComparisonPage(props) {
                                 location={props.location}
                                 title='Data Lab - Spending Country Comparison – U.S. Treasury'
                                 twitter='How does U.S. federal spending compare to other countries? Check out Your Guide to America’s Finances for data from 169 countries. #YourGuide #DataLab #OpenGov'
-                                />
+                            />
                         </ControlBar>
-
                         <h1>Compare Federal Spending of the United States to other Countries</h1>
-
                         <div className="country-copy">
                             <div className="country-copy__text">
                                 <p>How does the United States compare to countries of similar size and gross domestic product? Explore the chart, which shows the total spending of the United States compared to {AfgData.countries_compared.value} other countries listed in the CIA World Factbook.  You can compare spending (in dollars) and spending as a percent of gross domestic product. Find a country of interest and see for yourself. To ensure an accurate comparison, {AfgData.country_compare_year.value} spending data is used in this section, not current fiscal year data.</p>
@@ -63,16 +53,12 @@ function SpendingCountryComparisonPage(props) {
                                 <FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right tour__angle-right" />
                             </Link>
                         </div>
-
                         <div className="country-chart">
                             <h2 className="chart-title">Country Comparison</h2>
                             <div className="hint">Click <span className="sort-button-placeholder"></span> to sort columns.</div>
-
-                            <div id="viz" className="spending-country"></div>
+                            <SpendingCountryComparison />
                         </div>
-
                         <div className="clearfix"></div>
-
                         <section className="hwcta">
                             <AccordionList title="Data Sources and Methodology">
                                 <p>The visualization was created using the <a href={AfgData.country_comparison_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. Gross domestic product (GDP) figures come from the <a href={AfgData.bea_gdp.value} rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. Gross domestic product data for countries other than the United States comes from the <a href={AfgData.imf_gdp.value} rel="noopener noreferrer" target="_blank">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>.</p>
@@ -87,7 +73,7 @@ function SpendingCountryComparisonPage(props) {
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>
                                     <ul>
-                                        <li><a href="/americas-finance-guide/afgData/spending_country_comparison.csv" download="spending_country_comparison.csv">spending_country_comparison.csv</a></li>
+                                        <li><a href="/americas-finance-guide/data/spending_country_comparison.csv" download="spending_country_comparison.csv">spending_country_comparison.csv</a></li>
                                     </ul>
                                 </div>
                             </AccordionList>

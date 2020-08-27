@@ -131,7 +131,7 @@ function RevenueCategoriesPage(props) {
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>
                                     <ul>
-                                        <li><a href="/americas-finance-guide/afgData/federal_revenue_categories.csv" download="federal_revenue_categories.csv">federal_revenue_categories.csv</a></li>
+                                        <li><a href="/americas-finance-guide/data/federal_revenue_categories.csv" download="federal_revenue_categories.csv">federal_revenue_categories.csv</a></li>
                                     </ul>
                                 </div>
                             </AccordionList>

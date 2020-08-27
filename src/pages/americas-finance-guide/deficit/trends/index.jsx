@@ -116,7 +116,7 @@ function DeficitTrendsPage(props) {
 					<div className='afg__download--div'>
 						<div className='afg__download--heading'>Download Source Data</div>
 						<ul>
-							<li><a href='/americas-finance-guide/afgData/federal_deficit_trends.csv' download='federal_deficit_trends.csv'>federal_deficit_trends.csv</a></li>
+							<li><a href='/americas-finance-guide/data/federal_deficit_trends.csv' download='federal_deficit_trends.csv'>federal_deficit_trends.csv</a></li>
 						</ul>
 					</div>
 				</AccordionList>

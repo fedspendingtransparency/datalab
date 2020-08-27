@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import '../../revenue/countries/selectCountry.scss';
 import { loadSourceData } from '../../revenue/countries/data';
 import CountryData from '../../../../assets/ffg/data/spending_country_comparison.csv';
@@ -39,5 +40,22 @@ const spendingConfig = {
     }
 };
 
-loadSourceData(CountryData);
-chartInit(spendingConfig);
+const SpendingCountryComparison = () => {
+    useEffect(() => {
+        loadSourceData(CountryData);
+        chartInit(spendingConfig);
+        
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', () => {
+                loadSourceData(CountryData);
+                chartInit(spendingConfig);
+            });
+        }
+    }, []);
+
+    return (
+        <div id="viz" className="spending-country" />
+    );
+}
+ 
+export default SpendingCountryComparison;

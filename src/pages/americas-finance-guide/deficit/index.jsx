@@ -189,7 +189,7 @@ function ExploreDeficitPage(props) {
 							<div className="afg__download--div">
 								<div className="afg__download--heading">Download Source Data</div>
 								<ul>
-									<li><a href="/americas-finance-guide/afgData/explore_federal_deficit.csv" download="explore_federal_deficit.csv">explore_federal_deficit.csv</a></li>
+									<li><a href="/americas-finance-guide/data/explore_federal_deficit.csv" download="explore_federal_deficit.csv">explore_federal_deficit.csv</a></li>
 								</ul>
 							</div>
 						</AccordionList>
