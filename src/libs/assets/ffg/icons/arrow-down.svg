@@ -9,7 +9,7 @@
             <g id="Group-10" transform="translate(635.000000, 3278.000000)">
                 <g id="Group-7" transform="translate(100.000000, 7.000000)">
                     <circle id="Oval-13" stroke="#205493" fill="#205493" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
-                    <text id="angle-down---FontAwesome" font-family="FontAwesome" font-size="20" font-weight="normal" fill="#FFFFFF">
+                    <text id="angle-down---FontAwesome" font-family="FontAwesome" font-size="1.25rem" font-weight="normal" fill="#FFFFFF">
                         <tspan x="4" y="17"></tspan>
                     </text>
                 </g>

@@ -35,7 +35,7 @@
                 <polygon id="Fill-27" fill="#212F64" points="7.53467391 22.0173522 9.4789755 22.0173522 9.4789755 9.52329878 7.53467391 9.52329878"></polygon>
                 <polygon id="Fill-28" fill="#212F64" points="11.2959476 22.0173522 13.2402491 22.0173522 13.2402491 10.7242635 11.2959476 10.7242635"></polygon>
                 <polygon id="Fill-29" fill="#212F64" points="17.0116283 8.76503274 17.0005122 22.0178547 15.0552001 22.0178547 15.0673267 8.76503274"></polygon>
-                <text id="BETA" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="8.441928" font-weight="normal" letter-spacing="0.633144583" fill="#A9A9A9">
+                <text id="BETA" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="0.525rem" font-weight="normal" letter-spacing="0.633144583" fill="#A9A9A9">
                     <tspan x="71.4099437" y="8">BETA</tspan>
                 </text>
             </g>
