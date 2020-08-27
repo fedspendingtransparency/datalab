@@ -227,7 +227,10 @@ export default class RdInContractingPage extends React.Component {
   ];
 
   prerelease = () => {
-     const isQAT = window.location.href.indexOf('localhost') || window.location.href.indexOf('qat')  > -1 ? true : false;
+    let isQAT = false;
+    if (typeof window !== 'undefined') {
+      isQAT = window.location.href.indexOf('localhost') || window.location.href.indexOf('qat') > -1 ? true : false;
+    }
 
      if(!isQAT) {
        return (
