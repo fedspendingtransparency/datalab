@@ -11,6 +11,26 @@ describe('Data Sources and Methodology link from analysis page', () => {
 		expect(text).toHaveTextContent("Data Sources and Methodologies");
 	});
 
+	it('expect an anchor tag so user can get focus to element by tabbing',  () => {
+		const { container } = render(<HWCTALink url={`${url}/methodologies`} fillColor='red' />)
+		expect(container.querySelector('a')).toBeTruthy();
+	});
+
+	it('expect element to have focus',  () => {
+		const { getByTestId } = render(<HWCTALink url={`${url}/methodologies`} fillColor='red' />)
+		const link = getByTestId("hwctaLink");
+		link.focus();
+		expect(link).toHaveFocus();
+	});
+
+	it('expect element to not have focus',  () => {
+		const { getByTestId } = render(<HWCTALink url={`${url}/methodologies`} fillColor='red' />)
+		const link = getByTestId("hwctaLink");
+		link.focus();
+		link.blur();
+		expect(link).not.toHaveFocus();
+	});
+
 	it('expect the text underline to have the page specific color',  () => {
 		const { container } = render(<HWCTALink url={`${url}/methodologies`} fillColor='red' />)
 		expect(container.querySelector('a')).toHaveStyle('text-decoration-color: red');
