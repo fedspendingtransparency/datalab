@@ -8,12 +8,12 @@ h2 {
 .vizContainer {
 
 	.chartContainer {
-		svg:global(.lawTotal), svg:global(.spending) {
+		img:global(.lawTotal), img:global(.spending) {
 			margin-top: 10px;
 			margin-bottom: 30px;
 		}
 
-		svg:global(.govtTotal), svg:global(.lawTotalOnly), svg:global(.loan) {
+		img:global(.govtTotal), img:global(.lawTotalOnly), img:global(.loan) {
 			margin-top: 10px;
 			margin-bottom: 80px;
 		}
@@ -111,7 +111,7 @@ h2 {
 
 }
 
- svg:global(.lawTotalOnly), svg:global(.loan), svg:global(.spending), svg:global(.lawTotal) {
+ img:global(.lawTotalOnly), img:global(.loan), img:global(.spending), img:global(.lawTotal) {
 	&:hover {
 		cursor: pointer;
 	}
@@ -450,12 +450,12 @@ h2 {
 	}
 
 	.chartContainer {
-		svg:global(.lawTotal), svg:global(.spending) {
+		img:global(.lawTotal), img:global(.spending) {
 			margin-top: 10px;
 			margin-bottom: 40px !important;
 		}
 
-		svg:global(.govtTotal), svg:global(.lawTotalOnly), svg:global(.loan) {
+		img:global(.govtTotal), img:global(.lawTotalOnly), img:global(.loan) {
 			margin-bottom: 60px !important;
 		}
 	}

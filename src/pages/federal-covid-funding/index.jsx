@@ -12,7 +12,7 @@ import Accordion from 'src/components/accordion/accordion';
 import Budget from '../../page-sections/federal-covid-funding/budget/budget';
 import Overview from '../../page-sections/federal-covid-funding/overview/overview';
 import Tracking from '../../page-sections/federal-covid-funding/tracking';
-
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-24.yml'
 
 const BudgetAccordionContent = () => (
   <div className={styles.accordionContents}>
@@ -49,7 +49,7 @@ export default class FederalCovidFunding extends React.Component {
       introBlurb: [
         <>
           <p key='section-1-p-1'>
-To aid the nation’s recovery from the coronavirus disease 2019 (COVID-19) pandemic, the U.S. Congress passed four special appropriations laws for the federal government to use in relief efforts. The largest of these was the Coronavirus Aid, Relief, and Economic Security (CARES) Act, which provides approximately $2.07 trillion and is the largest supplemental appropriation in American history.
+To aid the nation’s recovery from the coronavirus disease 2019 (COVID-19) pandemic, the U.S. Congress passed four special appropriations laws for the federal government to use in relief efforts. The largest of these was the Coronavirus Aid, Relief, and Economic Security (CARES) Act, which provides approximately ${CovidCopy.carestotal_round} trillion and is the largest supplemental appropriation in American history.
           </p>
           <p key='section-1-p-2'>
 In this analysis, we explore the four COVID-19 supplemental appropriation laws passed by the U.S. Congress, starting with the amount of funding budgeted for agencies and how that money can provide financial relief. Next, we walk through the process of how the money moves from appropriations to individuals and businesses, and finally, we dive into how agencies are spending the money.
@@ -69,7 +69,7 @@ In this analysis, we explore the four COVID-19 supplemental appropriation laws p
       introBlurb: [
         <>
           <p key='section-2-p-1'>
-There are many steps in the process to move the $2.58 trillion in supplemental funds through the full budget lifecycle to the American people. In this section, we follow the flow of money by breaking down a few key terms and explaining how agencies spend supplemental funding.
+There are many steps in the process to move the ${CovidCopy.totalbudgetresources} trillion in supplemental funds through the full budget lifecycle to the American people. In this section, we follow the flow of money by breaking down a few key terms and explaining how agencies spend supplemental funding.
           </p>
           <p key='section-2-p-2'>
             After a special appropriations law passes, it is the role of the Department of the Treasury (Treasury) to review the new legislation and issue funds to agencies’ spending accounts. The <a href="https://www.usaspending.gov/#/?glossary=appropriation" target="_blank" rel='noopener noreferrer'>appropriations</a> process gives agencies the authority to begin using funding according to the purpose assigned in the law. To spend the money, agencies obligate the funds to different programs through contracts, direct payments, grants, or loans. When agencies make an <a href="https://www.usaspending.gov/#/?glossary=obligation" target="_blank" rel='noopener noreferrer'>obligation</a>, they create a binding agreement to use the funds for a particular purpose. An example of an obligation is an agency setting aside adequate funds when it enters into a contract with a vendor to purchase <a href="https://www.usaspending.gov/#/award/CONT_AWD_75A50120C00030_7505_-NONE-_-NONE-" target="_blank" rel='noopener noreferrer'>personal protective equipment, such as masks</a>.
@@ -99,10 +99,10 @@ There are many steps in the process to move the $2.58 trillion in supplemental f
       introBlurb: [
         <>
           <p key='section-3-p-1'>
-Ninety-two percent of the $2.58 trillion in COVID-19 funding was appropriated to four agencies: The Treasury, Health and Human Services, Labor, and the Small Business Administration (SBA). Of those funds, roughly half, or $1.27 trillion, were allocated to fund loan and loan guarantee programs. These funds could be used to generate an estimated $3.92 trillion in loans and loan guarantees to businesses and individuals. This includes loans which will be disbursed directly by the government, like the SBA’s Economic Injury Disaster Loan (EIDL) Program. It also includes funds for loan guarantee programs, such as the SBA’s Paycheck Protection Program (PPP), which are disbursed by partner financial institutions.
+Ninety-two percent of the ${CovidCopy.totalbudgetresources} trillion in COVID-19 funding was appropriated to four agencies: The Treasury, Health and Human Services, Labor, and the Small Business Administration (SBA). Of those funds, roughly half, or ${CovidCopy.loanspending_trillions} trillion, were allocated to fund loan and loan guarantee programs. These funds could be used to generate an estimated ${CovidCopy.totcredit_trillions} trillion in loans and loan guarantees to businesses and individuals.  This includes loans which will be disbursed directly by the government, like the SBA’s Economic Injury Disaster Loan (EIDL) Program. It also includes funds for loan guarantee programs, such as the SBA’s Paycheck Protection Program (PPP), which are disbursed by partner financial institutions.
           </p>
           <p key='section-3-p-2'>
-As of July 1, the federal government had made $1.46 trillion in obligations, of which $1.31 trillion was outlayed. These totals were calculated from agencies’ certified monthly reporting to the Treasury’s Governmentwide Treasury Account Symbol Adjusted Trial Balance System (GTAS).
+            As of {CovidCopy.monthday}, the federal government had made ${CovidCopy.totobligations_trillions} trillion in obligations, of which ${CovidCopy.totoutlays_trillions} trillion was outlayed. These totals were calculated from agencies’ certified monthly reporting to the Treasury’s Governmentwide Treasury Account Symbol Adjusted Trial Balance System (GTAS).
           </p>
           <p key='section-3-p-3'>
 This analysis will be updated monthly as new data becomes available. To learn more about how we developed this analysis and download the raw data, visit the <a href="/federal-covid-funding/methodologies">Data Sources and Methodologies</a> page.
@@ -113,7 +113,11 @@ This analysis will be updated monthly as new data becomes available. To learn mo
       tagName: 'Tracking',
       accordion: (
         <aside>
-          <Accordion title='How do you track $2.58 trillion?' color='#6F41A7' backgroundColor='#F3EAFF' isCovid>
+          <Accordion
+            title={`How do you track $${CovidCopy.totalbudgetresources} trillion?`}
+            color='#6F41A7'
+            backgroundColor='#F3EAFF'
+            isCovid>
             {BudgetAccordionContent()}
           </Accordion>
         </aside>
@@ -125,7 +129,7 @@ This analysis will be updated monthly as new data becomes available. To learn mo
     <StoryLayout
       title='The Federal Response To COVID-19'
       introSentence='How is the federal government funding relief efforts for COVID-19?'
-      contextStatement='Data Lab explores how supplemental funding for COVID-19 makes its way from Congress into the economy. We break down the steps taken by federal agencies to use the $2.58 trillion and track the status of funds so you can see how much has been spent.'
+      contextStatement={'Data Lab explores how supplemental funding for COVID-19 makes its way from Congress into the economy. We break down the steps taken by federal agencies to use the $' + CovidCopy.totalbudgetresources + ' trillion and track the status of funds so you can see how much has been spent.'}
       sectionToc={this.sections}
       hwctaLink={this.props.location.pathname + '/methodologies'}
     >

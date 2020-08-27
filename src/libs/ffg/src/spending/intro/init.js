@@ -37,17 +37,3 @@ function resizeChart() {
 		placeDots(config);
 	}
 }
-
-if (typeof window !== 'undefined') {
-	window.addEventListener('resize', () => {
-		if (debounce) {
-			clearTimeout(debounce);
-		}
-
-		if (previousWidth === window.innerWidth) {
-			return;
-		}
-		previousWidth = window.innerWidth;
-		debounce = setTimeout(resizeChart, 100);
-	});
-}

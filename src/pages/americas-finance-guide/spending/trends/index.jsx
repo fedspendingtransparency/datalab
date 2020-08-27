@@ -8,27 +8,25 @@ import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
-import { Helmet } from 'react-helmet';
 import AfgNav from 'src/components/afg-nav/afg-nav';
+import Og from '../../../../components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from '../../../../components/headers/headers';
+import SpendingTrends from 'src/libs/ffg/src/spending/trends/index.js';
 
 function SpendingTrendsPage(props) {
     return (
         <>
-
-            <Helmet>
-                <script defer src="/americas-finance-guide/spending/trends.js"></script>
-            </Helmet>
-
             <SEO
                 title='Data Lab - Federal Spending Trends – U.S. Treasury'
                 description='Find out how federal spending has changed over time.'
                 excerpt='This chart presents federal spending by spending type or by agency over a five year period. Have there been significant changes in federal spending? What impact does an increase or decrease have on spending at the sub-category level? You can track trends in federal spending by category or at the sub-category level.'
                 keywords={[`federal spending, , revenue, federal revenue, U.S. spending, gross domestic product, GDP, deficit, debt, federal spending trends over time`]}
             />
+
+            <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />
 
             <Default>
 							<AFGHeader />
@@ -72,27 +70,7 @@ function SpendingTrendsPage(props) {
                                     <span className="toggle-component__label">Agency</span>
                                 </div>
 
-                                <div id="show-hide">
-                                    <button id="activate-show-hide">Filter <FontAwesomeIcon icon={faSlidersH} width={11} className="fa fa-sliders-h"/></button>
-                                    <div id="show-hide-tray">
-                                        <div className='show-hide__buttons'>
-                                            <div className='show-hide__buttons--left'>
-                                                <button id="select-all">Select All</button>
-                                                <button id="select-none">Remove All</button>
-                                            </div>
-                                            <div className='show-hide__buttons--right'>
-                                                <button id="reset-filters-button">Reset</button>
-                                                <button id="save-filters-button">Save</button>
-                                            </div>
-                                        </div>
-
-                                        <div id="show-hide-list"></div>
-                                    </div>
-                                </div>
-
-                                <div className="hint">Click a spending category to view more</div>
-
-                                <div id="viz"></div>
+                                <SpendingTrends />
                             </div>
                         </div>
 
@@ -102,7 +80,7 @@ function SpendingTrendsPage(props) {
                                 <div className="afg__download--div">
                                     <div className="afg__download--heading">Download Source Data</div>
                                     <ul>
-                                        <li><a href="/americas-finance-guide/afgData/federal_spending_trends.csv" download="federal_spending_trends.csv">federal_spending_trends.csv</a></li>
+                                        <li><a href="/americas-finance-guide/data/federal_spending_trends.csv" download="federal_spending_trends.csv">federal_spending_trends.csv</a></li>
                                     </ul>
                                 </div>
                             </AccordionList>

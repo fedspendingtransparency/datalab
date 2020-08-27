@@ -1,7 +1,7 @@
 import React from 'react';
 import FootnoteAnchor from '../../components/footnotes/footnote-anchor';
 import HWCTA from '../../components/hwcta/hwcta';
-import styles from '../../components/hwcta/hwcta.module.scss';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-24.yml'
 
 const C19HWTCA = ({ location }) => {
   const title = 'The Federal Response to COVID-19';
@@ -52,30 +52,31 @@ const C19HWTCA = ({ location }) => {
     sources: (
       <ul>
         <li>
-          <strong>Agency funding to-date:</strong> The value of the four supplemental laws passed by Congress is approximately $2.58 trillion. This value reflects the total value of appropriation warrants made to agencies’ TAS accounts to date for each of the four laws passed
+          <strong>Agency Funding To-Date:</strong> The value of the four supplemental laws passed by Congress is approximately ${CovidCopy.totalbudgetresources} trillion. This value reflects the total value of appropriation warrants made to agencies’ TAS accounts to date for each of the four laws passed
         </li>
         <ul>
           <li>
             Appropriation warrants reflect Congressional action to fund programs and provide each agency the amount of money they are authorized to withdraw from the General Fund of the U.S. Government and period of availability of those funds. The total estimated value of the four laws only includes current appropriation warrants issued, which could change. The value of each law could change because there are parts of the laws that do not state explicit program costs or limits on the total funding that can be used to meet the law’s requirements. This could also result in additional appropriations being issued to fulfill the law’s intent if the original appropriation is exhausted
           </li>
           <li>
-            H.R. 6074 Coronavirus Preparedness and Response Supplemental Appropriations Act (CPRSAA) totaled an estimated $7 billion
+            H.R. 6074 Coronavirus Preparedness and Response Supplemental Appropriations Act (CPRSAA) totaled an estimated ${CovidCopy.law1} billion
           </li>
           <li>
-            H.R. 6201 Families First Coronavirus Response Act (FFCRA) totaled an estimated $14 billion
+            H.R. 6201 Families First Coronavirus Response Act (FFCRA) totaled an estimated ${CovidCopy.law2} billion
           </li>
           <li>
-            H.R. 748 Coronavirus Aid, Relief, and Economic Security (CARES) Act totaled an estimated $2.07 trillion in funding
+            H.R. 748 Coronavirus Aid, Relief, and Economic Security (CARES) Act totaled an estimated ${CovidCopy.law3} trillion in funding
           </li>
           <li>
-            H.R. 266 Paycheck Protection Program and Health Care Enhancement Act (PPP HCEA) totaled an estimated $483 billion
+            H.R. 266 Paycheck Protection Program and Health Care Enhancement Act (PPP HCEA) totaled an estimated ${CovidCopy.law4} billion
           </li>
         </ul>
         <li><strong>Estimated Tax Relief:</strong> The total value of estimated deferred and reduced taxes provided by the FFCRA<a href="#fn4" className="footnoteref"><FootnoteAnchor footnoteId="fr4" />4</a> and CARES Act<a href="#fn5" className="footnoteref"><FootnoteAnchor footnoteId="fr5" />5</a> are taken from the CBO’s analysis of each law. The tax relief value is the sum of the CBO’s estimated two year (FY 2020 through 2021) estimated tax revenue impact for each law</li>
-        <li><strong>Total Estimated Lending and Utilization:</strong>The estimated value of lending is equal to the sum of the credit, direct, and indirect loans made available with funding provided by the four supplemental appropriations</li>
+        <li><strong>Total Estimated Lending and Utilization:</strong>&nbsp;The estimated value of lending is equal to the sum of the credit, direct, and indirect loans made available with funding provided by the four supplemental appropriations</li>
         <ul>
         <li>Estimated total loan and loan guarantee values were calculated for each program using information provided by each agency. Loan and loan guarantees funded by the supplemental appropriations include: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers, Credit Assistance for Air Carriers and Businesses Critical to National Security,<a href="#fn6" className="footnoteref"><FootnoteAnchor footnoteId="fr6" />6</a> and the Small Business Administration’s Economic Injury Disaster Loans (EIDL),<a href="#fn7" className="footnoteref"><FootnoteAnchor footnoteId="fr7" />7</a> and Paycheck Protection Program (PPP),<a href="#fn8" className="footnoteref"><FootnoteAnchor footnoteId="fr8" />8</a> as well as the total estimated credit made available through the Federal Reserve Emergency Lending facilities<a href="#fn9" className="footnoteref"><FootnoteAnchor footnoteId="fr9" />9</a></li>
-        <li>Total utilized lending was calculated using the most recent data on current reported loans and loan guarantees issued as of the publishing date provided by each agency: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers<a href="#fn10" className="footnoteref"><FootnoteAnchor footnoteId="fr10" />10</a>, Credit Assistance for Air Carriers and Businesses Critical to National Security<a href="#fn11" className="footnoteref"><FootnoteAnchor footnoteId="fr11" />11</a>, and the Small Business Administration’s Economic Injury Disaster Loans (EIDL),<a href="#fn12" className="footnoteref"><FootnoteAnchor footnoteId="fr12" />12</a> and Paycheck Protection Program (PPP)<a href="#fn13" className="footnoteref"><FootnoteAnchor footnoteId="fr13" />13</a>. Current utilization of Federal Reserve Emergency Lending facilities was provided by the Department of the Treasury. Data on loan guarantees issued for the USDA’s Rural Development Business and Industry CARES Act Program was not available and is therefore reported as zero reported lending utilized</li>
+          <li>At the time of publishing data on the Defense Production Act Loan Program is not yet available and therefore the program is not included in the calculation of Total Estimate Lending made available by the four laws. No obligations have been recorded against the program account indicating there have been no loans issued at the time of publishing</li>
+        <li>Total utilized lending was calculated using the most recent data on reported loans and loan guarantees for the reporting period provided by each agency: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers<a href="#fn10" className="footnoteref"><FootnoteAnchor footnoteId="fr10" />10</a>, Credit Assistance for Air Carriers and Businesses Critical to National Security<a href="#fn11" className="footnoteref"><FootnoteAnchor footnoteId="fr11" />11</a>, the Small Business Administration’s Economic Injury Disaster Loans (EIDL)<a href="#fn12" className="footnoteref"><FootnoteAnchor footnoteId="fr12" />12</a> and Paycheck Protection Program (PPP)<a href="#fn13" className="footnoteref"><FootnoteAnchor footnoteId="fr13" />13</a>, and the Federal Reserve Emergency Lending facilities<a href="#fn14" className="footnoteref"><FootnoteAnchor footnoteId="fr14" />14</a>. Total value of loan guarantees issued for the USDA’s Rural Development Business and Industry CARES Act Program<a href="#fn15" className="footnoteref"><FootnoteAnchor footnoteId="fr15" />15</a> reflect data reported as of the close of the two months prior to the publishing date due to the reporting timeline</li>
         </ul>
       </ul>
     )
@@ -92,16 +93,16 @@ const C19HWTCA = ({ location }) => {
           </ul>
         </li>
         <li>
-          Supplemental spending is tracked using the Disaster Emergency Fund Code (DEFC) reported in the GTAS data. All agencies are required per Office of Management and Budget <a target="_blank" href="https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf">Memo M-20-21: Implementation Guidance for Supplemental Funding Provided in Response to the Coronavirus Disease 2019 (COVID-19)</a> to track spending related to each of the of the laws passed using the previously established DEFC attribute, with newly provided values that link each transaction to the specific funding legislation<a href="#fn14" className="footnoteref"><FootnoteAnchor footnoteId="fr14" />14</a>
+          Supplemental spending is tracked using the Disaster Emergency Fund Code (DEFC) reported in the GTAS data. All agencies are required per Office of Management and Budget <a target="_blank" href="https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf">Memo M-20-21: Implementation Guidance for Supplemental Funding Provided in Response to the Coronavirus Disease 2019 (COVID-19)</a> to track spending related to each of the of the laws passed using the previously established DEFC attribute, with newly provided values that link each transaction to the specific funding legislation<a href="#fn16" className="footnoteref"><FootnoteAnchor footnoteId="fr16" />16</a>
         </li>
         <li>
-          GTAS data, using the reported DEFC and aggregating by TAS account, was used to calculate Total Budgetary Resources, new obligations and upwards adjustments, unobligated balance (end-of-year total), and gross outlays<a href="#fn15" className="footnoteref"><FootnoteAnchor footnoteId="fr15" />15</a> of supplemental spending executed as of the close of the reporting period<a href="#fn16" className="footnoteref"><FootnoteAnchor footnoteId="fr16" />16</a>
+          GTAS data, using the reported DEFC and aggregating by TAS account, was used to calculate Total Budgetary Resources, new obligations and upwards adjustments, unobligated balance (end-of-year total), and gross outlays<a href="#fn17" className="footnoteref"><FootnoteAnchor footnoteId="fr17" />17</a> of supplemental spending executed as of the close of the reporting period<a href="#fn18" className="footnoteref"><FootnoteAnchor footnoteId="fr18" />18</a>
         </li>
         <li>
           The total values for each TAS account were merged with the account metadata obtained via the Central Accounting Reporting System (CARS). Spending was then aggregated to generate the total funding values reported by agency and federal account
         </li>
         <li>
-          Agency totals were aggregated using TAS account data at the Allocation Transfer Agency (ATA) identifier. In cases where the ATA is null, the Agency Identifier (AID) is used, with a few exceptions. Agencies that use a shared AID were aggregated using the Financial Reporting Entity Code (FREC), and certain armed forces agencies were classified as Department of Defense following the logic used to classify agencies on USAspending.gov.<a href="#fn17" className="footnoteref"><FootnoteAnchor footnoteId="fr17" />17</a>
+          Agency totals were aggregated using TAS account data at the Allocation Transfer Agency (ATA) identifier. In cases where the ATA is null, the Agency Identifier (AID) is used, with a few exceptions. Agencies that use a shared AID were aggregated using the Financial Reporting Entity Code (FREC), and certain armed forces agencies were classified as Department of Defense following the logic used to classify agencies on USAspending.gov<a href="#fn19" className="footnoteref"><FootnoteAnchor footnoteId="fr19" />19</a>
         </li>
       </ul>
     )
@@ -145,7 +146,7 @@ const C19HWTCA = ({ location }) => {
         <p>
           <FootnoteAnchor footnoteId="fn9" />
           <sup><a href="#fr9">9</a></sup> See Federal Reserve statements: <a target="_blank" href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20200409a.htm">https://www.federalreserve.gov/newsevents/pressreleases/monetary20200409a.htm</a>,
-          and term sheets for the Main Street Lending Program term sheet: <a target="_blank" href="https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200608a1.pdf">https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200608a1.pdf</a>, and Term Asset-Backed Securities Loan Facility:
+          and term sheets for the Main Street Lending Program term sheet: <a target="_blank" href="https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200608a1.pdf">https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200608a1.pdf</a> and Term Asset-Backed Securities Loan Facility:
           <a target="_blank" href="https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200512a1.pdf">https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200512a1.pdf</a>
         </p>
         <p>
@@ -166,22 +167,30 @@ const C19HWTCA = ({ location }) => {
         </p>
         <p>
           <FootnoteAnchor footnoteId="fn14" />
-          <sup><a href="#fr14">14</a></sup> OMB Guidance on reporting requirements and DEFC values provided for the four laws are provided in OMB M20-21: <a target="_blank" href="https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf">https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf</a>
+          <sup><a href="#fr14">14</a></sup> <a target="_blank" href="https://www.federalreserve.gov/publications/reports-to-congress-in-response-to-covid-19.htm">https://www.federalreserve.gov/publications/reports-to-congress-in-response-to-covid-19.htm</a>
         </p>
         <p>
           <FootnoteAnchor footnoteId="fn15" />
-          <sup><a href="#fr15">15</a></sup> Values were calculated according to the USSGL Supplement of the Treasury Financial Manual - Section V: Crosswalks to Standard External Reports for FY 2020 GTAS Reporting, SF 133: Report on Budget Execution and Budgetary Resources & Schedule P Budget Program and Financing Schedule. <a target="_blank" href="https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_1/sec5/sec5_sf133_schp_2020.xlsx">https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_1/sec5/sec5_sf133_schp_2020.xlsx</a>
+          <sup><a href="#fr15">15</a></sup>Data on loans disbursed by USDA’s Rural Development Business and Industry CARES Act Program can be accessed using USAspending’s COVID-19 Advanced Search Filter: <a target="_blank" href="https://www.usaspending.gov/#/search/5d9262dee1d2962a1760f28b16945333">https://www.usaspending.gov/#/search/5d9262dee1d2962a1760f28b16945333</a>
         </p>
         <p>
           <FootnoteAnchor footnoteId="fn16" />
-          <sup><a href="#fr16">16</a></sup> GTAS data is collected monthly and agencies report data for all transactions occurring through the end of the prior month. The GTAS reporting schedule can be found here: <a target="_blank" href="https://fiscal.treasury.gov/files/gtas/fy-2020-reporting-window-schedule.pdf ">https://fiscal.treasury.gov/files/gtas/fy-2020-reporting-window-schedule.pdf</a>
+          <sup><a href="#fr16">16</a></sup> OMB Guidance on reporting requirements and DEFC values provided for the four laws are provided in OMB M20-21: <a target="_blank" href="https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf">https://www.whitehouse.gov/wp-content/uploads/2020/04/Implementation-Guidance-for-Supplemental-Funding-Provided-in-Response.pdf</a>
         </p>
         <p>
           <FootnoteAnchor footnoteId="fn17" />
-          <sup><a href="#fr17">17</a></sup> Detailed instructions on how agencies should be classified is provided here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md">https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md.</a>
+          <sup><a href="#fr17">17</a></sup> Values were calculated according to the USSGL Supplement of the Treasury Financial Manual - Section V: Crosswalks to Standard External Reports for FY 2020 GTAS Reporting, SF 133: Report on Budget Execution and Budgetary Resources & Schedule P Budget Program and Financing Schedule. <a target="_blank" href="https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_1/sec5/sec5_sf133_schp_2020.xlsx">https://tfm.fiscal.treasury.gov/content/dam/tfm/v1/supplements/ussgl/ussgl_part_1/sec5/sec5_sf133_schp_2020.xlsx</a>
+        </p>
+        <p>
+          <FootnoteAnchor footnoteId="fn18" />
+          <sup><a href="#fr18">18</a></sup> GTAS data is collected monthly and agencies report data for all transactions occurring through the end of the prior month. The GTAS reporting schedule can be found here: <a target="_blank" href="https://fiscal.treasury.gov/files/gtas/fy-2020-reporting-window-schedule.pdf ">https://fiscal.treasury.gov/files/gtas/fy-2020-reporting-window-schedule.pdf</a>
+        </p>
+        <p>
+          <FootnoteAnchor footnoteId="fn19" />
+          <sup><a href="#fr19">19</a></sup> Detailed instructions on how agencies should be classified is provided here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md">https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md.</a>
           The list of shared agencies identified by FREC can be found here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker">https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a>
         </p>
-        <p>For a complete download of the data, download this file: <a href='/data/federal-covid-spending/tracking/covid19_response_download_2020-07-17.xlsx'>COVID-19 Response Data</a>
+        <p>For a complete download of the data, download this file: <a href='/data/federal-covid-spending/tracking/covid19_response_download_2020-08-19.xlsx'>COVID-19 Response Data</a>
         </p>
         </>
     )

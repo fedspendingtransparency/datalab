@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import HWCTA from '../../components/hwcta/hwcta';
 import styles from '../../components/hwcta/hwcta.module.scss';
 
@@ -18,7 +18,7 @@ function HAHWCTA(props) {
           <li>
             Point-in-Time (PIT) estimates of people experiencing homelessness from the Department of Housing and Urban
             Development's (HUD's) 2018 <a
-            href='https://datalab.usaspending.gov/homelessness-analysis-more.html' target='_blank'
+            href='https://www.hudexchange.info/resource/3031/pit-and-hic-data-since-2007/' target='_blank'
             rel='noopener noreferrer'>Point-in-Time (PIT) Data</a>
           </li>
         </ul>
