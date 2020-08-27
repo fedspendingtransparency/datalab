@@ -16,6 +16,13 @@
 	width: 50%;
     }
 
+    .svgImgAPI {
+	height: 62px;
+	margin: 0 auto 1rem auto;
+	display: block;
+	width: 50%;
+    }
+
     .text {
 	text-align: center;
 	width: auto;
@@ -23,12 +30,14 @@
 
     .title {
 	font-size: 1.5rem;
+	font-weight: 600;
 	height: 52px;
 	text-align: center;
     }
 
     .titleAPI {
 	font-size: 1.5rem;
+	font-weight: 600;
 	height: 52px;
 	text-align: center;
 	color: #4a4a4a;
@@ -60,7 +69,7 @@
 	text-align: center;
     }
 
-    .descriptionBold {
+    .descriptionLink {
 	color: $legacyBlue;
 	font-size: 1.125rem;
 	font-weight: 100;
@@ -105,8 +114,19 @@
 	border-top: 1px solid #dddddd;
 
 	.description {
-	    display: none;
+	    font-size: .875rem;
+	    font-weight: 100;
+	    font-style: normal;
+	    font-stretch: normal;
+	    line-height: normal;
+	    letter-spacing: normal;
+	    color: #4a4a4a;
+	    margin-bottom: 2rem;
 	}
+
+	.descriptionLink {
+	    font-size: .875rem;
+	};
 
 	.tile {
 	    .svgImg {
@@ -114,12 +134,19 @@
 		margin-bottom: 0;
 	    }
 
+	    .svgImgAPI {
+		float: left;
+		margin-bottom: 0;
+	    }
+
 	    .title {
 		font-size: 1rem;
-		padding-top: 20px;
+		height: 100%;
 	    }
+
 	    .titleAPI {
 		font-size: 1rem;
+		height: 100%;
 	    }
 	}
     }

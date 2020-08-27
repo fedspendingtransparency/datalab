@@ -55,20 +55,24 @@ const ResourcesRow = () => {
                                <div
                                  key={'landing-row__tile_' + index}
                                  className={resourcesRowStyles.tile}
-                                 href={resource.href}
+                                 style={{display: 'inline'}}
                                >
-                                 <img
-                                   data-src={resource.imageSrc}
-                                   alt={resource.altText}
-                                   className={`${resourcesRowStyles.svgImg} lazyload`}
-                                 />
-                                 <h1 className={resourcesRowStyles.titleAPI}>
-                                   {resource.title}
-                                 </h1>
-                                 <p className={resourcesRowStyles.description}>
-                                   Guidance on using the <a href="https://api.usaspending.gov/" target="_blank" className={resourcesRowStyles.descriptionBold}>USAspending API</a> and APIs
-                                   from <a href="https://fiscaldata.treasury.gov/api-documentation/" target="_blank" className={resourcesRowStyles.descriptionBold}>Fiscal Data API</a>
-                                 </p>
+                                 <div>
+                                   <img
+                                     data-src={resource.imageSrc}
+                                     alt={resource.altText}
+                                     className={`${resourcesRowStyles.svgImgAPI} lazyload`}
+                                   />
+                                 </div>
+                                 <div>
+                                   <h1 className={resourcesRowStyles.titleAPI}>
+                                     {resource.title}
+                                   </h1>
+                                   <p className={resourcesRowStyles.description}>
+                                     Guidance on using the <a href="https://api.usaspending.gov/" target="_blank" className={resourcesRowStyles.descriptionLink}>USAspending API</a> and APIs
+                                     from <a href="https://fiscaldata.treasury.gov/api-documentation/" target="_blank" className={resourcesRowStyles.descriptionLink}>Fiscal Data API</a>
+                                   </p>
+                                 </div>
                                </div>
 
                                :
@@ -78,17 +82,21 @@ const ResourcesRow = () => {
                                  className={resourcesRowStyles.tile}
                                  href={resource.href}
                                >
-                                 <img
-                                   data-src={resource.imageSrc}
-                                   alt={resource.altText}
-                                   className={`${resourcesRowStyles.svgImg} lazyload`}
-                                 />
-                                 <h1 className={resourcesRowStyles.title}>
-                                   {resource.title}
-                                 </h1>
-                                 <p className={resourcesRowStyles.description}>
-                                   {resource.description}
-                                 </p>
+                                 <div>
+                                   <img
+                                     data-src={resource.imageSrc}
+                                     alt={resource.altText}
+                                     className={`${resourcesRowStyles.svgImg} lazyload`}
+                                   />
+                                 </div>
+                                 <div>
+                                   <h1 className={resourcesRowStyles.title}>
+                                     {resource.title}
+                                   </h1>
+                                   <p className={resourcesRowStyles.description}>
+                                     {resource.description}
+                                   </p>
+                                 </div>
                                </a>
                               }
                             </Grid>
@@ -96,6 +104,6 @@ const ResourcesRow = () => {
       </Grid>
     </section>
   );
-}
+};
 
 export default ResourcesRow;
