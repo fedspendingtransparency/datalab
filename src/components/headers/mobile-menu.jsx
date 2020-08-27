@@ -19,11 +19,6 @@ class MobileMenu extends React.Component {
     };
   }
 
-  componentDidMount() {
-    console.log(this.state.data);
-    const afgHeaders = new Set(this.state.data.ffg);
-    console.log(afgHeaders);
-  };
 
   returnActiveList = (data, name) => {
     return data.map((item, key) => {
@@ -47,20 +42,23 @@ class MobileMenu extends React.Component {
         this.handleClick('Analyses');
       } else if (name === "Resources") {
         this.handleClick("Resources");
-      } else {
+      } else if (name === "America's Finance Guide") {
         this.handleClick("America's Finance Guide");
-      };
+      } else {
+        return null;
+      }
     }
     if (e.key === 'Tab') {
       if ((document.activeElement.id === 'menu-first-item' && e.shiftKey) || (document.activeElement.id === 'menu-last-item' && !e.shiftKey)) {
-        console.log(name);
         if (name === "Analyses") {
           this.handleClick('Analyses');
         } else if (name === "Resources") {
           this.handleClick("Resources");
-        } else {
+        } else if (name === "America's Finance Guide") {
           this.handleClick("America's Finance Guide");
-        };
+        } else {
+          return null;
+        }
       }
     }
   };
@@ -82,16 +80,6 @@ class MobileMenu extends React.Component {
     };
   };
 
-  handleExit = (e) => {
-    if (e.key === 'Escape') {
-      this.props.burgerClick();
-    }
-    if (e.key === 'Tab') {
-      if ((document.activeElement.id === 'analyses' && e.shiftKey) || (document.activeElement.id === 'glossary' && !e.shiftKey)) {
-        this.props.burgerClick();
-      }
-    }
-  }
 
   render() {
 
@@ -99,7 +87,6 @@ class MobileMenu extends React.Component {
       <>
         <div>
           <ul className={`${styles.mobile} ${this.state.isShowing ? `` : styles.hidden}`}>
-
             <div>
               <li className={styles.item} data-id='0' id="analyses" onClick={() => this.handleClick('Analyses')}>
                 <button className={styles.mobileMenuBtn}>
@@ -118,24 +105,24 @@ class MobileMenu extends React.Component {
                 </button>
               </li>
               <ul className={`${styles.toggleList} ${this.state.afgCheck ? `` : ' ' + styles.hidden}`}>
-                <li className={styles.dataListLi}>
-                  <Link to={'/americas-finance-guide/'} className={styles.dataListA} >Overview</Link>
+                <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
+                  <Link to={'/americas-finance-guide/'} id="menu-first-item" className={styles.dataListA} >Overview</Link>
                 </li>
                 <hr className={styles.mobileHr} />
-                <li className={styles.dataListLi}>
+                <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
                   <Link to={'/americas-finance-guide/revenue/'} className={styles.dataListA}>Revenue</Link>
                 </li>
                 <hr className={styles.mobileHr} />
-                <li className={styles.dataListLi}>
+                <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
                   <Link to={'/americas-finance-guide/spending/'} className={styles.dataListA}>Spending</Link>
                 </li>
                 <hr className={styles.mobileHr} />
-                <li className={styles.dataListLi}>
+                <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
                   <Link to={'/americas-finance-guide/deficit/'} className={styles.dataListA}>Deficit</Link>
                 </li>
                 <hr className={styles.mobileHr} />
-                <li className={styles.dataListLi}>
-                  <Link to={'/americas-finance-guide/debt/'} className={styles.dataListA}>Debt</Link>
+                <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
+                  <Link to={'/americas-finance-guide/debt/'} id="menu-last-item" className={styles.dataListA}>Debt</Link>
                 </li>
                 <hr className={styles.mobileHr} />
               </ul>
@@ -159,7 +146,6 @@ class MobileMenu extends React.Component {
                 </button>
               </li>
             </div>
-
           </ul>
 
           <Dropdown clickedItem={this.state.clickedItem}
