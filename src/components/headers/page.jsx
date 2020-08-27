@@ -154,7 +154,7 @@ export default class PageHeader extends React.Component {
 
   render() {
 
-    let { isSticky, tagLine, skinnyTop, skinnySub, activeItem, showMenu, showMobileMenu, isMobileTag, scrollButtonVisible } = this.state;
+    let { isSticky, skinnyTop, skinnySub, activeItem, showMenu, showMobileMenu, isMobileTag, scrollButtonVisible } = this.state;
 
     return <>
       <header id={styles.header} className={`${isSticky ? ' ' + styles.headerContainer : ``}`}>
