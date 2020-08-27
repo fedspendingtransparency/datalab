@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./page.module.scss";
 
-import TagLine from '../../svgs/Logo-with-tagline.svg';
+import TagLine from '../../svgs/logo-with-tagline.svg';
 import NoTagLine from '../../svgs/Logo-without-tagline.svg';
 import TagLineMobile from '../../svgs/logo-tablet-mobile.svg';
 
@@ -29,12 +29,16 @@ export default class PageHeader extends React.Component {
       windowWidth: undefined,
       menuData: this.props.megamenuItems,
       scrollButtonVisible: false,
-      showMenu: false
+      showMenu: false,
+      tagLine: <TagLineMobile />,
     };
   };
 
   componentDidMount() {
-    this.setState({ isMobileTag: window.innerWidth < 475 }); // 475 arbitrary value when burger hits wall (position absolute!)
+    this.setState({
+      isMobileTag: window.innerWidth < 475, // 475 arbitrary value when burger hits wall (position absolute!)
+      tagLine: this.tagLineCheck(window.pageYOffset > 135, window.innerWidth < 475)
+    }); 
 
     if (typeof window !== 'undefined') {
       document.addEventListener('scroll', () => {
@@ -43,7 +47,8 @@ export default class PageHeader extends React.Component {
         // homepage listener...
         if (this.props.isHome === true) {
           const isSticky = window.pageYOffset > 135;
-          this.setState({ isSticky });
+          const tagLine = this.tagLineCheck(isSticky, this.state.isMobileTag)
+          this.setState({ isSticky, tagLine });
         } else {
           // not on homepage..
           const topMax = 26;
@@ -135,17 +140,14 @@ export default class PageHeader extends React.Component {
     }
   }
 
-  tagLineCheck = (isSticky) => {
-    if (isSticky) {
-      if (this.state.isMobileTag) {
-        return (<TagLineMobile />);
-      }
-      return (<NoTagLine />);
+  tagLineCheck = (isSticky, isMobileTag) => {
+    if (isMobileTag) {
+      return (<TagLineMobile />);
     } else {
-      if (this.state.isMobileTag) {
-        return (<TagLineMobile />);
+      if (isSticky) {
+        return (<NoTagLine />);
       }
-      return (<TagLine />);
+      return (<TagLine width="100%" />);
     }
   };
 
@@ -157,7 +159,7 @@ export default class PageHeader extends React.Component {
 
   render() {
 
-    let { isSticky, skinnyTop, skinnySub, activeItem, showMenu, showMobileMenu, isMobileTag, scrollButtonVisible } = this.state;
+    let { isSticky, tagLine, skinnyTop, skinnySub, activeItem, showMenu, showMobileMenu, isMobileTag, scrollButtonVisible } = this.state;
 
     return <>
       <header id={styles.header} className={`${isSticky ? ' ' + styles.headerContainer : ``}`}>
@@ -165,7 +167,7 @@ export default class PageHeader extends React.Component {
           <div className={`${styles.logoWrapper} ${!isSticky ? ' ' + styles.col : ``}`}>
             <a href="/">
               <div>
-                {this.tagLineCheck(isSticky, isMobileTag)}
+                {tagLine}
               </div>
             </a>
 
