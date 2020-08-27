@@ -19,11 +19,14 @@ class MobileMenu extends React.Component {
     };
   }
 
-  returnActiveList = (data) => {
-    return data.map((item, i) => {
+  returnActiveList = (data, first, last) => {
+    return data.map((item, key) => {
+      let id = '';
+      if (first && key === 0) id = 'menu-first-item';
+      if (last && key === data.length - 1) id = 'menu-last-item';
       return (
         <>
-          <li className={styles.dataListLi} key={i}>
+          <li className={styles.dataListLi} key={key} onKeyDown={this.menuItemKeyUp}>
             <a href={item.link} className={styles.dataListA}>{item.name}</a>
           </li>
           <hr className={styles.mobileHr} />
@@ -31,7 +34,6 @@ class MobileMenu extends React.Component {
       );
     });
   };
-
 
   handleClick = (dropdown) => {
     switch (dropdown) {
@@ -69,7 +71,7 @@ class MobileMenu extends React.Component {
           <ul className={`${styles.mobile} ${this.state.isShowing ? `` : styles.hidden}`}>
 
             <div>
-              <li className={styles.item} data-id='0' id="analyses"  onClick={() => this.handleClick('Analyses')}>
+              <li className={styles.item} data-id='0' id="analyses" onClick={() => this.handleClick('Analyses')}>
                 <button className={styles.mobileMenuBtn}>
                   Analyses
                   <span className={styles.arrow} onClick={() => this.handleClick('Analyses')}> <Arrow /></span>
@@ -120,7 +122,12 @@ class MobileMenu extends React.Component {
             </div>
 
             <div>
-              <li className={`${styles.item} ${styles.glossary}`} data-id='4' id="glossary" onClick={() => this.handleClick("Glossary")}><span className={styles.arrow}><Book /></span> Glossary</li>
+              <li className={`${styles.item} ${styles.glossary}`} data-id='4' id="glossary" onClick={() => this.handleClick("Glossary")}>
+                <button className={styles.mobileMenuBtn}>
+                  Glossary 
+                  <span className={styles.arrow}> <Book /></span>
+                </button>
+              </li>
             </div>
 
           </ul>
