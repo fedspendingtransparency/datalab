@@ -116,20 +116,22 @@ const AfgNav = (props) => {
 		navHtml = (
 			<>
 				<li>
-					<a href="/americas-finance-guide/revenue/">Revenue and GDP</a>
+					<a href="/americas-finance-guide/revenue/" aria-label="Revenue and GDP">
+						Revenue and GDP
+					</a>
 				</li>
 				<li>
-					<a href="/americas-finance-guide/revenue/categories/">
+					<a href="/americas-finance-guide/revenue/categories/" aria-label="Revenue Categories">
 						Revenue Categories
 					</a>
 				</li>
 				<li>
-					<a href="/americas-finance-guide/revenue/trends/">
+					<a href="/americas-finance-guide/revenue/trends/" aria-label="Federal Revenue Trends">
 						Federal Revenue Trends
 					</a>
 				</li>
 				<li>
-					<a href="/americas-finance-guide/revenue/country-comparison/">
+					<a href="/americas-finance-guide/revenue/country-comparison/" aria-label="Country Comparison">
 						Country Comparison
 					</a>
 				</li>
@@ -141,20 +143,22 @@ const AfgNav = (props) => {
 		navHtml = (
 			<>
 				<li>
-					<a href="/americas-finance-guide/spending/">Spending and GDP</a>
+					<a href="/americas-finance-guide/spending/" aria-label="Spending and GDP">
+						Spending and GDP
+					</a>
 				</li>
 				<li>
-					<a href="/americas-finance-guide/spending/categories/">
+					<a href="/americas-finance-guide/spending/categories/" aria-label="Spending Categories">
 						Spending Categories
 					</a>
 				</li>
 				<li>
-					<a href="/americas-finance-guide/spending/trends/">
+					<a href="/americas-finance-guide/spending/trends/" aria-label="Federal Spending Trends">
 						Federal Spending Trends
 					</a>
 				</li>
 				<li>
-					<a href="/americas-finance-guide/spending/country-comparison/">
+					<a href="/americas-finance-guide/spending/country-comparison/" aria-label="Country Comparison">
 						Country Comparison
 					</a>
 				</li>
@@ -166,15 +170,17 @@ const AfgNav = (props) => {
 		navHtml = (
 			<>
 				<li>
-					<a href="/americas-finance-guide/deficit/">Explore Deficit</a>
+					<a href="/americas-finance-guide/deficit/" aria-label="Explore Deficit">
+						Explore Deficit
+					</a>
 				</li>
 				<li>
-					<a href="/americas-finance-guide/deficit/trends/">
+					<a href="/americas-finance-guide/deficit/trends/" aria-label="Federal Deficit Trends">
 						Federal Deficit Trends
 					</a>
 				</li>
 				<li>
-					<a href="/americas-finance-guide/deficit/country-comparison/">
+					<a href="/americas-finance-guide/deficit/country-comparison/" aria-label="Country Comparison">
 						Country Comparison
 					</a>
 				</li>
@@ -186,20 +192,22 @@ const AfgNav = (props) => {
 		navHtml = (
 			<>
 				<li>
-					<a href="/americas-finance-guide/debt/">Explore Debt</a>
+					<a href="/americas-finance-guide/debt/" aria-label="Explore Debt">
+						Explore Debt
+					</a>
 				</li>
 				<li>
-					<a href="/americas-finance-guide/debt/trends/">
+					<a href="/americas-finance-guide/debt/trends/" aria-label="Federal Debt Trends">
 						Federal Debt Trends
 					</a>
 				</li>
 				<li>
-					<a href="/americas-finance-guide/debt/analysis/">
+					<a href="/americas-finance-guide/debt/analysis/" aria-label="Federal Debt Analysis">
 						Federal Debt Analysis
 					</a>
 				</li>
 				<li>
-					<a href="/americas-finance-guide/debt/country-comparison/">
+					<a href="/americas-finance-guide/debt/country-comparison/" aria-label="Country Comparison">
 						Country Comparison
 					</a>
 				</li>
@@ -216,9 +224,9 @@ const AfgNav = (props) => {
 				<li className={style.chapterNavOverview}>
 					<a href="/americas-finance-guide/">
 						<FontAwesomeIcon
-  icon={faAngleLeft}
-  className="fas fa-chevron-left"
-  width={8}
+							icon={faAngleLeft}
+							className="fas fa-chevron-left"
+							width={8}
 						/>
 						{' '}
 						Overview
@@ -228,12 +236,12 @@ const AfgNav = (props) => {
 			</ul>
 			<button className={style.chapterNavTrigger}>
 				<FontAwesomeIcon
-  icon={faAngleDown}
-  className="fas fa-lg fa-angle-down menu-down"
+					icon={faAngleDown}
+					className="fas fa-lg fa-angle-down menu-down"
 				/>
 				<FontAwesomeIcon
-  icon={faAngleUp}
-  className="fas fa-lg fa-angle-up menu-up hidden"
+					icon={faAngleUp}
+					className="fas fa-lg fa-angle-up menu-up hidden"
 				/>
 			</button>
 		</nav>

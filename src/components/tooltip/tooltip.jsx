@@ -22,17 +22,18 @@ class MouseOverPopover extends React.Component {
 
     this.state = {
       anchorEl: null,
-      openedPopperId: null
+      openedPopperId: null,
+      event: null
     }
 
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.handlePopoverClose);
+    window.addEventListener('resize', (e) => this.handleResize(e));
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.handlePopoverClose);
+    window.removeEventListener('resize', (e) => this.handleResize(e));
   }
 
   escHandler = (e) => {
@@ -49,16 +50,34 @@ class MouseOverPopover extends React.Component {
   handlePopoverOpen = (event, popperId) => {
     this.setState({
       openedPopperId: popperId,
-      anchorEl: event.currentTarget
+      anchorEl: event.currentTarget,
+      event: event
     });
 
   };
 
+  handleResize = (e) => {
+    this.setState((prevState) => {
+      if(prevState.anchorEl) {
+        return {
+          openedPopperId: prevState.openedPopperId,
+          anchorEl: prevState.anchorEl,
+          event: prevState.event
+        }
+      }
+    }, () => {
+      if(this.state.anchorEl) {
+        console.log(this.state);
+        this.handlePopoverOpen(this.state.event, this.state.openedPopperId);
+      }
+    })
+  }
+
   handlePopoverClose = () => {
-    this.setState({
-      openedPopperId: null,
-      anchorEl: null
-    });
+    // this.setState({
+    //   openedPopperId: null,
+    //   anchorEl: null
+    // });
   };
 
   keyUpHandler = (e) => {
@@ -77,6 +96,7 @@ class MouseOverPopover extends React.Component {
                 open={this.isOpen(id)}
                 anchorEl={anchorEl}
                 placement='bottom-end'
+                data-anchorEl={anchorEl}
                 transition>
           {({ TransitionProps }) => (
             <Fade {...TransitionProps} timeout={350}>
