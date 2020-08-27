@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./page.module.scss";
 
-import TagLine from '../../svgs/logo-with-tagline.svg';
+import TagLine from '../../svgs/Logo-with-tagline.svg';
 import NoTagLine from '../../svgs/Logo-without-tagline.svg';
 import TagLineMobile from '../../svgs/logo-tablet-mobile.svg';
 
