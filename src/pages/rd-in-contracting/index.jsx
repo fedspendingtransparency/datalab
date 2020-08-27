@@ -229,7 +229,7 @@ export default class RdInContractingPage extends React.Component {
   prerelease = () => {
     let isQAT = false;
     if (typeof window !== 'undefined') {
-      isQAT = window.location.href.indexOf('localhost') > -1 || window.location.href.indexOf('qat') > -1 ? true : false;
+      isQAT = window.location.href.indexOf('localhost') > -1 || window.location.href.indexOf('datalab-qat') > -1 ? true : false;
     }
 
      if(!isQAT) {
