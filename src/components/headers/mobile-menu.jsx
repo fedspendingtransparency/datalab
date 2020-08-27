@@ -19,20 +19,50 @@ class MobileMenu extends React.Component {
     };
   }
 
-  returnActiveList = (data, first, last) => {
+  componentDidMount() {
+    console.log(this.state.data);
+    const afgHeaders = new Set(this.state.data.ffg);
+    console.log(afgHeaders);
+  };
+
+  returnActiveList = (data, name) => {
     return data.map((item, key) => {
       let id = '';
-      if (first && key === 0) id = 'menu-first-item';
-      if (last && key === data.length - 1) id = 'menu-last-item';
+      if (key === 0) id = 'menu-first-item';
+      if (key === data.length - 1) id = 'menu-last-item';
       return (
         <>
-          <li className={styles.dataListLi} key={key} onKeyDown={this.menuItemKeyUp}>
-            <a href={item.link} className={styles.dataListA}>{item.name}</a>
+          <li className={styles.dataListLi} key={key} onKeyDown={(e) => this.sublistTab(e, name)}>
+            <a id={id} href={item.link} className={styles.dataListA}>{item.name}</a>
           </li>
           <hr className={styles.mobileHr} />
         </>
       );
     });
+  };
+
+  sublistTab = (e, name) => {
+    if (e.key === 'Escape') {
+      if (name === "Analyses") {
+        this.handleClick('Analyses');
+      } else if (name === "Resources") {
+        this.handleClick("Resources");
+      } else {
+        this.handleClick("America's Finance Guide");
+      };
+    }
+    if (e.key === 'Tab') {
+      if ((document.activeElement.id === 'menu-first-item' && e.shiftKey) || (document.activeElement.id === 'menu-last-item' && !e.shiftKey)) {
+        console.log(name);
+        if (name === "Analyses") {
+          this.handleClick('Analyses');
+        } else if (name === "Resources") {
+          this.handleClick("Resources");
+        } else {
+          this.handleClick("America's Finance Guide");
+        };
+      }
+    }
   };
 
   handleClick = (dropdown) => {
@@ -77,11 +107,11 @@ class MobileMenu extends React.Component {
                   <span className={styles.arrow} onClick={() => this.handleClick('Analyses')}> <Arrow /></span>
                 </button>
               </li>
-              <ul className={`${styles.toggleList} ${this.state.analysesCheck ? `` : ' ' + styles.hidden}`}>{this.returnActiveList(this.state.data[0].analyses, true)}</ul>
+              <ul className={`${styles.toggleList} ${this.state.analysesCheck ? `` : ' ' + styles.hidden}`}>{this.returnActiveList(this.state.data[0].analyses, "Analyses")}</ul>
             </div>
 
             <div>
-              <li className={styles.item} data-id='2' onClick={() => this.handleClick("America's Finance Guide")}>
+              <li className={styles.item} id="afg" data-id='2' onClick={() => this.handleClick("America's Finance Guide")}>
                 <button className={styles.mobileMenuBtn}>
                   America's Finance Guide
                   <span className={styles.arrow} onClick={() => this.handleClick("America's Finance Guide")}> <Arrow /></span>
@@ -118,7 +148,7 @@ class MobileMenu extends React.Component {
                   <span className={styles.arrow} onClick={() => this.handleClick('Resources')}> <Arrow /></span>
                 </button>
               </li>
-              <ul className={`${styles.toggleList} ${this.state.resourcesCheck ? `` : ' ' + styles.hidden}`}>{this.returnActiveList(this.state.data[3].resources)}</ul>
+              <ul className={`${styles.toggleList} ${this.state.resourcesCheck ? `` : ' ' + styles.hidden}`}>{this.returnActiveList(this.state.data[3].resources, "Resources")}</ul>
             </div>
 
             <div>
