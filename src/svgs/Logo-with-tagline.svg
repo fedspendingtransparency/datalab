@@ -28,19 +28,19 @@
                             <use xlinkHref="#path-3"></use>
                         </mask>
                         <g id="Clip-17"></g>
-                        <polygon id="Fill-16" fill="#212F64" mask="url(#mask-4)" points="100.989836 46.4314286 102.926242 46.4314286 102.926242 0 100.989836 0"></polygon>
-                        <polygon id="Fill-18" fill="#CC2128" mask="url(#mask-4)" points="31.9549879 5.09314286 64.1946909 5.09314286 64.1946909 1.752 31.9549879 1.752"></polygon>
-                        <polygon id="Fill-19" fill="#CC2128" mask="url(#mask-4)" points="31.9549879 11.5148571 82.5348061 11.5148571 82.5348061 8.17371429 31.9549879 8.17371429"></polygon>
-                        <polygon id="Fill-20" fill="#CC2128" mask="url(#mask-4)" points="31.9549879 17.9365714 76.4220061 17.9365714 76.4220061 14.5937143 31.9549879 14.5937143"></polygon>
-                        <polygon id="Fill-21" fill="#CC2128" mask="url(#mask-4)" points="31.9549879 24.3565714 70.3092061 24.3565714 70.3092061 21.0154286 31.9549879 21.0154286"></polygon>
-                        <polygon id="Fill-22" fill="#CC2128" mask="url(#mask-4)" points="0 30.7782857 76.4220061 30.7782857 76.4220061 27.4371429 0 27.4371429"></polygon>
-                        <polygon id="Fill-23" fill="#CC2128" mask="url(#mask-4)" points="0 37.2 82.5348061 37.2 82.5348061 33.8588571 0 33.8588571"></polygon>
-                        <polygon id="Fill-24" fill="#CC2128" mask="url(#mask-4)" points="0 43.6217143 70.3092061 43.6217143 70.3092061 40.2805714 0 40.2805714"></polygon>
-                        <polygon id="Fill-25" fill="#212F64" mask="url(#mask-4)" points="3.32070485 1.75114286 3.30012303 24.3574286 0.000171515152 24.3574286 0.0190381818 1.75114286"></polygon>
-                        <polygon id="Fill-26" fill="#212F64" mask="url(#mask-4)" points="6.39408485 24.3565714 9.69403636 24.3565714 9.69403636 8.17371429 6.39408485 8.17371429"></polygon>
-                        <polygon id="Fill-27" fill="#212F64" mask="url(#mask-4)" points="12.7881697 24.3565714 16.0881212 24.3565714 16.0881212 3.04457143 12.7881697 3.04457143"></polygon>
-                        <polygon id="Fill-28" fill="#212F64" mask="url(#mask-4)" points="19.1719636 24.3565714 22.4719152 24.3565714 22.4719152 5.09314286 19.1719636 5.09314286"></polygon>
-                        <polygon id="Fill-29" fill="#212F64" mask="url(#mask-4)" points="28.8728606 1.75114286 28.8539939 24.3574286 25.5523273 24.3574286 25.5729091 1.75114286"></polygon>
+                        <polygon id="Fill-16" fill="#212F64" points="100.989836 46.4314286 102.926242 46.4314286 102.926242 0 100.989836 0"></polygon>
+                        <polygon id="Fill-18" fill="#CC2128" points="31.9549879 5.09314286 64.1946909 5.09314286 64.1946909 1.752 31.9549879 1.752"></polygon>
+                        <polygon id="Fill-19" fill="#CC2128" points="31.9549879 11.5148571 82.5348061 11.5148571 82.5348061 8.17371429 31.9549879 8.17371429"></polygon>
+                        <polygon id="Fill-20" fill="#CC2128" points="31.9549879 17.9365714 76.4220061 17.9365714 76.4220061 14.5937143 31.9549879 14.5937143"></polygon>
+                        <polygon id="Fill-21" fill="#CC2128" points="31.9549879 24.3565714 70.3092061 24.3565714 70.3092061 21.0154286 31.9549879 21.0154286"></polygon>
+                        <polygon id="Fill-22" fill="#CC2128" points="0 30.7782857 76.4220061 30.7782857 76.4220061 27.4371429 0 27.4371429"></polygon>
+                        <polygon id="Fill-23" fill="#CC2128" points="0 37.2 82.5348061 37.2 82.5348061 33.8588571 0 33.8588571"></polygon>
+                        <polygon id="Fill-24" fill="#CC2128" points="0 43.6217143 70.3092061 43.6217143 70.3092061 40.2805714 0 40.2805714"></polygon>
+                        <polygon id="Fill-25" fill="#212F64" points="3.32070485 1.75114286 3.30012303 24.3574286 0.000171515152 24.3574286 0.0190381818 1.75114286"></polygon>
+                        <polygon id="Fill-26" fill="#212F64" points="6.39408485 24.3565714 9.69403636 24.3565714 9.69403636 8.17371429 6.39408485 8.17371429"></polygon>
+                        <polygon id="Fill-27" fill="#212F64" points="12.7881697 24.3565714 16.0881212 24.3565714 16.0881212 3.04457143 12.7881697 3.04457143"></polygon>
+                        <polygon id="Fill-28" fill="#212F64" points="19.1719636 24.3565714 22.4719152 24.3565714 22.4719152 5.09314286 19.1719636 5.09314286"></polygon>
+                        <polygon id="Fill-29" fill="#212F64" points="28.8728606 1.75114286 28.8539939 24.3574286 25.5523273 24.3574286 25.5729091 1.75114286"></polygon>
                     </g>
                     <text id="Visualizations-to-he" font-family="SourceSansPro-Regular, Source Sans Pro" fontSize="13.31" fontWeight="normal" linespacing="16.94" letterSpacing="0.33275001" fill="#4F4F4F">
                         <tspan x="0.625" y="60.19">Visualizations to help you understand government finance.</tspan>

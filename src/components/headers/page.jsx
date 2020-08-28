@@ -135,17 +135,14 @@ export default class PageHeader extends React.Component {
     }
   }
 
-  tagLineCheck = (isSticky) => {
-    if (isSticky) {
-      if (this.state.isMobileTag) {
-        return (<TagLineMobile />);
-      }
-      return (<NoTagLine />);
+  tagLineCheck = () => {
+    if (this.state.isMobileTag) {
+      return (<TagLineMobile />);
     } else {
-      if (this.state.isMobileTag) {
-        return (<TagLineMobile />);
+      if (this.state.isSticky) {
+        return (<NoTagLine />);
       }
-      return (<TagLine />);
+      return (<TagLine width="100%" />);
     }
   };
 
@@ -165,7 +162,7 @@ export default class PageHeader extends React.Component {
           <div className={`${styles.logoWrapper} ${!isSticky ? ' ' + styles.col : ``}`}>
             <a href="/">
               <div>
-                {this.tagLineCheck(isSticky, isMobileTag)}
+                {this.tagLineCheck()}
               </div>
             </a>
 
