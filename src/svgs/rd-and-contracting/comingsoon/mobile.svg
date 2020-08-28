@@ -130,7 +130,7 @@
                                 <rect id="Purple" x="0" y="0" width="10.8582913" height="10.8582913"></rect>
                             </g>
                         </g>
-                        <text id="SHOW-DETAILS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="11.4" font-weight="300" fill="#666666">
+                        <text id="SHOW-DETAILS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="0.7125rem" font-weight="300" fill="#666666">
                             <tspan x="16.6218828" y="11.8452773">SHOW DETAILS</tspan>
                         </text>
                     </g>
