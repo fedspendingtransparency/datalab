@@ -65,28 +65,36 @@ class MobileMenu extends React.Component {
 
   handleClick = (dropdown) => {
     switch (dropdown) {
-      case "Analyses":
-        this.setState({ analysesCheck: !this.state.analysesCheck });
-        break;
-      case "America's Finance Guide":
-        this.setState({ afgCheck: !this.state.afgCheck });
-        break;
-      case "Resources":
-        this.setState({ resourcesCheck: !this.state.resourcesCheck });
-        break;
-      case "Glossary":
-        this.setState({ glossaryCheck: !this.state.glossaryCheck });
-        break;
+    case "Analyses":
+      this.setState({ analysesCheck: !this.state.analysesCheck });
+      //document.getElementById('analyses').nextSibling.focus();
+      break;
+    case "America's Finance Guide":
+      this.setState({ afgCheck: !this.state.afgCheck });
+      break;
+    case "Resources":
+      this.setState({ resourcesCheck: !this.state.resourcesCheck });
+      break;
+    case "Glossary":
+      this.setState({ glossaryCheck: !this.state.glossaryCheck });
+      break;
     };
   };
 
+  handleOut = (e) => {
+    if (e.key === 'Tab') {
+      if ((document.activeElement.id === 'analyses' && e.shiftKey) || (document.activeElement.id === 'glossary' && !e.shiftKey)) {
+        this.props.burgerClick();
+      }
+    }
+  };
 
   render() {
 
     return (
       <>
         <div>
-          <ul className={`${styles.mobile} ${this.state.isShowing ? `` : styles.hidden}`}>
+          <ul className={`${styles.mobile} ${this.state.isShowing ? `` : styles.hidden}`} onKeyDown={this.handleOut}>
             <div>
               <li className={styles.item} data-id='0' id="analyses" onClick={() => this.handleClick('Analyses')}>
                 <button className={styles.mobileMenuBtn}>
@@ -149,7 +157,7 @@ class MobileMenu extends React.Component {
           </ul>
 
           <Dropdown clickedItem={this.state.clickedItem}
-            data={this.state.data} />
+                    data={this.state.data} />
 
         </div>
         <Glossary />
