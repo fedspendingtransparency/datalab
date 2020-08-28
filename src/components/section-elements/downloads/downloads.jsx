@@ -77,10 +77,10 @@ const Downloads = (props) => {
     const exportFileDefaultName = 'data.json';
 
     return (
-      <DownloadsContainer>
+      <DownloadsContainer data-testid='downloads-container'>
         <a className={downloadsStyles.data} href={dataUri} download={exportFileDefaultName}>
           <FontAwesomeIcon icon={faDownload} width={16} />
-          <div>&nbsp;Download</div>
+          <div data-testid='downloads-container-text'>&nbsp;Download</div>
         </a>
       </DownloadsContainer>
     );
@@ -102,14 +102,14 @@ const Downloads = (props) => {
           <FiscalDataLogo className={downloadsStyles.logo} />
         </a>
       }
-      {props.date ? <span className={downloadsStyles.fadedModifier}>Updated as of {props.date} / </span> : ''}
+      {props.date ? <span data-testid='updated-date' className={downloadsStyles.fadedModifier}>Updated as of {props.date} / </span> : ''}
       {props.isJSON ?
         exportToJsonFile(props.data)
         :
-        <DownloadsContainer>
+        <DownloadsContainer data-testid='downloads-container'>
           <a className={downloadsStyles.data} href={props.href}>
               <FontAwesomeIcon icon={faDownload} width={16} />
-              <div>&nbsp;Download</div>
+              <div data-testid='downloads-container-text'>&nbsp;Download</div>
           </a>
         </DownloadsContainer>
       }
