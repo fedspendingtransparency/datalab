@@ -1,32 +1,33 @@
 import React from 'react';
 import { render, getByTestId, fireEvent } from '@testing-library/react';
 import Downloads from './downloads';
-import { legacyBlue } from 'src/styles/variables.scss'
 
 describe('Downloads component', () => {
   const date = 'August 2020';
-  const color = legacyBlue;
+  const defaultColor = '#555'
+  const analysisColor = '#2272CE';
   
   it('expect the component to have text indicating the last updated date', () => {
     const { getByTestId } = render(<Downloads date={date} />)
     const updatedDate = getByTestId('updated-date');
-    expect(updatedDate).toHaveTextContent(`Updated as of ${date}`);
+    expect(updatedDate).toHaveTextContent(`Updated as of ${date} /`);
   });
+
+  it('expect the component not to have the "Updated as of" element if no date is provided', () => {
+    const { queryByTestId } = render(<Downloads />)
+    expect(queryByTestId('updated-date')).not.toBeInTheDocument();
+  })
   
-  it('expect the component to display unique analysis color on hover', () => {
+  it('expect the component to display default color', () => {
     const { getByTestId } = render(<Downloads date={date} />)
-    const downloadsContainer = getByTestId('downloads-container');
-    expect(downloadsContainer).toHaveStyle({ color: '#555' });
-    fireEvent(downloadsContainer, new MouseEvent('mouseOver'));
-    expect(downloadsContainer).toHaveStyle({ color });
+    const link = getByTestId('downloads-container').firstChild;
+    expect(link).toHaveStyle({ color: defaultColor });
   })
 
-  it('expect the text to be underlined on hover', () => {
-    const { getByTestId } = render(<Downloads date={date} />)
-    const downloadsContainer = getByTestId('downloads-container');
-    const downloadsContainerText = getByTestId('downloads-container-text');
-    fireEvent(downloadsContainer, new MouseEvent('mouseOver'));
-    expect(downloadsContainerText).toHaveStyle('text-decoration: underline');
+  it('expect the Fiscal Data logo to be there if it is provided', () => {
+    const { getByTestId } = render(<Downloads withFiscalDataLogo />)
+    const logo = getByTestId('fiscal-data-logo');
+    expect(logo).toBeInTheDocument();
   })
 
 });

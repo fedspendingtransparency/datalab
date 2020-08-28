@@ -99,7 +99,7 @@ const Downloads = (props) => {
     >
       {props.withFiscalDataLogo &&
         <a target="_blank" rel="noopener noreferrer" href="https://fiscaldata.treasury.gov/">
-          <FiscalDataLogo className={downloadsStyles.logo} />
+          <FiscalDataLogo data-testid='fiscal-data-logo' className={downloadsStyles.logo} />
         </a>
       }
       {props.date ? <span data-testid='updated-date' className={downloadsStyles.fadedModifier}>Updated as of {props.date} / </span> : ''}
