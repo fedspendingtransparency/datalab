@@ -1,0 +1,48 @@
+@import '../../../ffg/globalSass/accordion';
+@import '../../../ffg/globalSass/colors';
+@import '../../../ffg/globalSass/generalVars';
+@import '../../../ffg/globalSass/toggleControl';
+
+.debt-trends-wrapper {
+
+  .tour {
+    max-width: none;
+  }
+
+
+  .trend-chart-container {
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .trend-chart-container__image {
+    max-width: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .trend-chart-container__image.trend-chart-container__image--active {
+    opacity: 1;
+  }
+
+  .trend-chart-container .trend-chart-container__image:not(:first-child) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  @media only screen and (min-width: 900px) {
+    .trend-chart-container {
+      width: 67%;
+      float: left;
+    }
+
+    .debt-aside {
+      width: 33%;
+      float: right;
+      padding-left: 2rem;
+      box-sizing: border-box;
+    }
+  }
+
+}

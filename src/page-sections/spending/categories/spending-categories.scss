@@ -1,0 +1,233 @@
+@import '../../../ffg/globalSass/colors';
+@import '../../../ffg/globalSass/accordion';
+@import '../../../ffg/globalSass/generalVars';
+
+.spending-categories-wrapper {
+
+    .title-text {
+        font-weight: $normalWeight;
+        display: inline-block;
+        margin-right: 1rem;
+    }
+
+    .chart-title {
+        margin-bottom: 1rem;
+    }
+
+    .tour {
+        margin: 2rem 0 1rem;
+    }
+
+    #viz {
+        overflow-x: hidden;
+        margin-top:0.25rem;
+    }
+
+    #vizChartSectionText {
+        font-weight:bold;
+    }
+
+    .bar-controls__left--button-div {
+        display:inline-block;
+        button {
+            margin-left:1rem;
+        }
+    }
+
+    .hwcta {
+        clear: both;
+        margin-bottom: 8rem;
+    }
+
+    @media only screen and (min-width: 800px) {
+        #viz-wrapper {
+            width: 66%;
+            margin: 0 0 1rem 0;
+            padding-left: 2rem;
+            float: right;
+            box-sizing: border-box;
+
+            h2 {
+                margin-top: 0;
+            }
+        }
+
+        .poc-content {
+            margin-right: 66%;
+            padding-right: 2rem;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        main {
+            margin: 0 auto;
+        }
+    }
+
+    #viz-chart-container {
+        padding:0.75rem;
+        border-radius: 4px;
+        box-shadow: 0 0 10px 2px rgba(80, 80, 80, 0.15);
+        margin-bottom:5px;
+
+        hr {
+            margin-left: -12px;
+            margin-right: -12px;
+            border: 1px solid #CCC;
+        }
+    }
+
+    #showMoreContainer {
+        width:100%;
+    }
+
+    .chart__show-more {
+        height:50px;
+        width:100%;
+        outline: none;
+        margin-left:-12px;
+        margin-right:12px;
+        color:$color-spending-primary;
+        font-weight:bold;
+        background: #FFF;
+        border:0;
+    }
+
+    #bar-controls {
+        display:flex;
+        color:$text-color-paragraph;
+        font-size:14;
+        font-weight:bold;
+        justify-content:space-between;
+    }
+
+    #bar-controls button {
+        background: #FFF;
+        border:0;
+        color: $text-color-paragraph;
+        outline:none;
+
+        &.active {
+            color:$color-spending-primary;
+        }
+    }
+
+    #viz {
+        margin-bottom:0;
+    }
+
+    .spending__chart--searchbox {
+        background-size: 20px 20px;
+        background-position: right;
+        background-repeat: no-repeat;
+    }
+
+    .bar-controls__right {
+        overflow:hidden;
+        margin-top:-0.25rem;
+
+        .bar-controls__right--div {
+            padding-right:20px;
+            border: 1px solid #CCC;
+            overflow:hidden;
+        }
+
+        input {
+            padding: 0.25rem 0.2rem;
+            border:0;
+            outline:none;
+            width: calc(100% - .6rem);
+            //The following is required for Safari browser as the input covers the border of the parent div
+            margin-top: 1px;
+        }
+
+        .spending__search--icon {
+            position: relative;
+            z-index: 1;
+            top: 1px;
+            color: #7B7B7B;
+            cursor:text;
+            width: 1rem;
+            font-size: 1rem;
+            margin-right: -1rem;
+        }
+    }
+
+    .link-button__div {
+        display:inline-block;
+        border-bottom: 2px solid rgb(0, 118, 108);
+        cursor:pointer;
+
+        .link-button {
+            border: none;
+            background: none;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding-left: 0;
+            padding-bottom: 0;
+            font-weight: 600;
+            color: $text-color-paragraph;
+        }
+
+        .link-button__icon {
+            padding-left:30px;
+        }
+    }
+
+    .hidden {
+        display:none;
+    }
+
+    .spending-chart-toggle__label {
+        color: $text-color-paragraph;
+        transition: color, font-weight 0.3s ease;
+        cursor: pointer;
+        transform: translateY(-5px);
+        display: inline-block;
+        min-width: 93px;
+        font-weight: $normalWeight;
+        font-size: 1.5rem;
+    }
+
+    .spending-chart-toggle[data-active="category"] .spending-chart-toggle__label--categories {
+        color: $color-spending-primary;
+        font-weight: $boldWeight;
+    }
+
+    .spending-chart-toggle[data-active="agency"] .spending-chart-toggle__label--agency {
+        color: $color-spending-primary;
+        font-weight: $boldWeight;
+    }
+
+    .toggle-control {
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0 0.5rem;
+    }
+
+    .toggle-control__background {
+        border: 1px solid #ccc;
+        background: #f0f0f0;
+        width: 2rem;
+        height: 1.2rem;
+        border-radius: 0.6rem;
+        position: relative;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    .toggle-control__dot {
+        height: 1rem;
+        border-radius: 0.5rem;
+        width: 1rem;
+        background: white;
+        border: 2px solid $color-spending-primary;
+        box-sizing: border-box;
+        margin: 2px 2px;
+        transition: transform 0.25s ease;
+    }
+
+    .spending-chart-toggle[data-active="agency"] .toggle-control__dot {
+        transform: translateX(0.8rem)
+    }
+}

@@ -1,0 +1,328 @@
+@import '../../ffg/globalSass/generalVars';
+@import '../../ffg/globalSass/colors';
+
+@keyframes scale {
+	0% {
+		transform: scaleY(0);
+	}
+	10% {
+		transform: scaleY(0);
+	}
+	100% {
+		transform: scaleY(1);
+	}
+}
+
+.anecdote {
+	max-width: 100%;
+	font-size: 1rem;
+	font-weight: 300;
+	border: 1px solid #aaa;
+	padding: 0.25rem 1rem;
+	border-radius: 1rem;
+	margin-bottom: 1rem;
+	display: inline-block;
+	transition: padding-top 0.5s ease, padding-bottom 0.5s ease, background-color 1s ease;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.anecdote__nav {
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.anecdote__nav-control {
+	width: 18%;
+	box-sizing: border-box;
+	text-align: left;
+}
+
+.anecdote__nav-control:last-child {
+	.anecdote__nav-button {
+		float: right;
+	}
+}
+
+.anecdote__nav-contents {
+	width: 64%;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.anecdote__nav-button {
+	border-radius: 1.2rem;
+	background: #ccc;
+	border: none;
+	width: 2.4rem;
+	height: 2.4rem;
+	text-align: center;
+	padding-top: 0.5rem;
+	cursor: pointer;
+}
+
+.anecdote__contents {
+	display: none;
+	transform: scaleY(0);
+}
+
+.anecdote__trigger {
+	padding: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+h1.anecdote__heading {
+	font-size: 1.2rem;
+	font-weight: $boldWeight;
+	margin-top: 0.5rem;
+	text-align: center;
+}
+
+.anecdote__dots--container {
+	margin-bottom: 10px;
+}
+
+.anecdote__dots,
+.anecdote__dots--text {
+	display: flex;
+	justify-content: center;
+}
+
+.anecdote__dots--text {
+	color: #b2c6d8;
+	font-size: 0.6875rem;
+}
+
+.anecdote__dot {
+	padding: 4px;
+	width: 8px;
+	height: 8px;
+	border: 0;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background: #b2c6d8;
+	margin: 4px;
+	cursor: pointer;
+
+	&.anecdote__dot--active {
+		background: #205493;
+	}
+
+	&:focus {
+		outline: 0;
+		box-shadow: 0 0 0.25rem 0.2rem #205493;
+	}
+}
+
+.anecdote__panes {
+	cursor: pointer;
+	display: flex;
+	flex-wrap: nowrap;
+	width: 300%;
+	box-sizing: border-box;
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+
+.anecdote__pane {
+	-moz-user-select: none;
+	user-select: none;
+	order: 2;
+	width: 100%;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	&.anecdote__pane--active {
+		order: 1;
+		opacity: 1;
+	}
+
+	p {
+		text-align: center;
+		margin-top: 0;
+		font-size: 1rem;
+	}
+}
+
+.anecdote__controls {
+	display: flex;
+	justify-content: space-between;
+}
+
+.anecdote__close {
+	display: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.anecdote__link--button-container {
+	display: flex;
+	position: absolute;
+	margin-top: -3rem;
+	margin-left: -1rem;
+	padding-top: 5px;
+	margin-bottom: 1.5rem;
+	cursor: pointer;
+}
+
+.anecdote__link--button-container,
+.anecdote__link--button-icon,
+.anecdote__icon {
+	height: 20px;
+	width: 20px;
+}
+
+.anecdote__link--button-icon,
+.anecdote__icon {
+	flex: 1 20px;
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+
+.anecdote__link--button-icon {
+	margin-bottom: -4px;
+	background-color: transparent;
+	border: 0;
+}
+
+.anecdote__link--button {
+	padding: 0;
+	-moz-user-select: none;
+	user-select: none;
+	&:focus {
+		outline: none;
+	}
+}
+
+.anecdote__icon {
+	margin-bottom: -4px;
+	margin-left: 0.5px;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	/* IE10+ CSS styles go here */
+	.anecdote__icon {
+		margin-left: 0;
+	}
+}
+
+.anecdote__illustration {
+	width: 250px;
+	max-width: 100%;
+	margin: 0 auto;
+	display: block;
+}
+
+a.anecdote__cta {
+	font-weight: 600;
+	padding: 0.8rem 1.3rem;
+	font-size: 1.125rem;
+	color: white;
+
+	i {
+		margin-left: 1rem;
+	}
+}
+
+.anecdote__pane .source {
+	color: #ccc;
+	font-size: 0.75rem;
+
+	a {
+		color: #77abe8;
+	}
+}
+
+.anecdote.anectode--active {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	width: 500px;
+	max-width: 100%;
+	background: white;
+
+	.anecdote__teaser {
+		display: none;
+	}
+
+	.anecdote__close {
+		display: block;
+	}
+
+	.anecdote__panes {
+		opacity: 1;
+	}
+
+	.anecdote__contents {
+		display: block;
+		animation: scale 0.5s;
+		transform: scaleY(1);
+	}
+}
+
+.chapter--revenue {
+	.anecdote {
+		border-color: $color-primary-darkest;
+		background: #a7c7ed40;
+	}
+
+	.anecdote.anectode--active {
+		background: white;
+	}
+
+	.fa-street-view {
+		color: $color-primary-darkest;
+	}
+}
+
+.chapter--spending {
+	.anecdote {
+		border-color: $color-spending-primary;
+		background: #00796b1a;
+	}
+
+	.anecdote.anectode--active {
+		background: white;
+	}
+
+	.fa-street-view {
+		color: $color-spending-primary;
+	}
+}
+
+.chapter--deficit {
+	.anecdote {
+		border-color: $color-deficit-primary;
+		background: #b3532d1f;
+	}
+
+	.anecdote.anectode--active {
+		background: white;
+	}
+
+	.fa-street-view {
+		color: $color-deficit-primary;
+	}
+}
+
+.chapter--debt {
+	.anecdote {
+		border-color: $color-debt-primary;
+		background: #4a00721a;
+	}
+
+	.anecdote.anectode--active {
+		background: white;
+	}
+
+	.fa-street-view {
+		color: $color-debt-primary;
+	}
+}

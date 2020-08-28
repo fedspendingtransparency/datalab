@@ -1,0 +1,57 @@
+@import '../../../ffg/globalSass/colors';
+@import 'bpVars';
+@import '../../../ffg/globalSass/generalVars';
+
+.deficit-debt-heading {
+    background: url('/americas-finance-guide/images/deficit-debt-image.jpg') 0 0 no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 1rem;
+    background-color: #FFF;
+    box-sizing: border-box;
+}
+
+.deficit-debt-heading__arrow-container {
+    text-align: center;
+    margin-top: 1rem;
+
+    a {
+        color:$text-color-paragraph;
+    }
+
+    i {
+        text-align: center;
+        font-size: 2em;
+    }
+}
+
+.deficit-debt-heading__heading {
+    @include baseHeader();
+    background: #fff;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 1rem;
+
+    strong, span {
+        font-weight: $heavyBoldWeight;
+        font-size: $baseHeaderSize;
+    }
+}
+
+.chapter__divider--text-deficit {
+    color: $color-deficit-primary;
+}
+
+.chapter__divider--text-debt {
+    color: $color-debt-primary;
+}
+
+@media only screen and (min-width: 800px) {
+    .deficit-debt-heading {
+        padding: 4rem 2rem 2rem;
+    }
+
+    .deficit-debt-heading__heading, .deficit-debt-heading__heading span {
+        @include baseHeaderDesktop();
+    }
+}

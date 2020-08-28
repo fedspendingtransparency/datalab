@@ -1,16 +1,16 @@
-import 'src/libs/ffg/src/globalSass/cg.scss'
-import 'src/libs/ffg/src/debt/analysis/debt-analysis.scss'
+import 'src/ffg/globalSass/cg.scss'
+import 'src/page-sections/debt/analysis/debt-analysis.scss'
 
 import React from "react"
 import SEO from "src/components/seo"
-import AfgData from "src/libs/_data/object_mapping.yml"
+import AfgData from "static/americas-finance-guide/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import Og from '../../../../components/og-tag/og';
 import AfgNav from 'src/components/afg-nav/afg-nav';
-import DebtCards from "src/libs/ffg/src/debt/analysis/cards";
+import DebtCards from "src/page-sections/debt/analysis/cards";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';

@@ -1,24 +1,24 @@
-import '../../libs/ffg/src/globalSass/cg.scss';
-import '../../libs/ffg/src/bigPicture/scss/bp.scss';
+import '../../ffg/globalSass/cg.scss';
+import '../../page-sections/big-picture/scss/bp.scss';
 
 import React, { useEffect } from "react";
 import SEO from "../../components/seo";
 import Og from '../../components/og-tag/og';
-import AfgData from "../../libs/_data/object_mapping.yml";
+import AfgData from "../../../static/americas-finance-guide/_data/object_mapping.yml";
 import Default from "../../components/layouts/default/default";
 import AccordionList from '../../components/accordion-list/accordion-list';
 import ControlBar from '../../components/control-bar/control-bar';
 import Share from '../../components/share/share';
 import { Helmet } from 'react-helmet';
 import BpToc from '../../components/bpToc/bpToc';
-import AfgAnecdote from '../../libs/ffg/src/anecdote/anecdote';
+import AfgAnecdote from '../../components/anecdote/anecdote';
 // import ffgOverviewImg from '../../images/ffg/social-media-share-overview.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleDown, faStreetView } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from '../../components/headers/headers';
 
-import 'src/libs/ffg/src/bigPicture/parallax';
-import 'src/libs/ffg/src/bigPicture/scrollTo';
+import 'src/page-sections/big-picture/parallax';
+import 'src/page-sections/big-picture/scrollTo';
 import smoothscroll from 'smoothscroll-polyfill';
 
 export default function OverviewPage(props) {

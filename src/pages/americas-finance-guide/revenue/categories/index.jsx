@@ -1,11 +1,11 @@
-import 'src/libs/ffg/src/globalSass/cg.scss'
-import 'src/libs/ffg/src/revenue/categories/revenue-categories.scss'
-import RevenueCategories from "src/libs/ffg/src/revenue/categories/index.js";
-import 'src/libs/ffg/src/revenue/categories/data.js'
+import 'src/ffg/globalSass/cg.scss'
+import 'src/page-sections/revenue/categories/revenue-categories.scss'
+import RevenueCategories from "src/page-sections/revenue/categories/index.js";
+import 'src/page-sections/revenue/categories/data.js'
 
 import React from "react"
 import SEO from "src/components/seo"
-import AfgData from "src/libs/_data/object_mapping.yml"
+import AfgData from "static/americas-finance-guide/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
 import { AFGHeader } from 'src/components/headers/headers';
 import AccordionList from 'src/components/accordion-list/accordion-list'

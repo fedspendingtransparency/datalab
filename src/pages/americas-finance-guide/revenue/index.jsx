@@ -1,10 +1,10 @@
-import 'src/libs/ffg/src/globalSass/chapterIntroCommon.scss';
-import 'src/libs/ffg/src/globalSass/cg.scss';
-import 'src/libs/ffg/src/revenue/intro/revenue-intro.scss';
+import 'src/ffg/globalSass/chapterIntroCommon.scss';
+import 'src/ffg/globalSass/cg.scss';
+import 'src/page-sections/revenue/intro/revenue-intro.scss';
 
 import React, { useEffect } from 'react';
 import SEO from 'src/components/seo';
-import AfgData from 'src/libs/_data/object_mapping.yml';
+import AfgData from 'static/americas-finance-guide/_data/object_mapping.yml';
 import Default from 'src/components/layouts/default/default';
 import { AFGHeader } from 'src/components/headers/headers';
 import GdpTemplate from 'src/components/gdp-template/gdp-template';
@@ -12,11 +12,11 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Og from '../../../components/og-tag/og';
-import AnecdoteRevenueSVG from 'src/libs/assets/ffg/icons/anecdote-revenue.svg';
-import DefinitionSVG from 'src/libs/assets/ffg/icons/definition.svg';
+import AnecdoteRevenueSVG from 'src/libs/assets-OLD/ffg/icons/anecdote-revenue.svg';
+import DefinitionSVG from 'src/libs/assets-OLD/ffg/icons/definition.svg';
 import AfgNav from 'src/components/afg-nav/afg-nav';
-import RevenueIntro from 'src/libs/ffg/src/revenue/intro/index';
-import { setFactsTrigger } from '../../../libs/ffg/src/spending/intro/compareManager';
+import RevenueIntro from 'src/page-sections/revenue/intro/index';
+import { setFactsTrigger } from '../../../page-sections/spending/intro/compareManager';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';

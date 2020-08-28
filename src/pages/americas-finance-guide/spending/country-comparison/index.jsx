@@ -1,17 +1,17 @@
-import 'src/libs/ffg/src/globalSass/cg.scss'
-import 'src/libs/ffg/src/globalSass/countryCommon.scss'
+import 'src/ffg/globalSass/cg.scss'
+import 'src/ffg/globalSass/countryCommon.scss'
 
 import React from "react"
 import { Link } from "gatsby"
 import SEO from "src/components/seo"
-import AfgData from "src/libs/_data/object_mapping.yml"
+import AfgData from "static/americas-finance-guide/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import AfgNav from 'src/components/afg-nav/afg-nav';
 import Og from '../../../../components/og-tag/og';
-import SpendingCountryComparison from '../../../../libs/ffg/src/spending/countries';
+import SpendingCountryComparison from '../../../../page-sections/spending/countries';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';

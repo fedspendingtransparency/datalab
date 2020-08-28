@@ -1,9 +1,9 @@
-import 'src/libs/ffg/src/globalSass/cg.scss'
-import 'src/libs/ffg/src/globalSass/trendsCommon.scss'
+import 'src/ffg/globalSass/cg.scss'
+import 'src/ffg/globalSass/trendsCommon.scss'
 
 import React from "react"
 import SEO from "src/components/seo"
-import AfgData from "src/libs/_data/object_mapping.yml"
+import AfgData from "static/americas-finance-guide/_data/object_mapping.yml"
 import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
@@ -14,7 +14,7 @@ import Og from '../../../../components/og-tag/og';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from '../../../../components/headers/headers';
-import SpendingTrends from 'src/libs/ffg/src/spending/trends/index.js';
+import SpendingTrends from 'src/page-sections/spending/trends/index.js';
 
 function SpendingTrendsPage(props) {
     return (

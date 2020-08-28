@@ -1,11 +1,11 @@
-import 'src/libs/ffg/src/globalSass/chapterIntroCommon.scss';
-import 'src/libs/ffg/src/globalSass/cg.scss';
-import 'src/libs/ffg/src/debt/intro/debt-intro.scss';
+import 'src/ffg/globalSass/chapterIntroCommon.scss';
+import 'src/ffg/globalSass/cg.scss';
+import 'src/page-sections/debt/intro/debt-intro.scss';
 
 import React from 'react';
 import { Link } from 'gatsby';
 import SEO from 'src/components/seo';
-import AfgData from 'src/libs/_data/object_mapping.yml';
+import AfgData from 'static/americas-finance-guide/_data/object_mapping.yml';
 import Default from 'src/components/layouts/default/default';
 import { AFGHeader } from 'src/components/headers/headers';
 import GdpTemplate from 'src/components/gdp-template/gdp-template';
@@ -14,10 +14,10 @@ import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Og from '../../../components/og-tag/og';
 import AfgNav from 'src/components/afg-nav/afg-nav';
-import DebtIntro from 'src/libs/ffg/src/debt/intro/index.js';
+import DebtIntro from 'src/page-sections/debt/intro/index.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
-import AnecdoteDebtSVG from '../../../libs/assets/ffg/icons/anecdote-debt.svg';
+import AnecdoteDebtSVG from '../../../libs/assets-OLD/ffg/icons/anecdote-debt.svg';
 
 function ExploreDebtPage(props) {
 	return (

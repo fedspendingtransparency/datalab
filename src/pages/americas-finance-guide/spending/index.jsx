@@ -1,13 +1,13 @@
-import '../../../libs/ffg/src/globalSass/chapterIntroCommon.scss';
-import '../../../libs/ffg/src/globalSass/cg.scss';
-import '../../../libs/ffg/src/spending/intro/spending-intro.scss';
+import '../../../ffg/globalSass/chapterIntroCommon.scss';
+import '../../../ffg/globalSass/cg.scss';
+import '../../../page-sections/spending/intro/spending-intro.scss';
 
 import React, { useEffect } from 'react';
-import SpendingIntro from 'src/libs/ffg/src/spending/intro/index';
+import SpendingIntro from 'src/page-sections/spending/intro/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import SEO from '../../../components/seo';
-import AfgData from '../../../libs/_data/object_mapping.yml';
+import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 import Default from '../../../components/layouts/default/default';
 import { AFGHeader } from '../../../components/headers/headers';
 import GdpTemplate from '../../../components/gdp-template/gdp-template';
@@ -17,10 +17,10 @@ import Share from '../../../components/share/share';
 import AfgNav from '../../../components/afg-nav/afg-nav';
 import Og from '../../../components/og-tag/og';
 import ffgSpendingImg from '../../../images/ffg/social-media-share-spending.jpg'
-import { setFactsTrigger } from '../../../libs/ffg/src/spending/intro/compareManager';
+import { setFactsTrigger } from '../../../page-sections/spending/intro/compareManager';
 
-import AnecdoteSpendingSVG from '../../../libs/assets/ffg/icons/anecdote-spending.svg';
-import DefinitionSpendingSVG from '../../../libs/assets/ffg/icons/definition.svg';
+import AnecdoteSpendingSVG from '../../../libs/assets-OLD/ffg/icons/anecdote-spending.svg';
+import DefinitionSpendingSVG from '../../../libs/assets-OLD/ffg/icons/definition.svg';
 
 
 function SpendingAndGdpPage(props) {

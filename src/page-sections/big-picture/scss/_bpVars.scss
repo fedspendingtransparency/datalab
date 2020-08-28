@@ -1,0 +1,19 @@
+@import '../../../ffg/globalSass/colors';
+@import '../../../ffg/globalSass/generalVars';
+
+$bpHeaderColor: #111;
+
+$baseHeaderSize: 2.5rem;
+$col1: 60%;
+$col2: 40%;
+
+@mixin baseHeader() {
+  font-size: $baseHeaderSize;
+  font-weight: $boldWeight;
+  color: $bpHeaderColor;
+}
+
+@mixin baseHeaderDesktop() {
+  font-size: 3.2rem;
+}
+
