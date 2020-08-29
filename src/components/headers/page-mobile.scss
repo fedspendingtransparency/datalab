@@ -10,6 +10,10 @@
     align-content: flex-end;
   }
 
+  .burgerButton {
+    display: block;
+  }
+
   .header__sub {
     top: 140px;
   }
@@ -49,6 +53,7 @@
 
     .item {
       padding-top: .5rem;
+      text-align: right;
       &:hover {
     	  color: #046b99;
 	      cursor: pointer;
