@@ -19,7 +19,9 @@ const Reset = (props) => {
       marginLeft: '5%',
       padding: 0,
       textTransform: 'none',
-      color: '#555',
+      '& *': {
+        color: '#555',
+      },
       '&:hover': {
         backgroundColor: 'transparent',
         color: fillColor,
@@ -39,8 +41,8 @@ const Reset = (props) => {
       className={`reset-button ${resetStyles.resetButton}`}
       onClick={props._resetClick}
     >
-      <RefreshIcon />
-      <span> Reset</span>
+      <RefreshIcon data-testid='reset-button-icon' />
+      <span data-testid='reset-button-text'> Reset</span>
     </StyledButton>
   )
 }
