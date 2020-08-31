@@ -2,7 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import {
 	establishContainer, translator, simplifyNumber, findAmountInCsv,
-} from '../../../utils/utils';
+} from 'src/utils/utils';
 import { dotConstants } from './dotConstants';
 import {
 	compareOn, compareOff, generateOverlay, registerLayer,
@@ -10,7 +10,7 @@ import {
 import { createDonut } from '../../revenue/donut';
 import colors from '../../../ffg/globalSass/colors.scss';
 import { chartWidth } from './widthManager';
-import SpendingData from '../../../../libs/assets-OLD/ffg/data/federal_spending_gdp.csv';
+import SpendingData from '../../../../static/americas-finance-guide/data/federal_spending_gdp.csv';
 
 
 const d3 = { select, selectAll, line };

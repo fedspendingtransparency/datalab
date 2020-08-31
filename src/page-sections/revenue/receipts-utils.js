@@ -1,4 +1,4 @@
-import { translator } from '../../utils/utils';
+import { translator } from 'src/utils/utils';
 import { select } from 'd3-selection';
 import colors from '../../ffg/globalSass/colors.scss';
 

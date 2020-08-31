@@ -1,10 +1,10 @@
 import './selectCountry.scss';
 import { select, event } from 'd3-selection';
-import { establishContainer } from '../../utils';
+import { establishContainer } from 'src/utils/utils';
 import { countryList, refreshData } from './chart';
 import { addXIcon, addButtonIcon, addSearchIcon } from './iconGenerators';
 import { selectedCountries } from './selectedCountryManager';
-import { translate } from '../../utils';
+import { translate } from 'src/utils/utils';
 import { getCountryList } from './data';
 
 const d3 = { select, event },

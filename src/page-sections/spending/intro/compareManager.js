@@ -1,8 +1,8 @@
 import * as d3 from 'd3v3';
 import { chartWidth } from './widthManager';
 import { dotConstants, dotsPerRow } from './dotConstants';
-import { translator } from '../../../utils/utils';
-import { touchIe } from '../../../utils/touchIe';
+import { translator } from 'src/utils/utils';
+import { touchIe } from 'src/utils/touchIe';
 
 const stateManager = {};
 const layers = {};

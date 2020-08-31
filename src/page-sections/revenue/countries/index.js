@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { loadSourceData } from './data';
 import { chartInit } from './chart';
-import CountryData from '../../../../libs/assets-OLD/ffg/data/revenue_country_comparison.csv';
+import CountryData from '../../../../static/americas-finance-guide/data/revenue_country_comparison.csv';
 import colors from '../../../ffg/globalSass/colors.scss';
 
 const incomeConfig = {

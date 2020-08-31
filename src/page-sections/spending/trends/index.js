@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { select, selectAll } from 'd3-selection';
-import { establishContainer, isMobileDevice } from '../../../utils/utils';
+import { establishContainer, isMobileDevice } from 'src/utils/utils';
 import { trendData } from './trendData';
 import { setThreshold } from "./setThreshold";
 import { trendDesktop } from '../../../ffg/components/trends/chart';
 import { manualThresholds } from './manualThresholds';
 import { trendMobile } from '../../../ffg/components/trendsMobile';
 import colors from '../../../ffg/globalSass/colors.scss';
-import CategoryData from '../../../../libs/assets-OLD/ffg/data/federal_spending_trends.csv';
+import CategoryData from '../../../../static/americas-finance-guide/data/federal_spending_trends.csv';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 

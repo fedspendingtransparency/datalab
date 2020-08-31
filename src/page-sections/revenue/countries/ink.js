@@ -1,6 +1,6 @@
 import { initDropShadow } from "./dropShadow";
 import { range } from 'd3-array';
-import { translator } from "../../../utils/utils";
+import { translator } from "src/utils/utils";
 
 const d3 = { range },
     maskClass = 'drop-shadow-mask';

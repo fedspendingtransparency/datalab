@@ -1,10 +1,10 @@
 import { select, selectAll } from 'd3-selection';
 import * as d3 from 'd3v3';
 import { transition } from 'd3-transition';
-import { establishContainer, translator, fadeAndRemove } from '../../../utils/utils';
+import { establishContainer, translator, fadeAndRemove } from 'src/utils/utils';
 import colors from '../../../ffg/globalSass/colors.scss';
 import { chartWidth } from './widthManager';
-import { triggerInfoBox, triggerMainInfoBox } from '../../../utils/infoBox';
+import { triggerInfoBox, triggerMainInfoBox } from 'src/utils/infoBox';
 
 const introWidth = 365;
 const radius = 75;

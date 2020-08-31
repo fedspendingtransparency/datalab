@@ -1,6 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
-import { translator } from '../../../../utils/utils';
+import { translator } from 'src/utils/utils';
 
 const d3 = { select, selectAll, transition },
     sortManager = {};

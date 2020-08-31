@@ -1,5 +1,5 @@
 import { select } from 'd3-selection';
-import { getElementBox, translator } from '../../../utils/utils';
+import { getElementBox, translator } from 'src/utils/utils';
 import { getActiveSort } from './data';
 import { transition } from 'd3-transition';
 import colors from '../../../ffg/globalSass/colors.scss';

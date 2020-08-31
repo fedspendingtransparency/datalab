@@ -1,6 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { max } from 'd3-array';
-import { getElementBox } from '../../../../utils/utils';
+import { getElementBox } from 'src/utils/utils';
 
 if(typeof document !== 'undefined') {
   const d3 = {

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import * as d3 from 'd3v3';
-import numberFormatter from '../../../utils/number-formatter/number-formatter';
+import numberFormatter from 'src/utils/number-formatter/number-formatter';
 import tooltipModule from '../../tooltip-legacy/tooltip';
 import tooltipStyles from '../../tooltip-legacy/tooltip.module.scss';
 

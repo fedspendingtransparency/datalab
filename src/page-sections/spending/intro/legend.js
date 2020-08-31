@@ -1,9 +1,9 @@
 import { select, selectAll } from 'd3-selection';
-import { establishContainer, translator, fadeAndRemove } from '../../../utils/utils';
+import { establishContainer, translator, fadeAndRemove } from 'src/utils/utils';
 import colors from '../../../ffg/globalSass/colors.scss';
 import { placeDots } from './placeDots';
 import { chartWidth } from './widthManager';
-import { triggerInfoBox } from '../../../utils/infoBox';
+import { triggerInfoBox } from 'src/utils/infoBox';
 
 const d3 = { select, selectAll };
 const introWidth = 365;

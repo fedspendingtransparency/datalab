@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import '../../revenue/countries/selectCountry.scss';
 import { loadSourceData } from '../../revenue/countries/data';
-import CountryData from '../../../../assets-OLD/ffg/data/deficit_country_comparison.csv';
+import CountryData from '../../../../static/americas-finance-guide/data/deficit_country_comparison.csv';
 import { chartInit } from '../../revenue/countries/chart';
-import colors from '../../globalSass/colors.scss';
+import colors from 'src/ffg/globalSass/colors.scss';
 
 const spendingConfig = {
     accessibilityAttrs : {

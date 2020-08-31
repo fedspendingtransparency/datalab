@@ -1,8 +1,8 @@
 import { line } from 'd3-shape';
 import colors from '../../../ffg/globalSass/colors.scss';
-import { simplifyNumber } from '../../../utils/utils';
+import { simplifyNumber } from 'src/utils/utils';
 import { chartWidth } from './widthManager';
-import DebtData from '../../../../libs/assets-OLD/ffg/data/explore_federal_debt.csv';
+import DebtData from '../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
 
 const gdpLabelFy = 'FY' + DebtData[0].year.toString().slice(2) ;
 

@@ -4,7 +4,7 @@ import 'src/page-sections/deficit/intro/deficit-intro.scss';
 
 import React from 'react';
 import SEO from 'src/components/seo';
-import AfgData from 'static/americas-finance-guide/_data/object_mapping.yml';
+import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 import Og from '../../../components/og-tag/og';
 import Default from 'src/components/layouts/default/default';
 import { AFGHeader } from 'src/components/headers/headers';
@@ -16,7 +16,7 @@ import DeficitIntro from 'src/page-sections/deficit/intro/index.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
-import AnecdoteDeficitSVG from '../../../libs/assets-OLD/ffg/icons/anecdote-deficit.svg';
+import AnecdoteDeficitSVG from '../../../../static/americas-finance-guide/icons/anecdote-deficit.svg';
 
 function ExploreDeficitPage(props) {
 	return (

@@ -1,5 +1,5 @@
 import { select, selectAll, mouse } from 'd3-selection';
-import { translator, fadeAndRemove, getElementBox, establishContainer, wordWrap } from '../../../utils/utils';
+import { translator, fadeAndRemove, getElementBox, establishContainer, wordWrap } from 'src/utils/utils';
 import { trendDesktop } from './chart';
 
 const d3 = { select, selectAll, mouse },

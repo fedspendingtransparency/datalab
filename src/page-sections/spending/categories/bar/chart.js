@@ -3,7 +3,7 @@ import { scaleLinear } from 'd3-scale';
 import { extent, min, max } from 'd3-array';
 import { transition } from 'd3-transition';
 import { zoom } from 'd3-zoom';
-import { establishContainer, translator } from "../../../../utils/utils";
+import { establishContainer, translator } from "src/utils/utils";
 import { placeLabels } from './text';
 import { initSort } from './sort';
 import { initOverlay } from './detailOverlay';

@@ -2,13 +2,13 @@ import { select, selectAll } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
 import { min } from 'd3-array';
 import { transition } from 'd3-transition';
-import {  translator } from '../../../utils/utils';
+import {  translator } from 'src/utils/utils';
 import { stack } from 'd3-shape';
-import { establishContainer } from '../../../utils/utils';
+import { establishContainer } from 'src/utils/utils';
 import { zoomInit, getZoomState, resetZoom } from './zoom';
 import { addTextElements } from './textElements';
 import { showDetail, section2_2_init, clearDetails, destroyDetails } from './showDetails';
-import colors from '../../globalSass/colors.scss';
+import colors from 'src/ffg/globalSass/colors.scss';
 
 const d3 = { select, selectAll, scaleLinear, min, stack, transition },
     baseTranslate = { x: 91, y: 50 },

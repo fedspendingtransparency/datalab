@@ -4,7 +4,7 @@ import 'src/page-sections/deficit/trends/deficit-trends.scss';
 
 import React from 'react';
 import SEO from 'src/components/seo';
-import AfgData from 'static/americas-finance-guide/_data/object_mapping.yml';
+import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
 import Default from 'src/components/layouts/default/default';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';

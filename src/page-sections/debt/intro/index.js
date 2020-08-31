@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { createLayers } from './createLayers';
 import { startLegendAnimation } from './legend';
 import { setChartWidth } from './widthManager';
-import { establishContainer, findAmountInCsv } from '../../../utils/utils';
+import { establishContainer, findAmountInCsv } from 'src/utils/utils';
 import colors from '../../../ffg/globalSass/colors.scss';
 import { setDotsPerRow } from './dotConstants';
 import { layersInit, resetLayers } from './manageLayers';
-import DebtData from '../../../../libs/assets-OLD/ffg/data/explore_federal_debt.csv';
+import DebtData from '../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
 
 const DebtIntro = () => {
 	const config = {

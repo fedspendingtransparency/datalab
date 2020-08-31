@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import '../../revenue/countries/selectCountry.scss';
-import { loadSourceData } from '../../../../page-sections/revenue/countries/data';
-import CountryData from '../../../../assets-OLD/ffg/data/spending_country_comparison.csv';
-import { chartInit } from '../../../../page-sections/revenue/countries/chart';
-import colors from '../../globalSass/colors.scss';
+import { loadSourceData } from 'src/page-sections/revenue/countries/data';
+import CountryData from '../../../../static/americas-finance-guide/data/spending_country_comparison.csv';
+import { chartInit } from 'src/page-sections/revenue/countries/chart';
+import colors from 'src/ffg/globalSass/colors.scss';
 
 const spendingConfig = {
     amountField: 'spending_usd',

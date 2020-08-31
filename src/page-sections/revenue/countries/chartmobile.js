@@ -1,4 +1,4 @@
-import {establishContainer, getElementBox, simplifyNumber, translator, wordWrap} from "../../../utils/utils";
+import {establishContainer, getElementBox, simplifyNumber, translator, wordWrap} from "src/utils/utils";
 import { select, selectAll } from 'd3-selection';
 import { min, max, range } from 'd3-array';
 import { scaleLinear } from 'd3-scale';

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { initChart } from './init';
 import colors from '../../../ffg/globalSass/colors.scss';
-import SpendingData from '../../../../libs/assets-OLD/ffg/data/federal_spending_gdp.csv';
-import { findAmountInCsv } from '../../../utils/utils';
+import SpendingData from '../../../../static/americas-finance-guide/data/federal_spending_gdp.csv';
+import { findAmountInCsv } from 'src/utils/utils';
 
 export default function SpendingIntro() {
 	const config = {

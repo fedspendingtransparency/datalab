@@ -1,7 +1,7 @@
 import { max, min, extent } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
 import { line } from 'd3-shape';
-import { getElementBox, translator } from '../../../utils/utils';
+import { getElementBox, translator } from 'src/utils/utils';
 
 const d3 = { max, min, extent, scaleLinear, line },
     idealHeight = 800,

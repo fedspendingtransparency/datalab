@@ -1,4 +1,4 @@
-import SpendingData from '../../../libs/assets-OLD/ffg/data/federal_spending_categories.csv';
+import SpendingData from '../../../static/americas-finance-guide/data/federal_spending_categories.csv';
 
 import { min } from 'd3-array';
 

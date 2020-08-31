@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
-import { translator, simplifyNumber, getElementBox, wordWrap, getTransform } from '../../../utils/utils';
-import colors from '../../globalSass/colors.scss';
+import { translator, simplifyNumber, getElementBox, wordWrap, getTransform } from 'src/utils/utils';
+import colors from 'src/ffg/globalSass/colors.scss';
 import { getZoomState } from './zoom';
 
 const d3 = { select, selectAll, line },

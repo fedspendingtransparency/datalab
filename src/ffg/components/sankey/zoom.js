@@ -1,5 +1,5 @@
-import colors from "../../globalSass/colors.scss";
-import { translator, establishContainer } from "../../../utils/utils";
+import colors from "src/ffg/globalSass/colors.scss";
+import { translator, establishContainer } from "src/utils/utils";
 import { select } from 'd3-selection';
 
 const d3 = { select },

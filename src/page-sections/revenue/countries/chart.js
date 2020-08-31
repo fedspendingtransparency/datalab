@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { min, max, range } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
-import { translator, simplifyNumber, establishContainer, wordWrap, getElementBox } from '../../../utils/utils';
+import { translator, simplifyNumber, establishContainer, wordWrap, getElementBox } from 'src/utils/utils';
 import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { ink, placeHorizontalStripes } from './ink';

@@ -5,9 +5,9 @@ import { line } from 'd3-shape';
 import { min } from 'd3-array';
 import { easeCubicOut as connectorEase } from 'd3-ease';
 import { dotFactory, receiptsConstants } from '../../../page-sections/revenue/receipts-utils';
-import { getElementBox, translator, getTransform, establishContainer, simplifyNumber } from '../../../utils/utils';
+import { getElementBox, translator, getTransform, establishContainer, simplifyNumber } from 'src/utils/utils';
 import { getData } from '../../../page-sections/revenue/categories/data';
-import colors from '../../globalSass/colors.scss';
+import colors from 'src/ffg/globalSass/colors.scss';
 import { addTextElements } from './textElements';
 import { getZoomState } from './zoom';
 

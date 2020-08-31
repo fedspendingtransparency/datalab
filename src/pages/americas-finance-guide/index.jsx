@@ -1,25 +1,23 @@
-import '../../ffg/globalSass/cg.scss';
-import '../../page-sections/big-picture/scss/bp.scss';
-
 import React, { useEffect } from "react";
-import SEO from "../../components/seo";
-import Og from '../../components/og-tag/og';
+import SEO from "src/components/seo";
+import Og from 'src/components/og-tag/og';
 import AfgData from "../../../static/americas-finance-guide/_data/object_mapping.yml";
-import Default from "../../components/layouts/default/default";
-import AccordionList from '../../components/accordion-list/accordion-list';
-import ControlBar from '../../components/control-bar/control-bar';
-import Share from '../../components/share/share';
-import { Helmet } from 'react-helmet';
-import BpToc from '../../components/bpToc/bpToc';
-import AfgAnecdote from '../../components/anecdote/anecdote';
-// import ffgOverviewImg from '../../images/ffg/social-media-share-overview.jpg';
+import Default from "src/components/layouts/default/default";
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
+import BpToc from 'src/components/bpToc/bpToc';
+import AfgAnecdote from 'src/components/anecdote/anecdote';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleDown, faStreetView } from '@fortawesome/free-solid-svg-icons';
-import { AFGHeader } from '../../components/headers/headers';
+import { AFGHeader } from 'src/components/headers/headers';
 
 import 'src/page-sections/big-picture/parallax';
 import 'src/page-sections/big-picture/scrollTo';
 import smoothscroll from 'smoothscroll-polyfill';
+
+import 'src/ffg/globalSass/cg.scss';
+import 'src/page-sections/big-picture/scss/bp.scss';
 
 export default function OverviewPage(props) {
   useEffect(() => {

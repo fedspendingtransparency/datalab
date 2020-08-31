@@ -1,26 +1,25 @@
-import '../../../ffg/globalSass/chapterIntroCommon.scss';
-import '../../../ffg/globalSass/cg.scss';
-import '../../../page-sections/spending/intro/spending-intro.scss';
+import 'src/ffg/globalSass/chapterIntroCommon.scss';
+import 'src/ffg/globalSass/cg.scss';
+import 'src/page-sections/spending/intro/spending-intro.scss';
 
 import React, { useEffect } from 'react';
 import SpendingIntro from 'src/page-sections/spending/intro/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
-import SEO from '../../../components/seo';
+import SEO from 'src/components/seo';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
-import Default from '../../../components/layouts/default/default';
-import { AFGHeader } from '../../../components/headers/headers';
-import GdpTemplate from '../../../components/gdp-template/gdp-template';
-import AccordionList from '../../../components/accordion-list/accordion-list';
-import ControlBar from '../../../components/control-bar/control-bar';
-import Share from '../../../components/share/share';
-import AfgNav from '../../../components/afg-nav/afg-nav';
-import Og from '../../../components/og-tag/og';
-import ffgSpendingImg from '../../../images/ffg/social-media-share-spending.jpg'
-import { setFactsTrigger } from '../../../page-sections/spending/intro/compareManager';
+import Default from 'src/components/layouts/default/default';
+import { AFGHeader } from 'src/components/headers/headers';
+import GdpTemplate from 'src/components/gdp-template/gdp-template';
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
+import AfgNav from 'src/components/afg-nav/afg-nav';
+import Og from 'src/components/og-tag/og';
+import { setFactsTrigger } from 'src/page-sections/spending/intro/compareManager';
 
-import AnecdoteSpendingSVG from '../../../libs/assets-OLD/ffg/icons/anecdote-spending.svg';
-import DefinitionSpendingSVG from '../../../libs/assets-OLD/ffg/icons/definition.svg';
+import AnecdoteSpendingSVG from '../../../../static/americas-finance-guide/icons/anecdote-spending.svg';
+import DefinitionSpendingSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
 
 
 function SpendingAndGdpPage(props) {
