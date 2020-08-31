@@ -115,6 +115,9 @@
 
 	.description {
 	    font-size: .875rem;
+	    width: 50%;
+	    text-align: left;
+	    display: inline-block;
 	    font-weight: 100;
 	    font-style: normal;
 	    font-stretch: normal;
@@ -142,11 +145,13 @@
 	    .title {
 		font-size: 1rem;
 		height: 100%;
+		text-align: left;
 	    }
 
 	    .titleAPI {
 		font-size: 1rem;
 		height: 100%;
+		text-align: left;
 	    }
 	}
     }
