@@ -9,7 +9,7 @@ import Default from 'src/components/layouts/default/default';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
-import Tabs from 'src/components/tabs/tabs';
+import Tabs from 'src/components/afg-tabs/tabs';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
