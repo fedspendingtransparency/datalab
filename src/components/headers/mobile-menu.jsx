@@ -25,6 +25,17 @@ class MobileMenu extends React.Component {
       let id = '';
       if (key === 0) id = 'menu-first-item';
       if (key === data.length - 1) id = 'menu-last-item';
+      const matchy = /(:?api|:?fiscal)/g;
+      if (item.link.match(matchy)) {
+        return (
+          <>
+            <li className={styles.dataListLi} key={i}>
+              <a href={item.link} target="_blank" className={styles.dataListA}>{item.name}</a>
+            </li>
+            <hr className={styles.mobileHr} />
+          </>
+        );
+      }
       return (
         <>
           <li className={styles.dataListLi} key={key} onKeyDown={(e) => this.sublistTab(e, name)}>

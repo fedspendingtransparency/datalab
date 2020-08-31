@@ -180,12 +180,8 @@ ul.ul-nav {
     padding-bottom: 0.25rem;
 
     .ul {
-	display: flex;
-	flex-direction: column;
 	list-style-type: none;
 	justify-content: center;
-	//    padding-left: 2.5rem;
-	//    padding-right: 2.5rem;
 	font-size: 0.875rem;
 	padding-top: 25px;
 	padding-bottom: 25px;
@@ -257,11 +253,14 @@ ul.ul-nav {
 	margin-left: 31rem;
 	padding: 0;
 	justify-content: flex-end;
+	flex-direction: row;
     }
     .ul-resources {
 	padding: 0;
 	padding-top: 15px;
 	padding-bottom: 15px;
+	padding-right: 20px;
+	padding-left: 20px;
     }
     .express {
 	margin-right: 15rem;

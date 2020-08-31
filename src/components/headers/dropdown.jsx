@@ -33,6 +33,14 @@ export default class Dropdown extends React.Component {
       let id = '';
       if (first && key === 0) id = 'menu-first-item';
       if (last && key === data.length - 1) id = 'menu-last-item';
+      const matchy = /(:?api|:?fiscal)/g;
+      if (item.link.match(matchy)) {
+        return (
+          <li key={key} className={styles.li} onKeyDown={this.menuItemKeyUp}>
+            <a id={id} href={item.link} target="_blank" className={styles.a}>{item.name}</a>
+          </li>
+        );
+      }
       return (
         <li key={key} className={styles.li} onKeyDown={this.menuItemKeyUp} role="none">
           <a id={id} href={item.link} className={styles.a} role="menuitem" aria-label={item.name}>{item.name}</a>
@@ -102,7 +110,8 @@ export default class Dropdown extends React.Component {
           activeItem === "Resources" &&
           <div className={styles.dataList} onMouseLeave={this.props.mouseHandle} onKeyUp={this.menuKeyUp}>
             <section className={`${styles.section} ${styles.resources}`}>
-              <ul className={`${styles.ul} ${styles.ulResources}`}>{this.returnActiveList(this.state.data[3].resources, true, true)}</ul>
+              <ul className={`${styles.ul} ${styles.ulResources}`}>{this.returnActiveList(this.state.data[3].resources.slice(0,2), true, false)}</ul>
+              <ul className={`${styles.ul} ${styles.ulResources}`}>{this.returnActiveList(this.state.data[3].resources.slice(2,5), false, true)}</ul>
             </section>
           </div>
         }
