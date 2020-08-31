@@ -30,9 +30,12 @@
 
     .title {
 	font-size: 1.5rem;
-	font-weight: 600;
 	height: 52px;
 	text-align: center;
+    }
+
+    h1.title {
+	font-weight: 600;
     }
 
     .titleAPI {
