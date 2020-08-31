@@ -110,8 +110,8 @@ export default class Dropdown extends React.Component {
           activeItem === "Resources" &&
           <div className={styles.dataList} onMouseLeave={this.props.mouseHandle} onKeyUp={this.menuKeyUp}>
             <section className={`${styles.section} ${styles.resources}`}>
-              <ul className={`${styles.ul} ${styles.ulResources}`}>{this.returnActiveList(this.state.data[3].resources.slice(0,2), true, true)}</ul>
-              <ul className={`${styles.ul} ${styles.ulResources}`}>{this.returnActiveList(this.state.data[3].resources.slice(2,5), true, true)}</ul>
+              <ul className={`${styles.ul} ${styles.ulResources}`}>{this.returnActiveList(this.state.data[3].resources.slice(0,2), true, false)}</ul>
+              <ul className={`${styles.ul} ${styles.ulResources}`}>{this.returnActiveList(this.state.data[3].resources.slice(2,5), false, true)}</ul>
             </section>
           </div>
         }
