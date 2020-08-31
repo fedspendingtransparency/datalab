@@ -3,7 +3,7 @@ import '../../revenue/countries/selectCountry.scss';
 import { loadSourceData } from 'src/page-sections/revenue/countries/data';
 import CountryData from '../../../../static/americas-finance-guide/data/spending_country_comparison.csv';
 import { chartInit } from 'src/page-sections/revenue/countries/chart';
-import colors from 'src/ffg/globalSass/colors.scss';
+import colors from 'src/styles/afg/colors.scss';
 
 const spendingConfig = {
     amountField: 'spending_usd',

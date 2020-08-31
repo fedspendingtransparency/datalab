@@ -1,9 +1,9 @@
 import * as d3 from "d3v3";
 import { receiptsConstants } from '../receipts-utils';
 import { getDataByYear } from './data';
-import { initSankey, destroySankey } from "../../../ffg/components/sankey/init";
+import { initSankey, destroySankey } from "../../../components/afg/sankey/init";
 import { init as initBarGraph, initChart } from "../../spending/categories/init";
-import colors from '../../../ffg/globalSass/colors.scss';
+import colors from '../../../styles/afg/colors.scss';
 import React, { useEffect } from 'react';
 
 const config = {

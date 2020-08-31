@@ -2,7 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
 import * as d3 from 'd3v3';
 import { establishContainer, translator, fadeAndRemove } from 'src/utils/utils';
-import colors from '../../../ffg/globalSass/colors.scss';
+import colors from '../../../styles/afg/colors.scss';
 import { chartWidth } from './widthManager';
 import { triggerInfoBox, triggerMainInfoBox } from 'src/utils/infoBox';
 

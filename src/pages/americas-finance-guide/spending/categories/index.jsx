@@ -1,4 +1,4 @@
-import 'src/ffg/globalSass/cg.scss'
+import 'src/styles/afg/cg.scss'
 import 'src/page-sections/spending/categories/spending-categories.scss'
 
 import React from "react"

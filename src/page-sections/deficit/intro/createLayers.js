@@ -6,7 +6,7 @@ import { labelMaker, deficitLabel } from './layerLegends';
 import { initDeficitDots } from './deficitDots';
 import { translator, isMobileDevice } from 'src/utils/utils';
 import { chartWidth } from './widthManager';
-import colors from '../../../ffg/globalSass/colors.scss';
+import colors from '../../../styles/afg/colors.scss';
 
 const d3 = { select, selectAll, transition, line },
     duration = 1500,

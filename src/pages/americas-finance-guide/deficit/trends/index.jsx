@@ -1,5 +1,5 @@
-import 'src/ffg/globalSass/cg.scss';
-import 'src/ffg/globalSass/trendsCommon.scss';
+import 'src/styles/afg/cg.scss';
+import 'src/styles/afg/trendsCommon.scss';
 import 'src/page-sections/deficit/trends/deficit-trends.scss';
 
 import React from 'react';

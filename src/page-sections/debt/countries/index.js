@@ -3,7 +3,7 @@ import '../../revenue/countries/selectCountry.scss';
 import { loadSourceData } from '../../revenue/countries/data';
 import CountryData from '../../../../static/americas-finance-guide/data/debt_country_comparison.csv';
 import { chartInit } from '../../revenue/countries/chart';
-import colors from '../../../ffg/globalSass/colors.scss';
+import colors from '../../../styles/afg/colors.scss';
 
 const spendingConfig = {
     amountField: 'debt_usd',

@@ -1,4 +1,4 @@
-import colors from "src/ffg/globalSass/colors.scss";
+import colors from "src/styles/afg/colors.scss";
 import { translator, establishContainer } from "src/utils/utils";
 import { select } from 'd3-selection';
 

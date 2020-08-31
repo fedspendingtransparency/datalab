@@ -1,5 +1,5 @@
-import 'src/ffg/globalSass/cg.scss'
-import 'src/ffg/globalSass/countryCommon.scss'
+import 'src/styles/afg/cg.scss'
+import 'src/styles/afg/countryCommon.scss'
 import 'src/page-sections/debt/countries/debt-country-comparison.scss'
 
 import React from "react"

@@ -1,5 +1,5 @@
 import { line } from 'd3-shape';
-import colors from '../../../ffg/globalSass/colors.scss';
+import colors from '../../../styles/afg/colors.scss';
 import { simplifyNumber } from 'src/utils/utils';
 import { chartWidth } from './widthManager';
 import DebtData from '../../../../static/americas-finance-guide/data/explore_federal_debt.csv';

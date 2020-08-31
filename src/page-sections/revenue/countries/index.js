@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { loadSourceData } from './data';
 import { chartInit } from './chart';
 import CountryData from '../../../../static/americas-finance-guide/data/revenue_country_comparison.csv';
-import colors from '../../../ffg/globalSass/colors.scss';
+import colors from '../../../styles/afg/colors.scss';
 
 const incomeConfig = {
     amountField: 'revenue_usd',

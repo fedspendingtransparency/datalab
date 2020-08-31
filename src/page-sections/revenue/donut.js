@@ -1,7 +1,7 @@
 import { select } from 'd3-selection';
 import { arc, pie } from 'd3-shape';
 import { fractionToPercent, translator } from 'src/utils/utils';
-import colors from '../../ffg/globalSass/colors.scss';
+import colors from '../../styles/afg/colors.scss';
 
 const d3 = { select, arc, pie },
     radius = 45,

@@ -2,7 +2,7 @@ import { select } from 'd3-selection';
 import { getElementBox, translator } from 'src/utils/utils';
 import { getActiveSort } from './data';
 import { transition } from 'd3-transition';
-import colors from '../../../ffg/globalSass/colors.scss';
+import colors from '../../../styles/afg/colors.scss';
 
 const d3 = { select };
 const iconHeight = 16;

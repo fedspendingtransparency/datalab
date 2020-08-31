@@ -1,5 +1,5 @@
-import 'src/ffg/globalSass/cg.scss'
-import 'src/ffg/globalSass/countryCommon.scss'
+import 'src/styles/afg/cg.scss'
+import 'src/styles/afg/countryCommon.scss'
 
 import React from "react"
 import { Link } from "gatsby"

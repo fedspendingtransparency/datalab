@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { select, selectAll } from 'd3-selection';
 import { establishContainer, isMobileDevice } from 'src/utils/utils';
 import { trendData } from './trendData';
-import { trendDesktop } from '../../../ffg/components/trends/chart';
-import colors from '../../../ffg/globalSass/colors.scss';
-import { trendMobile } from '../../../ffg/components/trendsMobile';
+import { trendDesktop } from '../../../components/afg/trends/chart';
+import colors from '../../../styles/afg/colors.scss';
+import { trendMobile } from '../../../components/afg/trendsMobile';
 import { manualThresholds } from './manualThresholds';
 import CategoryData from '../../../../static/americas-finance-guide/data/federal_revenue_trends.csv';
 

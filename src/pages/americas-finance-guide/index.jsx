@@ -16,7 +16,7 @@ import 'src/page-sections/big-picture/parallax';
 import 'src/page-sections/big-picture/scrollTo';
 import smoothscroll from 'smoothscroll-polyfill';
 
-import 'src/ffg/globalSass/cg.scss';
+import 'src/styles/afg/cg.scss';
 import 'src/page-sections/big-picture/scss/bp.scss';
 
 export default function OverviewPage(props) {

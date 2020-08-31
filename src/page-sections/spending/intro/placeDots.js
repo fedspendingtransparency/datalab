@@ -6,7 +6,7 @@ import { initRevenueOverlay } from './compareRevenue';
 import { initGdp } from './compareGdp';
 import { chartWidth } from './widthManager';
 import { revealCompare } from './compareManager';
-import colors from '../../../ffg/globalSass/colors.scss';
+import colors from '../../../styles/afg/colors.scss';
 
 const d3 = { select, selectAll };
 

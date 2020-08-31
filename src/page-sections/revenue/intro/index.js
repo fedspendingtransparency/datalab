@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { initChart } from '../../spending/intro/init';
-import colors from '../../../ffg/globalSass/colors.scss';
+import colors from '../../../styles/afg/colors.scss';
 import revenueData from '../../../../static/americas-finance-guide/data/federal_revenue_gdp.csv';
 import { findAmountInCsv } from 'src/utils/utils';
 

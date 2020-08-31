@@ -1,5 +1,5 @@
 import { select } from 'd3-selection';
-import colors from '../../../ffg/globalSass/colors.scss';
+import colors from '../../../styles/afg/colors.scss';
 
 const d3 = { select };
 

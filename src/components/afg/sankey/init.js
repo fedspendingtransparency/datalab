@@ -8,7 +8,7 @@ import { establishContainer } from 'src/utils/utils';
 import { zoomInit, getZoomState, resetZoom } from './zoom';
 import { addTextElements } from './textElements';
 import { showDetail, section2_2_init, clearDetails, destroyDetails } from './showDetails';
-import colors from 'src/ffg/globalSass/colors.scss';
+import colors from 'src/styles/afg/colors.scss';
 
 const d3 = { select, selectAll, scaleLinear, min, stack, transition },
     baseTranslate = { x: 91, y: 50 },

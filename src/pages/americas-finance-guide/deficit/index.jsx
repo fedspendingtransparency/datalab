@@ -1,5 +1,5 @@
-import 'src/ffg/globalSass/chapterIntroCommon.scss';
-import 'src/ffg/globalSass/cg.scss';
+import 'src/styles/afg/chapterIntroCommon.scss';
+import 'src/styles/afg/cg.scss';
 import 'src/page-sections/deficit/intro/deficit-intro.scss';
 
 import React from 'react';

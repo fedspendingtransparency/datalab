@@ -1,4 +1,4 @@
-import 'src/ffg/globalSass/cg.scss'
+import 'src/styles/afg/cg.scss'
 import 'src/page-sections/revenue/categories/revenue-categories.scss'
 import RevenueCategories from "src/page-sections/revenue/categories/index.js";
 import 'src/page-sections/revenue/categories/data.js'

@@ -8,7 +8,7 @@ import {
 	compareOn, compareOff, generateOverlay, registerLayer,
 } from './compareManager';
 import { createDonut } from '../../revenue/donut';
-import colors from '../../../ffg/globalSass/colors.scss';
+import colors from '../../../styles/afg/colors.scss';
 import { chartWidth } from './widthManager';
 import SpendingData from '../../../../static/americas-finance-guide/data/federal_spending_gdp.csv';
 

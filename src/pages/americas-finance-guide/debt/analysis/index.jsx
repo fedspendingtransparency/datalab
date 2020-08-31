@@ -1,4 +1,4 @@
-import 'src/ffg/globalSass/cg.scss'
+import 'src/styles/afg/cg.scss'
 import 'src/page-sections/debt/analysis/debt-analysis.scss'
 
 import React from "react"
