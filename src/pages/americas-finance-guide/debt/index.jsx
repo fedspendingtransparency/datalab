@@ -34,8 +34,8 @@ function ExploreDebtPage(props) {
 				<AFGHeader />
 				<AfgNav location={props.location} chapter="debt" />
 
-				<div className="cg-wrapper chapter-intro-common-wrapper debt-intro-wrapper">
-					<div className="ffg-wrapper debt-intro">
+				<div className="chapter-intro-common-wrapper debt-intro-wrapper">
+					<div className="debt-intro">
 						<ControlBar>
 							<Share
 								location={props.location}

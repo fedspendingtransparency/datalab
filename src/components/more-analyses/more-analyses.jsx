@@ -95,12 +95,18 @@ export default class MoreAnalyses extends React.Component {
     'budget-function': [8, 9, 0, 6],
     'competition-in-contracting': [8, 9, 7, 5],
     'rd-in-contracting': [8, 5, 4, 7],
-    'federal-covid-funding': [9, 5, 4, 6]
+    'federal-covid-funding': [9, 5, 4, 6],
+    'americas-finance-guide': [8, 6, 7, 2]
   };
 
   showAnything = () => {
     if (typeof window !== 'undefined') {
-      if (this.showAnalyses = this.show[window.location.pathname.replace(new RegExp(/\//, 'g'), '')]) {
+      let pageName = window.location.pathname.replace(new RegExp(/\//, 'g'), '');
+      if(pageName.indexOf('americas-finance-guide') > -1) {
+        pageName = 'americas-finance-guide';
+      }
+
+      if (this.showAnalyses = this.show[pageName]) {
         return true;
       }
     }
