@@ -23,14 +23,18 @@ const Reset = (props) => {
         color: '#555',
       },
       '&:hover': {
-        backgroundColor: 'transparent',
-        color: fillColor,
-        textDecoration: 'underline'
+        '& *': {
+          backgroundColor: 'transparent',
+          color: fillColor,
+          textDecoration: 'underline'
+        }
       },
       '&:focus': {
-        backgroundColor: 'transparent',
-        color: fillColor,
-        textDecoration: 'underline'
+        '& *': {
+          backgroundColor: 'transparent',
+          color: fillColor,
+          textDecoration: 'underline'
+        }
       }
     }
   }))(Button)
@@ -38,6 +42,7 @@ const Reset = (props) => {
   return (
     <StyledButton
       id={props.id}
+      data-testid='reset-button'
       className={`reset-button ${resetStyles.resetButton}`}
       onClick={props._resetClick}
     >
