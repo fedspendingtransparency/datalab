@@ -6,9 +6,7 @@ import FaqLayout from "../../components/layouts/faq/faq";
 import Downloads from '../../components/section-elements/downloads/downloads';
 import { Hidden, Grid } from '@material-ui/core';
 import AccordionList from "../../components/accordion-list/accordion-list";
-import DesktopImage from '../../images/analyst-guide/Analyst Desktop.png';
-import TabletImage from '../../images/analyst-guide/Analyst Tablet.png';
-import MobileImage from '../../images/analyst-guide/Analyst Mobile.png';
+import HeroImage from '../../images/analyst-guide/hero-img.png';
 
 /* Sections */
 import generalQuestions from '../../page-sections/analyst-guide/general-questions';
@@ -23,17 +21,13 @@ class AnalystGuidePage extends Component {
 
   render() {
     const title = `What is the Analyst's Guide to Federal Spending Data?`;
-    const heroImage = <>
-      <Hidden lgDown>
-        <img src={DesktopImage} className={styles.heroImage} />
-      </Hidden>
-      <Hidden xlUp xsDown>
-        <img src={TabletImage} className={styles.heroImage} />
-      </Hidden>
-      <Hidden smUp>
-        <img src={MobileImage} className={styles.heroImage} />
-      </Hidden>
-    </>;
+    const heroImage = <div className={styles.heroImageContainer}>
+      <img src={HeroImage} className={styles.heroImage} />
+      <div className={styles.heroImageText}>
+        <h1>Analyst's Guide to Federal Spending Data</h1>
+        <h2>Guidance on effectively using USAspending.gov data.</h2>
+      </div>
+    </div>;
 
     const introSentence = <>
       <p>
