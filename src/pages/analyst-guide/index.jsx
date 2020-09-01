@@ -31,14 +31,10 @@ class AnalystGuidePage extends Component {
 
     const introSentence = <>
       <p>
-        The federal government uses contracts to buy the things it needs, from office furniture to airplanes. It also uses contracts to buy services
-         ranging from internet to research and development. Federal Agencies and their sub-agencies are responsible for issuing contracts and
-         categorizing the goods and services they purchase using Product and Service Codes (PSC).
+        Welcome to the Analyst’s Guide to Federal Spending Data. Here, you’ll find guidance on effectively using USAspending.gov data, making it easier for you to conduct your own analyses and develop tools using federal spending data. 
       </p>
       <p>
-        Although contracts and grants share some similarities, each serves a different purpose. Generally, contracts allow the government ot purchase
-         goods and services directly to the public. For example, the Air Force uses contracts to acquire fighter jets to execute its mission, while the Federal
-         Highway Administration uses grants to provide funds to states for public roads.
+        If you’d like to recommend a question to be added to this guide, please share it on USAspending.gov’s Community page.
       </p>
     </>;
     const rawContent = [
