@@ -6,17 +6,15 @@ import React from 'react';
 import SEO from 'src/components/seo';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 import Og from '../../../components/og-tag/og';
-import Default from 'src/components/layouts/default/default';
-import { AFGHeader } from 'src/components/headers/headers';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
-import AfgNav from 'src/components/afg-nav/afg-nav';
 import DeficitIntro from 'src/page-sections/deficit/intro/index.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDeficitSVG from '../../../../static/americas-finance-guide/icons/anecdote-deficit.svg';
+import AfgLayout from 'src/components/layouts/afg/afg';
 
 function ExploreDeficitPage(props) {
 	return (
@@ -30,12 +28,9 @@ function ExploreDeficitPage(props) {
 
 			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-deficit.jpg"} />
 
-			<Default>
-				<AFGHeader />
-				<AfgNav location={props.location} chapter="deficit" />
-
-				<div className="cg-wrapper chapter-intro-common-wrapper deficit-intro-wrapper">
-					<div className="ffg-wrapper deficit-intro">
+			<AfgLayout location={props.location} chapter={'deficit'}>
+				<div className="chapter-intro-common-wrapper deficit-intro-wrapper">
+					<div className="deficit-intro">
 						<ControlBar>
 							<Share
   location={props.location}
@@ -195,7 +190,7 @@ function ExploreDeficitPage(props) {
 						</AccordionList>
 					</section>
 				</div>
-			</Default>
+			</AfgLayout>
 		</>
 	);
 }

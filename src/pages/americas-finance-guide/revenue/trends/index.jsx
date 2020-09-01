@@ -4,17 +4,15 @@ import 'src/styles/afg/trendsCommon.scss'
 import React from "react"
 import SEO from "src/components/seo"
 import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml"
-import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
-import AfgNav from 'src/components/afg-nav/afg-nav';
 import Og from 'src/components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { AFGHeader } from 'src/components/headers/headers';
 import RevenueTrends from 'src/page-sections/revenue/trends/index.js';
+import AfgLayout from 'src/components/layouts/afg/afg';
 
 function RevenueTrendsPage(props) {
     return (
@@ -28,12 +26,8 @@ function RevenueTrendsPage(props) {
 
             <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-revenue.jpg"} />
 
-            <Default>
-                <AFGHeader />
-                <AfgNav location={props.location} chapter={'revenue'}></AfgNav>
-
-                <div className="cg-wrapper trends-common-wrapper">
-                    <div className="ffg-wrapper">
+            <AfgLayout location={props.location} chapter={'revenue'}>
+                <div className="trends-common-wrapper">
                         <ControlBar>
                             <Share
                                 location={props.location}
@@ -80,8 +74,7 @@ function RevenueTrendsPage(props) {
                             </AccordionList>
                         </section>
                     </div>
-                </div>
-            </Default>
+            </AfgLayout>
         </>
     )
 }

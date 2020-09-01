@@ -5,18 +5,16 @@ import 'src/page-sections/debt/intro/debt-intro.scss';
 import React from 'react';
 import SEO from 'src/components/seo';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
-import Default from 'src/components/layouts/default/default';
-import { AFGHeader } from 'src/components/headers/headers';
 import GdpTemplate from 'src/components/gdp-template/gdp-template';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
-import AfgNav from 'src/components/afg-nav/afg-nav';
 import DebtIntro from 'src/page-sections/debt/intro/index.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDebtSVG from '../../../../static/americas-finance-guide/icons/anecdote-debt.svg';
+import AfgLayout from 'src/components/layouts/afg/afg';
 
 function ExploreDebtPage(props) {
 	return (
@@ -29,11 +27,7 @@ function ExploreDebtPage(props) {
 			/>
 
 			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-debt.jpg"}/>
-
-			<Default>
-				<AFGHeader />
-				<AfgNav location={props.location} chapter="debt" />
-
+			<AfgLayout location={props.location} chapter={'debt'}>
 				<div className="chapter-intro-common-wrapper debt-intro-wrapper">
 					<div className="debt-intro">
 						<ControlBar>
@@ -189,7 +183,7 @@ function ExploreDebtPage(props) {
 						</AccordionList>
 					</section>
 				</div>
-			</Default>
+			</AfgLayout>
 		</>
 	);
 }

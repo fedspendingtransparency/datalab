@@ -6,17 +6,15 @@ import React from "react"
 import { Link } from "gatsby"
 import SEO from "src/components/seo"
 import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml"
-import Default from "src/components/layouts/default/default"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
 import Og from 'src/components/og-tag/og';
-import AfgNav from 'src/components/afg-nav/afg-nav';
 import DefecitCountryComparison from 'src/page-sections/deficit/countries';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { AFGHeader } from 'src/components/headers/headers';
+import AfgLayout from 'src/components/layouts/afg/afg';
 
 function DeficitCountryComparisonPage(props) {
     return (
@@ -28,11 +26,8 @@ function DeficitCountryComparisonPage(props) {
                 keywords={[`Deficit, federal deficit, U.S.deficit, national deficit,  debt, national debt, federal debt, U.S. debt compared to other countries`]}
             />
             <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-revenue.jpg"}/>
-            <Default>
-                <AFGHeader />
-                <AfgNav location={props.location} chapter={'deficit'}></AfgNav>
-                <div className="cg-wrapper country-common-wrapper">
-                    <div className="ffg-wrapper">
+            <AfgLayout location={props.location} chapter={'deficit'}>
+                <div className="country-common-wrapper">
                         <ControlBar>
                             <Share
                                 location={props.location}
@@ -80,8 +75,7 @@ function DeficitCountryComparisonPage(props) {
                             </AccordionList>
                         </section>
                     </div>
-                </div>
-            </Default>
+            </AfgLayout>
         </>
     )
 }

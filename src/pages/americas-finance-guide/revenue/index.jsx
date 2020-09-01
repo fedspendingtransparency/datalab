@@ -5,8 +5,6 @@ import 'src/page-sections/revenue/intro/revenue-intro.scss';
 import React, { useEffect } from 'react';
 import SEO from 'src/components/seo';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
-import Default from 'src/components/layouts/default/default';
-import { AFGHeader } from 'src/components/headers/headers';
 import GdpTemplate from 'src/components/gdp-template/gdp-template';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
@@ -14,12 +12,12 @@ import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
 import AnecdoteRevenueSVG from '../../../../static/americas-finance-guide/icons/anecdote-revenue.svg';
 import DefinitionSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
-import AfgNav from 'src/components/afg-nav/afg-nav';
 import RevenueIntro from 'src/page-sections/revenue/intro/index';
 import { setFactsTrigger } from 'src/page-sections/spending/intro/compareManager';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
+import AfgLayout from 'src/components/layouts/afg/afg';
 
 function RevenueAndGdpPage(props) {
   useEffect(() => {
@@ -36,21 +34,17 @@ function RevenueAndGdpPage(props) {
 
       <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-revenue.jpg"} />
 
-      <Default>
-	<AFGHeader />
-	<AfgNav location={props.location} chapter="revenue" />
+			<AfgLayout location={props.location} chapter={'revenue'}>
+				<div className="chapter-intro-common-wrapper revenue-intro-wrapper">
+					<ControlBar>
+						<Share
+				location={props.location}
+				title="Data Lab - Federal Revenue and GDP – U.S. Treasury"
+				twitter="How does federal revenue compare to spending and the size of the economy? Download the .CSV data files from Your Guide to America’s Finances and perform your own analysis! #YourGuide #DataLab #OpenGov"
+						/>
+					</ControlBar>
 
-	<div className="cg-wrapper chapter-intro-common-wrapper revenue-intro-wrapper">
-	  <div className="ffg-wrapper">
-	    <ControlBar>
-	      <Share
-		location={props.location}
-		title="Data Lab - Federal Revenue and GDP – U.S. Treasury"
-		twitter="How does federal revenue compare to spending and the size of the economy? Download the .CSV data files from Your Guide to America’s Finances and perform your own analysis! #YourGuide #DataLab #OpenGov"
-	      />
-	    </ControlBar>
-
-	    <h1>
+	    		<h1>
 	      In
 	      {' '}{AfgData.current_fy.value}
 	      , the government collected
@@ -62,56 +56,55 @@ function RevenueAndGdpPage(props) {
 	      </button>
 	    </h1>
 
-	    <div className="info-box" id="fiscal-year">
+	    		<div className="info-box" id="fiscal-year">
 	      <img src={AnecdoteRevenueSVG} alt="anecdote icon" />
 	      <p>
 		Fiscal Year refers to the period of time used by the government for accounting and budget purposes.
 		For the federal government, the fiscal year runs from October 1 through September 30.
 	      </p>
 	    </div>
-
-	    <div className="info-box" id="per-individual">
+			<div className="info-box" id="per-individual">
 	      <img src={AnecdoteRevenueSVG} alt="anecdote icon" />
 	      <p>
-		How much is
-		{' '}{AfgData.current_fy_revenue.value}
-		? If you take
-		{' '}{AfgData.current_fy_revenue.value}{' '}
-		divided by the U.S. population estimate in
-		{' '}
-		{AfgData.current_fy.value}
-		, of
-		{' '}{AfgData.us_population.value}
-		(
-		<a href={AfgData.census_population.value} target="_blank" rel="noopener noreferrer">U.S. Census Bureau</a>
-		)
-		that would equate to a little more than
-		{' '}{AfgData.revenue_per_individual.value}
-		{' '}
-		in revenue for every individual in the U.S.
+					How much is
+					{' '}{AfgData.current_fy_revenue.value}
+					? If you take
+					{' '}{AfgData.current_fy_revenue.value}{' '}
+					divided by the U.S. population estimate in
+					{' '}
+					{AfgData.current_fy.value}
+					, of
+					{' '}{AfgData.us_population.value}
+					(
+					<a href={AfgData.census_population.value} target="_blank" rel="noopener noreferrer">U.S. Census Bureau</a>
+					)
+					that would equate to a little more than
+					{' '}{AfgData.revenue_per_individual.value}
+					{' '}
+					in revenue for every individual in the U.S.
 	      </p>
 	    </div>
 
-	    <div className="info-box" id="billion-dollars">
+			<div className="info-box" id="billion-dollars">
 	      <img src={AnecdoteRevenueSVG} alt="anecdote icon" />
 	      <p>
-		In this visualization, one dot represents
-		{' '}{AfgData.dot_represents.value}
-		{' '}
-		of federal revenue.
+					In this visualization, one dot represents
+					{' '}{AfgData.dot_represents.value}
+					{' '}
+					of federal revenue.
 	      </p>
 	    </div>
 
-	    <div className="info-box" id="gdp-info">
+			<div className="info-box" id="gdp-info">
 	      <img src={DefinitionSVG} alt="definition icon" />
 	      <p>
-		<strong>Gross domestic product (GDP)</strong>
-		{' '}
-		measures the size of the nation's economy by the total value of final goods and services that are produced in a year. Gross domestic product is used to compare the economies of different countries, measure growth in the economy, and determine the right monetary policies to address inflation and unemployment.
+					<strong>Gross domestic product (GDP)</strong>
+					{' '}
+					measures the size of the nation's economy by the total value of final goods and services that are produced in a year. Gross domestic product is used to compare the economies of different countries, measure growth in the economy, and determine the right monetary policies to address inflation and unemployment.
 	      </p>
 	    </div>
 
-	    <div className="viz-wrapper">
+	    		<div className="viz-wrapper">
 	      <RevenueIntro />
 
 	      <div className="intro-math intro-hidden">
@@ -205,33 +198,32 @@ function RevenueAndGdpPage(props) {
 	      </section>
 
 	    </div>
-	    {' '}
-	    {/* end viz-wrapper  */}
-	  </div>
-	  {' '}
-	  {/* end ffg-wrapper revenue-intro */}
+					{' '}
+					{/* end viz-wrapper  */}
+					{' '}
+					{/* end ffg-wrapper revenue-intro */}
 
-	  <section className="hwcta">
-	    <AccordionList title="Data Sources and Methodology">
-	      <p>
-		The visualization was created using the
-		<a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a>
-		{' '}
-		as the data source for federal government revenue of the United States.
-		<GdpTemplate />
-		{' '}
-		The revenue-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that come in to the federal government annually. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.
-	      </p>
-	      <div className="afg__download--div">
-		<div className="afg__download--heading">Download Source Data</div>
-		<ul>
-		  <li><a href="/americas-finance-guide/data/federal_revenue_gdp.csv" download="federal_revenue_gdp.csv">federal_revenue_gdp.csv</a></li>
-		</ul>
-	      </div>
-	    </AccordionList>
-	  </section>
-	</div>
-      </Default>
+					<section className="hwcta">
+					<AccordionList title="Data Sources and Methodology">
+						<p>
+				The visualization was created using the
+				<a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a>
+				{' '}
+				as the data source for federal government revenue of the United States.
+				<GdpTemplate />
+				{' '}
+				The revenue-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that come in to the federal government annually. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.
+						</p>
+						<div className="afg__download--div">
+				<div className="afg__download--heading">Download Source Data</div>
+				<ul>
+					<li><a href="/americas-finance-guide/data/federal_revenue_gdp.csv" download="federal_revenue_gdp.csv">federal_revenue_gdp.csv</a></li>
+				</ul>
+						</div>
+					</AccordionList>
+				</section>
+				</div>
+      </AfgLayout>
     </>
   );
 }
