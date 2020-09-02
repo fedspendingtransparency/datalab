@@ -121,7 +121,7 @@ export default class MoreAnalyses extends React.Component {
       <Grid container spacing={3} className={moreAnalysesStyles.tiles}>
         {this.showAnything() &&
           this.showAnalyses.map((analysesIndex, i) =>
-            <Grid item xs={12} sm={6} xl={3}
+            <Grid item xs={12} md={6} lg={3}
               key={'analyses_tile_' + i}
               className={`tile ${moreAnalysesStyles.tile}`}
             >
