@@ -17,7 +17,7 @@ const AfgLayout = (props) => {
 			<div className="cg-wrapper debt-analysis-wrapper">
 				<div className="ffg-wrapper debt-analysis">
 					{props.children}
-					<MoreAnalyses className={styles.moreAnalyses}/>
+					<MoreAnalyses />
 				</div>
 			</div>
 		</Default>
