@@ -29,7 +29,7 @@
     }
 
     .title {
-	font-size: 1.5rem;
+	font-size: 1.125rem; // 18px
 	height: 52px;
 	text-align: center;
     }
@@ -39,7 +39,7 @@
     }
 
     .titleAPI {
-	font-size: 1.5rem;
+	font-size: 1.125rem; // 18px
 	font-weight: 600;
 	height: 52px;
 	text-align: center;
@@ -51,9 +51,10 @@
     }
 
     p.title {
-	font-size: 2em;
+	font-size: 2rem; // 32px
 	height: auto;
 	margin-top: 0;
+	margin-bottom: 2.5rem;
     }
 
     &:hover h1.title {
@@ -98,6 +99,12 @@
 	text-align: center;
     }
 
+    .tile {
+	p.title {
+	    margin-bottom: 0;
+	}
+    }
+
     .tile-row {
 	padding-top: $margin-20;
     }
@@ -111,6 +118,10 @@
     .title {
 	text-align: center;
 	margin-top: 0;
+    }
+
+    p.title {
+	margin-bottom: 0;
     }
 
     .tile-row {
@@ -133,6 +144,11 @@
 	};
 
 	.tile {
+
+	    .titleContainer {
+		padding-left: 75px;
+	    };
+
 	    .svgImg {
 		float: left;
 		margin-bottom: 0;
