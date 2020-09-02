@@ -6,9 +6,7 @@ import FaqLayout from "../../components/layouts/faq/faq";
 import Downloads from '../../components/section-elements/downloads/downloads';
 import { Hidden, Grid } from '@material-ui/core';
 import AccordionList from "../../components/accordion-list/accordion-list";
-import DesktopImage from '../../images/analyst-guide/Analyst Desktop.png';
-import TabletImage from '../../images/analyst-guide/Analyst Tablet.png';
-import MobileImage from '../../images/analyst-guide/Analyst Mobile.png';
+import HeroImage from '../../images/analyst-guide/hero-img.png';
 
 /* Sections */
 import generalQuestions from '../../page-sections/analyst-guide/general-questions';
@@ -23,28 +21,20 @@ class AnalystGuidePage extends Component {
 
   render() {
     const title = `What is the Analyst's Guide to Federal Spending Data?`;
-    const heroImage = <>
-      <Hidden lgDown>
-        <img src={DesktopImage} className={styles.heroImage} />
-      </Hidden>
-      <Hidden xlUp xsDown>
-        <img src={TabletImage} className={styles.heroImage} />
-      </Hidden>
-      <Hidden smUp>
-        <img src={MobileImage} className={styles.heroImage} />
-      </Hidden>
-    </>;
+    const heroImage = <div className={styles.heroImageContainer}>
+      <img src={HeroImage} className={styles.heroImage} />
+      <div className={styles.heroImageText}>
+        <h1>Analyst's Guide to Federal Spending Data</h1>
+        <h2>Guidance on effectively using USAspending.gov data.</h2>
+      </div>
+    </div>;
 
     const introSentence = <>
       <p>
-        The federal government uses contracts to buy the things it needs, from office furniture to airplanes. It also uses contracts to buy services
-         ranging from internet to research and development. Federal Agencies and their sub-agencies are responsible for issuing contracts and
-         categorizing the goods and services they purchase using Product and Service Codes (PSC).
+        Welcome to the Analyst’s Guide to Federal Spending Data. Here, you’ll find guidance on effectively using USAspending.gov data, making it easier for you to conduct your own analyses and develop tools using federal spending data. 
       </p>
       <p>
-        Although contracts and grants share some similarities, each serves a different purpose. Generally, contracts allow the government ot purchase
-         goods and services directly to the public. For example, the Air Force uses contracts to acquire fighter jets to execute its mission, while the Federal
-         Highway Administration uses grants to provide funds to states for public roads.
+        If you’d like to recommend a question to be added to this guide, please share it on USAspending.gov’s Community page.
       </p>
     </>;
     const rawContent = [
