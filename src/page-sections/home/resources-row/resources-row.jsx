@@ -64,7 +64,7 @@ const ResourcesRow = () => {
                                      className={`${resourcesRowStyles.svgImgAPI} lazyload`}
                                    />
                                  </div>
-                                 <div>
+                                 <div className={resourcesRowStyles.titleContainer}>
                                    <h1 className={resourcesRowStyles.titleAPI}>
                                      {resource.title}
                                    </h1>
@@ -89,7 +89,7 @@ const ResourcesRow = () => {
                                      className={`${resourcesRowStyles.svgImg} lazyload`}
                                    />
                                  </div>
-                                 <div>
+                                 <div className={resourcesRowStyles.titleContainer}>
                                    <h1 className={resourcesRowStyles.title}>
                                      {resource.title}
                                    </h1>
