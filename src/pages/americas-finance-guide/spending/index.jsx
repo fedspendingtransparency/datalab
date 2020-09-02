@@ -8,13 +8,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import SEO from 'src/components/seo';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
-import Default from 'src/components/layouts/default/default';
-import { AFGHeader } from 'src/components/headers/headers';
 import GdpTemplate from 'src/components/gdp-template/gdp-template';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
-import AfgNav from 'src/components/afg-nav/afg-nav';
 import Og from 'src/components/og-tag/og';
 import { setFactsTrigger } from 'src/page-sections/spending/intro/compareManager';
 
@@ -83,38 +80,38 @@ function SpendingAndGdpPage(props) {
 
 						<div className="facts sidebar intro-hidden">
 							<div className="facts__inner">
-					<div id="compare-options">
-						<p className="facts__prompt">How does federal spending compare to federal revenue and the size of the economy?</p>
-						<div className="facts__triggers">
-							<button className="facts__trigger" data-trigger-id="revenue">Federal Revenue</button>
-							<button className="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
-						</div>
-					</div>
+								<div id="compare-options">
+									<p className="facts__prompt">How does federal spending compare to federal revenue and the size of the economy?</p>
+									<div className="facts__triggers">
+										<button className="facts__trigger" data-trigger-id="revenue">Federal Revenue</button>
+										<button className="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
+									</div>
+								</div>
 
-					<section id="revenue-facts" className="facts__section">
-						<h1>
-							In Fiscal Year
-							{' '}{AfgData.current_fy.value}
-							, the federal government collected
-							{' '}{AfgData.current_fy_revenue.value}
-							{' '}
-							in federal revenue.
-						</h1>
-						<p>
-							Since the government spent more than it collected, the deficit for
-							{' '}{AfgData.current_fy.value}
-							{' '}
-							was
-							{' '}{AfgData.current_fy_deficit.value}
-							.
-						</p>
-						<p>
-							<a href="/americas-finance-guide/revenue/">Go Explore Federal Revenue.</a>
-						</p>
-					</section>
+								<section id="revenue-facts" className="facts__section">
+									<h1>
+								In Fiscal Year
+								{' '}{AfgData.current_fy.value}
+								, the federal government collected
+								{' '}{AfgData.current_fy_revenue.value}
+								{' '}
+								in federal revenue.
+							</h1>
+									<p>
+								Since the government spent more than it collected, the deficit for
+								{' '}{AfgData.current_fy.value}
+								{' '}
+								was
+								{' '}{AfgData.current_fy_deficit.value}
+								.
+							</p>
+									<p>
+								<a href="/americas-finance-guide/revenue/">Go Explore Federal Revenue.</a>
+							</p>
+								</section>
 
-					<section id="gdp-facts" className="facts__section">
-						<h1>
+								<section id="gdp-facts" className="facts__section">
+									<h1>
 							In Fiscal Year
 							{' '}{AfgData.current_fy.value}
 							, federal spending was equal to
@@ -125,30 +122,32 @@ function SpendingAndGdpPage(props) {
 							).
 						</h1>
 
-						<p>
+									<p>
 							Why do we compare federal spending to gross domestic product? One reason is to give a reference point for the size of the federal government, as measured by the amount it spends. U.S. gross domestic product is much larger than government spending, because it includes all the economic activity of the entire nation. Government spending equates to roughly
 							{' '}{AfgData.spending_proportion.value}
 							{' '}
 							of the goods produced and services provided in the United States.
 						</p>
 
-						<strong>
+									<strong>
 							What's gross domestic product?
 							<button className="info-box-trigger" data-box-id="gdp-info">
 					<img src={DefinitionSpendingSVG} alt="definition icon" />
 							</button>
 						</strong>
-					</section>
-				</div>
+								</section>
+							</div>
+
+							<section className="tour sidebar intro-hidden">
+								<h1 className="tour__heading">What are the categories of federal spending?</h1>
+								<a href="/americas-finance-guide/spending/categories/" className="tour__link">
+									Discover
+									<FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right" />
+								</a>
+							</section>
+
 						</div>
 
-						<section className="tour sidebar intro-hidden">
-							<h1 className="tour__heading">What are the categories of federal spending?</h1>
-							<a href="/americas-finance-guide/spending/categories/" className="tour__link">
-					Discover
-					<FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right" />
-				</a>
-						</section>
 					</div>
 					{' '}
 					{/* end viz-wrapper */}

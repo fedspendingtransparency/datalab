@@ -68,11 +68,12 @@
     }
 
     .sidebar {
-      position: relative;
-      width: calc(34% - 1rem);
-      margin-left: calc(66% + 1rem);
       transition: opacity 1s ease;
       transform: translateY(30px);
+    }
+
+    .tour.sidebar {
+        width: 100% !important;
     }
 
     .facts__inner {
@@ -94,7 +95,8 @@
 
     .hwcta {
       clear: both;
-      margin-bottom: 8rem;
+      padding-top: 4.75rem;
+      margin-bottom: 100px;
     }
   }
 
