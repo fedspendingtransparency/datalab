@@ -45,24 +45,24 @@ function RevenueAndGdpPage(props) {
 					</ControlBar>
 
 	    		<h1>
-	      In
-	      {' '}{AfgData.current_fy.value}
-	      , the government collected
-	      {' '}{AfgData.current_fy_revenue.value}
-	      {' '}
-	      in revenue.
-	      <button className="info-box-trigger" data-box-id="per-individual">
-		<img src={AnecdoteRevenueSVG} alt="anecdote icon" />
-	      </button>
-	    </h1>
+						In
+						{' '}{AfgData.current_fy.value}
+						, the government collected
+						{' '}{AfgData.current_fy_revenue.value}
+						{' '}
+						in revenue.
+						<button className="info-box-trigger" data-box-id="per-individual">
+							<img src={AnecdoteRevenueSVG} alt="anecdote icon" />
+						</button>
+	    		</h1>
 
 	    		<div className="info-box" id="fiscal-year">
-	      <img src={AnecdoteRevenueSVG} alt="anecdote icon" />
-	      <p>
-		Fiscal Year refers to the period of time used by the government for accounting and budget purposes.
-		For the federal government, the fiscal year runs from October 1 through September 30.
-	      </p>
-	    </div>
+						<img src={AnecdoteRevenueSVG} alt="anecdote icon" />
+						<p>
+						Fiscal Year refers to the period of time used by the government for accounting and budget purposes.
+				For the federal government, the fiscal year runs from October 1 through September 30.
+						</p>
+	    	</div>
 			<div className="info-box" id="per-individual">
 	      <img src={AnecdoteRevenueSVG} alt="anecdote icon" />
 	      <p>
@@ -179,23 +179,23 @@ function RevenueAndGdpPage(props) {
 		    <strong>
 		      What's gross domestic product?
 		      <button className="info-box-trigger" data-box-id="gdp-info">
-			<img src={DefinitionSVG} alt="definition icon" />
+						<img src={DefinitionSVG} alt="definition icon" />
 		      </button>
 		    </strong>
 		  </section>
 		</div>
-
+					<section className="tour sidebar intro-hidden">
+						<h1 className="tour__heading">What are the sources of government revenue?</h1>
+						<a href="/americas-finance-guide/revenue/categories/" id="tour-continue" className="tour__link">
+							Discover
+							<FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right" />
+						</a>
+					</section>
 	      </div>
 	      {' '}
 	      {/* end facts sidebar intro-hidden */}
 
-	      <section className="tour sidebar intro-hidden">
-		<h1 className="tour__heading">What are the sources of government revenue?</h1>
-		<a href="/americas-finance-guide/revenue/categories/" id="tour-continue" className="tour__link">
-		  Discover
-		  <FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right" />
-		</a>
-	      </section>
+
 
 	    </div>
 					{' '}
