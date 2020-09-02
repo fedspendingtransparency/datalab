@@ -65,6 +65,22 @@
     padding: 1rem;
   }
 
+  @media only (min-width: 961px) and (max-width: 989px) {
+    .tour {
+        &.sidebar {
+            margin-top: 0;
+        }
+    }
+  }
+
+  @media only (min-width: 990px) {
+    .tour {
+        &.sidebar {
+            margin: 0;
+        }
+    }
+  }
+
   @media only screen and (min-width: 960px) {
     #viz {
       width: 66%;
@@ -72,12 +88,9 @@
     }
 
     .sidebar {
+      position: relative;
       transition: opacity 1s ease;
       transform: translateY(30px);
-    }
-
-    .tour.sidebar {
-        width: 100% !important;
     }
 
     .facts__inner {

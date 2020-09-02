@@ -164,39 +164,37 @@ function RevenueAndGdpPage(props) {
 					</section>
 
 		  					<section id="gdp-facts" className="facts__section">
-		    <h1>
-		      In Fiscal Year
-		      {' '}{AfgData.current_fy.value}
-		      , federal revenue was equal to
-		      {' '}{AfgData.revenue_percent_gdp.value}
-		      {' '}
-		      of total gross domestic product (GDP), or economic activity, of the United States that year (
-		      {AfgData.current_fy_gdp.value}
-		      ).
-		    </h1>
-		    <p>Why do we compare federal revenue to gross domestic product? For one, the comparison serves as a rough gauge of the size of the federal government's footprint related to size of the entire country's economic activity. In addition, federal taxes are based on a percentage of income for people and businesses. If an economy is performing well, people and businesses earn more, and federal revenue from taxes increases.</p>
+									<h1>
+										In Fiscal Year
+										{' '}{AfgData.current_fy.value}
+										, federal revenue was equal to
+										{' '}{AfgData.revenue_percent_gdp.value}
+										{' '}
+										of total gross domestic product (GDP), or economic activity, of the United States that year (
+										{AfgData.current_fy_gdp.value}
+										).
+									</h1>
+									<p>Why do we compare federal revenue to gross domestic product? For one, the comparison serves as a rough gauge of the size of the federal government's footprint related to size of the entire country's economic activity. In addition, federal taxes are based on a percentage of income for people and businesses. If an economy is performing well, people and businesses earn more, and federal revenue from taxes increases.</p>
 
-		    <strong>
-		      What's gross domestic product?
-		      <button className="info-box-trigger" data-box-id="gdp-info">
-						<img src={DefinitionSVG} alt="definition icon" />
-		      </button>
-		    </strong>
-		  </section>
+									<strong>
+										What's gross domestic product?
+										<button className="info-box-trigger" data-box-id="gdp-info">
+											<img src={DefinitionSVG} alt="definition icon" />
+										</button>
+									</strong>
+								</section>
 							</div>
-
-							<section className="tour sidebar intro-hidden">
-								<h1 className="tour__heading">What are the sources of government revenue?</h1>
-								<a href="/americas-finance-guide/revenue/categories/" id="tour-continue" className="tour__link">
-									Discover
-									<FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right" />
-								</a>
-							</section>
-
 						</div>
 						{' '}
 						{/* end facts sidebar intro-hidden */}
 
+						<section className="tour sidebar intro-hidden">
+							<h1 className="tour__heading">What are the sources of government revenue?</h1>
+							<a href="/americas-finance-guide/revenue/categories/" id="tour-continue" className="tour__link">
+								Discover
+								<FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right" />
+							</a>
+						</section>
 
 					</div>
 					{' '}
