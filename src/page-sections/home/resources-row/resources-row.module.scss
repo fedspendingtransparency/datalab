@@ -36,10 +36,12 @@
 
     h1.title {
 	font-weight: 600;
+	margin-top: 1.5rem;
     }
 
     .titleAPI {
 	font-size: 1.125rem; // 18px
+	margin-top: 1.5rem;
 	font-weight: 600;
 	height: 52px;
 	text-align: center;
@@ -54,7 +56,7 @@
 	font-size: 2rem; // 32px
 	height: auto;
 	margin-top: 0;
-	margin-bottom: 2.5rem;
+	margin-bottom: 0;
     }
 
     &:hover h1.title {
