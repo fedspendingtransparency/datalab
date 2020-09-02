@@ -85,6 +85,10 @@ aside {
     transform: translateY(30px);
   }
 
+  .tour.sidebar {
+    float: none;
+  }
+
   .facts__inner {
     width: auto;
     max-width: none;
