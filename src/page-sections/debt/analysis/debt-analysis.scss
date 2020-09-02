@@ -1,11 +1,13 @@
 @import 'cards';
 
 .debt-analysis-wrapper {
+    .debt-analysis-intro {
+        max-width: 800px;
+        margin: 0 auto;
+    }
 
-
-.debt-analysis-intro {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
+    .tour {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
 }
