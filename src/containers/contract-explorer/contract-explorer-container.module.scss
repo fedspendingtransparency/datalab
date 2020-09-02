@@ -4,9 +4,6 @@
   height: 2.5rem
 }
 
-.sunburst-details {
-}
-
 .breadcrumbs-container {
   padding-left: 2.125rem
 }
@@ -23,7 +20,7 @@
   padding-top: 2rem;
 }
 
-@media (max-width: $tablet) {
+@media (max-width: $tablet - 1) {
   .sunburst-vega-container {
     flex-direction: column-reverse;
   }

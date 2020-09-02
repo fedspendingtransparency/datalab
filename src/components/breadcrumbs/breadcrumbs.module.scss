@@ -1,0 +1,7 @@
+@import '../../styles/variables.scss';
+
+@media (max-width: $tablet - 1) {
+  #sequence {
+    margin-top: 1rem;
+  }
+}
