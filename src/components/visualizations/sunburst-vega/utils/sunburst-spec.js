@@ -6,8 +6,16 @@ const sunburstSpec = (windowWidth) => {
   const screenMode = checkScreenMode(window.innerWidth)
   if (screenMode === ScreenModeEnum.mobile) {
     size = window.innerWidth - 30;
+    if (size > 540) {
+      size = 540;
+    }
   } else if (screenMode === ScreenModeEnum.tablet) {
     size = 344;
+  } else if (screenMode === ScreenModeEnum.desktop) {
+    size = 464;
+    tooltip = {
+      "signal": "datum.depth <=1 ? (datum.depth === 0 ? 'Click to reset' : 'Click to view agency') : (datum.depth == 2 ? 'Click to view subagency' : 'Click to view contractor')"
+    };
   } else {
     size = 500;
     tooltip = {

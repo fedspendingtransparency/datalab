@@ -40,13 +40,22 @@ export default class BreadCrumbs extends Component {
       const screenMode = checkScreenMode(window.innerWidth);
 
       if (screenMode === ScreenModeEnum.mobile) {
-        width = window.innerWidth - 30;
-        b.w = ((window.innerWidth - 70) / 3) - 10;
+        if (window.innerWidth > 570) {
+          width = 540;
+          b.w = (470 / 3);
+        } else {
+          width = window.innerWidth - 30;
+          b.w = ((window.innerWidth - 70) / 3) - 10;
+        }
       } else if (screenMode === ScreenModeEnum.tablet) {
         width = 344;
         b.w = 90;
+      } else if (screenMode === ScreenModeEnum.desktop) {
+        width = 464;
+        b.w = 125;
       } else {
         width = 510;
+        b.w = 125;
       }
 
       return { width, b };
