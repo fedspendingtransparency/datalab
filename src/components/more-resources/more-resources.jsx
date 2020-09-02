@@ -28,7 +28,7 @@ const MoreResources = () => {
       href: '/student-innovators-toolbox/',
       imageSrc: playbookImg,
       altText: 'An icon of a notebook.',
-      title: 'Student Innovators Toolbox',
+      title: 'Student Innovator\'s Toolbox',
       description: 'Ways for professors and students to get involved.'
     }, {
       href: '/analyst-guide/',
