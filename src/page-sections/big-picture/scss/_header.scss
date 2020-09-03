@@ -1,0 +1,144 @@
+@import '../../../styles/afg/colors';
+@import 'bpVars';
+
+$headerBg: rgba(255,255,255,0.9);
+
+.cg-content header {
+    background: #FBFBFB;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.bp-header {
+    text-align:center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 1rem;
+}
+
+.bp-header__bg {
+    position: absolute;
+    background: url(/americas-finance-guide/images/header-mobile.jpg) center top no-repeat;
+    background-size: cover;
+    height: 600px;
+    margin-top: 50px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.bp-header__main {
+    z-index: 1;
+    position: relative;
+    background: $headerBg;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.bp-header__app-name {
+    color: #3C3C3C;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 2.1px;
+    margin: 0 0 0.5rem;
+}
+
+.bp-header__heading {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+
+    span {
+        font-size: $baseHeaderSize;
+    }
+}
+
+.bp-header__heading, .bp-header__heading > span {
+    @include baseHeader();
+}
+
+.bp-header__scroll {
+    color:$text-color-paragraph;
+    font-size: 2rem;
+    position: relative;
+
+    a {
+        background: $headerBg;
+        border-radius: 1rem;
+        width: 2rem;
+        height: 2rem;
+        display: inline-block;
+    }
+
+    i {
+        transform: translateY(-3px)
+    }
+}
+
+.bp-header__collect-text {
+    color: $revenue-primary;
+    font-weight: 700;
+}
+
+.bp-header__spend-text {
+    color: $color-spending-primary;
+    font-weight: 700;
+}
+
+.overview-chart {
+    order: 1;
+}
+
+.bp-header__text {
+    font-weight:400;
+    font-size: 1rem;
+}
+
+@media only screen and (min-width: 800px) {
+    .bp-header__heading, .bp-header__heading span {
+        @include baseHeaderDesktop();
+    }
+
+    .bp-header {
+        padding-top: 2rem;
+    }
+
+    .bp-header__main {
+        margin: 2rem 0;
+        padding: 2rem 3rem;
+        display: inline-block;
+    }
+}
+
+@media only screen and (min-width: 670px) {
+    .bp-header__bg {
+        background-position-y: -5px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .bp-header__bg {
+        background-position-y: -5px;
+        background-size: 100%;
+        background: url(/americas-finance-guide/images/header_image.jpg) center top no-repeat;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .bp-header__break {
+        display: block;
+    }
+
+    .bp-header__bg {
+        background-size: 120%;
+        background-position-y: -20px;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .bp-header__bg {
+        background-size: cover;
+        background-position-y: -23px;
+    }
+}

@@ -1,0 +1,85 @@
+@import 'generalVars';
+
+$padding: 20px;
+
+
+section.accordion {
+    margin: 0 0 1rem 0;
+    transition: opacity 1s ease;
+
+    > div {
+        margin-bottom: 0;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+}
+
+
+.accordion__heading {
+    padding: 20px;
+    font-size: 1.125rem;
+    text-align: left;
+    border: 1px solid #eee;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    font-weight: $boldWeight;
+}
+
+.cg-content .accordion__content {
+    padding: $padding;
+    border: 1px solid transparent;
+    border-top: none;
+    line-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all 0.5s ease;
+    opacity: 0;
+
+    p {
+        margin-bottom: 0;
+        margin-top: 0;
+        transition: margin 0.5s ease;
+    }
+}
+
+.accordion__toggle {
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+    float: right;
+    width: 26px;
+}
+
+.accordion__plus {
+    display: block;
+}
+
+.accordion__minus {
+    display: none;
+}
+
+.accordion--open {
+    .accordion__content {
+        line-height: 1.2;
+        padding-top: $padding;
+        padding-bottom: $padding;
+        border-color: #eee;
+        opacity: 1;
+
+        p:not(:first-child) {
+            margin-top: 1rem;
+        }
+    }
+
+    .accordion__plus {
+        display: none;
+    }
+
+    .accordion__minus {
+        display: block;
+    }
+}

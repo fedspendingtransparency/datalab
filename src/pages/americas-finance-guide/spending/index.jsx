@@ -1,26 +1,23 @@
-import '../../../libs/ffg/src/globalSass/chapterIntroCommon.scss';
-import '../../../libs/ffg/src/globalSass/cg.scss';
-import '../../../libs/ffg/src/spending/intro/spending-intro.scss';
+import 'src/styles/afg/chapterIntroCommon.scss';
+import 'src/styles/afg/cg.scss';
+import 'src/page-sections/spending/intro/spending-intro.scss';
 
 import React, { useEffect } from 'react';
-import SpendingIntro from 'src/libs/ffg/src/spending/intro/index';
+import SpendingIntro from 'src/page-sections/spending/intro/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
-import SEO from '../../../components/seo';
-import AfgData from '../../../libs/_data/object_mapping.yml';
-import Default from '../../../components/layouts/default/default';
-import { AFGHeader } from '../../../components/headers/headers';
-import GdpTemplate from '../../../components/gdp-template/gdp-template';
-import AccordionList from '../../../components/accordion-list/accordion-list';
-import ControlBar from '../../../components/control-bar/control-bar';
-import Share from '../../../components/share/share';
-import AfgNav from '../../../components/afg-nav/afg-nav';
-import Og from '../../../components/og-tag/og';
-import ffgSpendingImg from '../../../images/ffg/social-media-share-spending.jpg'
-import { setFactsTrigger } from '../../../libs/ffg/src/spending/intro/compareManager';
+import SEO from 'src/components/seo';
+import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
+import GdpTemplate from 'src/components/gdp-template/gdp-template';
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
+import Og from 'src/components/og-tag/og';
+import { setFactsTrigger } from 'src/page-sections/spending/intro/compareManager';
 
-import AnecdoteSpendingSVG from '../../../libs/assets/ffg/icons/anecdote-spending.svg';
-import DefinitionSpendingSVG from '../../../libs/assets/ffg/icons/definition.svg';
+import AnecdoteSpendingSVG from '../../../../static/americas-finance-guide/icons/anecdote-spending.svg';
+import DefinitionSpendingSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
+import AfgLayout from '../../../components/layouts/afg/afg';
 
 
 function SpendingAndGdpPage(props) {
@@ -82,53 +79,6 @@ function SpendingAndGdpPage(props) {
 										<button className="facts__trigger" data-trigger-id="revenue">Federal Revenue</button>
 										<button className="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
 									</div>
-
-									<section id="revenue-facts" className="facts__section">
-										<h1>
-											In Fiscal Year
-											{' '}{AfgData.current_fy.value}
-											, the federal government collected
-											{' '}{AfgData.current_fy_revenue.value}
-											{' '}
-											in federal revenue.
-										</h1>
-										<p>
-											Since the government spent more than it collected, the deficit for
-											{' '}{AfgData.current_fy.value}
-											{' '}
-											was
-											{' '}{AfgData.current_fy_deficit.value}
-											.
-										</p>
-										<p>
-											<a href="/americas-finance-guide/revenue/">Go Explore Federal Revenue.</a>
-										</p>
-									</section>
-
-									<section id="gdp-facts" className="facts__section">
-										<h1>
-											In Fiscal Year
-											{' '}{AfgData.current_fy.value}
-											, federal spending was equal to
-											{' '}{AfgData.spending_percent_gdp.value}
-											{' '}
-											of the total gross domestic product (GDP), or economic activity, of the United States that year (
-											{AfgData.current_fy_gdp.value}
-											).
-										</h1>
-										<p>
-											Why do we compare federal spending to gross domestic product? One reason is to give a reference point for the size of the federal government, as measured by the amount it spends. U.S. gross domestic product is much larger than government spending, because it includes all the economic activity of the entire nation. Government spending equates to roughly
-											{' '}{AfgData.spending_proportion.value}
-											{' '}
-											of the goods produced and services provided in the United States.
-										</p>
-										<strong>
-											What's gross domestic product?
-											<button className="info-box-trigger" data-box-id="gdp-info">
-												<img src={DefinitionSpendingSVG} alt="definition icon" />
-											</button>
-										</strong>
-									</section>
 								</div>
 								<section id="revenue-facts" className="facts__section">
 									<h1>
@@ -246,9 +196,9 @@ function SpendingAndGdpPage(props) {
 						</AccordionList>
 					</section>
 				</div>
-			</Default>
-		</>
-	);
+			</AfgLayout>
+    </>
+  );
 }
 
 export default SpendingAndGdpPage;

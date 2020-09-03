@@ -1,18 +1,15 @@
-import 'src/libs/ffg/src/globalSass/cg.scss'
-import 'src/libs/ffg/src/revenue/categories/revenue-categories.scss'
-import RevenueCategories from "src/libs/ffg/src/revenue/categories/index.js";
-import 'src/libs/ffg/src/revenue/categories/data.js'
+import 'src/styles/afg/cg.scss'
+import 'src/page-sections/revenue/categories/revenue-categories.scss'
+import RevenueCategories from "src/page-sections/revenue/categories/index.js";
+import 'src/page-sections/revenue/categories/data.js'
 
 import React from "react"
 import SEO from "src/components/seo"
-import AfgData from "src/libs/_data/object_mapping.yml"
-import Default from "src/components/layouts/default/default"
-import { AFGHeader } from 'src/components/headers/headers';
+import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml"
 import AccordionList from 'src/components/accordion-list/accordion-list'
 import ControlBar from 'src/components/control-bar/control-bar'
 import Share from 'src/components/share/share'
-import AfgNav from 'src/components/afg-nav/afg-nav';
-import Og from '../../../../components/og-tag/og';
+import Og from 'src/components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -22,6 +19,7 @@ import {
     faSortAmountDown,
     faSortAlphaUp, faSortAmountUp,
 } from "@fortawesome/free-solid-svg-icons"
+import AfgLayout from 'src/components/layouts/afg/afg';
 
 function RevenueCategoriesPage(props) {
 
@@ -37,12 +35,9 @@ function RevenueCategoriesPage(props) {
 
             <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-revenue.jpg"}/>
 
-            <Default>
-							<AFGHeader />
-                <AfgNav location={props.location} chapter={'revenue'}></AfgNav>
-
-                <div className="cg-wrapper revenue-categories-wrapper">
-                    <div className="ffg-wrapper revenue-categories">
+            <AfgLayout location={props.location} chapter={'revenue'}>
+                <div className="revenue-categories-wrapper">
+                    <div className="revenue-categories">
                         <ControlBar>
                             <Share
                                 location={props.location}
@@ -138,7 +133,7 @@ function RevenueCategoriesPage(props) {
                         </section>
                     </div>
                 </div>
-            </Default>
+            </AfgLayout>
         </>
     )
 }

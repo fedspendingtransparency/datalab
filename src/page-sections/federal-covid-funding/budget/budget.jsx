@@ -16,7 +16,7 @@ import MobileC from 'src/images/covid/budget/viz1CMobile.svg';
 import PurpleDot from 'src/svgs/federal-covid-spending/purpleDot.svg';
 import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-24.yml'
 
-import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode';
+import { checkScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
 import styles from './budget.module.scss';
 
 // All widths are based on SVG sizes
