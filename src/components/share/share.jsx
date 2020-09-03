@@ -9,7 +9,7 @@ import twitterLogo from '../../images/colleges-and-universities/twitter.svg';
 import linkedinLogo from '../../images/colleges-and-universities/linkedin.svg';
 import redditLogo from '../../images/colleges-and-universities/reddit.svg';
 import emailLogo from '../../images/colleges-and-universities/email.svg';
-import pageColorMap from '../../utils/page-color';
+import pageColorMap from 'src/utils/page-color';
 import { legacyBlue } from '../../styles/variables.scss';
 
 export default class Share extends Component {

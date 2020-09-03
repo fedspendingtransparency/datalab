@@ -8,12 +8,12 @@ import PropTypes from "prop-types";
 import Radium from 'radium';
 import styleVariables from 'src/styles/variables.scss';
 import FiscalDataLogo from 'src/svgs/powered-by-fiscal-data.svg';
-import pageColorMap from '../../../utils/page-color';
-import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode'
+import pageColorMap from 'src/utils/page-color';
+import { checkScreenMode, ScreenModeEnum } from 'src/utils/screen-mode'
 
 const Downloads = (props) => {
   let fillColor = styleVariables.legacy;
-  
+
   const [screenMode, setScreenMode] = useState(0);
 
   if (typeof window !== 'undefined') {
@@ -27,7 +27,7 @@ const Downloads = (props) => {
         setScreenMode(newMode);
       }
     }
-  
+
     useEffect(() => {
       resizeWindow();
       window.addEventListener('resize', resizeWindow);

@@ -8,7 +8,7 @@ import HWCTALink from '../../hwcta-link/hwcta-link';
 import MoreAnalyses from '../../more-analyses/more-analyses';
 import { StorypageHeader } from '../../headers/headers';
 import Toc from '../../toc/toc';
-import pageColorMap from '../../../utils/page-color';
+import pageColorMap from 'src/utils/page-color';
 import { legacy } from '../../../styles/variables.scss';
 
 const StoryLayout = (props) => {
@@ -36,7 +36,7 @@ const StoryLayout = (props) => {
   }
 
   const [color, setColor] = useState(legacy);
-  
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setColor(pageColorMap[window.location.pathname.split('/').join('')])
