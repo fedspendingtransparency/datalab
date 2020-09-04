@@ -62,8 +62,10 @@ p {
 #toc {
   margin-top: 26rem;
   border-top: $darkGrey 1px solid;
+}
 
-  section {
+@media screen and (min-width: $desktop) {
+  #toc.section {
     margin-top: 0;
   }
 }
