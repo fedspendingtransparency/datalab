@@ -22,8 +22,8 @@ import AfgLayout from '../../../components/layouts/afg/afg';
 
 function SpendingAndGdpPage(props) {
   useEffect(() => {
-    setFactsTrigger()
-  }, [])
+    setFactsTrigger();
+  }, []);
 
   return (
     <>
@@ -34,7 +34,7 @@ function SpendingAndGdpPage(props) {
         keywords={['federal spending, outlays, U.S. spending, U.S. revenue, gross domestic product, GDP, deficit, debt, mandatory spending, discretionary spending']}
       />
       <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />
-			<AfgLayout location={props.location} chapter={'spending'}>
+      <AfgLayout location={props.location} chapter={'spending'}>
 				<div className="chapter-intro-common-wrapper spending-intro-wrapper">
 					<ControlBar>
 						<Share
@@ -51,7 +51,7 @@ function SpendingAndGdpPage(props) {
 						{' '}{AfgData.current_fy_spending.value}
 						.
 						<button className="info-box-trigger" data-box-id="per-individual">
-						<img src={AnecdoteSpendingSVG} alt="anecdote icon" />
+							<img src={AnecdoteSpendingSVG} alt="anecdote icon" />
 						</button>
 					</h1>
 					<div className="viz-wrapper">
@@ -96,9 +96,6 @@ function SpendingAndGdpPage(props) {
 										was
 										{' '}{AfgData.current_fy_deficit.value}
 										.
-									</p>
-									<p>
-										<a href="/americas-finance-guide/revenue/">Go Explore Federal Revenue.</a>
 									</p>
 								</section>
 								<section id="gdp-facts" className="facts__section">
@@ -196,7 +193,7 @@ function SpendingAndGdpPage(props) {
 						</AccordionList>
 					</section>
 				</div>
-			</AfgLayout>
+      </AfgLayout>
     </>
   );
 }
