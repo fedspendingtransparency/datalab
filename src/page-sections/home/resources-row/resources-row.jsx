@@ -27,7 +27,7 @@ const ResourcesRow = () => {
       imageSrc: apiImg,
       altText: 'An icon of a computer monitor.',
       title: 'API Documentation',
-      description: 'Guidance on using the USASpending API and APIs from Fiscal Data API'
+      description: 'Guidance on using the USASpending API and APIs from Fiscal Data API.'
     },
   ];
 
@@ -70,7 +70,7 @@ const ResourcesRow = () => {
                   </h1>
                   <p className={resourcesRowStyles.description}>
                     Guidance on using the <a href="https://api.usaspending.gov/" target="_blank" className={resourcesRowStyles.descriptionLink}>USAspending API</a> and APIs
-                    from <a href="https://fiscaldata.treasury.gov/api-documentation/" target="_blank" className={resourcesRowStyles.descriptionLink}>Fiscal Data API</a>
+                    from <a href="https://fiscaldata.treasury.gov/api-documentation/" target="_blank" className={resourcesRowStyles.descriptionLink}>Fiscal Data API.</a>
                   </p>
                 </div>
               </div>
