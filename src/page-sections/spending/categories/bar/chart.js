@@ -17,7 +17,7 @@ const d3 = { select, selectAll, scaleLinear, extent, min, max, transition, zoom 
 let externalConfig = {};
 
 function setScales(config) {
-    const extent = d3.extent(config.data, r => r.amount);
+    const extent = d3.extent(config.data, r => parseFloat(r.amount));
 
     extent[0] = (extent[0] > 0) ? 0 : extent[0];
 
@@ -162,7 +162,7 @@ export function drawChart(data, type, _config, detail, parentWidth) {
     config.detail = detail;
     config.sectionColor = externalConfig.sectionColor;
     config.accessibilityAttrs = externalConfig.accessibilityAttrs;
-    
+
     initSort(config);
 
     if (detail) {
