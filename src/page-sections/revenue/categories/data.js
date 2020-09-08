@@ -28,11 +28,8 @@ function sortSubcategories(a, b) {
 }
 
 function sortByAmount(a, b) {
-    a = a.amount;
-    b = b.amount;
-
-    if (a < b) { return 1 }
-    if (a > b) { return -1 }
+    if (a.amount < b.amount) { return 1 }
+    if (a.amount > b.amount) { return -1 }
     return 0;
 }
 
@@ -49,7 +46,7 @@ function dataMapper(r) {
     return {
         activity: r.parent_plain,
         sub_activity: r.child_plain,
-        amount: r.federal_revenue,
+        amount: parseFloat(r.federal_revenue),
         percent_total: r.percent_total
     }
 }
@@ -60,6 +57,7 @@ export function getDataByYear(year) {
         return (r.fiscal_year === yearNum && !r.child)
     }).map(dataMapper).sort(sortByAmount);
 
+    console.log(typeof categories[0].amount);
     categories.forEach(addSubcategories, yearNum);
 
     return categories;

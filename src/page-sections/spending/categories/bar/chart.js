@@ -162,7 +162,7 @@ export function drawChart(data, type, _config, detail, parentWidth) {
     config.detail = detail;
     config.sectionColor = externalConfig.sectionColor;
     config.accessibilityAttrs = externalConfig.accessibilityAttrs;
-
+    
     initSort(config);
 
     if (detail) {

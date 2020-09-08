@@ -137,8 +137,15 @@ function initHighlightedButton(){
 }
 
 export function initSort(config) {
-  if(typeof document !== 'undefined') {
+  if (config.detail) {
+      sortManager.detail = config;
+  } else {
+      resetSortingButtons();
+      initHighlightedButton();
+      sortManager.main = config;
+  }
 
+  if(typeof document !== 'undefined') {
     d3.select('#filter-by-name-icon')
       .on('click', function() {
         d3.select('#filter-by-name')
@@ -148,34 +155,22 @@ export function initSort(config) {
 
     d3.select('#sort-amount')
       .on('click', function() {
-        const containerId = 'bar-controls',
-          sortId = 'sort-amount',
-          sortDir = updateSortIcon(containerId, sortId);
+        const containerId = 'bar-controls';
+        const sortId = 'sort-amount';
+        const sortDir = updateSortIcon(containerId, sortId);
 
         doSort('amount', sortDir);
-
-        console.log('sort');
 
       });
 
     d3.select('#sort-name')
       .on('click', function() {
-        const containerId = 'bar-controls',
-          sortId = 'sort-name',
-          sortDir = updateSortIcon(containerId, sortId);
+        const containerId = 'bar-controls';
+        const sortId = 'sort-name';
+        const sortDir = updateSortIcon(containerId, sortId);
 
         doSort('name', sortDir);
-
-        console.log('sort');
       });
-  }
-
-  if (config.detail) {
-      sortManager.detail = config;
-  } else {
-      resetSortingButtons();
-      initHighlightedButton();
-      sortManager.main = config;
   }
 }
 
