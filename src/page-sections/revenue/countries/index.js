@@ -40,15 +40,16 @@ const incomeConfig = {
 };
 
 const RevenueCountryComparison = () => {
-    useEffect(() => {
+    const init = () => {
         loadSourceData(CountryData);
         chartInit(incomeConfig);
+    }
 
-        if (typeof window !== 'undefined') {
-            window.addEventListener('resize', () => {
-                loadSourceData(CountryData);
-                chartInit(incomeConfig);
-            });
+    useEffect(() => {
+        init();
+        window.addEventListener('resize', init);
+        return () => {
+            window.removeEventListener('resize', init);
         }
     }, [])
 

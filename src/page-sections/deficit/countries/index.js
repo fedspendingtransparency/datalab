@@ -44,15 +44,16 @@ const spendingConfig = {
 };
 
 const DefecitCountryComparison = () => {
-    useEffect(() => {
+    const init = () => {
         loadSourceData(CountryData);
         chartInit(spendingConfig);
+    }
 
-        if (typeof window !== 'undefined') {
-            window.addEventListener('resize', () => {
-                loadSourceData(CountryData);
-                chartInit(spendingConfig);
-            });
+    useEffect(() => {
+        init();
+        window.addEventListener('resize', init);
+        return () => {
+            window.removeEventListener('resize', init);
         }
     }, []);
 
