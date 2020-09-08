@@ -7,15 +7,16 @@ import { selectedCountries } from './selectedCountryManager';
 import { translate } from 'src/utils/utils';
 import { getCountryList } from './data';
 
-const d3 = { select, event },
-    highlightedCountryClass = 'in-focus';
+const d3 = { select, event }
+const highlightedCountryClass = 'in-focus';
 
-let parentDiv,
-    input,
-    listDiv,
-    trigger,
-    isMobileInd,
-    previousFilter = "";
+let parentDiv = "";
+let label = "";
+let input = "";
+let listDiv = "";
+let trigger = "";
+let isMobileInd = "";
+let previousFilter = "";
 
 function createTrigger() {
     let svg;
@@ -46,17 +47,17 @@ function createTrigger() {
     addButtonIcon(svg);
 }
 
-function adjustHeightToSVG(){
-    const svg = d3.select('svg.main'),
-        listDiv = d3.select('#viz').select('.list-div'),
-        svgDimensions = svg.node().getBoundingClientRect(),
-        maxIterations = 10;
+function adjustHeightToSVG() {
+    const svg = d3.select('svg.main');
+    const listDiv = d3.select('#viz').select('.list-div');
+    const svgDimensions = svg.node().getBoundingClientRect();
+    const maxIterations = 10;
 
-    let listDivDimensions = listDiv.node().getBoundingClientRect(),
-        availableListDivs = listDiv.selectAll('.available:not(hidden)'),
-        iterator = 0;
+    let listDivDimensions = listDiv.node().getBoundingClientRect();
+    let availableListDivs = listDiv.selectAll('.available:not(hidden)');
+    let iterator = 0;
 
-    while(++iterator <= maxIterations && availableListDivs.size() && listDivDimensions.height > svgDimensions.height){
+    while(++iterator <= maxIterations && availableListDivs.size() && listDivDimensions.height > svgDimensions.height) {
         d3.select(availableListDivs._groups[0][availableListDivs.size() - 1]).classed('hidden', true);
         availableListDivs = listDiv.selectAll('.available:not(.hidden)');
         listDivDimensions = listDiv.node().getBoundingClientRect();
@@ -66,29 +67,34 @@ function adjustHeightToSVG(){
 function establishInput() {
     const wrapper = listDiv.append('div').classed('search-wrapper', true);
 
-    let icon,
-        availableContainer,
-        availableCountries;
+    let icon;
+    let availableContainer;
+    let availableCountries;
 
     // Do not cache the highlighted country index based on key input, because the highlighted country can change by mouse as well.
-    function findHighlightedCountry(){
+    function findHighlightedCountry() {
         // The availableCountries will change as user's type characters to filter the list.
         availableCountries = availableContainer.selectAll('div.available');
-        for(let i = availableCountries.size(); i--;){
-            if(d3.select(availableCountries._groups[0][i]).classed(highlightedCountryClass)){
+        for(let i = availableCountries.size(); i--;) {
+            if (d3.select(availableCountries._groups[0][i]).classed(highlightedCountryClass)) {
                 return i;
             }
         }
         return 0;
     }
 
+    label = wrapper.append('label')
+        .attr('for', 'country-search')
+        .attr('aria-label', 'search for a country');
+
     input = wrapper.append('input')
+        .attr('id', 'country-search')
         .attr('type', 'text')
         .attr('placeholder', 'search for a country')
-        .on('focus', function(){
+        .on('focus', function() {
             availableContainer = listDiv.select('.available-container');
             availableCountries = availableContainer.selectAll('div.available');
-            if(availableCountries.size() > 0){
+            if (availableCountries.size() > 0) {
                 availableContainer.selectAll(`.${highlightedCountryClass}`).classed(highlightedCountryClass, false);
                 d3.select(availableCountries._groups[0][0]).classed(highlightedCountryClass, true);
             }
@@ -124,8 +130,8 @@ function establishInput() {
                     break;
             }
         })
-        .on('input', function(){
-            if(previousFilter !== this.value){
+        .on('input', function() {
+            if (previousFilter !== this.value) {
                 listAvailableCountries(this.value);
                 previousFilter = this.value;
             }
@@ -157,13 +163,13 @@ function listselectedCountries() {
     addXIcon(svg);
 }
 
-function sortDisplayName(objA, objB){
-    const a = objA.display,
-        b = objB.display;
+function sortDisplayName(objA, objB) {
+    const a = objA.display;
+    const b = objB.display;
 
-    if(a < b){
+    if (a < b) {
         return -1;
-    } else if(a > b){
+    } else if (a > b) {
         return 1;
     }
     return 0;
@@ -175,7 +181,7 @@ function getAvailableCountries(filterStr) {
     }
 
     return getCountryList().filter(c => {
-        if(!c){
+        if (!c) {
           return false;
         }
         const plainName = c.plainName,
@@ -199,9 +205,9 @@ function removeCountry(d) {
 }
 
 function listAvailableCountries(filterStr) {
-    const list = getAvailableCountries(filterStr),
-        availableContainer = listDiv.select('.available-container'),
-        max = 10;
+    const list = getAvailableCountries(filterStr);
+    const availableContainer = listDiv.select('.available-container');
+    const max = 10;
     let more, remainder;
 
     if (list.length > max) {
@@ -218,11 +224,11 @@ function listAvailableCountries(filterStr) {
         .append('div')
         .classed('available', true)
         .on('click', addCountry)
-        .on('mouseenter', function(){
+        .on('mouseenter', function() {
             availableContainer.selectAll(`.${highlightedCountryClass}`).classed(highlightedCountryClass, false);
             d3.select(this).classed(highlightedCountryClass, true);
         })
-        .on('mouseleave', function(){
+        .on('mouseleave', function() {
             d3.select(this).classed(highlightedCountryClass, false);
         })
         .each(function (d) {
@@ -241,7 +247,7 @@ function listAvailableCountries(filterStr) {
                 this.innerText = `${remainder} more countries are available. Search to find more.`;
             })
     }
-    if(availableCountries.size() > 0){
+    if (availableCountries.size() > 0) {
         d3.select(availableCountries._groups[0][0]).classed(highlightedCountryClass, true);
     }
 }
