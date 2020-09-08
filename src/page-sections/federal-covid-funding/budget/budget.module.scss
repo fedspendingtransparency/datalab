@@ -24,6 +24,10 @@
     .phase-body {
       margin-bottom: 30px;
 
+      p {
+        margin: 0;
+      }
+
       img {
         margin-top: 13px;
       }
@@ -91,6 +95,10 @@
   #pop-up {
     width: 554px;
     top: 0;
+  }
+
+  .phase-body > p {
+    width: 555px;
   }
 }
 
