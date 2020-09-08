@@ -19,7 +19,7 @@ const config = {
 export default function RevenueCategories() {
 
     useEffect(() => {
-      const data = getDataByYear('2020');
+      const data = getDataByYear('2019');
       const viz = d3.select('#viz');
 
       let isDesktopInd = false,
