@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -194,11 +194,22 @@ const AfgNav = (props) => {
 		button.addEventListener('click', toggleActiveStatus);
 	}
 
+	const [stickyStyle, setStickyStyle] = useState({ marginTop: '3rem' });
+
 	useEffect(() => {
-		if (setCurrentPageActive()) {
-			initButton();
+		if (typeof window !== 'undefined') {
+			if (setCurrentPageActive()) {
+				initButton();
+			}
+
+			const scrollListener = () => {
+				setStickyStyle(window.pageYOffset > 26 ? { position: 'sticky', top: 50 } : { marginTop: '3rem' })
+			}
+			
+			window.addEventListener('scroll', scrollListener)
+			return window.removeEventListener('scroll', scrollListener)
 		}
-	});
+	}, []);
 
 	const activeSection = sections[props.chapter];
 	const prevSection = sections[activeSection.prevSection];
@@ -258,7 +269,7 @@ const AfgNav = (props) => {
 	);
 
 	return (
-		<nav className={style.chapterNav}>
+		<nav className={style.chapterNav} style={stickyStyle}>
 			<ul className={style.chapterNavPrimaryList}>
 				{navHtml}
 			</ul>
