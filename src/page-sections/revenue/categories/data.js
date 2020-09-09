@@ -57,7 +57,6 @@ export function getDataByYear(year) {
         return (r.fiscal_year === yearNum && !r.child)
     }).map(dataMapper).sort(sortByAmount);
 
-    console.log(typeof categories[0].amount);
     categories.forEach(addSubcategories, yearNum);
 
     return categories;
