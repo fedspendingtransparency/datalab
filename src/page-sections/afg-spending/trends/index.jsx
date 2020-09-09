@@ -180,8 +180,9 @@ export default function SpendingTrends() {
   }
 
     function renderChart(data) {
-    const zoomThreshold = setThreshold(data),
-      config = {
+      const zoomThreshold = 700000000000,
+        // const zoomThreshold = setThreshold(data),
+        config = {
         chapter: 'spending',
         baseColor: colors.colorSpendingPrimary,
         secondaryColor: '#00766C',
@@ -189,6 +190,8 @@ export default function SpendingTrends() {
         subcategoryThresholds: manualThresholds,
         fiscalYearArray: fyArray
       };
+
+    console.log(zoomThreshold);
 
     let container;
 
