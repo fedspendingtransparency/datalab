@@ -1,17 +1,107 @@
 import React, { useEffect } from 'react';
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faAngleLeft,
 	faAngleDown,
 	faAngleUp,
+	faAngleRight,
 } from '@fortawesome/free-solid-svg-icons';
 import style from './afg-nav.module.scss';
 
 const AfgNav = (props) => {
-	let navHtml;
-	let navClasses;
+	const sections = {
+		revenue: {
+			html: [
+				{
+					name: 'Revenue and GDP',
+					url: "/americas-finance-guide/revenue/"
+				},
+				{
+					name: 'Revenue Categories',
+					url: "/americas-finance-guide/revenue/categories/"
+				},
+				{
+					name: 'Federal Revenue Trends',
+					url: "/americas-finance-guide/revenue/trends/"
+				},
+				{
+					name: 'Country Comparison',
+					url: "/americas-finance-guide/revenue/country-comparison/"
+				},
+			],
+			name: 'Federal Revenue',
+			navClass: style.chapterNavRevenue,
+			nextSection: 'spending',
+		},
+		spending: {
+			html: [
+				{
+					name: 'Spending and GDP',
+					url: "/americas-finance-guide/spending/"
+				},
+				{
+					name: 'Spending Categories',
+					url: "/americas-finance-guide/spending/categories/"
+				},
+				{
+					name: 'Federal Spending Trends',
+					url: "/americas-finance-guide/spending/trends/"
+				},
+				{
+					name: 'Country Comparison',
+					url: "/americas-finance-guide/spending/country-comparison/"
+				},
+			],
+			name: 'Federal Spending',
+			navClass: style.chapterNavSpending,
+			prevSection: 'revenue',
+			nextSection: 'deficit',
+		},
+		deficit: {
+			html: [
+				{
+					name: 'Explore Deficit',
+					url: "/americas-finance-guide/deficit/"
+				},
+				{
+					name: 'Federal Deficit Trends',
+					url: "/americas-finance-guide/deficit/trends/"
+				},
+				{
+					name: 'Country Comparison',
+					url: "/americas-finance-guide/deficit/country-comparison/"
+				},
+			],
+			name: 'Federal Deficit',
+			navClass: style.chapterNavDeficit,
+			prevSection: 'spending',
+			nextSection: 'debt',
+		},
+		debt: {
+			html: [
+				{
+					name: 'Explore Debt',
+					url: "/americas-finance-guide/debt/"
+				},
+				{
+					name: 'Federal Debt Trends',
+					url: "/americas-finance-guide/debt/trends/"
+				},
+				{
+					name: 'Federal Debt Analysis',
+					url: "/americas-finance-guide/debt/analysis/"
+				},
+				{
+					name: 'Country Comparison',
+					url: "/americas-finance-guide/debt/country-comparison/"
+				},
+			],
+			name: 'Federal Debt',
+			navClass: style.chapterNavDebt,
+			prevSection: 'deficit',
+		},
+	}
 
 	function getFilename(a) {
 		if (a.slice(-1) === '/') {
@@ -31,7 +121,7 @@ const AfgNav = (props) => {
 
 		filename = filename || 'revenue';
 
-		const ul = document.getElementsByClassName(style.chapterNavPrimaryList);
+		const ul = document.getElementsByClassName(style.chapterNavActiveList);
 
 		if (!ul.item(0)) {
 			return;
@@ -110,128 +200,66 @@ const AfgNav = (props) => {
 		}
 	});
 
-	switch (props.chapter) {
-	case 'revenue':
-		navClasses = `${style.chapterNav} ${style.chapterNavRevenue}`;
-		navHtml = (
-			<>
-				<li>
-					<a href="/americas-finance-guide/revenue/" aria-label="Revenue and GDP">
-						Revenue and GDP
-					</a>
-				</li>
-				<li>
-					<a href="/americas-finance-guide/revenue/categories/" aria-label="Revenue Categories">
-						Revenue Categories
-					</a>
-				</li>
-				<li>
-					<a href="/americas-finance-guide/revenue/trends/" aria-label="Federal Revenue Trends">
-						Federal Revenue Trends
-					</a>
-				</li>
-				<li>
-					<a href="/americas-finance-guide/revenue/country-comparison/" aria-label="Country Comparison">
-						Country Comparison
-					</a>
-				</li>
-			</>
-		);
-		break;
-	case 'spending':
-		navClasses = `${style.chapterNav} ${style.chapterNavSpending}`;
-		navHtml = (
-			<>
-				<li>
-					<a href="/americas-finance-guide/spending/" aria-label="Spending and GDP">
-						Spending and GDP
-					</a>
-				</li>
-				<li>
-					<a href="/americas-finance-guide/spending/categories/" aria-label="Spending Categories">
-						Spending Categories
-					</a>
-				</li>
-				<li>
-					<a href="/americas-finance-guide/spending/trends/" aria-label="Federal Spending Trends">
-						Federal Spending Trends
-					</a>
-				</li>
-				<li>
-					<a href="/americas-finance-guide/spending/country-comparison/" aria-label="Country Comparison">
-						Country Comparison
-					</a>
-				</li>
-			</>
-		);
-		break;
-	case 'deficit':
-		navClasses = `${style.chapterNav} ${style.chapterNavDeficit}`;
-		navHtml = (
-			<>
-				<li>
-					<a href="/americas-finance-guide/deficit/" aria-label="Explore Deficit">
-						Explore Deficit
-					</a>
-				</li>
-				<li>
-					<a href="/americas-finance-guide/deficit/trends/" aria-label="Federal Deficit Trends">
-						Federal Deficit Trends
-					</a>
-				</li>
-				<li>
-					<a href="/americas-finance-guide/deficit/country-comparison/" aria-label="Country Comparison">
-						Country Comparison
-					</a>
-				</li>
-			</>
-		);
-		break;
-	case 'debt':
-		navClasses = `${style.chapterNav} ${style.chapterNavDebt}`;
-		navHtml = (
-			<>
-				<li>
-					<a href="/americas-finance-guide/debt/" aria-label="Explore Debt">
-						Explore Debt
-					</a>
-				</li>
-				<li>
-					<a href="/americas-finance-guide/debt/trends/" aria-label="Federal Debt Trends">
-						Federal Debt Trends
-					</a>
-				</li>
-				<li>
-					<a href="/americas-finance-guide/debt/analysis/" aria-label="Federal Debt Analysis">
-						Federal Debt Analysis
-					</a>
-				</li>
-				<li>
-					<a href="/americas-finance-guide/debt/country-comparison/" aria-label="Country Comparison">
-						Country Comparison
-					</a>
-				</li>
-			</>
-		);
-		break;
-	default:
-		break;
-	}
+	const activeSection = sections[props.chapter];
+	const prevSection = sections[activeSection.prevSection];
+	const nextSection = sections[activeSection.nextSection];
 
-	return (
-		<nav className={navClasses}>
-			<ul className={style.chapterNavPrimaryList}>
-				<li className={style.chapterNavOverview}>
-					<a href="/americas-finance-guide/">
+	const navClasses = `${style.chapterNav} ${activeSection.navClass}`;
+
+	const navHtml = (
+		<>
+			<li className={style.chapterNavOverview}>
+				<a href="/americas-finance-guide/">
+					Overview
+				</a>
+			</li>
+			{prevSection &&
+				<li className={`${prevSection.navClass} ${style.prevSection}`}>
+					<a href={prevSection.html[0].url} aria-label={prevSection.name}>
 						<FontAwesomeIcon
 							icon={faAngleLeft}
 							className="fas fa-chevron-left"
-							width={8}
+							width={20}
 						/>
-						{' '}
-						Overview
+						&nbsp;
+						{prevSection.name}
 					</a>
 				</li>
+			}
+			<ul className={style.chapterNavActiveList}>
+				{activeSection.html.map((section) => {
+					let activePageClass;
+					if (typeof window !== 'undefined' && section.url === window.location.pathname) {
+						activePageClass = style.active;
+					}
+					return (
+						<li className={`${activeSection.navClass} ${style.activeSection} ${activePageClass}`}>
+							<a href={section.url} aria-label={section.name}>
+								{section.name}
+							</a>
+						</li>
+					)
+				})}
+			</ul>
+			{nextSection &&
+				<li className={`${nextSection.navClass} ${style.nextSection}`}>
+					<a href={nextSection.html[0].url} aria-label={nextSection.name}>
+						{nextSection.name}
+						&nbsp;
+						<FontAwesomeIcon
+							icon={faAngleRight}
+							className="fas fa-chevron-right"
+							width={20}
+						/>
+					</a>
+				</li>
+			}
+		</>
+	);
+
+	return (
+		<nav className={style.chapterNav}>
+			<ul className={style.chapterNavPrimaryList}>
 				{navHtml}
 			</ul>
 			<button className={style.chapterNavTrigger}>

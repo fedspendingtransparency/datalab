@@ -9,11 +9,28 @@
 }
 
 .chapter-nav-primary-list {
+    max-width: 1400px;
     color: white;
+
+    .prev-section {
+        min-width: 130px;
+        border-right: solid 3px white;
+    }
+
+    .next-section {
+        min-width: 130px;
+        border-left: solid 3px white;
+    }
 }
 
-.chapter-nav-overview i {
-    margin-right: 1rem;
+.chapter-nav-overview {
+    min-width: 80px;
+    background-color: #555555;
+    border-right: solid 3px white;
+
+    i {
+        margin-right: 1rem;
+    }
 }
 
 .menu-open .chapter-nav-overview {
@@ -72,7 +89,7 @@
 .chapter-nav li a {
     display: block;
     color: white;
-    font-weight: 300;
+    font-size: 0.875rem;
     text-decoration: none;
     height: 0rem;
     line-height: 3rem;
@@ -95,7 +112,15 @@
     opacity: 1;
 }
 
-@media only screen and (min-width: 840px) {
+.chapter-nav-active-list {
+    max-width: 800px;
+
+    .active-section:not(:last-child) {
+        border-right: solid 1px white;
+    }
+}
+
+@media only screen and (min-width: 990px) {
     .chapter-nav {
         min-height: auto;
         height: 3rem;
@@ -112,13 +137,11 @@
     .chapter-nav ul {
         display: flex;
         width: 100%;
-        max-width: 1200px;
         margin: 0 auto;
     }
 
     .chapter-nav li {
         flex-grow: 1;
-        border-right: rgba(255,255,255,0.5) 1px solid;
         display: flex;
         justify-content: center;
         align-items: center;
