@@ -73,7 +73,7 @@
 	line-height: normal;
 	letter-spacing: normal;
 	color: #4a4a4a;
-	margin-bottom: 2rem;
+	margin-bottom: 0;
 	text-align: center;
     }
 
@@ -131,17 +131,6 @@
     .tile-row {
 	border-top: 1px solid #dddddd;
 
-	.description {
-	    font-size: 1rem;
-	    text-align: left;
-	    font-weight: 100;
-	    font-style: normal;
-	    font-stretch: normal;
-	    line-height: normal;
-	    letter-spacing: normal;
-	    color: #4a4a4a;
-	    margin-bottom: 2rem;
-	}
 
 	.descriptionLink {
 	    font-size: .875rem;
@@ -164,6 +153,7 @@
 		margin-bottom: 0;
 		width: 20%;
 	    }
+
 
 	    .title {
 		font-size: 1rem;

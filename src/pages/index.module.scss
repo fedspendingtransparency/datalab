@@ -33,7 +33,11 @@
   .featured-row {
     padding-bottom: 0;
   }
-  
+
+  .resource-row {
+      padding-bottom: $margin-75 !important;
+  }
+
   .more-analyses-row {
     flex-direction: column-reverse;
     padding-bottom: 0;
@@ -53,4 +57,5 @@
   .resource-row {
     padding-bottom: 0;
   }
+
 }
