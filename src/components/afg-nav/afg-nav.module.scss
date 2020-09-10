@@ -12,21 +12,15 @@
     color: white;
 
     .prev-section {
-        max-width: 175px;
-        min-width: 125px;
         border-right: solid 2px white;
     }
 
     .next-section {
-        max-width: 175px;
-        min-width: 125px;
         border-left: solid 2px white;
     }
 }
 
 .chapter-nav-overview {
-    max-width: 125px;
-    min-width: 90px;
     background-color: #555555;
     border-right: solid 2px white;
 
@@ -163,5 +157,22 @@
 
     .chapter-nav-active-list {
         max-width: 950px;
+    }
+
+    .chapter-nav-primary-list {
+        .prev-section {
+            max-width: 175px;
+            min-width: 125px;
+        }
+
+        .next-section {
+            max-width: 175px;
+            min-width: 125px;
+        }
+
+        .chapter-nav-overview {
+            max-width: 125px;
+            min-width: 90px;
+        }
     }
 }
