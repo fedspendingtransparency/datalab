@@ -100,7 +100,6 @@ const AfgNav = (props) => {
 			],
 			name: 'Debt',
 			navClass: style.chapterNavDebt,
-			nextSection: 'revenue',
 			prevSection: 'deficit',
 		},
 	}
@@ -135,25 +134,26 @@ const AfgNav = (props) => {
 							className="fas fa-home"
 							width={8}
 						/>
-						&nbsp;
-						<div>
+						<div className={style.sectionName}>
 							Overview
 						</div>
 					</a>
 				</li>
-				<li className={`${prevSection.navClass} ${style.prevSection}`}>
-					<a href={prevSection.pages[0].url} aria-label={prevSection.name}>
-						<FontAwesomeIcon
-							icon={faAngleLeft}
-							className="fas fa-chevron-left"
-							width={8}
-						/>
-						<div>
-							{prevSection.name}
-						</div>
-					</a>
-				</li>
-				<li>
+				{prevSection &&
+					<li className={`${prevSection.navClass} ${style.prevSection}`}>
+						<a href={prevSection.pages[0].url} aria-label={prevSection.name}>
+							<FontAwesomeIcon
+								icon={faAngleLeft}
+								className="fas fa-chevron-left"
+								width={8}
+							/>
+							<div className={style.sectionName}>
+								{prevSection.name}
+							</div>
+						</a>
+					</li>
+				}
+				<li className={style.chapterNavActiveSection}>
 					<ul className={style.chapterNavActiveList}>
 						{activeSection.pages.map((section) => {
 							let activePageClass;
@@ -163,7 +163,7 @@ const AfgNav = (props) => {
 							return (
 								<li className={`${activeSection.navClass} ${style.activeSection} ${activePageClass}`}>
 									<a href={section.url} aria-label={section.name}>
-										<div>
+										<div className={style.sectionName}>
 											{section.name}
 										</div>
 									</a>
@@ -172,18 +172,20 @@ const AfgNav = (props) => {
 						})}
 					</ul>
 				</li>
-				<li className={`${nextSection.navClass} ${style.nextSection}`}>
-					<a href={nextSection.pages[0].url} aria-label={nextSection.name}>
-						<div>
-							{nextSection.name}
-						</div>
-						<FontAwesomeIcon
-							icon={faAngleRight}
-							className="fas fa-chevron-right"
-							width={8}
-						/>
-					</a>
-				</li>
+				{nextSection &&
+					<li className={`${nextSection.navClass} ${style.nextSection}`}>
+						<a href={nextSection.pages[0].url} aria-label={nextSection.name}>
+							<div className={style.sectionName}>
+								{nextSection.name}
+							</div>
+							<FontAwesomeIcon
+								icon={faAngleRight}
+								className="fas fa-chevron-right"
+								width={8}
+							/>
+						</a>
+					</li>
+				}
 			</ul>
 		</nav>
 	);
