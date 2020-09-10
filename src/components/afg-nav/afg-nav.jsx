@@ -114,7 +114,6 @@ const AfgNav = (props) => {
 			}
 			
 			window.addEventListener('scroll', scrollListener)
-			return window.removeEventListener('scroll', scrollListener)
 		}
 	}, []);
 

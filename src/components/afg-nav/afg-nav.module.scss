@@ -4,7 +4,7 @@
     width: 100%;
     min-height: 3.5rem;
     box-sizing: border-box;
-    /* adding this to get out from under the datalab nav; */
+    z-index: 1000;
 }
 
 .chapter-nav-primary-list {
