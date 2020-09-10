@@ -31,7 +31,7 @@ const AfgNav = (props) => {
 					url: "/americas-finance-guide/revenue/country-comparison/"
 				},
 			],
-			name: 'Federal Revenue',
+			name: 'Revenue',
 			navClass: style.chapterNavRevenue,
 			nextSection: 'spending',
 		},
@@ -54,7 +54,7 @@ const AfgNav = (props) => {
 					url: "/americas-finance-guide/spending/country-comparison/"
 				},
 			],
-			name: 'Federal Spending',
+			name: 'Spending',
 			navClass: style.chapterNavSpending,
 			prevSection: 'revenue',
 			nextSection: 'deficit',
@@ -74,7 +74,7 @@ const AfgNav = (props) => {
 					url: "/americas-finance-guide/deficit/country-comparison/"
 				},
 			],
-			name: 'Federal Deficit',
+			name: 'Deficit',
 			navClass: style.chapterNavDeficit,
 			prevSection: 'spending',
 			nextSection: 'debt',
@@ -98,7 +98,7 @@ const AfgNav = (props) => {
 					url: "/americas-finance-guide/debt/country-comparison/"
 				},
 			],
-			name: 'Federal Debt',
+			name: 'Debt',
 			navClass: style.chapterNavDebt,
 			nextSection: 'revenue',
 			prevSection: 'deficit',
@@ -109,8 +109,10 @@ const AfgNav = (props) => {
 
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
+			const marginTop = window.innerWidth < 990 ? 50 : '3rem';
+
 			const scrollListener = () => {
-				setStickyStyle(window.pageYOffset > 26 ? { position: 'sticky', top: 50 } : { marginTop: '3rem' })
+				setStickyStyle(window.pageYOffset > 26 ? { position: 'sticky', top: 50 } : { marginTop })
 			}
 			
 			window.addEventListener('scroll', scrollListener)
@@ -134,7 +136,9 @@ const AfgNav = (props) => {
 							width={8}
 						/>
 						&nbsp;
-						Overview
+						<div>
+							Overview
+						</div>
 					</a>
 				</li>
 				<li className={`${prevSection.navClass} ${style.prevSection}`}>
@@ -144,8 +148,9 @@ const AfgNav = (props) => {
 							className="fas fa-chevron-left"
 							width={8}
 						/>
-						&nbsp;
-						{prevSection.name}
+						<div>
+							{prevSection.name}
+						</div>
 					</a>
 				</li>
 				<li>
@@ -158,7 +163,9 @@ const AfgNav = (props) => {
 							return (
 								<li className={`${activeSection.navClass} ${style.activeSection} ${activePageClass}`}>
 									<a href={section.url} aria-label={section.name}>
-										{section.name}
+										<div>
+											{section.name}
+										</div>
 									</a>
 								</li>
 							)
@@ -167,8 +174,9 @@ const AfgNav = (props) => {
 				</li>
 				<li className={`${nextSection.navClass} ${style.nextSection}`}>
 					<a href={nextSection.pages[0].url} aria-label={nextSection.name}>
-						{nextSection.name}
-						&nbsp;
+						<div>
+							{nextSection.name}
+						</div>
 						<FontAwesomeIcon
 							icon={faAngleRight}
 							className="fas fa-chevron-right"

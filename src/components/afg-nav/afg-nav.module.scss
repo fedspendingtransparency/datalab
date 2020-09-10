@@ -83,15 +83,21 @@
 }
 
 .chapter-nav li a {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
-    font-size: 0.875rem;
     text-decoration: none;
     height: 0rem;
     line-height: 3rem;
     overflow: hidden;
     opacity: 1;
     transition: height 0.3s ease;
+
+    div {
+        color: white;
+        font-size: 0.875rem;
+    }
 }
 
 .chapter-nav.menu-open li a {
@@ -110,13 +116,75 @@
 
 .chapter-nav-active-list {
     height: 100%;
-
-    .active-section:not(:last-child) {
-        border-right: solid 1px white;
-    }
 }
 
 @media only screen and (min-width: 990px) {
+    .chapter-nav {
+        min-height: auto;
+        height: 3rem;
+    }
+
+    .chapter-nav button {
+        display: none;
+    }
+
+    .menu-open .chapter-nav-overview {
+        border-bottom: none;
+    }
+
+    .chapter-nav ul {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .chapter-nav li {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .chapter-nav.chapter-nav-deficit li {
+        width: 33%;
+    }
+
+    .chapter-nav li:last-of-type {
+        border-right: none;
+    }
+
+    .chapter-nav li a, .chapter-nav li.active a {
+        height: auto;
+        width: 100%;
+        line-height: normal;
+
+        div {
+            margin: 0 5px;
+        }
+    }
+
+    .chapter-nav-active-list {
+        max-width: calc(1400px - 22.5%);
+
+        .active-section:not(:last-child) {
+            border-right: solid 1px white;
+        }
+    }
+
+    .chapter-nav-primary-list {
+        .prev-section, .next-section {
+            max-width: 12.5%;
+            min-width: 125px;
+        }
+
+        .chapter-nav-overview {
+            max-width: 10%;
+            min-width: 90px;
+        }
+    }
+}
+
+@media only screen and (max-width: 989px) and (min-width: 660px) {
     .chapter-nav {
         min-height: auto;
         height: 3rem;
@@ -158,23 +226,30 @@
     }
 
     .chapter-nav-active-list {
-        max-width: calc(1400px - 22.5%);
+        max-width: calc(990px - 22.5%);
+
+        li {
+            padding: 0 5px;
+        }
     }
 
     .chapter-nav-primary-list {
-        .prev-section {
+        .prev-section, .next-section {
             max-width: 12.5%;
-            min-width: 125px;
-        }
+            min-width: 85px;
 
-        .next-section {
-            max-width: 12.5%;
-            min-width: 125px;
+            a > div {
+                max-width: 80%;
+            }
         }
 
         .chapter-nav-overview {
-            max-width: 10%;
-            min-width: 90px;
+            max-width: 45px;
+            min-width: 45px;
+
+            div {
+                display: none;
+            }
         }
     }
 }
