@@ -12,20 +12,20 @@
     color: white;
 
     .prev-section {
-        min-width: 130px;
-        border-right: solid 3px white;
+        min-width: 125px;
+        border-right: solid 2px white;
     }
 
     .next-section {
-        min-width: 130px;
-        border-left: solid 3px white;
+        min-width: 125px;
+        border-left: solid 2px white;
     }
 }
 
 .chapter-nav-overview {
-    min-width: 80px;
+    min-width: 90px;
     background-color: #555555;
-    border-right: solid 3px white;
+    border-right: solid 2px white;
 
     i {
         margin-right: 1rem;
@@ -112,8 +112,6 @@
 }
 
 .chapter-nav-active-list {
-    max-width: 800px;
-
     .active-section:not(:last-child) {
         border-right: solid 1px white;
     }
@@ -158,5 +156,9 @@
         height: auto;
         text-align: center;
         line-height: normal;
+    }
+
+    .chapter-nav-active-list {
+        max-width: 800px;
     }
 }

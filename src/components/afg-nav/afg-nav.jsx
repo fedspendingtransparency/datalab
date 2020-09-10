@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+	faEllipsisV,
 	faAngleLeft,
 	faAngleDown,
 	faAngleUp,
@@ -221,6 +222,12 @@ const AfgNav = (props) => {
 		<>
 			<li className={style.chapterNavOverview}>
 				<a href="/americas-finance-guide/">
+					<FontAwesomeIcon
+						icon={faEllipsisV}
+						className="fas fa-ellipsis-v"
+						width={8}
+					/>
+					&nbsp;
 					Overview
 				</a>
 			</li>
@@ -230,7 +237,7 @@ const AfgNav = (props) => {
 						<FontAwesomeIcon
 							icon={faAngleLeft}
 							className="fas fa-chevron-left"
-							width={20}
+							width={8}
 						/>
 						&nbsp;
 						{prevSection.name}
@@ -260,7 +267,7 @@ const AfgNav = (props) => {
 						<FontAwesomeIcon
 							icon={faAngleRight}
 							className="fas fa-chevron-right"
-							width={20}
+							width={8}
 						/>
 					</a>
 				</li>
