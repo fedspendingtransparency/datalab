@@ -187,7 +187,6 @@ export default function SpendingTrends() {
         baseColor: colors.colorSpendingPrimary,
         secondaryColor: '#00766C',
         zoomThreshold,
-        subcategoryThresholds: manualThresholds,
         fiscalYearArray: fyArray
       };
 

@@ -6,7 +6,7 @@ export function trendData(){
     let arr;
 
     CategoryData.forEach(r => {
-        if (isNaN(parseFloat(r.federal_revenue_adjusted))) {
+        if (isNaN(r.federal_revenue_adjusted)) {
             return;
         }
 
