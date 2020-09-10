@@ -13,7 +13,7 @@ import style from './afg-nav.module.scss';
 const AfgNav = (props) => {
 	const sections = {
 		revenue: {
-			html: [
+			pages: [
 				{
 					name: 'Revenue and GDP',
 					url: "/americas-finance-guide/revenue/"
@@ -36,7 +36,7 @@ const AfgNav = (props) => {
 			nextSection: 'spending',
 		},
 		spending: {
-			html: [
+			pages: [
 				{
 					name: 'Spending and GDP',
 					url: "/americas-finance-guide/spending/"
@@ -60,7 +60,7 @@ const AfgNav = (props) => {
 			nextSection: 'deficit',
 		},
 		deficit: {
-			html: [
+			pages: [
 				{
 					name: 'Explore Deficit',
 					url: "/americas-finance-guide/deficit/"
@@ -80,7 +80,7 @@ const AfgNav = (props) => {
 			nextSection: 'debt',
 		},
 		debt: {
-			html: [
+			pages: [
 				{
 					name: 'Explore Debt',
 					url: "/americas-finance-guide/debt/"
@@ -100,109 +100,15 @@ const AfgNav = (props) => {
 			],
 			name: 'Federal Debt',
 			navClass: style.chapterNavDebt,
+			nextSection: 'revenue',
 			prevSection: 'deficit',
 		},
-	}
-
-	function getFilename(a) {
-		if (a.slice(-1) === '/') {
-			a = a.slice(0, -1);
-		}
-
-		return a.match(/.*americas-finance-guide\/(.*)*$/i).pop();
-	}
-
-	function setCurrentPageActive() {
-		let filename = props.location.pathname;
-		filename = filename.slice(24);
-
-		if (filename.slice(-1) === '/') {
-			filename = filename.slice(0, -1);
-		}
-
-		filename = filename || 'revenue';
-
-		const ul = document.getElementsByClassName(style.chapterNavActiveList);
-
-		if (!ul.item(0)) {
-			return;
-		}
-
-		const allSecondaryLi = ul.item(0).children;
-		const liLength = allSecondaryLi.length;
-
-		if (filename === 'revenue') {
-			allSecondaryLi.item(1).classList.add(style.active);
-			return true;
-		}
-
-		let i = 1;
-
-		for (i; i < liLength; i++) {
-			const current = allSecondaryLi.item(i);
-			const href = getFilename(current.firstChild.href);
-
-			if (filename === href) {
-				current.classList.add(style.active);
-				break;
-			}
-		}
-
-		return true;
-	}
-
-	function toggleActiveStatus() {
-		// For IE9
-		function toggleClass(el, className) {
-			const classes = el.className.split(' ');
-			const i = classes.indexOf(className);
-
-			if (i >= 0) {
-				classes.splice(i, 1);
-			} else {
-				classes.push(openClass);
-			}
-
-			element.className = classes.join(' ');
-		}
-
-		var element = document.getElementsByClassName(style.chapterNav).item(0);
-		const toggleIcons = document
-			.getElementsByClassName(style.chapterNavTrigger)
-			.item(0)
-			.getElementsByTagName('svg');
-		const hiddenClass = 'hidden';
-		var openClass = style.menuOpen;
-
-		if (element.classList) {
-			element.classList.toggle(openClass);
-			for (let i = toggleIcons.length; i--;) {
-				toggleIcons[i].classList.toggle(hiddenClass);
-			}
-		} else {
-			toggleClass(element, openClass);
-			for (let i = toggleIcons.length; i--;) {
-				toggleClass(toggleIcons[i], hiddenClass);
-			}
-		}
-	}
-
-	function initButton() {
-		const button = document
-			.getElementsByClassName(style.chapterNavTrigger)
-			.item(0);
-
-		button.addEventListener('click', toggleActiveStatus);
 	}
 
 	const [stickyStyle, setStickyStyle] = useState({ marginTop: '3rem' });
 
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
-			if (setCurrentPageActive()) {
-				initButton();
-			}
-
 			const scrollListener = () => {
 				setStickyStyle(window.pageYOffset > 26 ? { position: 'sticky', top: 50 } : { marginTop: '3rem' })
 			}
@@ -218,22 +124,22 @@ const AfgNav = (props) => {
 
 	const navClasses = `${style.chapterNav} ${activeSection.navClass}`;
 
-	const navHtml = (
-		<>
-			<li className={style.chapterNavOverview}>
-				<a href="/americas-finance-guide/">
-					<FontAwesomeIcon
-						icon={faEllipsisV}
-						className="fas fa-ellipsis-v"
-						width={8}
-					/>
-					&nbsp;
-					Overview
-				</a>
-			</li>
-			{prevSection &&
+	return (
+		<nav className={style.chapterNav} style={stickyStyle}>
+			<ul className={style.chapterNavPrimaryList}>
+				<li className={style.chapterNavOverview}>
+					<a href="/americas-finance-guide/">
+						<FontAwesomeIcon
+							icon={faEllipsisV}
+							className="fas fa-ellipsis-v"
+							width={8}
+						/>
+						&nbsp;
+						Overview
+					</a>
+				</li>
 				<li className={`${prevSection.navClass} ${style.prevSection}`}>
-					<a href={prevSection.html[0].url} aria-label={prevSection.name}>
+					<a href={prevSection.pages[0].url} aria-label={prevSection.name}>
 						<FontAwesomeIcon
 							icon={faAngleLeft}
 							className="fas fa-chevron-left"
@@ -243,25 +149,25 @@ const AfgNav = (props) => {
 						{prevSection.name}
 					</a>
 				</li>
-			}
-			<ul className={style.chapterNavActiveList}>
-				{activeSection.html.map((section) => {
-					let activePageClass;
-					if (typeof window !== 'undefined' && section.url === window.location.pathname) {
-						activePageClass = style.active;
-					}
-					return (
-						<li className={`${activeSection.navClass} ${style.activeSection} ${activePageClass}`}>
-							<a href={section.url} aria-label={section.name}>
-								{section.name}
-							</a>
-						</li>
-					)
-				})}
-			</ul>
-			{nextSection &&
+				<li>
+					<ul className={style.chapterNavActiveList}>
+						{activeSection.pages.map((section) => {
+							let activePageClass;
+							if (typeof window !== 'undefined' && section.url === window.location.pathname) {
+								activePageClass = style.active;
+							}
+							return (
+								<li className={`${activeSection.navClass} ${style.activeSection} ${activePageClass}`}>
+									<a href={section.url} aria-label={section.name}>
+										{section.name}
+									</a>
+								</li>
+							)
+						})}
+					</ul>
+				</li>
 				<li className={`${nextSection.navClass} ${style.nextSection}`}>
-					<a href={nextSection.html[0].url} aria-label={nextSection.name}>
+					<a href={nextSection.pages[0].url} aria-label={nextSection.name}>
 						{nextSection.name}
 						&nbsp;
 						<FontAwesomeIcon
@@ -271,25 +177,7 @@ const AfgNav = (props) => {
 						/>
 					</a>
 				</li>
-			}
-		</>
-	);
-
-	return (
-		<nav className={style.chapterNav} style={stickyStyle}>
-			<ul className={style.chapterNavPrimaryList}>
-				{navHtml}
 			</ul>
-			<button className={style.chapterNavTrigger}>
-				<FontAwesomeIcon
-					icon={faAngleDown}
-					className="fas fa-lg fa-angle-down menu-down"
-				/>
-				<FontAwesomeIcon
-					icon={faAngleUp}
-					className="fas fa-lg fa-angle-up menu-up hidden"
-				/>
-			</button>
 		</nav>
 	);
 };

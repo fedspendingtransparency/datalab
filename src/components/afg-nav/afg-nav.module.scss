@@ -109,6 +109,8 @@
 }
 
 .chapter-nav-active-list {
+    height: 100%;
+
     .active-section:not(:last-child) {
         border-right: solid 1px white;
     }
@@ -156,22 +158,22 @@
     }
 
     .chapter-nav-active-list {
-        max-width: 950px;
+        max-width: calc(1400px - 22.5%);
     }
 
     .chapter-nav-primary-list {
         .prev-section {
-            max-width: 175px;
+            max-width: 12.5%;
             min-width: 125px;
         }
 
         .next-section {
-            max-width: 175px;
+            max-width: 12.5%;
             min-width: 125px;
         }
 
         .chapter-nav-overview {
-            max-width: 125px;
+            max-width: 10%;
             min-width: 90px;
         }
     }
