@@ -133,10 +133,15 @@
 
 
 	.descriptionLink {
-	    font-size: .875rem;
+	    font-size: 1.125rem;
 	};
 
 	.tile {
+
+	    .description {
+		text-align: left;
+		margin-left: 20px;
+	    }
 
 	    .titleContainer {
 		padding-left: 75px;
@@ -169,3 +174,13 @@
 	}
     }
 }
+
+@media (max-width: $phone) {
+    .tile-row {
+	.tile {
+	    .description {
+		margin-left: 0;
+	    }
+	}
+    }
+};
