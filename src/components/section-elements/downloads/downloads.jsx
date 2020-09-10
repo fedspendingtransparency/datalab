@@ -5,11 +5,10 @@ import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { Grid, Container } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles"
 import PropTypes from "prop-types";
-import Radium from 'radium';
 import styleVariables from 'src/styles/variables.scss';
 import FiscalDataLogo from 'src/svgs/powered-by-fiscal-data.svg';
-import pageColorMap from 'src/utils/page-color';
-import { checkScreenMode, ScreenModeEnum } from 'src/utils/screen-mode'
+import pageColorMap from '../../../utils/page-color';
+import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode'
 
 const Downloads = (props) => {
   let fillColor = styleVariables.legacy;
@@ -121,11 +120,9 @@ Downloads.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   date: PropTypes.string,
   href: PropTypes.string,
-  mobileSpace: PropTypes.boolean
+  mobileSpace: PropTypes.bool
 };
 
-const StyledDownloads = Radium(Downloads);
-
-export default StyledDownloads;
+export default Downloads;
 
 

@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import { withStyles } from '@material-ui/styles';
 
-import pageColorMap from 'src/utils/page-color';
+import pageColorMap from '../../utils/page-color';
 import { legacyBlue } from '../../styles/variables.scss';
 
 const Reset = (props) => {
