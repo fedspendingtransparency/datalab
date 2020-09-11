@@ -1,5 +1,5 @@
 module.exports = {
-  //preset: 'jest-puppeteer',
+  preset: 'jest-puppeteer',
   transform: {
     "^.+\\.jsx?$": `<rootDir>/jest-preprocess.js`,
   },
