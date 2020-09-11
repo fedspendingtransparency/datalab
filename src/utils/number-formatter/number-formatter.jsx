@@ -61,10 +61,10 @@ export default function formatNumber(type, number, sig = 2) {
           ? customRounding(number)
           : formatDollarsText(Math.round(number))
       return `$${displayValue
-        .replace("G", " B")
-        .replace("M", " M")
-        .replace("k", " k")
-        .replace("T", " T")}`
+        .replace("G", "B")
+        .replace("M", "M")
+        .replace("k", "k")
+        .replace("T", "T")}`
     default:
       return ""
   }
