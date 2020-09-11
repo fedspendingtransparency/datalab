@@ -15,11 +15,11 @@
     color: white;
 
     .prev-section {
-        border-right: solid 2px white;
+        border-right: solid 2px #eee;
     }
 
     .next-section {
-        border-left: solid 2px white;
+        border-left: solid 2px #eee;
     }
 
     li:not(.active):not(.chapter-nav-active-section):hover {
@@ -31,7 +31,7 @@
 
 .chapter-nav-overview {
     background-color: #555;
-    border-right: solid 2px white;
+    border-right: solid 2px #eee;
 
     i {
         margin-right: 1rem;
@@ -207,7 +207,7 @@
         }
 
         .active-section:not(:last-child) {
-            border-right: solid 1px white;
+            border-right: solid 2px rgba(238, 238, 238, 0.3);
         }
     }
 
