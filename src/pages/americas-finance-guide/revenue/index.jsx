@@ -1,6 +1,6 @@
 import 'src/styles/afg/chapterIntroCommon.scss';
 import 'src/styles/afg/cg.scss';
-//import 'src/components/afg-dots/revenue/intro/revenue.intro.scss';
+import 'src/components/afg-dots/revenue/intro/revenue-intro.scss';
 
 import React, { useEffect } from 'react';
 import SEO from 'src/components/seo';
@@ -13,7 +13,7 @@ import Og from 'src/components/og-tag/og';
 import AnecdoteRevenueSVG from '../../../../static/americas-finance-guide/icons/anecdote-revenue.svg';
 import DefinitionSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
 import RevenueIntro from 'src/components/afg-dots/revenue/intro/index';
-import { setFactsTrigger } from 'src/page-sections/spending/intro/compareManager';
+import { setFactsTrigger } from 'src/components/afg-dots/spending/intro/compareManager';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';

@@ -1,15 +1,15 @@
-import 'src/styles/afg/cg.scss'
-import 'src/styles/afg/countryCommon.scss'
+import 'src/styles/afg/cg.scss';
+import 'src/styles/afg/countryCommon.scss';
 
-import React from "react"
-import { Link } from "gatsby"
-import SEO from "src/components/seo"
-import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml"
-import AccordionList from 'src/components/accordion-list/accordion-list'
-import ControlBar from 'src/components/control-bar/control-bar'
-import Share from 'src/components/share/share'
+import React from "react";
+import { Link } from "gatsby";
+import SEO from "src/components/seo";
+import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml";
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
-import RevenueCountryComparison from 'src/page-sections/revenue/countries';
+import RevenueCountryComparison from 'src/components/afg-dots/revenue/countries';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
