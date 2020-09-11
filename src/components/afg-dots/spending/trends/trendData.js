@@ -1,4 +1,4 @@
-import CategoryData from '../../../../static/americas-finance-guide/data/federal_spending_trends.csv';
+import CategoryData from '../../../../../static/americas-finance-guide/data/federal_spending_trends.csv';
 
 export function trendData(type){
     const indexed = {},

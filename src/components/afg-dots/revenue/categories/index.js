@@ -3,7 +3,7 @@ import { receiptsConstants } from '../receipts-utils';
 import { getDataByYear } from './data';
 import { initSankey, destroySankey } from "./sankey/init";
 import { init as initBarGraph, initChart } from "../../spending/categories/init";
-import colors from '../../../styles/afg/colors.scss';
+import colors from '../../../../styles/afg/colors.scss';
 import React, { useEffect } from 'react';
 
 const config = {
