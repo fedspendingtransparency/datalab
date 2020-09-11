@@ -180,8 +180,7 @@ export default function SpendingTrends() {
   }
 
     function renderChart(data) {
-      const zoomThreshold = 700000000000,
-        // const zoomThreshold = setThreshold(data),
+      const zoomThreshold = setThreshold(data),
         config = {
         chapter: 'spending',
         baseColor: colors.colorSpendingPrimary,
