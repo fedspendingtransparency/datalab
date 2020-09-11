@@ -12,7 +12,10 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: ``,
   },
+  // testMatch: [
+  //   "<rootDir>/**/**.pupp.{js,jsx}"
+  // ],
   testURL: `http://localhost`,
+  verbose: true,
   setupFiles: [`<rootDir>/loadershim.js`],
-  setupFilesAfterEnv: ["<rootDir>/setup-test-env.js"],
 };

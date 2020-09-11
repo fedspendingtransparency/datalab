@@ -1,6 +1,6 @@
 module.exports = {
   server: {
-    command: 'gatsby serve',
+    command: 'gatsby develop',
     port: 8050,
     launchTimeout: 60000
   },
