@@ -126,34 +126,6 @@ function resetSortingButtons(){
   }
 }
 
-if(typeof document !== 'undefined') {
-
-  d3.select('#filter-by-name-icon')
-    .on('click', function() {
-      d3.select('#filter-by-name')
-        .node()
-        .focus();
-    });
-
-  d3.select('#sort-amount')
-    .on('click', function() {
-      const containerId = 'bar-controls',
-        sortId = 'sort-amount',
-        sortDir = updateSortIcon(containerId, sortId);
-
-      doSort('amount', sortDir);
-    });
-
-  d3.select('#sort-name')
-    .on('click', function() {
-      const containerId = 'bar-controls',
-        sortId = 'sort-name',
-        sortDir = updateSortIcon(containerId, sortId);
-
-      doSort('name', sortDir);
-    });
-}
-
 function initHighlightedButton(){
   if(typeof document !== 'undefined') {
     d3.select('#bar-controls')
@@ -165,13 +137,41 @@ function initHighlightedButton(){
 }
 
 export function initSort(config) {
-    if (config.detail) {
-        sortManager.detail = config;
-    } else {
-        resetSortingButtons();
-        initHighlightedButton();
-        sortManager.main = config;
-    }
+  if (config.detail) {
+      sortManager.detail = config;
+  } else {
+      resetSortingButtons();
+      initHighlightedButton();
+      sortManager.main = config;
+  }
+
+  if(typeof document !== 'undefined') {
+    d3.select('#filter-by-name-icon')
+      .on('click', function() {
+        d3.select('#filter-by-name')
+          .node()
+          .focus();
+      });
+
+    d3.select('#sort-amount')
+      .on('click', function() {
+        const containerId = 'bar-controls';
+        const sortId = 'sort-amount';
+        const sortDir = updateSortIcon(containerId, sortId);
+
+        doSort('amount', sortDir);
+
+      });
+
+    d3.select('#sort-name')
+      .on('click', function() {
+        const containerId = 'bar-controls';
+        const sortId = 'sort-name';
+        const sortDir = updateSortIcon(containerId, sortId);
+
+        doSort('name', sortDir);
+      });
+  }
 }
 
 export function closeDetail() {
