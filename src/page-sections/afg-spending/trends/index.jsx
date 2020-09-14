@@ -203,10 +203,10 @@ export default function SpendingTrends() {
         .classed('trend-mobile', true);
       trendMobile(data, container, config);
     } else {
-      svg = svg || establishContainer(930, null, accessibilityAttrs);
+      svg = svg || establishContainer(970, null, accessibilityAttrs);
       svg.selectAll('*')
         .remove();
-      container = establishContainer(930, null, accessibilityAttrs);
+      container = establishContainer(970, null, accessibilityAttrs);
       trendDesktop(data, svg, config);
     }
   }

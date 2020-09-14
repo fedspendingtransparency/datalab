@@ -38,7 +38,7 @@ const DebtIntro = () => {
 	let previousWidth;
 
 	function setMainContainer() {
-		mainContainer = establishContainer(900, null, config.accessibilityAttrs.default)
+		mainContainer = establishContainer(930, null, config.accessibilityAttrs.default)
 			.append('g')
 			.classed('main', true);
 

@@ -18,7 +18,7 @@ import { initOverlay } from './detailOverlay';
 const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft },
     margin = {
         left: 400,
-        top: 40
+        top: 0
     };
 
 let originalConfig, activeDrilldownData;
@@ -151,6 +151,8 @@ function getContainerWidth() {
 function drawChart(globals, container) {
     let containerOffset;
 
+    container.style('margin-top', '40px')
+
     globals.chart = container.append('g')
         .classed('trend-chart', true)
         .attr('transform', translator(globals.labelWidth, margin.top));
@@ -203,7 +205,7 @@ export function trendDesktop(_data, container, config, drilldown) {
 
     if (!drilldown) {
         d3.select('svg.main').attr('height', function() {
-            return (labelYMax > 800) ? labelYMax + 320 : 930;
+            return (labelYMax > 800) ? labelYMax + 320 : 970;
         });
 
         window.addEventListener('resize', function () {
