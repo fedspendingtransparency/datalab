@@ -1,6 +1,6 @@
 import 'src/styles/afg/cg.scss';
 import 'src/styles/afg/trendsCommon.scss';
-import 'src/page-sections/deficit/trends/deficit-trends.scss';
+import 'src/components/afg-dots/deficit/trends/deficit-trends.scss';
 
 import React from 'react';
 import SEO from 'src/components/seo';

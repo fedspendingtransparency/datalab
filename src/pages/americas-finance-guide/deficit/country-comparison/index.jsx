@@ -1,16 +1,16 @@
-import 'src/styles/afg/cg.scss'
-import 'src/styles/afg/countryCommon.scss'
-import 'src/page-sections/deficit/countries/deficit-country-comparison.scss'
+import 'src/styles/afg/cg.scss';
+import 'src/styles/afg/countryCommon.scss';
+import 'src/components/afg-dots/deficit/countries/deficit-country-comparison.scss';
 
-import React from "react"
-import { Link } from "gatsby"
-import SEO from "src/components/seo"
-import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml"
-import AccordionList from 'src/components/accordion-list/accordion-list'
-import ControlBar from 'src/components/control-bar/control-bar'
-import Share from 'src/components/share/share'
+import React from "react";
+import { Link } from "gatsby";
+import SEO from "src/components/seo";
+import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml";
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
-import DefecitCountryComparison from 'src/page-sections/deficit/countries';
+import DefecitCountryComparison from 'src/components/afg-dots/deficit/countries';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';

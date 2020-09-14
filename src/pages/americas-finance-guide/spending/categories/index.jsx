@@ -1,13 +1,13 @@
-import 'src/styles/afg/cg.scss'
-import 'src/page-sections/spending/categories/spending-categories.scss'
+import 'src/styles/afg/cg.scss';
+import 'src/components/afg-dots/spending/categories/spending-categories.scss';
 
-import React from "react"
-import SEO from "src/components/seo"
-import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml"
-import AccordionList from 'src/components/accordion-list/accordion-list'
-import ControlBar from 'src/components/control-bar/control-bar'
-import Share from 'src/components/share/share'
-import SpendingCategories from 'src/page-sections/spending/categories/index.js';
+import React from "react";
+import SEO from "src/components/seo";
+import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml";
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
+import SpendingCategories from 'src/components/afg-dots/spending/categories/index.js';
 import Og from 'src/components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

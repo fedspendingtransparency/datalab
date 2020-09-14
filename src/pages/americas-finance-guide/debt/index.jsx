@@ -1,6 +1,6 @@
 import 'src/styles/afg/chapterIntroCommon.scss';
 import 'src/styles/afg/cg.scss';
-import 'src/page-sections/debt/intro/debt-intro.scss';
+import 'src/components/afg-dots/debt/intro/debt-intro.scss';
 
 import React from 'react';
 import SEO from 'src/components/seo';
@@ -10,7 +10,7 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
-import DebtIntro from 'src/page-sections/debt/intro/index.js';
+import DebtIntro from 'src/components/afg-dots/debt/intro/index.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDebtSVG from '../../../../static/americas-finance-guide/icons/anecdote-debt.svg';

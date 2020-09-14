@@ -1,0 +1,192 @@
+@import '../../../../styles/afg/generalVars';
+@import '../../../../styles/afg/colors';
+
+@keyframes card {
+    0% {transform: scaleX(1)}
+    50% {transform: scaleX(0)}
+    100% {transform: scaleX(1)}
+}
+
+@keyframes card-flipped {
+    0% {transform: scaleX(1)}
+    50% {transform: scaleX(0)}
+    100% {transform: scaleX(1)}
+}
+
+.debt-analysis-wrapper {
+    svg, button, span {
+        font-family: Source Sans Pro, sans-serif;
+    }
+
+    .card {
+        position: relative;
+        box-sizing: border-box;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid $color-debt-primary;
+        border-radius: 0.5rem;
+        animation-name: card;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+
+        ul {
+            list-style-type: disc;
+        }
+    }
+
+    .card__image {
+        display: block;
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    .card__image--width-contstrain {
+        max-width: 290px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card__heading {
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 0 0 3rem 0;
+        font-weight: $boldWeight;
+    }
+
+    .card__contents {
+        visibility: hidden;
+        transition-property: visibility;
+        transition-delay: 0.25s;
+        opacity: 0;
+    }
+
+    .card__cover {
+        position: absolute;
+        text-align: center;
+        top: 0;
+        left: 0;
+        padding: 1rem;
+        visibility: visible;
+        transition-property: visibility;
+        transition-delay: 0.25s;
+    }
+
+    .card__flipper {
+        border: none;
+        background: transparent;
+        color: $color-debt-primary;
+        transition: color 0.3s ease;
+        cursor: pointer;
+
+        svg {
+            vertical-align: middle;
+        }
+
+        span {
+            color: $color-debt-primary;
+            padding-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        &:hover {
+            color: lighten($color-debt-primary, 20%);
+            span {
+                color: lighten($color-debt-primary, 20%);
+            }
+        }
+    }
+
+    .card__flip-icon {
+        margin-right: 0.5rem;
+    }
+
+    .card.card--flipped {
+        animation-name: card-flipped;
+        box-shadow: 0 0 30px rgba(74, 0 ,114, 0.2);
+
+        .card__cover {
+            visibility: hidden;
+        }
+
+        .card__contents {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    @media only screen and (min-width: 660px) {
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .card {
+            width: 49%;
+        }
+
+        .tour {
+            margin: 0 4rem;
+        }
+    }
+
+    @media only screen and (min-width: 990px) {
+        .cards {
+            align-items: flex-start;
+        }
+
+        .card {
+            height: calc(400px);
+            width: 32%;
+            transition: width, height 0.5s ease;
+        }
+
+        .tour {
+            width: 300px;
+            float: right;
+            margin: 0;
+        }
+
+        .cards.cards--flipped {
+            .card {
+                width: 24%;
+            }
+
+            .card.card--flipped {
+                height: auto;
+                width: 49%;
+                opacity: 1;
+            }
+        }
+
+        .card__cover {
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0;
+            width: 100%; // for IE
+        }
+
+        .card__flipper {
+            align-self: flex-start;
+            font-size: 0.9em;
+            padding: 0.5rem 1rem;
+            width: 100%;
+            text-align: left;
+            border-top: 1px solid #ddd;
+            background: #f8f8f8;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.55rem;
+            transform: translateY(-2px);
+        }
+
+        .card__cover .card__heading {
+            transform: translateY(135px);
+            margin: 0 1rem;
+        }
+    }
+
+}

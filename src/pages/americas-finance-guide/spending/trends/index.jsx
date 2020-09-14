@@ -1,17 +1,17 @@
-import 'src/styles/afg/cg.scss'
-import 'src/styles/afg/trendsCommon.scss'
+import 'src/styles/afg/cg.scss';
+import 'src/styles/afg/trendsCommon.scss';
 
-import React from "react"
-import SEO from "src/components/seo"
-import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml"
-import AccordionList from 'src/components/accordion-list/accordion-list'
-import ControlBar from 'src/components/control-bar/control-bar'
-import Share from 'src/components/share/share'
+import React from "react";
+import SEO from "src/components/seo";
+import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml";
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faSlidersH } from '@fortawesome/free-solid-svg-icons';
-import SpendingTrends from 'src/page-sections/spending/trends/index.js';
+import SpendingTrends from 'src/components/afg-dots/spending/trends/index.js';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function SpendingTrendsPage(props) {

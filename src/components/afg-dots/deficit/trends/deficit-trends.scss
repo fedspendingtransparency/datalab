@@ -1,0 +1,65 @@
+@import '../../../../styles/afg/accordion';
+
+.deficit-trends-wrapper {
+
+  .tour {
+    max-width: none;
+  }
+
+
+  .deficit-trend {
+    max-width: 100%;
+  }
+
+  @media only screen and (min-width: 900px) {
+    .deficit-trend {
+      width: 67%;
+      float: left;
+      display: block;
+    }
+
+    .deficit-aside {
+      width: 33%;
+      float: right;
+      padding-left: 2rem;
+      box-sizing: border-box;
+    }
+
+    .tour {
+        width: 100%;
+        margin: 0;
+    }
+  }
+
+  #surplusComponent, #surplusComponent .deficit--surplus__component--content {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+  }
+
+  .accordion--open #surplusComponent, #surplusComponent .deficit--surplus__component--content.active {
+    opacity: 1;
+    height: auto;
+    transition: opacity 1s ease;
+  }
+
+  .accordion--open div.active img.deficit__tabs-image {
+    height: 100%;
+  }
+
+  img.deficit__tabs-image {
+    height: 0;
+    width: 100%;
+  }
+}
+
+.deficit-trends__hwcta a {
+  color: #205493;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.hwcta {
+  margin-bottom: 8rem;
+}
