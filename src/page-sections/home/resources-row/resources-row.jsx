@@ -41,7 +41,7 @@ const ResourcesRow = () => {
           <p className={resourcesRowStyles.title}>
             Do you want <strong> to conduct your own analysis?</strong>
           </p>
-          <p className={resourcesRowStyles.description}>
+          <p className={resourcesRowStyles.descriptionConduct}>
             Access Treasury data and create your own charts and visualizations!
           </p>
         </Grid>
