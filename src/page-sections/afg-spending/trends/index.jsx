@@ -189,8 +189,6 @@ export default function SpendingTrends() {
         fiscalYearArray: fyArray
       };
 
-    console.log(zoomThreshold);
-
     let container;
 
     // console.log('isMobileDevice()', isMobileDevice());

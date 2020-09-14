@@ -23,7 +23,6 @@ function getTriggerTop(globals) {
     const floor = globals.scales.y(globals.scales.y.domain()[0]),
         top = globals.scales.y(globals.zoomThreshold);
 
-    console.log(top + (floor-top)/2 - rect.height/2)
     return top + (floor-top)/2 - rect.height/2;
 }
 
@@ -189,8 +188,6 @@ export function zoomTrigger(globals) {
             triggerTop: triggerTop,
             triggerBottom: triggerTop + rect.height
         };
-
-    console.log(triggerTop);
 
     globals.triggerTop = triggerTop;
 
