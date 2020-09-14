@@ -1,57 +1,57 @@
 @import "../styles/index";
 
 .featured-tile-row {
-  padding-bottom: $margin-30;
+    padding-bottom: $margin-30;
 }
 
 .featured-row {
-  padding-bottom: $margin-45;
+    padding-bottom: $margin-45;
 }
 
 .resource-row {
-  padding-bottom: $margin-150;
+    padding-bottom: $margin-75;
 }
 
 .secondaryTiles {
-  flex-direction: row;
+    flex-direction: row;
 }
 
 .heading {
-  @include homepageSectionHeading();
+    @include homepageSectionHeading();
 }
 
 .more-analyses-row {
-  padding-top: $margin-45;
-  padding-bottom: $margin-45;
+    padding-top: $margin-45;
+    padding-bottom: $margin-45;
 
-  MainTile {
-    margin-top: $margin-15;
-  }
+    MainTile {
+	margin-top: $margin-15;
+    }
 }
 
 @media (max-width: $desktop - 1) {
-  .featured-row {
-    padding-bottom: 0;
-  }
-
-  .more-analyses-row {
-    flex-direction: column-reverse;
-    padding-bottom: 0;
-
-    .featured-tile {
-      margin-bottom: $margin-45;
+    .featured-row {
+	padding-bottom: 0;
     }
-  }
+
+    .more-analyses-row {
+	flex-direction: column-reverse;
+	padding-bottom: 0;
+
+	.featured-tile {
+	    margin-bottom: $margin-45;
+	}
+    }
 }
 
 @media (max-width: $tablet - 1) {
-  .more-analyses-row {
-    padding-top: 0;
-  }
+    .more-analyses-row {
+	padding-top: 0;
+    }
 
-  .featured-tile-row,
-  .resource-row {
-    padding-bottom: 0;
-  }
+    .featured-tile-row,
+    .resource-row {
+	padding-bottom: 0;
+    }
 
 }
