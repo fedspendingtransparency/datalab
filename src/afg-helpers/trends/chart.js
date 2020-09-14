@@ -205,7 +205,7 @@ export function trendDesktop(_data, container, config, drilldown) {
 
     if (!drilldown) {
         d3.select('svg.main').attr('height', function() {
-            return (labelYMax > 800) ? labelYMax + 320 : 970;
+            return (labelYMax > 800) ? labelYMax + 320 : 985;
         });
 
         window.addEventListener('resize', function () {

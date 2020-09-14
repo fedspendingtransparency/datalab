@@ -59,6 +59,7 @@ function modify(y, globals) {
         .attr('fill', function (d, i) {
             return (i % 2 && d !== 0) ? '#eee' : colors.textColorParagraph;
         })
+        .attr('dy', '0.4rem')
 
     y.yAxisDom.selectAll('.tick line')
         .attr('stroke', function (d, i) {
