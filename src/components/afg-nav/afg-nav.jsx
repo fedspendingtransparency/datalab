@@ -11,8 +11,9 @@ import {
 import style from './afg-nav.module.scss';
 
 const AfgNav = (props) => {
-	const sections = {
-		revenue: {
+	const sections = [
+		{
+			chapter: 'revenue',
 			pages: [
 				{
 					name: 'Revenue and GDP',
@@ -33,9 +34,9 @@ const AfgNav = (props) => {
 			],
 			name: 'Revenue',
 			navClass: style.chapterNavRevenue,
-			nextSection: 'spending',
 		},
-		spending: {
+		{
+			chapter: 'spending',
 			pages: [
 				{
 					name: 'Spending and GDP',
@@ -56,10 +57,9 @@ const AfgNav = (props) => {
 			],
 			name: 'Spending',
 			navClass: style.chapterNavSpending,
-			prevSection: 'revenue',
-			nextSection: 'deficit',
 		},
-		deficit: {
+		{
+			chapter:'deficit',
 			pages: [
 				{
 					name: 'Explore Deficit',
@@ -76,10 +76,9 @@ const AfgNav = (props) => {
 			],
 			name: 'Deficit',
 			navClass: style.chapterNavDeficit,
-			prevSection: 'spending',
-			nextSection: 'debt',
 		},
-		debt: {
+		{
+			chapter: 'debt',
 			pages: [
 				{
 					name: 'Explore Debt',
@@ -100,9 +99,8 @@ const AfgNav = (props) => {
 			],
 			name: 'Debt',
 			navClass: style.chapterNavDebt,
-			prevSection: 'deficit',
 		},
-	}
+	]
 
 	const [stickyStyle, setStickyStyle] = useState({ marginTop: '3rem' });
 
@@ -118,9 +116,13 @@ const AfgNav = (props) => {
 		}
 	}, []);
 
-	const activeSection = sections[props.chapter];
-	const prevSection = sections[activeSection.prevSection];
-	const nextSection = sections[activeSection.nextSection];
+	const [activeSection, setActiveSection] = useState(sections.find(s => s.chapter === props.chapter));
+
+	const handleActiveSectionChange = (e) => {
+		const section = sections.find((s) => s.name === e.target.textContent)
+		console.log(section)
+		setActiveSection(section)
+	}
 
 	const navClasses = `${style.chapterNav} ${activeSection.navClass}`;
 
@@ -139,53 +141,39 @@ const AfgNav = (props) => {
 						</div>
 					</a>
 				</li>
-				{prevSection &&
-					<li className={`${prevSection.navClass} ${style.prevSection}`}>
-						<a href={prevSection.pages[0].url} aria-label={prevSection.name}>
-							<FontAwesomeIcon
-								icon={faAngleLeft}
-								className="fas fa-chevron-left"
-								width={8}
-							/>
-							<div className={style.sectionName}>
-								{prevSection.name}
+				{sections.map((section) => {
+					if (activeSection.chapter === section.chapter) {
+						return (
+							<li className={style.chapterNavActiveSection}>
+								<ul className={style.chapterNavActiveList}>
+									{activeSection.pages.map((section) => {
+										let activePageClass;
+										if (typeof window !== 'undefined' && section.url === window.location.pathname) {
+											activePageClass = style.active;
+										}
+										return (
+											<li className={`${activeSection.navClass} ${style.activeSection} ${activePageClass}`}>
+												<a href={section.url} aria-label={section.name}>
+													<div className={style.sectionName}>
+														{section.name}
+													</div>
+												</a>
+											</li>
+										)
+									})}
+								</ul>
+							</li>
+						)
+					}
+
+					return (
+						<li className={`${section.navClass} ${style.inactiveSection}`}>
+							<div className={style.sectionName} onClick={handleActiveSectionChange}>
+								{section.name}
 							</div>
-						</a>
-					</li>
-				}
-				<li className={style.chapterNavActiveSection}>
-					<ul className={style.chapterNavActiveList}>
-						{activeSection.pages.map((section) => {
-							let activePageClass;
-							if (typeof window !== 'undefined' && section.url === window.location.pathname) {
-								activePageClass = style.active;
-							}
-							return (
-								<li className={`${activeSection.navClass} ${style.activeSection} ${activePageClass}`}>
-									<a href={section.url} aria-label={section.name}>
-										<div className={style.sectionName}>
-											{section.name}
-										</div>
-									</a>
-								</li>
-							)
-						})}
-					</ul>
-				</li>
-				{nextSection &&
-					<li className={`${nextSection.navClass} ${style.nextSection}`}>
-						<a href={nextSection.pages[0].url} aria-label={nextSection.name}>
-							<div className={style.sectionName}>
-								{nextSection.name}
-							</div>
-							<FontAwesomeIcon
-								icon={faAngleRight}
-								className="fas fa-chevron-right"
-								width={8}
-							/>
-						</a>
-					</li>
-				}
+						</li>
+					)
+				})}
 			</ul>
 		</nav>
 	);

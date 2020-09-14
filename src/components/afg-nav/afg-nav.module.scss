@@ -14,12 +14,16 @@
     max-width: 1440px;
     color: white;
 
-    .prev-section {
+    .inactive-section {
         border-right: solid 2px #eee;
-    }
 
-    .next-section {
-        border-left: solid 2px #eee;
+        .section-name {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     li:not(.active):not(.chapter-nav-active-section):hover {
@@ -109,6 +113,12 @@
 
 .chapter-nav li {
     padding: 0;
+    cursor: pointer;
+
+    .section-name {
+        color: white;
+        font-size: 0.875rem;
+    }
 }
 
 .chapter-nav li a {
@@ -193,6 +203,7 @@
 
     .chapter-nav-active-list {
         max-width: calc(1400px - 22.5%);
+        border-right: solid 2px #eee;
 
         .chapter-nav-deficit:not(:last-of-type) {
             max-width: 33.3%;
@@ -212,9 +223,9 @@
     }
 
     .chapter-nav-primary-list {
-        .prev-section, .next-section {
+        .inactive-section {
             max-width: 12.5%;
-            min-width: 110px;
+            min-width: 90px;
         }
 
         .chapter-nav-overview {
@@ -274,7 +285,7 @@
     }
 
     .chapter-nav-primary-list {
-        .prev-section, .next-section {
+        .inactive-section {
             max-width: 12.5%;
             min-width: 85px;
 
