@@ -1,5 +1,5 @@
 import 'src/styles/afg/cg.scss';
-import 'src/components/afg-dots/debt/analysis/debt-analysis.scss';
+import 'src/page-sections/afg-debt/analysis/debt-analysis.scss';
 
 import React from "react";
 import SEO from "src/components/seo";
@@ -9,8 +9,7 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
-//import DebtCards from "src/page-sections/debt/analysis/cards";
-import DebtCards from 'src/components/afg-dots/debt/analysis/cards';
+import DebtCards from 'src/page-sections/afg-debt/analysis/cards';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';

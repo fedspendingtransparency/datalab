@@ -1,5 +1,7 @@
-@import '../../../../styles/afg/generalVars';
-@import '../../../../styles/afg/colors';
+@import '../../../styles/afg/generalVars';
+@import '../../../page-sections/big-picture/scss/chapter';
+@import '../../../page-sections/big-picture/scss/link-button';
+@import '../../../styles/afg/colors';
 
 .chapter-link.link-button {
   background-color: $color-debt-primary;

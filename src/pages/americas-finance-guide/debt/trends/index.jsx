@@ -1,6 +1,6 @@
 import 'src/styles/afg/cg.scss';
 import 'src/styles/afg/trendsCommon.scss';
-import 'src/components/afg-dots/debt/trends/debt-trends.scss';
+import 'src/page-sections/afg-debt/trends/debt-trends.scss';
 
 import React from "react";
 import SEO from "src/components/seo";
@@ -14,7 +14,7 @@ import GdpTemplate from 'src/components/gdp-template/gdp-template';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from 'src/components/headers/headers';
-import DebtTrendsToggle from 'src/components/afg-dots/debt/trends/index';
+import DebtTrendsToggle from 'src/page-sections/afg-debt/trends/index';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function DebtTrendsPage(props) {
