@@ -1,6 +1,6 @@
 import {extent, min, max} from 'd3-array';
 
-const d3 = {extent, min, max},
+const d3 = {extent, min},
     ratio = 0.2,
     overlaps = [],
     maxIterator = 10;

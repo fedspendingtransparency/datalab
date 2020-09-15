@@ -22,7 +22,7 @@ export const manualThresholds = {
     'National Aeronautics and Space Administration': 1,
     'Net Interest': 50000000000,
     'Office of Personnel Management': 4000000000,
-    'Social Security Administration': 10000000000,
+    'Social Security Administration': 5000000000,
     'Transportation': 25000000000,
     'Unemployment Insurance': 30000000,
     'Veterans Benefits and Services': 20000000000
