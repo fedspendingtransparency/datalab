@@ -11,7 +11,8 @@ import Og from 'src/components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import RevenueTrends from 'src/components/afg-dots/revenue/trends/index.js';
+//import RevenueTrends from 'src/components/afg-dots/revenue/trends/index.js';
+import RevenueTrends from 'src/page-sections/afg-revenue/trends/index.js';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function RevenueTrendsPage(props) {

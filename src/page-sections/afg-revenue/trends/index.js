@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { select, selectAll } from 'd3-selection';
 import { establishContainer, isMobileDevice } from 'src/utils/utils';
 import { trendData } from './trendData';
-import { trendDesktop } from '../../../afg-trends/chart';
-import colors from '../../../../styles/afg/colors.scss';
-import { trendMobile } from '../../../afg-trendsMobile';
+import { trendDesktop } from 'src/components/afg-trends/chart';
+import colors from '../../../styles/afg/colors.scss';
+import { trendMobile } from 'src/components/afg-trendsMobile/index.js';
 import { manualThresholds } from './manualThresholds';
-import CategoryData from '../../../../../static/americas-finance-guide/data/federal_revenue_trends.csv';
+import CategoryData from '../../../../static/americas-finance-guide/data/federal_revenue_trends.csv';
 
 export default function RevenueTrends() {
   // IE shim

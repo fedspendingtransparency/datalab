@@ -9,7 +9,8 @@ import {refreshData} from "./chart";
 import {selectCountryInit} from "./selectCountry";
 import { initDropShadow } from './dropShadow';
 import {selectedCountries} from "./selectedCountryManager";
-import {createDonut} from "../donut";
+import {createDonut} from "src/components/afg-dots/revenue/donut.js";
+
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition, range }
 

@@ -3,11 +3,11 @@ import { select, selectAll } from 'd3-selection';
 import { establishContainer, isMobileDevice } from 'src/utils/utils';
 import { trendData } from './trendData';
 import { setThreshold } from "./setThreshold";
-import { trendDesktop } from '../../../afg-trends/chart';
+import { trendDesktop } from 'src/components/afg-trends/chart';
 import { manualThresholds } from './manualThresholds';
-import { trendMobile } from '../../../afg-trendsMobile';
-import colors from '../../../../styles/afg/colors.scss';
-import CategoryData from '../../../../../static/americas-finance-guide/data/federal_spending_trends.csv';
+import { trendMobile } from 'src/components/afg-trendsMobile/index.js';
+import colors from '../../../styles/afg/colors.scss';
+import CategoryData from '../../../../static/americas-finance-guide/data/federal_spending_trends.csv';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 

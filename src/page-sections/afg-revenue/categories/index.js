@@ -1,9 +1,10 @@
 import * as d3 from "d3v3";
-import { receiptsConstants } from '../receipts-utils';
+import { receiptsConstants } from 'src/components/afg-dots/revenue/receipts-utils.js';
 import { getDataByYear } from './data';
 import { initSankey, destroySankey } from "./sankey/init";
-import { init as initBarGraph, initChart } from "../../spending/categories/init";
-import colors from '../../../../styles/afg/colors.scss';
+import { init as initBarGraph, initChart } from "src/components/afg-dots/spending/intro/init";
+
+import colors from 'src/styles/afg/colors.scss';
 import React, { useEffect } from 'react';
 
 const config = {

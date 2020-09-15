@@ -1,4 +1,4 @@
-import CategoryData from '../../../../../static/americas-finance-guide/data/federal_revenue_categories.csv';
+import CategoryData from '../../../../static/americas-finance-guide/data/federal_revenue_categories.csv';
 import { min, max } from 'd3-array';
 
 const d3 = { min, max };

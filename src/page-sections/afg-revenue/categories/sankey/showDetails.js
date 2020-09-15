@@ -4,7 +4,7 @@ import { scaleLinear } from 'd3-scale';
 import { line } from 'd3-shape';
 import { min } from 'd3-array';
 import { easeCubicOut as connectorEase } from 'd3-ease';
-import { dotFactory, receiptsConstants } from '../../receipts-utils';
+import { dotFactory, receiptsConstants } from 'src/components/afg-dots/revenue/receipts-utils.js';
 import { getElementBox, translator, getTransform, establishContainer, simplifyNumber } from 'src/utils/utils';
 import { getData } from '../data';
 import colors from 'src/styles/afg/colors.scss';
