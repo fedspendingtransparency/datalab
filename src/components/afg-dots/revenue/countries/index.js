@@ -54,7 +54,7 @@ const RevenueCountryComparison = () => {
     }, [])
 
     return (
-        <div id="viz" />
+        <div id="viz" style={{ overflow: 'visible' }} />
     );
 }
 
