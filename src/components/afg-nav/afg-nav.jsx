@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import style from './afg-nav.module.scss';
 
-const AfgNav = (props) => {
+const AfgNav = ({ chapter }) => {
 	const sections = [
 		{
 			chapter: 'revenue',
@@ -116,11 +116,15 @@ const AfgNav = (props) => {
 		}
 	}, []);
 
-	const [activeSection, setActiveSection] = useState(sections.find(s => s.chapter === props.chapter));
+	const [activeSection, setActiveSection] = useState(sections.find(s => s.chapter === chapter));
 
 	const handleActiveSectionChange = (e) => {
 		const section = sections.find((s) => s.name === e.target.textContent)
-		console.log(section)
+		setActiveSection(section)
+	}
+
+	const resetActiveSection = (e) => {
+		const section = sections.find((s) => s.chapter === chapter)
 		setActiveSection(section)
 	}
 
@@ -144,7 +148,7 @@ const AfgNav = (props) => {
 				{sections.map((section) => {
 					if (activeSection.chapter === section.chapter) {
 						return (
-							<li className={style.chapterNavActiveSection}>
+							<li className={style.chapterNavActiveSection} onMouseLeave={resetActiveSection}>
 								<ul className={style.chapterNavActiveList}>
 									{activeSection.pages.map((section) => {
 										let activePageClass;
@@ -167,7 +171,7 @@ const AfgNav = (props) => {
 					}
 
 					return (
-						<li className={`${section.navClass} ${style.inactiveSection}`}>
+						<li className={`${section.navClass} ${style.inactiveSection}`} onMouseEnter={handleActiveSectionChange} onMouseLeave={resetActiveSection}>
 							<div className={style.sectionName} onClick={handleActiveSectionChange}>
 								{section.name}
 							</div>

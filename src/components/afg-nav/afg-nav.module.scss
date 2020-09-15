@@ -203,7 +203,6 @@
 
     .chapter-nav-active-list {
         max-width: calc(1400px - 22.5%);
-        border-right: solid 2px #eee;
 
         .chapter-nav-deficit:not(:last-of-type) {
             max-width: 33.3%;
@@ -222,10 +221,18 @@
         }
     }
 
+    .chapter-nav-active-section + li {
+        border-left: solid 2px #eee;
+    }
+
     .chapter-nav-primary-list {
         .inactive-section {
             max-width: 12.5%;
-            min-width: 90px;
+            min-width: 85px;
+
+            .section-name {
+                text-transform: uppercase;
+            }
         }
 
         .chapter-nav-overview {
