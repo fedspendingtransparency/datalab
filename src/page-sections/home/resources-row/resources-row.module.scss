@@ -4,20 +4,22 @@
     font-size: 1.17rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #aaa;
+    color: #555555;
+    font-weight: 600;
     text-transform: uppercase;
     text-align: left;
 }
 
 .tile {
     .svgImg {
-	height: 62px;
+	height: 75px;
 	margin: 0 auto 1rem auto;
 	display: block;
 	width: 50%;
     }
 
     .svgImgAPI {
-	height: 62px;
+	height: 75px;
 	margin: 0 auto 1rem auto;
 	display: block;
 	width: 50%;
@@ -36,12 +38,12 @@
 
     h1.title {
 	font-weight: 600;
-	margin-top: 1.5rem;
+	margin-top: 2rem;
     }
 
     .titleAPI {
 	font-size: 1.125rem; // 18px
-	margin-top: 1.5rem;
+	margin-top: 2rem;
 	font-weight: 600;
 	height: 52px;
 	text-align: center;
@@ -55,6 +57,7 @@
     p.title {
 	font-size: 2rem; // 32px
 	height: auto;
+	color: #4a4a4a;
 	margin-top: 0;
 	margin-bottom: 0;
     }
@@ -71,9 +74,22 @@
 	line-height: normal;
 	letter-spacing: normal;
 	color: #4a4a4a;
-	margin-bottom: 2rem;
+	margin-top: -17px;
 	text-align: center;
     }
+
+    .descriptionConduct {
+	font-size: 1.125rem;
+	font-weight: 100;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: #4a4a4a;
+	margin-bottom: 0;
+	text-align: center;
+    }
+
 
     .descriptionLink {
 	color: $legacyBlue;
@@ -101,10 +117,21 @@
 	text-align: center;
     }
 
+    .tile-row {
+	.tile {
+	    .description {
+		margin-top: 0;
+	    }
+	}
+    }
+    
     .tile {
 	p.title {
 	    margin-bottom: 0;
+	    color: #4a4a4a;
+
 	}
+
     }
 
     .tile-row {
@@ -113,9 +140,9 @@
 }
 
 @media (max-width: $tablet - 1) {
-    .heading {
-	margin-top: 0 !important;
-    }
+    // .heading {
+    // 	margin-top: 0 !important;
+    // }
 
     .title {
 	text-align: center;
@@ -129,23 +156,17 @@
     .tile-row {
 	border-top: 1px solid #dddddd;
 
-	.description {
-	    font-size: 1rem;
-	    text-align: left;
-	    font-weight: 100;
-	    font-style: normal;
-	    font-stretch: normal;
-	    line-height: normal;
-	    letter-spacing: normal;
-	    color: #4a4a4a;
-	    margin-bottom: 2rem;
-	}
 
 	.descriptionLink {
-	    font-size: .875rem;
+	    font-size: 1.125rem;
 	};
 
 	.tile {
+
+	    .description {
+		text-align: left;
+		margin-left: 20px;
+	    }
 
 	    .titleContainer {
 		padding-left: 75px;
@@ -163,17 +184,47 @@
 		width: 20%;
 	    }
 
+
 	    .title {
-		font-size: 1rem;
+		font-size: 1.125rem;
 		height: 100%;
 		text-align: left;
 	    }
 
 	    .titleAPI {
-		font-size: 1rem;
+		font-size: 1.125rem;
 		height: 100%;
 		text-align: left;
 	    }
 	}
     }
 }
+
+@media (max-width: $phone) {
+
+
+    .tile-row {
+	.tile {
+	    h1.title {
+		font-size: 1.125rem; // 18px
+		padding-left: 1rem;
+		margin-top: 0;
+		height: 100%;
+		text-align: left;
+	    }
+	    .titleAPI {
+		font-size: 1.125rem;
+		margin-top: 0;
+		padding-left: 1rem;
+		height: 100%;
+		text-align: left;
+	    }
+	    .description {
+		margin-left: 0;
+		margin-top: 0;
+		font-size: 1rem;
+		padding-left: 1rem;
+	    }
+	}
+    }
+};
