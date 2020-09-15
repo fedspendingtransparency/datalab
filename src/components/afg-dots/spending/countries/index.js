@@ -56,7 +56,7 @@ const SpendingCountryComparison = () => {
     
 
     return (
-        <div id="viz" className="spending-country" />
+        <div id="viz" className="spending-country" style={{ overflow: 'visible' }} />
     );
 }
 

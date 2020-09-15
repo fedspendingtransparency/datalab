@@ -35,8 +35,6 @@
 }
 
 .spending-country {
-    overflow: visible;
-
     .trigger-button {
         background-color: $color-spending-primary;
         border-color: $color-spending-primary;
@@ -56,8 +54,6 @@
 }
 
 .deficit-country {
-    overflow: visible;
-
     .trigger-button {
         background-color: $color-deficit-primary;
         border-color: $color-deficit-primary;
@@ -77,8 +73,6 @@
 }
 
 .debt-country {
-    overflow: visible;
-
     .trigger-button {
         background-color: $color-debt-primary;
         border-color: $color-debt-primary;
