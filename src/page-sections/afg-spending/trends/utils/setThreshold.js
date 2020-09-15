@@ -1,4 +1,4 @@
-import {extent, min, max} from 'd3-array';
+import {extent, min} from 'd3-array';
 
 const d3 = {extent, min},
     ratio = 0.2,
