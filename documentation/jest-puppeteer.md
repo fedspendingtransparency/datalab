@@ -5,8 +5,6 @@
 Use Puppeteer in your tests:
 
 ```
-import 'expect-puppeteer'
-
 describe('Google', () => {
   beforeAll(async () => {
     await page.goto('https://google.com')
@@ -17,6 +15,8 @@ describe('Google', () => {
   })
 })
 ```
+
+You can also look at the example in `pupp_tests` directory at `example.pupp.js`
 
 ## API!
 

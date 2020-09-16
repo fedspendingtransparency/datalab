@@ -1,7 +1,14 @@
-describe('Google', () => {
-  it('should open a new page', async () => {
-    const page = await browser.newPage();
-    await page.goto('https://google.com');
-    await expect(page).toMatch('google');
+const siteRoot = 'http://localhost:9001';
+
+describe('Homepage Test', () => {
+
+  beforeAll(async () => {
+    await page.goto(siteRoot, { waitUntil: "domcontentloaded" });
   });
+
+  it('should match text in homepage', async () => {
+    await expect(page).toMatch('The Federal Response');
+  });
+
 });
+
