@@ -100,8 +100,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "jest",
-    "test-puppeteer": "jest -c ./jest.config-puppeteer.js",
+    "test": "jest --config=jest.config.js",
+    "test-puppeteer": "jest --config=jest-pupp.config.js",
     "coverage": "jest --coverage",
     "check-outdated": "check-outdated"
   },
