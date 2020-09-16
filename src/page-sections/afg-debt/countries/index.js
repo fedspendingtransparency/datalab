@@ -55,7 +55,7 @@ const DebtCountryComparison = () => {
     }, []);
 
     return (
-        <div id="viz" className="debt-country" />
+        <div id="viz" className="debt-country" style={{ overflow: 'visible' }} />
     );
 }
 

@@ -207,14 +207,6 @@ function removeCountry(d) {
 function listAvailableCountries(filterStr) {
     const list = getAvailableCountries(filterStr);
     const availableContainer = listDiv.select('.available-container');
-    const max = 10;
-    let more, remainder;
-
-    if (list.length > max) {
-        more = true;
-        remainder = list.length - max;
-        list.length = max;
-    }
 
     availableContainer.selectAll('*').remove();
 
@@ -240,13 +232,6 @@ function listAvailableCountries(filterStr) {
                 .innerText = 'add';
         });
 
-    if (more) {
-        availableContainer.append('div')
-            .classed('see-more', true)
-            .each(function () {
-                this.innerText = `${remainder} more countries are available. Search to find more.`;
-            })
-    }
     if (availableCountries.size() > 0) {
         d3.select(availableCountries._groups[0][0]).classed(highlightedCountryClass, true);
     }
