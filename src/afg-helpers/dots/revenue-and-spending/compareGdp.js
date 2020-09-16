@@ -7,10 +7,10 @@ import { dotConstants } from './dotConstants';
 import {
 	compareOn, compareOff, generateOverlay, registerLayer,
 } from './compareManager';
-import { createDonut } from '../../revenue/donut';
-import colors from '../../../../styles/afg/colors.scss';
+import { createDonut } from '../donut';
+import colors from '../../../styles/afg/colors.scss';
 import { chartWidth } from './widthManager';
-import SpendingData from '../../../../../static/americas-finance-guide/data/federal_spending_gdp.csv';
+import SpendingData from '../../../../static/americas-finance-guide/data/federal_spending_gdp.csv';
 
 const d3 = { select, selectAll, line };
 

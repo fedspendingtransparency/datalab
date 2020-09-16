@@ -7,7 +7,7 @@ import { transition } from 'd3-transition';
 import { ink, placeHorizontalStripes } from './ink';
 import { selectCountryInit } from './selectCountry'
 import { selectedCountries } from './selectedCountryManager';
-import {createDonut} from "src/components/afg-dots/revenue/donut.js";
+import {createDonut} from "src/afg-helpers/dots/donut.js";
 import { redrawMobile, updateMobileTableList, sortMobileTable } from './chartmobile';
 import './selectCountry.scss';
 import { setData, prepareData } from './data';

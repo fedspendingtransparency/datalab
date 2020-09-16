@@ -1,9 +1,9 @@
-@import '../../../../styles/afg/colors';
+@import '../../../styles/afg/colors';
 
-.deficit-intro-wrapper {
+.debt-intro-wrapper {
 
 
-.viz-wrapper {
+.viz-wrapper-debt {
   position: relative;
 }
 
@@ -32,11 +32,11 @@
 }
 
 .facts__trigger {
-  border: 1px solid $color-deficit-primary;
+  border: 1px solid $color-debt-primary;
 }
 
 .facts__trigger.facts__trigger--active {
-  background: $color-deficit-primary;
+  background: $color-debt-primary;
   color: white;
 }
 
@@ -85,11 +85,15 @@ aside {
     transform: translateY(30px);
   }
 
+  .tour.sidebar {
+    float: none;
+  }
+
   .facts__inner {
     width: auto;
     max-width: none;
     margin: 0;
-    border-left: 3px solid $color-deficit-primary;
+    border-left: 3px solid $color-debt-primary;
     box-shadow: none;
   }
 

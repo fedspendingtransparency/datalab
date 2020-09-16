@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { initChart } from '../../spending/intro/init';
-import colors from '../../../../styles/afg/colors.scss';
-import revenueData from '../../../../../static/americas-finance-guide/data/federal_revenue_gdp.csv';
+import { initChart } from '../../../afg-helpers/dots/revenue-and-spending/init';
+import colors from '../../../styles/afg/colors.scss';
+import revenueData from '../../../../static/americas-finance-guide/data/federal_revenue_gdp.csv';
 import { findAmountInCsv } from 'src/afg-helpers/utils';
 
 const RevenueIntro = () => {

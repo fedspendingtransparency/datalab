@@ -12,12 +12,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleDown, faStreetView } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from 'src/components/headers/headers';
 
-import 'src/page-sections/big-picture/parallax';
-import 'src/page-sections/big-picture/scrollTo';
+import 'src/afg-helpers/big-picture/parallax';
+import 'src/afg-helpers/big-picture/scrollTo';
 import smoothscroll from 'smoothscroll-polyfill';
 
 import 'src/styles/afg/cg.scss';
-import 'src/page-sections/big-picture/scss/bp.scss';
+import 'src/afg-helpers/big-picture/scss/bp.scss';
 
 export default function OverviewPage(props) {
   useEffect(() => {

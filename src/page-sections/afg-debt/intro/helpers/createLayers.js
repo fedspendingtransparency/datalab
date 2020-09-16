@@ -6,7 +6,7 @@ import { labelMaker, deficitLabel } from './layerLegends';
 import { initDebtDots } from './debtDots';
 import { translator, isMobileDevice } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
-import { createDonut } from '../../revenue/donut';
+import { createDonut } from '../../../../afg-helpers/dots/donut';
 
 const d3 = { select, selectAll, transition, line },
     duration = 1500,

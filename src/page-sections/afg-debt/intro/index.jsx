@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { createLayers } from './createLayers';
-import { startLegendAnimation } from './legend';
-import { setChartWidth } from './widthManager';
+import { createLayers } from './helpers/createLayers';
+import { startLegendAnimation } from './helpers/legend';
+import { setChartWidth } from './helpers/widthManager';
 import { establishContainer, findAmountInCsv } from 'src/afg-helpers/utils';
-import colors from '../../../../styles/afg/colors.scss';
-import { setDotsPerRow } from './dotConstants';
-import { layersInit, resetLayers } from './manageLayers';
-import DebtData from '../../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
+import colors from '../../../styles/afg/colors.scss';
+import { setDotsPerRow } from './helpers/dotConstants';
+import { layersInit, resetLayers } from './helpers/manageLayers';
+import DebtData from '../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
 
 const DebtIntro = () => {
 	const config = {
