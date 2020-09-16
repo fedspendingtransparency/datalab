@@ -1,6 +1,6 @@
 import { select } from 'd3-selection';
 import { arc, pie } from 'd3-shape';
-import { fractionToPercent, translator } from 'src/utils/utils';
+import { fractionToPercent, translator } from 'src/afg-helpers/utils';
 import colors from '../../../styles/afg/colors.scss';
 
 const d3 = { select, arc, pie },
@@ -23,7 +23,7 @@ export function createDonut(container, percent, diameter, fillColor) {
         .attr('transform', translator(diameter / 2, diameter / 2));
 
   let data = [absPercent * 100, 100 - absPercent * 100];
-  
+
   if(isNegativeVal){
     data = data.reverse();
   }

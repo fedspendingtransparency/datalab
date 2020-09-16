@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { createLayers } from './createLayers';
 import { startLegendAnimation } from './legend';
 import { setChartWidth } from './widthManager';
-import { establishContainer, findAmountInCsv } from 'src/utils/utils';
+import { establishContainer, findAmountInCsv } from 'src/afg-helpers/utils';
 import colors from '../../../../styles/afg/colors.scss';
 import { setDotsPerRow } from './dotConstants';
 import { layersInit, resetLayers } from './manageLayers';

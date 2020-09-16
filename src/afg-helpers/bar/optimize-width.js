@@ -1,6 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { max } from 'd3-array';
-import { getElementBox } from 'src/utils/utils';
+import { getElementBox } from 'src/afg-helpers/utils';
 
 if(typeof document !== 'undefined') {
   const d3 = {

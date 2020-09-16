@@ -4,7 +4,7 @@ import { scaleLinear } from 'd3-scale';
 import { min, max, range } from 'd3-array';
 import { line } from 'd3-shape';
 import { axisBottom, axisLeft } from 'd3-axis';
-import { translator, getTransform, getElementBox } from 'src/utils/utils';
+import { translator, getTransform, getElementBox } from 'src/afg-helpers/utils';
 import { renderLabels } from './labels';
 import { zoomTrigger } from './zoomTrigger';
 import { ink } from './ink'

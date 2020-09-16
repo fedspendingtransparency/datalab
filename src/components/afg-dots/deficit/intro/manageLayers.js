@@ -1,9 +1,9 @@
 import { select, selectAll } from 'd3-selection';
 import 'd3-transition';
 import { layers } from './createLayers';
-import { translator, establishContainer, isMobileDevice } from 'src/utils/utils';
+import { translator, establishContainer, isMobileDevice } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
-import { touchIe } from 'src/utils/touchIe';
+import { touchIe } from 'src/afg-helpers/touchIe';
 
 const d3 = { select, selectAll },
     scaleFactor = 0.6,

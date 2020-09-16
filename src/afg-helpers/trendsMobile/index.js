@@ -1,5 +1,5 @@
 import { select, selectAll } from 'd3-selection';
-import { simplifyNumber } from 'src/utils/utils';
+import { simplifyNumber } from 'src/afg-helpers/utils';
 import { initScale, drawChart } from './chart';
 
 const d3 = { select, selectAll };

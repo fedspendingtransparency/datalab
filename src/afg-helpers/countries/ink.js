@@ -1,6 +1,6 @@
 import { initDropShadow } from "./dropShadow";
 import { range } from 'd3-array';
-import { translator } from "src/utils/utils";
+import { translator } from "src/afg-helpers/utils";
 
 const d3 = { range },
     maskClass = 'drop-shadow-mask';

@@ -1,6 +1,6 @@
 import { select } from 'd3-selection';
 import { zoom } from 'd3-zoom';
-import { translator } from 'src/utils/utils';
+import { translator } from 'src/afg-helpers/utils';
 
 const d3 = { select, zoom }
 

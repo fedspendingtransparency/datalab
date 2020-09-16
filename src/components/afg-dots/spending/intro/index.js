@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { initChart } from './init';
 import colors from '../../../../styles/afg/colors.scss';
 import SpendingData from '../../../../../static/americas-finance-guide/data/federal_spending_gdp.csv';
-import { findAmountInCsv } from 'src/utils/utils';
+import { findAmountInCsv } from 'src/afg-helpers/utils';
 
 export default function SpendingIntro() {
 	const config = {

@@ -1,4 +1,4 @@
-import { establishContainer } from 'src/utils/utils';
+import { establishContainer } from 'src/afg-helpers/utils';
 
 // with thanks to http://bl.ocks.org/cpbotha/5200394
 

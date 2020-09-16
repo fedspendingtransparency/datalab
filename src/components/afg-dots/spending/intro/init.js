@@ -1,11 +1,11 @@
 import { select, selectAll } from 'd3-selection';
-import { establishContainer } from 'src/utils/utils';
+import { establishContainer } from 'src/afg-helpers/utils';
 import { placeDots } from './placeDots';
 import { startLegendAnimation } from './legend';
 import { setChartWidth, chartWidth } from './widthManager';
 import { setDotsPerRow } from './dotConstants';
 import { resetForResize } from './compareManager';
-import { triggerMainInfoBox } from 'src/utils/infoBox';
+import { triggerMainInfoBox } from 'src/afg-helpers/infoBox';
 
 const d3 = { select, selectAll };
 

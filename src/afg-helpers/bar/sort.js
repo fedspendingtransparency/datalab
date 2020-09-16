@@ -1,6 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
-import { translator } from 'src/utils/utils';
+import { translator } from 'src/afg-helpers/utils';
 
 const d3 = { select, selectAll, transition },
     sortManager = {};

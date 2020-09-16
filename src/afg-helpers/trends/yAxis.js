@@ -2,7 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { axisLeft } from 'd3-axis';
 import { min, range } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
-import { simplifyNumber } from 'src/utils/utils';
+import { simplifyNumber } from 'src/afg-helpers/utils';
 import colors from 'src/styles/afg/colors.scss';
 
 const d3 = { select, selectAll, axisLeft, min, range, scaleLinear };

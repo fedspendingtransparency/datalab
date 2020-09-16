@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import '../../afg-revenue/countries/selectCountry.scss';
+import '../../../afg-helpers/countries/selectCountry.scss';
 
-import { loadSourceData } from 'src/page-sections/afg-revenue/countries/helpers/data';
+import { loadSourceData } from 'src/afg-helpers/countries/data';
 import CountryData from '../../../../static/americas-finance-guide/data/spending_country_comparison.csv';
-import { chartInit } from 'src/page-sections/afg-revenue/countries/helpers/chart';
+import { chartInit } from 'src/afg-helpers/countries/chart';
 import colors from 'src/styles/afg/colors.scss';
 
 const spendingConfig = {

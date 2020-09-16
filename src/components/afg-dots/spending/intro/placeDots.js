@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { dotConstants, dotsPerRow } from './dotConstants';
-import { establishContainer, translator } from 'src/utils/utils';
+import { establishContainer, translator } from 'src/afg-helpers/utils';
 import { initRevenueOverlay } from './compareRevenue';
 import { initGdp } from './compareGdp';
 import { chartWidth } from './widthManager';

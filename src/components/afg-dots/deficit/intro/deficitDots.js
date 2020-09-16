@@ -1,5 +1,5 @@
 import { dotsPerRow, dotConstants } from "./dotConstants";
-import { translator } from "src/utils/utils";
+import { translator } from "src/afg-helpers/utils";
 
 let config, layer, y1, deficitCompareDots, debtCompareDots, remainder;
 

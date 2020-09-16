@@ -1,6 +1,6 @@
 import { line } from 'd3-shape';
 import colors from '../../../../styles/afg/colors.scss';
-import { simplifyNumber } from 'src/utils/utils';
+import { simplifyNumber } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
 
 const d3 = { line },

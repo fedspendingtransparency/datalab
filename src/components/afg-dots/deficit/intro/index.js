@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { createLayers } from './createLayers';
 import { startLegendAnimation } from './legend';
 import { setChartWidth } from './widthManager';
-import { establishContainer, translator, findAmountInCsv } from 'src/utils/utils';
+import { establishContainer, translator, findAmountInCsv } from 'src/afg-helpers/utils';
 import colors from '../../../../styles/afg/colors.scss';
 import { setDotsPerRow } from './dotConstants';
 import { layersInit, resetLayers } from './manageLayers';
-import 'src/utils/matchesPolyfill';
+import 'src/afg-helpers/matchesPolyfill';
 import DeficitData from '../../../../../static/americas-finance-guide/data/explore_federal_deficit.csv';
 
 const DeficitIntro = () => {

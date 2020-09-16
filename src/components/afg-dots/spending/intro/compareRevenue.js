@@ -1,6 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
-import { establishContainer, translator, simplifyNumber } from 'src/utils/utils';
+import { establishContainer, translator, simplifyNumber } from 'src/afg-helpers/utils';
 import { dotConstants } from './dotConstants';
 import {
 	compareOn, compareOff, generateOverlay, registerLayer,

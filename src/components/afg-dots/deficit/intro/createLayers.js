@@ -4,7 +4,7 @@ import { line } from 'd3-shape';
 import { dotsPerRow, dotConstants } from "./dotConstants";
 import { labelMaker, deficitLabel } from './layerLegends';
 import { initDeficitDots } from './deficitDots';
-import { translator, isMobileDevice } from 'src/utils/utils';
+import { translator, isMobileDevice } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
 import colors from '../../../../styles/afg/colors.scss';
 

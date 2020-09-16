@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { select, selectAll } from 'd3-selection';
-import { establishContainer, isMobileDevice } from 'src/utils/utils';
+import { establishContainer, isMobileDevice } from 'src/afg-helpers/utils';
 import { trendData } from './helpers/trendData';
 import { setThreshold } from "./helpers/setThreshold";
-import { trendDesktop } from 'src/components/afg-trends/chart';
+import { trendDesktop } from 'src/afg-helpers/trends/chart';
 import { manualThresholds } from './helpers/manualThresholds';
-import { trendMobile } from 'src/components/afg-trendsMobile/index.js';
+import { trendMobile } from 'src/afg-helpers/trendsMobile/index.js';
 import colors from '../../../styles/afg/colors.scss';
 import CategoryData from '../../../../static/americas-finance-guide/data/federal_spending_trends.csv';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

@@ -1,5 +1,5 @@
 import { select, selectAll } from 'd3-selection';
-import { translator, simplifyNumber, getElementBox } from 'src/utils/utils';
+import { translator, simplifyNumber, getElementBox } from 'src/afg-helpers/utils';
 import colors from 'src/styles/afg/colors.scss';
 import textColors from '../../page-sections/big-picture/scss/_bpVars.scss';
 
