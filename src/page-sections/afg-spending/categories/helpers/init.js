@@ -1,7 +1,7 @@
 import * as d3 from 'd3v3';
 import {byYear} from 'src/components/afg-dots/spending/data-spending';
 import { drawChart as barChart } from './bar/chart';
-import colors from '../../../styles/afg/colors.scss';
+import colors from '../../../../styles/afg/colors.scss';
 
 const chartSectionTextStr = 'Click to see subcategories';
 

@@ -9,7 +9,7 @@ import { selectCountryInit } from './selectCountry'
 import { selectedCountries } from './selectedCountryManager';
 import {createDonut} from "src/components/afg-dots/revenue/donut.js";
 import { redrawMobile, updateMobileTableList, sortMobileTable } from './chartmobile';
-import './selectCountry.scss';
+import '../selectCountry.scss';
 import { setData, prepareData } from './data';
 import { renderSortIcon, updateIcons } from './sortIcon';
 import { pan } from './pan';

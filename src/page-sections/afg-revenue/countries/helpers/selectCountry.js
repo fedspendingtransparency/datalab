@@ -1,4 +1,4 @@
-import './selectCountry.scss';
+import '../selectCountry.scss';
 import { select, event } from 'd3-selection';
 import { establishContainer } from 'src/utils/utils';
 import { countryList, refreshData } from './chart';

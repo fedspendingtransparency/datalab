@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { loadSourceData } from './data';
-import { chartInit } from './chart';
+import { loadSourceData } from './helpers/data';
+import { chartInit } from './helpers/chart';
 import CountryData from '../../../../static/americas-finance-guide/data/revenue_country_comparison.csv';
 import colors from 'src/styles/afg/colors.scss';
 

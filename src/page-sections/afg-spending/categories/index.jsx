@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { init, initChart } from './init';
+import { init, initChart } from './helpers/init';
 
 export default function SpendingCategories() {
 

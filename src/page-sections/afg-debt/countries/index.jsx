@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
 import '../../afg-revenue/countries/selectCountry.scss';
-
-import { loadSourceData } from 'src/page-sections/afg-revenue/countries/data';
-import CountryData from '../../../../static/americas-finance-guide/data/spending_country_comparison.csv';
-import { chartInit } from 'src/page-sections/afg-revenue/countries/chart';
+import { loadSourceData } from '../../afg-revenue/countries/helpers/data.js';
+import CountryData from '../../../../static/americas-finance-guide/data/debt_country_comparison.csv';
+import { chartInit } from '../../afg-revenue/countries/helpers/chart.js';
 import colors from 'src/styles/afg/colors.scss';
 
 const spendingConfig = {
-    amountField: 'spending_usd',
-    gdpField: 'spending_gdp',
-    amountLabel: 'Spending',
+    amountField: 'debt_usd',
+    gdpField: 'debt_gdp',
+    amountLabel: 'Debt',
     sourceFields: ['spending_source', 'gdp_source'],
-    primaryColor: colors.colorSpendingPrimary,
-    chapter: 'spending',
+    primaryColor: colors.colorDebtPrimary,
+    chapter: 'debt',
     defaultCountries: [{
         display: 'United States',
         plainName: 'United States'
@@ -36,12 +35,12 @@ const spendingConfig = {
         plainName: 'France'
     }],
     accessibilityAttrs : {
-        title: 'Federal Spending Country Comparison',
-        desc: `The top five countries in terms of federal spending in 2017 were the United States with $4 Trillion (21% of its gross domestic product), China with $3.1 trillion (26%), Japan with $1.9 trillion (39%), Germany with $1.6 trillion (43%), and France with $1.5 trillion (59%). `
+        title: 'Federal Debt Country Comparison',
+        desc: `By the end of 2017, the five largest countries in terms of federal revenue and spending had the following government debt outstanding: the United States with $20.2 trillion (103% of gross domestic product), Japan with $11.6 trillion (239%), China with $5.8 trillion (48%), France with $2.6 trillion (101%), and Germany with $2.5 trillion (68%).`
     }
 };
 
-const SpendingCountryComparison = () => {
+const DebtCountryComparison = () => {
     const init = () => {
         loadSourceData(CountryData);
         chartInit(spendingConfig);
@@ -53,12 +52,12 @@ const SpendingCountryComparison = () => {
         return () => {
             window.removeEventListener('resize', init);
         }
-    }, [])
-    
+    }, []);
 
     return (
-        <div id="viz" className="spending-country" />
+        <div id="viz" className="debt-country" />
     );
 }
 
-export default SpendingCountryComparison;
+export default DebtCountryComparison;
+
