@@ -10,32 +10,15 @@ import Twitter from '../logos/twitter';
 import Facebook from '../logos/facebook';
 import LinkedIn from '../logos/linkedin';
 
-/* record events in Google Analytics (later)
-<script>
-  function trackLinkClick(actionName) {
-          window.Analytics.event({
-              category: 'Footer - Click Link',
-              action: actionName
-      });
-  }
-
-  function leaveSiteLink(outbound) {
-          document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
-          document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
-          document.getElementById('leave-modal').style.display = 'block';
-  }
-</script>
-*/
-
 export default class PageFooter extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  
   calculateLogoWidth = () => {
     let width = 200;
     if (typeof window !== 'undefined') {
-      width = '15%'
+      width = '15%';
     }
     return width;
   }
@@ -66,7 +49,7 @@ export default class PageFooter extends React.Component {
             Visit our <a href='https://usaspending-help.zendesk.com/hc/en-us/community/topics' target='_blank' rel='noopener noreferrer'>Community Page today.</a>
           </p>
           <div className={pageFooterStyles.contents}>
-            <a target="_blank" rel="noopener noreferrer" href='https://github.com/fedspendingtransparency/datalab' aria-label='Github'><Github /></a>
+            <a target="_blank" rel="noopener noreferrer" href='https://github.com/fedspendingtransparency' aria-label='Github'><Github /></a>
             <a target="_blank" rel="noopener noreferrer" href='https://data.world/usaspending' aria-label='Dataworld'><Dataworld /></a>
             <a target="_blank" rel="noopener noreferrer" href='https://twitter.com/usaspending' aria-label='Twitter'><Twitter /></a>
             <a target="_blank" rel="noopener noreferrer" href='https://www.facebook.com/fiscalservice/' aria-label='Facebook'><Facebook /></a>
@@ -78,11 +61,11 @@ export default class PageFooter extends React.Component {
           <p>For general inquiries or questions on Data Lab activities or operations, please contact:
             <br /><br />
             E: <a href='mailto: media.relations@fiscal.treasury.gov?subject=Data Lab - Contact Us' rel='noopener noreferrer'>
-              media.relations@fiscal.treasury.gov
-            </a>
+                 media.relations@fiscal.treasury.gov
+               </a>
           </p>
         </Grid>
       </Grid>
     </div>
-    ;
+  ;
 }

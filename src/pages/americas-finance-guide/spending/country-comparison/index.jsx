@@ -9,7 +9,7 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
-import SpendingCountryComparison from 'src/components/afg-dots/spending/countries';
+import SpendingCountryComparison from 'src/page-sections/afg-spending/countries/index.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
