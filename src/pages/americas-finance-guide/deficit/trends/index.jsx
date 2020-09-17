@@ -5,16 +5,13 @@ import 'src/page-sections/afg-deficit/trends/deficit-trends.scss';
 import React from 'react';
 import SEO from 'src/components/seo';
 import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
-import Default from 'src/components/layouts/default/default';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Tabs from 'src/components/afg-tabs/tabs';
-import AfgNav from 'src/components/afg-nav/afg-nav';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { AFGHeader } from '../../../../components/headers/headers';
 import Og from '../../../../components/og-tag/og';
 import AfgLayout from '../../../../components/layouts/afg/afg';
 

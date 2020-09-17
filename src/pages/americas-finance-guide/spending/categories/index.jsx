@@ -7,8 +7,7 @@ import AfgData from "../../../../../static/americas-finance-guide/_data/object_m
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
-//import SpendingCategories from 'src/components/afg-dots/spending/categories/index.js';
-import SpendingCategories from 'src/page-sections/afg-spending/categories/index.js';
+import SpendingCategories from 'src/page-sections/afg-spending/categories/index';
 import Og from 'src/components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

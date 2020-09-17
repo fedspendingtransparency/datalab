@@ -1,7 +1,7 @@
 import 'src/styles/afg/cg.scss';
 import 'src/page-sections/afg-revenue/categories/revenue-categories.scss';
-import RevenueCategories from "src/page-sections/afg-revenue/categories/index.js";
-import 'src/page-sections/afg-revenue/categories/data.js';
+import RevenueCategories from "src/page-sections/afg-revenue/categories/index";
+import 'src/page-sections/afg-revenue/categories/utils/data.js';
 
 import React from "react";
 import SEO from "src/components/seo";
