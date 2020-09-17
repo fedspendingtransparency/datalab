@@ -2,7 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { line } from 'd3-shape';
 import { dotsPerRow, dotConstants } from "./dotConstants";
-import { labelMaker, deficitLabel } from './layerLegends';
+import { labelMaker } from './layerLegends';
 import { initDebtDots } from './debtDots';
 import { translator, isMobileDevice } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
