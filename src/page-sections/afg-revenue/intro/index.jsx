@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import { initChart } from '../../../afg-helpers/dots/revenue-and-spending/init';
+import { initChart, resizeChart } from '../../../afg-helpers/dots/revenue-and-spending/init';
 import colors from '../../../styles/afg/colors.scss';
 import revenueData from '../../../../static/americas-finance-guide/data/federal_revenue_gdp.csv';
 import { findAmountInCsv } from 'src/afg-helpers/utils';
 
 const RevenueIntro = () => {
+  let debounce;
   const config = {
     anecdoteName: 'anecdote-revenue.svg',
     comparisonAmount: findAmountInCsv('federal spending', revenueData),
@@ -35,6 +36,27 @@ const RevenueIntro = () => {
       initChart(config);
     }
   }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      if (debounce) {
+	clearTimeout(debounce);
+      }
+
+      debounce = setTimeout(resizeChart, 100);
+    });
+
+    return (_) => {
+      window.removeEventListener('resize', () => {
+	if (debounce) {
+	  clearTimeout(debounce);
+	}
+
+	debounce = setTimeout(resizeChart, 100);
+      });
+    };
+  });
+
 
   return (<div id="viz" />);
 };
