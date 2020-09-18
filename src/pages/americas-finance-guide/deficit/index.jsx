@@ -37,7 +37,7 @@ function ExploreDeficitPage(props) {
 	const [vizComponent, updateVizComponent] = useState(<DeficitIntro />);
 
 	const handleResize = () => {
-		updateVizComponent(window.innerWidth > 660 ? <DeficitIntro /> : <TabsWrapper tabs={tabs} />);
+		updateVizComponent(window.innerWidth > 959 ? <DeficitIntro /> : <TabsWrapper tabs={tabs} />);
 	}
 
 	if (typeof window !== 'undefined') {

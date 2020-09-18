@@ -37,7 +37,7 @@ function ExploreDebtPage(props) {
 	const [vizComponent, updateVizComponent] = useState(<DebtIntro />);
 
 	const handleResize = () => {
-		updateVizComponent(window.innerWidth > 660 ? <DebtIntro /> : <TabsWrapper tabs={tabs} />);
+		updateVizComponent(window.innerWidth > 959 ? <DebtIntro /> : <TabsWrapper tabs={tabs} />);
 	}
 
 	if (typeof window !== 'undefined') {

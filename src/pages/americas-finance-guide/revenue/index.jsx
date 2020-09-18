@@ -15,6 +15,7 @@ import AnecdoteRevenueSVG from '../../../../static/americas-finance-guide/icons/
 import DefinitionSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
 import RevenueIntro from 'src/page-sections/afg-revenue/intro/index';
 import { setFactsTrigger } from 'src/afg-helpers/dots/revenue-and-spending/compareManager';
+import { afgDesktop } from 'src/styles/variables.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
@@ -40,7 +41,7 @@ function RevenueAndGdpPage(props) {
 	const [vizComponent, updateVizComponent] = useState(<RevenueIntro />);
 
 	const handleResize = () => {
-		updateVizComponent(window.innerWidth > 660 ? <RevenueIntro /> : <TabsWrapper tabs={tabs} />);
+		updateVizComponent(window.innerWidth > 959 ? <RevenueIntro /> : <TabsWrapper tabs={tabs} />);
 	}
 
 	if (typeof window !== 'undefined') {

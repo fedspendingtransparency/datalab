@@ -41,13 +41,13 @@ function SpendingAndGdpPage(props) {
 	const [vizComponent, updateVizComponent] = useState(<SpendingIntro />);
 
 	const handleResize = () => {
-		updateVizComponent(window.innerWidth > 660 ? <SpendingIntro /> : <TabsWrapper tabs={tabs} />);
+		updateVizComponent(window.innerWidth > 959 ? <SpendingIntro /> : <TabsWrapper tabs={tabs} />);
 	}
 
 	if (typeof window !== 'undefined') {
 		window.addEventListener('resize', handleResize);
 	}
-	
+
   useEffect(() => {
 		handleResize();
     setFactsTrigger();
