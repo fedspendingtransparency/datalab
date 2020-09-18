@@ -34,7 +34,7 @@ function makeDotRow(start, max, y, debtOffset) {
 }
 
 function placeDots(width) {
-  let isMobile  = (width <= 660); // 660 mobile value for afg
+  let isMobile  = (width <= 959); // 959 mobile value for afg
   let dotVal = (isMobile) ? 10000000000 : 1000000000;
   const count = config.debtAmount / dotVal;
   const fullRows = Math.floor(count / dotsPerRow);

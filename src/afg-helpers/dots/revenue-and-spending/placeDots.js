@@ -26,7 +26,7 @@ function dotFactory(container, x, y) {
 function readyDots(width) {
   if (typeof window !== 'undefined') {
 
-    let isMobile  = (width <= 660);
+    let isMobile  = (width <= 959);
 
     const dotContainer = svg.append('g')
 	  .classed('main-container', true)
