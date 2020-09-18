@@ -71,11 +71,6 @@ function readyDots(width) {
   }
 }
 
-// window.addEventListener('resize', () => {
-//   console.log('we are resizing');
-//   readyDots(window.innerWidth);
-// });
-
 export function placeDots(_config) {
   d3.select('.main-container').remove();
   config = _config || config;

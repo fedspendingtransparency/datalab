@@ -5,61 +5,63 @@ let config, layer;
 export let vizHeight;
 
 function dotFactory(x, y) {
-    return layer.append('circle')
-        .attr('cx', x)
-        .attr('cy', y)
-        .attr('r', 2)
-        .style('fill', config.debtColor)
+  return layer.append('circle')
+    .attr('cx', x)
+    .attr('cy', y)
+    .attr('r', 2)
+    .style('fill', config.debtColor);
 }
 
 function makeDotRow(start, max, y, debtOffset) {
-    let i = 0,
-        dot,
-        x = start;
+  let i = 0,
+      dot,
+      x = start;
 
-    for (i; i < max; i++) {
-        dot = dotFactory(x, y);
-        x += dotConstants.offset.x;
+  for (i; i < max; i++) {
+    dot = dotFactory(x, y);
+    x += dotConstants.offset.x;
 
-        if ((i + 1) % dotsPerRow === 0) {
-            y += dotConstants.offset.y;
-            x = dotConstants.radius;
-        }
-
-        if (debtOffset && i < debtOffset) {
-            dot.attr('data-debt-only', true)
-                .attr('opacity', 0)
-        }
+    if ((i + 1) % dotsPerRow === 0) {
+      y += dotConstants.offset.y;
+      x = dotConstants.radius;
     }
+
+    if (debtOffset && i < debtOffset) {
+      dot.attr('data-debt-only', true)
+        .attr('opacity', 0);
+    }
+  }
 }
 
-function placeDots() {
-    const count = config.debtAmount / 1000000000,
-        fullRows = Math.floor(count / dotsPerRow),
-        remainder = count - (fullRows * dotsPerRow);
+function placeDots(width) {
+  let isMobile  = (width <= 660); // 660 mobile value for afg
+  let dotVal = (isMobile) ? 10000000000 : 1000000000;
+  const count = config.debtAmount / dotVal;
+  const fullRows = Math.floor(count / dotsPerRow);
+  const remainder = count - (fullRows * dotsPerRow);
 
-    let i = 0,
-        y = 2;
+  let i = 0,
+      y = 2;
 
-    // full rows
-    for (i; i < fullRows; i++) {
-        makeDotRow(2, dotsPerRow, y)
-        y += dotConstants.offset.y;
-    }
+  // full rows
+  for (i; i < fullRows; i++) {
+    makeDotRow(2, dotsPerRow, y);
+    y += dotConstants.offset.y;
+  }
 
-    // last row
-    makeDotRow(2, remainder, y);
+  // last row
+  makeDotRow(2, remainder, y);
 
-    vizHeight = y + 40;
+  vizHeight = y + 40;
 }
 
 export function initDebtDots(c, startPosition) {
-    config = c;
-    layer = config.mainContainer.append('g')
-        .attr('opacity', 0)
-        .classed('debt-layer', true);
+  config = c;
+  layer = config.mainContainer.append('g')
+    .attr('opacity', 0)
+    .classed('debt-layer', true);
 
-    placeDots();
+  placeDots(window.innerWidth);
 
-    return layer;
+  return layer;
 }
