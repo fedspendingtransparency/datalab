@@ -35,13 +35,7 @@ function readyDots(width) {
 	  .classed('spending-dots', true)
 	  .attr('opacity', 0);
 
-    let dotVal;
-    if (isMobile) {
-      dotVal = 10000000000;
-    } else {
-      dotVal = 1000000000;
-    }
-
+    let dotVal = (isMobile) ? 10000000000 : 1000000000;
     let i = 0;
     let dotRectHeight;
     const sectionAmountInBillions = config.sectionAmount / dotVal;
@@ -77,10 +71,10 @@ function readyDots(width) {
   }
 }
 
-window.addEventListener('resize', () => {
-  console.log('we are resizing');
-  //placeDots(window.innerWidth);
-});
+// window.addEventListener('resize', () => {
+//   console.log('we are resizing');
+//   readyDots(window.innerWidth);
+// });
 
 export function placeDots(_config) {
   d3.select('.main-container').remove();
