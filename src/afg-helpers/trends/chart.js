@@ -151,8 +151,6 @@ function getContainerWidth() {
 function drawChart(globals, container) {
     let containerOffset;
 
-    container.style('margin-top', '40px')
-
     globals.chart = container.append('g')
         .classed('trend-chart', true)
         .attr('transform', translator(globals.labelWidth, margin.top));

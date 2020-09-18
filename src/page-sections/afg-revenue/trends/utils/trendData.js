@@ -26,12 +26,12 @@ export function trendData(){
 
             indexed[r.parent_plain].subcategories[r.child_plain].values.push({
                 year: r.fiscal_year,
-                amount: parseFloat(r.federal_revenue_adjusted)
+                amount: r.federal_revenue_adjusted
             })
         } else {
             indexed[r.parent_plain].values.push({
                 year: r.fiscal_year,
-                amount: parseFloat(r.federal_revenue_adjusted)
+                amount: r.federal_revenue_adjusted
             })
         }
     })
