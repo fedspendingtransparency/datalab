@@ -180,15 +180,15 @@ export default function SpendingTrends() {
   }
 
     function renderChart(data) {
-    const zoomThreshold = setThreshold(data),
-      config = {
-        chapter: 'spending',
-        baseColor: colors.colorSpendingPrimary,
-        secondaryColor: '#00766C',
-        zoomThreshold,
-        subcategoryThresholds: manualThresholds,
-        fiscalYearArray: fyArray
-      };
+      const zoomThreshold = setThreshold(data),
+        config = {
+          chapter: 'spending',
+          baseColor: colors.colorSpendingPrimary,
+          secondaryColor: '#00766C',
+          zoomThreshold,
+          subcategoryThresholds: manualThresholds,
+          fiscalYearArray: fyArray
+        };
 
     let container;
 
@@ -202,10 +202,10 @@ export default function SpendingTrends() {
         .classed('trend-mobile', true);
       trendMobile(data, container, config);
     } else {
-      svg = svg || establishContainer(930, null, accessibilityAttrs);
+      svg = svg || establishContainer(985, null, accessibilityAttrs);
       svg.selectAll('*')
         .remove();
-      container = establishContainer(930, null, accessibilityAttrs);
+      container = establishContainer(985, null, accessibilityAttrs);
       trendDesktop(data, svg, config);
     }
   }
