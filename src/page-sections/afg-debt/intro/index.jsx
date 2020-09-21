@@ -7,6 +7,7 @@ import colors from '../../../styles/afg/colors.scss';
 import { setDotsPerRow } from './helpers/dotConstants';
 import { layersInit, resetLayers } from './helpers/manageLayers';
 import DebtData from '../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
+import { select, selectAll } from 'd3-selection';
 
 const DebtIntro = () => {
   const config = {
@@ -42,6 +43,7 @@ const DebtIntro = () => {
       .append('g')
       .classed('main', true);
 
+    mainContainer.width
     config.mainContainer = mainContainer;
   }
 
@@ -49,12 +51,20 @@ const DebtIntro = () => {
     setChartWidth();
     setMainContainer();
     setDotsPerRow();
-    startLegendAnimation(config);
+
+    if (typeof window !== 'undefined' && window.innerWidth > 959) {
+			startLegendAnimation(config);
+		}
+
     createLayers(config);
 
-    setTimeout(() => {
-      layersInit(config);
-    }, 4500);
+		if (typeof window !== 'undefined' && window.innerWidth > 959) {
+			setTimeout(() => {
+				layersInit(config);
+			}, 4500);
+		} else {
+			layersInit(config);
+		}
   }, []);
 
 
@@ -62,8 +72,12 @@ const DebtIntro = () => {
     setChartWidth();
     setDotsPerRow();
     resetLayers();
-    config.mainContainer.selectAll('*')
-      .remove();
+
+    if(Object.keys(config).indexOf('mainContainer') === -1) {
+			config.mainContainer.selectAll('*')
+				.remove();
+		}
+
     createLayers(config);
     layersInit(config);
   }

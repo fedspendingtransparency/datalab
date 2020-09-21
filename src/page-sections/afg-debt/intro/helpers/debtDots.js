@@ -61,6 +61,12 @@ export function initDebtDots(c, startPosition) {
     .attr('opacity', 0)
     .classed('debt-layer', true);
 
+  let isMobile  = (width <= 959); // 959 mobile value for afg
+  let width = window.innerWidth;
+  if(isMobile) {
+    console.log(window.innerWidth);
+
+  }
   placeDots(window.innerWidth);
 
   return layer;
