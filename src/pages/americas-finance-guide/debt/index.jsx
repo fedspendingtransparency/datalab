@@ -16,6 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDebtSVG from '../../../../static/americas-finance-guide/icons/anecdote-debt.svg';
 import AfgLayout from 'src/components/layouts/afg/afg';
+import styles from './debt.module.scss';
 
 function ExploreDebtPage(props) {
 	// DebtIntro component used as placeholder until the mobile dot viz components are finished
@@ -84,7 +85,7 @@ function ExploreDebtPage(props) {
 								<img src={AnecdoteDebtSVG} alt="anecdote icon" />
 							</button>
 						</h1>
-						<div className="debt-copy">
+						<div className={styles.debtCopy}>
 							<p>
 								How did we end up with&nbsp;
 								{AfgData.current_fy_debt.value}
@@ -124,6 +125,15 @@ function ExploreDebtPage(props) {
 										<p>By comparing the total federal debt to gross domestic product (GDP), we can observe the government's ability to utilize the resources at hand to finance the debt the same way you and your family manage your finances to make sure that your monthly payments for your mortgage, car loans, and credit cards can be made.</p>
 									</section>
 								</div>
+							</div>
+
+							<div className={styles.debtCopyMobile}>
+								<p>
+									How did we end up with&nbsp;
+									{AfgData.current_fy_debt.value}
+									{' '}
+									in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to a person using his or her credit card for a purchase (rather than cash, check, or a debit card) and not paying the full credit card balance each month. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows.
+								</p>
 							</div>
 							<section className="accordion sidebar intro-hidden">
 								<AccordionList title="Who owns the federal government's debt?">

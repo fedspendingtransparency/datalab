@@ -7,7 +7,7 @@ import colors from '../../../styles/afg/colors.scss';
 import { setDotsPerRow } from './helpers/dotConstants';
 import { layersInit, resetLayers } from './helpers/manageLayers';
 import DebtData from '../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
-import { select, selectAll } from 'd3-selection';
+import './debt-intro.scss';
 
 const DebtIntro = () => {
   const config = {
@@ -114,7 +114,15 @@ const DebtIntro = () => {
   }, []);
 
 
-  return (<div id="viz" />);
+  return (<>
+		<div className='dotScale'>
+			<svg width='1rem' height='1.05rem'>
+				<circle cx='6' cy='11' r='6' />
+			</svg>
+			<span>= $10 billion</span>
+		</div>
+		<div id="viz" />
+		</>);
 };
 
 export default DebtIntro;
