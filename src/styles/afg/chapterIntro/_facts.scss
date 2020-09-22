@@ -29,23 +29,23 @@
     color: $text-color-heading;
 }
 
-.facts__trigger {
-    font-size: 1rem;
-    display: block;
-    width: 49%;
-    border: 1px solid $revenue-primary;
-    text-align: center;
-    margin-bottom: 2px;
-    background: white;
-    padding: 0.2rem;
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
-
-.facts__trigger.facts__trigger--active {
-    background:$revenue-primary;
-    color: white;
-}
+//.facts__trigger {
+//    font-size: 1rem;
+//    display: block;
+//    width: 49%;
+//    border: 1px solid $revenue-primary;
+//    text-align: center;
+//    margin-bottom: 2px;
+//    background: white;
+//    padding: 0.2rem;
+//    transition: all 0.2s ease;
+//    cursor: pointer;
+//}
+//
+//.facts__trigger.facts__trigger--active {
+//    background:$revenue-primary;
+//    color: white;
+//}
 
 .facts__section.facts__section--active {
     display: block;

@@ -1,48 +1,48 @@
 @import '../colors';
 
 // spending
-.spending-intro {
-    .facts__trigger {
-        border: 1px solid $color-spending-primary;
-    }
-
-    .facts__trigger.facts__trigger--active {
-        background: $color-spending-primary;
-    }
-}
-
-// deficit
-.deficit-intro {
-    .facts__trigger {
-        border: 1px solid $color-deficit-primary;
-    }
-
-    .facts__trigger.facts__trigger--active {
-        background: $color-deficit-primary;
-    }
-}
-
-// debt
-.debt-intro {
-    .facts__trigger {
-        border: 1px solid $color-debt-primary;
-    }
-
-    .facts__trigger.facts__trigger--active {
-        background: $color-debt-primary;
-    }
-}
-
-// this revenue block added by petway when moving to gatsby
-.revenue-intro {
-    .facts__trigger {
-        border: 1px solid $revenue-primary;
-    }
-
-    .facts__trigger.facts__trigger--active {
-        background: $revenue-primary;
-    }
-}
+//.spending-intro {
+//    .facts__trigger {
+//        border: 1px solid $color-spending-primary;
+//    }
+//
+//    .facts__trigger.facts__trigger--active {
+//        background: $color-spending-primary;
+//    }
+//}
+//
+//// deficit
+//.deficit-intro {
+//    .facts__trigger {
+//        border: 1px solid $color-deficit-primary;
+//    }
+//
+//    .facts__trigger.facts__trigger--active {
+//        background: $color-deficit-primary;
+//    }
+//}
+//
+//// debt
+//.debt-intro {
+//    .facts__trigger {
+//        border: 1px solid $color-debt-primary;
+//    }
+//
+//    .facts__trigger.facts__trigger--active {
+//        background: $color-debt-primary;
+//    }
+//}
+//
+//// this revenue block added by petway when moving to gatsby
+//.revenue-intro {
+//    .facts__trigger {
+//        border: 1px solid $revenue-primary;
+//    }
+//
+//    .facts__trigger.facts__trigger--active {
+//        background: $revenue-primary;
+//    }
+//}
 
 @media only screen and (min-width: 960px) {
     .spending-intro .facts__inner {

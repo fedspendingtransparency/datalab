@@ -56,12 +56,11 @@ const DebtIntro = () => {
 			startLegendAnimation(config);
 		}
 
-    createLayers(config);
-
     if(typeof window !== 'undefined') {
 			let timer = window.innerWidth < 959 ? 0 : 4500;
 
 			setTimeout(() => {
+				createLayers(config);
 				layersInit(config);
 			}, timer);
 		}
@@ -73,8 +72,7 @@ const DebtIntro = () => {
     setDotsPerRow();
     resetLayers();
 
-    if(Object.keys(config).indexOf('mainContainer') === -1) {
-			// setMainContainer();
+    if(Object.keys(config).indexOf('mainContainer') !== -1) {
 			config.mainContainer.selectAll('*')
 				.remove();
 		}
@@ -117,7 +115,7 @@ const DebtIntro = () => {
 	debounce = setTimeout(resizeChart, 100);
       });
     };
-  });
+  }, []);
 
 
   return (<div id="viz" />);

@@ -23,28 +23,28 @@ function resizeSvg() {
     establishContainer().transition().duration(duration).attr('height', h);
 }
 
-// function zoom(out) {
-//     const yOffset = 35;
-//
-//     if (out) {
-//         layers.master.transition()
-//             .duration(duration)
-//             .attr('transform', function() {
-//                 if (isMobileDevice()) {
-//                     return translator(0, yOffset);
-//                 }
-//
-//                 return translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`;
-//             })
-//             .ease();
-//     } else {
-//
-//         layers.master.transition()
-//             .duration(duration)
-//             .attr('transform', translator(0, yOffset) + ` scale(1)`)
-//             .ease();
-//     }
-// }
+function zoom(out) {
+    const yOffset = 35;
+
+    if (out) {
+        layers.master.transition()
+            .duration(duration)
+            .attr('transform', function() {
+                if (isMobileDevice()) {
+                    return translator(0, yOffset);
+                }
+
+                return translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`;
+            })
+            .ease();
+    } else {
+
+        layers.master.transition()
+            .duration(duration)
+            .attr('transform', translator(0, yOffset) + ` scale(1)`)
+            .ease();
+    }
+}
 
 function setAccessibility(type){
     const svgEl = d3.select('svg.main'),
@@ -58,20 +58,41 @@ function setAccessibility(type){
 
     descEl.text(accessibilityAttr.desc);
 }
+function drawLayer(redraw, clicked, id) {
+    if (id === activeCompare) {
+        setAccessibility();
+        activeCompare = null;
+        zoom();
+    } else {
+        setAccessibility(id);
+        zoom('out');
+
+        if (!redraw) {
+            clicked.classed('facts__trigger--active', true);
+            activeCompare = id;
+        }
+    }
+    transitionLayers();
+}
+
+function drawMobileLayer(redraw, clicked, id) {
+    setTimeout(() => {
+        if (!redraw) {
+            clicked.classed('facts__trigger--active', true);
+            activeCompare = id;
+        }
+        transitionLayers();
+    }, 100)
+}
 
 function toggleLayer(redraw) {
     const clicked = (redraw) ? null : d3.select(this),
         id = (redraw) ? null : clicked.attr('data-trigger-id');
 
     d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
-    setAccessibility(id);
 
-    if (!redraw) {
-        clicked.classed('facts__trigger--active', true);
-        activeCompare = id;
-    }
+    typeof window !== 'undefined' && window.innerWidth > 959 ? drawLayer(redraw, clicked, id); : drawMobileLayer(redraw, clicked, id);
 
-    setTimeout(() => transitionLayers(), 1000)
     toggleFacts();
     resizeSvg();
 }
@@ -88,9 +109,16 @@ function toggleFacts() {
 }
 
 function transitionLayers() {
-    console.log(activeCompare)
+    const unSelectedLayer = activeCompare === 'deficit' ? 'gdp' : 'deficit';
+
+    d3.selectAll(`.${unSelectedLayer}-layer`)
+      .attr('opacity', 0);
+
     d3.selectAll(`.${activeCompare}-layer`)
+      .transition()
+      .duration(duration)
       .attr('opacity', 1)
+      .ease();
 }
 
 function showDebt() {
@@ -110,7 +138,7 @@ export function resetLayers() {
 export function layersInit(_config) {
     config = _config;
     d3.selectAll('.facts__trigger').on('click', toggleLayer);
-    // zoom();
+    if(typeof window !== 'undefined' && window.innerWidth > 959) zoom();
     showDebt();
     setTimeout(revealHiddenElements, duration);
 }
