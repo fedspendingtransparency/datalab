@@ -11,17 +11,6 @@
     }
 }
 
-// deficit
-.deficit-intro {
-    .facts__trigger {
-        border: 1px solid $color-deficit-primary;
-    }
-
-    .facts__trigger.facts__trigger--active {
-        background: $color-deficit-primary;
-    }
-}
-
 // debt
 .debt-intro {
     .facts__trigger {
@@ -45,6 +34,17 @@
 }
 
 @media only screen and (min-width: 960px) {
+    // deficit
+    .deficit-intro {
+        .facts__trigger {
+            border: 1px solid $color-deficit-primary;
+        }
+
+        .facts__trigger.facts__trigger--active {
+            background: $color-deficit-primary;
+        }
+    }
+
     .spending-intro .facts__inner {
         border-left: 3px solid $color-spending-primary;
     }

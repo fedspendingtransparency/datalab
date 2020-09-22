@@ -151,3 +151,27 @@ export function startLegendAnimation(_config, _callback) {
 
 	initDot();
 }
+
+export function initMobileLegend(_config) {
+	config = _config || config;
+	svg = establishContainer();
+	
+	const g = svg.append('g')
+		.classed('income-dot-legend-mobile', true)
+
+	g.append('circle')
+		.attr('opacity', 1)
+		.attr('fill', config.deficitColor)
+		.attr('r', 3)
+		.attr('cx', 0)
+		.attr('cy', 0)
+		.attr('transform', 'translate(6 6)')
+		
+	g.append('text')
+		.text('= $10 Billion')
+		.attr('fill', colors.textColorParagraph)
+		.style('font-size', 16)
+		.attr('y', 5)
+		.attr('x', 7)
+		.attr('transform', 'translate(6 6)')
+}

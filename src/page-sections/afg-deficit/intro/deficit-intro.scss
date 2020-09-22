@@ -29,15 +29,6 @@
     justify-content: space-between;
   }
 
-  .facts__trigger {
-    border: 1px solid $color-deficit-primary;
-  }
-
-  .facts__trigger.facts__trigger--active {
-    background: $color-deficit-primary;
-    color: white;
-  }
-
   .facts__section.facts__section--active {
     display: block;
     opacity: 1;
@@ -103,6 +94,15 @@
     .hwcta {
       clear: both;
       transform: translateY(2rem);
+    }
+    
+    .facts__trigger {
+      border: 1px solid $color-deficit-primary;
+    }
+  
+    .facts__trigger.facts__trigger--active {
+      background: $color-deficit-primary;
+      color: white;
     }
   }
   
