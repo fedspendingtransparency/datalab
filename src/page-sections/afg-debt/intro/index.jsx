@@ -43,7 +43,6 @@ const DebtIntro = () => {
       .append('g')
       .classed('main', true);
 
-    mainContainer.width
     config.mainContainer = mainContainer;
   }
 
@@ -76,9 +75,6 @@ const DebtIntro = () => {
 			config.mainContainer.selectAll('*')
 				.remove();
 		}
-
-		// config.mainContainer.selectAll('*')
-		// 	.remove();
 
     createLayers(config);
     layersInit(config);

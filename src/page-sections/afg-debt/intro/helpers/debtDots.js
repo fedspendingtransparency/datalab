@@ -58,6 +58,7 @@ function placeDots(width) {
 export function initDebtDots(c, startPosition) {
   config = c;
   layer = config.mainContainer.append('g')
+    .attr('opacity', 0)
     .classed('debt-layer', true);
 
   placeDots(window.innerWidth);
