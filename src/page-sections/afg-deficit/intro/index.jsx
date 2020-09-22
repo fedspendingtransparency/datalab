@@ -37,8 +37,9 @@ const DeficitIntro = () => {
     },
   };
 
-  let mainContainer; let debounce; let
-  previousWidth;
+  let mainContainer;
+  let debounce;
+  let previousWidth;
 
   // the math needs to be precise for the chart to work - no rounding
   config.deficitAmount = config.spendingAmount - config.revenueAmount;
@@ -102,7 +103,6 @@ const DeficitIntro = () => {
       });
     };
   });
-
 
   return (<div id="viz" />);
 };

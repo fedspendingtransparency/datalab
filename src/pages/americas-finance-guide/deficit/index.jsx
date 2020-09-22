@@ -11,9 +11,9 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import DeficitIntro from 'src/page-sections/afg-deficit/intro/index';
-import DeficitTab from 'src/page-sections/afg-deficit/intro/mobile-tabs/deficit';
-import SpendingTab from 'src/page-sections/afg-deficit/intro/mobile-tabs/spending';
-import DebtTab from 'src/page-sections/afg-deficit/intro/mobile-tabs/debt';
+import DeficitTab from 'src/page-sections/afg-deficit/intro/mobile/deficit';
+import SpendingTab from 'src/page-sections/afg-deficit/intro/mobile/spending';
+import DebtTab from 'src/page-sections/afg-deficit/intro/mobile/debt';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';

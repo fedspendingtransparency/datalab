@@ -6,8 +6,10 @@ import AfgData from '../../../../../static/americas-finance-guide/_data/object_m
 const DebtTab = () => {
   return (
     <>
-      <div className="deficit-tab-viz" id="viz">
-        Debt
+      <div className="deficit-tab-viz">
+        <div id="viz">
+          Debt
+        </div>
         <div className="intro-math">
           <FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
           {AfgData.dot_number_deficit.value} dots x {AfgData.dot_represents.value} = <strong>{AfgData.current_fy_deficit.value}</strong>
