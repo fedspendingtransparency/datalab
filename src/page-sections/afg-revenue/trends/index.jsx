@@ -51,8 +51,8 @@ export default function RevenueTrends() {
   function init() {
     if (isMobileDevice()) {
       container = d3.select('#viz')
-	.append('div')
-	.classed('trend-mobile', true);
+        .append('div')
+        .classed('trend-mobile', true);
       trendMobile(data.sort(sortByLatestYear), container, config);
     } else {
       container = establishContainer(930, null, accessibilityAttrs);
@@ -63,8 +63,7 @@ export default function RevenueTrends() {
 
   useEffect(() => {
     init();
-  });
-
+  }, []);
 
   return (<div id='viz'></div>)
 }
