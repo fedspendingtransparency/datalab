@@ -61,12 +61,12 @@ function generateOverlay(number, id, label, rectColor) {
         .attr('fill', rectColor)
         .attr('opacity', 0.5)
 
-    if (id === 'revenue') {
-        deficitStartPosition = {
-            remainder: remainder,
-            y: mainRectHeight
-        }
-    }
+    // if (id === 'revenue') {
+    //     deficitStartPosition = {
+    //         remainder: remainder,
+    //         y: mainRectHeight
+    //     }
+    // }
 
     if (!isMobileDevice()) {
         labelMaker(overlayLayer, overlayHeight, label, amount);

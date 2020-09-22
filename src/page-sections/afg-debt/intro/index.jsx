@@ -74,9 +74,11 @@ const DebtIntro = () => {
     resetLayers();
 
     if(Object.keys(config).indexOf('mainContainer') === -1) {
-			config.mainContainer.selectAll('*')
-				.remove();
+			setMainContainer()
 		}
+
+		config.mainContainer.selectAll('*')
+			.remove();
 
     createLayers(config);
     layersInit(config);

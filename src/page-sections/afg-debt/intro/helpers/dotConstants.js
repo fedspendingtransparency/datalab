@@ -11,10 +11,11 @@ export const dotConstants = {
 export let dotsPerRow;
 
 export function setDotsPerRow() {
-    if(window.innerWidth < 959) {
+    let chartWidth = chartWidth;
+    if(typeof window != 'undefined' && window.innerWidth <= 959) {
         chartWidth = chartWidth * .645;
     }
-    
+
     const workingWidth = chartWidth - dotConstants.radius;
 
     dotsPerRow = Math.floor(workingWidth / dotConstants.offset.x);

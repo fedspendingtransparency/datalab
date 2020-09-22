@@ -22,7 +22,7 @@ function ExploreDebtPage(props) {
 	const tabs = [
 		{
 			label: 'Debt',
-			component: <DebtIntro />
+			component: <DebtIntro />,
 		},
 		{
 			label: 'Deficit',
