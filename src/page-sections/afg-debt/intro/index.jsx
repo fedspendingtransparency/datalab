@@ -58,12 +58,12 @@ const DebtIntro = () => {
 
     createLayers(config);
 
-		if (typeof window !== 'undefined' && window.innerWidth > 959) {
+    if(typeof window !== 'undefined') {
+			let timer = window.innerWidth < 959 ? 0 : 4500;
+
 			setTimeout(() => {
 				layersInit(config);
-			}, 4500);
-		} else {
-			layersInit(config);
+			}, timer);
 		}
   }, []);
 
@@ -74,11 +74,13 @@ const DebtIntro = () => {
     resetLayers();
 
     if(Object.keys(config).indexOf('mainContainer') === -1) {
-			setMainContainer()
+			// setMainContainer();
+			config.mainContainer.selectAll('*')
+				.remove();
 		}
 
-		config.mainContainer.selectAll('*')
-			.remove();
+		// config.mainContainer.selectAll('*')
+		// 	.remove();
 
     createLayers(config);
     layersInit(config);

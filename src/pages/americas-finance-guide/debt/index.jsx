@@ -23,14 +23,20 @@ function ExploreDebtPage(props) {
 		{
 			label: 'Debt',
 			component: <DebtIntro />,
+			className: 'facts__trigger',
+			trigger: 'debt'
 		},
 		{
 			label: 'Deficit',
-			component: <DebtIntro />
+			component: <DebtIntro />,
+			className: 'facts__trigger',
+			trigger: 'deficit'
 		},
 		{
 			label: 'U.S. Economy',
-			component: <DebtIntro />
+			component: <DebtIntro />,
+			className: 'facts__trigger',
+			trigger: 'gdp'
 		},
 	]
 

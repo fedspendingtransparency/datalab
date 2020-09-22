@@ -44,16 +44,16 @@ const TabsWrapper = ({ tabs }) => {
         variant="fullWidth"
       >
         {tabs.map((tab, index) => (
-          <StyledTab value={index} label={tab.label} aria-label={tab.label} />
+          <StyledTab value={index} label={tab.label} className={tab.className} data-trigger-id={tab.trigger} />
         ))}
       </StyledTabs>
       {tabs.map((tab, index) => (
-        <TabPanel value={value} index={index}>
+        <TabPanel value={value} index={index} aria-label={tab.label}>
           {tab.component}
         </TabPanel>
       ))}
     </>
   );
 }
- 
+
 export default TabsWrapper;

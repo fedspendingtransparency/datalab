@@ -23,28 +23,28 @@ function resizeSvg() {
     establishContainer().transition().duration(duration).attr('height', h);
 }
 
-function zoom(out) {
-    const yOffset = 35;
-
-    if (out) {
-        layers.master.transition()
-            .duration(duration)
-            .attr('transform', function() {
-                if (isMobileDevice()) {
-                    return translator(0, yOffset);
-                }
-
-                return translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`;
-            })
-            .ease();
-    } else {
-
-        layers.master.transition()
-            .duration(duration)
-            .attr('transform', translator(0, yOffset) + ` scale(1)`)
-            .ease();
-    }
-}
+// function zoom(out) {
+//     const yOffset = 35;
+//
+//     if (out) {
+//         layers.master.transition()
+//             .duration(duration)
+//             .attr('transform', function() {
+//                 if (isMobileDevice()) {
+//                     return translator(0, yOffset);
+//                 }
+//
+//                 return translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`;
+//             })
+//             .ease();
+//     } else {
+//
+//         layers.master.transition()
+//             .duration(duration)
+//             .attr('transform', translator(0, yOffset) + ` scale(1)`)
+//             .ease();
+//     }
+// }
 
 function setAccessibility(type){
     const svgEl = d3.select('svg.main'),
@@ -64,22 +64,14 @@ function toggleLayer(redraw) {
         id = (redraw) ? null : clicked.attr('data-trigger-id');
 
     d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
+    setAccessibility(id);
 
-    if (id === activeCompare) {
-        setAccessibility();
-        activeCompare = null;
-        zoom();
-    } else {
-        setAccessibility(id);
-        zoom('out');
-
-        if (!redraw) {
-            clicked.classed('facts__trigger--active', true);
-            activeCompare = id;
-        }
+    if (!redraw) {
+        clicked.classed('facts__trigger--active', true);
+        activeCompare = id;
     }
 
-    transitionLayers();
+    setTimeout(() => transitionLayers(), 1000)
     toggleFacts();
     resizeSvg();
 }
@@ -96,20 +88,9 @@ function toggleFacts() {
 }
 
 function transitionLayers() {
-    layers.deficit.transition()
-        .duration(duration)
-        .attr('opacity', function(){
-            return activeCompare === 'deficit' ? 1 : 0;
-        })
-        .ease();
-
-    layers.gdp.transition()
-        .duration(duration)
-        .attr('opacity', function(){
-            return activeCompare === 'gdp' ? 1 : 0;
-        })
-        .on('end', touchIe)
-        .ease();
+    console.log(activeCompare)
+    d3.selectAll(`.${activeCompare}-layer`)
+      .attr('opacity', 1)
 }
 
 function showDebt() {
@@ -129,7 +110,7 @@ export function resetLayers() {
 export function layersInit(_config) {
     config = _config;
     d3.selectAll('.facts__trigger').on('click', toggleLayer);
-    zoom();
+    // zoom();
     showDebt();
     setTimeout(revealHiddenElements, duration);
 }
