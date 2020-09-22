@@ -11,6 +11,9 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import DeficitIntro from 'src/page-sections/afg-deficit/intro/index';
+import DeficitTab from 'src/page-sections/afg-deficit/intro/mobile-tabs/deficit';
+import SpendingTab from 'src/page-sections/afg-deficit/intro/mobile-tabs/spending';
+import DebtTab from 'src/page-sections/afg-deficit/intro/mobile-tabs/debt';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
@@ -18,26 +21,35 @@ import AnecdoteDeficitSVG from '../../../../static/americas-finance-guide/icons/
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function ExploreDeficitPage(props) {
-	// DeficitIntro component used as placeholder until the mobile dot viz components are finished
+	const mainVizComponent = (
+		<>
+			<DeficitIntro />
+			<div className="intro-math">
+				<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
+				{AfgData.dot_number_deficit.value} dots x {AfgData.dot_represents.value} = <strong>{AfgData.current_fy_deficit.value}</strong>
+			</div>
+		</>
+	);
+
 	const tabs = [
 		{
 			label: 'Deficit',
-			component: <DeficitIntro />
+			component: <DeficitTab />
 		},
 		{
 			label: 'Spending',
-			component: <DeficitIntro />
+			component: <SpendingTab />
 		},
 		{
 			label: 'Debt',
-			component: <DeficitIntro />
+			component: <DebtTab />
 		},
-	]
+	];
 
-	const [vizComponent, updateVizComponent] = useState(<DeficitIntro />);
+	const [vizComponent, updateVizComponent] = useState(mainVizComponent);
 
 	const handleResize = () => {
-		updateVizComponent(window.innerWidth > 959 ? <DeficitIntro /> : <TabsWrapper tabs={tabs} />);
+		updateVizComponent(window.innerWidth > 959 ? mainVizComponent : <TabsWrapper tabs={tabs} />);
 	}
 
 	if (typeof window !== 'undefined') {
@@ -93,18 +105,6 @@ function ExploreDeficitPage(props) {
 						</div>
 						<div className="viz-wrapper">
 							{vizComponent}
-							<div className="intro-math intro-hidden">
-								<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
-								{AfgData.dot_number_deficit.value}
-								{' '}
-								dots x
-								{' '}
-								{AfgData.dot_represents.value}
-								{' '}
-								=
-								{' '}
-								<strong>{AfgData.current_fy_deficit.value}</strong>
-							</div>
 							<div className="facts sidebar intro-hidden">
 								<div className="facts__inner">
 									<div id="compare-options">
