@@ -31,7 +31,7 @@ function SpendingTrendsPage(props) {
     }, [])
 
     const breadcrumbs = (
-        <section className="tour">
+        <section className="tour tour__spending-trends">
             <div className="tour__part-one">
                 <h1>How does federal spending in the United States compare to other countries?</h1>
                 <p>When you're done here, see how federal spending by the U.S. compares to other countries.</p>
