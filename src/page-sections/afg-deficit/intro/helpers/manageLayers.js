@@ -5,11 +5,16 @@ import { translator, establishContainer, isMobileDevice } from 'src/afg-helpers/
 import { chartWidth } from './widthManager';
 import { touchIe } from 'src/afg-helpers/touchIe';
 
-const d3 = { select, selectAll },
-    scaleFactor = 0.6,
-    duration = 1000;
+const d3 = { select, selectAll };
+const scaleFactor = 0.6;
+const duration = 1000;
 
-let activeCompare, revenueFirstTime, debtFirstTime, doubleClickBlock, blockTimer, config;
+let activeCompare;
+let revenueFirstTime;
+let debtFirstTime;
+let doubleClickBlock;
+let blockTimer;
+let config;
 
 function revealHiddenElements() {
     d3.selectAll('.intro-hidden').classed('intro-hidden', null);
@@ -17,8 +22,8 @@ function revealHiddenElements() {
 }
 
 function toggleFacts() {
-    const targetSection = d3.select(`#${activeCompare}-facts`),
-        sectionActive = 'facts__section--active';
+    const targetSection = d3.select(`#${activeCompare}-facts`);
+    const sectionActive = 'facts__section--active';
 
     d3.selectAll('.facts__section').classed(sectionActive, null);
 
@@ -81,8 +86,8 @@ function doubleClickBlocker(id) {
 }
 
 function setAccessibility(type) {
-    const svgEl = d3.select('svg.main'),
-        descEl = svgEl.select('desc');
+    const svgEl = d3.select('svg.main');
+    const descEl = svgEl.select('desc');
 
     let accessibilityAttr = config.accessibilityAttrs.default;
     if (type) {
@@ -93,9 +98,9 @@ function setAccessibility(type) {
 }
 
 function toggleLayer(redraw) {
-    const clicked = (redraw) ? null : d3.select(this),
-        id = (redraw) ? null : clicked.attr('data-trigger-id'),
-        noDelay = (!redraw && id === 'debt' && activeCompare !== 'deficit');
+    const clicked = (redraw) ? null : d3.select(this);
+    const id = (redraw) ? null : clicked.attr('data-trigger-id');
+    const noDelay = (!redraw && id === 'debt' && activeCompare !== 'deficit');
 
     if (doubleClickBlocker(id) && !redraw) {
         return;
@@ -182,10 +187,10 @@ function initialDebtCompare(noDelay) {
 }
 
 function deficitTransform(state, now) {
-    const deficitDots = (state === 'debt') ? 0 : 1,
-        debtDots = (state === 'debt') ? 1 : 0,
-        y = (state === 'debt') ? 0 : Number(layers.deficit.attr('data-y')),
-        localDuration = now ? 0 : duration;
+    const deficitDots = (state === 'debt') ? 0 : 1;
+    const debtDots = (state === 'debt') ? 1 : 0;
+    const y = (state === 'debt') ? 0 : Number(layers.deficit.attr('data-y'));
+    const localDuration = now ? 0 : duration;
 
     layers.deficit.transition()
         .duration(localDuration)
@@ -231,9 +236,9 @@ function subsequentRevenueSpendingCompare() {
 }
 
 function initialRevenueSpendingCompare() {
-    const step1 = 100,
-        step2 = duration * 1.5,
-        step3 = step2 * 2;
+    const step1 = 100;
+    const step2 = duration * 1.5;
+    const step3 = step2 * 2;
 
     layers.debt.transition()
         .duration(duration)

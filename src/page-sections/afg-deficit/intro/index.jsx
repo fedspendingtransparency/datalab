@@ -23,16 +23,16 @@ const DeficitIntro = () => {
     debtColor: colors.colorDebtPrimary,
     accessibilityAttrs: {
       default: {
-	title: '2019 Federal Deficit',
-	desc: 'The image illustrates the federal government’s deficit in 2019 using dots, and each dot is equal to a billion dollars. There are 984 dots.',
+        title: '2019 Federal Deficit',
+        desc: 'The image illustrates the federal government’s deficit in 2019 using dots, and each dot is equal to a billion dollars. There are 984 dots.',
       },
       debt: {
-	title: '2019 Federal Deficit and Debt',
-	desc: 'When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The $984 billion deficit contributed to the $1.2 trillion increase in debt from $21.5 trillion at the end of 2018 to $22.7 trillion by the end of 2019.',
+        title: '2019 Federal Deficit and Debt',
+        desc: 'When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The $984 billion deficit contributed to the $1.2 trillion increase in debt from $21.5 trillion at the end of 2018 to $22.7 trillion by the end of 2019.',
       },
       deficit: {
-	title: '2019 Federal Deficit, Revenue, and Spending',
-	desc: 'A deficit occurs when spending exceeds revenue. For 2019, the $4.4 trillion in federal spending exceeded the $3.5 trillion in federal revenue leading to a deficit of $984 billion.',
+        title: '2019 Federal Deficit, Revenue, and Spending',
+        desc: 'A deficit occurs when spending exceeds revenue. For 2019, the $4.4 trillion in federal spending exceeded the $3.5 trillion in federal revenue leading to a deficit of $984 billion.',
       },
     },
   };
@@ -74,11 +74,11 @@ const DeficitIntro = () => {
   useEffect(() => {
     window.addEventListener('resize', () => {
       if (debounce) {
-	clearTimeout(debounce);
+        clearTimeout(debounce);
       }
 
       if (previousWidth === window.innerWidth) {
-	return;
+        return;
       }
 
       previousWidth = window.innerWidth;
@@ -88,17 +88,17 @@ const DeficitIntro = () => {
 
     return (_) => {
       window.removeEventListener('resize', () => {
-	if (debounce) {
-	  clearTimeout(debounce);
-	}
+        if (debounce) {
+          clearTimeout(debounce);
+        }
 
-	if (previousWidth === window.innerWidth) {
-	  return;
-	}
+        if (previousWidth === window.innerWidth) {
+          return;
+        }
 
-	previousWidth = window.innerWidth;
+        previousWidth = window.innerWidth;
 
-	debounce = setTimeout(resizeChart, 100);
+        debounce = setTimeout(resizeChart, 100);
       });
     };
   });
