@@ -91,7 +91,7 @@ function toggleLayer(redraw) {
 
     d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
 
-    typeof window !== 'undefined' && window.innerWidth > 959 ? drawLayer(redraw, clicked, id); : drawMobileLayer(redraw, clicked, id);
+    typeof window !== 'undefined' && window.innerWidth > 959 ? drawLayer(redraw, clicked, id) : drawMobileLayer(redraw, clicked, id);
 
     toggleFacts();
     resizeSvg();
