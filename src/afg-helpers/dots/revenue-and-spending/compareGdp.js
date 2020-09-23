@@ -4,9 +4,7 @@ import {
   establishContainer, translator, simplifyNumber, findAmountInCsv,
 } from 'src/afg-helpers/utils';
 import { dotConstants } from './dotConstants';
-import {
-  compareOn, compareOff, generateOverlay, registerLayer,
-} from './compareManager';
+import { generateOverlay, registerLayer} from './compareManager';
 import { createDonut } from '../donut';
 import colors from '../../../styles/afg/colors.scss';
 import { chartWidth } from './widthManager';

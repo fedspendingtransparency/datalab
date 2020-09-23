@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { initChart, resizeChart } from '../../../afg-helpers/dots/revenue-and-spending/init';
+import { initChart, initChartMobile, resizeChart } from '../../../afg-helpers/dots/revenue-and-spending/init';
 import colors from '../../../styles/afg/colors.scss';
 import SpendingData from '../../../../static/americas-finance-guide/data/federal_spending_gdp.csv';
 import { findAmountInCsv } from 'src/afg-helpers/utils';
@@ -34,6 +34,9 @@ export default function SpendingIntro() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       initChart(config);
+      if (window.innerWidth < 959) {
+        initChartMobile(config);
+      };
     }
   }, []);
 
