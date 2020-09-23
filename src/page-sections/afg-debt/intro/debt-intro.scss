@@ -110,10 +110,15 @@
       clear: both;
       transform: translateY(2rem);
     }
+
+    .dotScale {
+      display: none;
+    }
   }
 
   @media only screen and (max-width: 959px) {
     .dotScale {
+      display: block;
       margin: 15px 0;
 
       svg circle {

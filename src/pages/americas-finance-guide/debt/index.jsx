@@ -126,7 +126,14 @@ function ExploreDebtPage(props) {
 									</section>
 								</div>
 							</div>
-
+							<section id="mobile-deficit-facts" className="facts__section">
+								<h1>Deficit</h1>
+								<p>The change in federal debt each year is heavily influenced by the deficit or surplus that year. When there is not enough revenue to pay for spending, the government borrows money to make up the difference.  When there is excess revenue in a given year, the majority of those funds are used to pay down the federal debt.</p>
+							</section>
+							<section id="mobile-gdp-facts" className="facts__section">
+								<h1>U.S. Economy</h1>
+								<p>By comparing the total federal debt to gross domestic product (GDP), we can observe the government's ability to utilize the resources at hand to finance the debt the same way you and your family manage your finances to make sure that your monthly payments for your mortgage, car loans, and credit cards can be made.</p>
+							</section>
 							<div className={styles.debtCopyMobile}>
 								<p>
 									How did we end up with&nbsp;

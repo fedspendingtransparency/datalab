@@ -98,14 +98,14 @@ function toggleLayer(redraw) {
 }
 
 function toggleFacts() {
-    const targetSection = d3.select(`#${activeCompare}-facts`),
+    console.log('togglefact')
+    const currentFact = typeof window !== 'undefined' && window.innerWidth > 959 ? activeCompare : `mobile-${activeCompare}`
+    const targetSection = d3.select(`#${currentFact}-facts`),
         sectionActive = 'facts__section--active';
 
     d3.selectAll('.facts__section').classed(sectionActive, null);
 
-    if (targetSection.size()) {
-        targetSection.classed(sectionActive, true);
-    }
+    targetSection.classed(sectionActive, true);
 }
 
 function transitionLayers() {
