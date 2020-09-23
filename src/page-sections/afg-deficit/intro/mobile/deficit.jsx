@@ -7,9 +7,10 @@ import DeficitData from '../../../../../static/americas-finance-guide/data/explo
 
 import { establishContainer, findAmountInCsv } from 'src/afg-helpers/utils';
 import { setChartWidth } from '../helpers/widthManager';
-import { setDotsPerRow } from '../helpers/dotConstants';
-import { createLayers } from '../helpers/createLayers';
+import { dotsPerRow, setDotsPerRow } from '../helpers/dotConstants';
+import { createMobileLayers } from '../helpers/createLayers';
 import colors from 'src/styles/afg/colors.scss';
+import { initMobileLegend } from '../helpers/legend';
 import { layersInitMobile } from '../helpers/manageLayers';
 
 const DeficitTab = () => {
@@ -18,6 +19,7 @@ const DeficitTab = () => {
     revenueAmount: findAmountInCsv('federal revenue', DeficitData),
     spendingAmount: findAmountInCsv('federal spending', DeficitData),
     debtBalance: findAmountInCsv('federal debt', DeficitData),
+    deficitAmount: Math.abs(findAmountInCsv('federal deficit', DeficitData)),
     reportedDeficitAmount: findAmountInCsv('federal deficit', DeficitData),
     compareString: 'revenue',
     revenueColor: colors.colorPrimary,
@@ -31,16 +33,29 @@ const DeficitTab = () => {
   }
 
   const setMainContainer = () => {
-    const mainContainer = establishContainer(300, null, config.accessibilityAttrs).append('g').classed('main', true);
+    const count = config.deficitAmount / 10000000000;
+    const rows = Math.ceil(count / dotsPerRow)
+    const chartHeight = (rows * 5) + 55;
+    
+    const mainContainer = establishContainer(chartHeight, null, config.accessibilityAttrs).append('g').classed('main', true);
     config.mainContainer = mainContainer;
   }
 
-  useEffect(() => {
-    setChartWidth();
+  const init = () => {
+    setChartWidth(0.7);
     setMainContainer();
     setDotsPerRow();
-    createLayers(config);
-    layersInitMobile(config);
+    initMobileLegend(config);
+    createMobileLayers(config);
+  }
+
+  useEffect(() => {
+    init();
+
+    window.addEventListener('resize', init);
+    return () => {
+      window.removeEventListener('resize', init);
+    }
   }, []);
 
   return (

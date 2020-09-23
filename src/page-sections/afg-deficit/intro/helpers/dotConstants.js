@@ -10,13 +10,10 @@ export const dotConstants = {
 
 export let dotsPerRow;
 
-export function setDotsPerRow() {
-    let width = chartWidth;
-    if(typeof window != 'undefined' && window.innerWidth <= 959) {
-        width = width * .645;
-    }
+export function setDotsPerRow(width) {
+    const w = width || chartWidth;
 
-    const workingWidth = width - dotConstants.radius;
+    const workingWidth = w - dotConstants.radius;
 
     dotsPerRow = Math.floor(workingWidth / dotConstants.offset.x);
 }

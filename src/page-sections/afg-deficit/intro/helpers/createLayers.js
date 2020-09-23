@@ -3,7 +3,7 @@ import { transition } from 'd3-transition';
 import { line } from 'd3-shape';
 import { dotsPerRow, dotConstants } from "./dotConstants";
 import { labelMaker, deficitLabel } from './layerLegends';
-import { initDeficitDots } from './deficitDots';
+import { initDeficitDots, placeDotsMobile } from './deficitDots';
 import { translator, isMobileDevice } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
 import colors from '../../../../styles/afg/colors.scss';
@@ -138,4 +138,22 @@ export function createLayers(c) {
     createSpending();
     createDeficitDots();
     createDebt();
+}
+
+export function createMobileLayers(c, separateContainer) {
+    config = c;
+
+    const count = Math.ceil(c.deficitAmount / (billion * 10));
+    const rows = Math.floor(count / dotsPerRow);
+    const remainder = count % dotsPerRow;
+    
+    const spacing = dotConstants.offset.y - (dotConstants.radius * 2);
+    const mainRectHeight = (rows * dotConstants.offset.y) - spacing / 2;
+
+    deficitStartPosition = {
+        remainder,
+        y: mainRectHeight
+    }
+
+    placeDotsMobile(c, deficitStartPosition, separateContainer);
 }

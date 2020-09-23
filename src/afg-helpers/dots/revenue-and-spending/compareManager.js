@@ -198,6 +198,12 @@ export function resetForResize() {
 		.classed(sectionActive, null);
 }
 
+export function resetForResizeMobile() {
+	d3.select('viz')
+		.selectAll('*')
+		.remove();
+}
+
 export function revealCompare() {
 	setTimeout(() => {
 		d3.selectAll('.intro-hidden')
