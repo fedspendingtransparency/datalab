@@ -130,6 +130,24 @@
       }
     }
 
+    .facts__section {
+      margin-top: 27px;
+      border-top: 1px solid #ddd;
+
+      h1 {
+        margin-top: 15px;
+        text-align: left;
+        font-size: 1rem;
+        color: #555;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: #555;
+      }
+    }
+
   }
 }
 

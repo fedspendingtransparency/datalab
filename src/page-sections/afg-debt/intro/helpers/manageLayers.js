@@ -73,16 +73,20 @@ function drawLayer(redraw, clicked, id) {
         }
     }
     transitionLayers();
+    toggleFacts();
+    resizeSvg();
 }
 
 function drawMobileLayer(redraw, clicked, id) {
-    setTimeout(() => {
+    // setTimeout(() => {
         if (!redraw) {
             clicked.classed('facts__trigger--active', true);
             activeCompare = id;
         }
-        transitionLayers();
-    }, 100)
+        setTimeout(() => transitionLayers(), 1000);
+        toggleFacts();
+        resizeSvg();
+    // }, 1000)
 }
 
 function toggleLayer(redraw) {
@@ -93,12 +97,9 @@ function toggleLayer(redraw) {
 
     typeof window !== 'undefined' && window.innerWidth > 959 ? drawLayer(redraw, clicked, id) : drawMobileLayer(redraw, clicked, id);
 
-    toggleFacts();
-    resizeSvg();
 }
 
 function toggleFacts() {
-    console.log('togglefact')
     const currentFact = typeof window !== 'undefined' && window.innerWidth > 959 ? activeCompare : `mobile-${activeCompare}`
     const targetSection = d3.select(`#${currentFact}-facts`),
         sectionActive = 'facts__section--active';

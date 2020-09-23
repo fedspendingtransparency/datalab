@@ -63,7 +63,7 @@ const DebtIntro = () => {
 				layersInit(config);
 			}, timer);
 		}
-  }, []);
+  });
 
 
   function resizeChart() {
@@ -116,8 +116,8 @@ const DebtIntro = () => {
 
   return (<>
 		<div className='dotScale'>
-			<svg width='1rem' height='1.05rem'>
-				<circle cx='6' cy='11' r='6' />
+			<svg width='.75rem' height='1rem'>
+				<circle cx='3' cy='12' r='3' />
 			</svg>
 			<span>= $10 billion</span>
 		</div>
