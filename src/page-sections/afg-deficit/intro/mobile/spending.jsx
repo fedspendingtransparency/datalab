@@ -51,7 +51,6 @@ const SpendingTab = () => {
   }
 
   const init = () => {
-    resetForResizeMobile();
     setChartWidth();
     setDotsPerRow(window.innerWidth * .25);
     setMainContainer();
@@ -62,9 +61,17 @@ const SpendingTab = () => {
   useEffect(() => {
     init();
 
-    window.addEventListener('resize', init);
+    const resetAndInit = () => {
+      const x = config.mainContainer.selectAll('*').remove();
+
+      if (window.innerWidth < 960) {
+        init();
+      }
+    }
+
+    window.addEventListener('resize', resetAndInit);
     return () => {
-      window.removeEventListener('resize', init);
+      window.removeEventListener('resize', resetAndInit);
     }
   }, []);
 

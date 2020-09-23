@@ -3,48 +3,7 @@ import { establishContainer, wordWrap } from 'src/afg-helpers/utils';
 import formatNumber from 'src/utils/number-formatter/number-formatter';
 import { createMobileLayers } from './createLayers';
 import { dotConstants } from './dotConstants';
-
-function drawBracket(svg, xPosition, height, rightSide) {
-  const bracket = svg.append('g')
-    .classed('bracket', true)
-    .attr('transform', `translate(${xPosition},35)`);
-
-  let x1 = -7;
-  let x2 = -7;
-  let x3 = -13;
-
-  if (rightSide) {
-    x1 = rightSide + 2;
-    x2 = rightSide + 8;
-    x3 = rightSide + 8;
-  }
-
-  bracket.append('rect')
-    .attr('fill', '#b4b4b4')
-    .attr('width', '6')
-    .attr('height', '1')
-    .attr('x', x1)
-    
-  bracket.append('rect')
-    .attr('fill', '#b4b4b4')
-    .attr('width', '1')
-    .attr('height', height)
-    .attr('x', x2)
-
-  bracket.append('rect')
-    .attr('fill', '#b4b4b4')
-    .attr('width', '6')
-    .attr('height', '1')
-    .attr('x', x1)
-    .attr('y', height - 1)
-
-  bracket.append('rect')
-    .attr('fill', '#b4b4b4')
-    .attr('width', '6')
-    .attr('height', '1')
-    .attr('x', x3)
-    .attr('y', (height - 1) / 2)
-  }
+import drawBracket from './drawBracket';
 
 export function createMobileSpendingViz(config, height, width, dotsHeight) {
   let svg;
@@ -90,8 +49,6 @@ export function createMobileSpendingViz(config, height, width, dotsHeight) {
     .attr('font-weight', 600)
     .attr('fill', '#555')
     .attr('x', 0)
-    .attr('y', revenueRectHeight * .5)
-    .attr('aligntment-baseline', 'middle')
     .call(wordWrap, width * .15)
   .append('tspan')
     .text(formatNumber('dollars suffix', config.revenueAmount))
@@ -120,8 +77,6 @@ export function createMobileSpendingViz(config, height, width, dotsHeight) {
     .attr('font-weight', 600)
     .attr('fill', '#555')
     .attr('x', 0)
-    .attr('y', spendingRectHeight * .5)
-    .attr('aligntment-baseline', 'middle')
     .call(wordWrap, width * .15)
   .append('tspan')
     .text(formatNumber('dollars suffix', config.spendingAmount))
@@ -129,6 +84,15 @@ export function createMobileSpendingViz(config, height, width, dotsHeight) {
     .attr('font-weight', 'normal')
     .attr('x', 0)
     .attr('dy', '1.1rem')
+
+  const revenueTextHeight = d3.selectAll('.revenue-text').node().getBoundingClientRect().height;
+  const spendingTextHeight = d3.selectAll('.spending-text').node().getBoundingClientRect().height;
+
+  d3.selectAll('.revenue-text>text')
+    .attr('y', (spendingRectHeight - revenueTextHeight) * .5);
+
+  d3.selectAll('.spending-text>text')
+    .attr('y', (spendingRectHeight - spendingTextHeight) * .5);
 
   drawBracket(svg, (width * .23) - 1, revenueRectHeight)
   drawBracket(svg, (width * .52) + 1, spendingRectHeight, rectWidth)

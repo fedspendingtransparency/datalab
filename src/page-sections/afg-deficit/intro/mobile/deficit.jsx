@@ -6,6 +6,7 @@ import AfgData from '../../../../../static/americas-finance-guide/_data/object_m
 import DeficitData from '../../../../../static/americas-finance-guide/data/explore_federal_deficit.csv';
 
 import { establishContainer, findAmountInCsv } from 'src/afg-helpers/utils';
+import { resetForResizeMobile } from 'src/afg-helpers/dots/revenue-and-spending/compareManager';
 import { setChartWidth } from '../helpers/widthManager';
 import { dotsPerRow, setDotsPerRow } from '../helpers/dotConstants';
 import { createMobileLayers } from '../helpers/createLayers';
@@ -52,9 +53,17 @@ const DeficitTab = () => {
   useEffect(() => {
     init();
 
-    window.addEventListener('resize', init);
+    const resetAndInit = () => {
+      resetForResizeMobile();
+
+      if (window.innerWidth < 960) {
+        init();
+      }
+    }
+
+    window.addEventListener('resize', resetAndInit);
     return () => {
-      window.removeEventListener('resize', init);
+      window.removeEventListener('resize', resetAndInit);
     }
   }, []);
 
