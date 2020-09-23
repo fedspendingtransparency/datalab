@@ -190,29 +190,29 @@ export default function Tracking(props) {
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalTabletSVG,
-				width: 539,
+				width: 538,
 			},
 			'Spending': {
 				svg: Phase3GeneralTabletSVG,
-				width: 314,
+				width: 351,
 			},
 			'Loan': {
 				svg: Phase3LoanTabletSVG,
-				width: 314,
+				width: 351,
 			},
 		},
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalTabletSVG,
-				width: 318,
+				width: 319,
 			},
 			'Spending': {
 				svg: Phase35GeneralTabletSVG,
-				width: 401,
+				width: 402,
 			},
 			'Loan': {
 				svg: Phase35LoanTabletSVG,
-				width: 461,
+				width: 462,
 			},
 		}
 	}
