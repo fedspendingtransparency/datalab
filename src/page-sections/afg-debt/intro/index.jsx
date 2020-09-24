@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
+import { select, selectAll } from 'd3-selection';
+import 'd3-transition';
 import { createLayers, layers } from './helpers/createLayers';
 import { startLegendAnimation } from './helpers/legend';
 import { setChartWidth } from './helpers/widthManager';
 import { translator, isMobileDevice, establishContainer, findAmountInCsv } from 'src/afg-helpers/utils';
-import colors from '../../../styles/afg/colors.scss';
 import { setDotsPerRow } from './helpers/dotConstants';
-import { layersInit, resetLayers } from './helpers/manageLayers';
-import DebtData from '../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
-import './debt-intro.scss';
-import { select, selectAll } from 'd3-selection';
-import 'd3-transition';
 import { chartWidth } from './helpers/widthManager';
 import { vizHeight } from './helpers/debtDots';
 import { touchIe } from 'src/afg-helpers/touchIe';
+import DebtData from '../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
+import './debt-intro.scss';
+import colors from '../../../styles/afg/colors.scss';
 
 
 const DebtIntro = () => {
@@ -59,7 +58,6 @@ const DebtIntro = () => {
 			duration = 1000;
 
 		let activeCompare;
-		let _config = config;
 
 		function revealHiddenElements() {
 			d3.selectAll('.intro-hidden').classed('intro-hidden', null);
