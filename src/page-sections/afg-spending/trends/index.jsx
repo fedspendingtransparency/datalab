@@ -166,17 +166,15 @@ export default function SpendingTrends() {
     let svg;
 
     function init() {
-    d3.select("#spending-chart-toggle")
-      .attr('data-active', 'category');
+    d3.select("#spending-chart-toggle").attr('data-active', 'category');
   }
 
-    function sortByLatestYear(a, b) {
+  function sortByLatestYear(a, b) {
     return b.values[b.values.length - 1].amount - a.values[a.values.length - 1].amount;
   }
 
     function setData(type) {
-    return trendData(type)
-      .sort(sortByLatestYear);
+    return trendData(type).sort(sortByLatestYear);
   }
 
     function renderChart(data) {
@@ -192,19 +190,14 @@ export default function SpendingTrends() {
 
     let container;
 
-    // console.log('isMobileDevice()', isMobileDevice());
-
     if (isMobileDevice()) {
       container = d3.select('#viz');
-      container.selectAll('*')
-        .remove();
-      container.append('div')
-        .classed('trend-mobile', true);
+      container.selectAll('*').remove();
+      container.append('div').classed('trend-mobile', true);
       trendMobile(data, container, config);
     } else {
       svg = svg || establishContainer(985, null, accessibilityAttrs);
-      svg.selectAll('*')
-        .remove();
+      svg.selectAll('*').remove();
       container = establishContainer(985, null, accessibilityAttrs);
       trendDesktop(data, svg, config);
     }
@@ -214,8 +207,8 @@ export default function SpendingTrends() {
     d3.select('#toggle-spending-data-type')
       .on('click', function () {
         let dataType;
-        const dataController = d3.select("#spending-chart-toggle"),
-          curData = dataController.attr('data-active');
+        const dataController = d3.select("#spending-chart-toggle");
+        const curData = dataController.attr('data-active');
 
         if (curData === 'category' || curData === 'function') {
           dataType = 'agency';
@@ -228,9 +221,8 @@ export default function SpendingTrends() {
 
     d3.selectAll('.toggle-component__label')
       .on('click', function () {
-        const textValue = d3.select(this)
-            .text(),
-          type = (textValue === 'Agency') ? 'agency' : 'category';
+        const textValue = d3.select(this).text();
+        const type = (textValue === 'Agency') ? 'agency' : 'category';
 
         changeDataType(type);
       })
@@ -246,7 +238,7 @@ export default function SpendingTrends() {
     init();
     renderChart(data);
     changeDataTypeClickFunctions();
-  });
+  }, []);
 
 
   return(<>
@@ -263,13 +255,10 @@ export default function SpendingTrends() {
             <button id="save-filters-button">Save</button>
           </div>
         </div>
-
         <div id="show-hide-list"></div>
       </div>
     </div>
-
     <div className="hint">Click a spending category to view more</div>
-
     <div id='viz'></div>
-    </>)
+  </>)
 }
