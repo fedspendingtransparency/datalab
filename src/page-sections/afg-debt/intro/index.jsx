@@ -1,13 +1,19 @@
 import React, { useEffect } from 'react';
-import { createLayers } from './helpers/createLayers';
+import { createLayers, layers } from './helpers/createLayers';
 import { startLegendAnimation } from './helpers/legend';
 import { setChartWidth } from './helpers/widthManager';
-import { establishContainer, findAmountInCsv } from 'src/afg-helpers/utils';
+import { translator, isMobileDevice, establishContainer, findAmountInCsv } from 'src/afg-helpers/utils';
 import colors from '../../../styles/afg/colors.scss';
 import { setDotsPerRow } from './helpers/dotConstants';
 import { layersInit, resetLayers } from './helpers/manageLayers';
 import DebtData from '../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
 import './debt-intro.scss';
+import { select, selectAll } from 'd3-selection';
+import 'd3-transition';
+import { chartWidth } from './helpers/widthManager';
+import { vizHeight } from './helpers/debtDots';
+import { touchIe } from 'src/afg-helpers/touchIe';
+
 
 const DebtIntro = () => {
   const config = {
@@ -47,6 +53,145 @@ const DebtIntro = () => {
   }
 
   useEffect(() => {
+
+		const d3 = { select, selectAll },
+			scaleFactor = 0.6,
+			duration = 1000;
+
+		let activeCompare;
+		let _config = config;
+
+		function revealHiddenElements() {
+			d3.selectAll('.intro-hidden').classed('intro-hidden', null);
+			resizeSvg();
+		}
+
+		function resizeSvg() {
+			const h = (activeCompare) ? vizHeight * scaleFactor + 40 : vizHeight;
+
+			establishContainer().transition().duration(duration).attr('height', h);
+		}
+
+		function zoom(out) {
+			const yOffset = 35;
+
+			if (out) {
+				layers.master.transition()
+					.duration(duration)
+					.attr('transform', function() {
+						if (isMobileDevice()) {
+							return translator(0, yOffset);
+						}
+
+						return translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`;
+					})
+					.ease();
+			} else {
+
+				layers.master.transition()
+					.duration(duration)
+					.attr('transform', translator(0, yOffset) + ` scale(1)`)
+					.ease();
+			}
+		}
+
+		function setAccessibility(type){
+			const svgEl = d3.select('svg.main'),
+				descEl = svgEl.select('desc');
+
+			let accessibilityAttr = config.accessibilityAttrs.default;
+
+			if(type){
+				accessibilityAttr = config.accessibilityAttrs[type];
+			}
+
+			descEl.text(accessibilityAttr.desc);
+		}
+
+		function drawLayer(redraw, clicked, id) {
+			if (id === activeCompare) {
+				setAccessibility();
+				activeCompare = null;
+				zoom();
+			} else {
+				setAccessibility(id);
+				zoom('out');
+
+				if (!redraw) {
+					clicked.classed('facts__trigger--active', true);
+					activeCompare = id;
+				}
+			}
+			transitionLayers();
+			toggleFacts();
+			resizeSvg();
+		}
+
+		function drawMobileLayer(redraw, clicked, id) {
+			if (!redraw) {
+				clicked.classed('facts__trigger--active', true);
+				activeCompare = id;
+			}
+			setTimeout(() => transitionLayers(), 100);
+			toggleFacts();
+			resizeSvg();
+		}
+
+		function toggleLayer(redraw) {
+			const clicked = (redraw) ? null : d3.select(this),
+				id = (redraw) ? null : clicked.attr('data-trigger-id');
+
+			d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
+
+			typeof window !== 'undefined' && window.innerWidth > 959 ? drawLayer(redraw, clicked, id) : drawMobileLayer(redraw, clicked, id);
+
+		}
+
+		function toggleFacts() {
+			const currentFact = typeof window !== 'undefined' && window.innerWidth > 959 ? activeCompare : `mobile-${activeCompare}`
+			const targetSection = d3.select(`#${currentFact}-facts`),
+				sectionActive = 'facts__section--active';
+
+			d3.selectAll('.facts__section').classed(sectionActive, null);
+
+			targetSection.classed(sectionActive, true);
+		}
+
+		function transitionLayers() {
+			const unSelectedLayer = activeCompare === 'deficit' ? 'gdp' : 'deficit';
+
+			d3.selectAll(`.${unSelectedLayer}-layer`)
+				.attr('opacity', 0);
+
+			d3.selectAll(`.${activeCompare}-layer`)
+				.transition()
+				.duration(duration)
+				.attr('opacity', 1)
+				.ease();
+		}
+
+		function showDebt() {
+			layers.debt.transition()
+				.duration(duration)
+				.attr('opacity', 1)
+				.on('end', touchIe)
+				.ease();
+		}
+
+		function resetLayers() {
+			if (activeCompare) {
+				setTimeout(toggleLayer, 2000, 'redraw');
+			}
+		}
+
+		function layersInit() {
+			d3.selectAll('.facts__trigger').on('click', toggleLayer);
+			if(typeof window !== 'undefined' && window.innerWidth > 959) zoom();
+			showDebt();
+			setTimeout(revealHiddenElements, duration);
+		}
+
+
     setChartWidth();
     setMainContainer();
     setDotsPerRow();
@@ -55,15 +200,16 @@ const DebtIntro = () => {
 			startLegendAnimation(config);
 		}
 
+		createLayers(config);
+
     if(typeof window !== 'undefined') {
 			let timer = window.innerWidth < 959 ? 0 : 4500;
 
 			setTimeout(() => {
-				createLayers(config);
-				layersInit(config);
+				layersInit();
 			}, timer);
 		}
-  });
+  }, []);
 
 
   function resizeChart() {
@@ -77,7 +223,7 @@ const DebtIntro = () => {
 		}
 
     createLayers(config);
-    layersInit(config);
+    layersInit();
   }
 
 
