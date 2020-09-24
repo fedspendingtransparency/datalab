@@ -207,32 +207,28 @@ const DebtIntro = () => {
 				layersInit();
 			}, timer);
 		}
-  }, []);
 
+		function resizeChart() {
+			setChartWidth();
+			setDotsPerRow();
+			resetLayers();
 
-  function resizeChart() {
-    setChartWidth();
-    setDotsPerRow();
-    resetLayers();
+			if(Object.keys(config).indexOf('mainContainer') !== -1) {
+				config.mainContainer.selectAll('*')
+					.remove();
+			}
 
-    if(Object.keys(config).indexOf('mainContainer') !== -1) {
-			config.mainContainer.selectAll('*')
-				.remove();
+			createLayers(config);
+			layersInit();
 		}
 
-    createLayers(config);
-    layersInit();
-  }
-
-
-  useEffect(() => {
     window.addEventListener('resize', () => {
       if (debounce) {
-	clearTimeout(debounce);
+				clearTimeout(debounce);
       }
 
       if (previousWidth === window.innerWidth) {
-	return;
+				return;
       }
 
       previousWidth = window.innerWidth;
@@ -240,19 +236,19 @@ const DebtIntro = () => {
       debounce = setTimeout(resizeChart, 100);
     });
 
-    return (_) => {
+    return () => {
       window.removeEventListener('resize', () => {
-	if (debounce) {
-	  clearTimeout(debounce);
-	}
+			if (debounce) {
+				clearTimeout(debounce);
+			}
 
-	if (previousWidth === window.innerWidth) {
-	  return;
-	}
+			if (previousWidth === window.innerWidth) {
+				return;
+			}
 
-	previousWidth = window.innerWidth;
+			previousWidth = window.innerWidth;
 
-	debounce = setTimeout(resizeChart, 100);
+			debounce = setTimeout(resizeChart, 100);
       });
     };
   }, []);
