@@ -4,67 +4,75 @@
 @import 'toggleControl';
 
 .trends-common-wrapper {
-
-
-#viz {
-    overflow-x: hidden;
-    margin-top: -1rem;
-}
-
-.trend-chart {
-    max-width: 800px;
-    margin: 0 auto;
-    clear: both;
-}
-
-.trend-copy {
-
-    p:first-of-type {
-    margin-top: 0;
-    }
-}
-
-.trend-copy__text {
-    padding-right: 2rem;
-    box-sizing: border-box;
-}
-
-.tour {
-    clear: both;
-    max-width: 400px;
-}
-
-.show-hide__buttons--right {
-    text-align: right;
-}
-
-@media only screen and (min-width: 830px) {
-    .trend-flex {
-        display: flex;
-    }
-
-    .trend-copy {
-        width: 32%;
-        padding-right: 2rem;
-        box-sizing: border-box;
-
-        p:first-child {
-            margin-top: 0;
-        }
-    }
-
-    .trend-chart {
-        width: 68%;
-        box-sizing: border-box;
-    }
-
     #viz {
+        overflow-x: hidden;
         margin-top: -1rem;
     }
 
-    .chart-title {
-        margin-top: 0;
+    .trend-chart {
+        max-width: 800px;
+        margin: 0 auto;
+        clear: both;
     }
-}
 
+    .trend-copy {
+
+        p:first-of-type {
+        margin-top: 0;
+        }
+    }
+
+    .trend-copy__text {
+        padding-right: 2rem;
+        box-sizing: border-box;
+    }
+
+    .tour {
+        clear: both;
+        max-width: 400px;
+    }
+
+    .show-hide__buttons--right {
+        text-align: right;
+    }
+
+    @media only screen and (min-width: 830px) {
+        .trend-flex {
+            display: flex;
+        }
+
+        .trend-copy {
+            width: 32%;
+            padding-right: 2rem;
+            box-sizing: border-box;
+
+            p:first-child {
+                margin-top: 0;
+            }
+        }
+
+        .trend-chart {
+            width: 68%;
+            box-sizing: border-box;
+        }
+
+        #viz {
+            margin-top: -1rem;
+        }
+
+        .chart-title {
+            margin-top: 0;
+        }
+    }
+    
+    @media only screen and (max-width: 829px) {
+        .tour__revenue-trends {
+            margin-top: 28px;
+            margin-bottom: 36px;
+        }
+
+        .tour__spending-trends {
+            margin: 36px 0;
+        }
+    }
 }

@@ -1,21 +1,46 @@
-import 'src/styles/afg/cg.scss'
-import 'src/styles/afg/countryCommon.scss'
-import 'src/page-sections/debt/countries/debt-country-comparison.scss'
+import 'src/styles/afg/cg.scss';
+import 'src/styles/afg/countryCommon.scss';
+import 'src/page-sections/afg-debt/countries/debt-country-comparison.scss';
 
-import React from "react"
-import SEO from "src/components/seo"
-import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml"
-import AccordionList from 'src/components/accordion-list/accordion-list'
-import ControlBar from 'src/components/control-bar/control-bar'
-import Share from 'src/components/share/share'
+import React, { useState, useEffect } from "react";
+import SEO from "src/components/seo";
+import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml";
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
-import DebtCountryComparison from 'src/page-sections/debt/countries';
+import DebtCountryComparison from 'src/page-sections/afg-debt/countries';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function DebtCountryComparisonPage(props) {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1000);
+        }
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+    }, [])
+
+    const breadcrumbs = (
+        <a href="/americas-finance-guide/revenue/" className="chapter-link chapter-link--revenue">
+            <div className="chapter-link__text-block">
+                <div className="chapter-link__learn-more">Learn more about</div>
+                Federal Revenue
+            </div>
+            <FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right tour__angle-right" />
+        </a>
+    )
+
     return (
         <>
             <SEO
@@ -40,13 +65,7 @@ function DebtCountryComparisonPage(props) {
                             <p>How does the United States compare to countries of similar size and gross domestic product? Explore the chart, which shows the total debt of the United States compared to {AfgData.countries_compared.value} other countries listed in the CIA World Factbook. You can compare total debt (in dollars) and debt as a percent of gross domestic product. Find a country of interest and see for yourself. For instance, while the U.S. federal debt was greater than that of China and Japan combined, it ranked {AfgData.compare_us_debt_gdp_rank.value} in debt to gross domestic product. Because the U.S. government has more money coming in and going out than any other country, it helps to compare the debt of the U.S. government to other countries based on the size of their economies. To ensure an accurate comparison, {AfgData.country_compare_year.value} debt data is used in this section, not current fiscal year data.</p>
                             <p><em>Please note that the countries depicted in this chart have different forms of government, and these differences may impact the scope of finances reported by each country.</em></p>
                         </div>
-                        <a href="/americas-finance-guide/revenue/" className="chapter-link chapter-link--revenue">
-                            <div className="chapter-link__text-block">
-                                <div className="chapter-link__learn-more">Learn more about</div>
-                                Federal Revenue
-                            </div>
-                            <FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right tour__angle-right" />
-                        </a>
+                        {!isMobile && breadcrumbs}
                     </div>
                     <div className="country-chart">
                         <h2 className="chart-title">Country Comparison</h2>
@@ -54,6 +73,7 @@ function DebtCountryComparisonPage(props) {
                         <DebtCountryComparison />
                     </div>
                     <div className="clearfix"></div>
+                    {isMobile && breadcrumbs}
                     <section className="hwcta">
                         <AccordionList title="Data Sources and Methodology">
                             <p>This visualization was created using the <a href={AfgData.country_comparison_mspd.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source for federal government debt of the United States. Gross domestic product (GDP) figures come from the <a href={AfgData.imf_gdp.value} rel="noopener noreferrer" target="_blank">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>. Debt figures for countries other than the United States also come from the <a href={AfgData.imf_debt.value} rel="noopener noreferrer" target="_blank">IMF WEOD</a>. Since debt figures were provided in the national currency for the selected countries, the numbers were subsequently converted to U.S. dollars. Currency conversion rates were pulled from <a href={AfgData.xe_conversion.value} rel="noopener noreferrer" target="_blank">XE.com</a> for {AfgData.xe_conversion_date.value}; the last day of the U.S. federal government's fiscal year.</p>

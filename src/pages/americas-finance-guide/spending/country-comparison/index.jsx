@@ -1,21 +1,46 @@
-import 'src/styles/afg/cg.scss'
-import 'src/styles/afg/countryCommon.scss'
+import 'src/styles/afg/cg.scss';
+import 'src/styles/afg/countryCommon.scss';
 
-import React from "react"
-import { Link } from "gatsby"
-import SEO from "src/components/seo"
-import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml"
-import AccordionList from 'src/components/accordion-list/accordion-list'
-import ControlBar from 'src/components/control-bar/control-bar'
-import Share from 'src/components/share/share'
+import React, { useState, useEffect } from "react";
+import { Link } from "gatsby";
+import SEO from "src/components/seo";
+import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml";
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
-import SpendingCountryComparison from 'src/page-sections/spending/countries';
+import SpendingCountryComparison from 'src/page-sections/afg-spending/countries/index';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function SpendingCountryComparisonPage(props) {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1000);
+        }
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+    }, [])
+
+    const breadcrumbs = (
+        <Link to={"/americas-finance-guide/deficit/"} className="chapter-link chapter-link--deficit" >
+            <div className="chapter-link__text-block">
+                <div className="chapter-link__learn-more">Learn more about</div>
+                Federal Deficit
+            </div>
+            <FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right tour__angle-right" />
+        </Link>
+    )
+
     return (
         <>
             <SEO
@@ -40,13 +65,7 @@ function SpendingCountryComparisonPage(props) {
                             <p>How does the United States compare to countries of similar size and gross domestic product? Explore the chart, which shows the total spending of the United States compared to {AfgData.countries_compared.value} other countries listed in the CIA World Factbook.  You can compare spending (in dollars) and spending as a percent of gross domestic product. Find a country of interest and see for yourself. To ensure an accurate comparison, {AfgData.country_compare_year.value} spending data is used in this section, not current fiscal year data.</p>
                             <p><em>Please note that the countries depicted in this chart have different forms of government, and these differences may impact the scope of finances reported by each country.</em></p>
                         </div>
-                        <Link to={"/americas-finance-guide/deficit/"} className="chapter-link chapter-link--deficit" >
-                            <div className="chapter-link__text-block">
-                                <div className="chapter-link__learn-more">Learn more about</div>
-                                Federal Deficit
-                            </div>
-                            <FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right tour__angle-right" />
-                        </Link>
+                        {!isMobile && breadcrumbs}
                     </div>
                     <div className="country-chart">
                         <h2 className="chart-title">Country Comparison</h2>
@@ -54,6 +73,7 @@ function SpendingCountryComparisonPage(props) {
                         <SpendingCountryComparison />
                     </div>
                     <div className="clearfix"></div>
+                    {isMobile && breadcrumbs}
                     <section className="hwcta">
                         <AccordionList title="Data Sources and Methodology">
                             <p>The visualization was created using the <a href={AfgData.country_comparison_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. Gross domestic product (GDP) figures come from the <a href={AfgData.bea_gdp.value} rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. Gross domestic product data for countries other than the United States comes from the <a href={AfgData.imf_gdp.value} rel="noopener noreferrer" target="_blank">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>.</p>

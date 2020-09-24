@@ -1,6 +1,6 @@
 import 'src/styles/afg/chapterIntroCommon.scss';
 import 'src/styles/afg/cg.scss';
-import 'src/page-sections/deficit/intro/deficit-intro.scss';
+import 'src/page-sections/afg-deficit/intro/deficit-intro.scss';
 
 import React from 'react';
 import SEO from 'src/components/seo';
@@ -9,7 +9,7 @@ import Og from '../../../components/og-tag/og';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
-import DeficitIntro from 'src/page-sections/deficit/intro/index.js';
+import DeficitIntro from 'src/page-sections/afg-deficit/intro/index';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';

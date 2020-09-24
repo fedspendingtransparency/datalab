@@ -1,14 +1,14 @@
-import 'src/styles/afg/cg.scss'
-import 'src/page-sections/revenue/categories/revenue-categories.scss'
-import RevenueCategories from "src/page-sections/revenue/categories/index.js";
-import 'src/page-sections/revenue/categories/data.js'
+import 'src/styles/afg/cg.scss';
+import 'src/page-sections/afg-revenue/categories/revenue-categories.scss';
+import RevenueCategories from "src/page-sections/afg-revenue/categories/index";
+import 'src/page-sections/afg-revenue/categories/utils/data.js';
 
-import React from "react"
-import SEO from "src/components/seo"
-import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml"
-import AccordionList from 'src/components/accordion-list/accordion-list'
-import ControlBar from 'src/components/control-bar/control-bar'
-import Share from 'src/components/share/share'
+import React from "react";
+import SEO from "src/components/seo";
+import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml";
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,7 +18,7 @@ import {
     faSortAlphaDown,
     faSortAmountDown,
     faSortAlphaUp, faSortAmountUp,
-} from "@fortawesome/free-solid-svg-icons"
+} from "@fortawesome/free-solid-svg-icons";
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function RevenueCategoriesPage(props) {

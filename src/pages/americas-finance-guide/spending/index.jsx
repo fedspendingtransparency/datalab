@@ -1,9 +1,9 @@
 import 'src/styles/afg/chapterIntroCommon.scss';
 import 'src/styles/afg/cg.scss';
-import 'src/page-sections/spending/intro/spending-intro.scss';
+import 'src/page-sections/afg-spending/intro/spending-intro.scss';
 
 import React, { useEffect } from 'react';
-import SpendingIntro from 'src/page-sections/spending/intro/index';
+import SpendingIntro from 'src/page-sections/afg-spending/intro/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import SEO from 'src/components/seo';
@@ -13,7 +13,7 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
-import { setFactsTrigger } from 'src/page-sections/spending/intro/compareManager';
+import { setFactsTrigger } from 'src/afg-helpers/dots/revenue-and-spending/compareManager';
 
 import AnecdoteSpendingSVG from '../../../../static/americas-finance-guide/icons/anecdote-spending.svg';
 import DefinitionSpendingSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
