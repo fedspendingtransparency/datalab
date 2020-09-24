@@ -199,7 +199,7 @@ export function resetForResize() {
 }
 
 export function resetForResizeMobile() {
-	d3.select('viz')
+	d3.select('#viz')
 		.selectAll('*')
 		.remove();
 }

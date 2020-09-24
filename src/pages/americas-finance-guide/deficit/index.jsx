@@ -52,12 +52,15 @@ function ExploreDeficitPage(props) {
 		updateVizComponent(window.innerWidth > 959 ? mainVizComponent : <TabsWrapper tabs={tabs} />);
 	}
 
-	if (typeof window !== 'undefined') {
-		window.addEventListener('resize', handleResize);
-	}
-
   useEffect(() => {
 		handleResize();
+		
+		if (typeof window !== 'undefined') {
+			window.addEventListener('resize', handleResize);
+			return () => {
+				window.removeEventListener('resize', handleResize);
+			}
+		}
 	}, []);
 	
 	return (

@@ -62,7 +62,7 @@ const SpendingTab = () => {
     init();
 
     const resetAndInit = () => {
-      const x = config.mainContainer.selectAll('*').remove();
+      resetForResizeMobile();
 
       if (window.innerWidth < 960) {
         init();

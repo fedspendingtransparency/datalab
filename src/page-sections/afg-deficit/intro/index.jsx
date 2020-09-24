@@ -73,34 +73,24 @@ const DeficitIntro = () => {
   }
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
       if (debounce) {
         clearTimeout(debounce);
       }
-
+      
       if (previousWidth === window.innerWidth) {
         return;
       }
-
+      
       previousWidth = window.innerWidth;
-
+      
       debounce = setTimeout(resizeChart, 100);
-    });
+    }
 
-    return (_) => {
-      window.removeEventListener('resize', () => {
-        if (debounce) {
-          clearTimeout(debounce);
-        }
+    window.addEventListener('resize', handleResize);
 
-        if (previousWidth === window.innerWidth) {
-          return;
-        }
-
-        previousWidth = window.innerWidth;
-
-        debounce = setTimeout(resizeChart, 100);
-      });
+    return () => {
+      window.removeEventListener('resize', handleResize);
     };
   });
 
