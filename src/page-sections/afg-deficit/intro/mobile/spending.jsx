@@ -44,7 +44,7 @@ const SpendingTab = () => {
     
     const spendingCount = config.spendingAmount / 10000000000;
     const spendingRows = Math.ceil(spendingCount / dotsPerRow);
-    chartHeight = spendingRows * 5;
+    chartHeight = (spendingRows * 5) + 35;
     
     const mainContainer = establishContainer(chartHeight, window.innerWidth - 30, config.accessibilityAttrs).append('g').classed('main', true);
     config.mainContainer = mainContainer;

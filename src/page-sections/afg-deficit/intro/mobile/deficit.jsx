@@ -36,7 +36,7 @@ const DeficitTab = () => {
   const setMainContainer = () => {
     const count = config.deficitAmount / 10000000000;
     const rows = Math.ceil(count / dotsPerRow)
-    const chartHeight = (rows * 5) + 40;
+    const chartHeight = (rows * 5) + 35;
     
     const mainContainer = establishContainer(chartHeight, null, config.accessibilityAttrs).append('g').classed('main', true);
     config.mainContainer = mainContainer;

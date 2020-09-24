@@ -46,7 +46,7 @@ const DebtTab = () => {
     
     const debtCount = config.debtBalance / 10000000000;
     const debtRows = Math.ceil(debtCount / dotsPerRow);
-    chartHeight = debtRows * 5;
+    chartHeight = (debtRows * 5) + 35;
     
     const mainContainer = establishContainer(chartHeight, window.innerWidth - 30, config.accessibilityAttrs).append('g').classed('main', true);
     config.mainContainer = mainContainer;
