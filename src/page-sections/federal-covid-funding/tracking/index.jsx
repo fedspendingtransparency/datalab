@@ -50,7 +50,7 @@ import Phase3LoanTabletSVG from 'src/images/covid/tracking/tablet/phase3Loan.svg
 import Phase35TotalTabletSVG from 'src/images/covid/tracking/tablet/phase35Total.svg';
 import Phase35GeneralTabletSVG from 'src/images/covid/tracking/tablet/phase35General.svg';
 import Phase35LoanTabletSVG from 'src/images/covid/tracking/tablet/phase35Loan.svg';
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-24.yml'
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
 
 export default function Tracking(props) {
 
@@ -135,12 +135,12 @@ export default function Tracking(props) {
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalSVG,
-				width: 654,
+				width: 748,
 				className: 'lawTotal'
 			},
 			'Spending': {
 				svg: Phase3GeneralSVG,
-				width: 391,
+				width: 448,
 				className: 'spending'
 			},
 			'Loan': {
@@ -152,17 +152,17 @@ export default function Tracking(props) {
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalSVG,
-				width: 391,
+				width: 390,
 				className: 'lawTotal'
 			},
 			'Spending': {
 				svg: Phase35GeneralSVG,
-				width: 403,
+				width: 407,
 				className: 'spending'
 			},
 			'Loan': {
 				svg: Phase35LoanSVG,
-				width: 479,
+				width: 493,
 				className: 'loan'
 			},
 		}
@@ -190,29 +190,29 @@ export default function Tracking(props) {
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalTabletSVG,
-				width: 539,
+				width: 538,
 			},
 			'Spending': {
 				svg: Phase3GeneralTabletSVG,
-				width: 314,
+				width: 351,
 			},
 			'Loan': {
 				svg: Phase3LoanTabletSVG,
-				width: 314,
+				width: 351,
 			},
 		},
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalTabletSVG,
-				width: 318,
+				width: 319,
 			},
 			'Spending': {
 				svg: Phase35GeneralTabletSVG,
-				width: 401,
+				width: 402,
 			},
 			'Loan': {
 				svg: Phase35LoanTabletSVG,
-				width: 461,
+				width: 462,
 			},
 		}
 	}
@@ -269,7 +269,7 @@ export default function Tracking(props) {
 
 	const data = useStaticQuery(graphql`
     query {
-      totalsByLaw: allCovid19ResponseModalAgencytotalbylaw20200821Csv {
+      totalsByLaw: allCovid19ResponseModalAgencytotalbylaw20200921Csv {
 				group(field: Legislation) {
           fieldValue
 					nodes {
@@ -285,7 +285,7 @@ export default function Tracking(props) {
 					}
 				}
       }
-			total: allCovid19ResponseMain20200819Csv {
+			total: allCovid19ResponseMain20200921Csv {
         nodes {
 					label: Legislation
 					Percent_Outlayed
@@ -298,7 +298,7 @@ export default function Tracking(props) {
 					Loan_Program_Account
         }
       }
-			accountsByType: allCovid19ResponseModal20200819Csv {
+			accountsByType: allCovid19ResponseModal20200921Csv {
 				group(field: Legislation) {
           fieldValue
 					nodes {
