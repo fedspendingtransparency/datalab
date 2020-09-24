@@ -102,7 +102,8 @@ function handleLayers(id, reset) {
 }
 
 function toggleFacts() {
-  const button = window.innerWidth < 959 ? d3.select(this) : d3.select('.facts__trigger__tabs');
+  console.log('we are callin togglefacts');
+  const button = d3.select(this);
   const desktop = (document.documentElement.clientWidth > 959);
   const id = button.attr('data-trigger-id');
   const targetSection = d3.select(`#${id}-facts`);
@@ -131,8 +132,40 @@ function toggleFacts() {
   } else if (desktop) {
     handleLayers(id, true);
   }
-  console.log('we calling facts here');
 }
+
+function toggleFactsMobile() {
+  console.log('we are callin togglefacts Mobile!');
+  const button = d3.select(this);
+  const id = button.attr('data-trigger-id');
+  const targetSection = d3.select(`#${id}-facts`);
+  const wasPreviouslyActive = button.classed(buttonActive);
+
+  d3.selectAll('.facts__trigger')
+    .classed(buttonActive, null);
+  d3.selectAll('.facts__section')
+    .classed(sectionActive, null);
+
+  setLayerOpacity(Object.keys(layers)
+		  .filter((k) => k != id)[0]);
+
+  if (wasPreviouslyActive) {
+    setLayerOpacity(id);
+  } else {
+    button.classed(buttonActive, true);
+    targetSection.classed(sectionActive, true);
+    setLayerOpacity(id, true);
+  }
+
+  resizeSvg((id === 'gdp' && !wasPreviouslyActive));
+
+  if (!wasPreviouslyActive) {
+    handleLayers(id);
+  } else {
+    handleLayers(id, true);
+  }
+}
+
 
 function resizeSvg(gdp) {
   const h = gdp ? gdpHeight : originalHeight;
@@ -214,4 +247,9 @@ export function revealCompare() {
 
 export function setFactsTrigger() {
   d3.selectAll('.facts__trigger').on('click', toggleFacts);
+
+  /* need this for mobile.. */
+  setTimeout(() => {
+    d3.selectAll('.facts__trigger').on('click', toggleFactsMobile);
+  }, 4000);
 }
