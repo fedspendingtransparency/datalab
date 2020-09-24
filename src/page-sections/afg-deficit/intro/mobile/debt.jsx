@@ -46,7 +46,7 @@ const DebtTab = () => {
     
     const debtCount = config.debtBalance / 10000000000;
     const debtRows = Math.ceil(debtCount / dotsPerRow);
-    chartHeight = (debtRows * 5) + 65;
+    chartHeight = debtRows * 5;
     
     const mainContainer = establishContainer(chartHeight, window.innerWidth - 30, config.accessibilityAttrs).append('g').classed('main', true);
     config.mainContainer = mainContainer;
@@ -81,7 +81,7 @@ const DebtTab = () => {
     <>
       <div className="deficit-tab-viz">
         <div id="viz" />
-        <div className="intro-math">
+        <div className="intro-math" style={{ marginTop: 15 }}>
           <FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
           {AfgData.dot_number_deficit.value} dots x {AfgData.dot_represents.value} = <strong>{AfgData.current_fy_deficit.value}</strong>
         </div>
