@@ -24,7 +24,7 @@ function ExploreDeficitPage(props) {
 	const mainVizComponent = (
 		<>
 			<DeficitIntro />
-			<div className="intro-math">
+			<div className="intro-math intro-hidden">
 				<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
 				{AfgData.dot_number_deficit.value} dots x {AfgData.dot_represents.value} = <strong>{AfgData.current_fy_deficit.value}</strong>
 			</div>
