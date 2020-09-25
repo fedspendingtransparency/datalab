@@ -47,22 +47,18 @@ function resizeSvg() {
 function zoom(out) {
     const yOffset = 35;
 
-    if (out) {
-        layers.master.transition()
-            .duration(duration)
-            .attr('transform', function() {
-                if (isMobileDevice()) {
-                    return translator(0, yOffset);
-                }
-
-                return translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`;
-            })
-            .ease();
-    } else {
-        layers.master.transition()
-            .duration(duration)
-            .attr('transform', translator(0, yOffset) + ` scale(1)`)
-            .ease();
+    if (!isMobileDevice()) {
+        if (out) {
+            layers.master.transition()
+                .duration(duration)
+                .attr('transform', () => translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`)
+                .ease();
+        } else {
+            layers.master.transition()
+                .duration(duration)
+                .attr('transform', translator(0, yOffset) + ` scale(1)`)
+                .ease();
+        }
     }
 }
 

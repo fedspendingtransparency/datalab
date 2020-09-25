@@ -174,8 +174,5 @@ export function fadeAndRemove(selection, duration) {
 }
 
 export function isMobileDevice() {
-	if (typeof window !== 'undefined') {
-		return (typeof window.orientation !== 'undefined') || (navigator.userAgent.indexOf('IEMobile') !== -1);
-	}
-	return false;
+	return typeof window !== 'undefined' && window.innerWidth < 960;
 }

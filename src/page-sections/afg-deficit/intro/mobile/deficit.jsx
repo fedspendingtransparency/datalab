@@ -36,7 +36,7 @@ const DeficitTab = () => {
   const setMainContainer = () => {
     const count = config.deficitAmount / 10000000000;
     const rows = Math.ceil(count / dotsPerRow)
-    const chartHeight = (rows * 5) + 35;
+    const chartHeight = (rows * 5) + 45;
     
     const mainContainer = establishContainer(chartHeight, null, config.accessibilityAttrs).append('g').classed('main', true);
     config.mainContainer = mainContainer;
@@ -44,8 +44,8 @@ const DeficitTab = () => {
 
   const init = () => {
     setChartWidth(0.7);
-    setMainContainer();
     setDotsPerRow();
+    setMainContainer();
     initMobileLegend(config);
     createMobileLayers(config);
   }
