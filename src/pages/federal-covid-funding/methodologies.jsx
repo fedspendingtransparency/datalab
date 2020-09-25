@@ -1,7 +1,7 @@
 import React from 'react';
 import FootnoteAnchor from '../../components/footnotes/footnote-anchor';
 import HWCTA from '../../components/hwcta/hwcta';
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml'
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
 
 const C19HWTCA = ({ location }) => {
   const title = 'The Federal Response to COVID-19';
@@ -190,7 +190,7 @@ const C19HWTCA = ({ location }) => {
           <sup><a href="#fr19">19</a></sup> Detailed instructions on how agencies should be classified is provided here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md">https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md.</a>
           The list of shared agencies identified by FREC can be found here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker">https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a>
         </p>
-        <p>For a complete download of the data, download this file: <a href='/data/federal-covid-spending/tracking/covid19_response_download_2020-08-19.xlsx'>COVID-19 Response Data</a>
+        <p>For a complete download of the data, download this file: <a href={`/data/federal-covid-spending/tracking/${CovidCopy.dsm_download}`}>COVID-19 Response Data</a>
         </p>
         </>
     )
