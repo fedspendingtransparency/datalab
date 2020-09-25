@@ -1,36 +1,35 @@
-|
-  carestotal_round: 2.09
-    creditavail_trill: 3
-    creditavailprecise_trill: 3.11
-    creditused_bill: 809
-    frbavail_trill: 2.3
-    frbused_bill: 86
-    law1: 7
-    law1outlays_bill: 1
-    law2: 17
-    law2outlays_bill: 9
-    law3: 2.09
-    law3gen_trill: 1.19
-    law3loans_bill: 898
-    law3outlays_trill: 1.18
-    law4: 483
-    law4gen_bill: 112
-    law4loans_bill: 371
-    law4outlays_bill: 357
-    legislationvalue_trill: 3.5
-    loanspending_trillions: 1.27
-    monthday: "September 1"
-    reportingdate: "September 1, 2020"
-    taxrelief_billion: 902
-    top4percent: 0.91
-    topagency1: "Department of the Treasury"
-    topagency2: "Small Business Administration"
-    topagency3: "Department of Labor"
-    topagency4: "Department of Health & Human Services"
-    totalbudgetresources: 2.59
-    totcredit_trillions: 3.92
-    totobligations_trillions: 1.68
-    totoutlays_trillions: 1.55
-    viz1csv: "covid19_Viz_1_Data_Download_2020-09-21.csv"
-    viz3csv: "covid19_response_Viz_3_Data_Download_2020-09-21.csv"
-    vizdates: "September 2020"
+carestotal_round: 2.09
+creditavail_trill: 3
+creditavailprecise_trill: 3.11
+creditused_bill: 809
+frbavail_trill: 2.3
+frbused_bill: 86
+law1: 7
+law1outlays_bill: 1
+law2: 17
+law2outlays_bill: 9
+law3: 2.09
+law3gen_trill: 1.19
+law3loans_bill: 898
+law3outlays_trill: 1.18
+law4: 483
+law4gen_bill: 112
+law4loans_bill: 371
+law4outlays_bill: 357
+legislationvalue_trill: 3.5
+loanspending_trillions: 1.27
+monthday: "September 1"
+reportingdate: "September 1, 2020"
+taxrelief_billion: 902
+top4percent: 0.91
+topagency1: "Department of the Treasury"
+topagency2: "Small Business Administration"
+topagency3: "Department of Labor"
+topagency4: "Department of Health & Human Services"
+totalbudgetresources: 2.59
+totcredit_trillions: 3.92
+totobligations_trillions: 1.68
+totoutlays_trillions: 1.55
+viz1csv: "covid19_Viz_1_Data_Download_2020-09-21.csv"
+viz3csv: "covid19_response_Viz_3_Data_Download_2020-09-21.csv"
+vizdates: "September 2020"
