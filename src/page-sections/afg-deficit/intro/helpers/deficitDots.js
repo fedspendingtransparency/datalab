@@ -49,7 +49,7 @@ function markDots(startPosition) {
 function placeDots(startPosition, width) {
   let isMobile  = (width <= 959); // 959 mobile value for afg
   let dotVal = (isMobile) ? 10000000000 : 1000000000;
-  const deficitInBillions = config.reportedDeficitAmount / dotVal;
+  const deficitInBillions = config.deficitAmount / dotVal;
   const rowOneCount = dotsPerRow - startPosition.remainder;
   const fullRows = Math.floor((deficitInBillions - rowOneCount) / dotsPerRow);
 

@@ -16,6 +16,7 @@ const DeficitIntro = () => {
     spendingAmount: findAmountInCsv('federal spending', DeficitData),
     debtBalance: findAmountInCsv('federal debt', DeficitData),
     reportedDeficitAmount: findAmountInCsv('federal deficit', DeficitData),
+    deficitAmount: Math.abs(findAmountInCsv('federal deficit', DeficitData)),
     compareString: 'revenue',
     revenueColor: colors.colorPrimary,
     spendingColor: colors.colorSpendingPrimary,
