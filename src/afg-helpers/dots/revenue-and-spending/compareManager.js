@@ -4,14 +4,8 @@ import { dotConstants, dotsPerRow } from './dotConstants';
 import { translator } from 'src/afg-helpers/utils';
 import { touchIe } from 'src/afg-helpers/touchIe';
 
-const stateManager = {};
 const layers = {};
 const duration = 500;
-const idMap = {
-  gdp: '#gdp-facts',
-  revenue: '#revenue-facts',
-};
-
 const sectionActive = 'facts__section--active';
 const buttonActive = 'facts__trigger--active';
 
@@ -102,7 +96,6 @@ function handleLayers(id, reset) {
 }
 
 function toggleFacts() {
-  console.log('we are callin togglefacts');
   const button = d3.select(this);
   const desktop = (document.documentElement.clientWidth > 959);
   const id = button.attr('data-trigger-id');
@@ -115,7 +108,7 @@ function toggleFacts() {
     .classed(sectionActive, null);
 
   setLayerOpacity(Object.keys(layers)
-		  .filter((k) => k != id)[0]);
+    .filter((k) => k != id)[0]);
 
   if (wasPreviouslyActive) {
     setLayerOpacity(id);
@@ -135,7 +128,7 @@ function toggleFacts() {
 }
 
 function toggleFactsMobile() {
-  console.log('we are callin togglefacts Mobile!');
+  console.log('toggle facts mobile');
   const button = d3.select(this);
   const id = button.attr('data-trigger-id');
   const targetSection = d3.select(`#${id}-facts`);
@@ -146,16 +139,13 @@ function toggleFactsMobile() {
   d3.selectAll('.facts__section')
     .classed(sectionActive, null);
 
-  setLayerOpacity(Object.keys(layers)
-		  .filter((k) => k != id)[0]);
 
-  if (wasPreviouslyActive) {
-    setLayerOpacity(id);
-  } else {
-    button.classed(buttonActive, true);
-    targetSection.classed(sectionActive, true);
-    setLayerOpacity(id, true);
-  }
+  setLayerOpacity(Object.keys(layers)
+    .filter((k) => k != id)[0]);
+
+  button.classed(buttonActive, true);
+  targetSection.classed(sectionActive, true);
+  setLayerOpacity(id, true);
 
   resizeSvg((id === 'gdp' && !wasPreviouslyActive));
 
@@ -186,8 +176,8 @@ export function generateOverlay(count, container, className, color) {
   const rectColor = color || '#ccc';
 
   const overlayLayer = container.append('g')
-	.attr('data-rect-height', overlayHeight)
-	.classed(className, true);
+    .attr('data-rect-height', overlayHeight)
+    .classed(className, true);
 
   overlayLayer.attr('opacity', 0);
 
@@ -251,5 +241,5 @@ export function setFactsTrigger() {
   /* need this for mobile.. */
   setTimeout(() => {
     d3.selectAll('.facts__trigger').on('click', toggleFactsMobile);
-  }, 4000);
+  }, 3000);
 }

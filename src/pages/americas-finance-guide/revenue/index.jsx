@@ -15,14 +15,12 @@ import AnecdoteRevenueSVG from '../../../../static/americas-finance-guide/icons/
 import DefinitionSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
 import RevenueIntro from 'src/page-sections/afg-revenue/intro/index';
 import { setFactsTrigger } from 'src/afg-helpers/dots/revenue-and-spending/compareManager';
-import { afgDesktop } from 'src/styles/variables.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function RevenueAndGdpPage(props) {
-  // RevenueIntro component used as placeholder until the mobile dot viz components are finished
   const tabs = [
     {
       label: 'Revenue',

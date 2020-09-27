@@ -133,6 +133,23 @@ export function initDot() {
     .ease();
 }
 
+export function initDotMobile() {
+  const dotColor = config.sectionColor;
+  largeDot.append('circle')
+    .attr('cx', radius)
+    .attr('cy', radius)
+    .attr('r', 1)
+    .attr('fill', dotColor)
+    .transition()
+    .duration(100)
+    .attr('r', radius)
+    .on('end', addText.bind({
+      largeDot,
+      radius,
+    }))
+    .ease();
+}
+
 export function startLegendAnimation(_config) {
   const introX = chartWidth < introWidth ? 0 : (chartWidth / 2) - (introWidth / 2);
   const scaleDotLegend = chartWidth < 430 ? 0.85 : 1;
