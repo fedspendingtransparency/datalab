@@ -95,10 +95,21 @@ function handleRevenueLayer(reset) {
     .ease();
 }
 
+function updateMainSvg(id) {
+  console.log('updating main svg');
+
+  d3.select('svg.main')
+  .transition()
+  .duration(500)
+  .attr('height', 400);
+}
+
 function handleLayers(id, reset) {
   if (id === 'gdp') {
+    updateMainSvg(id)
     handleGdpLayer(reset);
   } else {
+    updateMainSvg(id)
     handleRevenueLayer(reset);
   }
 }
@@ -161,7 +172,7 @@ function toggleFactsMobile() {
   } else {
     handleLayers(id, true);
   }
-  
+
   if (window.innerWidth < 959) {
     return;
   } else {
