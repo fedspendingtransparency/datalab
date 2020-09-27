@@ -13,7 +13,6 @@ export let dotsPerRow;
 export function setDotsPerRow() {
     let width = chartWidth;
     if(typeof window != 'undefined' && window.innerWidth < 959) {
-        console.log('this is running lol');
         width = width * .645;
     }   
     const workingWidth = width - dotConstants.radius;

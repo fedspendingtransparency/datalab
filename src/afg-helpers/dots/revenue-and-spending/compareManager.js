@@ -149,8 +149,6 @@ function toggleFactsMobile() {
   setLayerOpacity(Object.keys(layers)
     .filter((k) => k != id)[0]);
 
-  console.log(layers);
-
   if (wasPreviouslyActive) {
     setLayerOpacity(id);
   } else {
@@ -189,6 +187,7 @@ export function generateOverlay(count, container, className, color) {
   const secondaryRectHeight = (dotConstants.radius * 2) + spacing / 2;
   const overlayHeight = mainRectHeight + secondaryRectHeight;
   const rectColor = color || '#ccc';
+  const opacity = window.innerWidth < 959 ? '0.4' : '0.8';
 
   const overlayLayer = container.append('g')
     .attr('data-rect-height', overlayHeight)
@@ -200,20 +199,19 @@ export function generateOverlay(count, container, className, color) {
     .attr('width', dotsPerRow * dotConstants.offset.x)
     .attr('height', mainRectHeight)
     .attr('fill', rectColor)
-    .attr('opacity', 0.8);
+    .attr('opacity', opacity);
 
   overlayLayer.append('rect')
     .attr('width', remainder * dotConstants.offset.x)
     .attr('y', mainRectHeight)
     .attr('height', secondaryRectHeight)
     .attr('fill', rectColor)
-    .attr('opacity', 0.8);
+    .attr('opacity', opacity);
 
   return overlayLayer;
 }
 
 export function registerLayer(id, layer, _n, _config) {
-  console.log(id);
   config = _config || config;
   layers[id] = layer;
   const n = _n;

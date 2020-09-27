@@ -45,7 +45,10 @@ function RevenueAndGdpPage(props) {
   const [vizComponent, updateVizComponent] = useState(<RevenueIntro />);
 
   const handleResize = () => {
-    updateVizComponent(window.innerWidth > 959 ? <RevenueIntro /> : <TabsWrapper tabs={tabs} />);
+	updateVizComponent(window.innerWidth > 959 ? <RevenueIntro /> : <TabsWrapper tabs={tabs} />);
+	if (window.innerWidth <= 959) {
+		setFactsTrigger(); // reappend listener to dom
+	}
   };
 
   if (typeof window !== 'undefined') {

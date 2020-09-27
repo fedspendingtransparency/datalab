@@ -59,19 +59,20 @@ function placeLegend(g) {
 function placeLegendMobile(g) {
 	const legendContainer = g.append('g')
 		.classed(`${config.compareString}-step-two`, true)
-		.attr('opacity', 0);
+		.attr('opacity', 1);
 	const { compareString } = config;
-	const textX = -50;
 	const comparisonAmount = config.comparisonAmount || 0;
 	const height = Number(compareLayer.attr('data-rect-height'));
+	const rectWidth = d3.select('g.undefined-layer').node().getBoundingClientRect().width;
+
 	const line = d3.line()
 		.x((d) => d.x)
 		.y((d) => d.y);
 	const lineData = [
-		{ x: textX, y: 0 },
-		{ x: textX, y: 0 },
-		{ x: textX, y: 0 },
-		{ x: textX, y: 0 },
+		{ x: rectWidth + 10, y: 0 },
+		{ x: rectWidth + 20 , y: 0 },
+		{ x: rectWidth + 20 , y: height },
+		{ x: rectWidth + 10, y: height },
 	];
 	const text = legendContainer.append('text')
 		.classed('reset touch-label', true)
@@ -90,15 +91,15 @@ function placeLegendMobile(g) {
 	text.append('tspan')
 		.text('Federal ' + `${compareString.charAt(0).toUpperCase()}${compareString.slice(1)}`)
 		.style('font-weight', '600')
-		.attr('x', 600)
+		.attr('x', rectWidth + 120)
 		.attr('dx', 0)
-		.attr('dy', height);
+		.attr('dy', 20);
 
 	text.append('tspan')
 		.text(simplifyNumber(comparisonAmount))
-		.attr('x', textX)
+		.attr('x', rectWidth + 60)
 		.attr('dx', 0)
-		.attr('dy', 0);
+		.attr('dy', 20);
 }
 
 export function initRevenueOverlay(_config) {

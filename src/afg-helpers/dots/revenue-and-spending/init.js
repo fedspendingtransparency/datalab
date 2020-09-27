@@ -35,7 +35,7 @@ export function initChartMobile(_config) {
   setDotsPerRow();
 
   establishContainer(500, chartWidth, config.accessibilityAttrs.default);
-  initDotMobile(); // replace animation.. this gets called at the end of the animation;
+  initDotMobile();
 };
 
 export function resizeChart() {

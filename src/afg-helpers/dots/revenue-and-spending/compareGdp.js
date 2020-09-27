@@ -3,7 +3,6 @@ import { line } from 'd3-shape';
 import {
   establishContainer, translator, simplifyNumber, findAmountInCsv,
 } from 'src/afg-helpers/utils';
-import { dotConstants } from './dotConstants';
 import { generateOverlay, registerLayer} from './compareManager';
 import { createDonut } from '../donut';
 import colors from '../../../styles/afg/colors.scss';
