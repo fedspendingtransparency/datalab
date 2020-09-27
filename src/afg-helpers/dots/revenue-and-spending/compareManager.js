@@ -139,14 +139,17 @@ function toggleFactsMobile() {
   d3.selectAll('.facts__section')
     .classed(sectionActive, null);
 
-
   setLayerOpacity(Object.keys(layers)
     .filter((k) => k != id)[0]);
 
-  button.classed(buttonActive, true);
-  targetSection.classed(sectionActive, true);
-  setLayerOpacity(id, true);
-
+    if (wasPreviouslyActive) {
+      setLayerOpacity(id);
+    } else {
+      button.classed(buttonActive, true);
+      targetSection.classed(sectionActive, true);
+      setLayerOpacity(id, true);
+    }
+ 
   resizeSvg((id === 'gdp' && !wasPreviouslyActive));
 
   if (!wasPreviouslyActive) {
@@ -239,7 +242,9 @@ export function setFactsTrigger() {
   d3.selectAll('.facts__trigger').on('click', toggleFacts);
 
   /* need this for mobile.. */
-  setTimeout(() => {
-    d3.selectAll('.facts__trigger').on('click', toggleFactsMobile);
-  }, 3000);
-}
+  if (window.innerWidth < 959) {
+    setTimeout(() => {
+      d3.selectAll('.facts__trigger').on('click', toggleFactsMobile);
+    }, 3000); 
+  }
+ }

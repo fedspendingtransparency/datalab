@@ -71,6 +71,7 @@ function readyDots(width) {
   }
 }
 
+
 export function placeDots(_config) {
   d3.select('.main-container').remove();
   config = _config || config;

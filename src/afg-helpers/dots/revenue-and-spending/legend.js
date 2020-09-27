@@ -113,7 +113,11 @@ function addText() {
     .attr('opacity', 1)
     .ease();
 
-  setTimeout(buildLegend, 200);
+    if (window.innerWidth < 959) {
+      setTimeout(buildLegend, 1000);
+    } else {
+      setTimeout(buildLegend, 200); // change this back possibly.. getting stuff to render
+    }
 }
 
 export function initDot() {

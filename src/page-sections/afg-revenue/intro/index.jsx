@@ -34,10 +34,10 @@ const RevenueIntro = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       initChart(config);
-/*       if (window.innerWidth < 959) {
+      if (window.innerWidth < 959) {
         initChartMobile(config);
-      };
- */    }
+      }
+     }
   }, []);
 
   useEffect(() => {
