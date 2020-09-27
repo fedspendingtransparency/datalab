@@ -32,6 +32,10 @@ function handleGdpLayer(reset) {
   setAccessibility(accessibilityType);
   mainContainer.classed('gdp-active', !reset);
 
+  if (window.innerWidth < 959) {
+    return;
+  }
+
   mainContainer.transition()
     .duration(2000)
     .attr('transform', `${translator(x, 30)} scale(${scale})`)
@@ -72,6 +76,10 @@ function handleRevenueLayer(reset) {
 
   setAccessibility(accessibilityType);
   mainContainer.classed('gdp-active', !reset);
+
+  if (window.innerWidth < 959) {
+    return;
+  }
 
   mainContainer.transition()
     .duration(2000)
@@ -128,7 +136,6 @@ function toggleFacts() {
 }
 
 function toggleFactsMobile() {
-  console.log('toggle facts mobile');
   const button = d3.select(this);
   const id = button.attr('data-trigger-id');
   const targetSection = d3.select(`#${id}-facts`);
@@ -142,23 +149,28 @@ function toggleFactsMobile() {
   setLayerOpacity(Object.keys(layers)
     .filter((k) => k != id)[0]);
 
-    if (wasPreviouslyActive) {
-      setLayerOpacity(id);
-    } else {
-      button.classed(buttonActive, true);
-      targetSection.classed(sectionActive, true);
-      setLayerOpacity(id, true);
-    }
- 
-  resizeSvg((id === 'gdp' && !wasPreviouslyActive));
+  console.log(layers);
 
+  if (wasPreviouslyActive) {
+    setLayerOpacity(id);
+  } else {
+    button.classed(buttonActive, true);
+    targetSection.classed(sectionActive, true);
+    setLayerOpacity(id, true);
+  }
   if (!wasPreviouslyActive) {
     handleLayers(id);
   } else {
     handleLayers(id, true);
   }
-}
+  
+  if (window.innerWidth < 959) {
+    return;
+  } else {
+    resizeSvg((id === 'gdp' && !wasPreviouslyActive));
+  }
 
+}
 
 function resizeSvg(gdp) {
   const h = gdp ? gdpHeight : originalHeight;
@@ -201,6 +213,7 @@ export function generateOverlay(count, container, className, color) {
 }
 
 export function registerLayer(id, layer, _n, _config) {
+  console.log(id);
   config = _config || config;
   layers[id] = layer;
   const n = _n;
@@ -245,6 +258,6 @@ export function setFactsTrigger() {
   if (window.innerWidth < 959) {
     setTimeout(() => {
       d3.selectAll('.facts__trigger').on('click', toggleFactsMobile);
-    }, 3000); 
+    }, 3000);
   }
- }
+}

@@ -114,9 +114,11 @@ function addText() {
     .ease();
 
     if (window.innerWidth < 959) {
-      setTimeout(buildLegend, 1000);
+      //setTimeout(buildLegend, 1000);
+      placeDots(config);
+      return;
     } else {
-      setTimeout(buildLegend, 200); // change this back possibly.. getting stuff to render
+      setTimeout(buildLegend, 200);
     }
 }
 

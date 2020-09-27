@@ -1,9 +1,8 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
-import { establishContainer, translator, simplifyNumber } from 'src/afg-helpers/utils';
-import { dotConstants } from './dotConstants';
+import { establishContainer, simplifyNumber } from 'src/afg-helpers/utils';
 import {
-	compareOn, compareOff, generateOverlay, registerLayer,
+	generateOverlay, registerLayer,
 } from './compareManager';
 import colors from '../../../styles/afg/colors.scss';
 
@@ -57,6 +56,51 @@ function placeLegend(g) {
 		.attr('dy', 30);
 }
 
+function placeLegendMobile(g) {
+	const legendContainer = g.append('g')
+		.classed(`${config.compareString}-step-two`, true)
+		.attr('opacity', 0);
+	const { compareString } = config;
+	const textX = -50;
+	const comparisonAmount = config.comparisonAmount || 0;
+	const height = Number(compareLayer.attr('data-rect-height'));
+	const line = d3.line()
+		.x((d) => d.x)
+		.y((d) => d.y);
+	const lineData = [
+		{ x: textX, y: 0 },
+		{ x: textX, y: 0 },
+		{ x: textX, y: 0 },
+		{ x: textX, y: 0 },
+	];
+	const text = legendContainer.append('text')
+		.classed('reset touch-label', true)
+		.attr('fill', colors.textColorParagraph)
+		.attr('text-anchor', 'end')
+		.attr('x', 0)
+		.attr('y', 0)
+		.style('font-size', 24);
+
+	legendContainer.append('path')
+		.attr('d', line(lineData))
+		.attr('fill', 'none')
+		.attr('stroke', '#aaa')
+		.attr('stroke-width', 2);
+
+	text.append('tspan')
+		.text('Federal ' + `${compareString.charAt(0).toUpperCase()}${compareString.slice(1)}`)
+		.style('font-weight', '600')
+		.attr('x', 600)
+		.attr('dx', 0)
+		.attr('dy', height);
+
+	text.append('tspan')
+		.text(simplifyNumber(comparisonAmount))
+		.attr('x', textX)
+		.attr('dx', 0)
+		.attr('dy', 0);
+}
+
 export function initRevenueOverlay(_config) {
 	config = _config || config;
 
@@ -66,7 +110,9 @@ export function initRevenueOverlay(_config) {
 
 	compareLayer = generateOverlay(compareCount, svg.select('.main-container'), `${config.comparisonString}-layer`, config.comparisonColor);
 
-	if (typeof document !== 'undefined' && document.documentElement.clientWidth > 959) {
+	if (typeof window !== 'undefined' && window.innerWidth < 959) {
+		placeLegendMobile(compareLayer);
+	} else {
 		placeLegend(compareLayer);
 	}
 
