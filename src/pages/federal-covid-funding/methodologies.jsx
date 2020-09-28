@@ -159,11 +159,11 @@ const C19HWTCA = ({ location }) => {
         </p>
         <p>
           <FootnoteAnchor footnoteId="fn12" />
-          <sup><a href="#fr12">12</a></sup> <a target="_blank" href="https://www.sba.gov/document/report-covid-19-eidl-loans-report-07-15-20">https://www.sba.gov/document/report-covid-19-eidl-loans-report-07-15-20</a>
+          <sup><a href="#fr12">12</a></sup> <a target="_blank" href="https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/economic-injury-disaster-loans">https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/economic-injury-disaster-loans</a>
         </p>
         <p>
           <FootnoteAnchor footnoteId="fn13" />
-          <sup><a href="#fr13">13</a></sup> <a target="_blank" href="https://www.sba.gov/document/report-paycheck-protection-program-report-through-july-17-2020">https://www.sba.gov/document/report-paycheck-protection-program-report-through-july-17-2020</a>
+          <sup><a href="#fr13">13</a></sup> <a target="_blank" href="https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/paycheck-protection-program">https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/paycheck-protection-program</a>
         </p>
         <p>
           <FootnoteAnchor footnoteId="fn14" />
