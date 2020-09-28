@@ -3,10 +3,12 @@ import colors from '../../../../styles/afg/colors.scss';
 import { simplifyNumber } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
 import DebtData from '../../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
+import { select, selectAll } from 'd3-selection';
+import { transition } from 'd3-transition';
 
 const gdpLabelFy = 'FY' + DebtData[0].year.toString().slice(2) ;
 
-const d3 = { line },
+const d3 = { select, selectAll, line },
     duration = 1500,
     scaleFactor = 0.6,
     lineFn = d3.line()
@@ -56,6 +58,7 @@ function gdpText(text, amount) {
         .attr('dy', 24);
 }
 
+// deficit text
 function standardText(text, label, amount) {
     text.append('tspan')
         .text(label)
@@ -100,6 +103,61 @@ export function labelMaker(parent, height, label, amount) {
         gdpText(text, amount, text);
     } else {
         standardText(text, label, amount);
+    }
+
+    layer.transition().duration(duration * 1.5).attr('opacity', 1);
+}
+
+function mobileStandardText(text, label, amount) {
+    const vizWidth = d3.select('.debt-layer').node().getBBox().width;
+    const padding = 40;
+    text.append('tspan')
+      .text(label)
+      .style('font-size', '.875rem')
+      .style('font-weight', '600')
+      .attr('x', vizWidth + padding + 40 - 12)
+      .attr('dx', 0)
+      .attr('dy', -24);
+
+    text.append('tspan')
+      .text(simplifyNumber(amount))
+      .style('font-size', '.875rem')
+      .attr('x', vizWidth + padding + 40)
+      .attr('dx', 0)
+      .attr('dy', 24);
+}
+
+export function mobileLabelMaker(parent, height, label, amount) {
+    const vizWidth = d3.select('.debt-layer').node().getBBox().width;
+    const padding = 10;
+    const lineData = [
+          { x: vizWidth + padding, y: 0 },
+          { x: vizWidth + padding + 10, y: 0 },
+          { x: vizWidth + padding + 10, y: height },
+          { x: vizWidth + padding, y: height }
+      ],
+      spending = label === 'Spending',
+      layer = parent.append('g').attr('opacity', 0).classed('legend', true),
+      text = layer.append('text')
+        .attr('fill', colors.textColorParagraph)
+        .classed('touch-label', true)
+        .attr('text-anchor', 'end')
+        .attr('x', 0)
+        .attr('y', height / 2 + 15)
+        .style('font-size', 24);
+
+    layer.append('path')
+      .attr('d', lineFn(lineData))
+      .attr('fill', 'none')
+      .attr('stroke', '#aaa')
+      .attr('stroke-width', 2);
+
+    if (label === 'GDP') {
+        text.attr('y', height / 2 - 60);
+
+        gdpText(text, amount, text);
+    } else {
+        mobileStandardText(text, label, amount);
     }
 
     layer.transition().duration(duration * 1.5).attr('opacity', 1);

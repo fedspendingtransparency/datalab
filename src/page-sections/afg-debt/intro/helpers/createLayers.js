@@ -2,7 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { line } from 'd3-shape';
 import { dotsPerRow, dotConstants } from "./dotConstants";
-import { labelMaker } from './layerLegends';
+import { labelMaker, mobileLabelMaker } from './layerLegends';
 import { initDebtDots } from './debtDots';
 import { translator, isMobileDevice } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
@@ -68,8 +68,10 @@ function generateOverlay(number, id, label, rectColor) {
     //     }
     // }
 
-    if (!isMobileDevice()) {
+    if (typeof window !== 'undefined' && window.innerWidth > 959) {
         labelMaker(overlayLayer, overlayHeight, label, amount);
+    } else {
+        mobileLabelMaker(overlayLayer, overlayHeight, label, amount);
     }
 
     overlayLayer.attr('data-height', overlayHeight);
