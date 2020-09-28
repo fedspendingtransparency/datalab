@@ -1,11 +1,9 @@
 import { select, selectAll } from 'd3-selection';
-import { transition } from 'd3-transition';
 import { dotConstants, dotsPerRow } from './dotConstants';
 import { establishContainer, translator } from 'src/afg-helpers/utils';
 import { initRevenueOverlay } from './compareRevenue';
 import { initGdp } from './compareGdp';
 import { revealCompare } from './compareManager';
-import colors from '../../../styles/afg/colors.scss';
 
 const d3 = { select, selectAll };
 
@@ -26,14 +24,14 @@ function dotFactory(container, x, y) {
 function readyDots(width) {
   if (typeof window !== 'undefined') {
 
-    let isMobile  = (width <= 959);
+    let isMobile = (width <= 959);
 
     const dotContainer = svg.append('g')
-	  .classed('main-container', true)
-	  .attr('transform', translator(0, 30))
-	  .append('g')
-	  .classed('spending-dots', true)
-	  .attr('opacity', 0);
+      .classed('main-container', true)
+      .attr('transform', translator(0, 30))
+      .append('g')
+      .classed('spending-dots', true)
+      .attr('opacity', 0);
 
     let dotVal = (isMobile) ? 10000000000 : 1000000000;
     let i = 0;
@@ -47,8 +45,8 @@ function readyDots(width) {
       x += dotConstants.offset.x;
 
       if ((i + 1) % dotsPerRow === 0) {
-	y += dotConstants.offset.y;
-	x = dotConstants.radius;
+        y += dotConstants.offset.y;
+        x = dotConstants.radius;
       }
     }
 

@@ -100,18 +100,12 @@ function updateMainSvg(id) {
     d3.select('svg.main')
     .transition()
     .duration(200)
-    .attr('height', 400); 
+    .attr('height', 410); 
   } else if (id === 'gdp') {
     d3.select('svg.main')
     .transition()
     .duration(200)
-    .attr('height', 500); 
-  } else {
-    // revenue
-    d3.select('svg.main')
-    .transition()
-    .duration(200)
-    .attr('height', 80); 
+    .attr('height', 510); 
   }
 }
 
@@ -282,6 +276,6 @@ export function setFactsTrigger() {
   if (window.innerWidth < 959) {
     setTimeout(() => {
       d3.selectAll('.facts__trigger').on('click', toggleFactsMobile);
-    }, 3000);
+    }, 2000);
   }
 }

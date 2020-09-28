@@ -64,6 +64,20 @@
   #compare-options {
     padding: 1rem;
   }
+  
+  @media (max-width: 959) { 
+    .dotScale {
+      margin: 15px 0;
+
+      svg circle {
+        fill: #4a0072;
+      }
+      span {
+        font-size: 0.875rem;
+        color: #555;
+      }
+    }
+  }
 
   @media only (min-width: 961px) and (max-width: 989px) {
     .tour {

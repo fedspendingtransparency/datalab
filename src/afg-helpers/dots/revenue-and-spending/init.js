@@ -1,10 +1,10 @@
 import { select, selectAll } from 'd3-selection';
 import { establishContainer } from 'src/afg-helpers/utils';
 import { placeDots } from './placeDots';
-import { startLegendAnimation, initDotMobile } from './legend';
+import { startLegendAnimation } from './legend';
 import { setChartWidth, chartWidth } from './widthManager';
 import { setDotsPerRow } from './dotConstants';
-import { resetForResize } from './compareManager';
+import { resetForResize, svgResizeMobile } from './compareManager';
 import { triggerMainInfoBox } from 'src/afg-helpers/infoBox';
 
 const d3 = { select, selectAll };
@@ -26,23 +26,20 @@ export function initChart(_config) {
 }
 
 export function initChartMobile(_config) {
-  triggerMainInfoBox();
 
   d3.select('#viz').selectAll('*').remove();
   config = _config || config;
 
   setChartWidth();
   setDotsPerRow();
-
   establishContainer(500, chartWidth, config.accessibilityAttrs.default);
-  initDotMobile();
 };
 
 export function resizeChart() {
   if (typeof document !== 'undefined') {
-    if(Object.keys(config).indexOf('mainContainer') !== -1) {
+    if (Object.keys(config).indexOf('mainContainer') !== -1) {
       config.mainContainer.selectAll('*')
-	.remove();
+        .remove();
     }
     setChartWidth();
     setDotsPerRow();

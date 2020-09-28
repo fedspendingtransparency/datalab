@@ -95,8 +95,7 @@ function placeLegend(g) {
 function placeLegendMobile(g) {
   const legendContainer = g.append('g')
 	.classed('gdp-step-two', true)
-	.attr('opacity', 0);
-  const textX = -50;
+	.attr('opacity', 1);
   const rectWidth = d3.select('g.gdp-layer').node().getBoundingClientRect().width;
   const height = getNewSvgHeight();
   const { gdpAmount } = config;
@@ -104,10 +103,10 @@ function placeLegendMobile(g) {
 	.x((d) => d.x)
 	.y((d) => d.y);
   const lineData = [
-    { x: textX + 10, y: 0 },
-    { x: textX + 20, y: 0 },
-    { x: textX + 20, y: height },
-    { x: textX + 10, y: height },
+    { x: rectWidth + 10, y: 0 },
+    { x: rectWidth + 20, y: 0 },
+    { x: rectWidth + 20, y: height / 3 },
+    { x: rectWidth + 10, y: height / 3 },
   ];
   const text = legendContainer.append('text')
 	.classed('reset touch-label', true)
@@ -126,43 +125,43 @@ function placeLegendMobile(g) {
   text.append('tspan')
     .text(gdpLabelFy)
     .style('font-weight', '600')
-    .attr('x', 600)
+    .attr('x', rectWidth + 120)
     .attr('dx', 0)
-    .attr('dy', 0);
+    .attr('dy', 60);
 
   text.append('tspan')
-    .text('U.S.')
+    .text('FY20 U.S.')
     .style('font-weight', '600')
     .attr('x', rectWidth + 120)
     .attr('dx', 0)
-    .attr('dy', 20);
+    .attr('dy', 60);
 
   text.append('tspan')
     .text('Gross')
     .style('font-weight', '600')
     .attr('x', rectWidth + 120)
     .attr('dx', 0)
-    .attr('dy', 20);
+    .attr('dy', 60);
 
   text.append('tspan')
     .text('Domestic')
     .style('font-weight', '600')
-    .attr('x', 600)
+    .attr('x', rectWidth + 120)
     .attr('dx', 0)
-    .attr('dy', 20);
+    .attr('dy', 60);
 
   text.append('tspan')
     .text('Product')
     .style('font-weight', '600')
     .attr('x', rectWidth + 120)
     .attr('dx', 0)
-    .attr('dy', 20);
+    .attr('dy', 60);
 
   text.append('tspan')
     .text(simplifyNumber(gdpAmount))
-    .attr('x', rectWidth + 60)
+    .attr('x', rectWidth + 90)
     .attr('dx', 0)
-    .attr('dy', 25);
+    .attr('dy', 60);
 }
 
 function placeDonut(g) {

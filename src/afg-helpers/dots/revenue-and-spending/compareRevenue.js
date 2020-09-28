@@ -93,7 +93,7 @@ function placeLegendMobile(g) {
 		.style('font-weight', '600')
 		.attr('x', rectWidth + 120)
 		.attr('dx', 0)
-		.attr('dy', 20);
+		.attr('dy', height / 2);
 
 	text.append('tspan')
 		.text(simplifyNumber(comparisonAmount))
