@@ -115,26 +115,29 @@ function mobileStandardText(text, label, amount) {
       .text(label)
       .style('font-size', '.875rem')
       .style('font-weight', '600')
-      .attr('x', vizWidth + padding + 40 - 12)
+      .attr('x', vizWidth + padding + 30)
       .attr('dx', 0)
-      .attr('dy', -24);
+      .attr('dy', -10);
 
     text.append('tspan')
       .text(simplifyNumber(amount))
       .style('font-size', '.875rem')
       .attr('x', vizWidth + padding + 40)
       .attr('dx', 0)
-      .attr('dy', 24);
+      .attr('dy', 14);
 }
 
 export function mobileLabelMaker(parent, height, label, amount) {
     const vizWidth = d3.select('.debt-layer').node().getBBox().width;
     const padding = 10;
+    // const lineData = [
+    //     { x: vizWidth + padding, y: height / 2 }
+    // ];
     const lineData = [
-          { x: vizWidth + padding, y: 0 },
-          { x: vizWidth + padding + 10, y: 0 },
-          { x: vizWidth + padding + 10, y: height },
-          { x: vizWidth + padding, y: height }
+          { x: vizWidth + padding, y: 2 },
+          { x: vizWidth + padding + 10, y: 2 },
+          { x: vizWidth + padding + 10, y: height + 2 },
+          { x: vizWidth + padding, y: height + 2 }
       ],
       spending = label === 'Spending',
       layer = parent.append('g').attr('opacity', 0).classed('legend', true),
