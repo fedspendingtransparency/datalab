@@ -92,6 +92,79 @@ function placeLegend(g) {
     .attr('dy', 25);
 }
 
+function placeLegendMobile(g) {
+  const legendContainer = g.append('g')
+	.classed('gdp-step-two', true)
+	.attr('opacity', 0);
+  const textX = -50;
+  const rectWidth = d3.select('g.gdp-layer').node().getBoundingClientRect().width;
+  const height = getNewSvgHeight();
+  const { gdpAmount } = config;
+  const line = d3.line()
+	.x((d) => d.x)
+	.y((d) => d.y);
+  const lineData = [
+    { x: textX + 10, y: 0 },
+    { x: textX + 20, y: 0 },
+    { x: textX + 20, y: height },
+    { x: textX + 10, y: height },
+  ];
+  const text = legendContainer.append('text')
+	.classed('reset touch-label', true)
+	.attr('fill', colors.textColorParagraph)
+	.attr('text-anchor', 'end')
+	.attr('x', 0)
+	.attr('y', 0) // (height / 2 - 60)
+	.style('font-size', 24);
+
+  legendContainer.append('path')
+    .attr('d', line(lineData))
+    .attr('fill', 'none')
+    .attr('stroke', '#aaa')
+    .attr('stroke-width', 2);
+
+  text.append('tspan')
+    .text(gdpLabelFy)
+    .style('font-weight', '600')
+    .attr('x', 600)
+    .attr('dx', 0)
+    .attr('dy', 0);
+
+  text.append('tspan')
+    .text('U.S.')
+    .style('font-weight', '600')
+    .attr('x', rectWidth + 120)
+    .attr('dx', 0)
+    .attr('dy', 20);
+
+  text.append('tspan')
+    .text('Gross')
+    .style('font-weight', '600')
+    .attr('x', rectWidth + 120)
+    .attr('dx', 0)
+    .attr('dy', 20);
+
+  text.append('tspan')
+    .text('Domestic')
+    .style('font-weight', '600')
+    .attr('x', 600)
+    .attr('dx', 0)
+    .attr('dy', 20);
+
+  text.append('tspan')
+    .text('Product')
+    .style('font-weight', '600')
+    .attr('x', rectWidth + 120)
+    .attr('dx', 0)
+    .attr('dy', 20);
+
+  text.append('tspan')
+    .text(simplifyNumber(gdpAmount))
+    .attr('x', rectWidth + 60)
+    .attr('dx', 0)
+    .attr('dy', 25);
+}
+
 function placeDonut(g) {
   const y = d3.select('.spending-dots').attr('data-rect-height');
   const r = 50;
@@ -119,10 +192,12 @@ export function initGdp(_config) {
 
   gdpLayer = generateOverlay(gdpCount, svg.select('.main-container'), 'gdp-layer');
 
-  if (typeof document !== 'undefined' && document.documentElement.clientWidth > 959) {
-    placeDonut(gdpLayer);
+  if (typeof window !== 'undefined' && window.innerWidth < 959) {
+    placeLegendMobile(gdpLayer);
+  } else {
+    // desktop
     placeLegend(gdpLayer);
+    placeDonut(gdpLayer);
   }
-
   registerLayer('gdp', gdpLayer, getNewSvgHeight());
 }

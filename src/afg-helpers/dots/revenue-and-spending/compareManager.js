@@ -96,20 +96,35 @@ function handleRevenueLayer(reset) {
 }
 
 function updateMainSvg(id) {
-  console.log('updating main svg');
-
-  d3.select('svg.main')
-  .transition()
-  .duration(500)
-  .attr('height', 400);
+  if (id === 'spending') {
+    d3.select('svg.main')
+    .transition()
+    .duration(200)
+    .attr('height', 400); 
+  } else if (id === 'gdp') {
+    d3.select('svg.main')
+    .transition()
+    .duration(200)
+    .attr('height', 500); 
+  } else {
+    // revenue
+    d3.select('svg.main')
+    .transition()
+    .duration(200)
+    .attr('height', 80); 
+  }
 }
 
 function handleLayers(id, reset) {
   if (id === 'gdp') {
-    updateMainSvg(id)
+    if (window.innerWidth < 959) {
+      updateMainSvg(id)
+    }
     handleGdpLayer(reset);
   } else {
-    updateMainSvg(id)
+    if (window.innerWidth < 959) {
+      updateMainSvg(id)
+    }
     handleRevenueLayer(reset);
   }
 }
