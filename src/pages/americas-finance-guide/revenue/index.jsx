@@ -56,7 +56,7 @@ function RevenueAndGdpPage(props) {
   }
 
   useEffect(() => {
-    handleResize();
+	updateVizComponent(window.innerWidth > 959 ? <RevenueIntro /> : <TabsWrapper tabs={tabs} />);
     setFactsTrigger();
   }, []);
 

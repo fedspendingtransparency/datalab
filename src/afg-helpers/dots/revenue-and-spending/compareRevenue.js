@@ -80,7 +80,7 @@ function placeLegendMobile(g) {
 		.attr('text-anchor', 'end')
 		.attr('x', 0)
 		.attr('y', 0)
-		.style('font-size', 24);
+		.style('font-size', 20);
 
 	legendContainer.append('path')
 		.attr('d', line(lineData))
@@ -91,13 +91,13 @@ function placeLegendMobile(g) {
 	text.append('tspan')
 		.text('Federal ' + `${compareString.charAt(0).toUpperCase()}${compareString.slice(1)}`)
 		.style('font-weight', '600')
-		.attr('x', rectWidth + 120)
+		.attr('x', rectWidth + 180)
 		.attr('dx', 0)
 		.attr('dy', height / 2);
 
 	text.append('tspan')
 		.text(simplifyNumber(comparisonAmount))
-		.attr('x', rectWidth + 60)
+		.attr('x', rectWidth + 100)
 		.attr('dx', 0)
 		.attr('dy', 20);
 }

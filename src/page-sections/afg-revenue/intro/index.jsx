@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { initChart, initChartMobile, resizeChart } from '../../../afg-helpers/dots/revenue-and-spending/init';
 import colors from '../../../styles/afg/colors.scss';
 import revenueData from '../../../../static/americas-finance-guide/data/federal_revenue_gdp.csv';
-//  import { vizHeight } from 'src/afg-helpers/utils';
 import { findAmountInCsv } from 'src/afg-helpers/utils';
 
 const RevenueIntro = () => {
@@ -14,7 +13,7 @@ const RevenueIntro = () => {
     gdpAmount: findAmountInCsv('gdp', revenueData),
     gdpPercent: findAmountInCsv('federal revenue percent of gdp', revenueData) * 100,
     sectionAmount: findAmountInCsv('federal revenue', revenueData),
-    comparisonColor: colors.colorSpendingPrimary,
+    comparisonColor: colors.colorSpendingPrimary, 
     sectionColor: colors.revenuePrimary,
     accessibilityAttrs: {
       default: {
@@ -34,22 +33,13 @@ const RevenueIntro = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      initChart(config);
       if (window.innerWidth < 959) {
         initChartMobile(config);
+      } else {
+        initChart(config);
       }
     }
   }, []);
-
-  useEffect(() => {
-    const scaleFactor = 0.6;
-    
-    function resizeSvg() {
-      const h = (activeCompare) ? vizHeight * scaleFactor + 40 : vizHeight;
-
-      establishContainer().transition().duration(duration).attr('height', h);
-    }
-  });
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -73,8 +63,8 @@ const RevenueIntro = () => {
 
   return (<>
     <div className='dotScale'>
-      <svg width='1rem' height='1.05rem'>
-        <circle cx='6' cy='11' r='4' />
+      <svg width='1.5rem' height='1.5rem'>
+        <circle cx='6' cy='13' r='4' />
       </svg>
       <span>= $10 billion</span>
     </div>

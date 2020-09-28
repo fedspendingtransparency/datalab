@@ -3,9 +3,11 @@ import { chartWidth } from './widthManager';
 import { dotConstants, dotsPerRow } from './dotConstants';
 import { translator } from 'src/afg-helpers/utils';
 import { touchIe } from 'src/afg-helpers/touchIe';
+import { addSpendingLegend } from 'src/afg-helpers/dots/revenue-and-spending/legend';
 
 const layers = {};
 const duration = 500;
+const scaleFactor = 0.6;
 const sectionActive = 'facts__section--active';
 const buttonActive = 'facts__trigger--active';
 
@@ -113,11 +115,14 @@ function handleLayers(id, reset) {
   if (id === 'gdp') {
     if (window.innerWidth < 959) {
       updateMainSvg(id)
+      // add gdp legend (todo)
     }
     handleGdpLayer(reset);
   } else {
+    // spending
     if (window.innerWidth < 959) {
       updateMainSvg(id)
+      addSpendingLegend();
     }
     handleRevenueLayer(reset);
   }

@@ -21,7 +21,7 @@ function dotFactory(container, x, y) {
     .style('fill', color);
 }
 
-function readyDots(width) {
+export function readyDots(width) {
   if (typeof window !== 'undefined') {
 
     let isMobile = (width <= 959);

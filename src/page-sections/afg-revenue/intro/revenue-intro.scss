@@ -65,16 +65,17 @@
     padding: 1rem;
   }
   
-  @media (max-width: 959) { 
+  @media (max-width: 959px) { 
     .dotScale {
       margin: 15px 0;
 
       svg circle {
-        fill: #4a0072;
+        fill: $revenue-primary;
       }
       span {
         font-size: 0.875rem;
         color: #555;
+        padding-right: 2.5rem;
       }
     }
   }
