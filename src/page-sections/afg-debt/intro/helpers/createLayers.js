@@ -10,15 +10,17 @@ import { createDonut } from '../../../../afg-helpers/dots/donut';
 
 const d3 = { select, selectAll, transition, line },
     duration = 1500,
-    billion = 1000000000;
+    billion = 1000000000,
+    tenbillion = 10000000000;
 
 export const layers = {};
 
 let config;
 
 function generateOverlay(number, id, label, rectColor) {
+    const dotScale = typeof window !== 'undefined' && window.innerWidth > 959 ? billion : tenbillion;
     const amount = (id === 'debt') ? number - config.deficitAmount : number,
-        count = Math.ceil(amount / billion),
+        count = Math.ceil(amount / dotScale),
         debtRowOne = (id === 'debt') ? dotsPerRow - deficitRemainder : 0,
         rows = Math.floor((count - debtRowOne) / dotsPerRow),
         remainder = (count - debtRowOne) % dotsPerRow,
