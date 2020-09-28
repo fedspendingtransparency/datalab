@@ -73,7 +73,7 @@ const DeficitTab = () => {
         <div id="viz" />
         <div className="intro-math">
           <FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
-          {AfgData.dot_number_deficit.value} dots x {AfgData.dot_represents.value} = <strong>{AfgData.current_fy_deficit.value}</strong>
+          {AfgData.dot_number_deficit_mobile.value} dots x {AfgData.dot_represents_mobile.value} = <strong>{AfgData.current_fy_deficit.value}</strong>
         </div>
       </div>
       <div className="deficit-tab-main-text">
