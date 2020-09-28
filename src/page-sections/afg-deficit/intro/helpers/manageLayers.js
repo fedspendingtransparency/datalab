@@ -93,16 +93,23 @@ function setAccessibility(type) {
     descEl.text(accessibilityAttr.desc);
 }
 
-function toggleLayer(redraw) {
+function toggleLayer(redraw, initialId) {
     const clicked = (redraw) ? null : d3.select(this);
-    const id = (redraw) ? null : clicked.attr('data-trigger-id');
+    const resize = initialId === 'deficit' || initialId === 'debt'
+    let id = null;
+    if (resize) {
+        id = initialId
+    } else if (!redraw) {
+        id = clicked.attr('data-trigger-id');
+    }
+
     const noDelay = (!redraw && id === 'debt' && activeCompare !== 'deficit');
 
     if (doubleClickBlocker(id) && !redraw) {
         return;
     };
 
-    if (id === activeCompare) {
+    if (id === activeCompare && !resize) {
         d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
         zoom();
         deficitOnly();
@@ -111,7 +118,10 @@ function toggleLayer(redraw) {
         resizeSvg();
         showHideMath();
         setAccessibility();
+        setActiveLayer('')
         return;
+    } else {
+        setActiveLayer(id)
     }
 
     if (!redraw) {
@@ -302,6 +312,12 @@ function deficitOnly() {
         .attr('opacity', 0)
 }
 
+export let activeLayer = '';
+
+export function setActiveLayer(id) {
+    activeLayer = id;
+}
+
 export function resetLayers() {
     if (activeCompare) {
         setTimeout(toggleLayer, 1000, 'redraw');
@@ -315,4 +331,10 @@ export function layersInit(_config) {
     deficitOnly();
     setTimeout(showHideMath, duration * 2);
     setTimeout(revealHiddenElements, duration);
+    
+    const button = d3.select(`#data-trigger-${activeLayer}`);
+    if (!button.empty()) {
+        toggleLayer(null, button.attr('data-trigger-id'))
+        button.classed('facts__trigger--active', true);
+    }
 }

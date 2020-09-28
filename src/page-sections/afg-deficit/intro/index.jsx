@@ -82,7 +82,7 @@ const DeficitIntro = () => {
       if (previousWidth === window.innerWidth) {
         return;
       }
-      
+
       previousWidth = window.innerWidth;
       
       debounce = setTimeout(resizeChart, 100);

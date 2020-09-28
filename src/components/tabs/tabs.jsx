@@ -4,6 +4,7 @@ import Tab from '@material-ui/core/Tab';
 import { withStyles } from '@material-ui/styles';
 import TabPanel from './tab-panel';
 import { legacyBlue } from 'src/styles/variables.scss';
+import { activeLayer, setActiveLayer } from 'src/page-sections/afg-deficit/intro/helpers/manageLayers';
 
 const StyledTabs = withStyles({
   root: {
@@ -30,12 +31,15 @@ const StyledTab = withStyles((theme) => ({
 }))((props) => <Tab disableRipple {...props} />)
 
 const TabsWrapper = ({ tabs }) => {
-  const [value, setValue] = useState(0);
-
+  const layers = ['', 'deficit', 'debt'];
+  
+  const [value, setValue] = useState(layers.indexOf(activeLayer) || 0);
+  
   const handleChange = (e, newValue) => {
-    setValue(newValue)
+    setValue(newValue);
+    setActiveLayer(layers[newValue]);
   }
-
+  
   return (
     <>
       <StyledTabs
