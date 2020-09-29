@@ -33,6 +33,10 @@ function toggleFacts() {
 }
 
 function resizeSvg() {
+    if (isMobileDevice()) {
+        return;
+    }
+
     let h = 300;
 
     if (activeCompare === 'debt') {
@@ -63,7 +67,9 @@ function zoom(out) {
 }
 
 function showHideMath() {
-    d3.selectAll('.intro-math').classed('intro-math--hidden', activeCompare);
+    if (!isMobileDevice()) {
+        d3.selectAll('.intro-math').classed('intro-math--hidden', activeCompare);
+    }
 }
 
 function doubleClickBlocker(id) {
