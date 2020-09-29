@@ -12,6 +12,7 @@ import { touchIe } from 'src/afg-helpers/touchIe';
 import DebtData from '../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
 import './debt-intro.scss';
 import colors from '../../../styles/afg/colors.scss';
+import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 
 const DebtIntro = () => {
@@ -54,7 +55,6 @@ const DebtIntro = () => {
   useEffect(() => {
 
 		const d3 = { select, selectAll },
-			scaleFactor = 0.6,
 			duration = 1000;
 
 		let activeCompare;
@@ -65,9 +65,8 @@ const DebtIntro = () => {
 		}
 
 		function resizeSvg() {
-			const scaleFactorByView = (typeof window !== 'undefined' && window.innerWidth <= 959) ? 1.1 : scaleFactor;
-			const h = (activeCompare) ? vizHeight * scaleFactorByView + 40 : vizHeight;
-
+			const scaleFactor = 1.1;
+			const h = vizHeight * scaleFactor + 40;
 			establishContainer().transition().duration(duration).attr('height', h);
 		}
 
@@ -260,7 +259,7 @@ const DebtIntro = () => {
 			<svg width='.75rem' height='1rem'>
 				<circle cx='3' cy='12' r='3' />
 			</svg>
-			<span>= $10 billion</span>
+			<span>= {AfgData.dot_represents_mobile.value}</span>
 		</div>
 		<div id="viz" />
 		</>);
