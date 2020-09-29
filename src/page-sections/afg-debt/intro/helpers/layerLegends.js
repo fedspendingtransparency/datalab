@@ -115,15 +115,13 @@ function mobileStandardText(text, label, amount) {
       .text(label)
       .style('font-size', '.875rem')
       .style('font-weight', '600')
-      .attr('x', vizWidth + padding + 30)
-      .attr('dx', 0)
+      .attr('x', vizWidth + padding)
       .attr('dy', -10);
 
     text.append('tspan')
       .text(simplifyNumber(amount))
       .style('font-size', '.875rem')
-      .attr('x', vizWidth + padding + 40)
-      .attr('dx', 0)
+      .attr('x', vizWidth + padding)
       .attr('dy', 14);
 }
 
