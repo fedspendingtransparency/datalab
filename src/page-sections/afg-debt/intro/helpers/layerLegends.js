@@ -127,6 +127,52 @@ function mobileStandardText(text, label, amount) {
       .attr('dy', 14);
 }
 
+function mobileGdpText(text, amount) {
+    const vizWidth = d3.select('.gdp-layer').node().getBBox().width;
+    const padding = 20;
+    text.append('tspan')
+      .text(gdpLabelFy)
+      .style('font-weight', '600')
+      .style('font-size', '.875rem')
+      .attr('x', vizWidth + padding)
+      .attr('dx', 0)
+      .attr('dy', 0);
+
+    text.append('tspan')
+      .text('U.S.')
+      .style('font-weight', '600')
+      .attr('x', vizWidth + padding)
+      .attr('dx', 0)
+      .attr('dy', 24);
+
+    text.append('tspan')
+      .text('Gross')
+      .style('font-weight', '600')
+      .attr('x', vizWidth + padding)
+      .attr('dx', 0)
+      .attr('dy', 24);
+
+    text.append('tspan')
+      .text('Domestic')
+      .style('font-weight', '600')
+      .attr('x', vizWidth + padding)
+      .attr('dx', 0)
+      .attr('dy', 24);
+
+    text.append('tspan')
+      .text('Product')
+      .style('font-weight', '600')
+      .attr('x', vizWidth + padding)
+      .attr('dx', 0)
+      .attr('dy', 24);
+
+    text.append('tspan')
+      .text(simplifyNumber(amount))
+      .attr('x', vizWidth + padding)
+      .attr('dx', 0)
+      .attr('dy', 24);
+}
+
 export function mobileLabelMaker(parent, height, label, amount) {
     const vizWidth = d3.select('.debt-layer').node().getBBox().width;
     const padding = 10;
@@ -158,7 +204,7 @@ export function mobileLabelMaker(parent, height, label, amount) {
     if (label === 'GDP') {
         text.attr('y', height / 2 - 60);
 
-        gdpText(text, amount, text);
+        mobileGdpText(text, amount, text);
     } else {
         mobileStandardText(text, label, amount);
     }

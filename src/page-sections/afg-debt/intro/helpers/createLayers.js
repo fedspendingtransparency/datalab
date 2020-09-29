@@ -99,6 +99,25 @@ function placeDonut(g) {
     createDonut(donutContainer, config.gdpPercent / 100, r * 2, config.debtColor);
 }
 
+function mobilePlaceDonut(g) {
+    const r = 18;
+    const y = d3.select('.debt-layer').node().getBBox().height + 20;
+    const x = chartWidth / 4 - 65;
+
+    const donutContainer = g.append('g')
+      .classed('donut', true)
+      .attr('transform', translator(x, y) + ' scale(1.67)');
+
+    donutContainer.append('circle')
+      .attr('fill', 'white')
+      .attr('opacity', 0.85)
+      .attr('r', r)
+      .attr('cx', r)
+      .attr('cy', r);
+
+    createDonut(donutContainer, config.gdpPercent / 100, r * 2, config.debtColor);
+}
+
 function createGdp() {
     generateOverlay(config.gdpAmount, 'gdp', 'GDP', '#777');
     if (!isMobileDevice()) {
