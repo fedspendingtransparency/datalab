@@ -190,10 +190,10 @@ export function mobileLabelMaker(parent, height, label, amount) {
       text = layer.append('text')
         .attr('fill', colors.textColorParagraph)
         .classed('touch-label', true)
-        .attr('text-anchor', 'end')
+        .attr('text-anchor', 'start')
         .attr('x', 0)
         .attr('y', height / 2 + 15)
-        .style('font-size', 24);
+        .style('font-size', '0.875rem');
 
     layer.append('path')
       .attr('d', lineFn(lineData))
