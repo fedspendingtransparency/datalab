@@ -3,6 +3,7 @@ import ModalReference from 'src/components/modal/modal';
 import styles from './modal.module.scss';
 import { Grid } from '@material-ui/core';
 
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
 import Medical from 'src/svgs/federal-covid-spending/tracking/law-summary-modal/medical.svg';
 import Individuals from 'src/svgs/federal-covid-spending/tracking/law-summary-modal/individuals.svg';
 import Government from 'src/svgs/federal-covid-spending/tracking/law-summary-modal/government.svg';
@@ -12,7 +13,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
     '1': {
       title: 'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
       enactedDate: 'March 6, 2020',
-      funding: '$7 BILLION',
+      funding: `$${CovidCopy.law1}B`,
       content: [
         {
           title: 'Medical Care & Research',
@@ -35,7 +36,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
     '2': {
       title: 'Families First Coronavirus Response Act',
       enactedDate: 'March 18, 2020',
-      funding: '$14 BILLION',
+      funding: `$${CovidCopy.law2}B`,
       content: [
         {
           title: 'Medical Care & Research',
@@ -64,7 +65,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
     '3': {
       title: 'Coronavirus Aid, Relief, and Economic Security Act (CARES ACT)',
       enactedDate: 'March 27, 2020',
-      funding: '$2.07 TRILLION',
+      funding: `$${CovidCopy.law3}T`,
       content: [
         {
           title: 'Medical Care & Research',
@@ -98,7 +99,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
     '3.5': {
       title: 'Paycheck Protection Program and Health Care Enhancement Act',
       enactedDate: 'April 24, 2020',
-      funding: '$483 BILLION',
+      funding: `$${CovidCopy.law4}B`,
       content: [
         {
           title: 'Medical Care & Research',

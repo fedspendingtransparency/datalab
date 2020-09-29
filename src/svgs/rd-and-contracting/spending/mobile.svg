@@ -145,7 +145,7 @@
             <rect id="Detail-Icon" x="0" y="0" width="11.4297803" height="11.4297803"></rect>
           </g>
         </g>
-        <text id="SHOW-DETAILS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="12" font-weight="300" fill="#666666">
+        <text id="SHOW-DETAILS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="0.75rem" font-weight="300" fill="#666666">
           <tspan id="SHow-Details-Text" x="17.4967188" y="12.8897656">SHOW DETAILS</tspan>
         </text>
       </g>

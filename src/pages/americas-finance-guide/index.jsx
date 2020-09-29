@@ -1,25 +1,23 @@
-import '../../libs/ffg/src/globalSass/cg.scss';
-import '../../libs/ffg/src/bigPicture/scss/bp.scss';
-
 import React, { useEffect } from "react";
-import SEO from "../../components/seo";
-import Og from '../../components/og-tag/og';
-import AfgData from "../../libs/_data/object_mapping.yml";
-import Default from "../../components/layouts/default/default";
-import AccordionList from '../../components/accordion-list/accordion-list';
-import ControlBar from '../../components/control-bar/control-bar';
-import Share from '../../components/share/share';
-import { Helmet } from 'react-helmet';
-import BpToc from '../../components/bpToc/bpToc';
-import AfgAnecdote from '../../libs/ffg/src/anecdote/anecdote';
-// import ffgOverviewImg from '../../images/ffg/social-media-share-overview.jpg';
+import SEO from "src/components/seo";
+import Og from 'src/components/og-tag/og';
+import AfgData from "../../../static/americas-finance-guide/_data/object_mapping.yml";
+import Default from "src/components/layouts/default/default";
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
+import BpToc from 'src/components/bpToc/bpToc';
+import AfgAnecdote from 'src/components/anecdote/anecdote';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleDown, faStreetView } from '@fortawesome/free-solid-svg-icons';
-import { AFGHeader } from '../../components/headers/headers';
+import { AFGHeader } from 'src/components/headers/headers';
 
-import 'src/libs/ffg/src/bigPicture/parallax';
-import 'src/libs/ffg/src/bigPicture/scrollTo';
+import 'src/afg-helpers/big-picture/parallax';
+import 'src/afg-helpers/big-picture/scrollTo';
 import smoothscroll from 'smoothscroll-polyfill';
+
+import 'src/styles/afg/cg.scss';
+import 'src/afg-helpers/big-picture/scss/bp.scss';
 
 export default function OverviewPage(props) {
   useEffect(() => {
@@ -78,7 +76,7 @@ export default function OverviewPage(props) {
 
               <div className="chapter__flex">
                 <div className="chapter__primary">
-                  <h1 className="chapter__heading">In {AfgData.current_fy.value},<br></br>the federal government <span className="chapter__big-number">collected {AfgData.current_fy_revenue.value} in revenue.</span></h1>
+                  <h1 className="chapter__heading">In {AfgData.current_fy.value}, the federal government <span className="chapter__big-number">collected {AfgData.current_fy_revenue.value} in revenue.</span></h1>
 
                   <section className="anecdote">
                     {/* <!-- controls --> */}
@@ -165,7 +163,7 @@ export default function OverviewPage(props) {
 
               <div className="chapter__flex">
                 <div className="chapter__primary">
-                  <h1 className="chapter__heading">In {AfgData.current_fy.value},<br></br>the federal government <span className="chapter__big-number">spent {AfgData.current_fy_spending.value}.</span></h1>
+                  <h1 className="chapter__heading">In {AfgData.current_fy.value}, the federal government <span className="chapter__big-number">spent {AfgData.current_fy_spending.value}.</span></h1>
 
                   <section className="anecdote">
                     {/* <!-- controls --> */}
@@ -258,7 +256,7 @@ export default function OverviewPage(props) {
 
               <div className="chapter__flex">
                 <div className="chapter__primary">
-                  <h1 className="chapter__heading">In {AfgData.current_fy.value},<br></br>the federal government<br></br>spent {AfgData.current_fy_deficit.value} more than it collected, <span className="chapter__big-number">resulting in a deficit.</span></h1>
+                  <h1 className="chapter__heading">In {AfgData.current_fy.value}, the federal government spent {AfgData.current_fy_deficit.value} more than it collected, <span className="chapter__big-number">resulting in a deficit.</span></h1>
 
                   <section className="anecdote">
                     {/* <!-- controls --> */}
@@ -339,7 +337,7 @@ export default function OverviewPage(props) {
 
               <div className="chapter__flex">
                 <div className="chapter__primary">
-                  <h1 className="chapter__heading">By the end of {AfgData.current_fy.value},<br></br>the government had <span className="chapter__big-number">{AfgData.current_fy_debt.value} in federal debt.</span></h1>
+                  <h1 className="chapter__heading">By the end of {AfgData.current_fy.value}, the government had <span className="chapter__big-number">{AfgData.current_fy_debt.value} in federal debt.</span></h1>
 
                   <section className="anecdote">
                     {/* <!-- controls --> */}

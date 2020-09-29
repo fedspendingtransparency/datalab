@@ -1,23 +1,20 @@
-import 'src/libs/ffg/src/globalSass/chapterIntroCommon.scss';
-import 'src/libs/ffg/src/globalSass/cg.scss';
-import 'src/libs/ffg/src/debt/intro/debt-intro.scss';
+import 'src/styles/afg/chapterIntroCommon.scss';
+import 'src/styles/afg/cg.scss';
+import 'src/page-sections/afg-debt/intro/debt-intro.scss';
 
 import React from 'react';
-import { Link } from 'gatsby';
 import SEO from 'src/components/seo';
-import AfgData from 'src/libs/_data/object_mapping.yml';
-import Default from 'src/components/layouts/default/default';
-import { AFGHeader } from 'src/components/headers/headers';
+import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 import GdpTemplate from 'src/components/gdp-template/gdp-template';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
-import Og from '../../../components/og-tag/og';
-import AfgNav from 'src/components/afg-nav/afg-nav';
-import DebtIntro from 'src/libs/ffg/src/debt/intro/index.js';
+import Og from 'src/components/og-tag/og';
+import DebtIntro from 'src/page-sections/afg-debt/intro/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
-import AnecdoteDebtSVG from '../../../libs/assets/ffg/icons/anecdote-debt.svg';
+import AnecdoteDebtSVG from '../../../../static/americas-finance-guide/icons/anecdote-debt.svg';
+import AfgLayout from 'src/components/layouts/afg/afg';
 
 function ExploreDebtPage(props) {
 	return (
@@ -30,13 +27,9 @@ function ExploreDebtPage(props) {
 			/>
 
 			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-debt.jpg"}/>
-
-			<Default>
-				<AFGHeader />
-				<AfgNav location={props.location} chapter="debt" />
-
-				<div className="cg-wrapper chapter-intro-common-wrapper debt-intro-wrapper">
-					<div className="ffg-wrapper debt-intro">
+			<AfgLayout location={props.location} chapter={'debt'}>
+				<div className="chapter-intro-common-wrapper debt-intro-wrapper">
+					<div className="debt-intro">
 						<ControlBar>
 							<Share
 								location={props.location}
@@ -190,7 +183,7 @@ function ExploreDebtPage(props) {
 						</AccordionList>
 					</section>
 				</div>
-			</Default>
+			</AfgLayout>
 		</>
 	);
 }

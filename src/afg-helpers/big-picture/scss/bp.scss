@@ -1,0 +1,126 @@
+@import '../../../styles/afg/generalVars';
+@import 'bpVars';
+@import 'overviewChart';
+@import 'toc';
+@import 'chapter';
+@import 'link-button';
+@import 'header';
+@import 'deficit-debt-heading';
+@import 'about-us';
+@import '../../../styles/afg/accordion';
+@import '../../../components/anecdote/anecdote';
+
+.bp-wrapper {
+
+
+html {
+	font-weight: $normalWeight;
+}
+
+.chapter-scroll-target {
+	transform: translateY(-110px);
+}
+
+.bp-scroll-down {
+	display: block;
+	margin: 0 auto;
+	transform: translateY(84px);
+}
+
+.historical-quote {
+	padding: 3rem 1rem;
+	background: url('/americas-finance-guide/images/cg-quote-image.jpg') top center no-repeat;
+	background-size: cover;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+
+	blockquote {
+		font-size: 1.5rem;
+		max-width: 1000px;
+		margin: 1rem auto 2rem;
+	}
+
+	.historical-quote__image {
+		display: block;
+		margin: 0 auto;
+	}
+
+	p {
+		text-align: center;
+		margin-top: 0;
+		font-size: 1.7rem;
+	}
+
+	p.historical-quote__credit {
+		text-align: center;
+		font-size: 1rem;
+		margin-top: 0.5rem;
+		margin-bottom: 0;
+
+		span.historical-quote__credit-normal {
+			font-weight: normal;
+		}
+	}
+}
+
+@media only screen and (min-width: 800px) {
+	.historical-quote blockquote {
+		font-size: 2.2rem;
+	}
+
+	.historical-quote p.historical-quote__credit {
+		font-size: 1.7rem;
+	}
+}
+
+.accordion h1 {
+	font-size: 1.125rem;
+	font-weight: 600;
+}
+
+section.hwcta {
+	padding: 2rem 1rem;
+}
+
+.citizens-guide__section {
+	h1 {
+		font-size: 4rem;
+		font-weight: 600;
+		color: $text-color-heading;
+	}
+
+	p {
+		text-align: center;
+		max-width: 1200px;
+		margin: 0 auto;
+		color: $text-color-paragraph;
+		font-size: 1.5rem;
+		font-weight: 500;
+	}
+
+	.citizens-guide__section--italicized {
+		font-style: italic;
+	}
+
+	.citizens-guide__section--source {
+		font-size: 1.8rem;
+		max-width: 800px;
+		margin-top: 2.5rem;
+		bold {
+			font-weight: 600;
+		}
+	}
+
+	.citizens-guide__section--treasury-image {
+		background: url('/americas-finance-guide/images/treasury-seal.svg') top center no-repeat;
+		background-size: cover;
+		height: 125px;
+		width: 125px;
+	}
+}
+
+.hidden {
+	display: none;
+}
+
+}

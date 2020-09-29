@@ -1,20 +1,18 @@
-import 'src/libs/ffg/src/globalSass/cg.scss'
-import 'src/libs/ffg/src/spending/categories/spending-categories.scss'
+import 'src/styles/afg/cg.scss';
+import 'src/page-sections/afg-spending/categories/spending-categories.scss';
 
-import React from "react"
-import SEO from "src/components/seo"
-import AfgData from "src/libs/_data/object_mapping.yml"
-import Default from "src/components/layouts/default/default"
-import { AFGHeader } from 'src/components/headers/headers';
-import AccordionList from 'src/components/accordion-list/accordion-list'
-import ControlBar from 'src/components/control-bar/control-bar'
-import Share from 'src/components/share/share'
-import AfgNav from 'src/components/afg-nav/afg-nav';
-import SpendingCategories from 'src/libs/ffg/src/spending/categories/index.js';
-import Og from '../../../../components/og-tag/og';
+import React from "react";
+import SEO from "src/components/seo";
+import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml";
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ControlBar from 'src/components/control-bar/control-bar';
+import Share from 'src/components/share/share';
+import SpendingCategories from 'src/page-sections/afg-spending/categories/index';
+import Og from 'src/components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faSearch, faSortAlphaDown, faSortAlphaUp, faSortAmountDown, faSortAmountUp } from '@fortawesome/free-solid-svg-icons';
+import AfgLayout from 'src/components/layouts/afg/afg';
 
 function SpendingCategoriesPage(props) {
     return (
@@ -28,12 +26,9 @@ function SpendingCategoriesPage(props) {
 
             <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />
 
-            <Default>
-							<AFGHeader />
-                <AfgNav location={props.location} chapter={'spending'}></AfgNav>
-
-                <div className="cg-wrapper spending-categories-wrapper">
-                    <div className="ffg-wrapper spending-categories">
+            <AfgLayout location={props.location} chapter={'spending'}>
+                <div className="spending-categories-wrapper">
+                    <div className="spending-categories">
                         <ControlBar>
                             <Share
                                 location={props.location}
@@ -139,7 +134,7 @@ function SpendingCategoriesPage(props) {
                         </section>
                     </div>
                 </div>
-            </Default>
+            </AfgLayout>
         </>
     )
 }

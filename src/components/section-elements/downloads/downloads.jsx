@@ -5,7 +5,6 @@ import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { Grid, Container } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles"
 import PropTypes from "prop-types";
-import Radium from 'radium';
 import styleVariables from 'src/styles/variables.scss';
 import FiscalDataLogo from 'src/svgs/powered-by-fiscal-data.svg';
 import pageColorMap from '../../../utils/page-color';
@@ -13,7 +12,7 @@ import { checkScreenMode, ScreenModeEnum } from '../../../utils/screen-mode'
 
 const Downloads = (props) => {
   let fillColor = styleVariables.legacy;
-  
+
   const [screenMode, setScreenMode] = useState(0);
 
   if (typeof window !== 'undefined') {
@@ -27,7 +26,7 @@ const Downloads = (props) => {
         setScreenMode(newMode);
       }
     }
-  
+
     useEffect(() => {
       resizeWindow();
       window.addEventListener('resize', resizeWindow);
@@ -77,10 +76,10 @@ const Downloads = (props) => {
     const exportFileDefaultName = 'data.json';
 
     return (
-      <DownloadsContainer>
+      <DownloadsContainer data-testid='downloads-container'>
         <a className={downloadsStyles.data} href={dataUri} download={exportFileDefaultName}>
           <FontAwesomeIcon icon={faDownload} width={16} />
-          <div>&nbsp;Download</div>
+          <div data-testid='downloads-container-text'>&nbsp;Download</div>
         </a>
       </DownloadsContainer>
     );
@@ -99,17 +98,17 @@ const Downloads = (props) => {
     >
       {props.withFiscalDataLogo &&
         <a target="_blank" rel="noopener noreferrer" href="https://fiscaldata.treasury.gov/">
-          <FiscalDataLogo className={downloadsStyles.logo} />
+          <FiscalDataLogo data-testid='fiscal-data-logo' className={downloadsStyles.logo} />
         </a>
       }
-      {props.date ? <span className={downloadsStyles.fadedModifier}>Updated as of {props.date} / </span> : ''}
+      {props.date ? <span data-testid='updated-date' className={downloadsStyles.fadedModifier}>Updated as of {props.date} / </span> : ''}
       {props.isJSON ?
         exportToJsonFile(props.data)
         :
-        <DownloadsContainer>
+        <DownloadsContainer data-testid='downloads-container'>
           <a className={downloadsStyles.data} href={props.href}>
               <FontAwesomeIcon icon={faDownload} width={16} />
-              <div>&nbsp;Download</div>
+              <div data-testid='downloads-container-text'>&nbsp;Download</div>
           </a>
         </DownloadsContainer>
       }
@@ -121,11 +120,9 @@ Downloads.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   date: PropTypes.string,
   href: PropTypes.string,
-  mobileSpace: PropTypes.boolean
+  mobileSpace: PropTypes.bool
 };
 
-const StyledDownloads = Radium(Downloads);
-
-export default StyledDownloads;
+export default Downloads;
 
 

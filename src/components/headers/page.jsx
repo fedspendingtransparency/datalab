@@ -68,7 +68,7 @@ export default class PageHeader extends React.Component {
     }
   };
 
-  burgerClick = () => {
+  burgerClick = (e) => {
     this.setState(prevState => ({ showMobileMenu: !prevState.showMobileMenu }));
   };
 
@@ -135,17 +135,14 @@ export default class PageHeader extends React.Component {
     }
   }
 
-  tagLineCheck = (isSticky) => {
-    if (isSticky) {
-      if (this.state.isMobileTag) {
-        return (<TagLineMobile />);
-      }
-      return (<NoTagLine />);
+  tagLineCheck = () => {
+    if (this.state.isMobileTag) {
+      return (<TagLineMobile />);
     } else {
-      if (this.state.isMobileTag) {
-        return (<TagLineMobile />);
+      if (this.state.isSticky) {
+        return (<NoTagLine />);
       }
-      return (<TagLine />);
+      return (<TagLine width="100%" />);
     }
   };
 
@@ -165,14 +162,18 @@ export default class PageHeader extends React.Component {
           <div className={`${styles.logoWrapper} ${!isSticky ? ' ' + styles.col : ``}`}>
             <a href="/">
               <div>
-                {this.tagLineCheck(isSticky, isMobileTag)}
+                {this.tagLineCheck()}
               </div>
             </a>
 
             <nav className={`${styles.nav} ${isSticky ? ' ' + styles.tight : ``} ${this.props.isHome ? `` : ' ' + styles.tight}`}>
-              <span className={styles.toggle} onClick={this.burgerClick}>
-                <FontAwesomeIcon icon={faBars} />
-              </span>
+              
+              <button className={styles.burgerButton} onClick={this.burgerClick} tabIndex="0">
+                <span className={styles.toggle}>
+                  <FontAwesomeIcon icon={faBars} />
+                </span>
+              </button>
+                
               <ul
                 id={styles.burgerMenu}
                 className={styles.ulNav}
@@ -206,7 +207,7 @@ export default class PageHeader extends React.Component {
           />
 
           {showMobileMenu
-            ? <MobileMenu showMenu={showMobileMenu} headerItems={this.props.headerItems} data={this.props.megamenuItems} />
+            ? <MobileMenu showMenu={showMobileMenu} burgerClick={this.burgerClick} headerItems={this.props.headerItems} data={this.props.megamenuItems} />
             : <></>
           }
 

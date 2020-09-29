@@ -7,12 +7,12 @@ import Default from '../default/default';
 import HWCTALink from '../../hwcta-link/hwcta-link';
 import MoreAnalyses from '../../more-analyses/more-analyses';
 import { ToolpageHeader } from '../../headers/headers';
-import pageColorMap from '../../../utils/page-color';
+import pageColorMap from 'src/utils/page-color';
 import { legacy } from '../../../styles/variables.scss';
 
 const ToolLayout = (props) => {
   const [color, setColor] = useState(legacy);
-  
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setColor(pageColorMap[window.location.pathname.split('/').join('')])

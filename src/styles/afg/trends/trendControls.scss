@@ -1,0 +1,60 @@
+@import '../colors';
+@import '../generalVars';
+
+//Globals for file
+.hidden {
+  display:none;
+}
+
+.link-button__div {
+  display:inline-block;
+  border-bottom: 2px solid rgb(0, 118, 108);
+  cursor: pointer;
+
+  .link-button {
+    border: none;
+    background: none;
+    text-decoration: none;
+    font-size: 0.9em;
+    padding-left: 0;
+    padding-bottom: 0;
+    font-weight: 600;
+    color: $text-color-paragraph;
+  }
+
+  .link-button__icon {
+    padding-left:30px;
+  }
+}
+
+//Filter button
+#activate-show-hide {
+  background-color: $color-spending-primary;
+  color: white;
+  border: 1px solid $color-spending-primary;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  outline:none;
+  cursor: pointer;
+
+  &:hover {
+    background: lighten(#00766C, 10%);
+    transition: background-color 0.3s ease;
+  }
+
+  i {
+    margin-left:5rem;
+  }
+}
+
+.hint {
+  margin-top:0.5rem;
+  font-size:1rem;
+  margin-bottom: 40px;
+}
+
+.footnote {
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+}

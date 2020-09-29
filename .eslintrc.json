@@ -3,6 +3,7 @@
         "browser": true,
         "es6": true
     },
+    "ignorePatterns": ["node_modules/"],
     "extends": [
         "airbnb"
     ],
@@ -22,12 +23,5 @@
         "react"
     ],
     "rules": {
-        "no-tabs": 0,
-        "no-mixed-spaces-and-tabs": 0,
-        "indent": ["error", "tab"],
-        "react/jsx-indent": [2, "tab"],
-        "eol-last": 0,
-        "semi-style": 0,
-        "implicit-arrow-linebreak": 0
     }
 }

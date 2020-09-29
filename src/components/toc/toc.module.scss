@@ -14,6 +14,7 @@ $mdGrey: #555555;
   .subblurb {
     color: $font-title;
     font-size: 1rem;
+    font-weight: 600;
     text-transform: uppercase;
     // max-width: 200px;
     line-height: 17px;
@@ -96,7 +97,7 @@ $mdGrey: #555555;
     }
 
     .tile:not(:last-child) {
-      border-right: 1px solid $font-lightGrey;
+      border-right: 1px solid $light-grey-border;
     }
     .tile {
       padding: 1rem 1.5rem;
@@ -109,25 +110,50 @@ $mdGrey: #555555;
     margin-top: $margin-30;
     margin-bottom: $margin-100;
 
-    .number {
-      margin-right: 1rem;
+    .number-container {
+      flex-direction: column;
+
+      * {
+        margin: 0;
+      }
     }
+
     .a {
       max-width: 250px;
     }
-    .tile {
-      padding-top: 1rem;
 
-      &:nth-child(odd) {
-        border-right: 1px solid $font-lightGrey;
+    .tile {
+      min-height: 50%;
+
+      &:nth-child(even) {
+        a {
+          flex-direction: row-reverse;
+        }
       }
+
       &:last-child {
         border-right: none;
       }
-      &:nth-child(1),
-      &:nth-child(2) {
-        border-bottom: $font-lightGrey solid 1px;
-        padding-bottom: 32px;
+
+      a {
+        display: flex;
+        height: 100%;
+
+        .content {
+          padding: 1rem 0 1.875rem;
+        }
+
+        .bottom-border {
+          border-bottom: $light-grey-border solid 1px;
+        }
+
+        .side-border {
+          border-right: 1px solid $light-grey-border;
+        }
+
+        .tablet-divider {
+          width: 15px;
+        }
       }
     }
   }
@@ -140,7 +166,7 @@ $mdGrey: #555555;
     }
     .tile {
       border-right: unset;
-      border-bottom: $font-lightGrey solid 1px;
+      border-bottom: $light-grey-border solid 1px;
       padding-bottom: 32px;
 
       &:last-child {

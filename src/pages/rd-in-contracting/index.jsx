@@ -179,7 +179,7 @@ export default class RdInContractingPage extends React.Component {
           the top ten CFO Act agencies by R&D contract spending.</p>
       </>,
       accordion: <aside>
-        <Accordion title='What is R&D?' color='#1302D9' backgroundColor='rgba(19, 2, 217, 0.1)'>
+        <Accordion title='What is R&D?' color='#1302D9' backgroundColor='#E7E5FB'>
           {this.whatIsContents()}
         </Accordion>
       </aside>,
@@ -229,7 +229,7 @@ export default class RdInContractingPage extends React.Component {
   prerelease = () => {
     let isQAT = false;
     if (typeof window !== 'undefined') {
-      isQAT = window.location.href.indexOf('localhost') > -1 || window.location.href.indexOf('qat') > -1 ? true : false;
+      isQAT = window.location.href.indexOf('localhost') > -1 || window.location.href.indexOf('datalab-qat') > -1 ? true : false;
     }
 
      if(!isQAT) {

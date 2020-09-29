@@ -2,6 +2,8 @@
 
 $grey: #888;
 $darkGrey: #666666;
+$afgTablet: 660;
+$afgDesktop: 990;
 
 .analyses {
   text-align: left;
@@ -54,36 +56,34 @@ $darkGrey: #666666;
   width: 100%;
 }
 
-@media (max-width: $tablet) {
-  .tile:global(.MuiGrid-item) {
-    margin-top: 1rem;
-  }
-}
-
-@media (max-width: $phone - 1) {
-  .tile {
-    border-bottom: 1px solid #ddd;
-
-    &:last-child {
-      border-bottom: 0;
+@media (max-width: $tablet - 1) {
+    .tile:global(.MuiGrid-item) {
+        margin-top: 1rem;
     }
 
-    .text {
-      width: 50%;
-      float: right;
-      padding-left: 0.5rem;
-      text-align: right;
+    .tile {
+        border-bottom: 1px solid #ddd;
 
-      .title,
-      .subtitle {
-        font-size: 1rem;
-      }
-    }
+        &:last-child {
+            border-bottom: 0;
+        }
 
-    .image {
-      width: 50%;
-      float: left;
-      margin-bottom: 1rem;
+        .text {
+            width: 50%;
+            float: right;
+            padding-left: 0.5rem;
+            text-align: right;
+
+            .title,
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        .image {
+            width: 50%;
+            float: left;
+            margin-bottom: 1rem;
+        }
     }
-  }
 }
