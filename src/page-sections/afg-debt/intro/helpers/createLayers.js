@@ -117,38 +117,14 @@ function mobilePlaceDonut(g) {
       .attr('cy', r);
 
     createDonut(donutContainer, config.gdpPercent / 100, r * 2, config.debtColor);
-
-    if (typeof window !== 'undefined' && window.innerWidth <= 959) {
-        const text = d3.select('.donut')
-          .append('g')
-          .attr('transform', translator(diameter / 2, diameter))
-          .append('text')
-          .attr('fill', colors.textColorParagraph)
-          .attr('font-size', diameter/4)
-          .attr('text-anchor', 'left')
-          .attr('font-weight', 'bold');
-
-        text.append('tspan')
-          .attr('x', diameter / 2 + 10)
-          .attr('dy', -diameter * .75)
-          .text(`Federal debt`);
-
-        text.append('tspan')
-          .attr('x', diameter / 2 + 10)
-          .attr('dy', diameter/4 + 4)
-          .text(`accounted for ${Math.round(absPercent * 100)}%`);
-
-        text.append('tspan')
-          .attr('x', diameter / 2 + 10)
-          .attr('dy', diameter/4 + 4)
-          .text(`of the U.S. economy`);
-    }
 }
 
 function createGdp() {
     generateOverlay(config.gdpAmount, 'gdp', 'GDP', '#777');
-    if (!isMobileDevice()) {
+    if (typeof window !== 'undefined' && window.innerWidth > 959) {
         placeDonut(layers.gdp);
+    } else {
+        mobilePlaceDonut(layers.gdp);
     }
 }
 

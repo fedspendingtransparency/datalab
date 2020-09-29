@@ -52,4 +52,30 @@ export function createDonut(container, percent, diameter, fillColor) {
     .attr('text-anchor', 'middle')
     .attr('font-weight', 'bold')
     .attr('y', diameter*0.08);
+
+  if (typeof window !== 'undefined' && window.innerWidth <= 959) {
+    const text = d3.select('.donut')
+      .append('g')
+      .attr('transform', translator(diameter / 2, diameter))
+      .append('text')
+      .attr('fill', colors.textColorParagraph)
+      .attr('font-size', diameter/4)
+      .attr('text-anchor', 'left')
+      .attr('font-weight', 'bold');
+
+    text.append('tspan')
+      .attr('x', diameter / 2 + 10)
+      .attr('dy', -diameter * .75)
+      .text(`Federal debt`);
+
+    text.append('tspan')
+      .attr('x', diameter / 2 + 10)
+      .attr('dy', diameter/4 + 4)
+      .text(`accounted for ${Math.round(absPercent * 100)}%`);
+
+    text.append('tspan')
+      .attr('x', diameter / 2 + 10)
+      .attr('dy', diameter/4 + 4)
+      .text(`of the U.S. economy`);
+  }
 }
