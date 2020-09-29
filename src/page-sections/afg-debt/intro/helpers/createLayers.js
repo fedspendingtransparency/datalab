@@ -4,10 +4,9 @@ import { line } from 'd3-shape';
 import { dotsPerRow, dotConstants } from "./dotConstants";
 import { labelMaker, mobileLabelMaker } from './layerLegends';
 import { initDebtDots } from './debtDots';
-import { translator, isMobileDevice } from 'src/afg-helpers/utils';
+import { translator } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
 import { createDonut } from '../../../../afg-helpers/dots/donut';
-import colors from '../../../../styles/afg/colors.scss';
 
 const d3 = { select, selectAll, transition, line },
     duration = 1500,

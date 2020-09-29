@@ -176,16 +176,12 @@ function mobileGdpText(text, amount) {
 export function mobileLabelMaker(parent, height, label, amount) {
     const vizWidth = d3.select('.debt-layer').node().getBBox().width;
     const padding = 10;
-    // const lineData = [
-    //     { x: vizWidth + padding, y: height / 2 }
-    // ];
     const lineData = [
           { x: vizWidth + padding, y: 2 },
           { x: vizWidth + padding + 10, y: 2 },
           { x: vizWidth + padding + 10, y: height + 2 },
           { x: vizWidth + padding, y: height + 2 }
       ],
-      spending = label === 'Spending',
       layer = parent.append('g').attr('opacity', 0).classed('legend', true),
       text = layer.append('text')
         .attr('fill', colors.textColorParagraph)
