@@ -65,7 +65,8 @@ const DebtIntro = () => {
 		}
 
 		function resizeSvg() {
-			const h = (activeCompare) ? vizHeight * scaleFactor + 40 : vizHeight;
+			const scaleFactorByView = (typeof window !== 'undefined' && window.innerWidth <= 959) ? 1.1 : scaleFactor;
+			const h = (activeCompare) ? vizHeight * scaleFactorByView + 40 : vizHeight;
 
 			establishContainer().transition().duration(duration).attr('height', h);
 		}

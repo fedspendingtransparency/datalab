@@ -136,7 +136,7 @@ function mobileGdpText(text, amount) {
       .style('font-size', '.875rem')
       .attr('x', vizWidth + padding)
       .attr('dx', 0)
-      .attr('dy', 0);
+      .attr('dy', 5);
 
     text.append('tspan')
       .text('U.S.')
