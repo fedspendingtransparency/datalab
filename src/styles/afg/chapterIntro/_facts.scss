@@ -29,6 +29,19 @@
     color: $text-color-heading;
 }
 
+.facts__trigger {
+    font-size: 1rem;
+    display: block;
+    width: 49%;
+    border: 1px solid $revenue-primary;
+    text-align: center;
+    margin-bottom: 2px;
+    background: white;
+    padding: 0.2rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
 .facts__section.facts__section--active {
     display: block;
     opacity: 1;
@@ -58,16 +71,21 @@
 
 @media only screen and (min-width: 960px) {
     .facts {
-	top: 4rem;
-	left: 0;
+        top: 4rem;
+        left: 0;
     }
 
     .facts__trigger {
-	padding: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .facts__trigger.facts__trigger--active {
+        background:$revenue-primary;
+        color: white;
     }
 
     .facts__prompt {
-	font-size: 1.6rem;
+        font-size: 1.6rem;
     }
 
     .facts__trigger {
@@ -92,12 +110,12 @@
 /* Hide facts on mobile - gets in the way of viz */
 @media only screen and (max-width: $afg-mobile) {
     .facts {
-	display: none;
+        display: none;
     }
 };
 
 @media only screen and (max-width: 500px) {
     .facts {
-	left: 10%;
+        left: 10%;
     }
 }

@@ -11,41 +11,97 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import DeficitIntro from 'src/page-sections/afg-deficit/intro/index';
+import DeficitTab from 'src/page-sections/afg-deficit/intro/mobile/deficit';
+import SpendingTab from 'src/page-sections/afg-deficit/intro/mobile/spending';
+import DebtTab from 'src/page-sections/afg-deficit/intro/mobile/debt';
+import { activeLayer, setActiveLayer } from 'src/page-sections/afg-deficit/intro/helpers/manageLayers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDeficitSVG from '../../../../static/americas-finance-guide/icons/anecdote-deficit.svg';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
+const desktopVizComponent = (
+	<>
+		<DeficitIntro />
+		<div className="intro-math intro-hidden">
+			<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
+			{AfgData.dot_number_deficit.value} dots x {AfgData.dot_represents.value} = <strong>{AfgData.current_fy_deficit.value}</strong>
+		</div>
+		<div className="facts sidebar intro-hidden">
+			<div className="facts__inner">
+				<div id="compare-options">
+					<p className="facts__prompt">What is the deficit and how does that compare to the national debt?</p>
+					<div className="facts__triggers">
+						<button id="data-trigger-deficit" className="facts__trigger" data-trigger-id="deficit">Deficit</button>
+						<button id="data-trigger-debt" className="facts__trigger" data-trigger-id="debt">Debt</button>
+					</div>
+				</div>
+				<section id="deficit-facts" className="facts__section">
+					<p>When spending exceeds revenue, the difference is a deficit, which the federal government finances mainly by borrowing from the public.</p>
+				</section>
+				<section id="debt-facts" className="facts__section">
+					<p>To pay for a deficit, the government takes on debt. The total debt that the government owes is essentially the accumulation of deficits over time, minus repayments of debt.</p>
+					<p>
+						*The&nbsp;
+						{AfgData.added_debt_short.value}
+						{' '}
+						increase in federal debt actually consists of the&nbsp;
+						{AfgData.current_fy_deficit_short.value}
+						{' '}
+						deficit along with changes to operating cash balance, intergovernmental holdings, and other financial activities. In the visualization, the operating cash balance, intergovernmental holdings, and other financial activities were combined with the prior year debt balance for simplicity.
+					</p>
+				</section>
+			</div>
+		</div>
+	</>
+);
+
+const tabs = [
+	{
+		label: 'Deficit',
+		component: <DeficitTab />
+	},
+	{
+		label: 'Spending',
+		component: <SpendingTab />
+	},
+	{
+		label: 'Debt',
+		component: <DebtTab />
+	},
+];
+
 function ExploreDeficitPage(props) {
-	// DeficitIntro component used as placeholder until the mobile dot viz components are finished
-	const tabs = [
-		{
-			label: 'Deficit',
-			component: <DeficitIntro />
-		},
-		{
-			label: 'Spending',
-			component: <DeficitIntro />
-		},
-		{
-			label: 'Debt',
-			component: <DeficitIntro />
-		},
-	]
+	const layers = ['', 'deficit', 'debt'];
 
-	const [vizComponent, updateVizComponent] = useState(<DeficitIntro />);
-
-	const handleResize = () => {
-		updateVizComponent(window.innerWidth > 959 ? <DeficitIntro /> : <TabsWrapper tabs={tabs} />);
+	const handleTabChange = (newTabValue) => {
+		setActiveLayer(layers[newTabValue])
 	}
 
-	if (typeof window !== 'undefined') {
-		window.addEventListener('resize', handleResize);
+	const mobileVizComponent = (
+		<TabsWrapper
+			tabs={tabs}
+			handleTabChange={handleTabChange}
+			activeTab={layers.indexOf(activeLayer)}
+		/>
+	)
+
+	const [isMobile, setIsMobile] = useState(true);
+
+	const handleResize = () => {
+		setIsMobile(window.innerWidth < 960);
 	}
 
   useEffect(() => {
 		handleResize();
+		
+		if (typeof window !== 'undefined') {
+			window.addEventListener('resize', handleResize);
+			return () => {
+				window.removeEventListener('resize', handleResize);
+			}
+		}
 	}, []);
 	
 	return (
@@ -92,45 +148,7 @@ function ExploreDeficitPage(props) {
 							</p>
 						</div>
 						<div className="viz-wrapper">
-							{vizComponent}
-							<div className="intro-math intro-hidden">
-								<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
-								{AfgData.dot_number_deficit.value}
-								{' '}
-								dots x
-								{' '}
-								{AfgData.dot_represents.value}
-								{' '}
-								=
-								{' '}
-								<strong>{AfgData.current_fy_deficit.value}</strong>
-							</div>
-							<div className="facts sidebar intro-hidden">
-								<div className="facts__inner">
-									<div id="compare-options">
-										<p className="facts__prompt">What is the deficit and how does that compare to the national debt?</p>
-										<div className="facts__triggers">
-											<button className="facts__trigger" data-trigger-id="deficit">Deficit</button>
-											<button className="facts__trigger" data-trigger-id="debt">Debt</button>
-										</div>
-									</div>
-									<section id="deficit-facts" className="facts__section">
-										<p>When spending exceeds revenue, the difference is a deficit, which the federal government finances mainly by borrowing from the public.</p>
-									</section>
-									<section id="debt-facts" className="facts__section">
-										<p>To pay for a deficit, the government takes on debt. The total debt that the government owes is essentially the accumulation of deficits over time, minus repayments of debt.</p>
-										<p>
-											*The&nbsp;
-											{AfgData.added_debt_short.value}
-											{' '}
-											increase in federal debt actually consists of the&nbsp;
-											{AfgData.current_fy_deficit_short.value}
-											{' '}
-											deficit along with changes to operating cash balance, intergovernmental holdings, and other financial activities. In the visualization, the operating cash balance, intergovernmental holdings, and other financial activities were combined with the prior year debt balance for simplicity.
-										</p>
-									</section>
-								</div>
-							</div>
+							{isMobile ? mobileVizComponent : desktopVizComponent}
 							<section className="accordion sidebar intro-hidden">
 								<AccordionList title="How else does the government finance a deficit?">
 									<div>

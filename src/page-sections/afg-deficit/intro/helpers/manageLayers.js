@@ -5,11 +5,16 @@ import { translator, establishContainer, isMobileDevice } from 'src/afg-helpers/
 import { chartWidth } from './widthManager';
 import { touchIe } from 'src/afg-helpers/touchIe';
 
-const d3 = { select, selectAll },
-    scaleFactor = 0.6,
-    duration = 1000;
+const d3 = { select, selectAll };
+const scaleFactor = 0.6;
+const duration = 1000;
 
-let activeCompare, revenueFirstTime, debtFirstTime, doubleClickBlock, blockTimer, config;
+let activeCompare;
+let revenueFirstTime;
+let debtFirstTime;
+let doubleClickBlock;
+let blockTimer;
+let config;
 
 function revealHiddenElements() {
     d3.selectAll('.intro-hidden').classed('intro-hidden', null);
@@ -17,8 +22,8 @@ function revealHiddenElements() {
 }
 
 function toggleFacts() {
-    const targetSection = d3.select(`#${activeCompare}-facts`),
-        sectionActive = 'facts__section--active';
+    const targetSection = d3.select(`#${activeCompare}-facts`);
+    const sectionActive = 'facts__section--active';
 
     d3.selectAll('.facts__section').classed(sectionActive, null);
 
@@ -28,6 +33,10 @@ function toggleFacts() {
 }
 
 function resizeSvg() {
+    if (isMobileDevice()) {
+        return;
+    }
+
     let h = 300;
 
     if (activeCompare === 'debt') {
@@ -42,27 +51,25 @@ function resizeSvg() {
 function zoom(out) {
     const yOffset = 35;
 
-    if (out) {
-        layers.master.transition()
-            .duration(duration)
-            .attr('transform', function() {
-                if (isMobileDevice()) {
-                    return translator(0, yOffset);
-                }
-
-                return translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`;
-            })
-            .ease();
-    } else {
-        layers.master.transition()
-            .duration(duration)
-            .attr('transform', translator(0, yOffset) + ` scale(1)`)
-            .ease();
+    if (!isMobileDevice()) {
+        if (out) {
+            layers.master.transition()
+                .duration(duration)
+                .attr('transform', () => translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`)
+                .ease();
+        } else {
+            layers.master.transition()
+                .duration(duration)
+                .attr('transform', translator(0, yOffset) + ` scale(1)`)
+                .ease();
+        }
     }
 }
 
 function showHideMath() {
-    d3.selectAll('.intro-math').classed('intro-math--hidden', activeCompare);
+    if (!isMobileDevice()) {
+        d3.selectAll('.intro-math').classed('intro-math--hidden', activeCompare);
+    }
 }
 
 function doubleClickBlocker(id) {
@@ -81,8 +88,8 @@ function doubleClickBlocker(id) {
 }
 
 function setAccessibility(type) {
-    const svgEl = d3.select('svg.main'),
-        descEl = svgEl.select('desc');
+    const svgEl = d3.select('svg.main');
+    const descEl = svgEl.select('desc');
 
     let accessibilityAttr = config.accessibilityAttrs.default;
     if (type) {
@@ -92,16 +99,23 @@ function setAccessibility(type) {
     descEl.text(accessibilityAttr.desc);
 }
 
-function toggleLayer(redraw) {
-    const clicked = (redraw) ? null : d3.select(this),
-        id = (redraw) ? null : clicked.attr('data-trigger-id'),
-        noDelay = (!redraw && id === 'debt' && activeCompare !== 'deficit');
+function toggleLayer(redraw, initialId) {
+    const clicked = (redraw) ? null : d3.select(this);
+    const resize = initialId === 'deficit' || initialId === 'debt'
+    let id = null;
+    if (resize) {
+        id = initialId
+    } else if (!redraw) {
+        id = clicked.attr('data-trigger-id');
+    }
+
+    const noDelay = (!redraw && id === 'debt' && activeCompare !== 'deficit');
 
     if (doubleClickBlocker(id) && !redraw) {
         return;
     };
 
-    if (id === activeCompare) {
+    if (id === activeCompare && !resize) {
         d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
         zoom();
         deficitOnly();
@@ -110,7 +124,10 @@ function toggleLayer(redraw) {
         resizeSvg();
         showHideMath();
         setAccessibility();
+        setActiveLayer('')
         return;
+    } else {
+        setActiveLayer(id)
     }
 
     if (!redraw) {
@@ -182,10 +199,10 @@ function initialDebtCompare(noDelay) {
 }
 
 function deficitTransform(state, now) {
-    const deficitDots = (state === 'debt') ? 0 : 1,
-        debtDots = (state === 'debt') ? 1 : 0,
-        y = (state === 'debt') ? 0 : Number(layers.deficit.attr('data-y')),
-        localDuration = now ? 0 : duration;
+    const deficitDots = (state === 'debt') ? 0 : 1;
+    const debtDots = (state === 'debt') ? 1 : 0;
+    const y = (state === 'debt') ? 0 : Number(layers.deficit.attr('data-y'));
+    const localDuration = now ? 0 : duration;
 
     layers.deficit.transition()
         .duration(localDuration)
@@ -231,9 +248,9 @@ function subsequentRevenueSpendingCompare() {
 }
 
 function initialRevenueSpendingCompare() {
-    const step1 = 100,
-        step2 = duration * 1.5,
-        step3 = step2 * 2;
+    const step1 = 100;
+    const step2 = duration * 1.5;
+    const step3 = step2 * 2;
 
     layers.debt.transition()
         .duration(duration)
@@ -301,6 +318,12 @@ function deficitOnly() {
         .attr('opacity', 0)
 }
 
+export let activeLayer = '';
+
+export function setActiveLayer(id) {
+    activeLayer = id;
+}
+
 export function resetLayers() {
     if (activeCompare) {
         setTimeout(toggleLayer, 1000, 'redraw');
@@ -314,4 +337,10 @@ export function layersInit(_config) {
     deficitOnly();
     setTimeout(showHideMath, duration * 2);
     setTimeout(revealHiddenElements, duration);
+    
+    const button = d3.select(`#data-trigger-${activeLayer}`);
+    if (!button.empty()) {
+        toggleLayer(null, button.attr('data-trigger-id'))
+        button.classed('facts__trigger--active', true);
+    }
 }
