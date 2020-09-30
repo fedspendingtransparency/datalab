@@ -1,7 +1,12 @@
 import { dotsPerRow, dotConstants } from "./dotConstants";
 import { translator } from "src/afg-helpers/utils";
 
-let config, layer, y1, deficitCompareDots, debtCompareDots, remainder;
+let config;
+let layer;
+let y1;
+let deficitCompareDots;
+let debtCompareDots;
+let remainder;
 
 function dotFactory(x, y) {
   return layer.append('circle')
@@ -12,9 +17,9 @@ function dotFactory(x, y) {
 }
 
 function makeDotRow(start, max, y, debtOffset) {
-  let i = 0,
-      dot,
-      x = start;
+  let i = 0;
+  let dot;
+  let x = start;
 
   for (i; i < max; i++) {
     dot = dotFactory(x, y);
@@ -33,9 +38,9 @@ function makeDotRow(start, max, y, debtOffset) {
 }
 
 function markDots(startPosition) {
-  const circles = layer.selectAll('circle'),
-        size = circles.size(),
-        start = size - startPosition.xOffset;
+  const circles = layer.selectAll('circle');
+  const size = circles.size();
+  const start = size - startPosition.xOffset;
 
   deficitCompareDots = circles.filter((d, i) => i > start).attr('data-deficit-only', true);
   debtCompareDots = circles.filter('[data-debt-only]');
@@ -44,12 +49,12 @@ function markDots(startPosition) {
 function placeDots(startPosition, width) {
   let isMobile  = (width <= 959); // 959 mobile value for afg
   let dotVal = (isMobile) ? 10000000000 : 1000000000;
-  const deficitInBillions = config.deficitAmount / dotVal,
-        rowOneCount = dotsPerRow - startPosition.remainder,
-        fullRows = Math.floor((deficitInBillions - rowOneCount) / dotsPerRow);
+  const deficitInBillions = config.deficitAmount / dotVal;
+  const rowOneCount = dotsPerRow - startPosition.remainder;
+  const fullRows = Math.floor((deficitInBillions - rowOneCount) / dotsPerRow);
 
-  let i = 0,
-      y = 2;
+  let i = 0;
+  let y = 2;
 
   remainder = deficitInBillions - rowOneCount - (fullRows * dotsPerRow);
 
@@ -78,6 +83,40 @@ export function initDeficitDots(c, startPosition) {
     .classed('deficit-layer', true);
 
   placeDots(startPosition, window.innerWidth);
+
+  return {
+    layer: layer,
+    y: y1,
+    deficitCompareDots: deficitCompareDots,
+    debtCompareDots: debtCompareDots,
+    remainder: remainder
+  };
+}
+
+export function placeDotsMobile(c, startPosition, separateContainer) {
+  config = c;
+  const container = separateContainer || config.mainContainer
+  layer = container.append('g')
+    .attr('transform', 'translate(0,30)')
+    .attr('data-o', 0)
+
+  const dotVal = 10000000000;
+  const deficitInBillions = config.deficitAmount / dotVal;
+  const fullRows = Math.floor(deficitInBillions / dotsPerRow);
+
+  let i = 0;
+  let y = 2 + dotConstants.offset.y;
+
+  for (i; i < fullRows; i++) {
+    makeDotRow(2, dotsPerRow, y);
+    y += dotConstants.offset.y;
+  }
+
+  makeDotRow(2, startPosition.remainder, y);
+
+  y1 = y;
+
+  markDots(startPosition);
 
   return {
     layer: layer,

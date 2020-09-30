@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { withStyles } from '@material-ui/styles';
@@ -29,13 +29,16 @@ const StyledTab = withStyles((theme) => ({
   },
 }))((props) => <Tab disableRipple {...props} />)
 
-const TabsWrapper = ({ tabs }) => {
-  const [value, setValue] = useState(0);
-
+const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
+  const [value, setValue] = useState(activeTab || 0);
+  
   const handleChange = (e, newValue) => {
-    setValue(newValue)
+    setValue(newValue);
+    if (handleTabChange) {
+      handleTabChange(newValue);
+    }
   }
-
+  
   return (
     <>
       <StyledTabs

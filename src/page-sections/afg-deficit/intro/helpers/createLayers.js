@@ -3,34 +3,37 @@ import { transition } from 'd3-transition';
 import { line } from 'd3-shape';
 import { dotsPerRow, dotConstants } from "./dotConstants";
 import { labelMaker, deficitLabel } from './layerLegends';
-import { initDeficitDots } from './deficitDots';
+import { initDeficitDots, placeDotsMobile } from './deficitDots';
 import { translator, isMobileDevice } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
 import colors from '../../../../styles/afg/colors.scss';
 
-const d3 = { select, selectAll, transition, line },
-    duration = 1500,
-    billion = 1000000000;
+const d3 = { select, selectAll, transition, line };
+const duration = 1500;
+const billion = 1000000000;
 
 export const layers = {};
 
-let config, deficitStartPosition, deficitRemainder, deficitY1;
+let config;
+let deficitStartPosition;
+let deficitRemainder;
+let deficitY1;
 
 function generateOverlay(number, id, label, rectColor) {
-    const amount = (id === 'debt') ? number - config.deficitAmount : number,
-        labelAmount = (id === 'debt') ? config.debtBalance : amount,
-        count = Math.ceil(amount / billion),
-        debtRowOne = (id === 'debt') ? dotsPerRow - deficitRemainder : 0,
-        rows = Math.floor((count - debtRowOne) / dotsPerRow),
-        remainder = (count - debtRowOne) % dotsPerRow,
-        spacing = dotConstants.offset.y - (dotConstants.radius * 2),
-        mainRectHeight = (rows * dotConstants.offset.y) - spacing / 2,
-        secondaryRectHeight = (dotConstants.radius * 2) + spacing / 2;
+    const amount = (id === 'debt') ? number - config.deficitAmount : number;
+    const labelAmount = (id === 'debt') ? config.debtBalance : amount;
+    const count = Math.ceil(amount / billion);
+    const debtRowOne = (id === 'debt') ? dotsPerRow - deficitRemainder : 0;
+    const rows = Math.floor((count - debtRowOne) / dotsPerRow);
+    const remainder = (count - debtRowOne) % dotsPerRow;
+    const spacing = dotConstants.offset.y - (dotConstants.radius * 2);
+    const mainRectHeight = (rows * dotConstants.offset.y) - spacing / 2;
+    const secondaryRectHeight = (dotConstants.radius * 2) + spacing / 2;
 
-    let overlayLayer = config.mainContainer.append('g').classed(id + '-layer', true),
-        overlayHeight = mainRectHeight + secondaryRectHeight,
-        mainY = 0,
-        secondaryY = mainRectHeight;
+    let overlayLayer = config.mainContainer.append('g').classed(id + '-layer', true);
+    let overlayHeight = mainRectHeight + secondaryRectHeight;
+    let mainY = 0;
+    let secondaryY = mainRectHeight;
 
     overlayLayer.attr('opacity', 0);
 
@@ -135,4 +138,22 @@ export function createLayers(c) {
     createSpending();
     createDeficitDots();
     createDebt();
+}
+
+export function createMobileLayers(c, separateContainer) {
+    config = c;
+
+    const count = Math.ceil(c.deficitAmount / (billion * 10));
+    const rows = Math.floor(count / dotsPerRow);
+    const remainder = count % dotsPerRow;
+    
+    const spacing = dotConstants.offset.y - (dotConstants.radius * 2);
+    const mainRectHeight = (rows * dotConstants.offset.y) - spacing / 2;
+
+    deficitStartPosition = {
+        remainder,
+        y: mainRectHeight
+    }
+
+    placeDotsMobile(c, deficitStartPosition, separateContainer);
 }
