@@ -10,19 +10,19 @@
   }
 }
 
-@media (min-width: $desktop) and (max-width: $desktop-xl) {
+@media (min-width: $desktop) and (max-width: $desktop-xl - 1) {
   .default {
     max-width: 940px;
   }
 }
 
-@media (min-width: $tablet) and (max-width: $desktop) {
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
   .default {
     max-width: 720px;
   }
 }
 
-@media (min-width: $phone) and (max-width: $tablet) {
+@media (min-width: $phone) and (max-width: $tablet - 1) {
   .default {
     margin: 140px 16px;
   }

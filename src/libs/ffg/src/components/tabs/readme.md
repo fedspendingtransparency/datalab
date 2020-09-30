@@ -1,1 +1,0 @@
-# moved to src/components/tabs/tabs.jsx

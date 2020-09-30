@@ -179,7 +179,7 @@ export default class RdInContractingPage extends React.Component {
           the top ten CFO Act agencies by R&D contract spending.</p>
       </>,
       accordion: <aside>
-        <Accordion title='What is R&D?' color='#1302D9' backgroundColor='rgba(19, 2, 217, 0.1)'>
+        <Accordion title='What is R&D?' color='#1302D9' backgroundColor='#E7E5FB'>
           {this.whatIsContents()}
         </Accordion>
       </aside>,

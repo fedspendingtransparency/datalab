@@ -47,11 +47,11 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="R&amp;D-Desktop-Coming-Soon" transform="translate(-249.000000, -261.000000)">
             <g id="Group-3" transform="translate(249.000000, 261.000000)">
-                <text id="Research-&amp;-Developme" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="32" font-weight="normal" fill="#FFFFFF">
+                <text id="Research-&amp;-Developme" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="2rem" font-weight="normal" fill="#FFFFFF">
                     <tspan x="63" y="126">Research &amp; Development</tspan>
                     <tspan x="63" y="166">in Contract Spending</tspan>
                 </text>
-                <text id="NEW-ANALYSIS-COMING" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="18" font-weight="500" fill="#FFFFFF">
+                <text id="NEW-ANALYSIS-COMING" font-family="SourceSansPro-SemiBold, Source Sans Pro" font-size="1.125rem" font-weight="500" fill="#FFFFFF">
                     <tspan x="64" y="84">NEW ANALYSIS COMING SOON!</tspan>
                 </text>
                 <g id="Viz-1" transform="translate(23.000000, 38.000000)">
@@ -137,7 +137,7 @@
                                 <rect id="Purple" x="0" y="0" width="28.51875" height="28.51875"></rect>
                             </g>
                         </g>
-                        <text id="SHOW-DETAILS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="14.4" font-weight="300" fill="#666666">
+                        <text id="SHOW-DETAILS-Copy" font-family="SourceSansPro-Light, Source Sans Pro" font-size="0.9rem" font-weight="300" fill="#666666">
                             <tspan x="38.7" y="14.9">SHOW DETAILS</tspan>
                         </text>
                     </g>

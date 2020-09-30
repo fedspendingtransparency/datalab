@@ -43,8 +43,36 @@ div.container-no-flex {
   }
 }
 
-.hero-image {
-  width:100%;
+.hero-image-container {
+  display: flex;
+  margin: 0 auto;
+
+  .hero-image {
+    object-fit: cover;
+  }
+
+  .hero-image-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #2272ce;
+
+    h1 {
+      width: 100%;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 400;
+      margin: 0 0 1.5rem;
+    }
+    
+    h2 {
+      width: 100%;
+      color: #b4e5ff;
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+  }
 }
 
 .section-header {
@@ -55,24 +83,78 @@ div.container-no-flex {
   margin-top: $margin-50;
 }
 
-@media screen and (min-width: $desktop-xl){
-  .hero-image {
-    max-height: 417px;
+@media screen and (min-width: $desktop-xl) {
+  .hero-image-container {
+    flex-direction: row-reverse;
     max-width: 1439px;
+    max-height: 417px;
+    margin-bottom: 93px;
+
+    .hero-image-text {
+      display: inline-block;
+      height: 417px;
+      width: 544px;
+      padding: 106px 112px 147px;
+
+      h1 {
+        text-align: left;
+      }
+    }
+      
+    .hero-image {
+      max-width: calc(100vw - 544px);
+      height: 417px;
+    }
   }
 }
 
-@media screen and (min-width: $phone) and (max-width: $desktop-xl - 1){
-  .hero-image {
-    max-height: 611px;
-    max-width: 768px;
+@media screen and (min-width: $tablet) and (max-width: $desktop-xl - 1) {
+  .hero-image-container {
+    flex-direction: column;
+    margin-bottom: 26px;
+
+    .hero-image-text {
+      max-height: 181px;
+      width: 100%;
+      padding: 30px 149px;
+
+      h1 {
+        font-size: 1.875rem;
+        padding: 0 50px;
+      }
+      
+      h2 {
+        text-align: center;
+      }
+    }
+
+    .hero-image {
+      max-height: 430px;
+      width: 100%;
+    }
   }
 }
 
-@media screen and (max-width: $phone - 1){
-  .hero-image {
-    max-width: 320px;
-    max-height: 424px;
+@media screen and (max-width: $tablet - 1) {
+  .hero-image-container {
+    flex-direction: column;
+    margin-bottom: 37px;
+
+    .hero-image-text {
+      width: 100%;
+      padding: 24px 2px;
+
+      h1, h2 {
+        text-align: center;
+        padding: 0 30px;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .hero-image {
+      max-height: 424px;
+      width: 100%;
+    }
   }
 
   .section-header {

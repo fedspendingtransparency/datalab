@@ -59,7 +59,7 @@ export default function Treemap() {
       .append('svg:g')
       .attr('transform', 'translate(.5,.5)')
       ;
-    
+
     d3.select('#tree-svg')
       .append('desc:desc')
       .attr('id', 'tree-desc')
@@ -98,7 +98,7 @@ export default function Treemap() {
 
     function makeInfographic(d) {
       d3.selectAll('.homeless-fact-cluster img').remove();
-      const svgPath = '/homelessness-analysis/images/Cluster-' + d;
+      const svgPath = '/images/homelessness-analysis/Cluster-' + d;
       const clusterAltText = altText.filter(item => item.cluster.indexOf(d) > -1);
       const selectedInfographicItem = infographicData.filter(item => item.cluster_final === d);
       d3.select('#cluster-beds #count-img-container').append('img').attr('src', svgPath + '/Bed.svg').attr('alt', clusterAltText[0].beds);

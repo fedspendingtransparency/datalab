@@ -22,9 +22,9 @@ export default class Sunburst extends React.Component {
 
     this.state = {
       data: this.props.data,
-      spec: sunburstSpec,
+      spec: sunburstSpec(),
       selectedArc: this.props.default,
-      previousArc: this.props.default
+      previousArc: this.props.default,
     };
 
     this.signalListeners = { arcClick: this.handleClick, arcHover: this.handleHover, arcUnhover: this.handleUnhover };
@@ -33,7 +33,7 @@ export default class Sunburst extends React.Component {
   componentDidMount() {
     const altText = this.props.altText;
 
-    if(typeof window !== 'undefined') {
+    if (typeof window !== 'undefined') {
       window.requestAnimationFrame(function () {
         const el = document.getElementsByClassName('vega-embed')[0];
         el.setAttribute('aria-labelledby', 'viz-description');
@@ -43,7 +43,17 @@ export default class Sunburst extends React.Component {
         node.appendChild(textnode);
         el.insertAdjacentElement('afterend', node);
       });
+    
+      this.resizeWindow();
+      window.addEventListener('resize', this.resizeWindow);
+      return () => {
+        window.removeEventListener('resize', this.resizeWindow);
+      }
     }
+  }
+  
+  resizeWindow = () => {
+    this.setState({ spec: sunburstSpec(window.innerWidth) })
   }
 
   handleUnhover = () => {
@@ -61,18 +71,22 @@ export default class Sunburst extends React.Component {
   }
 
   updateData = (data) => {
-    this.setState({data: data});
+    this.setState({ data });
   }
 
   render() {
     const { data, spec } = this.state;
     if (typeof window !== 'undefined') {
-		appendPolyfill();
-		return (
-			<Vega data={data} spec={spec} signalListeners={this.signalListeners} />
-		)
+      appendPolyfill();
+      return (
+        <Vega
+          data={data}
+          spec={spec}
+          signalListeners={this.signalListeners}  
+        />
+      )
     } else {
-		return <div></div>
+      return <div />
     }
   }
 }

@@ -12,7 +12,7 @@ import Accordion from 'src/components/accordion/accordion';
 import Budget from '../../page-sections/federal-covid-funding/budget/budget';
 import Overview from '../../page-sections/federal-covid-funding/overview/overview';
 import Tracking from '../../page-sections/federal-covid-funding/tracking';
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-24.yml'
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml'
 
 const BudgetAccordionContent = () => (
   <div className={styles.accordionContents}>

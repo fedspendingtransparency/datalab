@@ -1,298 +1,317 @@
 @import "../../styles/index.scss";
 
 #header {
-  background: #ffffff;
-  box-sizing: border-box;
-  line-height: normal;
-  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
-  width: 100%;
-  z-index: 100;
+    background: #ffffff;
+    box-sizing: border-box;
+    line-height: normal;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+    z-index: 100;
 }
 
 @keyframes smoothy {
-  0% {
-    transform: translateY(-50px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+    0% {
+	transform: translateY(-50px);
+    }
+    100% {
+	transform: translateY(0px);
+    }
 }
 
 .header-container {
-  position: fixed;
-  top: 0;
-  animation: smoothy 0.5s ease-in;
+    position: fixed;
+    top: 0;
+    animation: smoothy 0.5s ease-in;
 }
 
 .logo-wrapper.row {
-  flex-direction: row;
-  flex-wrap: nowrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 .logo-wrapper.col {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 .nav {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.25rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid #ddd;
-  width: 100%;
-  height: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.25rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    height: 30px;
 
-  .anchor {
+    .anchor {
+	position: relative;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	text-decoration: none;
+	color: #666;
+	padding-top: 0.125rem; // 2px;
+
+	&:hover,
+	&:focus {
+	    color: #046b99;
+	    border-bottom: 2px solid #046b99;
+	    padding-bottom: 0.4375rem; // 7pxpx
+	}
+    }
+
+    .glossary {
+	position: relative;
+    }
+
+    .arrow {
+	font-weight: 800;
+    }
+
+    #burger-menu {
+	display: flex;
+	list-style: none;
+	font-size: 0.8125rem;
+	padding: 0;
+	margin-top: 0.1rem;
+
+	.item {
+	    font-size: 0.9375rem;
+	    padding-left: 30px;
+	    padding-right: 30px;
+	}
+    }
+} // end header-nav
+
+.nav.tight {
+    margin: 0;
+    padding: 0;
+    border-top: none;
+    width: auto;
+}
+
+.main {
+    display: flex;
+    position: absolute;
+    top: 26px; // from top of blue bar!
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+    flex-direction: column;
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: calc(100vw - 100%);
+}
+
+.main.tight {
+    height: 50px;
+    top: 0px;
+    background: #ffffff;
+    padding-bottom: 1rem;
+    padding-top: 12px;
+}
+
+ul.ul-nav {
+    display: flex;
+    list-style: none;
+    font-size: 0.8125rem;
+    margin: 0;
+    padding: 0;
+}
+
+// container for "megamenu"!
+.sub {
+    position: absolute;
+    width: 100%;
+    top: 168px; // calculated exactly!
+    z-index: 20;
+    background-color: #f9f9f9;
+
+    ul.ul-dropdown > li.secondaryNavli > a {
+	text-decoration: none;
+	color: #666;
+    }
+
+    .secondaryNavli {
+	float: left;
+	font-size: 0.8125rem;
+	white-space: nowrap;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	width: 100%;
+    }
+} // end header sub
+
+.sub.tight {
+    top: 50px;
+}
+
+.active {
+    display: flex;
+}
+
+.active-table {
+    display: table;
+}
+
+.spacer-element {
+    flex-grow: 1;
+}
+
+// generic for dropdown list (megamenu)
+.data-list {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    border-top: 1px solid #ddd;
+    box-sizing: border-box;
+    background: #f9f9f9f9;
+    padding-bottom: 0.25rem;
+
+    .ul {
+	list-style-type: none;
+	justify-content: center;
+	font-size: 0.875rem;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	margin: 0;
+
+	.li {
+	    padding-top: 0.5rem;
+	    padding-bottom: 0.5rem;
+	    font-weight: 300;
+	}
+    }
+
+    .ul-analyses {
+	padding: 0;
+    }
+
+    // specific for FFG section as they have headers.
+    .section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	font-size: 0.875rem;
+
+	.ul-ffg {
+	    display: flex;
+	    flex-direction: column;
+	    list-style-type: none;
+	    justify-content: center;
+	    margin: 0;
+	    padding: 0;
+	}
+
+	.li {
+	    padding-top: 0.5rem;
+	    padding-bottom: 0.5rem;
+	    font-weight: 300;
+	}
+
+	.sectionTitle {
+	    margin: 0;
+	    padding-bottom: 0.5rem;
+	    color: #555555;
+	    font-size: 0.875rem; // 14px
+	    line-height: 18px;
+	}
+    }
+
+    .a {
+	color: #555555;
+    }
+
+    .a:hover {
+	color: #046b99;
+    }
+}
+
+// data list modifiers for spacing
+.data-list {
+    .analyses {
+	margin-right: 2rem;
+    }
+
+    .resources {
+	margin-left: 31rem;
+	padding: 0;
+	justify-content: flex-end;
+	flex-direction: row;
+    }
+    .ul-resources {
+	padding: 0;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 20px;
+	padding-left: 20px;
+    }
+    .express {
+	margin-right: 15rem;
+	padding: 0;
+    }
+    .ul-express {
+	padding: 0;
+	padding-top: 15px;
+	padding-bottom: 15px;
+    }
+    .glossary {
+	margin-left: 42rem;
+	padding: 0;
+    }
+    .ul-glossary {
+	padding: 0;
+	padding-top: 15px;
+	padding-bottom: 15px;
+    }
+}
+
+.toggle {
+    font-size: 32px;
+    display: none;
+    &:hover {
+	cursor: pointer;
+    }
+}
+
+.mobileMenuBtn {
     position: relative;
     border: none;
     background-color: transparent;
     cursor: pointer;
     text-decoration: none;
     color: #666;
-    padding-top: 0.125rem; // 2px;
-
-    &:hover,
-    &:focus {
-      color: #046b99;
-      border-bottom: 2px solid #046b99;
-      padding-bottom: 0.4375rem; // 7pxpx
-    }
-  }
-
-  .glossary {
-    position: relative;
-  }
-
-  .arrow {
-    font-weight: 800;
-  }
-
-  #burger-menu {
-    display: flex;
-    list-style: none;
-    font-size: 0.8125rem;
-    padding: 0;
-    margin-top: 0.1rem;
-
-    .item {
-      font-size: 0.9375rem;
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-  }
-} // end header-nav
-
-.nav.tight {
-  margin: 0;
-  padding: 0;
-  border-top: none;
-  width: auto;
+    padding-top: 0.125rem;
 }
 
-.main {
-  display: flex;
-  position: absolute;
-  top: 26px; // from top of blue bar!
-  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
-  width: 100%;
-  flex-wrap: nowrap;
-  box-sizing: border-box;
-  padding-top: 17px;
-  padding-bottom: 17px;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 20;
-  flex-direction: column;
-}
-
-.logo-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  width: 100%;
-  margin-left: calc(100vw - 100%);
-}
-
-.main.tight {
-  height: 50px;
-  top: 0px;
-  background: #ffffff;
-  padding-bottom: 1rem;
-  padding-top: 12px;
-}
-
-ul.ul-nav {
-  display: flex;
-  list-style: none;
-  font-size: 0.8125rem;
-  margin: 0;
-  padding: 0;
-}
-
-// container for "megamenu"!
-.sub {
-  position: absolute;
-  width: 100%;
-  top: 168px; // calculated exactly!
-  z-index: 20;
-  background-color: #f9f9f9;
-
-  ul.ul-dropdown > li.secondaryNavli > a {
-    text-decoration: none;
-    color: #666;
-  }
-
-  .secondaryNavli {
-    float: left;
-    font-size: 0.8125rem;
-    white-space: nowrap;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    width: 100%;
-  }
-} // end header sub
-
-.sub.tight {
-  top: 50px;
-}
-
-.active {
-  display: flex;
-}
-
-.active-table {
-  display: table;
-}
-
-.spacer-element {
-  flex-grow: 1;
-}
-
-// generic for dropdown list (megamenu)
-.data-list {
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
-  border-top: 1px solid #ddd;
-  box-sizing: border-box;
-  background: #f9f9f9f9;
-  padding-bottom: 0.25rem;
-
-  .ul {
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    justify-content: center;
-    //    padding-left: 2.5rem;
-    //    padding-right: 2.5rem;
-    font-size: 0.875rem;
-    padding-top: 25px;
-    padding-bottom: 25px;
+.burgerButton {
+    display: none;
+    border: none;
+    background: none;
     margin: 0;
-
-    .li {
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-      font-weight: 300;
-    }
-  }
-
-  .ul-analyses {
     padding: 0;
-  }
-
-  // specific for FFG section as they have headers.
-  .section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    font-size: 0.875rem;
-
-    .ul-ffg {
-      display: flex;
-      flex-direction: column;
-      list-style-type: none;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-    }
-
-    .li {
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-      font-weight: 300;
-    }
-
-    .sectionTitle {
-      margin: 0;
-      padding-bottom: 0.5rem;
-      color: #555555;
-      font-size: 0.875rem; // 14px
-      line-height: 18px;
-    }
-  }
-
-  .a {
-    color: #555555;
-  }
-
-  .a:hover {
-    color: #046b99;
-  }
-}
-
-// data list modifiers for spacing
-.data-list {
-  .analyses {
-    margin-right: 2rem;
-  }
-
-  .resources {
-    margin-left: 31rem;
-    padding: 0;
-    justify-content: flex-end;
-  }
-  .ul-resources {
-    padding: 0;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-  .express {
-    margin-right: 15rem;
-    padding: 0;
-  }
-  .ul-express {
-    padding: 0;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-  .glossary {
-    margin-left: 42rem;
-    padding: 0;
-  }
-  .ul-glossary {
-    padding: 0;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-}
-
-.toggle {
-  font-size: 32px;
-  display: none;
-  &:hover {
     cursor: pointer;
-  }
+    position: relative;
 }
 
 .mobile {
-  display: none;
+    display: none;
 }
 
 @import "./page-mobile.scss";

@@ -66,7 +66,8 @@ export default class Search extends React.Component {
       currentValue: initItem,
       expanded: this.props.alwaysShowList,
       icon: initItem ? 'clear' : 'search',
-      filteredList: []
+      filteredList: [],
+      maxWidth: 320,
     }
 
     this.cache = new CellMeasurerCache({
@@ -77,6 +78,12 @@ export default class Search extends React.Component {
 
   componentDidMount() {
     this.setState({ filteredList: this.props.searchList })
+
+    this.resizeWindow();
+    window.addEventListener('resize', this.resizeWindow);
+    return () => {
+      window.removeEventListener('resize', this.resizeWindow);
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -91,6 +98,10 @@ export default class Search extends React.Component {
     // recalc row heights in case filtered list changes (filter or parent update)
     this.cache.clearAll();
     this.listRef.recomputeRowHeights();
+  }
+
+  resizeWindow = () => {
+    this.setState({ maxWidth: window.innerWidth - 30 })
   }
 
   onFocus = () => {
@@ -219,7 +230,7 @@ export default class Search extends React.Component {
         {({ height, width }) =>
           <List
             height={height}
-            width={width}
+            width={width > this.state.maxWidth ? this.state.maxWidth : width}
             rowRenderer={this.row}
             rowCount={this.state.filteredList.length}
             deferredMeasurementCache={this.cache}

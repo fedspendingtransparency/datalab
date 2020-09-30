@@ -1,0 +1,189 @@
+@import '../../styles/afg/colors';
+
+.select-country {
+    position: relative;
+    transform: translate(0,39px);
+    display: inline-block;
+
+    &.mobile {
+        transform: none;
+    }
+}
+
+.trigger-button {
+    background-color: $revenue-primary;
+    border: 1px solid $revenue-primary;
+    border-radius: 3px;
+    color: white;
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+    width: 210px;
+    text-align: left;
+    transition: background-color 0.2s ease-in;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    svg {
+        float: right;
+    }
+
+    &:hover {
+        background-color: darken($revenue-primary, 10);
+    }
+}
+
+.spending-country {
+    .trigger-button {
+        background-color: $color-spending-primary;
+        border-color: $color-spending-primary;
+
+        &:hover {
+            background-color: darken($color-spending-primary, 10);
+        }
+    }
+
+    .list-div li {
+        background-color: $color-spending-primary;
+
+        &:hover {
+            background-color: darken($color-spending-primary, 10);
+        }
+    }
+}
+
+.deficit-country {
+    .trigger-button {
+        background-color: $color-deficit-primary;
+        border-color: $color-deficit-primary;
+
+        &:hover {
+            background-color: darken($color-deficit-primary, 10);
+        }
+    }
+
+    .list-div li {
+        background-color: $color-deficit-primary;
+
+        &:hover {
+            background-color: darken($color-deficit-primary, 10);
+        }
+    }
+}
+
+.debt-country {
+    .trigger-button {
+        background-color: $color-debt-primary;
+        border-color: $color-debt-primary;
+
+        &:hover {
+            background-color: darken($color-debt-primary, 10);
+        }
+    }
+
+    .list-div li {
+        background-color: $color-debt-primary;
+
+        &:hover {
+            background-color: darken($color-debt-primary, 10);
+        }
+    }
+}
+
+.list-div {
+    width: 300px;
+    min-height: 200px;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    display: none;
+    position: absolute;
+    top: 40px;
+    box-shadow: 0 0 10px rgba(0,0,10,0.2);
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        background-color: $revenue-primary;
+        display: inline-block;
+        margin: 3px 3px 3px 0;
+        padding: 2px 1rem;
+        color: white;
+        border-radius: 2px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($revenue-primary, 10);
+        }
+
+        svg {
+            margin-left: 1em;
+        }
+    }
+}
+
+.select-country.active .list-div {
+    display: block;
+}
+
+.available-container {
+    width: 100%;
+    max-height: 300px;
+    overflow: scroll;
+}
+
+.available {
+    padding: 0.2rem;
+    cursor: pointer;
+    overflow: auto;
+
+    .add-button {
+        float: right;
+        background-color: $revenue-primary;
+        padding: 2px 1rem;
+        color: white;
+        border: 1px solid $revenue-primary;
+        border-radius: 2px;
+        opacity: 0;
+        transition: opacity 0.2 ease-in;
+    }
+
+    &.in-focus {
+        background-color: #f4f4f4;
+    }
+
+    &.in-focus .add-button  {
+        opacity: 1;
+    }
+}
+
+.see-more {
+    color: #666;
+    font-style: italic;
+}
+
+.search-wrapper {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 0;
+
+    svg {
+        float: right;
+        margin: 5px;
+    }
+
+    input {
+        box-sizing: border-box;
+        width: 85%;
+        border: none;
+        padding: 5px;
+    }
+}
+
+.hidden {
+    display:none;
+}

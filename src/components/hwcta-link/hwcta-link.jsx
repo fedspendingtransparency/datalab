@@ -31,12 +31,12 @@ const HWCTALink = (props) => {
   return (
     <div className={hwctaLinkStyles.hwcta + ' ' + props._mainClass}>
       <LinkWrapper>
-        <Link to={props.url.replace(/\/\//g, '/')} style={{ textDecorationColor: props.fillColor }}>
+        <Link data-testid='hwctaLink' to={props.url.replace(/\/\//g, '/')} style={{ textDecorationColor: props.fillColor }}>
           <Grid container alignItems='center'>
             <Grid item className={hwctaLinkStyles.icon}>
-              <Sources fillColor={props.fillColor} />
+              <Sources data-testid='dsmSvg' fillColor={props.fillColor} />
             </Grid>
-            <Grid item className='hover-color'>
+            <Grid item data-testid='dsmText'>
               Data Sources and{' '}
               <Hidden mdUp>
                 <br />
@@ -44,7 +44,7 @@ const HWCTALink = (props) => {
               Methodologies
             </Grid>
             <Grid item className={hwctaLinkStyles.arrow}>
-              <FontAwesomeIcon icon={faChevronRight} width={20} color={props.fillColor} />
+              <FontAwesomeIcon data-testid='dsmArrow' icon={faChevronRight} width={20} color={props.fillColor} />
             </Grid>
           </Grid>
         </Link>
