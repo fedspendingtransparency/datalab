@@ -11,22 +11,22 @@ const d3 = { line },
         .y(function (d) { return d.y; });
 
 export function deficitLabel(yMax, parent, amount) {
-    const layer = parent.append('g').classed('legend', true),
-        mid = yMax / 2,
-        lineData = [
-            { x: -20, y: mid },
-            { x: -30, y: mid },
-            { x: -30, y: mid + yMax },
-            { x: -20, y: mid + yMax }
-        ],
-        textX = -30,
-        text = layer.append('text')
-            .attr('fill', colors.textColorParagraph)
-            .classed('touch-label', true)
-            .attr('text-anchor', 'middle')
-            .attr('x', 0)
-            .attr('y', lineData[2].y + 24)
-            .style('font-size', 24);
+    const layer = parent.append('g').classed('legend', true);
+    const mid = yMax / 2;
+    const lineData = [
+        { x: -20, y: mid },
+        { x: -30, y: mid },
+        { x: -30, y: mid + yMax },
+        { x: -20, y: mid + yMax }
+    ];
+    const textX = -30;
+    const text = layer.append('text')
+        .attr('fill', colors.textColorParagraph)
+        .classed('touch-label', true)
+        .attr('text-anchor', 'middle')
+        .attr('x', 0)
+        .attr('y', lineData[2].y + 24)
+        .style('font-size', 24);
 
     layer.append('path')
         .attr('d', lineFn(lineData))
@@ -54,17 +54,17 @@ export function labelMaker(parent, height, label, amount) {
         { x: -30, y: 0 },
         { x: -30, y: height },
         { x: -20, y: height }
-    ],
-        spending = label === 'Spending',
-        layer = parent.append('g').attr('opacity', 0).classed('legend', true),
-        textX = spending ? chartWidth + 40 : -40,
-        text = layer.append('text')
-            .attr('fill', colors.textColorParagraph)
-            .classed('touch-label', true)
-            .attr('text-anchor', 'end')
-            .attr('x', 0)
-            .attr('y', height / 2 + 15)
-            .style('font-size', 24);
+    ];
+    const spending = label === 'Spending';
+    const layer = parent.append('g').attr('opacity', 0).classed('legend', true);
+    const textX = spending ? chartWidth + 40 : -40;
+    const text = layer.append('text')
+        .attr('fill', colors.textColorParagraph)
+        .classed('touch-label', true)
+        .attr('text-anchor', 'end')
+        .attr('x', 0)
+        .attr('y', height / 2 + 15)
+        .style('font-size', 24);
 
     if (spending) {
         lineData.forEach((r, i) => {

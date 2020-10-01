@@ -13,27 +13,28 @@ let debounce;
 let previousWidth;
 let config;
 
+
 export function initChart(_config) {
-	triggerMainInfoBox();
+  triggerMainInfoBox();
 
-	d3.select('#viz').selectAll('*').remove();
-	config = _config || config;
+  d3.select('#viz').selectAll('*').remove();
+  config = _config || config;
 
-	setChartWidth();
-	setDotsPerRow();
+  setChartWidth();
+  setDotsPerRow();
 
-	establishContainer(500, chartWidth, config.accessibilityAttrs.default);
+  establishContainer(500, chartWidth, config.accessibilityAttrs.default);
 
-	startLegendAnimation(config);
+  startLegendAnimation(config);
 }
 
-function resizeChart() {
-	if (typeof document !== 'undefined') {
-		setChartWidth();
-		setDotsPerRow();
-		resetForResize();
-		d3.select('svg.main')
-			.attr('width', chartWidth);
-		placeDots(config);
-	}
+export function resizeChart() {
+  if (typeof document !== 'undefined') {
+    setChartWidth();
+    setDotsPerRow();
+    resetForResize();
+    d3.select('svg.main')
+      .attr('width', chartWidth);
+    placeDots(config);
+  }
 }

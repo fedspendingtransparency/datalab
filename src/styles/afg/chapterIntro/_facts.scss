@@ -1,33 +1,35 @@
+@import '../../../../src/styles/variables.scss';
+
 .facts {
-  position: absolute;
-  top: 2.5rem;
-  left: calc(50% - 200px);
-  max-width: 80%;
-  width: 400px;
-  transition: opacity 1s ease;
-  margin-bottom: 2rem;
+    position: absolute;
+    top: 2.5rem;
+    left: calc(50% - 200px);
+    max-width: 80%;
+    width: 400px;
+    transition: opacity 1s ease;
+    margin-bottom: 2rem;
 }
 
-  .facts__section {
+.facts__section {
     display: none;
     opacity: 0;
     transition: opacity 1s ease;
-  }
+}
 
-  .facts__triggers {
+.facts__triggers {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-  }
+}
 
-  .facts__prompt {
+.facts__prompt {
     margin-top: 0;
     font-size: 1rem;
     font-weight: 600;
     color: $text-color-heading;
-  }
+}
 
-  .facts__trigger {
+.facts__trigger {
     font-size: 1rem;
     display: block;
     width: 49%;
@@ -38,57 +40,64 @@
     padding: 0.2rem;
     transition: all 0.2s ease;
     cursor: pointer;
-  }
+}
 
-  .facts__trigger.facts__trigger--active {
-    background:$revenue-primary;
-    color: white;
-  }
-
-  .facts__section.facts__section--active {
+.facts__section.facts__section--active {
     display: block;
     opacity: 1;
-  }
+}
 
-  .facts.facts--hidden {
+.facts.facts--hidden {
     opacity: 0;
-  }
+}
 
-  .facts__inner {
+.facts__inner {
     background: rgba(255, 255, 255, 0.95);
     margin: 0 auto;
     box-shadow: 0 0 30px rgba(0,0,0,0.3);
 
     section {
-      padding: 1rem;
-      margin-bottom: 1rem;
+	padding: 1rem;
+	margin-bottom: 1rem;
     }
 
     h1 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      text-align: left;
-      margin-top: 0;
+	font-size: 1.2rem;
+	font-weight: 600;
+	text-align: left;
+	margin-top: 0;
     }
-  }
+}
 
-  @media only screen and (min-width: 960px) {
+@media only screen and (min-width: 960px) {
     .facts {
-      top: 4rem;
-      left: 0;
+        top: 4rem;
+        left: 0;
     }
 
     .facts__trigger {
-      padding: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .facts__trigger.facts__trigger--active {
+        background:$revenue-primary;
+        color: white;
     }
 
     .facts__prompt {
-      font-size: 1.6rem;
+        font-size: 1.6rem;
     }
-  }
+}
 
-  @media only screen and (max-width: 500px) {
+/* Hide facts on mobile - gets in the way of viz */
+@media only screen and (max-width: $afg-mobile) {
     .facts {
-      left: 10%;
+        display: none;
     }
-  }
+};
+
+@media only screen and (max-width: 500px) {
+    .facts {
+        left: 10%;
+    }
+}
