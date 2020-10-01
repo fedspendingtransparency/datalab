@@ -14,6 +14,7 @@ import explorer from 'src/images/more-analyses/explorer.png';
 import rd from 'src/images/more-analyses/rd.png';
 import covid from 'src/images/more-analyses/covid.png';
 import afg from 'src/images/more-analyses/afg.png';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 
 export default class MoreAnalyses extends React.Component {
@@ -113,38 +114,51 @@ export default class MoreAnalyses extends React.Component {
     return false;
   }
 
+  theme = createMuiTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        md: 660,
+        lg: 960
+      }
+    },
+  });
+
   render = () =>
-    <section className={moreAnalysesStyles.analyses}>
-      <div className={moreAnalysesStyles.heading}>
-        More Analyses
-      </div>
-      <Grid container spacing={3} className={moreAnalysesStyles.tiles}>
-        {this.showAnything() &&
-          this.showAnalyses.map((analysesIndex, i) =>
-            <Grid item xs={12} md={6} lg={3}
-              key={'analyses_tile_' + i}
-              className={`tile ${moreAnalysesStyles.tile}`}
-            >
-              <a href={`/${this.analyses[analysesIndex].href}`}>
-                <div className={moreAnalysesStyles.text}>
-                  <div className={moreAnalysesStyles.title}>
-                    {this.analyses[analysesIndex].title}
+    <ThemeProvider theme={this.props.afg ? this.theme : ''}>
+      <section
+        className={this.props.afg ? `${moreAnalysesStyles.analyses} ${moreAnalysesStyles.afg}` : `${moreAnalysesStyles.analyses} ${moreAnalysesStyles.dl}`}>
+        <div className={moreAnalysesStyles.heading}>
+          More Analyses
+        </div>
+        <Grid container spacing={3} className={moreAnalysesStyles.tiles}>
+          {this.showAnything() &&
+            this.showAnalyses.map((analysesIndex, i) =>
+              <Grid item xs={12} md={6} lg={3}
+                key={'analyses_tile_' + i}
+                className={`tile ${moreAnalysesStyles.tile}`}
+              >
+                <a href={`/${this.analyses[analysesIndex].href}`}>
+                  <div className={moreAnalysesStyles.text}>
+                    <div className={moreAnalysesStyles.title}>
+                      {this.analyses[analysesIndex].title}
+                    </div>
+                    <p className={moreAnalysesStyles.subtitle}>
+                      {this.analyses[analysesIndex].subtitle}
+                    </p>
                   </div>
-                  <p className={moreAnalysesStyles.subtitle}>
-                    {this.analyses[analysesIndex].subtitle}
-                  </p>
-                </div>
-                <img
-                  data-src={this.analyses[analysesIndex].imageSrc}
-                  alt={this.analyses[analysesIndex].altText}
-                  className={`${moreAnalysesStyles.image} lazyload`}
-                />
-              </a>
-            </Grid>
-          )
-        }
-      </Grid>
-    </section>
+                  <img
+                    data-src={this.analyses[analysesIndex].imageSrc}
+                    alt={this.analyses[analysesIndex].altText}
+                    className={`${moreAnalysesStyles.image} lazyload`}
+                  />
+                </a>
+              </Grid>
+            )
+          }
+        </Grid>
+      </section>
+    </ThemeProvider>
 }
 
 
