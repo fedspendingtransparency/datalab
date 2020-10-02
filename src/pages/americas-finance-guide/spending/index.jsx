@@ -2,7 +2,7 @@ import 'src/styles/afg/chapterIntroCommon.scss';
 import 'src/styles/afg/cg.scss';
 import 'src/page-sections/afg-spending/intro/spending-intro.scss';
 
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import SpendingIntro from 'src/page-sections/afg-spending/intro/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +13,7 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
+import TabsWrapper from 'src/components/tabs/tabs';
 import { setFactsTrigger } from 'src/afg-helpers/dots/revenue-and-spending/compareManager';
 
 import AnecdoteSpendingSVG from '../../../../static/americas-finance-guide/icons/anecdote-spending.svg';
@@ -21,7 +22,34 @@ import AfgLayout from '../../../components/layouts/afg/afg';
 
 
 function SpendingAndGdpPage(props) {
+	// SpendingIntro component used as placeholder until the mobile dot viz components are finished
+	const tabs = [
+		{
+			label: 'Spending',
+			component: <SpendingIntro />
+		},
+		{
+			label: 'Revenue',
+			component: <SpendingIntro />
+		},
+		{
+			label: 'U.S. Economy',
+			component: <SpendingIntro />
+		},
+	]
+
+	const [vizComponent, updateVizComponent] = useState(<SpendingIntro />);
+
+	const handleResize = () => {
+		updateVizComponent(window.innerWidth > 959 ? <SpendingIntro /> : <TabsWrapper tabs={tabs} />);
+	}
+
+	if (typeof window !== 'undefined') {
+		window.addEventListener('resize', handleResize);
+	}
+
   useEffect(() => {
+		handleResize();
     setFactsTrigger();
   }, []);
 
@@ -55,7 +83,7 @@ function SpendingAndGdpPage(props) {
 						</button>
 					</h1>
 					<div className="viz-wrapper">
-						<SpendingIntro />
+						{vizComponent}
 						<div className="intro-math intro-hidden">
 							<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
 							{AfgData.dot_number_spending.value}

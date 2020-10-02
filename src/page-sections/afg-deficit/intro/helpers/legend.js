@@ -52,22 +52,6 @@ function buildLegend() {
 		.duration(duration / 2)
 		.attr('opacity', 1)
 		.ease();
-
-	g.append('image')
-		.attr('height', 16)
-		.attr('width', 20)
-		.attr('x', 80)
-		.attr('y', -14)
-		.attr('opacity', 0)
-		.attr('data-box-id', 'billion-dollars')
-		.attr('xlink:href', `/americas-finance-guide/icons/${config.anecdoteName}`)
-		.attr('style', 'cursor:pointer')
-		.on('click', triggerInfoBox)
-		.transition()
-		.delay(duration * 0.7)
-		.duration(duration / 2)
-		.attr('opacity', 1)
-		.ease();
 }
 
 function addText() {
@@ -150,4 +134,47 @@ export function startLegendAnimation(_config, _callback) {
 		.attr('transform', `${translator(introX, 40)} scale(${scaleDotLegend})`);
 
 	initDot();
+}
+
+export function initMobileLegend(_config, debtTab) {
+	config = _config || config;
+	svg = establishContainer();
+	
+	const g = svg.append('g')
+		.classed('income-dot-legend-mobile', true)
+
+	g.append('circle')
+		.attr('fill', config.deficitColor)
+		.attr('r', 3)
+		.attr('cx', 0)
+		.attr('cy', 0)
+		.attr('transform', 'translate(6 7)')
+		
+	g.append('text')
+		.text('= $10 Billion')
+		.attr('fill', colors.textColorParagraph)
+		.style('font-size', 12)
+		.attr('y', 5)
+		.attr('x', 7)
+		.attr('transform', 'translate(6 6)')
+
+	if (debtTab) {
+		const g2 = svg.append('g')
+			.classed('federal-debt-legend-mobile', true)
+			.attr('transform', 'translate(112,0)')
+
+		g2.append('rect')
+			.attr('fill', config.federalDebtColor)
+			.attr('height', 10)
+			.attr('width', 10)
+			.attr('transform', 'translate(0 2)')
+
+		g2.append('text')
+			.text('Federal Debt')
+			.attr('fill', colors.textColorParagraph)
+			.style('font-size', 12)
+			.attr('y', 5)
+			.attr('x', 7)
+			.attr('transform', 'translate(6 6)')
+	}
 }

@@ -23,22 +23,17 @@ function DebtAnalysisPage(props) {
                 excerpt='Explore this section to learn more about who owns U.S. debt, how much it costs to maintain the debt, and how interest rates affect debt expenses.'
                 keywords={[`debt, national debt, federal debt, U.S.debt, interest rate, interest expense, total debt, cost of debt, cost to maintain debt, federal government’s debt, US investors, social security, Federal Reserve, China,Japan, Brazil top owners of US debt, monthly statement of the public debt, MSPD`]}
             />
-
             <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-debt.jpg"}/>
-
             <AfgLayout location={props.location} chapter={'debt'}>
                 <ControlBar>
                     <Share
                         location={props.location}
                         title="Data Lab - Federal Debt Analysis – U.S. Treasury"
                         twitter="How much does it cost to maintain the federal debt? Who owns the debt? Check out Your Guide to America’s Finances for visualizations and download .CSV data files for your own analysis. #YourGuide #DataLab #OpenGov"
-                        />
+                    />
                 </ControlBar>
-
                 <h1>Breakdown of the Federal Government's Debt</h1>
-
                 <p className="debt-analysis-intro">What does the U.S. government's debt look like? Similar to people with a credit card, mortgage, or car loan, the federal debt consists of different parts. See some of the characteristics of the federal debt and how they have changed over time.</p>
-
                 <div className="cards">
                     <section className="card">
                         <div className="card__contents">
@@ -52,7 +47,6 @@ function DebtAnalysisPage(props) {
                             Although the total federal debt of the U.S. has increased every year over the past ten years, interest expense has remained fairly stable.
                         </div>
                     </section>
-
                     <section className="card">
                         <div className="card__contents">
                             <h1 className="card__heading">How have interest rates on the federal debt changed?</h1>
@@ -60,7 +54,6 @@ function DebtAnalysisPage(props) {
                             Interest rates have steadily fallen over the past ten years. Low interest rates are the reason for the interest expense the federal government pays on its debt remaining stable, even as the federal debt has increased.
                         </div>
                     </section>
-
                     <section className="card">
                         <div className="card__contents">
                             <h1 className="card__heading">Is there more information about who owns the debt?</h1>
@@ -69,8 +62,7 @@ function DebtAnalysisPage(props) {
                         </div>
                     </section>
                 </div>
-                <DebtCards/>
-
+                <DebtCards />
                 <section className="tour">
                     <div className="tour__part-one">
                         <h1>How does the federal debt of the United States compare to other countries?</h1>
@@ -78,9 +70,7 @@ function DebtAnalysisPage(props) {
                     </div>
                     <a href="/americas-finance-guide/debt/country-comparison/" className="tour__link">Continue<FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right"/></a>
                 </section>
-
-                <div className="clearfix"></div>
-
+                <div className="clearfix" />
                 <section className="hwcta">
                     <AccordionList title="Data Sources and Methodology">
                         <p>

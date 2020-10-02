@@ -103,4 +103,5 @@ export function labelMaker(parent, height, label, amount) {
     }
 
     layer.transition().duration(duration * 1.5).attr('opacity', 1);
+    
 }

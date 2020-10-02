@@ -29,7 +29,7 @@ const AfgLayout = (props) => {
 			<div className="cg-wrapper debt-analysis-wrapper" style={{ marginTop }}>
 				<div className="ffg-wrapper debt-analysis">
 					{props.children}
-					<MoreAnalyses />
+					<MoreAnalyses afg={true} />
 				</div>
 			</div>
 		</Default>

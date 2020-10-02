@@ -2,43 +2,127 @@ import 'src/styles/afg/chapterIntroCommon.scss';
 import 'src/styles/afg/cg.scss';
 import 'src/page-sections/afg-deficit/intro/deficit-intro.scss';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SEO from 'src/components/seo';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 import Og from '../../../components/og-tag/og';
+import TabsWrapper from 'src/components/tabs/tabs';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import DeficitIntro from 'src/page-sections/afg-deficit/intro/index';
+import DeficitTab from 'src/page-sections/afg-deficit/intro/mobile/deficit';
+import SpendingTab from 'src/page-sections/afg-deficit/intro/mobile/spending';
+import DebtTab from 'src/page-sections/afg-deficit/intro/mobile/debt';
+import { activeLayer, setActiveLayer } from 'src/page-sections/afg-deficit/intro/helpers/manageLayers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDeficitSVG from '../../../../static/americas-finance-guide/icons/anecdote-deficit.svg';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
+const desktopVizComponent = (
+	<>
+		<DeficitIntro />
+		<div className="intro-math intro-hidden">
+			<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
+			{AfgData.dot_number_deficit.value} dots x {AfgData.dot_represents.value} = <strong>{AfgData.current_fy_deficit.value}</strong>
+		</div>
+		<div className="facts sidebar intro-hidden">
+			<div className="facts__inner">
+				<div id="compare-options">
+					<p className="facts__prompt">What is the deficit and how does that compare to the national debt?</p>
+					<div className="facts__triggers">
+						<button id="data-trigger-deficit" className="facts__trigger" data-trigger-id="deficit">Deficit</button>
+						<button id="data-trigger-debt" className="facts__trigger" data-trigger-id="debt">Debt</button>
+					</div>
+				</div>
+				<section id="deficit-facts" className="facts__section">
+					<p>When spending exceeds revenue, the difference is a deficit, which the federal government finances mainly by borrowing from the public.</p>
+				</section>
+				<section id="debt-facts" className="facts__section">
+					<p>To pay for a deficit, the government takes on debt. The total debt that the government owes is essentially the accumulation of deficits over time, minus repayments of debt.</p>
+					<p>
+						*The&nbsp;
+						{AfgData.added_debt_short.value}
+						{' '}
+						increase in federal debt actually consists of the&nbsp;
+						{AfgData.current_fy_deficit_short.value}
+						{' '}
+						deficit along with changes to operating cash balance, intergovernmental holdings, and other financial activities. In the visualization, the operating cash balance, intergovernmental holdings, and other financial activities were combined with the prior year debt balance for simplicity.
+					</p>
+				</section>
+			</div>
+		</div>
+	</>
+);
+
+const tabs = [
+	{
+		label: 'Deficit',
+		component: <DeficitTab />
+	},
+	{
+		label: 'Spending',
+		component: <SpendingTab />
+	},
+	{
+		label: 'Debt',
+		component: <DebtTab />
+	},
+];
+
 function ExploreDeficitPage(props) {
+	const layers = ['', 'deficit', 'debt'];
+
+	const handleTabChange = (newTabValue) => {
+		setActiveLayer(layers[newTabValue])
+	}
+
+	const mobileVizComponent = (
+		<TabsWrapper
+			tabs={tabs}
+			handleTabChange={handleTabChange}
+			activeTab={layers.indexOf(activeLayer)}
+		/>
+	)
+
+	const [isMobile, setIsMobile] = useState(true);
+
+	const handleResize = () => {
+		setIsMobile(window.innerWidth < 960);
+	}
+
+  useEffect(() => {
+		handleResize();
+		
+		if (typeof window !== 'undefined') {
+			window.addEventListener('resize', handleResize);
+			return () => {
+				window.removeEventListener('resize', handleResize);
+			}
+		}
+	}, []);
+	
 	return (
 		<>
 			<SEO
-  title="Data Lab - Explore Deficit – U.S. Treasury"
-  description="In 2019, the federal government spent $984 billion more than it collected, resulting in a deficit."
-  excerpt="How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent $4.4 trillion and collected $3.5 trillion in 2019, the government ran a deficit for the year."
-  keywords={['Deficit, federal deficit, national deficit, spending, revenue, U.S. deficit money going out, money coming in, debt, national debt, federal debt, deficit vs. debt']}
+				title="Data Lab - Explore Deficit – U.S. Treasury"
+				description="In 2019, the federal government spent $984 billion more than it collected, resulting in a deficit."
+				excerpt="How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent $4.4 trillion and collected $3.5 trillion in 2019, the government ran a deficit for the year."
+				keywords={['Deficit, federal deficit, national deficit, spending, revenue, U.S. deficit money going out, money coming in, debt, national debt, federal debt, deficit vs. debt']}
 			/>
-
 			<Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-deficit.jpg"} />
-
 			<AfgLayout location={props.location} chapter={'deficit'}>
 				<div className="chapter-intro-common-wrapper deficit-intro-wrapper">
 					<div className="deficit-intro">
 						<ControlBar>
 							<Share
-  location={props.location}
-  title="Data Lab - Explore Federal Deficit – U.S. Treasury"
-  twitter="How much is the federal deficit? Check out #YourGuide for visualizations and .CSV data to do your own analysis. #DataLab #OpenGov"
+								location={props.location}
+								title="Data Lab - Explore Federal Deficit – U.S. Treasury"
+								twitter="How much is the federal deficit? Check out #YourGuide for visualizations and .CSV data to do your own analysis. #DataLab #OpenGov"
 							/>
 						</ControlBar>
-
 						<h1>
 							In&nbsp;
 							{AfgData.current_fy.value}
@@ -50,7 +134,6 @@ function ExploreDeficitPage(props) {
 								<img src={AnecdoteDeficitSVG} alt="anecdote icon" />
 							</button>
 						</h1>
-
 						<div className="debt-copy">
 							<p>
 								How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent&nbsp;
@@ -64,52 +147,8 @@ function ExploreDeficitPage(props) {
 								, the government ran a deficit for the year.
 							</p>
 						</div>
-
 						<div className="viz-wrapper">
-							<DeficitIntro />
-
-							<div className="intro-math intro-hidden">
-								<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
-								{AfgData.dot_number_deficit.value}
-								{' '}
-								dots x
-								{' '}
-								{AfgData.dot_represents.value}
-								{' '}
-								=
-								{' '}
-								<strong>{AfgData.current_fy_deficit.value}</strong>
-							</div>
-
-							<div className="facts sidebar intro-hidden">
-								<div className="facts__inner">
-									<div id="compare-options">
-										<p className="facts__prompt">What is the deficit and how does that compare to the national debt?</p>
-										<div className="facts__triggers">
-											<button className="facts__trigger" data-trigger-id="deficit">Deficit</button>
-											<button className="facts__trigger" data-trigger-id="debt">Debt</button>
-										</div>
-									</div>
-
-									<section id="deficit-facts" className="facts__section">
-										<p>When spending exceeds revenue, the difference is a deficit, which the federal government finances mainly by borrowing from the public.</p>
-									</section>
-
-									<section id="debt-facts" className="facts__section">
-										<p>To pay for a deficit, the government takes on debt. The total debt that the government owes is essentially the accumulation of deficits over time, minus repayments of debt.</p>
-										<p>
-											*The&nbsp;
-											{AfgData.added_debt_short.value}
-											{' '}
-											increase in federal debt actually consists of the&nbsp;
-											{AfgData.current_fy_deficit_short.value}
-											{' '}
-											deficit along with changes to operating cash balance, intergovernmental holdings, and other financial activities. In the visualization, the operating cash balance, intergovernmental holdings, and other financial activities were combined with the prior year debt balance for simplicity.
-										</p>
-									</section>
-								</div>
-							</div>
-
+							{isMobile ? mobileVizComponent : desktopVizComponent}
 							<section className="accordion sidebar intro-hidden">
 								<AccordionList title="How else does the government finance a deficit?">
 									<div>
@@ -117,7 +156,6 @@ function ExploreDeficitPage(props) {
 									</div>
 								</AccordionList>
 							</section>
-
 							<section className="tour sidebar intro-hidden">
 								<div className="tour__part-one">
 									<h1>How has the federal deficit changed over time?</h1>
@@ -135,7 +173,6 @@ function ExploreDeficitPage(props) {
 						</div>
 						{' '}
 						{/* end viz-wrapper */}
-
 						<div className="info-box" id="per-individual">
 							<img src={AnecdoteDeficitSVG} alt="anecdote icon" />
 							<p>
@@ -159,7 +196,6 @@ function ExploreDeficitPage(props) {
 								in deficit spending for every individual in the U.S.
 							</p>
 						</div>
-
 						<div className="info-box" id="billion-dollars">
 							<img src={AnecdoteDeficitSVG} alt="anecdote icon" />
 							<p>
@@ -169,7 +205,6 @@ function ExploreDeficitPage(props) {
 							</p>
 						</div>
 					</div>
-
 					<section className="hwcta">
 						<AccordionList title="Data Sources and Methodology">
 							<p>
