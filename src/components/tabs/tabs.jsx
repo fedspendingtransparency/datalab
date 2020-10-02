@@ -4,6 +4,9 @@ import Tab from '@material-ui/core/Tab';
 import { withStyles } from '@material-ui/styles';
 import TabPanel from './tab-panel';
 import { legacyBlue } from 'src/styles/variables.scss';
+import Spending from '../../page-sections/rd-in-contracting/spending/spending-chart';
+import Categories from '../../page-sections/rd-in-contracting/categories/categories';
+import Studies from '../../page-sections/rd-in-contracting/studies/studies';
 
 const StyledTabs = withStyles({
   root: {
@@ -31,14 +34,15 @@ const StyledTab = withStyles((theme) => ({
 
 const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
   const [value, setValue] = useState(activeTab || 0);
-  
+
   const handleChange = (e, newValue) => {
     setValue(newValue);
     if (handleTabChange) {
       handleTabChange(newValue);
     }
   }
-  
+
+
   return (
     <>
       <StyledTabs
@@ -47,7 +51,7 @@ const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
         variant="fullWidth"
       >
         {tabs.map((tab, index) => (
-          <StyledTab value={index} label={tab.label} aria-label={tab.label} className={tab.className} data-trigger-id={tab.trigger} />
+          <StyledTab value={index} label={tab.label} aria-label={tab.label} />
         ))}
       </StyledTabs>
       {tabs.map((tab, index) => (

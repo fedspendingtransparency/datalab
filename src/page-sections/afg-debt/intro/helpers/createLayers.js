@@ -4,7 +4,7 @@ import { line } from 'd3-shape';
 import { dotsPerRow, dotConstants } from "./dotConstants";
 import { labelMaker, mobileLabelMaker } from './layerLegends';
 import { initDebtDots } from './debtDots';
-import { translator } from 'src/afg-helpers/utils';
+import { isMobileDevice, translator } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
 import { createDonut } from '../../../../afg-helpers/dots/donut';
 
@@ -120,7 +120,7 @@ function mobilePlaceDonut(g) {
 
 function createGdp() {
     generateOverlay(config.gdpAmount, 'gdp', 'GDP', '#777');
-    if (typeof window !== 'undefined' && window.innerWidth > 959) {
+    if (!isMobileDevice()) {
         placeDonut(layers.gdp);
     } else {
         mobilePlaceDonut(layers.gdp);

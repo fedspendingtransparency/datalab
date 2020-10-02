@@ -17,43 +17,69 @@ import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDebtSVG from '../../../../static/americas-finance-guide/icons/anecdote-debt.svg';
 import AfgLayout from 'src/components/layouts/afg/afg';
 import styles from './debt.module.scss';
+import {
+	activeLayer,
+	setActiveLayer,
+} from '../../../page-sections/afg-deficit/intro/helpers/manageLayers';
+import { isMobileDevice } from '../../../afg-helpers/utils';
+
+// DebtIntro component used as placeholder until the mobile dot viz components are finished
+const tabs = [
+	{
+		label: 'Debt',
+		component: <DebtIntro selection={'debt'} />,
+		trigger: 'debt'
+	},
+	{
+		label: 'Deficit',
+		component: <DebtIntro selection={'deficit'} />,
+		trigger: 'deficit'
+	},
+	{
+		label: 'U.S. Economy',
+		component: <DebtIntro selection={'gdp'} />,
+		trigger: 'gdp'
+	},
+]
 
 function ExploreDebtPage(props) {
-	// DebtIntro component used as placeholder until the mobile dot viz components are finished
-	const tabs = [
-		{
-			label: 'Debt',
-			component: <DebtIntro />,
-			className: 'facts__trigger',
-			trigger: 'debt'
-		},
-		{
-			label: 'Deficit',
-			component: <DebtIntro />,
-			className: 'facts__trigger',
-			trigger: 'deficit'
-		},
-		{
-			label: 'U.S. Economy',
-			component: <DebtIntro />,
-			className: 'facts__trigger',
-			trigger: 'gdp'
-		},
-	]
+	const layers = ['', 'deficit', 'gdp'];
+
+	const handleTabChange = (newTabValue) => {
+		setActiveLayer(layers[newTabValue])
+	}
+
+	const mobileVizComponent = (
+		<TabsWrapper
+			tabs={tabs}
+			handleTabChange={handleTabChange}
+			activeTab={layers.indexOf(activeLayer)}
+		/>
+	)
+
+	// const [isMobile, setIsMobile] = useState(true);
+	//
+	// const handleResize = () => {
+	// 	setIsMobile(window.innerWidth < 960);
+	// }
+
+	useEffect(() => {
+		handleResize();
+
+		if (typeof window !== 'undefined') {
+			window.addEventListener('resize', handleResize);
+			return () => {
+				window.removeEventListener('resize', handleResize);
+			}
+		}
+	}, []);
+
 
 	const [vizComponent, updateVizComponent] = useState(<DebtIntro />);
 
 	const handleResize = () => {
-		updateVizComponent(window.innerWidth > 959 ? <DebtIntro /> : <TabsWrapper tabs={tabs} />);
+		updateVizComponent(!isMobileDevice() ? <DebtIntro /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />);
 	}
-
-	if (typeof window !== 'undefined') {
-		window.addEventListener('resize', handleResize);
-	}
-
-  useEffect(() => {
-		handleResize();
-	}, []);
 
 	return (
 		<>

@@ -14,255 +14,266 @@ import './debt-intro.scss';
 import colors from '../../../styles/afg/colors.scss';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
+const config = {
+	anecdoteName: 'anecdote-debt.svg',
+	debtAmount: findAmountInCsv('federal debt', DebtData),
+	gdpAmount: findAmountInCsv('gdp', DebtData),
+	deficitAmount: Math.abs(findAmountInCsv('federal deficit', DebtData)),
+	gdpPercent: findAmountInCsv('federal debt percent of gdp', DebtData) * 100,
+	deficitColor: colors.colorDeficitPrimary,
+	debtColor: colors.colorDebtPrimary,
+	accessibilityAttrs: {
+		default: {
+			title: '2019 Federal Debt',
+			desc: 'The image illustrates the federal government’s debt at the end of 2019 using dots, and each dot is equal to a billion dollars. There are 22,700 dots.',
+		},
+		deficit: {
+			title: '2019 Federal Debt and Deficit',
+			desc: 'The change in federal debt each year is heavily influenced by the deficit or surplus that year. When there is not enough revenue to pay for spending the government borrows money to make up the difference. When there is excess revenue in a given year, the majority of those funds are used to pay down the federal debt. The $984 billion deficit contributed to the $1.2 trillion increase in debt from $21.5 trillion at the end of 2018 to $22.7 trillion by the end of 2019.',
+		},
+		gdp: {
+			title: '2019 Federal Debt and GDP',
+			desc: 'When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The $984 billion deficit contributed to the $1.2 trillion increase in debt from $21.5 trillion at the end of 2018 to $22.7 trillion by the end of 2019.',
+		},
+	},
+};
 
-const DebtIntro = () => {
-  const config = {
-    anecdoteName: 'anecdote-debt.svg',
-    debtAmount: findAmountInCsv('federal debt', DebtData),
-    gdpAmount: findAmountInCsv('gdp', DebtData),
-    deficitAmount: Math.abs(findAmountInCsv('federal deficit', DebtData)),
-    gdpPercent: findAmountInCsv('federal debt percent of gdp', DebtData) * 100,
-    deficitColor: colors.colorDeficitPrimary,
-    debtColor: colors.colorDebtPrimary,
-    accessibilityAttrs: {
-      default: {
-	title: '2019 Federal Debt',
-	desc: 'The image illustrates the federal government’s debt at the end of 2019 using dots, and each dot is equal to a billion dollars. There are 22,700 dots.',
-      },
-      deficit: {
-	title: '2019 Federal Debt and Deficit',
-	desc: 'The change in federal debt each year is heavily influenced by the deficit or surplus that year. When there is not enough revenue to pay for spending the government borrows money to make up the difference. When there is excess revenue in a given year, the majority of those funds are used to pay down the federal debt. The $984 billion deficit contributed to the $1.2 trillion increase in debt from $21.5 trillion at the end of 2018 to $22.7 trillion by the end of 2019.',
-      },
-      gdp: {
-	title: '2019 Federal Debt and GDP',
-	desc: 'When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The $984 billion deficit contributed to the $1.2 trillion increase in debt from $21.5 trillion at the end of 2018 to $22.7 trillion by the end of 2019.',
-      },
-    },
-  };
+const 	d3 = { select, selectAll };
 
-  let mainContainer;
-  let debounce;
-  let previousWidth;
+export default class DebtIntro extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			activeCompare: this.props.selection
+		};
+	}
 
-  function setMainContainer() {
-    mainContainer = establishContainer(900, null, config.accessibilityAttrs.default)
+	duration = 1000;
+  mainContainer;
+  debounce;
+  previousWidth;
+
+	setMainContainer = () => {
+    this.mainContainer = establishContainer(900, null, config.accessibilityAttrs.default)
       .append('g')
       .classed('main', true);
 
-    config.mainContainer = mainContainer;
+    config.mainContainer = this.mainContainer;
   }
 
-  useEffect(() => {
+	resizeSvg = () => {
+		const scaleFactor = 1.3;
+		const h = this.state.activeCompare === 'gdp' ? vizHeight * scaleFactor : vizHeight;
+		establishContainer().transition().duration(this.duration).attr('height', h);
+	}
 
-		const d3 = { select, selectAll },
-			duration = 1000;
+	revealHiddenElements = () => {
+		d3.selectAll('.intro-hidden').classed('intro-hidden', null);
+		this.resizeSvg();
+	}
 
-		let activeCompare;
+	zoom = (out) => {
+		const scaleFactor = 0.6;
+		const yOffset = 35;
 
-		function revealHiddenElements() {
-			d3.selectAll('.intro-hidden').classed('intro-hidden', null);
-			resizeSvg();
+		if (out) {
+			layers.master.transition()
+				.duration(this.duration)
+				.attr('transform', function() {
+					return translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`;
+				})
+				.ease();
+
+		} else {
+			layers.master.transition()
+				.duration(this.duration)
+				.attr('transform', translator(0, yOffset) + ` scale(1)`)
+				.ease();
+
+		}
+	}
+
+	setAccessibility = (type) => {
+		const svgEl = d3.select('svg.main'),
+			descEl = svgEl.select('desc');
+
+		let accessibilityAttr = config.accessibilityAttrs.default;
+
+		if(type){
+			accessibilityAttr = config.accessibilityAttrs[type];
 		}
 
-		function resizeSvg() {
-			const scaleFactor = 1.1;
-			const h = vizHeight * scaleFactor + 40;
-			establishContainer().transition().duration(duration).attr('height', h);
-		}
+		descEl.text(accessibilityAttr.desc);
+	}
 
-		function zoom(out) {
-			const yOffset = 35;
+	updateLayers = () => {
+		this.transitionLayers();
+		this.toggleFacts();
+		this.resizeSvg();
+	}
 
-			if (out) {
-				layers.master.transition()
-					.duration(duration)
-					.attr('transform', function() {
-						if (isMobileDevice()) {
-							return translator(0, yOffset);
-						}
+	toggleLayer = (redraw, context) => {
+		const clicked = (redraw) ? null : d3.select(context);
+		console.log(clicked);
+		console.log(context);
+		const id = (redraw) ? null : !isMobileDevice() ? clicked.node().getAttribute('data-trigger-id') : this.state.activeCompare;
 
-						return translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`;
-					})
-					.ease();
+		// for desktop, toggle the button off.
+		d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
+
+		if(!isMobileDevice()) {
+			if (id === this.state.activeCompare) {  // this should be id === this.state.activeCompare?
+				this.setAccessibility();
+				this.zoom();
+				this.setState({ activeCompare: null }, this.updateLayers);
+
 			} else {
-
-				layers.master.transition()
-					.duration(duration)
-					.attr('transform', translator(0, yOffset) + ` scale(1)`)
-					.ease();
-			}
-		}
-
-		function setAccessibility(type){
-			const svgEl = d3.select('svg.main'),
-				descEl = svgEl.select('desc');
-
-			let accessibilityAttr = config.accessibilityAttrs.default;
-
-			if(type){
-				accessibilityAttr = config.accessibilityAttrs[type];
-			}
-
-			descEl.text(accessibilityAttr.desc);
-		}
-
-		function drawLayer(redraw, clicked, id) {
-			if (id === activeCompare) {
-				setAccessibility();
-				activeCompare = null;
-				zoom();
-			} else {
-				setAccessibility(id);
-				zoom('out');
+				this.setAccessibility(id);
+				this.zoom('out');
 
 				if (!redraw) {
 					clicked.classed('facts__trigger--active', true);
-					activeCompare = id;
 				}
+
+				this.setState({ activeCompare: id }, this.updateLayers);
+
 			}
-			transitionLayers();
-			toggleFacts();
-			resizeSvg();
+		} else {
+			this.updateLayers();
 		}
+	}
 
-		function drawMobileLayer(redraw, clicked, id) {
-			if (!redraw) {
-				clicked.classed('facts__trigger--active', true);
-				activeCompare = id;
-			}
-			setTimeout(() => transitionLayers(), 100);
-			toggleFacts();
-			resizeSvg();
-		}
+	toggleFacts = (id) => {
+		const currentFact =!isMobileDevice() ? id : `mobile-${this.state.activeCompare}`
+		const targetSection = d3.select(`#${currentFact}-facts`),
+			sectionActive = 'facts__section--active';
 
-		function toggleLayer(redraw) {
-			const clicked = (redraw) ? null : d3.select(this),
-				id = (redraw) ? null : clicked.attr('data-trigger-id');
+		d3.selectAll('.facts__section').classed(sectionActive, null);
 
-			d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
+		targetSection.classed(sectionActive, true);
+	}
 
-			typeof window !== 'undefined' && window.innerWidth > 959 ? drawLayer(redraw, clicked, id) : drawMobileLayer(redraw, clicked, id);
-
-		}
-
-		function toggleFacts() {
-			const currentFact = typeof window !== 'undefined' && window.innerWidth > 959 ? activeCompare : `mobile-${activeCompare}`
-			const targetSection = d3.select(`#${currentFact}-facts`),
-				sectionActive = 'facts__section--active';
-
-			d3.selectAll('.facts__section').classed(sectionActive, null);
-
-			targetSection.classed(sectionActive, true);
-		}
-
-		function transitionLayers() {
-			const unSelectedLayer = activeCompare === 'deficit' ? 'gdp' : 'deficit';
+	transitionLayers = () => {
+		if (this.state.activeCompare) {
+			const unSelectedLayer = this.state.activeCompare === 'deficit' ? 'gdp' : 'deficit';
 
 			d3.selectAll(`.${unSelectedLayer}-layer`)
 				.attr('opacity', 0);
 
-			d3.selectAll(`.${activeCompare}-layer`)
+			d3.selectAll(`.${this.state.activeCompare}-layer`)
 				.transition()
-				.duration(duration)
+				.duration(this.duration)
 				.attr('opacity', 1)
 				.ease();
+		} else {
+			d3.selectAll(`.gdp-layer, .deficit-layer`)
+				.attr('opacity', 0);
 		}
 
-		function showDebt() {
-			layers.debt.transition()
-				.duration(duration)
-				.attr('opacity', 1)
-				.on('end', touchIe)
-				.ease();
+	}
+
+	showDebt = () =>  {
+		layers.debt.transition()
+			.duration(this.duration)
+			.attr('opacity', 1)
+			.on('end', touchIe)
+			.ease();
+	}
+
+	resetLayers = () => {
+		if (this.state.activeCompare) {
+			setTimeout(this.toggleLayer, 2000, 'redraw');
+		}
+	}
+
+	layersInit = () => {
+		const classContext = this;
+		if(!isMobileDevice()) {
+			d3.selectAll('.facts__trigger')
+				.on('click', function () {
+					classContext.toggleLayer(false, this);
+				});
+		} else {
+			classContext.toggleLayer(false, this);
 		}
 
-		function resetLayers() {
-			if (activeCompare) {
-				setTimeout(toggleLayer, 2000, 'redraw');
-			}
+		if(!isMobileDevice()) this.zoom();
+		this.showDebt();
+		setTimeout(this.revealHiddenElements, this.duration);
+	}
+
+	resizeChart = () => {
+		setChartWidth();
+		setDotsPerRow();
+		this.resetLayers();
+
+		if(Object.keys(config).indexOf('mainContainer') !== -1) {
+			config.mainContainer.selectAll('*')
+				.remove();
 		}
 
-		function layersInit() {
-			d3.selectAll('.facts__trigger').on('click', toggleLayer);
-			if(typeof window !== 'undefined' && window.innerWidth > 959) zoom();
-			showDebt();
-			setTimeout(revealHiddenElements, duration);
-		}
+		createLayers(config);
+		this.layersInit();
+	}
 
+	componentDidMount() {
+		let timer = isMobileDevice() ? 0 : 4500;
 
-    setChartWidth();
-    setMainContainer();
-    setDotsPerRow();
+		setChartWidth();
+		this.setMainContainer();
+		setDotsPerRow();
 
-    if (typeof window !== 'undefined' && window.innerWidth > 959) {
+		if(!isMobileDevice()) {
 			startLegendAnimation(config);
 		}
 
 		createLayers(config);
 
-    if(typeof window !== 'undefined') {
-			let timer = window.innerWidth < 959 ? 0 : 4500;
+		setTimeout(() => {
+			this.layersInit();
+		}, timer);
+	}
 
-			setTimeout(() => {
-				layersInit();
-			}, timer);
-		}
+	//   window.addEventListener('resize', () => {
+  //     if (debounce) {
+	// 			clearTimeout(debounce);
+  //     }
+	//
+  //     if (previousWidth === window.innerWidth) {
+	// 			return;
+  //     }
+	//
+  //     previousWidth = window.innerWidth;
+	//
+  //     debounce = setTimeout(resizeChart, 100);
+  //   });
+	//
+  //   return () => {
+  //     window.removeEventListener('resize', () => {
+	// 		if (debounce) {
+	// 			clearTimeout(debounce);
+	// 		}
+	//
+	// 		if (previousWidth === window.innerWidth) {
+	// 			return;
+	// 		}
+	//
+	// 		previousWidth = window.innerWidth;
+	//
+	// 		debounce = setTimeout(resizeChart, 100);
+  //     });
+  //   };
+  // }, []);
 
-		function resizeChart() {
-			setChartWidth();
-			setDotsPerRow();
-			resetLayers();
-
-			if(Object.keys(config).indexOf('mainContainer') !== -1) {
-				config.mainContainer.selectAll('*')
-					.remove();
-			}
-
-			createLayers(config);
-			layersInit();
-		}
-
-    window.addEventListener('resize', () => {
-      if (debounce) {
-				clearTimeout(debounce);
-      }
-
-      if (previousWidth === window.innerWidth) {
-				return;
-      }
-
-      previousWidth = window.innerWidth;
-
-      debounce = setTimeout(resizeChart, 100);
-    });
-
-    return () => {
-      window.removeEventListener('resize', () => {
-			if (debounce) {
-				clearTimeout(debounce);
-			}
-
-			if (previousWidth === window.innerWidth) {
-				return;
-			}
-
-			previousWidth = window.innerWidth;
-
-			debounce = setTimeout(resizeChart, 100);
-      });
-    };
-  }, []);
-
-
-  return (<>
-		<div className='dotScale'>
-			<svg width='.75rem' height='1rem'>
-				<circle cx='3' cy='12' r='3' />
-			</svg>
-			<span>= {AfgData.dot_represents_mobile.value}</span>
-		</div>
-		<div id="viz" />
+	render() {
+		return (<>
+			<div className='dotScale'>
+				<svg width='.75rem' height='1rem'>
+					<circle cx='3' cy='12' r='3' />
+				</svg>
+				<span>= {AfgData.dot_represents_mobile.value}</span>
+			</div>
+			<div id="viz" />
 		</>);
+	}
 };
-
-export default DebtIntro;
