@@ -41,28 +41,30 @@ const spendingConfig = {
 };
 
 const DebtCountryComparison = () => {
-    const [width, setWidth] = useState(window.innerWidth);
-
-    const init = () => {
-        loadSourceData(CountryData);
-        chartInit(spendingConfig);
-    }
-
-    const handleResize = () => {
-        setWidth(window.innerWidth)
-    }
+    if (typeof window !== 'undefined') {
+        const [width, setWidth] = useState(window.innerWidth);
     
-    useEffect(() => {
-        init();
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
+        const init = () => {
+            loadSourceData(CountryData);
+            chartInit(spendingConfig);
         }
-    }, [])
-
-    useEffect(() => {
-        init();
-    }, [width])
+    
+        const handleResize = () => {
+            setWidth(window.innerWidth)
+        }
+        
+        useEffect(() => {
+            init();
+            window.addEventListener('resize', handleResize);
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            }
+        }, [])
+    
+        useEffect(() => {
+            init();
+        }, [width])
+    }
 
     return (
         <div id="viz" className="debt-country" style={{ overflow: 'visible' }} />

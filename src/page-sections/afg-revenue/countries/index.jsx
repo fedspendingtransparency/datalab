@@ -40,28 +40,30 @@ const incomeConfig = {
 };
 
 const RevenueCountryComparison = () => {
-    const [width, setWidth] = useState(window.innerWidth);
+    if (typeof window !== 'undefined') {
+        const [width, setWidth] = useState(window.innerWidth);
 
-    const init = () => {
-        loadSourceData(CountryData);
-        chartInit(incomeConfig);
-    }
-
-    const handleResize = () => {
-        setWidth(window.innerWidth)
-    }
-    
-    useEffect(() => {
-        init();
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
+        const init = () => {
+            loadSourceData(CountryData);
+            chartInit(incomeConfig);
         }
-    }, [])
 
-    useEffect(() => {
-        init();
-    }, [width])
+        const handleResize = () => {
+            setWidth(window.innerWidth)
+        }
+        
+        useEffect(() => {
+            init();
+            window.addEventListener('resize', handleResize);
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            }
+        }, [])
+
+        useEffect(() => {
+            init();
+        }, [width])
+    }
 
     return (
         <div id="viz" style={{ overflow: 'visible' }} />
