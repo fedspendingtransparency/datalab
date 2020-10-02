@@ -2,8 +2,6 @@
 
 $grey: #888;
 $darkGrey: #666666;
-$afgTablet: 660;
-$afgDesktop: 990;
 
 .analyses {
   text-align: left;
@@ -57,33 +55,69 @@ $afgDesktop: 990;
 }
 
 @media (max-width: $tablet - 1) {
+  .dl {
     .tile:global(.MuiGrid-item) {
-        margin-top: 1rem;
+      margin-top: 1rem;
     }
 
     .tile {
-        border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
 
-        &:last-child {
-            border-bottom: 0;
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      .text {
+        width: 50%;
+        float: right;
+        padding-left: 0.5rem;
+        text-align: right;
+
+        .title,
+        .subtitle {
+          font-size: 1rem;
         }
+      }
 
-        .text {
-            width: 50%;
-            float: right;
-            padding-left: 0.5rem;
-            text-align: right;
-
-            .title,
-            .subtitle {
-                font-size: 1rem;
-            }
-        }
-
-        .image {
-            width: 50%;
-            float: left;
-            margin-bottom: 1rem;
-        }
+      .image {
+        width: 50%;
+        float: left;
+        margin-bottom: 1rem;
+      }
     }
+  }
+}
+
+@media (max-width: 659px) {
+  .afg {
+    .tile:global(.MuiGrid-item) {
+      margin-top: 1rem;
+    }
+
+    .tile {
+      border-bottom: 1px solid #ddd;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      .text {
+        width: 50%;
+        float: right;
+        padding-left: 0.5rem;
+        text-align: right;
+
+        .title,
+        .subtitle {
+          font-size: 1rem;
+        }
+      }
+
+      .image {
+        width: 50%;
+        float: left;
+        margin-bottom: 1rem;
+      }
+    }
+  }
 }
