@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../../afg-helpers/countries/selectCountry.scss';
 
 import { loadSourceData } from 'src/afg-helpers/countries/data';
@@ -42,18 +42,28 @@ const spendingConfig = {
 };
 
 const SpendingCountryComparison = () => {
+    const [width, setWidth] = useState(window.innerWidth);
+
     const init = () => {
         loadSourceData(CountryData);
         chartInit(spendingConfig);
     }
 
+    const handleResize = () => {
+        setWidth(window.innerWidth)
+    }
+    
     useEffect(() => {
         init();
-        window.addEventListener('resize', init);
+        window.addEventListener('resize', handleResize);
         return () => {
-            window.removeEventListener('resize', init);
+            window.removeEventListener('resize', handleResize);
         }
     }, [])
+
+    useEffect(() => {
+        init();
+    }, [width])
 
 
     return (

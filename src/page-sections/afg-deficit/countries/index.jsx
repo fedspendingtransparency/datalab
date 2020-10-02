@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../../afg-helpers/countries/selectCountry.scss';
-import { loadSourceData } from '../../../afg-helpers/countries/data.js';
+import { loadSourceData } from '../../../afg-helpers/countries/data';
 import CountryData from '../../../../static/americas-finance-guide/data/deficit_country_comparison.csv';
-import { chartInit } from '../../../afg-helpers/countries/chart.js';
+import { chartInit } from '../../../afg-helpers/countries/chart';
 import colors from 'src/styles/afg/colors.scss';
 
 const spendingConfig = {
@@ -44,18 +44,28 @@ const spendingConfig = {
 };
 
 const DefecitCountryComparison = () => {
+    const [width, setWidth] = useState(window.innerWidth);
+
     const init = () => {
         loadSourceData(CountryData);
         chartInit(spendingConfig);
     }
 
+    const handleResize = () => {
+        setWidth(window.innerWidth)
+    }
+    
     useEffect(() => {
         init();
-        window.addEventListener('resize', init);
+        window.addEventListener('resize', handleResize);
         return () => {
-            window.removeEventListener('resize', init);
+            window.removeEventListener('resize', handleResize);
         }
-    }, []);
+    }, [])
+
+    useEffect(() => {
+        init();
+    }, [width])
 
     return (
         <div id="viz" className="deficit-country" style={{ overflow: 'visible' }} />

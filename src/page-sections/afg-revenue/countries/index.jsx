@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { loadSourceData } from '../../../afg-helpers/countries/data';
 import { chartInit } from '../../../afg-helpers/countries/chart';
 import CountryData from '../../../../static/americas-finance-guide/data/revenue_country_comparison.csv';
@@ -40,18 +40,28 @@ const incomeConfig = {
 };
 
 const RevenueCountryComparison = () => {
+    const [width, setWidth] = useState(window.innerWidth);
+
     const init = () => {
         loadSourceData(CountryData);
         chartInit(incomeConfig);
     }
 
+    const handleResize = () => {
+        setWidth(window.innerWidth)
+    }
+    
     useEffect(() => {
         init();
-        window.addEventListener('resize', init);
+        window.addEventListener('resize', handleResize);
         return () => {
-            window.removeEventListener('resize', init);
+            window.removeEventListener('resize', handleResize);
         }
     }, [])
+
+    useEffect(() => {
+        init();
+    }, [width])
 
     return (
         <div id="viz" style={{ overflow: 'visible' }} />
