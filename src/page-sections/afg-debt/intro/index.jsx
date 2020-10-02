@@ -216,6 +216,23 @@ export default class DebtIntro extends React.Component {
 		this.layersInit();
 	}
 
+	resizeWindow = () => {
+		if (this.debounce) {
+			clearTimeout(this.debounce);
+		}
+
+		if (typeof window !== 'undefined') {
+			if (this.previousWidth === window.innerWidth) {
+				return;
+			}
+
+			this.previousWidth = window.innerWidth;
+
+		}
+
+		this.debounce = setTimeout(this.resizeChart, 100);
+	}
+
 	componentDidMount() {
 		let timer = isMobileDevice() ? 0 : 4500;
 
@@ -232,38 +249,13 @@ export default class DebtIntro extends React.Component {
 		setTimeout(() => {
 			this.layersInit();
 		}, timer);
-	}
 
-	//   window.addEventListener('resize', () => {
-  //     if (debounce) {
-	// 			clearTimeout(debounce);
-  //     }
-	//
-  //     if (previousWidth === window.innerWidth) {
-	// 			return;
-  //     }
-	//
-  //     previousWidth = window.innerWidth;
-	//
-  //     debounce = setTimeout(resizeChart, 100);
-  //   });
-	//
-  //   return () => {
-  //     window.removeEventListener('resize', () => {
-	// 		if (debounce) {
-	// 			clearTimeout(debounce);
-	// 		}
-	//
-	// 		if (previousWidth === window.innerWidth) {
-	// 			return;
-	// 		}
-	//
-	// 		previousWidth = window.innerWidth;
-	//
-	// 		debounce = setTimeout(resizeChart, 100);
-  //     });
-  //   };
-  // }, []);
+		this.resizeWindow();
+		window.addEventListener('resize', this.resizeWindow);
+		return () => {
+			window.removeEventListener('resize', this.resizeWindow);
+		}
+	}
 
 	render() {
 		return (<>

@@ -17,10 +17,10 @@ import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDebtSVG from '../../../../static/americas-finance-guide/icons/anecdote-debt.svg';
 import AfgLayout from 'src/components/layouts/afg/afg';
 import styles from './debt.module.scss';
-import {
-	activeLayer,
-	setActiveLayer,
-} from '../../../page-sections/afg-deficit/intro/helpers/manageLayers';
+// import {
+// 	activeLayer,
+// 	setActiveLayer,
+// } from '../../../page-sections/afg-deficit/intro/helpers/manageLayers';
 import { isMobileDevice } from '../../../afg-helpers/utils';
 
 // DebtIntro component used as placeholder until the mobile dot viz components are finished
@@ -45,7 +45,10 @@ const tabs = [
 function ExploreDebtPage(props) {
 	const layers = ['', 'deficit', 'gdp'];
 
+	const [activeLayer, setActiveLayer] = useState('');
+
 	const handleTabChange = (newTabValue) => {
+		console.log(newTabValue);
 		setActiveLayer(layers[newTabValue])
 	}
 
@@ -78,6 +81,7 @@ function ExploreDebtPage(props) {
 	const [vizComponent, updateVizComponent] = useState(<DebtIntro />);
 
 	const handleResize = () => {
+
 		updateVizComponent(!isMobileDevice() ? <DebtIntro /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />);
 	}
 
