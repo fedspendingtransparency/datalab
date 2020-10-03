@@ -23,42 +23,43 @@ import styles from './debt.module.scss';
 // } from '../../../page-sections/afg-deficit/intro/helpers/manageLayers';
 import { isMobileDevice } from '../../../afg-helpers/utils';
 
-// DebtIntro component used as placeholder until the mobile dot viz components are finished
-const tabs = [
-	{
-		label: 'Debt',
-		component: <DebtIntro selection={'debt'} />,
-		trigger: 'debt'
-	},
-	{
-		label: 'Deficit',
-		component: <DebtIntro selection={'deficit'} />,
-		trigger: 'deficit'
-	},
-	{
-		label: 'U.S. Economy',
-		component: <DebtIntro selection={'gdp'} />,
-		trigger: 'gdp'
-	},
-]
-
 function ExploreDebtPage(props) {
 	const layers = ['', 'deficit', 'gdp'];
 
 	const [activeLayer, setActiveLayer] = useState('');
 
 	const handleTabChange = (newTabValue) => {
-		console.log(newTabValue);
 		setActiveLayer(layers[newTabValue])
 	}
 
-	const mobileVizComponent = (
-		<TabsWrapper
-			tabs={tabs}
-			handleTabChange={handleTabChange}
-			activeTab={layers.indexOf(activeLayer)}
-		/>
-	)
+	const setDesktopActiveLayer = (newLayer) => {
+		setActiveLayer(newLayer);
+	}
+
+	const tabs = [
+		{
+			label: 'Debt',
+			component: <DebtIntro selection={''} />,
+			trigger: 'debt'
+		},
+		{
+			label: 'Deficit',
+			component: <DebtIntro selection={'deficit'} />,
+			trigger: 'deficit'
+		},
+		{
+			label: 'U.S. Economy',
+			component: <DebtIntro selection={'gdp'} />,
+			trigger: 'gdp'
+		},
+	]
+	// const mobileVizComponent = (
+	// 	<TabsWrapper
+	// 		tabs={tabs}
+	// 		handleTabChange={handleTabChange}
+	// 		activeTab={layers.indexOf(activeLayer)}
+	// 	/>
+	// )
 
 	// const [isMobile, setIsMobile] = useState(true);
 	//
@@ -78,11 +79,10 @@ function ExploreDebtPage(props) {
 	}, []);
 
 
-	const [vizComponent, updateVizComponent] = useState(<DebtIntro />);
+	const [vizComponent, updateVizComponent] = useState(<DebtIntro selection={'deficit'} />);
 
 	const handleResize = () => {
-
-		updateVizComponent(!isMobileDevice() ? <DebtIntro /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />);
+		updateVizComponent(!isMobileDevice() ? <DebtIntro selection={'deficit'} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />);
 	}
 
 	return (
@@ -142,8 +142,8 @@ function ExploreDebtPage(props) {
 									<div id="compare-options">
 										<p className="facts__prompt">How does the national debt compare to the deficit and the size of the economy?</p>
 										<div className="facts__triggers">
-											<button className="facts__trigger" data-trigger-id="deficit">Deficit</button>
-											<button className="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
+											<button className="facts__trigger" id='deficit-facts__trigger' data-trigger-id="deficit">Deficit</button>
+											<button className="facts__trigger" id='gdp-facts__trigger' data-trigger-id="gdp">U.S. Economy</button>
 										</div>
 									</div>
 									<section id="deficit-facts" className="facts__section">

@@ -107,16 +107,21 @@ export default class DebtIntro extends React.Component {
 	}
 
 	updateLayers = () => {
+		if(this.props.setDesktopActiveLayer && typeof this.props.setDesktopActiveLayer === 'function') {
+			this.props.setDesktopActiveLayer(this.state.activeCompare);
+		}
 		this.transitionLayers();
 		this.toggleFacts();
 		this.resizeSvg();
 	}
 
 	toggleLayer = (redraw, context) => {
+		console.log('shouldnt get here');
 		const clicked = (redraw) ? null : d3.select(context);
-		console.log(clicked);
-		console.log(context);
 		const id = (redraw) ? null : !isMobileDevice() ? clicked.node().getAttribute('data-trigger-id') : this.state.activeCompare;
+
+		// const clicked = (redraw) ? null : d3.select(`#${this.state.activeCompare}-facts__trigger`);
+		// const id = (redraw) ? null : clicked.attr('data-trigger-id') ? clicked.attr('data-trigger-id') : clicked.node().getAttribute('data-trigger-id');
 
 		// for desktop, toggle the button off.
 		d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
@@ -136,15 +141,15 @@ export default class DebtIntro extends React.Component {
 				}
 
 				this.setState({ activeCompare: id }, this.updateLayers);
-
 			}
+
 		} else {
 			this.updateLayers();
 		}
 	}
 
-	toggleFacts = (id) => {
-		const currentFact =!isMobileDevice() ? id : `mobile-${this.state.activeCompare}`
+	toggleFacts = () => {
+		const currentFact =!isMobileDevice() ? this.state.activeCompare : `mobile-${this.state.activeCompare}`
 		const targetSection = d3.select(`#${currentFact}-facts`),
 			sectionActive = 'facts__section--active';
 
@@ -161,11 +166,9 @@ export default class DebtIntro extends React.Component {
 				.attr('opacity', 0);
 
 			d3.selectAll(`.${this.state.activeCompare}-layer`)
-				.transition()
-				.duration(this.duration)
 				.attr('opacity', 1)
-				.ease();
-		} else {
+		}
+		else {
 			d3.selectAll(`.gdp-layer, .deficit-layer`)
 				.attr('opacity', 0);
 		}
@@ -202,6 +205,20 @@ export default class DebtIntro extends React.Component {
 		setTimeout(this.revealHiddenElements, this.duration);
 	}
 
+	selectedLayersInit = () => {
+		const classContext = this;
+		d3.selectAll('.facts__trigger')
+			.on('click', function () {
+				classContext.toggleLayer(false, this);
+			});
+		this.showDebt();
+		d3.select(`#${this.state.activeCompare}-facts__trigger`).classed('facts__trigger--active', true);
+		this.setAccessibility(this.state.activeCompare);
+		this.zoom('out');
+		this.updateLayers();
+		setTimeout(this.revealHiddenElements, this.duration);
+	}
+
 	resizeChart = () => {
 		setChartWidth();
 		setDotsPerRow();
@@ -234,23 +251,31 @@ export default class DebtIntro extends React.Component {
 	}
 
 	componentDidMount() {
-		let timer = isMobileDevice() ? 0 : 4500;
-
 		setChartWidth();
 		this.setMainContainer();
 		setDotsPerRow();
 
-		if(!isMobileDevice()) {
-			startLegendAnimation(config);
+		if (!isMobileDevice() && this.state.activeCompare) {
+			createLayers(config);
+			this.selectedLayersInit();
+			console.log('shoudl be here')
+			console.log(this.state.activeCompare)
+
+		} else {
+			let timer = isMobileDevice() ? 0 : 4500;
+
+			if (!isMobileDevice()) {
+				startLegendAnimation(config);
+			}
+
+			createLayers(config);
+
+			setTimeout(() => {
+				this.layersInit();
+			}, timer);
 		}
 
-		createLayers(config);
-
-		setTimeout(() => {
-			this.layersInit();
-		}, timer);
-
-		this.resizeWindow();
+		// this.resizeWindow();
 		window.addEventListener('resize', this.resizeWindow);
 		return () => {
 			window.removeEventListener('resize', this.resizeWindow);
