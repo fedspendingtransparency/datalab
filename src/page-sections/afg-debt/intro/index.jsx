@@ -116,7 +116,6 @@ export default class DebtIntro extends React.Component {
 	}
 
 	toggleLayer = (redraw, context) => {
-		console.log('shouldnt get here');
 		const clicked = (redraw) ? null : d3.select(context);
 		const id = (redraw) ? null : !isMobileDevice() ? clicked.node().getAttribute('data-trigger-id') : this.state.activeCompare;
 
@@ -159,20 +158,13 @@ export default class DebtIntro extends React.Component {
 	}
 
 	transitionLayers = () => {
+		d3.selectAll(`.gdp-layer, .deficit-layer`)
+			.attr('opacity', 0);
+
 		if (this.state.activeCompare) {
-			const unSelectedLayer = this.state.activeCompare === 'deficit' ? 'gdp' : 'deficit';
-
-			d3.selectAll(`.${unSelectedLayer}-layer`)
-				.attr('opacity', 0);
-
 			d3.selectAll(`.${this.state.activeCompare}-layer`)
 				.attr('opacity', 1)
 		}
-		else {
-			d3.selectAll(`.gdp-layer, .deficit-layer`)
-				.attr('opacity', 0);
-		}
-
 	}
 
 	showDebt = () =>  {
@@ -184,9 +176,7 @@ export default class DebtIntro extends React.Component {
 	}
 
 	resetLayers = () => {
-		if (this.state.activeCompare) {
-			setTimeout(this.toggleLayer, 2000, 'redraw');
-		}
+		setTimeout(this.toggleLayer, 200, 'redraw');
 	}
 
 	layersInit = () => {
@@ -220,17 +210,17 @@ export default class DebtIntro extends React.Component {
 	}
 
 	resizeChart = () => {
-		setChartWidth();
-		setDotsPerRow();
-		this.resetLayers();
+		// setChartWidth();
+		// setDotsPerRow();
+		// this.resetLayers();
 
-		if(Object.keys(config).indexOf('mainContainer') !== -1) {
-			config.mainContainer.selectAll('*')
-				.remove();
-		}
-
-		createLayers(config);
-		this.layersInit();
+		// if(Object.keys(config).indexOf('mainContainer') !== -1) {
+		// 	config.mainContainer.selectAll('*')
+		// 		.remove();
+		// }
+		//
+		// createLayers(config);
+		// this.layersInit();
 	}
 
 	resizeWindow = () => {
@@ -238,19 +228,21 @@ export default class DebtIntro extends React.Component {
 			clearTimeout(this.debounce);
 		}
 
-		if (typeof window !== 'undefined') {
-			if (this.previousWidth === window.innerWidth) {
-				return;
-			}
-
-			this.previousWidth = window.innerWidth;
-
-		}
+		// if (typeof window !== 'undefined') {
+		// 	if (this.previousWidth === window.innerWidth) {
+		// 		return;
+		// 	}
+		//
+		// 	this.previousWidth = window.innerWidth;
+		//
+		// }
 
 		this.debounce = setTimeout(this.resizeChart, 100);
 	}
 
 	componentDidMount() {
+		console.log(this.state.activeCompare);
+
 		setChartWidth();
 		this.setMainContainer();
 		setDotsPerRow();
@@ -278,6 +270,11 @@ export default class DebtIntro extends React.Component {
 		// this.resizeWindow();
 		window.addEventListener('resize', this.resizeWindow);
 		return () => {
+			if(Object.keys(config).indexOf('mainContainer') !== -1) {
+				config.mainContainer.selectAll('*')
+					.exit()
+					.remove();
+			}
 			window.removeEventListener('resize', this.resizeWindow);
 		}
 	}

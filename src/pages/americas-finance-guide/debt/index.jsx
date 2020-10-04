@@ -17,10 +17,6 @@ import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDebtSVG from '../../../../static/americas-finance-guide/icons/anecdote-debt.svg';
 import AfgLayout from 'src/components/layouts/afg/afg';
 import styles from './debt.module.scss';
-// import {
-// 	activeLayer,
-// 	setActiveLayer,
-// } from '../../../page-sections/afg-deficit/intro/helpers/manageLayers';
 import { isMobileDevice } from '../../../afg-helpers/utils';
 
 function ExploreDebtPage(props) {
@@ -76,13 +72,13 @@ function ExploreDebtPage(props) {
 				window.removeEventListener('resize', handleResize);
 			}
 		}
-	}, []);
+	}, [activeLayer]);
 
 
-	const [vizComponent, updateVizComponent] = useState(<DebtIntro selection={'deficit'} />);
+	const [vizComponent, updateVizComponent] = useState(<DebtIntro selection={activeLayer} />);
 
 	const handleResize = () => {
-		updateVizComponent(!isMobileDevice() ? <DebtIntro selection={'deficit'} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />);
+		updateVizComponent(!isMobileDevice() ? <DebtIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />);
 	}
 
 	return (
