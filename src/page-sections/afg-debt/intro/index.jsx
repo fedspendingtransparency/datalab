@@ -44,7 +44,8 @@ export default class DebtIntro extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			activeCompare: this.props.selection
+			activeCompare: this.props.selection,
+			redraw: false
 		};
 	}
 
@@ -63,6 +64,8 @@ export default class DebtIntro extends React.Component {
 
 	resizeSvg = () => {
 		const scaleFactor = 1.3;
+		// const chartWidth2 = chartWidth;
+		// const chartWidth2 = document.getElementById('viz').getBoundingClientRect().width - 10;
 		const h = this.state.activeCompare === 'gdp' ? vizHeight * scaleFactor : vizHeight;
 		establishContainer().transition().duration(this.duration).attr('height', h);
 	}
@@ -115,18 +118,13 @@ export default class DebtIntro extends React.Component {
 		this.resizeSvg();
 	}
 
-	toggleLayer = (redraw, context) => {
-		const clicked = (redraw) ? null : d3.select(context);
-		const id = (redraw) ? null : !isMobileDevice() ? clicked.node().getAttribute('data-trigger-id') : this.state.activeCompare;
-
-		// const clicked = (redraw) ? null : d3.select(`#${this.state.activeCompare}-facts__trigger`);
-		// const id = (redraw) ? null : clicked.attr('data-trigger-id') ? clicked.attr('data-trigger-id') : clicked.node().getAttribute('data-trigger-id');
-
-		// for desktop, toggle the button off.
+	toggleLayer = (context) => {
+		const clicked = (this.state.redraw) ? null : d3.select(context);
+		const id = (this.state.redraw) ? null : !isMobileDevice() ? clicked.node().getAttribute('data-trigger-id') : this.state.activeCompare;
 		d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
 
 		if(!isMobileDevice()) {
-			if (id === this.state.activeCompare) {  // this should be id === this.state.activeCompare?
+			if (id === this.state.activeCompare) {
 				this.setAccessibility();
 				this.zoom();
 				this.setState({ activeCompare: null }, this.updateLayers);
@@ -135,7 +133,7 @@ export default class DebtIntro extends React.Component {
 				this.setAccessibility(id);
 				this.zoom('out');
 
-				if (!redraw) {
+				if (!this.state.redraw) {
 					clicked.classed('facts__trigger--active', true);
 				}
 
@@ -175,19 +173,19 @@ export default class DebtIntro extends React.Component {
 			.ease();
 	}
 
-	resetLayers = () => {
-		setTimeout(this.toggleLayer, 200, 'redraw');
-	}
+	// resetLayers = () => {
+	// 	setTimeout(this.toggleLayer, 200, 'redraw');
+	// }
 
 	layersInit = () => {
 		const classContext = this;
 		if(!isMobileDevice()) {
 			d3.selectAll('.facts__trigger')
 				.on('click', function () {
-					classContext.toggleLayer(false, this);
+					classContext.toggleLayer(this);
 				});
 		} else {
-			classContext.toggleLayer(false, this);
+			classContext.toggleLayer(this);
 		}
 
 		if(!isMobileDevice()) this.zoom();
@@ -199,28 +197,36 @@ export default class DebtIntro extends React.Component {
 		const classContext = this;
 		d3.selectAll('.facts__trigger')
 			.on('click', function () {
-				classContext.toggleLayer(false, this);
+				classContext.toggleLayer(this);
 			});
 		this.showDebt();
 		d3.select(`#${this.state.activeCompare}-facts__trigger`).classed('facts__trigger--active', true);
 		this.setAccessibility(this.state.activeCompare);
-		this.zoom('out');
+		if(!isMobileDevice()) this.zoom('out');
 		this.updateLayers();
 		setTimeout(this.revealHiddenElements, this.duration);
 	}
 
-	resizeChart = () => {
-		// setChartWidth();
-		// setDotsPerRow();
-		// this.resetLayers();
+	resizeUpdate = () => {
+		if(this.state.activeCompare) {
+			this.selectedLayersInit();
+		} else {
+			setChartWidth();
+			setDotsPerRow();
 
-		// if(Object.keys(config).indexOf('mainContainer') !== -1) {
-		// 	config.mainContainer.selectAll('*')
-		// 		.remove();
-		// }
-		//
-		// createLayers(config);
-		// this.layersInit();
+			if (Object.keys(config)
+				.indexOf('mainContainer') !== -1) {
+				config.mainContainer.selectAll('*')
+					.remove();
+			}
+
+			createLayers(config);
+			this.layersInit();
+		}
+		this.setState({redraw: false});
+	}
+	resizeChart = () => {
+		this.setState({redraw: true}, this.resizeUpdate)
 	}
 
 	resizeWindow = () => {
@@ -228,21 +234,19 @@ export default class DebtIntro extends React.Component {
 			clearTimeout(this.debounce);
 		}
 
-		// if (typeof window !== 'undefined') {
-		// 	if (this.previousWidth === window.innerWidth) {
-		// 		return;
-		// 	}
-		//
-		// 	this.previousWidth = window.innerWidth;
-		//
-		// }
+		if (typeof window !== 'undefined') {
+			if (this.previousWidth === window.innerWidth) {
+				return;
+			}
+
+			this.previousWidth = window.innerWidth;
+
+		}
 
 		this.debounce = setTimeout(this.resizeChart, 100);
 	}
 
 	componentDidMount() {
-		console.log(this.state.activeCompare);
-
 		setChartWidth();
 		this.setMainContainer();
 		setDotsPerRow();
@@ -250,8 +254,6 @@ export default class DebtIntro extends React.Component {
 		if (!isMobileDevice() && this.state.activeCompare) {
 			createLayers(config);
 			this.selectedLayersInit();
-			console.log('shoudl be here')
-			console.log(this.state.activeCompare)
 
 		} else {
 			let timer = isMobileDevice() ? 0 : 4500;

@@ -54,9 +54,9 @@ export function establishContainer(height, width, accessibilityAttrs) {
 			.classed('main', true)
 			.attr('shape-rendering', 'geometricPrecision')
 			.attr('height', height)
-			.attr('width', width);
+			.attr('width', width)
 	} else if (height) {
-		svg.attr('height', height);
+		svg.attr('height', height)
 	}
 
 	if (accessibilityAttrs && Object.keys(accessibilityAttrs).length) {
