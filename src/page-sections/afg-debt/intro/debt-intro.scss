@@ -2,7 +2,6 @@
 
 .debt-intro-wrapper {
 
-
   .viz-wrapper-debt {
     position: relative;
   }
@@ -27,17 +26,17 @@
   }
 
   .facts__triggers {
-    //display: flex;
-    //justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
   }
 
   .facts__trigger {
-    //border: 1px solid $color-debt-primary;
+    border: 1px solid $color-debt-primary;
   }
 
   .facts__trigger.facts__trigger--active {
-    //background: $color-debt-primary;
-    //color: white;
+    background: $color-debt-primary;
+    color: white;
   }
 
   .facts__section.facts__section--active {

@@ -269,7 +269,6 @@ export default class DebtIntro extends React.Component {
 			}, timer);
 		}
 
-		// this.resizeWindow();
 		window.addEventListener('resize', this.resizeWindow);
 		return () => {
 			if(Object.keys(config).indexOf('mainContainer') !== -1) {
@@ -281,14 +280,25 @@ export default class DebtIntro extends React.Component {
 		}
 	}
 
+	topLegend = () => {
+		const label = this.state.activeCompare ? this.state.activeCompare === 'gdp' ? 'FY20 U.S. Gross Domestic Product' : 'Federal Deficit' : '';
+		return (<div className='dotScale'>
+			<svg width='.75rem' height='1rem'>
+				<circle cx='3' cy='12' r='3' />
+			</svg>
+			<span>= {AfgData.dot_represents_mobile.value}&nbsp;&nbsp;&nbsp;</span>
+			<svg fill={this.state.activeCompare ? this.state.activeCompare === 'gdp' ? '#b1b1b1' : '#b3532d' : '#fff'}
+					 width='10px'
+					 height='10px'>
+				<rect width='10' height='10' />
+			</svg>
+			<span>&nbsp;{label}</span>
+		</div>)
+	}
+
 	render() {
 		return (<>
-			<div className='dotScale'>
-				<svg width='.75rem' height='1rem'>
-					<circle cx='3' cy='12' r='3' />
-				</svg>
-				<span>= {AfgData.dot_represents_mobile.value}</span>
-			</div>
+			{this.topLegend()}
 			<div id="viz" />
 		</>);
 	}
