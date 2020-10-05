@@ -4,6 +4,7 @@ import { translator, establishContainer, isMobileDevice } from 'src/afg-helpers/
 import { touchIe } from 'src/afg-helpers/touchIe';
 import { layers } from './createLayers';
 import { chartWidth } from './widthManager';
+import { dotsPerRow } from './dotConstants';
 
 const d3 = { select, selectAll };
 const scaleFactor = 0.6;
@@ -37,7 +38,9 @@ function resizeSvg() {
   if (activeCompare === 'debt') {
     h = layers.debt.attr('data-height') * scaleFactor * 1.2;
   } else if (!activeCompare) {
-    h = 120;
+    const count = config.deficitAmount / 1000000000;
+    const rows = Math.ceil(count / dotsPerRow);
+    h = (rows * 5) + 75;
   }
 
   establishContainer().transition().duration(duration).attr('height', h);
