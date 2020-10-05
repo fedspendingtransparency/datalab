@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { select, selectAll } from 'd3-selection';
 import 'd3-transition';
 import { createLayers, layers } from './helpers/createLayers';

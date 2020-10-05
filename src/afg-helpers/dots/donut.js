@@ -30,7 +30,6 @@ export function createDonut(container, percent, diameter, fillColor) {
 
   setArcRadius(diameter / 2);
 
-
   const pie = g.selectAll(".arc")
         .data(pieFn(data))
         .enter()
@@ -56,7 +55,7 @@ export function createDonut(container, percent, diameter, fillColor) {
   if (typeof window !== 'undefined' && window.innerWidth <= 959) {
     const text = d3.select('.donut')
       .append('g')
-      .attr('transform', translator(diameter / 2, diameter))
+      .attr('transform', translator(diameter / 2 + 6, diameter + 6))
       .append('text')
       .attr('fill', colors.textColorParagraph)
       .attr('font-size', diameter/4)

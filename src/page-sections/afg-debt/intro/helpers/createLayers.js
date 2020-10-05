@@ -101,12 +101,25 @@ function placeDonut(g) {
 
 function mobilePlaceDonut(g) {
     const r = 18;
-    const y = d3.select('.debt-layer').node().getBBox().height + 20;
-    const x = chartWidth / 4 - 65;
+    const padding = 6;
+    const y = d3.select('.debt-layer').node().getBBox().height + 15;
+    const width = d3.select('.debt-layer').node().getBBox().width;
+    // const x = chartWidth / 4 - 65;
+    const x = 1;
 
-    const donutContainer = g.append('g')
+    const vizDescription = g.append('g')
       .classed('donut', true)
-      .attr('transform', translator(x, y) + ' scale(1.67)');
+      .attr('transform', translator(x, y) + ' scale(1.67)')
+
+    vizDescription.append('rect')
+        .style('stroke', '#ddd')
+        .style('stroke-width', '1px')
+        .attr('fill', 'transparent')
+        .attr('width', width * .45)
+        .attr('height', r * 2 + padding * 2)
+        .attr('border-radius', '2px');
+
+    const donutContainer = vizDescription.append('g').attr('transform', translator(padding, padding));
 
     donutContainer.append('circle')
       .attr('fill', 'white')
