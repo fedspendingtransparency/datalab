@@ -24,7 +24,7 @@ export function deficitLabel(yMax, parent, amount) {
     .classed('touch-label', true)
     .attr('text-anchor', 'middle')
     .attr('x', 0)
-    .attr('y', (yMax * 1.5) + 24)
+    .attr('y', dotConstants.offset.y + (yMax / 2) + 44)
     .style('font-size', 24);
 
   layer.append('path')
