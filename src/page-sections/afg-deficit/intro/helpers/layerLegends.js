@@ -18,13 +18,13 @@ export function deficitLabel(yMax, parent, amount) {
     { x: -30, y: dotConstants.offset.y + yMax },
     { x: -20, y: dotConstants.offset.y + yMax },
   ];
-  const textX = -40;
+  const textX = -60;
   const text = layer.append('text')
     .attr('fill', colors.textColorParagraph)
     .classed('touch-label', true)
     .attr('text-anchor', 'middle')
     .attr('x', 0)
-    .attr('y', yMax)
+    .attr('y', (yMax * 1.5) + 24)
     .style('font-size', 24);
 
   layer.append('path')
