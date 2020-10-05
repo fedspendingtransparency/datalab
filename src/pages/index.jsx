@@ -107,7 +107,7 @@ function IndexPage() {
       </div>
 
       <div className={homeStyles.resourceRow}>
-	<ResourcesRow />
+				<ResourcesRow />
       </div>
     </Home>
   );
