@@ -286,13 +286,13 @@ export default class DebtIntro extends React.Component {
 			<svg width='.75rem' height='1rem'>
 				<circle cx='3' cy='12' r='3' />
 			</svg>
-			<span>= {AfgData.dot_represents_mobile.value}&nbsp;&nbsp;&nbsp;</span>
+			<span>= {AfgData.dot_represents_mobile.value}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 			<svg fill={this.state.activeCompare ? this.state.activeCompare === 'gdp' ? '#b1b1b1' : '#b3532d' : '#fff'}
 					 width='10px'
 					 height='10px'>
 				<rect width='10' height='10' />
 			</svg>
-			<span>&nbsp;{label}</span>
+			<span>&nbsp;&nbsp;{label}</span>
 		</div>)
 	}
 

@@ -6,7 +6,7 @@ import { labelMaker, mobileLabelMaker } from './layerLegends';
 import { initDebtDots } from './debtDots';
 import { isMobileDevice, translator } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
-import { createDonut } from '../../../../afg-helpers/dots/donut';
+import { createDonut, createMobileDonut } from '../../../../afg-helpers/dots/donut';
 
 const d3 = { select, selectAll, transition, line },
     duration = 1500,
@@ -103,8 +103,7 @@ function mobilePlaceDonut(g) {
     const r = 18;
     const padding = 6;
     const y = d3.select('.debt-layer').node().getBBox().height + 15;
-    const width = d3.select('.debt-layer').node().getBBox().width;
-    // const x = chartWidth / 4 - 65;
+    // const x = chartWidth / 4 - 65;  // from legacy code
     const x = 1;
 
     const vizDescription = g.append('g')
@@ -115,7 +114,7 @@ function mobilePlaceDonut(g) {
         .style('stroke', '#ddd')
         .style('stroke-width', '1px')
         .attr('fill', 'transparent')
-        .attr('width', width * .45)
+        .attr('width', '140px')
         .attr('height', r * 2 + padding * 2)
         .attr('border-radius', '2px');
 
@@ -128,7 +127,7 @@ function mobilePlaceDonut(g) {
       .attr('cx', r)
       .attr('cy', r);
 
-    createDonut(donutContainer, config.gdpPercent / 100, r * 2, config.debtColor);
+    createMobileDonut(donutContainer, config.gdpPercent / 100, r * 2, config.debtColor);
 }
 
 function createGdp() {
