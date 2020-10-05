@@ -32,24 +32,18 @@
 
     .title {
 	font-size: 1.125rem; // 18px
-	height: 52px;
 	text-align: center;
     }
 
     h1.title {
 	font-weight: 600;
-	margin-top: 2rem;
+	margin-top: 31px;
     }
 
     .titleAPI {
-	font-size: 1.125rem; // 18px
-	margin-top: 2rem;
-	font-weight: 600;
-	height: 52px;
-	text-align: center;
 	color: #4a4a4a;
     }
-    
+
     h1 {
 	color: $legacyBlue;
     }
@@ -74,20 +68,21 @@
 	line-height: normal;
 	letter-spacing: normal;
 	color: #4a4a4a;
-	margin-top: -17px;
+	margin-top: 15px;
 	text-align: center;
     }
 
     .descriptionConduct {
-	font-size: 1.125rem;
-	font-weight: 100;
-	font-style: normal;
-	font-stretch: normal;
-	line-height: normal;
-	letter-spacing: normal;
-	color: #4a4a4a;
-	margin-bottom: 0;
-	text-align: center;
+		font-size: 1.125rem;
+		font-weight: 100;
+		font-style: normal;
+		font-stretch: normal;
+		line-height: normal;
+		letter-spacing: normal;
+		color: #4a4a4a;
+		margin-top: 25px;
+		margin-bottom: 0;
+		text-align: center;
     }
 
 
@@ -107,8 +102,8 @@
 	}
     }
 
-    
-    
+
+
 
 }
 
@@ -124,7 +119,7 @@
 	    }
 	}
     }
-    
+
     .tile {
 	p.title {
 	    margin-bottom: 0;
@@ -140,13 +135,13 @@
 }
 
 @media (max-width: $tablet - 1) {
-    // .heading {
-    // 	margin-top: 0 !important;
-    // }
+     .heading {
+     	margin-top: 75px !important;
+     }
 
     .title {
 	text-align: center;
-	margin-top: 0;
+	margin-top: 0 !important;
     }
 
     p.title {
@@ -208,7 +203,6 @@
 	    h1.title {
 		font-size: 1.125rem; // 18px
 		padding-left: 1rem;
-		margin-top: 0;
 		height: 100%;
 		text-align: left;
 	    }
