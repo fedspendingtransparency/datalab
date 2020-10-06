@@ -107,9 +107,9 @@ deficit_per_household:
 deficit_trend_start:
   value: 2000
 dot_represents:
-  value: $1 billion
+  value: $1 Billion
 dot_represents_mobile:
-  value: $10 billion
+  value: $10 Billion
 dot_number_revenue:
   value: '3,500'
 dot_number_spending:
