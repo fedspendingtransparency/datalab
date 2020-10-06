@@ -49,19 +49,6 @@ function ExploreDebtPage(props) {
 			trigger: 'gdp'
 		},
 	]
-	// const mobileVizComponent = (
-	// 	<TabsWrapper
-	// 		tabs={tabs}
-	// 		handleTabChange={handleTabChange}
-	// 		activeTab={layers.indexOf(activeLayer)}
-	// 	/>
-	// )
-
-	// const [isMobile, setIsMobile] = useState(true);
-	//
-	// const handleResize = () => {
-	// 	setIsMobile(window.innerWidth < 960);
-	// }
 
 	useEffect(() => {
 		handleResize();

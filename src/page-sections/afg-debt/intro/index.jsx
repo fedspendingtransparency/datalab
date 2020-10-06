@@ -45,7 +45,8 @@ export default class DebtIntro extends React.Component {
 		super(props);
 		this.state = {
 			activeCompare: this.props.selection,
-			redraw: false
+			redraw: false,
+			hasDotScale: false
 		};
 	}
 
@@ -64,8 +65,6 @@ export default class DebtIntro extends React.Component {
 
 	resizeSvg = () => {
 		const scaleFactor = 1.3;
-		// const chartWidth2 = chartWidth;
-		// const chartWidth2 = document.getElementById('viz').getBoundingClientRect().width - 10;
 		const h = this.state.activeCompare === 'gdp' ? vizHeight * scaleFactor : vizHeight;
 		establishContainer().transition().duration(this.duration).attr('height', h);
 	}
@@ -77,7 +76,7 @@ export default class DebtIntro extends React.Component {
 
 	zoom = (out) => {
 		const scaleFactor = 0.6;
-		const yOffset = 35;
+		const yOffset = !isMobileDevice() && !this.state.hasDotScale ? 15 : 35;
 
 		if (out) {
 			layers.master.transition()
@@ -173,10 +172,6 @@ export default class DebtIntro extends React.Component {
 			.ease();
 	}
 
-	// resetLayers = () => {
-	// 	setTimeout(this.toggleLayer, 200, 'redraw');
-	// }
-
 	layersInit = () => {
 		const classContext = this;
 		if(!isMobileDevice()) {
@@ -225,6 +220,7 @@ export default class DebtIntro extends React.Component {
 		}
 		this.setState({redraw: false});
 	}
+
 	resizeChart = () => {
 		this.setState({redraw: true}, this.resizeUpdate)
 	}
@@ -246,12 +242,25 @@ export default class DebtIntro extends React.Component {
 		this.debounce = setTimeout(this.resizeChart, 100);
 	}
 
+	addDotScale = () => {
+		this.mainContainer.append('g')
+			.classed('.dotScale', true)
+			.append('svg')
+			.attr('width', '0.75rem')
+			.attr('height', '1rem')
+			.append('circle')
+			.attr('cx', 3)
+			.attr('cy', 12)
+			.attr('r', 3)
+	}
+
 	componentDidMount() {
 		setChartWidth();
 		this.setMainContainer();
 		setDotsPerRow();
 
 		if (!isMobileDevice() && this.state.activeCompare) {
+			// this.addDotScale();
 			createLayers(config);
 			this.selectedLayersInit();
 
@@ -260,6 +269,7 @@ export default class DebtIntro extends React.Component {
 
 			if (!isMobileDevice()) {
 				startLegendAnimation(config);
+				this.setState({hasDotScale: true});
 			}
 
 			createLayers(config);
@@ -282,24 +292,43 @@ export default class DebtIntro extends React.Component {
 
 	topLegend = () => {
 		const label = this.state.activeCompare ? this.state.activeCompare === 'gdp' ? 'FY20 U.S. Gross Domestic Product' : 'Federal Deficit' : '';
-		return (<div className='dotScale'>
-			<svg width='.75rem' height='1rem'>
-				<circle cx='3' cy='12' r='3' />
-			</svg>
-			<span>= {AfgData.dot_represents_mobile.value}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-			<svg fill={this.state.activeCompare ? this.state.activeCompare === 'gdp' ? '#b1b1b1' : '#b3532d' : '#fff'}
-					 width='10px'
-					 height='10px'>
-				<rect width='10' height='10' />
-			</svg>
-			<span>&nbsp;&nbsp;{label}</span>
-		</div>)
+
+		const isMobile = <div className='dotScale'>
+											<svg width='.75rem' height='1rem'>
+												<circle cx='3' cy='12' r='3' />
+											</svg>
+											<span>= {AfgData.dot_represents_mobile.value}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+											<svg fill={this.state.activeCompare ? this.state.activeCompare === 'gdp' ? '#b1b1b1' : '#b3532d' : '#fff'}
+													 width='10px'
+													 height='10px'>
+												<rect width='10' height='10' />
+											</svg>
+											<span>&nbsp;&nbsp;{label}</span>
+										</div>
+
+		const isDesktop = <div className='dotScale'>
+												<svg width='.75rem' height='1rem'>
+													<circle cx='3' cy='12' r='3' />
+												</svg>
+												<span>= {AfgData.dot_represents.value}</span>
+											</div>
+
+		let toRender = <></>
+
+		if(!isMobileDevice() && !this.state.hasDotScale) {
+			toRender = isDesktop;
+		}	else if (isMobileDevice()) {
+			toRender = isMobile;
+		}
+
+		return toRender;
 	}
 
 	render() {
 		return (<>
-			{this.topLegend()}
-			<div id="viz" />
+			<div id="viz">
+				{this.topLegend()}
+			</div>
 		</>);
 	}
 };
