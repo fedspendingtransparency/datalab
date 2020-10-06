@@ -83,7 +83,7 @@ export default class MoreAnalyses extends React.Component {
     imageSrc: afg,
     altText: 'The Department of Treasury building, in Washington, D.C., that includes a bronze statue of Albert Gallatin, the fourth Secretary of the Treasury.',
     title: 'America\'s Finance Guide',
-    subtitle: 'How much does the government spend and collect?'
+    subtitle: 'How much money did the federal government spend and collect last year?'
   }];
 
   show = { // key is current page URL frag, value is array of analyses (above) to show
