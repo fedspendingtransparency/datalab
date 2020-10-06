@@ -242,18 +242,6 @@ export default class DebtIntro extends React.Component {
 		this.debounce = setTimeout(this.resizeChart, 100);
 	}
 
-	addDotScale = () => {
-		this.mainContainer.append('g')
-			.classed('.dotScale', true)
-			.append('svg')
-			.attr('width', '0.75rem')
-			.attr('height', '1rem')
-			.append('circle')
-			.attr('cx', 3)
-			.attr('cy', 12)
-			.attr('r', 3)
-	}
-
 	componentDidMount() {
 		setChartWidth();
 		this.setMainContainer();
