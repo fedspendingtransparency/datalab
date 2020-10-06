@@ -126,7 +126,7 @@ export default class DebtIntro extends React.Component {
 			if (id === this.state.activeCompare) {
 				this.setAccessibility();
 				this.zoom();
-				this.setState({ activeCompare: null }, this.updateLayers);
+				this.setState({ activeCompare: '' }, this.updateLayers);
 
 			} else {
 				this.setAccessibility(id);
