@@ -19,47 +19,56 @@ import { setFactsTrigger } from 'src/afg-helpers/dots/revenue-and-spending/compa
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AfgLayout from 'src/components/layouts/afg/afg';
+import { isMobileDevice } from '../../../afg-helpers/utils';
 
 function RevenueAndGdpPage(props) {
+	const layers = ['', 'spending', 'gdp'];
+
+	const [activeLayer, setActiveLayer] = useState('');
+
+	const handleTabChange = (newTabValue) => {
+		setActiveLayer(layers[newTabValue])
+	}
+
+	const setDesktopActiveLayer = (newLayer) => {
+		setActiveLayer(newLayer);
+	}
+
   const tabs = [
     {
       label: 'Revenue',
-      component: <RevenueIntro />,
-      className: 'facts__trigger',
+      component: <RevenueIntro selection={''} />,
       trigger: 'revenue'
     },
     {
       label: 'Spending',
-      component: <RevenueIntro />,
-      className: 'facts__trigger',
+      component: <RevenueIntro selection={'spending'} />,
       trigger: 'spending'
     },
     {
       label: 'U.S. Economy',
-      component: <RevenueIntro />,
-      className: 'facts__trigger',
+      component: <RevenueIntro selection={'gdp'} />,
       trigger: 'gdp'
     },
   ];
 
-  const [vizComponent, updateVizComponent] = useState(<RevenueIntro />);
+  const [vizComponent, updateVizComponent] = useState(<RevenueIntro selection={activeLayer} />);
+
+	useEffect(() => {
+		handleResize();
+
+		if (typeof window !== 'undefined') {
+			window.addEventListener('resize', handleResize);
+			return () => {
+				window.removeEventListener('resize', handleResize);
+			}
+		}
+	}, [activeLayer]);
 
   const handleResize = () => {
-	updateVizComponent(window.innerWidth > 959 ? <RevenueIntro /> : <TabsWrapper tabs={tabs} />);
-	if (window.innerWidth <= 959) {
-		setFactsTrigger(); // reappend listener to dom
-	}
+	updateVizComponent(!isMobileDevice() ? <RevenueIntro setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />)
   };
-
-  if (typeof window !== 'undefined') {
-    window.addEventListener('resize', handleResize);
-  }
-
-  useEffect(() => {
-	updateVizComponent(window.innerWidth > 959 ? <RevenueIntro /> : <TabsWrapper tabs={tabs} />);
-    setFactsTrigger();
-  }, []);
-
+  
   return (
     <>
       <SEO
