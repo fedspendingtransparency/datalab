@@ -25,17 +25,17 @@ const AfgNav = (props) => {
 		let filename = props.location.pathname;
 		filename = filename.slice(24);
 
-		if (filename.slice(-1) === '/') {	
+		if (filename.slice(-1) === '/') {
 			filename = filename.slice(0, -1);
-		}	
+		}
 
 		filename = filename || 'revenue';
 
 		const ul = document.getElementsByClassName(style.chapterNavPrimaryList);
 
-		if (!ul.item(0)) {	
+		if (!ul.item(0)) {
 			return;
-		}	
+		}
 
 		const allSecondaryLi = ul.item(0).children;
 		const liLength = allSecondaryLi.length;
@@ -43,7 +43,7 @@ const AfgNav = (props) => {
 		if (filename === 'revenue') {
 			allSecondaryLi.item(1).classList.add(style.active);
 			return true;
-		}	
+		}
 
 		let i = 1;
 
@@ -54,8 +54,8 @@ const AfgNav = (props) => {
 			if (filename === href) {
 				current.classList.add(style.active);
 				break;
-			}	
-		}	
+			}
+		}
 
 		return true;
 	}
