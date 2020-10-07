@@ -2,23 +2,25 @@ import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { line } from 'd3-shape';
 import { dotsPerRow, dotConstants } from "./dotConstants";
-import { labelMaker } from './layerLegends';
+import { labelMaker, mobileLabelMaker } from './layerLegends';
 import { initDebtDots } from './debtDots';
-import { translator, isMobileDevice } from 'src/afg-helpers/utils';
+import { isMobileDevice, translator } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
-import { createDonut } from '../../../../afg-helpers/dots/donut';
+import { createDonut, createMobileDonut } from '../../../../afg-helpers/dots/donut';
 
 const d3 = { select, selectAll, transition, line },
     duration = 1500,
-    billion = 1000000000;
+    billion = 1000000000,
+    tenbillion = 10000000000;
 
 export const layers = {};
 
 let config;
 
 function generateOverlay(number, id, label, rectColor) {
+    const dotScale = typeof window !== 'undefined' && window.innerWidth > 959 ? billion : tenbillion;
     const amount = (id === 'debt') ? number - config.deficitAmount : number,
-        count = Math.ceil(amount / billion),
+        count = Math.ceil(amount / dotScale),
         debtRowOne = (id === 'debt') ? dotsPerRow - deficitRemainder : 0,
         rows = Math.floor((count - debtRowOne) / dotsPerRow),
         remainder = (count - debtRowOne) % dotsPerRow,
@@ -61,15 +63,17 @@ function generateOverlay(number, id, label, rectColor) {
         .attr('fill', rectColor)
         .attr('opacity', 0.5)
 
-    if (id === 'revenue') {
-        deficitStartPosition = {
-            remainder: remainder,
-            y: mainRectHeight
-        }
-    }
+    // if (id === 'revenue') {
+    //     deficitStartPosition = {
+    //         remainder: remainder,
+    //         y: mainRectHeight
+    //     }
+    // }
 
-    if (!isMobileDevice()) {
+    if (typeof window !== 'undefined' && window.innerWidth > 959) {
         labelMaker(overlayLayer, overlayHeight, label, amount);
+    } else {
+        mobileLabelMaker(overlayLayer, overlayHeight, label, amount);
     }
 
     overlayLayer.attr('data-height', overlayHeight);
@@ -95,10 +99,43 @@ function placeDonut(g) {
     createDonut(donutContainer, config.gdpPercent / 100, r * 2, config.debtColor);
 }
 
+function mobilePlaceDonut(g) {
+    const r = 18;
+    const padding = 6;
+    const y = d3.select('.debt-layer').node().getBBox().height + 15;
+    // const x = chartWidth / 4 - 65;  // from legacy code
+    const x = 1;
+
+    const vizDescription = g.append('g')
+      .classed('donut', true)
+      .attr('transform', translator(x, y) + ' scale(1.67)')
+
+    vizDescription.append('rect')
+        .style('stroke', '#ddd')
+        .style('stroke-width', '1px')
+        .attr('fill', 'transparent')
+        .attr('width', '140px')
+        .attr('height', r * 2 + padding * 2)
+        .attr('border-radius', '2px');
+
+    const donutContainer = vizDescription.append('g').attr('transform', translator(padding, padding));
+
+    donutContainer.append('circle')
+      .attr('fill', 'white')
+      .attr('opacity', 0.85)
+      .attr('r', r)
+      .attr('cx', r)
+      .attr('cy', r);
+
+    createMobileDonut(donutContainer, config.gdpPercent / 100, r * 2, config.debtColor);
+}
+
 function createGdp() {
     generateOverlay(config.gdpAmount, 'gdp', 'GDP', '#777');
     if (!isMobileDevice()) {
         placeDonut(layers.gdp);
+    } else {
+        mobilePlaceDonut(layers.gdp);
     }
 }
 
