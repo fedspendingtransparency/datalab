@@ -56,6 +56,7 @@ function RevenueAndGdpPage(props) {
 
 	useEffect(() => {
 		handleResize();
+		setFactsTrigger();
 
 		if (typeof window !== 'undefined') {
 			window.addEventListener('resize', handleResize);
@@ -68,7 +69,7 @@ function RevenueAndGdpPage(props) {
   const handleResize = () => {
 	updateVizComponent(!isMobileDevice() ? <RevenueIntro setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />)
   };
-  
+
   return (
     <>
       <SEO
