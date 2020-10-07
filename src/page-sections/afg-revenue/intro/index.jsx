@@ -3,8 +3,9 @@ import { initChart, initChartMobile, resizeChart } from '../../../afg-helpers/do
 import colors from '../../../styles/afg/colors.scss';
 import revenueData from '../../../../static/americas-finance-guide/data/federal_revenue_gdp.csv';
 import { findAmountInCsv } from 'src/afg-helpers/utils';
+import { setFactsTrigger, toggleFactsMobile } from '../../../afg-helpers/dots/revenue-and-spending/compareManager';
 
-const RevenueIntro = () => {
+const RevenueIntro = (props) => {
   let debounce;
   const config = {
     anecdoteName: 'anecdote-revenue.svg',
@@ -13,7 +14,7 @@ const RevenueIntro = () => {
     gdpAmount: findAmountInCsv('gdp', revenueData),
     gdpPercent: findAmountInCsv('federal revenue percent of gdp', revenueData) * 100,
     sectionAmount: findAmountInCsv('federal revenue', revenueData),
-    comparisonColor: colors.colorSpendingPrimary, 
+    comparisonColor: colors.colorSpendingPrimary,
     sectionColor: colors.revenuePrimary,
     accessibilityAttrs: {
       default: {
@@ -34,14 +35,17 @@ const RevenueIntro = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth < 959) {
+        config.selectedLayer = props.selection;
         initChartMobile(config);
+        toggleFactsMobile(props.selection);
+
+        // once this is done, set the toggle
       } else {
         initChart(config);
+        setFactsTrigger();
       }
     }
-  }, []);
 
-  useEffect(() => {
     window.addEventListener('resize', () => {
       if (debounce) {
         clearTimeout(debounce);
@@ -50,7 +54,7 @@ const RevenueIntro = () => {
       debounce = setTimeout(resizeChart, 100);
     });
 
-    return (_) => {
+    return () => {
       window.removeEventListener('resize', () => {
         if (debounce) {
           clearTimeout(debounce);
@@ -59,7 +63,7 @@ const RevenueIntro = () => {
         debounce = setTimeout(resizeChart, 100);
       });
     };
-  });
+  }, []);
 
   return (<>
     <div className='dotScale'>

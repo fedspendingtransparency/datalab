@@ -14,9 +14,10 @@ const buttonActive = 'facts__trigger--active';
 let gdpHeight; let originalHeight; let config = {};
 
 function setLayerOpacity(id, active) {
-  layers[id].transition()
-    .duration(duration)
-    .attr('opacity', () => (active ? 1 : 0));
+  console.log(layers[id]);
+  // layers[id].transition()
+  //   .duration(duration)
+  //   .attr('opacity', () => (active ? 1 : 0));
 }
 
 function handleGdpLayer(reset) {
@@ -102,12 +103,12 @@ function updateMainSvg(id) {
     d3.select('svg.main')
     .transition()
     .duration(200)
-    .attr('height', 410); 
+    .attr('height', 410);
   } else if (id === 'gdp') {
     d3.select('svg.main')
     .transition()
     .duration(200)
-    .attr('height', 510); 
+    .attr('height', 510);
   }
 }
 
@@ -153,45 +154,46 @@ function toggleFacts() {
 
   resizeSvg((id === 'gdp' && !wasPreviouslyActive));
 
-  if (!wasPreviouslyActive && desktop) {
-    handleLayers(id);
-  } else if (desktop) {
-    handleLayers(id, true);
-  }
-}
-
-function toggleFactsMobile() {
-  const button = d3.select(this);
-  const id = button.attr('data-trigger-id');
-  const targetSection = d3.select(`#${id}-facts`);
-  const wasPreviouslyActive = button.classed(buttonActive);
-
-  d3.selectAll('.facts__trigger')
-    .classed(buttonActive, null);
-  d3.selectAll('.facts__section')
-    .classed(sectionActive, null);
-
-  setLayerOpacity(Object.keys(layers)
-    .filter((k) => k != id)[0]);
-
-  if (wasPreviouslyActive) {
-    setLayerOpacity(id);
-  } else {
-    button.classed(buttonActive, true);
-    targetSection.classed(sectionActive, true);
-    setLayerOpacity(id, true);
-  }
   if (!wasPreviouslyActive) {
     handleLayers(id);
   } else {
     handleLayers(id, true);
   }
+}
 
-  if (window.innerWidth < 959) {
-    return;
-  } else {
-    resizeSvg((id === 'gdp' && !wasPreviouslyActive));
-  }
+export function toggleFactsMobile(id) {
+  // const button = d3.select(this);
+  // const id = button.attr('data-trigger-id');
+  // const targetSection = d3.select(`#${id}-facts`);
+  // const wasPreviouslyActive = button.classed(buttonActive);
+
+  // d3.selectAll('.facts__trigger')
+  //   .classed(buttonActive, null);
+  // d3.selectAll('.facts__section')
+  //   .classed(sectionActive, null);
+
+  setLayerOpacity(Object.keys(layers)
+    .filter((k) => k != id)[0]);
+
+  console.log(layers);
+  // if (wasPreviouslyActive) {
+  //   setLayerOpacity(id);
+  // } else {
+    // button.classed(buttonActive, true);
+    // targetSection.classed(sectionActive, true);
+    setLayerOpacity(id, true);
+  // }
+  // if (!wasPreviouslyActive) {
+    handleLayers(id);
+  // } else {
+  //   handleLayers(id, true);
+  // }
+
+  // if (window.innerWidth < 959) {
+  //   return;
+  // } else {
+  //   resizeSvg((id === 'gdp' && !wasPreviouslyActive));
+  // }
 
 }
 
@@ -276,11 +278,11 @@ export function revealCompare() {
 
 export function setFactsTrigger() {
   d3.selectAll('.facts__trigger').on('click', toggleFacts);
-
-  /* need this for mobile.. */
-  if (window.innerWidth < 959) {
-    setTimeout(() => {
-      d3.selectAll('.facts__trigger').on('click', toggleFactsMobile);
-    }, 2000);
-  }
+  //
+  // /* need this for mobile.. */
+  // if (window.innerWidth < 959) {
+  //   setTimeout(() => {
+  //     d3.selectAll('.facts__trigger').on('click', toggleFactsMobile);
+  //   }, 2000);
+  // }
 }

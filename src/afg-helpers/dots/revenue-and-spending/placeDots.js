@@ -4,6 +4,7 @@ import { establishContainer, translator } from 'src/afg-helpers/utils';
 import { initRevenueOverlay } from './compareRevenue';
 import { initGdp } from './compareGdp';
 import { revealCompare } from './compareManager';
+import { isMobileDevice } from 'src/afg-helpers/utils';
 
 const d3 = { select, selectAll };
 

@@ -56,7 +56,6 @@ function RevenueAndGdpPage(props) {
 
 	useEffect(() => {
 		handleResize();
-		setFactsTrigger();
 
 		if (typeof window !== 'undefined') {
 			window.addEventListener('resize', handleResize);
