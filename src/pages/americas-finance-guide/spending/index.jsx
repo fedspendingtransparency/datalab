@@ -19,39 +19,56 @@ import { setFactsTrigger } from 'src/afg-helpers/dots/revenue-and-spending/compa
 import AnecdoteSpendingSVG from '../../../../static/americas-finance-guide/icons/anecdote-spending.svg';
 import DefinitionSpendingSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
 import AfgLayout from '../../../components/layouts/afg/afg';
+import { isMobileDevice } from '../../../afg-helpers/utils';
 
 
 function SpendingAndGdpPage(props) {
-	// SpendingIntro component used as placeholder until the mobile dot viz components are finished
+	const layers = ['', 'spending', 'gdp'];
+
+	const [activeLayer, setActiveLayer] = useState('');
+
+	const handleTabChange = (newTabValue) => {
+		setActiveLayer(layers[newTabValue])
+	}
+
+	const setDesktopActiveLayer = (newLayer) => {
+		setActiveLayer(newLayer);
+	}
+
 	const tabs = [
 		{
 			label: 'Spending',
-			component: <SpendingIntro />
+			component: <SpendingIntro selection={''} />,
+			trigger: 'spending'
 		},
 		{
 			label: 'Revenue',
-			component: <SpendingIntro />
+			component: <SpendingIntro selection={'revenue'} />,
+			trigger: 'revenue'
 		},
 		{
 			label: 'U.S. Economy',
-			component: <SpendingIntro />
+			component: <SpendingIntro selection={'gdp'} />,
+			trigger: 'gdp'
 		},
 	]
 
-	const [vizComponent, updateVizComponent] = useState(<SpendingIntro />);
+	const [vizComponent, updateVizComponent] = useState(<SpendingIntro selection={activeLayer} />);
+
+	useEffect(() => {
+		handleResize();
+
+		if (typeof window !== 'undefined') {
+			window.addEventListener('resize', handleResize);
+			return () => {
+				window.removeEventListener('resize', handleResize);
+			}
+		}
+	}, [activeLayer]);
 
 	const handleResize = () => {
-		updateVizComponent(window.innerWidth > 959 ? <SpendingIntro /> : <TabsWrapper tabs={tabs} />);
-	}
-
-	if (typeof window !== 'undefined') {
-		window.addEventListener('resize', handleResize);
-	}
-
-  useEffect(() => {
-		handleResize();
-    setFactsTrigger();
-  }, []);
+		updateVizComponent(!isMobileDevice() ? <SpendingIntro setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />)
+	};
 
   return (
     <>
