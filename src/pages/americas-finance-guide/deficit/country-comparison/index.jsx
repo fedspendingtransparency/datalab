@@ -69,7 +69,7 @@ function DeficitCountryComparisonPage(props) {
                             {!isMobile && breadcrumbs}
                         </div>
                         <div className="country-chart">
-                            <h2 className="chart-title">Country Comparison</h2>
+                            <h2 className="chart-title">{AfgData.country_compare_year.value} Country Comparison</h2>
                             <div className="hint">Click <span className="sort-button-placeholder"></span> to sort columns.</div>
                             <DefecitCountryComparison />
                         </div>

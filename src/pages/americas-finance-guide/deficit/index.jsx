@@ -29,9 +29,11 @@ const desktopVizComponent = (
       {AfgData.dot_number_deficit.value}
       {' '}
       dots x
+      {' '}
       {AfgData.dot_represents.value}
       {' '}
       =
+      {' '}
       <strong>{AfgData.current_fy_deficit.value}</strong>
     </div>
     <div className="facts sidebar intro-hidden">
@@ -140,7 +142,7 @@ function ExploreDeficitPage({ location }) {
                 <img src={AnecdoteDeficitSVG} alt="anecdote icon" />
               </button>
             </h1>
-            <div className="debt-copy">
+            <div className="debt-copy desktop-only">
               <p>
                 How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent&nbsp;
                 {AfgData.current_fy_spending.value}
@@ -153,16 +155,19 @@ function ExploreDeficitPage({ location }) {
                 , the government ran a deficit for the year.
               </p>
             </div>
+            <div className="debt-copy mobile-only">
+              What is the deficit and how does that compare to the national debt?
+            </div>
             <div className="viz-wrapper">
               {isMobile ? mobileVizComponent : desktopVizComponent}
-              <section className="accordion sidebar intro-hidden">
+              <section className={`accordion sidebar ${isMobile ? '' : 'intro-hidden'}`}>
                 <AccordionList title="How else does the government finance a deficit?">
                   <div>
                     <p>The government can also use operating cash, which is available from an account at the Federal Reserve, to pay for deficit spending. This would be similar to an individual using their debit card to pay for purchases.</p>
                   </div>
                 </AccordionList>
               </section>
-              <section className="tour sidebar intro-hidden">
+              <section className="tour sidebar intro-hidden desktop-only">
                 <div className="tour__part-one">
                   <h1>How has the federal deficit changed over time?</h1>
                   <p>

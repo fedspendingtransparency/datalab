@@ -325,9 +325,9 @@ export function setActiveLayer(id) {
 }
 
 export function resetLayers() {
-  if (activeCompare) {
-    setTimeout(toggleLayer, 1000, 'redraw');
-  }
+    if (activeCompare) {
+        setTimeout(toggleLayer, 1000, 'redraw', activeLayer);
+    }
 }
 
 export function layersInit(_config) {
