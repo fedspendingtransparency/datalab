@@ -121,7 +121,6 @@ function handleLayers(id, reset) {
 
 function toggleFacts() {
   const button = d3.select(this);
-  const desktop = (document.documentElement.clientWidth > 959);
   const id = button.attr('data-trigger-id');
   const targetSection = d3.select(`#${id}-facts`);
   const wasPreviouslyActive = button.classed(buttonActive);
@@ -154,6 +153,8 @@ function toggleFacts() {
 export function toggleFactsMobile(id) {
   d3.selectAll(`spending-layer, gdp-layer`).attr('opacity', 0);
   d3.select(`.${id}-layer`).attr('opacity', 1);
+  const targetSection = d3.select(`#mobile-${id}-facts`);
+  targetSection.classed(sectionActive, true);
   setTimeout(() => resizeSvgMobile(id), 1000);
 }
 

@@ -14,7 +14,6 @@ import TabsWrapper from 'src/components/tabs/tabs';
 import AnecdoteRevenueSVG from '../../../../static/americas-finance-guide/icons/anecdote-revenue.svg';
 import DefinitionSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
 import RevenueIntro from 'src/page-sections/afg-revenue/intro/index';
-import { setFactsTrigger } from 'src/afg-helpers/dots/revenue-and-spending/compareManager';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
@@ -143,6 +142,7 @@ function RevenueAndGdpPage(props) {
 	      measures the size of the nation's economy by the total value of final goods and services that are produced in a year. Gross domestic product is used to compare the economies of different countries, measure growth in the economy, and determine the right monetary policies to address inflation and unemployment.
 	    </p>
 	  </div>
+		<div>How does federal revenue compare to federal spending and the size of the economy?</div>
 	  <div className="viz-wrapper">
 	    {vizComponent}
 	    <div className="intro-math intro-hidden">
@@ -156,6 +156,42 @@ function RevenueAndGdpPage(props) {
 	      {' '}
 	      <strong>{AfgData.current_fy_revenue.value}</strong>
 	    </div>
+			<section id="mobile-spending-facts" className="facts__section">
+				<h1>
+					In Fiscal Year
+					{' '}{AfgData.current_fy.value}
+					, the federal government spent
+					{' '}{AfgData.current_fy_spending.value}
+					.
+				</h1>
+				<p>
+					Since the government spent more than it collected, the deficit for
+					{' '}{AfgData.current_fy.value}
+					{' '}
+					was
+					{' '}{AfgData.current_fy_deficit.value}
+					.
+				</p>
+			</section>
+			<section id="mobile-gdp-facts" className="facts__section">
+				<h1>
+					In Fiscal Year
+					{' '}{AfgData.current_fy.value}
+					, federal revenue was equal to
+					{' '}{AfgData.revenue_percent_gdp.value}
+					{' '}
+					of total gross domestic product (GDP), or economic activity, of the United States that year (
+					{AfgData.current_fy_gdp.value}
+					).
+				</h1>
+				<p>Why do we compare federal revenue to gross domestic product? For one, the comparison serves as a rough gauge of the size of the federal government's footprint related to size of the entire country's economic activity. In addition, federal taxes are based on a percentage of income for people and businesses. If an economy is performing well, people and businesses earn more, and federal revenue from taxes increases.</p>
+				<strong>
+					What's gross domestic product?
+					<button className="info-box-trigger" data-box-id="gdp-info">
+						<img src={DefinitionSVG} alt="definition icon" />
+					</button>
+				</strong>
+			</section>
 	    <div id="copy" className="intro-hidden">
 	      <p>
 		Where does the money come from? If you lived or worked in the United States in
