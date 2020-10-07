@@ -30,15 +30,15 @@ const StyledTab = withStyles((theme) => ({
 }))((props) => <Tab disableRipple {...props} />)
 
 const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
-  const [value, setValue] = useState(activeTab || 0);
-  
+  const [value, setValue] = useState(activeTab < 0 ? 0 : activeTab);
+
   const handleChange = (e, newValue) => {
     setValue(newValue);
     if (handleTabChange) {
       handleTabChange(newValue);
     }
   }
-  
+
   return (
     <>
       <StyledTabs
@@ -47,7 +47,7 @@ const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
         variant="fullWidth"
       >
         {tabs.map((tab, index) => (
-          <StyledTab value={index} label={tab.label} aria-label={tab.label} className={tab.className} data-trigger-id={tab.trigger}/>
+          <StyledTab value={index} label={tab.label} aria-label={tab.label} />
         ))}
       </StyledTabs>
       {tabs.map((tab, index) => (
@@ -58,5 +58,5 @@ const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
     </>
   );
 }
- 
+
 export default TabsWrapper;

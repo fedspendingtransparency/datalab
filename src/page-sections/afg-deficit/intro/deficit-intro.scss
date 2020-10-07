@@ -61,6 +61,10 @@
   }
 
   @media only screen and (min-width: 960px) {
+    .mobile-only {
+      display: none;
+    }
+
     #viz {
       width: 66%;
       float: left;
@@ -107,6 +111,10 @@
   }
   
   @media only screen and (max-width: 959px) {
+    .desktop-only, .intro-hidden {
+      display: none;
+    }
+
     .intro-math {
       text-align: left;
       margin-bottom: 27px;
@@ -136,6 +144,13 @@
         font-size: 0.875rem;
         font-weight: normal;
       }
+    }
+
+    .debt-copy {
+      color: #555;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 15px;
     }
   }
 }

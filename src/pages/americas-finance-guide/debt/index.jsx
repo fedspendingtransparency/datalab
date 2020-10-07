@@ -16,37 +16,57 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AnecdoteDebtSVG from '../../../../static/americas-finance-guide/icons/anecdote-debt.svg';
 import AfgLayout from 'src/components/layouts/afg/afg';
+import styles from './debt.module.scss';
+import { isMobileDevice } from '../../../afg-helpers/utils';
 
 function ExploreDebtPage(props) {
-	// DebtIntro component used as placeholder until the mobile dot viz components are finished
+	const layers = ['', 'deficit', 'gdp'];
+
+	const [activeLayer, setActiveLayer] = useState('');
+
+	const handleTabChange = (newTabValue) => {
+		setActiveLayer(layers[newTabValue])
+	}
+
+	const setDesktopActiveLayer = (newLayer) => {
+		setActiveLayer(newLayer);
+	}
+
 	const tabs = [
 		{
 			label: 'Debt',
-			component: <DebtIntro />
+			component: <DebtIntro selection={''} />,
+			trigger: 'debt'
 		},
 		{
 			label: 'Deficit',
-			component: <DebtIntro />
+			component: <DebtIntro selection={'deficit'} />,
+			trigger: 'deficit'
 		},
 		{
 			label: 'U.S. Economy',
-			component: <DebtIntro />
+			component: <DebtIntro selection={'gdp'} />,
+			trigger: 'gdp'
 		},
 	]
 
-	const [vizComponent, updateVizComponent] = useState(<DebtIntro />);
+	useEffect(() => {
+		handleResize();
+
+		if (typeof window !== 'undefined') {
+			window.addEventListener('resize', handleResize);
+			return () => {
+				window.removeEventListener('resize', handleResize);
+			}
+		}
+	}, [activeLayer]);
+
+
+	const [vizComponent, updateVizComponent] = useState(<DebtIntro selection={activeLayer} />);
 
 	const handleResize = () => {
-		updateVizComponent(window.innerWidth > 959 ? <DebtIntro /> : <TabsWrapper tabs={tabs} />);
+		updateVizComponent(!isMobileDevice() ? <DebtIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />);
 	}
-
-	if (typeof window !== 'undefined') {
-		window.addEventListener('resize', handleResize);
-	}
-
-  useEffect(() => {
-		handleResize();
-	}, []);
 
 	return (
 		<>
@@ -78,7 +98,7 @@ function ExploreDebtPage(props) {
 								<img src={AnecdoteDebtSVG} alt="anecdote icon" />
 							</button>
 						</h1>
-						<div className="debt-copy">
+						<div className={styles.debtCopy}>
 							<p>
 								How did we end up with&nbsp;
 								{AfgData.current_fy_debt.value}
@@ -90,11 +110,11 @@ function ExploreDebtPage(props) {
 							{vizComponent}
 							<div className="intro-math intro-hidden">
 								<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
-								{AfgData.dot_number_debt.value}
+								{AfgData.dot_number_debt_mobile.value}
 								{' '}
 								dots x
 								{' '}
-								{AfgData.dot_represents.value}
+								{AfgData.dot_represents_mobile.value}
 								{' '}
 								=
 								{' '}
@@ -105,8 +125,8 @@ function ExploreDebtPage(props) {
 									<div id="compare-options">
 										<p className="facts__prompt">How does the national debt compare to the deficit and the size of the economy?</p>
 										<div className="facts__triggers">
-											<button className="facts__trigger" data-trigger-id="deficit">Deficit</button>
-											<button className="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
+											<button className="facts__trigger" id='deficit-facts__trigger' data-trigger-id="deficit">Deficit</button>
+											<button className="facts__trigger" id='gdp-facts__trigger' data-trigger-id="gdp">U.S. Economy</button>
 										</div>
 									</div>
 									<section id="deficit-facts" className="facts__section">
@@ -118,6 +138,22 @@ function ExploreDebtPage(props) {
 										<p>By comparing the total federal debt to gross domestic product (GDP), we can observe the government's ability to utilize the resources at hand to finance the debt the same way you and your family manage your finances to make sure that your monthly payments for your mortgage, car loans, and credit cards can be made.</p>
 									</section>
 								</div>
+							</div>
+							<section id="mobile-deficit-facts" className="facts__section">
+								<h1>Deficit</h1>
+								<p>The change in federal debt each year is heavily influenced by the deficit or surplus that year. When there is not enough revenue to pay for spending, the government borrows money to make up the difference.  When there is excess revenue in a given year, the majority of those funds are used to pay down the federal debt.</p>
+							</section>
+							<section id="mobile-gdp-facts" className="facts__section">
+								<h1>U.S. Economy</h1>
+								<p>By comparing the total federal debt to gross domestic product (GDP), we can observe the government's ability to utilize the resources at hand to finance the debt the same way you and your family manage your finances to make sure that your monthly payments for your mortgage, car loans, and credit cards can be made.</p>
+							</section>
+							<div className={styles.debtCopyMobile}>
+								<p>
+									How did we end up with&nbsp;
+									{AfgData.current_fy_debt.value}
+									{' '}
+									in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to a person using his or her credit card for a purchase (rather than cash, check, or a debit card) and not paying the full credit card balance each month. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows.
+								</p>
 							</div>
 							<section className="accordion sidebar intro-hidden">
 								<AccordionList title="Who owns the federal government's debt?">
