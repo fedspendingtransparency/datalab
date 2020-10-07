@@ -11,13 +11,12 @@ const scaleFactor = 0.6;
 const sectionActive = 'facts__section--active';
 const buttonActive = 'facts__trigger--active';
 
-let gdpHeight; let originalHeight; let config = {};
+let gdpHeight, originalHeight, spendingHeight, config = {};
 
 function setLayerOpacity(id, active) {
-  console.log(layers[id]);
-  // layers[id].transition()
-  //   .duration(duration)
-  //   .attr('opacity', () => (active ? 1 : 0));
+  layers[id].transition()
+    .duration(duration)
+    .attr('opacity', () => (active ? 1 : 0));
 }
 
 function handleGdpLayer(reset) {
@@ -98,33 +97,24 @@ function handleRevenueLayer(reset) {
     .ease();
 }
 
-function updateMainSvg(id) {
-  if (id === 'spending') {
-    d3.select('svg.main')
-    .transition()
-    .duration(200)
-    .attr('height', 410);
-  } else if (id === 'gdp') {
-    d3.select('svg.main')
-    .transition()
-    .duration(200)
-    .attr('height', 510);
-  }
-}
+// function updateMainSvg(id) {
+//   if (id === 'spending') {
+//     d3.select('svg.main')
+//     .transition()
+//     .duration(200)
+//     .attr('height', 410);
+//   } else if (id === 'gdp') {
+//     d3.select('svg.main')
+//     .transition()
+//     .duration(200)
+//     .attr('height', 510);
+//   }
+// }
 
 function handleLayers(id, reset) {
   if (id === 'gdp') {
-    if (window.innerWidth < 959) {
-      updateMainSvg(id)
-      // add gdp legend (todo)
-    }
     handleGdpLayer(reset);
   } else {
-    // spending
-    if (window.innerWidth < 959) {
-      updateMainSvg(id)
-      addSpendingLegend();
-    }
     handleRevenueLayer(reset);
   }
 }
@@ -162,39 +152,9 @@ function toggleFacts() {
 }
 
 export function toggleFactsMobile(id) {
-  // const button = d3.select(this);
-  // const id = button.attr('data-trigger-id');
-  // const targetSection = d3.select(`#${id}-facts`);
-  // const wasPreviouslyActive = button.classed(buttonActive);
-
-  // d3.selectAll('.facts__trigger')
-  //   .classed(buttonActive, null);
-  // d3.selectAll('.facts__section')
-  //   .classed(sectionActive, null);
-
-  setLayerOpacity(Object.keys(layers)
-    .filter((k) => k != id)[0]);
-
-  console.log(layers);
-  // if (wasPreviouslyActive) {
-  //   setLayerOpacity(id);
-  // } else {
-    // button.classed(buttonActive, true);
-    // targetSection.classed(sectionActive, true);
-    setLayerOpacity(id, true);
-  // }
-  // if (!wasPreviouslyActive) {
-    handleLayers(id);
-  // } else {
-  //   handleLayers(id, true);
-  // }
-
-  // if (window.innerWidth < 959) {
-  //   return;
-  // } else {
-  //   resizeSvg((id === 'gdp' && !wasPreviouslyActive));
-  // }
-
+  d3.selectAll(`spending-layer, gdp-layer`).attr('opacity', 0);
+  d3.select(`.${id}-layer`).attr('opacity', 1);
+  setTimeout(() => resizeSvgMobile(id), 1000);
 }
 
 function resizeSvg(gdp) {
@@ -203,6 +163,20 @@ function resizeSvg(gdp) {
   d3.select('svg.main')
     .transition()
     .duration(500)
+    .attr('height', h + 50);
+}
+
+function resizeSvgMobile(id) {
+  let h = originalHeight;
+
+  if(id === 'spending') {
+    h = spendingHeight;
+  } else if (id === 'gdp') {
+    h = gdpHeight;
+  }
+
+  d3.select('svg.main')
+    .transition()
     .attr('height', h + 50);
 }
 
@@ -245,6 +219,7 @@ export function registerLayer(id, layer, _n, _config) {
 
   if (n) {
     gdpHeight = n * 0.6;
+    spendingHeight = n;
   } else if (!originalHeight) {
     originalHeight = d3.select('g.spending-dots')
       .node()
@@ -278,11 +253,4 @@ export function revealCompare() {
 
 export function setFactsTrigger() {
   d3.selectAll('.facts__trigger').on('click', toggleFacts);
-  //
-  // /* need this for mobile.. */
-  // if (window.innerWidth < 959) {
-  //   setTimeout(() => {
-  //     d3.selectAll('.facts__trigger').on('click', toggleFactsMobile);
-  //   }, 2000);
-  // }
 }

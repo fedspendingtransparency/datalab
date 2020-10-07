@@ -38,8 +38,6 @@ const RevenueIntro = (props) => {
         config.selectedLayer = props.selection;
         initChartMobile(config);
         toggleFactsMobile(props.selection);
-
-        // once this is done, set the toggle
       } else {
         initChart(config);
         setFactsTrigger();

@@ -122,25 +122,25 @@ function addText() {
     }
 }
 
-export function addSpendingLegend() {
-  let anchor = d3.select('.dotScale');
-  d3.select('#spending-legend-svg').remove(); // remove after rerender
-
-  let svg = anchor.append('svg').attr('id', 'spending-legend-svg');
-  svg.attr('width', '1.5rem').attr('height', '1.5rem');
-
-  svg.append('circle')
-    .attr('opacity', 1)
-    .attr('r', 4)
-    .attr('cx', 6)
-    .attr('cy', 13)
-
-  anchor.append('text')
-    .text('Federal Spending')
-    .attr('fill', colors.textColorParagraph)
-    .attr('opacity', 1)
-    .style('font-size', 14)
-}
+// export function addSpendingLegend() {
+//   let anchor = d3.select('.dotScale');
+//   d3.select('#spending-legend-svg').remove(); // remove after rerender
+//
+//   let svg = anchor.append('svg').attr('id', 'spending-legend-svg');
+//   svg.attr('width', '1.5rem').attr('height', '1.5rem');
+//
+//   svg.append('circle')
+//     .attr('opacity', 1)
+//     .attr('r', 4)
+//     .attr('cx', 6)
+//     .attr('cy', 13)
+//
+//   anchor.append('text')
+//     .text('Federal Spending')
+//     .attr('fill', colors.textColorParagraph)
+//     .attr('opacity', 1)
+//     .style('font-size', 14)
+// }
 
 export function initDot() {
   const dotColor = config.sectionColor;
