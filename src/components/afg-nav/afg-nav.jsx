@@ -13,53 +13,6 @@ const AfgNav = (props) => {
 	let navHtml;
 	let navClasses;
 
-	function getFilename(a) {
-		if (a.slice(-1) === '/') {
-			a = a.slice(0, -1);
-		}
-
-		return a.match(/.*americas-finance-guide\/(.*)*$/i).pop();
-	}
-
-	function setCurrentPageActive() {
-		let filename = props.location.pathname;
-		filename = filename.slice(24);
-
-		if (filename.slice(-1) === '/') {
-			filename = filename.slice(0, -1);
-		}
-
-		filename = filename || 'revenue';
-
-		const ul = document.getElementsByClassName(style.chapterNavPrimaryList);
-
-		if (!ul.item(0)) {
-			return;
-		}
-
-		const allSecondaryLi = ul.item(0).children;
-		const liLength = allSecondaryLi.length;
-
-		if (filename === 'revenue') {
-			allSecondaryLi.item(1).classList.add(style.active);
-			return true;
-		}
-
-		let i = 1;
-
-		for (i; i < liLength; i++) {
-			const current = allSecondaryLi.item(i);
-			const href = getFilename(current.firstChild.href);
-
-			if (filename === href) {
-				current.classList.add(style.active);
-				break;
-			}
-		}
-
-		return true;
-	}
-
 	function toggleActiveStatus() {
 		// For IE9
 		function toggleClass(el, className) {
