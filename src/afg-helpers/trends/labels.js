@@ -108,6 +108,8 @@ function placeLabels(globals) {
     let runningY,
         labelGroups;
 
+    labelContainer.attr('transform', 'translate (0, 12)')
+
     labelGroups = labelContainer.selectAll('g')
         .data(globals.data.sort(sortByFirstYear))
         .enter()

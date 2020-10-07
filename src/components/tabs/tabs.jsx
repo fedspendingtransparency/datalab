@@ -4,9 +4,6 @@ import Tab from '@material-ui/core/Tab';
 import { withStyles } from '@material-ui/styles';
 import TabPanel from './tab-panel';
 import { legacyBlue } from 'src/styles/variables.scss';
-import Spending from '../../page-sections/rd-in-contracting/spending/spending-chart';
-import Categories from '../../page-sections/rd-in-contracting/categories/categories';
-import Studies from '../../page-sections/rd-in-contracting/studies/studies';
 
 const StyledTabs = withStyles({
   root: {
@@ -33,7 +30,7 @@ const StyledTab = withStyles((theme) => ({
 }))((props) => <Tab disableRipple {...props} />)
 
 const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
-  const [value, setValue] = useState(activeTab || 0);
+  const [value, setValue] = useState(activeTab < 0 ? 0 : activeTab);
 
   const handleChange = (e, newValue) => {
     setValue(newValue);
@@ -41,7 +38,6 @@ const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
       handleTabChange(newValue);
     }
   }
-
 
   return (
     <>

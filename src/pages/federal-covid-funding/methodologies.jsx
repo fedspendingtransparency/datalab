@@ -1,7 +1,7 @@
 import React from 'react';
 import FootnoteAnchor from '../../components/footnotes/footnote-anchor';
 import HWCTA from '../../components/hwcta/hwcta';
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-24.yml'
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
 
 const C19HWTCA = ({ location }) => {
   const title = 'The Federal Response to COVID-19';
@@ -74,9 +74,9 @@ const C19HWTCA = ({ location }) => {
         <li><strong>Estimated Tax Relief:</strong> The total value of estimated deferred and reduced taxes provided by the FFCRA<a href="#fn4" className="footnoteref"><FootnoteAnchor footnoteId="fr4" />4</a> and CARES Act<a href="#fn5" className="footnoteref"><FootnoteAnchor footnoteId="fr5" />5</a> are taken from the CBO’s analysis of each law. The tax relief value is the sum of the CBO’s estimated two year (FY 2020 through 2021) estimated tax revenue impact for each law</li>
         <li><strong>Total Estimated Lending and Utilization:</strong>&nbsp;The estimated value of lending is equal to the sum of the credit, direct, and indirect loans made available with funding provided by the four supplemental appropriations</li>
         <ul>
-        <li>Estimated total loan and loan guarantee values were calculated for each program using information provided by each agency. Loan and loan guarantees funded by the supplemental appropriations include: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers, Credit Assistance for Air Carriers and Businesses Critical to National Security,<a href="#fn6" className="footnoteref"><FootnoteAnchor footnoteId="fr6" />6</a> and the Small Business Administration’s Economic Injury Disaster Loans (EIDL),<a href="#fn7" className="footnoteref"><FootnoteAnchor footnoteId="fr7" />7</a> and Paycheck Protection Program (PPP),<a href="#fn8" className="footnoteref"><FootnoteAnchor footnoteId="fr8" />8</a> as well as the total estimated credit made available through the Federal Reserve Emergency Lending facilities<a href="#fn9" className="footnoteref"><FootnoteAnchor footnoteId="fr9" />9</a></li>
-          <li>At the time of publishing data on the Defense Production Act Loan Program is not yet available and therefore the program is not included in the calculation of Total Estimate Lending made available by the four laws. No obligations have been recorded against the program account indicating there have been no loans issued at the time of publishing</li>
-        <li>Total utilized lending was calculated using the most recent data on reported loans and loan guarantees for the reporting period provided by each agency: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers<a href="#fn10" className="footnoteref"><FootnoteAnchor footnoteId="fr10" />10</a>, Credit Assistance for Air Carriers and Businesses Critical to National Security<a href="#fn11" className="footnoteref"><FootnoteAnchor footnoteId="fr11" />11</a>, the Small Business Administration’s Economic Injury Disaster Loans (EIDL)<a href="#fn12" className="footnoteref"><FootnoteAnchor footnoteId="fr12" />12</a> and Paycheck Protection Program (PPP)<a href="#fn13" className="footnoteref"><FootnoteAnchor footnoteId="fr13" />13</a>, and the Federal Reserve Emergency Lending facilities<a href="#fn14" className="footnoteref"><FootnoteAnchor footnoteId="fr14" />14</a>. Total value of loan guarantees issued for the USDA’s Rural Development Business and Industry CARES Act Program<a href="#fn15" className="footnoteref"><FootnoteAnchor footnoteId="fr15" />15</a> reflect data reported as of the close of the two months prior to the publishing date due to the reporting timeline</li>
+          <li>Estimated total loan and loan guarantee values were calculated for each program using information provided by each agency. Loan and loan guarantees funded by the supplemental appropriations include: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers, Credit Assistance for Air Carriers and Businesses Critical to National Security,<a href="#fn6" className="footnoteref"><FootnoteAnchor footnoteId="fr6" />6</a> and the Small Business Administration’s Economic Injury Disaster Loans (EIDL),<a href="#fn7" className="footnoteref"><FootnoteAnchor footnoteId="fr7" />7</a> and Paycheck Protection Program (PPP),<a href="#fn8" className="footnoteref"><FootnoteAnchor footnoteId="fr8" />8</a> as well as the total estimated credit made available through the Federal Reserve Emergency Lending facilities<a href="#fn9" className="footnoteref"><FootnoteAnchor footnoteId="fr9" />9</a></li>
+          <li>At the time of publishing data on the Defense Production Act Loan Program is not yet available and therefore the program is not included in the calculation of Total Estimate Lending made available by the four laws nor are any loans for this program included in the utilized lending total</li>
+          <li>Total utilized lending was calculated using the most recent data on reported loans and loan guarantees for the reporting period provided by each agency: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers<a href="#fn10" className="footnoteref"><FootnoteAnchor footnoteId="fr10" />10</a>, Credit Assistance for Air Carriers and Businesses Critical to National Security<a href="#fn11" className="footnoteref"><FootnoteAnchor footnoteId="fr11" />11</a>, the Small Business Administration’s Economic Injury Disaster Loans (EIDL)<a href="#fn12" className="footnoteref"><FootnoteAnchor footnoteId="fr12" />12</a> and Paycheck Protection Program (PPP)<a href="#fn13" className="footnoteref"><FootnoteAnchor footnoteId="fr13" />13</a>, and the Federal Reserve Emergency Lending facilities<a href="#fn14" className="footnoteref"><FootnoteAnchor footnoteId="fr14" />14</a>. Total value of loan guarantees issued for the USDA’s Rural Development Business and Industry CARES Act Program<a href="#fn15" className="footnoteref"><FootnoteAnchor footnoteId="fr15" />15</a> reflect data reported as of the close of the two months prior to the publishing date due to the reporting timeline</li>
         </ul>
       </ul>
     )
@@ -159,11 +159,11 @@ const C19HWTCA = ({ location }) => {
         </p>
         <p>
           <FootnoteAnchor footnoteId="fn12" />
-          <sup><a href="#fr12">12</a></sup> <a target="_blank" href="https://www.sba.gov/document/report-covid-19-eidl-loans-report-07-15-20">https://www.sba.gov/document/report-covid-19-eidl-loans-report-07-15-20</a>
+          <sup><a href="#fr12">12</a></sup> <a target="_blank" href="https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/economic-injury-disaster-loans">https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/economic-injury-disaster-loans</a>
         </p>
         <p>
           <FootnoteAnchor footnoteId="fn13" />
-          <sup><a href="#fr13">13</a></sup> <a target="_blank" href="https://www.sba.gov/document/report-paycheck-protection-program-report-through-july-17-2020">https://www.sba.gov/document/report-paycheck-protection-program-report-through-july-17-2020</a>
+          <sup><a href="#fr13">13</a></sup> <a target="_blank" href="https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/paycheck-protection-program">https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/paycheck-protection-program</a>
         </p>
         <p>
           <FootnoteAnchor footnoteId="fn14" />
@@ -190,9 +190,9 @@ const C19HWTCA = ({ location }) => {
           <sup><a href="#fr19">19</a></sup> Detailed instructions on how agencies should be classified is provided here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md">https://github.com/fedspendingtransparency/data-act-broker-backend/blob/development/FileLogic.md.</a>
           The list of shared agencies identified by FREC can be found here: <a target="_blank" href="https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker">https://github.com/fedspendingtransparency/data-act-broker-backend/tree/development/dataactbroker</a>
         </p>
-        <p>For a complete download of the data, download this file: <a href='/data/federal-covid-spending/tracking/covid19_response_download_2020-08-19.xlsx'>COVID-19 Response Data</a>
+        <p>For a complete download of the data, download this file: <a href={`/data/federal-covid-spending/tracking/${CovidCopy.dsm_download}`}>COVID-19 Response Data</a>
         </p>
-        </>
+      </>
     )
   }];
 

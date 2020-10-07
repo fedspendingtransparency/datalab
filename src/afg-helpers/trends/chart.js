@@ -18,7 +18,7 @@ import { initOverlay } from './detailOverlay';
 const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft },
     margin = {
         left: 400,
-        top: 40
+        top: 0
     };
 
 let originalConfig, activeDrilldownData;
@@ -100,7 +100,7 @@ function initGlobals(config, data, drilldown) {
     }
 
     globals.data = data;
-    globals.domainMax = d3.max(globals.data.map(row => d3.max(row.values.map(v => v.amount))));
+    globals.domainMax = d3.max(globals.data.map(row => d3.max(row.values.map(v => parseFloat(v.amount)))));
     globals.fiscalYearSet = config.fiscalYearSet;
 
     if (!config.zoomThreshold) {
@@ -203,7 +203,7 @@ export function trendDesktop(_data, container, config, drilldown) {
 
     if (!drilldown) {
         d3.select('svg.main').attr('height', function() {
-            return (labelYMax > 800) ? labelYMax + 320 : 930;
+            return (labelYMax > 800) ? labelYMax + 320 : 985;
         });
 
         window.addEventListener('resize', function () {

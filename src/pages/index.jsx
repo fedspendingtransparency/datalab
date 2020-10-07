@@ -16,6 +16,7 @@ import cu from 'src/images/home/collegehomepage.svg';
 import homelessImg from 'src/images/home/homelessness.png';
 import explorer from 'src/images/home/contractexplorersunburst.png';
 import homeStyles from './index.module.scss';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
 
 function IndexPage() {
   return (
@@ -50,7 +51,7 @@ function IndexPage() {
             isMain
             imgAlt="Woman standing with medical face mask on, social distanced between two others, with a cartoon image of the U.S. Capitol in the background."
             heading="The Federal Response to COVID-19"
-            body="To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress passed four special appropriations laws, which provide multiple forms of financial relief through agency spending, tax relief, and lending. As of July 1, approximately half of the $2.58 trillion in available funding has been obligated. In this analysis, we break down how the funding provides financial relief, explain the process of how the money moves from legislation to the American people, and track the progress of spending."
+            body={`To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress passed four special appropriations laws, which provide multiple forms of financial relief through agency spending, tax relief, and lending. As of ${CovidCopy.monthday}, approximately half of the $${CovidCopy.totalbudgetresources} trillion in available funding has been obligated. In this analysis, we break down how the funding provides financial relief, explain the process of how the money moves from legislation to the American people, and track the progress of spending.`}
             mobileBody="Follow along as Data Lab tracks the flow of four emergency funding laws for COVID-19. As of July 1, government agencies have reported $1.3 trillion in spending."
 	  />
 	</Grid>
@@ -106,7 +107,7 @@ function IndexPage() {
       </div>
 
       <div className={homeStyles.resourceRow}>
-	<ResourcesRow />
+				<ResourcesRow />
       </div>
     </Home>
   );

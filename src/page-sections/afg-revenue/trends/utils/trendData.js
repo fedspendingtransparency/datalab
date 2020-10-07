@@ -3,8 +3,6 @@ import CategoryData from '../../../../../static/americas-finance-guide/data/fede
 export function trendData(){
     const indexed = {};
 
-    let arr;
-
     CategoryData.forEach(r => {
         if (isNaN(r.federal_revenue_adjusted)) {
             return;
@@ -26,16 +24,16 @@ export function trendData(){
 
             indexed[r.parent_plain].subcategories[r.child_plain].values.push({
                 year: r.fiscal_year,
-                amount: r.federal_revenue_adjusted
+                amount: parseFloat(r.federal_revenue_adjusted)
             })
         } else {
             indexed[r.parent_plain].values.push({
                 year: r.fiscal_year,
-                amount: r.federal_revenue_adjusted
+                amount: parseFloat(r.federal_revenue_adjusted)
             })
         }
     })
-
+    
     return Object.keys(indexed).map(c => {
         indexed[c].subcategories = Object.keys(indexed[c].subcategories).map(s => indexed[c].subcategories[s]);
 

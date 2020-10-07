@@ -14,7 +14,7 @@ import MobileA from 'src/images/covid/budget/viz1AMobile.svg';
 import MobileB from 'src/images/covid/budget/viz1BMobile.svg';
 import MobileC from 'src/images/covid/budget/viz1CMobile.svg';
 import PurpleDot from 'src/svgs/federal-covid-spending/purpleDot.svg';
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-08-24.yml'
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
 
 import { checkScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
 import styles from './budget.module.scss';
@@ -41,7 +41,7 @@ const desktopSVGs = [
 const mobileSVGs = [
   {
     img: MobileA,
-    width: 309,
+    width: 303,
     alt: "Bar chart of new agency funding through the four phases of COVID-19 appropriations, the largest funding coming from Phase 3 and the CARES Act.",
   },
   {
@@ -64,12 +64,12 @@ const tabletSVGs = [
   },
   {
     img: TabletB,
-    width: 669,
+    width: 667,
     alt: "Bar chart of the total estimated value of legislation ($" + CovidCopy.legislationvalue_trill + "T), which include New Agency Funding ($" + CovidCopy.totalbudgetresources + "T) and Tax Relief ($" + CovidCopy.taxrelief_billion + "B).",
   },
   {
     img: TabletC,
-    width: 689,
+    width: 690,
     alt: "Bar chart showing total estimated lending ($" + CovidCopy.totcredit_trillions + "T) broken down by utilized lending ($" + CovidCopy.creditused_bill + "B) and available lending ($" + CovidCopy.creditavailprecise_trill + "T).",
   }
 ];

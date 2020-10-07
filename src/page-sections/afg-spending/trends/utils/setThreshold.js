@@ -15,7 +15,7 @@ function establishRange(data){
      * of each object within data.
      */
     const reduced = data.reduceRight((a,b) => {
-        return a.concat(b.values.map(r => r.amount))
+        return a.concat(b.values.map(r => parseFloat(r.amount)))
     },[]);
     const extent = d3.extent(reduced);
 
@@ -33,7 +33,7 @@ function findThreshold(extentedData, data){
 function lookForOverlaps(data, threshold){
     let overlapExtent;
     data.forEach(d => {
-        const extent = d3.extent(d.values.map(r => r.amount));
+        const extent = d3.extent(d.values.map(r => parseFloat(r.amount)));
         if(extent[0] <= threshold && extent[1] >= threshold){
             overlaps.push(extent[0],extent[1]);
         }

@@ -1,7 +1,7 @@
 import 'src/styles/afg/cg.scss';
 import 'src/styles/afg/countryCommon.scss';
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import SEO from "src/components/seo";
 import AfgData from "../../../../../static/americas-finance-guide/_data/object_mapping.yml";
@@ -16,6 +16,31 @@ import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function RevenueCountryComparisonPage(props) {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1000);
+        }
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+    }, [])
+
+    const breadcrumbs = (
+        <Link to={"/americas-finance-guide/spending/"} className="chapter-link chapter-link--spending">
+            <div className="chapter-link__text-block">
+                <div className="chapter-link__learn-more">Learn more about</div>
+                Federal Spending
+            </div>
+            <FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right tour__angle-right" />
+        </Link>
+    )
+
     return (
         <>
             <SEO
@@ -43,21 +68,15 @@ function RevenueCountryComparisonPage(props) {
                                 </p>
                                 <p><em>Please note that the countries depicted in this chart have different forms of government, and these differences may impact the scope of finances reported by each country.</em></p>
                             </div>
-                            <Link to={"/americas-finance-guide/spending/"} className="chapter-link chapter-link--spending">
-                                <div className="chapter-link__text-block">
-                                    <div className="chapter-link__learn-more">Learn more about</div>
-                                    Federal Spending
-                                </div>
-                                <FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right tour__angle-right" />
-                            </Link>
+                            {!isMobile && breadcrumbs}
                         </div>
-
                         <div className="country-chart">
-                            <h2 className="chart-title">Country Comparison</h2>
+                            <h2 className="chart-title">{AfgData.country_compare_year.value} Country Comparison</h2>
                             <div className="hint">Click <span className="sort-button-placeholder"></span> to sort columns</div>
                             <RevenueCountryComparison />
                         </div>
                         <div className="clearfix"></div>
+                        {isMobile && breadcrumbs}
                         <section className="hwcta">
                             <AccordionList title="Data Sources and Methodology">
                                 <p>The visualization was created using the <a href={AfgData.country_comparison_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. Gross domestic product (GDP) figures for the United States come from the <a href={AfgData.bea_gdp.value} rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. GDP data for countries other than the United States comes from the <a href={AfgData.imf_gdp.value} rel="noopener noreferrer" target="_blank">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>.</p>
