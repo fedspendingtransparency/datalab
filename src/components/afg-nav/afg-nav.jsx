@@ -13,51 +13,51 @@ const AfgNav = (props) => {
 	let navHtml;
 	let navClasses;
 
-	function getFilename(a) {	
-		if (a.slice(-1) === '/') {	
-			a = a.slice(0, -1);	
-		}	
+	function getFilename(a) {
+		if (a.slice(-1) === '/') {
+			a = a.slice(0, -1);
+		}
 
-		return a.match(/.*americas-finance-guide\/(.*)*$/i).pop();	
+		return a.match(/.*americas-finance-guide\/(.*)*$/i).pop();
 	}
 
 	function setCurrentPageActive() {
-		let filename = props.location.pathname;	
-		filename = filename.slice(24);	
+		let filename = props.location.pathname;
+		filename = filename.slice(24);
 
 		if (filename.slice(-1) === '/') {	
-			filename = filename.slice(0, -1);	
+			filename = filename.slice(0, -1);
 		}	
 
-		filename = filename || 'revenue';	
+		filename = filename || 'revenue';
 
-		const ul = document.getElementsByClassName(style.chapterNavPrimaryList);	
+		const ul = document.getElementsByClassName(style.chapterNavPrimaryList);
 
 		if (!ul.item(0)) {	
-			return;	
+			return;
 		}	
 
-		const allSecondaryLi = ul.item(0).children;	
-		const liLength = allSecondaryLi.length;	
+		const allSecondaryLi = ul.item(0).children;
+		const liLength = allSecondaryLi.length;
 
-		if (filename === 'revenue') {	
-			allSecondaryLi.item(1).classList.add(style.active);	
-			return true;	
+		if (filename === 'revenue') {
+			allSecondaryLi.item(1).classList.add(style.active);
+			return true;
 		}	
 
-		let i = 1;	
+		let i = 1;
 
-		for (i; i < liLength; i++) {	
-			const current = allSecondaryLi.item(i);	
-			const href = getFilename(current.firstChild.href);	
+		for (i; i < liLength; i++) {
+			const current = allSecondaryLi.item(i);
+			const href = getFilename(current.firstChild.href);
 
-			if (filename === href) {	
-				current.classList.add(style.active);	
-				break;	
+			if (filename === href) {
+				current.classList.add(style.active);
+				break;
 			}	
 		}	
 
-		return true;	
+		return true;
 	}
 
 	function toggleActiveStatus() {
@@ -96,7 +96,7 @@ const AfgNav = (props) => {
 		}
 	}
 
-	useEffect(() => {	
+	useEffect(() => {
 		setCurrentPageActive();
 	});
 
