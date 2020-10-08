@@ -4,6 +4,7 @@ import { dotConstants, dotsPerRow } from './dotConstants';
 import { translator } from 'src/afg-helpers/utils';
 import { touchIe } from 'src/afg-helpers/touchIe';
 import { addSpendingLegend } from 'src/afg-helpers/dots/revenue-and-spending/legend';
+import { isMobileDevice } from '../../../afg-helpers/utils';
 
 const layers = {};
 const duration = 500;
@@ -96,20 +97,6 @@ function handleRevenueLayer(reset) {
     .on('end', touchIe)
     .ease();
 }
-
-// function updateMainSvg(id) {
-//   if (id === 'spending') {
-//     d3.select('svg.main')
-//     .transition()
-//     .duration(200)
-//     .attr('height', 410);
-//   } else if (id === 'gdp') {
-//     d3.select('svg.main')
-//     .transition()
-//     .duration(200)
-//     .attr('height', 510);
-//   }
-// }
 
 function handleLayers(id, reset) {
   if (id === 'gdp') {
@@ -220,7 +207,7 @@ export function registerLayer(id, layer, _n, _config) {
 
   if (n) {
     gdpHeight = n * 0.6;
-    spendingHeight = n;
+    spendingHeight = n * 0.2;
   } else if (!originalHeight) {
     originalHeight = d3.select('g.spending-dots')
       .node()

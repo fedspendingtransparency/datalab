@@ -1,10 +1,10 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import {
-  establishContainer, translator, simplifyNumber, findAmountInCsv,
+	establishContainer, translator, simplifyNumber, findAmountInCsv, isMobileDevice,
 } from 'src/afg-helpers/utils';
 import { generateOverlay, registerLayer} from './compareManager';
-import { createDonut } from '../donut';
+import { createDonut, createMobileDonut } from '../donut';
 import colors from '../../../styles/afg/colors.scss';
 import { chartWidth } from './widthManager';
 import SpendingData from '../../../../static/americas-finance-guide/data/federal_spending_gdp.csv';
@@ -183,6 +183,25 @@ function placeDonut(g) {
   createDonut(donutContainer, config.gdpPercent / 100, r * 2, config.sectionColor);
 }
 
+function placeDonutMobile(g) {
+	const y = d3.select('svg.main').node().getBBox().height;
+	const r = 50;
+	const x = r + 25;
+	const donutContainer = g.append('g')
+		.classed('gdp-step-two', true)
+		.attr('opacity', 0)
+		.attr('transform', `${translator(x, 400)} scale(1.67)`);
+
+	donutContainer.append('circle')
+		.attr('fill', 'white')
+		.attr('opacity', 0.85)
+		.attr('r', r + 10)
+		.attr('cx', r)
+		.attr('cy', r);
+
+	createMobileDonut(donutContainer, config.gdpPercent / 100, r * 2, config.sectionColor);
+}
+
 export function initGdp(_config) {
   config = _config || config;
   const svg = establishContainer();
@@ -191,8 +210,9 @@ export function initGdp(_config) {
 
   gdpLayer = generateOverlay(gdpCount, svg.select('.main-container'), 'gdp-layer');
 
-  if (typeof window !== 'undefined' && window.innerWidth < 959) {
+  if (isMobileDevice()) {
     placeLegendMobile(gdpLayer);
+		placeDonutMobile(gdpLayer);
   } else {
     // desktop
     placeLegend(gdpLayer);

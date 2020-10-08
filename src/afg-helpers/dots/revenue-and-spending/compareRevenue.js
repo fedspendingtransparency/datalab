@@ -5,6 +5,7 @@ import {
 	generateOverlay, registerLayer,
 } from './compareManager';
 import colors from '../../../styles/afg/colors.scss';
+import { isMobileDevice } from '../../../afg-helpers/utils';
 
 const d3 = { select, selectAll, line };
 
@@ -64,9 +65,6 @@ function placeLegendMobile(g) {
 	const comparisonAmount = config.comparisonAmount || 0;
 	const height = Number(compareLayer.attr('data-rect-height'));
 	const rectWidth = d3.select('.spending-dots').node().getBoundingClientRect().width;
-	// g.attr('opacity', 1);
-
-	// const rectWidth = 500;
 
 	const line = d3.line()
 		.x((d) => d.x)
@@ -112,7 +110,6 @@ export function initRevenueOverlay(_config) {
 	const billion = 1000000000;
 	const compareCount = Math.ceil(config.comparisonAmount / billion);
 
-	console.log(config.compareString)
 	compareLayer = generateOverlay(compareCount, svg.select('.main-container'), `spending-layer`, config.comparisonColor);
 
 	if (typeof window !== 'undefined' && window.innerWidth < 959) {
