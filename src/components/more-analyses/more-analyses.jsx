@@ -81,7 +81,7 @@ export default class MoreAnalyses extends React.Component {
   {
     href: 'americas-finance-guide',
     imageSrc: afg,
-    altText: 'Cartoon graphic containing images of money-related images like dollar bill, bag of money, gold bars, etc.',
+    altText: 'Graphic containing images of money-related images like dollar bill, bag of money, gold bars, etc.',
     title: 'America\'s Finance Guide',
     subtitle: 'How much money did the federal government spend and collect last year?'
   }];
