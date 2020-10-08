@@ -1,5 +1,4 @@
-import { dotsPerRow, dotConstants } from "./dotConstants";
-import { translator } from "src/afg-helpers/utils";
+import { dotsPerRow, dotConstants } from './dotConstants';
 
 let config;
 let layer;
@@ -47,8 +46,8 @@ function markDots(startPosition) {
 }
 
 function placeDots(startPosition, width) {
-  let isMobile  = (width <= 959); // 959 mobile value for afg
-  let dotVal = (isMobile) ? 10000000000 : 1000000000;
+  const isMobile = (width <= 959); // 959 mobile value for afg
+  const dotVal = (isMobile) ? 10000000000 : 1000000000;
   const deficitInBillions = config.deficitAmount / dotVal;
   const rowOneCount = dotsPerRow - startPosition.remainder;
   const fullRows = Math.floor((deficitInBillions - rowOneCount) / dotsPerRow);
@@ -85,20 +84,20 @@ export function initDeficitDots(c, startPosition) {
   placeDots(startPosition, window.innerWidth);
 
   return {
-    layer: layer,
+    layer,
     y: y1,
-    deficitCompareDots: deficitCompareDots,
-    debtCompareDots: debtCompareDots,
-    remainder: remainder
+    deficitCompareDots,
+    debtCompareDots,
+    remainder,
   };
 }
 
 export function placeDotsMobile(c, startPosition, separateContainer) {
   config = c;
-  const container = separateContainer || config.mainContainer
+  const container = separateContainer || config.mainContainer;
   layer = container.append('g')
     .attr('transform', 'translate(0,30)')
-    .attr('data-o', 0)
+    .attr('data-o', 0);
 
   const dotVal = 10000000000;
   const deficitInBillions = config.deficitAmount / dotVal;
@@ -119,10 +118,10 @@ export function placeDotsMobile(c, startPosition, separateContainer) {
   markDots(startPosition);
 
   return {
-    layer: layer,
+    layer,
     y: y1,
-    deficitCompareDots: deficitCompareDots,
-    debtCompareDots: debtCompareDots,
-    remainder: remainder
+    deficitCompareDots,
+    debtCompareDots,
+    remainder,
   };
 }
