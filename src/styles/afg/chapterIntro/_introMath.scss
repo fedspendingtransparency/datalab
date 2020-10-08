@@ -1,6 +1,5 @@
 .intro-math {
     transition: opacity 1s ease;
-    text-align: center;
 }
 
 .intro-math--hidden {
@@ -10,4 +9,16 @@
 .intro-math__icon {
     transform: rotate(180deg);
     margin-right: 0.75rem;
+}
+
+@media screen and (min-width: 960px) {
+    .intro-math {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 959px) {
+    .intro-math {
+        text-align: left;
+    }
 }
