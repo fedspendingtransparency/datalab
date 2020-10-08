@@ -31,12 +31,16 @@ $headerBg: rgba(255,255,255,0.9);
 .bp-header__main {
     z-index: 1;
     position: relative;
-    background: $headerBg;
+    background: #fff;
     margin: 1rem 0;
     padding: 1rem;
+    border: solid 1px #555;
+    border-radius: 5px;
 }
 
 .bp-header__app-name {
+    display: flex;
+    justify-content: space-between;
     color: #3C3C3C;
     font-weight: 800;
     font-size: 1.2rem;
@@ -48,14 +52,12 @@ $headerBg: rgba(255,255,255,0.9);
     margin-top: 0;
     margin-bottom: 1rem;
     text-align: center;
-
-    span {
-        font-size: $baseHeaderSize;
-    }
+    font-weight: normal;
 }
 
 .bp-header__heading, .bp-header__heading > span {
-    @include baseHeader();
+    color: #555;
+    font-weight: 300;
 }
 
 .bp-header__scroll {
@@ -93,6 +95,10 @@ $headerBg: rgba(255,255,255,0.9);
 .bp-header__text {
     font-weight:400;
     font-size: 1rem;
+
+    p {
+        margin: 0;
+    }
 }
 
 @media only screen and (min-width: 800px) {
@@ -106,8 +112,9 @@ $headerBg: rgba(255,255,255,0.9);
 
     .bp-header__main {
         margin: 2rem 0;
-        padding: 2rem 3rem;
+        padding: 2rem;
         display: inline-block;
+        max-width: 950px;
     }
 }
 
