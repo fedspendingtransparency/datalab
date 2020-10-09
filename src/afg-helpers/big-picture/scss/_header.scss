@@ -17,13 +17,12 @@ $headerBg: rgba(255,255,255,0.9);
 }
 
 .bp-header__bg {
-    position: absolute;
-    background: url(/americas-finance-guide/images/header-mobile.jpg) center top no-repeat;
+    background: gray;
     background-size: cover;
-    height: 600px;
-    margin-top: 50px;
-    top: 0;
-    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 480px;
     width: 100%;
     z-index: 0;
 }
@@ -32,9 +31,8 @@ $headerBg: rgba(255,255,255,0.9);
     z-index: 1;
     position: relative;
     background: #fff;
-    margin: 1rem 0;
     padding: 1rem;
-    border: solid 1px #555;
+    border: solid 1px #ddd;
     border-radius: 5px;
 }
 
@@ -116,6 +114,10 @@ $headerBg: rgba(255,255,255,0.9);
         display: inline-block;
         max-width: 950px;
     }
+
+    .bp-header__spacing {
+        width: 84px;
+    }
 }
 
 @media only screen and (min-width: 670px) {
@@ -126,20 +128,12 @@ $headerBg: rgba(255,255,255,0.9);
 
 @media only screen and (min-width: 800px) {
     .bp-header__bg {
-        background-position-y: -5px;
-        background-size: 100%;
         background: url(/americas-finance-guide/images/header_image.jpg) center top no-repeat;
+        background-size: cover;
     }
-}
 
-@media only screen and (min-width: 1200px) {
     .bp-header__break {
         display: block;
-    }
-
-    .bp-header__bg {
-        background-size: 120%;
-        background-position-y: -20px;
     }
 }
 
@@ -147,5 +141,18 @@ $headerBg: rgba(255,255,255,0.9);
     .bp-header__bg {
         background-size: cover;
         background-position-y: -23px;
+    }
+}
+
+@media only screen and (max-width: 799px) {
+    .bp-header__app-name {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bp-header__spacing {
+        display: none;
     }
 }

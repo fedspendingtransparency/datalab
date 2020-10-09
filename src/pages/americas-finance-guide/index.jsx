@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleDown, faStreetView } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from 'src/components/headers/headers';
 
-import 'src/afg-helpers/big-picture/parallax';
 import 'src/afg-helpers/big-picture/scrollTo';
 import smoothscroll from 'smoothscroll-polyfill';
 import AfgData from '../../../static/americas-finance-guide/_data/object_mapping.yml';
@@ -40,37 +39,38 @@ export default function OverviewPage({ location }) {
         <div className="cg-wrapper bp-wrapper">
           <header>
             <div className="bp-header">
-              <div className="bp-header__bg" />
-              <div className="bp-header__main">
-                <h3 className="bp-header__app-name">
-                  <div style={{ width: 84 }} />
-                  YOUR GUIDE TO AMERICA'S FINANCES
-                  <Share
-                    location={location}
-                    title="Data Lab - Your Guide to America’s Finances – U.S. Treasury"
-                    twitter="How much did the federal government collect and spend last year? Your Guide to America’s Finances has federal revenue, spending, deficit, and debt data available for .CSV download. #YourGuide #DataLab #OpenGov"
-                  />
-                </h3>
-                <h1 className="bp-header__heading">
-                  How much money did the federal
-                  {' '}
-                  <span className="bp-header__break">
-                    government
-                    <span className="bp-header__collect-text"> collect </span>
-                    and
-                    <span className="bp-header__spend-text"> spend </span>
-                    in
+              <div className="bp-header__bg">
+                <div className="bp-header__main">
+                  <h3 className="bp-header__app-name">
+                    <div className="bp-header__spacing" />
+                    YOUR GUIDE TO AMERICA'S FINANCES
+                    <Share
+                      location={location}
+                      title="Data Lab - Your Guide to America’s Finances – U.S. Treasury"
+                      twitter="How much did the federal government collect and spend last year? Your Guide to America’s Finances has federal revenue, spending, deficit, and debt data available for .CSV download. #YourGuide #DataLab #OpenGov"
+                    />
+                  </h3>
+                  <h1 className="bp-header__heading">
+                    How much money did the federal
                     {' '}
-                    {AfgData.current_fy.value}
-                    ?
-                  </span>
-                </h1>
-                <div className="bp-header__text">
-                  <p>Interested in learning about the deficit or federal debt?</p>
-                  <p>
-                    Keep reading or
-                    <a href="#deficit-debt-heading" className="scroll-to"> jump to the deficit and federal debt section.</a>
-                  </p>
+                    <span className="bp-header__break">
+                      government
+                      <span className="bp-header__collect-text"> collect </span>
+                      and
+                      <span className="bp-header__spend-text"> spend </span>
+                      in
+                      {' '}
+                      {AfgData.current_fy.value}
+                      ?
+                    </span>
+                  </h1>
+                  <div className="bp-header__text">
+                    <p>Interested in learning about the deficit or federal debt?</p>
+                    <p>
+                      Keep reading or
+                      <a href="#deficit-debt-heading" className="scroll-to"> jump to the deficit and federal debt section.</a>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
