@@ -14,6 +14,7 @@ const RevenueIntro = (props) => {
     gdpAmount: findAmountInCsv('gdp', revenueData),
     gdpPercent: findAmountInCsv('federal revenue percent of gdp', revenueData) * 100,
     sectionAmount: findAmountInCsv('federal revenue', revenueData),
+    sectionName: 'revenue',
     comparisonColor: colors.colorSpendingPrimary,
     sectionColor: colors.revenuePrimary,
     accessibilityAttrs: {

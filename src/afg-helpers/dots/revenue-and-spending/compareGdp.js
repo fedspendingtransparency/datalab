@@ -185,7 +185,7 @@ function placeDonut(g) {
 
 function placeDonutMobile(g) {
 	const y = d3.select('svg.main').node().getBBox().height;
-	const r = 50;
+	const r = 20;
 	const x = r + 25;
 	const donutContainer = g.append('g')
 		.classed('gdp-step-two', true)
@@ -199,7 +199,7 @@ function placeDonutMobile(g) {
 		.attr('cx', r)
 		.attr('cy', r);
 
-	createMobileDonut(donutContainer, config.gdpPercent / 100, r * 2, config.sectionColor);
+	createMobileDonut(donutContainer, config.gdpPercent / 100, r * 2, config.sectionColor, config.sectionName);
 }
 
 export function initGdp(_config) {

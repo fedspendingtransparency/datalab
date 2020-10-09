@@ -53,7 +53,7 @@ export function createDonut(container, percent, diameter, fillColor) {
     .attr('y', diameter*0.08);
 }
 
-export function createMobileDonut(container, percent, diameter, fillColor) {
+export function createMobileDonut(container, percent, diameter, fillColor, sectionName) {
   console.log(container);
   console.log(percent);
 
@@ -93,9 +93,8 @@ export function createMobileDonut(container, percent, diameter, fillColor) {
     .attr('font-weight', 'bold')
     .attr('y', diameter*0.08);
 
-  const text = d3.select('.donut')
-    .append('g')
-    .attr('transform', translator(diameter / 2 + 6, diameter + 6))
+  const text = g.append('g')
+    .attr('transform', translator(0, diameter / 2))
     .append('text')
     .attr('fill', colors.textColorParagraph)
     .attr('font-size', diameter/4)
@@ -105,7 +104,7 @@ export function createMobileDonut(container, percent, diameter, fillColor) {
   text.append('tspan')
     .attr('x', diameter / 2 + 10)
     .attr('dy', -diameter * .75)
-    .text(`Federal debt`);
+    .text(`Federal ${sectionName}`);
 
   text.append('tspan')
     .attr('x', diameter / 2 + 10)
