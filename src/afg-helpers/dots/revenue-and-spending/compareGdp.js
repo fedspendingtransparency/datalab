@@ -20,6 +20,10 @@ function getNewSvgHeight() {
   return Number(gdpLayer.attr('data-rect-height'));
 }
 
+function getNewSvgHeightMobile() {
+	return Number(gdpLayer.attr('data-rect-height'));
+}
+
 function placeLegend(g) {
   const legendContainer = g.append('g')
 	.classed('gdp-step-two', true)
@@ -97,7 +101,8 @@ function placeLegendMobile(g) {
 	.classed('gdp-step-two', true)
 	.attr('opacity', 1);
   const rectWidth = d3.select('g.gdp-layer').node().getBoundingClientRect().width;
-  const height = getNewSvgHeight();
+  const height = d3.select('g.gdp-layer').node().getBoundingClientRect().height;
+  console.log(height);
   const { gdpAmount } = config;
   const line = d3.line()
 	.x((d) => d.x)
@@ -105,8 +110,8 @@ function placeLegendMobile(g) {
   const lineData = [
     { x: rectWidth + 10, y: 0 },
     { x: rectWidth + 20, y: 0 },
-    { x: rectWidth + 20, y: height / 3 },
-    { x: rectWidth + 10, y: height / 3 },
+    { x: rectWidth + 20, y: height },
+    { x: rectWidth + 10, y: height },
   ];
   const text = legendContainer.append('text')
 	.classed('reset touch-label', true)
@@ -202,8 +207,6 @@ function placeDonutMobile(g) {
 		.attr('opacity', 0)
 		.attr('transform', `${translator(x, 400)} scale(1.67)`);
 
-
-
 	donutContainer.append('circle')
 		.attr('fill', 'white')
 		.attr('opacity', 0.85)
@@ -217,7 +220,8 @@ function placeDonutMobile(g) {
 export function initGdp(_config) {
   config = _config || config;
   const svg = establishContainer();
-  let gdpCount = (findAmountInCsv('gdp', SpendingData)) / 100000000000;
+  const dotScale = isMobileDevice() ? 1000000000000 : 100000000000;
+  let gdpCount = (findAmountInCsv('gdp', SpendingData)) / dotScale;
   gdpCount = Math.round(gdpCount) * 100;
 
   gdpLayer = generateOverlay(gdpCount, svg.select('.main-container'), 'gdp-layer');
