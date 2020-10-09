@@ -106,6 +106,11 @@ function ExploreDebtPage(props) {
 								in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to a person using his or her credit card for a purchase (rather than cash, check, or a debit card) and not paying the full credit card balance each month. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows.
 							</p>
 						</div>
+						<div className={styles.mobileHeading}>
+							<p>
+								How does the national debt compare to the deficit and the size of the economy?
+							</p>
+						</div>
 						<div className="viz-wrapper-debt">
 							{vizComponent}
 							<div className="intro-math intro-hidden">
