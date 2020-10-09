@@ -187,10 +187,22 @@ function placeDonutMobile(g) {
 	const y = d3.select('svg.main').node().getBBox().height;
 	const r = 20;
 	const x = r + 25;
+
+	const vizDescription = g.append('g')
+		.classed('donut', true)
+		.attr('transform', translator(28, 382) + ' scale(1.67)')
+
+	vizDescription.append('rect')
+		.attr('fill', 'white')
+		.attr('width', '160px')
+		.attr('height', r * 3);
+
 	const donutContainer = g.append('g')
 		.classed('gdp-step-two', true)
 		.attr('opacity', 0)
 		.attr('transform', `${translator(x, 400)} scale(1.67)`);
+
+
 
 	donutContainer.append('circle')
 		.attr('fill', 'white')
