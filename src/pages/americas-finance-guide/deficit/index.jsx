@@ -96,6 +96,7 @@ function ExploreDeficitPage({ location }) {
   );
 
   const [isMobile, setIsMobile] = useState(true);
+  const [isReady, setIsReady] = useState(false);
 
   const handleResize = () => {
     setIsMobile(window.innerWidth < 960);
@@ -103,6 +104,7 @@ function ExploreDeficitPage({ location }) {
 
   useEffect(() => {
     handleResize();
+    setIsReady(true);
 
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', handleResize);
@@ -111,6 +113,13 @@ function ExploreDeficitPage({ location }) {
       };
     }
   }, []);
+
+  const renderVizComponent = () => {
+    if (isReady) {
+      return isMobile ? mobileVizComponent : desktopVizComponent;
+    }
+    return null;
+  };
 
   return (
     <>
@@ -159,7 +168,7 @@ function ExploreDeficitPage({ location }) {
               What is the deficit and how does that compare to the national debt?
             </div>
             <div className="viz-wrapper">
-              {isMobile ? mobileVizComponent : desktopVizComponent}
+              {renderVizComponent()}
               <section className={`accordion sidebar ${isMobile ? '' : 'intro-hidden'}`}>
                 <AccordionList title="How else does the government finance a deficit?">
                   <div>
