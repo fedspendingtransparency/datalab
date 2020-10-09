@@ -169,7 +169,7 @@ function ExploreDeficitPage({ location }) {
             </div>
             <div className="viz-wrapper">
               {renderVizComponent()}
-              <section className={`accordion sidebar ${isMobile ? '' : 'intro-hidden'}`}>
+              <section className={`accordion sidebar ${isMobile && isReady ? '' : 'intro-hidden'}`}>
                 <AccordionList title="How else does the government finance a deficit?">
                   <div>
                     <p>The government can also use operating cash, which is available from an account at the Federal Reserve, to pay for deficit spending. This would be similar to an individual using their debit card to pay for purchases.</p>
