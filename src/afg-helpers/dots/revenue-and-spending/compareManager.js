@@ -163,6 +163,7 @@ function resizeSvgMobile(id) {
     h = gdpHeight;
   }
 
+  console.log(h);
   d3.select('svg.main')
     .transition()
     .attr('height', h + 50);
@@ -205,9 +206,11 @@ export function registerLayer(id, layer, _n, _config) {
   layers[id] = layer;
   const n = _n;
 
+  console.log(n);
+
   if (n) {
-    gdpHeight = n * 0.6;
-    spendingHeight = n * 0.2;
+    gdpHeight = n * 2;
+    spendingHeight = n * 0.4;
   } else if (!originalHeight) {
     originalHeight = d3.select('g.spending-dots')
       .node()

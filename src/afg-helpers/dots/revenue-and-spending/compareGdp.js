@@ -218,7 +218,7 @@ function placeDonutMobile(g) {
 
 export function initGdp(_config) {
   config = _config || config;
-  const svg = establishContainer();
+	const svg = establishContainer().attr('height', 1000);
   const dotScale = isMobileDevice() ? 1000000000000 : 100000000000;
   let gdpCount = (findAmountInCsv('gdp', SpendingData)) / dotScale;
   gdpCount = Math.round(gdpCount) * 100;
