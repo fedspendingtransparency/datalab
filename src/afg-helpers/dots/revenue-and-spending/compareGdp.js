@@ -102,7 +102,6 @@ function placeLegendMobile(g) {
 	.attr('opacity', 1);
   const rectWidth = d3.select('g.gdp-layer').node().getBoundingClientRect().width;
   const height = d3.select('g.gdp-layer').node().getBoundingClientRect().height;
-  console.log(height);
   const { gdpAmount } = config;
   const line = d3.line()
 	.x((d) => d.x)

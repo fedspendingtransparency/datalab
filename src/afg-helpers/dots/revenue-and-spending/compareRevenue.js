@@ -108,7 +108,7 @@ export function initRevenueOverlay(_config) {
 
 	const svg = establishContainer();
 	const billion = 1000000000;
-	const tenbillion = 100000000;
+	const tenbillion = 10000000000;
 	const dotScale = isMobileDevice() ? tenbillion : billion;
 	const compareCount = Math.ceil(config.comparisonAmount / dotScale);
 
