@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { initChart, initChartMobile, resizeChart } from '../../../afg-helpers/dots/revenue-and-spending/init';
 import colors from '../../../styles/afg/colors.scss';
 import revenueData from '../../../../static/americas-finance-guide/data/federal_revenue_gdp.csv';
@@ -9,6 +9,7 @@ import {
   toggleSelectedFacts,
 } from '../../../afg-helpers/dots/revenue-and-spending/compareManager';
 import * as d3 from 'd3v3';
+import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 const RevenueIntro = (props) => {
   let debounce;
@@ -38,6 +39,8 @@ const RevenueIntro = (props) => {
     },
   };
 
+  const [hasDotScale, setHasDotScale] = useState(false);
+
   useEffect(() => {
       if (isMobileDevice()) {
         config.selectedLayer = props.selection;
@@ -58,6 +61,7 @@ const RevenueIntro = (props) => {
         } else {
           initChart(config);
           setFactsTrigger();
+          setHasDotScale(true);
         }
     }
 
@@ -78,15 +82,51 @@ const RevenueIntro = (props) => {
     //     debounce = setTimeout(() => resizeChart(config, props.selection), 100);
     //   });
     // };
+
+    return () => {
+      d3.select('svg.main').selectAll('*')
+        .remove();
+
+      d3.selectAll('.facts__section').classed('facts__section--active', false);
+    }
   }, []);
 
-  return (<>
-    <div className='dotScale'>
-      <svg width='1.5rem' height='1.5rem'>
-        <circle cx='6' cy='13' r='4' />
+  const topLegend = () => {
+    const label = props.selection ? props.selection === 'gdp' ? 'FY20 U.S. Gross Domestic Product' : 'Federal Spending' : '';
+
+    const isMobile = <div className='dotScale'>
+      <svg width='.75rem' height='1rem'>
+        <circle cx='3' cy='12' r='3' />
       </svg>
-      <span>= $10 billion</span>
+      <span>= {AfgData.dot_represents_mobile.value}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <svg fill={props.selection ? props.selection === 'gdp' ? '#dddddd' : '#a6c9c4' : '#fff'}
+           width='10px'
+           height='10px'>
+        <rect width='10' height='10' />
+      </svg>
+      <span>&nbsp;&nbsp;{label}</span>
     </div>
+
+    const isDesktop = <div className='dotScale'>
+      <svg width='.75rem' height='1rem'>
+        <circle cx='3' cy='12' r='3' />
+      </svg>
+      <span>= {AfgData.dot_represents.value}</span>
+    </div>
+
+    let toRender = <></>
+
+    if(!isMobileDevice() && !hasDotScale) {
+      toRender = isDesktop;
+    }	else if (isMobileDevice()) {
+      toRender = isMobile;
+    }
+
+    return toRender;
+  }
+
+  return (<>
+    {topLegend()}
     <div id="viz"></div>
   </>
   );
