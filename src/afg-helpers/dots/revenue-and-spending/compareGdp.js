@@ -20,10 +20,6 @@ function getNewSvgHeight() {
   return Number(gdpLayer.attr('data-rect-height'));
 }
 
-function getNewSvgHeightMobile() {
-	return Number(gdpLayer.attr('data-rect-height'));
-}
-
 function placeLegend(g) {
   const legendContainer = g.append('g')
 	.classed('gdp-step-two', true)
@@ -229,7 +225,6 @@ export function initGdp(_config) {
     placeLegendMobile(gdpLayer);
 		placeDonutMobile(gdpLayer);
   } else {
-    // desktop
     placeLegend(gdpLayer);
     placeDonut(gdpLayer);
   }

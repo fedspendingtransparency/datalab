@@ -4,7 +4,7 @@ import { placeDots, readyDots } from './placeDots';
 import { startLegendAnimation } from './legend';
 import { setChartWidth, chartWidth } from './widthManager';
 import { setDotsPerRow } from './dotConstants';
-import { resetForResize } from './compareManager';
+import { resetForResize, setFactsTrigger, toggleSelectedFacts } from './compareManager';
 import { triggerMainInfoBox } from 'src/afg-helpers/infoBox';
 
 const d3 = { select, selectAll };
@@ -26,6 +26,7 @@ export function initChart(_config) {
 }
 
 export function initChartMobile(_config) {
+  triggerMainInfoBox();
 
   d3.select('#viz').selectAll('*').remove();
   config = _config || config;
@@ -36,17 +37,34 @@ export function initChartMobile(_config) {
   placeDots(config);
 };
 
-export function resizeChart() {
-  if (typeof document !== 'undefined') {
-    if (Object.keys(config).indexOf('mainContainer') !== -1) {
-      config.mainContainer.selectAll('*')
-        .remove();
-    }
-    setChartWidth();
-    setDotsPerRow();
-    resetForResize();
-    d3.select('svg.main')
-      .attr('width', chartWidth);
-    readyDots(window.innerWidth);
+export function resizeChart(_config, selection) {
+  config = _config || config;
+
+  if(selection) {
+    initChartMobile(config);
+    setFactsTrigger();
+    toggleSelectedFacts(props.selection);
+
+    setTimeout(function() {
+      d3.select('svg.main').attr('height', 2050)
+      console.log(d3.select('svg.main').node().getBBox().height);
+    }, 1000);
+
+  } else {
+    if (typeof document !== 'undefined') {
+      if (Object.keys(config)
+        .indexOf('mainContainer') !== -1) {
+        config.mainContainer.selectAll('*')
+          .remove();
+      }
+      setChartWidth();
+      setDotsPerRow();
+      resetForResize();
+      placeDots(config);
+  }
+
+    // d3.select('svg.main')
+    //   .attr('width', chartWidth);
+    // readyDots(window.innerWidth);
   }
 }

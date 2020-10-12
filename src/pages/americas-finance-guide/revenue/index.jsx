@@ -2,7 +2,7 @@ import 'src/styles/afg/chapterIntroCommon.scss';
 import 'src/styles/afg/cg.scss';
 import 'src/page-sections/afg-revenue/intro/revenue-intro.scss';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SEO from 'src/components/seo';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 import GdpTemplate from 'src/components/gdp-template/gdp-template';
@@ -29,8 +29,8 @@ function RevenueAndGdpPage(props) {
 		setActiveLayer(layers[newTabValue])
 	}
 
-	const setDesktopActiveLayer = (newLayer) => {
-		setActiveLayer(newLayer);
+	const setDesktopActiveLayer = (newLayer, currentLayer) => {
+		currentLayer ? setActiveLayer('') : setActiveLayer(newLayer);
 	}
 
   const tabs = [
@@ -51,7 +51,7 @@ function RevenueAndGdpPage(props) {
     },
   ];
 
-  const [vizComponent, updateVizComponent] = useState(<RevenueIntro selection={activeLayer} />);
+  const [vizComponent, updateVizComponent] = useState(<RevenueIntro selection='gdp' setDesktopActiveLayer={setDesktopActiveLayer} />);
 
 	useEffect(() => {
 		handleResize();
@@ -65,7 +65,8 @@ function RevenueAndGdpPage(props) {
 	}, [activeLayer]);
 
   const handleResize = () => {
-	updateVizComponent(!isMobileDevice() ? <RevenueIntro setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />)
+  	// get active layer
+		updateVizComponent(!isMobileDevice() ? <RevenueIntro selection='gdp' setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />)
   };
 
   return (
@@ -209,8 +210,14 @@ function RevenueAndGdpPage(props) {
 		<div id="compare-options">
 		  <p className="facts__prompt">How does federal revenue compare to federal spending and the size of the economy?</p>
 		  <div className="facts__triggers">
-		    <button className="facts__trigger" data-trigger-id="spending">Federal Spending</button>
-		    <button className="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
+		    <button className="facts__trigger"
+								id='spending-facts__trigger'
+								onClick={(e) => setDesktopActiveLayer('spending', activeLayer)}
+								data-trigger-id="spending">Federal Spending</button>
+		    <button className="facts__trigger"
+								onClick={(e) => setDesktopActiveLayer('gdp', activeLayer)}
+								id='gdp-facts__trigger'
+								data-trigger-id="gdp">U.S. Economy</button>
 		  </div>
 		</div>
 		<section id="spending-facts" className="facts__section">

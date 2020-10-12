@@ -54,9 +54,6 @@ export function createDonut(container, percent, diameter, fillColor) {
 }
 
 export function createMobileDonut(container, percent, diameter, fillColor, sectionName) {
-  console.log(container);
-  console.log(percent);
-
   const absPercent = Math.abs(percent),
     isNegativeVal = percent < 0,
     shadedColorIterator = isNegativeVal ? 1 : 0,

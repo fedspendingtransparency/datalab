@@ -62,7 +62,7 @@ function ExploreDebtPage(props) {
 	}, [activeLayer]);
 
 
-	const [vizComponent, updateVizComponent] = useState(<DebtIntro selection={activeLayer} />);
+	const [vizComponent, updateVizComponent] = useState(<DebtIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} />);
 
 	const handleResize = () => {
 		updateVizComponent(!isMobileDevice() ? <DebtIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />);

@@ -49,7 +49,7 @@ function handleGdpLayer(reset) {
     .delay(1000)
     .duration(1500)
     .attr('opacity', stepTwoOpacity)
-    .on('end', touchIe)
+    // .on('end', touchIe)
     .ease();
 }
 
@@ -106,7 +106,7 @@ function handleLayers(id, reset) {
   }
 }
 
-function toggleFacts() {
+export function toggleFacts() {
   const button = d3.select(this);
   const id = button.attr('data-trigger-id');
   const targetSection = d3.select(`#${id}-facts`);
@@ -137,8 +137,24 @@ function toggleFacts() {
   }
 }
 
+export function toggleSelectedFacts(id) {
+  const button = d3.select(`#${id}-facts__trigger`).classed(buttonActive, true);
+  const targetSection = d3.select(`#${id}-facts`);
+  targetSection.classed(sectionActive, true);
+
+  setLayerOpacity(Object.keys(layers)
+    .filter((k) => k != id)[0]);
+
+  setLayerOpacity(id, true);
+
+  handleLayers(id);
+
+  resizeSvg(id === 'gdp');
+
+}
+
 export function toggleFactsMobile(id) {
-  d3.selectAll(`spending-layer, gdp-layer`).attr('opacity', 0);
+  d3.selectAll(`.spending-layer, .gdp-layer`).attr('opacity', 0);
   d3.select(`.${id}-layer`).attr('opacity', 1);
   const targetSection = d3.select(`#mobile-${id}-facts`);
   targetSection.classed(sectionActive, true);
@@ -147,6 +163,8 @@ export function toggleFactsMobile(id) {
 
 function resizeSvg(gdp) {
   const h = gdp ? gdpHeight : originalHeight;
+
+  console.log(h);
 
   d3.select('svg.main')
     .transition()
@@ -163,7 +181,6 @@ function resizeSvgMobile(id) {
     h = gdpHeight;
   }
 
-  console.log(h);
   d3.select('svg.main')
     .transition()
     .attr('height', h + 50);
@@ -205,8 +222,6 @@ export function registerLayer(id, layer, _n, _config) {
   config = _config || config;
   layers[id] = layer;
   const n = _n;
-
-  console.log(n);
 
   if (n) {
     gdpHeight = n * 2;
