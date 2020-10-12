@@ -94,7 +94,7 @@ function handleRevenueLayer(reset) {
     .delay(1000)
     .duration(1500)
     .attr('opacity', stepTwoOpacity)
-    .on('end', touchIe)
+    // .on('end', touchIe)
     .ease();
 }
 
@@ -154,7 +154,7 @@ export function toggleSelectedFacts(id) {
 }
 
 export function toggleFactsMobile(id) {
-  d3.selectAll(`.spending-layer, .gdp-layer`).attr('opacity', 0);
+  d3.selectAll(`.revenue-layer, .spending-layer, .gdp-layer`).attr('opacity', 0);
   d3.select(`.${id}-layer`).attr('opacity', 1);
   const targetSection = d3.select(`#mobile-${id}-facts`);
   targetSection.classed(sectionActive, true);
@@ -173,13 +173,13 @@ function resizeSvg(gdp) {
 }
 
 function resizeSvgMobile(id) {
-  let h = originalHeight;
+  let h = id === 'gdp' ? gdpHeight: originalHeight;
 
-  if(id === 'spending') {
-    h = spendingHeight;
-  } else if (id === 'gdp') {
-    h = gdpHeight;
-  }
+  // if(id === 'spending') {
+  //   h = spendingHeight;
+  // } else if (id === 'gdp') {
+  //   h = gdpHeight;
+  // }
 
   d3.select('svg.main')
     .transition()

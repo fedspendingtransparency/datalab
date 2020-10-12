@@ -78,10 +78,10 @@ function placeLegendMobile(g) {
 	const text = legendContainer.append('text')
 		.classed('reset touch-label', true)
 		.attr('fill', colors.textColorParagraph)
-		.attr('text-anchor', 'end')
+		.attr('text-anchor', 'start')
 		.attr('x', 0)
 		.attr('y', 0)
-		.style('font-size', 20);
+		.style('font-size', '0.875rem');
 
 	legendContainer.append('path')
 		.attr('d', line(lineData))
@@ -90,15 +90,22 @@ function placeLegendMobile(g) {
 		.attr('stroke-width', 2);
 
 	text.append('tspan')
-		.text('Federal ' + `${compareString.charAt(0).toUpperCase()}${compareString.slice(1)}`)
+		.text('Federal ')
 		.style('font-weight', '600')
-		.attr('x', rectWidth + 180)
+		.attr('x', rectWidth + 40)
+		.attr('dx', 0)
+		.attr('dy', height / 2);
+
+	text.append('tspan')
+		.text(`${compareString.charAt(0).toUpperCase()}${compareString.slice(1)}`)
+		.style('font-weight', '600')
+		.attr('x', rectWidth + 40)
 		.attr('dx', 0)
 		.attr('dy', height / 2);
 
 	text.append('tspan')
 		.text(simplifyNumber(comparisonAmount))
-		.attr('x', rectWidth + 100)
+		.attr('x', rectWidth + 40)
 		.attr('dx', 0)
 		.attr('dy', 20);
 }

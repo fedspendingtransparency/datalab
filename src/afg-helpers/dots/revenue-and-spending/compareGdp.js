@@ -111,10 +111,10 @@ function placeLegendMobile(g) {
   const text = legendContainer.append('text')
 	.classed('reset touch-label', true)
 	.attr('fill', colors.textColorParagraph)
-	.attr('text-anchor', 'end')
+	.attr('text-anchor', 'start')
 	.attr('x', 0)
 	.attr('y', 0) // (height / 2 - 60)
-	.style('font-size', 24);
+	.style('font-size', '0.875rem');
 
   legendContainer.append('path')
     .attr('d', line(lineData))
@@ -123,45 +123,38 @@ function placeLegendMobile(g) {
     .attr('stroke-width', 2);
 
   text.append('tspan')
-    .text(gdpLabelFy)
+    .text(gdpLabelFy + ' U.S.')
     .style('font-weight', '600')
-    .attr('x', rectWidth + 120)
+    .attr('x', rectWidth + 40)
     .attr('dx', 0)
-    .attr('dy', 60);
-
-  text.append('tspan')
-    .text('FY20 U.S.')
-    .style('font-weight', '600')
-    .attr('x', rectWidth + 120)
-    .attr('dx', 0)
-    .attr('dy', 60);
+    .attr('dy', 20);
 
   text.append('tspan')
     .text('Gross')
     .style('font-weight', '600')
-    .attr('x', rectWidth + 120)
+    .attr('x', rectWidth + 40)
     .attr('dx', 0)
-    .attr('dy', 60);
+    .attr('dy', 20);
 
   text.append('tspan')
     .text('Domestic')
     .style('font-weight', '600')
-    .attr('x', rectWidth + 120)
+    .attr('x', rectWidth + 40)
     .attr('dx', 0)
-    .attr('dy', 60);
+    .attr('dy', 20);
 
   text.append('tspan')
     .text('Product')
     .style('font-weight', '600')
-    .attr('x', rectWidth + 120)
+    .attr('x', rectWidth + 40)
     .attr('dx', 0)
-    .attr('dy', 60);
+    .attr('dy', 20);
 
   text.append('tspan')
     .text(simplifyNumber(gdpAmount))
-    .attr('x', rectWidth + 90)
+    .attr('x', rectWidth + 40)
     .attr('dx', 0)
-    .attr('dy', 60);
+    .attr('dy', 20);
 }
 
 function placeDonut(g) {

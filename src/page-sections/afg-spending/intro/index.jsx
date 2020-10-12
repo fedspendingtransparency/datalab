@@ -2,9 +2,15 @@ import React, { useEffect } from 'react';
 import { initChart, initChartMobile, resizeChart } from '../../../afg-helpers/dots/revenue-and-spending/init';
 import colors from '../../../styles/afg/colors.scss';
 import SpendingData from '../../../../static/americas-finance-guide/data/federal_spending_gdp.csv';
-import { findAmountInCsv } from 'src/afg-helpers/utils';
+import { findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
+import {
+	setFactsTrigger,
+	toggleFactsMobile,
+	toggleSelectedFacts,
+} from '../../../afg-helpers/dots/revenue-and-spending/compareManager';
+import * as d3 from 'd3v3';
 
-export default function SpendingIntro() {
+export default function SpendingIntro(props) {
   let debounce;
   const config = {
     anecdoteName: 'anecdote-spending.svg',
@@ -32,32 +38,47 @@ export default function SpendingIntro() {
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      initChart(config);
-      if (window.innerWidth < 959) {
-        initChartMobile(config);
-      };
-    }
+		if (isMobileDevice()) {
+			config.selectedLayer = props.selection;
+			initChartMobile(config);
+			toggleFactsMobile(props.selection);
+		} else {
+			if (props.selection) {
+				initChartMobile(config);
+				setFactsTrigger();
+				toggleSelectedFacts(props.selection);
+
+				setTimeout(function() {
+					d3.select('svg.main').attr('height', 2050)
+					console.log(d3.select('svg.main').node().getBBox().height);
+				}, 1000);
+
+
+			} else {
+				initChart(config);
+				setFactsTrigger();
+			}
+		}
   }, []);
 
-  useEffect(() => {
-    window.addEventListener('resize', () => {
-      if (debounce) {
-	clearTimeout(debounce);
-      }
-      debounce = setTimeout(resizeChart, 100);
-    });
-
-    return (_) => {
-      window.removeEventListener('resize', () => {
-	if (debounce) {
-	  clearTimeout(debounce);
-	}
-
-	debounce = setTimeout(resizeChart, 100);
-      });
-    };
-  });
+  // useEffect(() => {
+  //   window.addEventListener('resize', () => {
+  //     if (debounce) {
+	// clearTimeout(debounce);
+  //     }
+  //     debounce = setTimeout(resizeChart, 100);
+  //   });
+	//
+  //   return (_) => {
+  //     window.removeEventListener('resize', () => {
+	// if (debounce) {
+	//   clearTimeout(debounce);
+	// }
+	//
+	// debounce = setTimeout(resizeChart, 100);
+  //     });
+  //   };
+  // });
 
   return (<div id="viz" />);
 }

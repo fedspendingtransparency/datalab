@@ -31,8 +31,8 @@ function SpendingAndGdpPage(props) {
 		setActiveLayer(layers[newTabValue])
 	}
 
-	const setDesktopActiveLayer = (newLayer) => {
-		setActiveLayer(newLayer);
+	const setDesktopActiveLayer = (newLayer, currentLayer) => {
+		currentLayer ? setActiveLayer('') : setActiveLayer(newLayer);
 	}
 
 	const tabs = [
@@ -43,8 +43,8 @@ function SpendingAndGdpPage(props) {
 		},
 		{
 			label: 'Revenue',
-			component: <SpendingIntro selection={'revenue'} />,
-			trigger: 'revenue'
+			component: <SpendingIntro selection={'spending'} />,
+			trigger: 'spending'
 		},
 		{
 			label: 'U.S. Economy',
@@ -67,7 +67,8 @@ function SpendingAndGdpPage(props) {
 	}, [activeLayer]);
 
 	const handleResize = () => {
-		updateVizComponent(!isMobileDevice() ? <SpendingIntro setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />)
+		// get active layer
+		updateVizComponent(!isMobileDevice() ? <SpendingIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />)
 	};
 
   return (
@@ -121,8 +122,14 @@ function SpendingAndGdpPage(props) {
 								<div id="compare-options">
 									<p className="facts__prompt">How does federal spending compare to federal revenue and the size of the economy?</p>
 									<div className="facts__triggers">
-										<button className="facts__trigger" data-trigger-id="revenue">Federal Revenue</button>
-										<button className="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
+										<button className="facts__trigger"
+														id='revenue-facts__trigger'
+														onClick={(e) => setDesktopActiveLayer('spending', activeLayer)}
+														data-trigger-id="revenue">Federal Revenue</button>
+										<button className="facts__trigger"
+														onClick={(e) => setDesktopActiveLayer('gdp', activeLayer)}
+														id='gdp-facts__trigger'
+														data-trigger-id="gdp">U.S. Economy</button>
 									</div>
 								</div>
 								<section id="revenue-facts" className="facts__section">

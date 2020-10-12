@@ -61,10 +61,6 @@ export function resizeChart(_config, selection) {
       setDotsPerRow();
       resetForResize();
       placeDots(config);
-  }
-
-    // d3.select('svg.main')
-    //   .attr('width', chartWidth);
-    // readyDots(window.innerWidth);
+    }
   }
 }
