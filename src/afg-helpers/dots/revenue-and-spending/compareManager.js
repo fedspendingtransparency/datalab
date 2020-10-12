@@ -154,6 +154,11 @@ export function toggleSelectedFacts(id) {
 }
 
 export function toggleFactsMobile(id) {
+  d3.selectAll('.facts__trigger')
+    .classed(buttonActive, null);
+  d3.selectAll('.facts__section')
+    .classed(sectionActive, null);
+
   d3.selectAll(`.revenue-layer, .spending-layer, .gdp-layer`).attr('opacity', 0);
   d3.select(`.${id}-layer`).attr('opacity', 1);
   const targetSection = d3.select(`#mobile-${id}-facts`);

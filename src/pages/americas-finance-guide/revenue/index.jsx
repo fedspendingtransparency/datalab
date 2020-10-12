@@ -19,6 +19,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AfgLayout from 'src/components/layouts/afg/afg';
 import { isMobileDevice } from '../../../afg-helpers/utils';
+import styles from './revenue.module.scss';
 
 function RevenueAndGdpPage(props) {
 	const layers = ['', 'spending', 'gdp'];
@@ -143,7 +144,7 @@ function RevenueAndGdpPage(props) {
 	      measures the size of the nation's economy by the total value of final goods and services that are produced in a year. Gross domestic product is used to compare the economies of different countries, measure growth in the economy, and determine the right monetary policies to address inflation and unemployment.
 	    </p>
 	  </div>
-		<div>How does federal revenue compare to federal spending and the size of the economy?</div>
+		<div className={styles.mobileFact}>How does federal revenue compare to federal spending and the size of the economy?</div>
 	  <div className="viz-wrapper">
 	    {vizComponent}
 	    <div className="intro-math intro-hidden">
@@ -193,7 +194,7 @@ function RevenueAndGdpPage(props) {
 					</button>
 				</strong>
 			</section>
-	    <div id="copy" className="intro-hidden">
+	    <div id="copy" className={`intro-hidden ${styles.debtCopyMobile}`}>
 	      <p>
 		Where does the money come from? If you lived or worked in the United States in
 		{' '}{AfgData.current_fy.value}

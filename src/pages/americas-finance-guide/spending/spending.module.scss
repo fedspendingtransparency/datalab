@@ -1,0 +1,37 @@
+@media screen and (min-width: 960px) {
+  .debtCopy {
+    display: block;
+  }
+
+  .debtCopyMobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .debtCopy {
+    display: none;
+  }
+
+  .debtCopyMobile {
+    display: block;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #555555;
+    border-top: 1px solid #ddd;
+    margin: 15px 0 25px 0 !important;
+
+    p {
+      margin-top: 25px;
+    }
+  }
+
+  .mobileFact {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555555;
+    margin-bottom: 26px;
+  }
+
+}

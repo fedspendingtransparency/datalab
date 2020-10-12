@@ -20,6 +20,7 @@ import AnecdoteSpendingSVG from '../../../../static/americas-finance-guide/icons
 import DefinitionSpendingSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
 import AfgLayout from '../../../components/layouts/afg/afg';
 import { isMobileDevice } from '../../../afg-helpers/utils';
+import styles from './spending.module.scss';
 
 
 function SpendingAndGdpPage(props) {
@@ -100,6 +101,7 @@ function SpendingAndGdpPage(props) {
 							<img src={AnecdoteSpendingSVG} alt="anecdote icon" />
 						</button>
 					</h1>
+					<div className={styles.mobileFact}>How does federal spending compare to federal revenue and the size of the economy?</div>
 					<div className="viz-wrapper">
 						{vizComponent}
 						<div className="intro-math intro-hidden">
