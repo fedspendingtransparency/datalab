@@ -101,7 +101,7 @@ function SpendingAndGdpPage(props) {
 							<img src={AnecdoteSpendingSVG} alt="anecdote icon" />
 						</button>
 					</h1>
-					<div className={styles.mobileFact}>How does federal spending compare to federal revenue and the size of the economy?</div>
+					<div className={styles.mobileHeading}>How does federal spending compare to federal revenue and the size of the economy?</div>
 					<div className="viz-wrapper">
 						{vizComponent}
 						<div className="intro-math intro-hidden">
