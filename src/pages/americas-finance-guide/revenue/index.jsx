@@ -31,7 +31,7 @@ function RevenueAndGdpPage(props) {
 	}
 
 	const setDesktopActiveLayer = (newLayer, currentLayer) => {
-		currentLayer ? setActiveLayer('') : setActiveLayer(newLayer);
+		currentLayer === newLayer ? setActiveLayer('') : setActiveLayer(newLayer);
 	}
 
   const tabs = [
