@@ -51,7 +51,7 @@ const RevenueIntro = (props) => {
         if (props.selection) {
           initChartMobile(config);
           setFactsTrigger();
-          toggleSelectedFacts(props.selection);
+          setTimeout(() => toggleSelectedFacts(props.selection), 700);
 
         } else {
           initChart(config);
@@ -59,24 +59,6 @@ const RevenueIntro = (props) => {
           setHasDotScale(true);
         }
     }
-
-    // window.addEventListener('resize', () => {
-    //   if (debounce) {
-    //     clearTimeout(debounce);
-    //   }
-    //
-    //   debounce = setTimeout(() => resizeChart(config, props.selection), 100);
-    // });
-    //
-    // return () => {
-    //   window.removeEventListener('resize', () => {
-    //     if (debounce) {
-    //       clearTimeout(debounce);
-    //     }
-    //
-    //     debounce = setTimeout(() => resizeChart(config, props.selection), 100);
-    //   });
-    // };
 
     return () => {
       d3.select('svg.main').selectAll('*')

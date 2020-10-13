@@ -169,6 +169,9 @@ export function toggleFactsMobile(id) {
 function resizeSvg(gdp) {
   const h = gdp ? gdpHeight : originalHeight;
 
+  console.log(h);
+  console.log(gdpHeight);
+
   d3.select('svg.main')
     .transition()
     .duration(500)

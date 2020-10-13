@@ -52,7 +52,7 @@ function RevenueAndGdpPage(props) {
     },
   ];
 
-  const [vizComponent, updateVizComponent] = useState(<RevenueIntro selection='gdp' setDesktopActiveLayer={setDesktopActiveLayer} />);
+  const [vizComponent, updateVizComponent] = useState(<RevenueIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} />);
 
 	useEffect(() => {
 		handleResize();
@@ -67,7 +67,7 @@ function RevenueAndGdpPage(props) {
 
   const handleResize = () => {
   	// get active layer
-		updateVizComponent(!isMobileDevice() ? <RevenueIntro selection='gdp' setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />)
+		updateVizComponent(!isMobileDevice() ? <RevenueIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />)
   };
 
   return (
@@ -144,7 +144,9 @@ function RevenueAndGdpPage(props) {
 	      measures the size of the nation's economy by the total value of final goods and services that are produced in a year. Gross domestic product is used to compare the economies of different countries, measure growth in the economy, and determine the right monetary policies to address inflation and unemployment.
 	    </p>
 	  </div>
-		<div className={styles.mobileFact}>How does federal revenue compare to federal spending and the size of the economy?</div>
+		<div className={styles.mobileHeading}>
+			How does federal revenue compare to federal spending and the size of the economy?
+		</div>
 	  <div className="viz-wrapper">
 	    {vizComponent}
 	    <div className="intro-math intro-hidden">

@@ -51,7 +51,7 @@ export default function SpendingIntro(props) {
 			if (props.selection) {
 				initChartMobile(config);
 				setFactsTrigger();
-				toggleSelectedFacts(props.selection);
+				setTimeout(() => toggleSelectedFacts(props.selection), 700);
 
 			} else {
 				initChart(config);
