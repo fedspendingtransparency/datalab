@@ -43,7 +43,7 @@ export default function OverviewPage({ location }) {
                 <div className="bp-header__main">
                   <h3 className="bp-header__app-name">
                     <div className="bp-header__spacing" />
-                    YOUR GUIDE TO AMERICA'S FINANCES
+                    <span className="bp-header__title">YOUR GUIDE TO AMERICA'S FINANCES</span>
                     <Share
                       location={location}
                       title="Data Lab - Your Guide to America’s Finances – U.S. Treasury"
@@ -65,11 +65,11 @@ export default function OverviewPage({ location }) {
                     </span>
                   </h1>
                   <div className="bp-header__text">
-                    <p>Interested in learning about the deficit or federal debt?</p>
-                    <p>
+                    <span>Interested in learning about the deficit or federal debt? </span>
+                    <span>
                       Keep reading or
                       <a href="#deficit-debt-heading" className="scroll-to"> jump to the deficit and federal debt section.</a>
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>

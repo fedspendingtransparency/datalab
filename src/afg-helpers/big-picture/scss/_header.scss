@@ -22,7 +22,6 @@ $headerBg: rgba(255,255,255,0.9);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 480px;
     width: 100%;
     z-index: 0;
 }
@@ -30,10 +29,9 @@ $headerBg: rgba(255,255,255,0.9);
 .bp-header__main {
     z-index: 1;
     position: relative;
+    margin: 2rem;
     background: #fff;
-    padding: 1rem;
     border: solid 1px #ddd;
-    border-radius: 5px;
 }
 
 .bp-header__app-name {
@@ -108,11 +106,20 @@ $headerBg: rgba(255,255,255,0.9);
         padding-top: 2rem;
     }
 
+    .bp-header__bg {
+        height: 480px;
+    }
+
     .bp-header__main {
-        margin: 2rem 0;
-        padding: 2rem;
         display: inline-block;
+        padding: 2rem;
+        border-radius: 5px;
         max-width: 950px;
+    }
+
+    .bp-header__text {
+        display: flex;
+        flex-direction: column;
     }
 
     .bp-header__spacing {
@@ -145,11 +152,27 @@ $headerBg: rgba(255,255,255,0.9);
 }
 
 @media only screen and (max-width: 799px) {
+    .bp-header__bg {
+        margin-top: 2rem;
+    }
+
+    .bp-header__main {
+        padding: 1.5rem 1rem;
+    }
+
+    .bp-header__heading, .bp-header__heading span {
+        font-size: 2rem;
+    }
+
     .bp-header__app-name {
         display: flex;
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
+    }
+
+    .bp-header__title {
+        margin-top: 1rem;
     }
 
     .bp-header__spacing {
