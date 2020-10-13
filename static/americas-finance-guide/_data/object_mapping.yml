@@ -114,6 +114,10 @@ dot_number_revenue:
   value: '3,500'
 dot_number_spending:
   value: '4,400'
+dot_number_revenue_mobile:
+  value: '350'
+dot_number_spending_mobile:
+  value: '440'
 dot_number_deficit:
   value: 984
 dot_number_deficit_mobile:

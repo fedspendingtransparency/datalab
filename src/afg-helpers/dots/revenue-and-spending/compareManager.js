@@ -169,8 +169,6 @@ export function toggleFactsMobile(id) {
 function resizeSvg(gdp) {
   const h = gdp ? gdpHeight : originalHeight;
 
-  console.log(h);
-
   d3.select('svg.main')
     .transition()
     .duration(500)
@@ -178,13 +176,13 @@ function resizeSvg(gdp) {
 }
 
 function resizeSvgMobile(id) {
-  let h = id === 'gdp' ? gdpHeight: originalHeight;
+  let h = originalHeight;
 
-  // if(id === 'spending') {
-  //   h = spendingHeight;
-  // } else if (id === 'gdp') {
-  //   h = gdpHeight;
-  // }
+  if(id === 'spending') {
+    h = spendingHeight;
+  } else if (id === 'gdp') {
+    h = gdpHeight;
+  }
 
   d3.select('svg.main')
     .transition()
@@ -227,9 +225,10 @@ export function registerLayer(id, layer, _n, _config) {
   config = _config || config;
   layers[id] = layer;
   const n = _n;
+  const gdpMultiplier = isMobileDevice() ? 1.1 : 0.6;
 
   if (n) {
-    gdpHeight = n * 2;
+    gdpHeight = n * gdpMultiplier;
     spendingHeight = n * 0.4;
   } else if (!originalHeight) {
     originalHeight = d3.select('g.spending-dots')

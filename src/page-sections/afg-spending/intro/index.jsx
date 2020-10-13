@@ -23,6 +23,7 @@ export default function SpendingIntro(props) {
     sectionAmount: findAmountInCsv('federal spending', SpendingData),
     comparisonColor: colors.revenuePrimary,
     sectionColor: colors.colorSpendingPrimary,
+		sectionName: 'spending',
     accessibilityAttrs: {
       default: {
 	title: '2019 Federal Spending',
@@ -52,17 +53,18 @@ export default function SpendingIntro(props) {
 				setFactsTrigger();
 				toggleSelectedFacts(props.selection);
 
-				setTimeout(function() {
-					d3.select('svg.main').attr('height', 2050)
-					console.log(d3.select('svg.main').node().getBBox().height);
-				}, 1000);
-
-
 			} else {
 				initChart(config);
 				setFactsTrigger();
 				setHasDotScale(true);
 			}
+		}
+
+		return () => {
+			d3.select('svg.main').selectAll('*')
+				.remove();
+
+			d3.selectAll('.facts__section').classed('facts__section--active', false);
 		}
   }, []);
 

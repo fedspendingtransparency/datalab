@@ -46,17 +46,12 @@ const RevenueIntro = (props) => {
         config.selectedLayer = props.selection;
         initChartMobile(config);
         toggleFactsMobile(props.selection);
+
       } else {
         if (props.selection) {
           initChartMobile(config);
           setFactsTrigger();
           toggleSelectedFacts(props.selection);
-
-          setTimeout(function() {
-            d3.select('svg.main').attr('height', 2050)
-            console.log(d3.select('svg.main').node().getBBox().height);
-          }, 1000);
-
 
         } else {
           initChart(config);

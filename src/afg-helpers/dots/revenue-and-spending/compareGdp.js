@@ -183,24 +183,19 @@ function placeDonutMobile(g) {
 
 	const vizDescription = g.append('g')
 		.classed('donut', true)
-		.attr('transform', translator(28, 382) + ' scale(1.67)')
+		.attr('transform', translator(28, 40) + ' scale(1.67)')
 
 	vizDescription.append('rect')
 		.attr('fill', 'white')
 		.attr('width', '160px')
-		.attr('height', r * 3);
+		.style('border', 'solid 1px #dddddd')
+		.style('border-radius', '2px')
+		.attr('height', r * 2.75);
 
 	const donutContainer = g.append('g')
 		.classed('gdp-step-two', true)
 		.attr('opacity', 0)
-		.attr('transform', `${translator(x, 400)} scale(1.67)`);
-
-	donutContainer.append('circle')
-		.attr('fill', 'white')
-		.attr('opacity', 0.85)
-		.attr('r', r + 10)
-		.attr('cx', r)
-		.attr('cy', r);
+		.attr('transform', `${translator(x, 50)} scale(1.67)`);
 
 	createMobileDonut(donutContainer, config.gdpPercent / 100, r * 2, config.sectionColor, config.sectionName);
 }

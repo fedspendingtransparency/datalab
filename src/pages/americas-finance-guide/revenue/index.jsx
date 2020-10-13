@@ -149,10 +149,10 @@ function RevenueAndGdpPage(props) {
 	    {vizComponent}
 	    <div className="intro-math intro-hidden">
 	      <FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
-	      {AfgData.dot_number_revenue.value}
+	      {AfgData.dot_number_revenue_mobile.value}
 	      {' '}dots x
 	      {' '}
-	      {AfgData.dot_represents.value}
+	      {AfgData.dot_represents_mobile.value}
 	      {' '}
 	      =
 	      {' '}

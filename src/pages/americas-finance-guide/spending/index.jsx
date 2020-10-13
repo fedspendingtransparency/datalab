@@ -106,11 +106,11 @@ function SpendingAndGdpPage(props) {
 						{vizComponent}
 						<div className="intro-math intro-hidden">
 							<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
-							{AfgData.dot_number_spending.value}
+							{AfgData.dot_number_spending_mobile.value}
 							{' '}
 							dots x
 							{' '}
-							{AfgData.dot_represents.value}
+							{AfgData.dot_represents_mobile.value}
 							{' '}
 							=
 							{' '}
