@@ -96,6 +96,7 @@ function ExploreDeficitPage({ location }) {
   );
 
   const [isMobile, setIsMobile] = useState(true);
+  const [isReady, setIsReady] = useState(false);
 
   const handleResize = () => {
     setIsMobile(window.innerWidth < 960);
@@ -103,6 +104,7 @@ function ExploreDeficitPage({ location }) {
 
   useEffect(() => {
     handleResize();
+    setIsReady(true);
 
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', handleResize);
@@ -111,6 +113,13 @@ function ExploreDeficitPage({ location }) {
       };
     }
   }, []);
+
+  const renderVizComponent = () => {
+    if (isReady) {
+      return isMobile ? mobileVizComponent : desktopVizComponent;
+    }
+    return null;
+  };
 
   return (
     <>
@@ -159,8 +168,8 @@ function ExploreDeficitPage({ location }) {
               What is the deficit and how does that compare to the national debt?
             </div>
             <div className="viz-wrapper">
-              {isMobile ? mobileVizComponent : desktopVizComponent}
-              <section className={`accordion sidebar ${isMobile ? '' : 'intro-hidden'}`}>
+              {renderVizComponent()}
+              <section className={`accordion sidebar ${isMobile && isReady ? '' : 'intro-hidden'}`}>
                 <AccordionList title="How else does the government finance a deficit?">
                   <div>
                     <p>The government can also use operating cash, which is available from an account at the Federal Reserve, to pay for deficit spending. This would be similar to an individual using their debit card to pay for purchases.</p>
