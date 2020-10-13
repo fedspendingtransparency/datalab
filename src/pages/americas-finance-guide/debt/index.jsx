@@ -107,9 +107,7 @@ function ExploreDebtPage(props) {
 							</p>
 						</div>
 						<div className={styles.mobileHeading}>
-							<p>
 								How does the national debt compare to the deficit and the size of the economy?
-							</p>
 						</div>
 						<div className="viz-wrapper-debt">
 							{vizComponent}
