@@ -1,19 +1,17 @@
 import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
-
-import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
-import DeficitData from '../../../../../static/americas-finance-guide/data/explore_federal_deficit.csv';
+import { faReply } from '@fortawesome/free-solid-svg-icons';
 
 import { establishContainer, findAmountInCsv } from 'src/afg-helpers/utils';
 import { resetForResizeMobile } from 'src/afg-helpers/dots/revenue-and-spending/compareManager';
+import colors from 'src/styles/afg/colors.scss';
+import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
+import DeficitData from '../../../../../static/americas-finance-guide/data/explore_federal_deficit.csv';
+
 import { setChartWidth } from '../helpers/widthManager';
 import { dotsPerRow, setDotsPerRow } from '../helpers/dotConstants';
-import { createMobileLayers } from '../helpers/createLayers';
-import colors from 'src/styles/afg/colors.scss';
 import { initMobileLegend } from '../helpers/legend';
-import { layersInitMobile } from '../helpers/manageLayers';
-import { createMobileDebtViz } from '../helpers/createMobileDebtViz';
+import createMobileDebtViz from '../helpers/createMobileDebtViz';
 
 const DebtTab = () => {
   const config = {
@@ -33,32 +31,32 @@ const DebtTab = () => {
     accessibilityAttrs: {
       title: '2019 Federal Deficit and Debt',
       desc: 'When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The $984 billion deficit contributed to the $1.2 trillion increase in debt from $21.5 trillion at the end of 2018 to $22.7 trillion by the end of 2019.',
-    }
-  }
+    },
+  };
 
   let chartHeight;
   let dotsHeight;
 
   const setMainContainer = () => {
     const count = config.deficitAmount / 10000000000;
-    const rows = Math.ceil(count / dotsPerRow)
+    const rows = Math.ceil(count / dotsPerRow);
     dotsHeight = (rows * 5);
-    
+
     const debtCount = config.debtBalance / 10000000000;
     const debtRows = Math.ceil(debtCount / dotsPerRow);
     chartHeight = (debtRows * 5) + 35;
-    
+
     const mainContainer = establishContainer(chartHeight, window.innerWidth - 30, config.accessibilityAttrs).append('g').classed('main', true);
     config.mainContainer = mainContainer;
-  }
+  };
 
   const init = () => {
     setChartWidth();
-    setDotsPerRow((window.innerWidth - 30) * .7);
+    setDotsPerRow((window.innerWidth - 30) * 0.7);
     setMainContainer();
     initMobileLegend(config, true);
-    createMobileDebtViz(config, chartHeight, window.innerWidth - 30, dotsHeight)
-  }
+    createMobileDebtViz(config, chartHeight, window.innerWidth - 30, dotsHeight);
+  };
 
   useEffect(() => {
     init();
@@ -69,12 +67,12 @@ const DebtTab = () => {
       if (window.innerWidth < 960) {
         init();
       }
-    }
+    };
 
     window.addEventListener('resize', resetAndInit);
     return () => {
       window.removeEventListener('resize', resetAndInit);
-    }
+    };
   }, []);
 
   return (
@@ -83,7 +81,15 @@ const DebtTab = () => {
         <div id="viz" />
         <div className="intro-math" style={{ marginTop: 15 }}>
           <FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
-          {AfgData.dot_number_deficit_mobile.value} dots x {AfgData.dot_represents_mobile.value} = <strong>{AfgData.current_fy_deficit.value}</strong>
+          {AfgData.dot_number_deficit_mobile.value}
+          {' '}
+          dots x
+          {' '}
+          {AfgData.dot_represents_mobile.value}
+          {' '}
+          =
+          {' '}
+          <strong>{AfgData.current_fy_deficit.value}</strong>
         </div>
       </div>
       <div className="deficit-tab-text">
@@ -98,6 +104,6 @@ const DebtTab = () => {
       </div>
     </>
   );
-}
- 
+};
+
 export default DebtTab;
