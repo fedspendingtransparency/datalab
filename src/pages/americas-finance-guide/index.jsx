@@ -19,7 +19,7 @@ import AfgData from '../../../static/americas-finance-guide/_data/object_mapping
 import 'src/styles/afg/cg.scss';
 import 'src/afg-helpers/big-picture/scss/bp.scss';
 
-export default function OverviewPage(props) {
+export default function OverviewPage({ location }) {
   useEffect(() => {
     smoothscroll.polyfill();
   }, []);
@@ -44,7 +44,7 @@ export default function OverviewPage(props) {
               <div className="ffg-share ffg-share--big-picture">
                 <ControlBar>
                   <Share
-                    location={props.location}
+                    location={location}
                     title="Data Lab - Your Guide to America’s Finances – U.S. Treasury"
                     twitter="How much did the federal government collect and spend last year? Your Guide to America’s Finances has federal revenue, spending, deficit, and debt data available for .CSV download. #YourGuide #DataLab #OpenGov"
                   />
@@ -229,7 +229,7 @@ export default function OverviewPage(props) {
                                 {' '}
                                 <strong>
                                   revenue of the top
-                                  {AfgData.sp_companies.value}
+                                  {AfgData.fortune_companies.value}
                                   {' '}
                                   companies
                                 </strong>
@@ -240,7 +240,7 @@ export default function OverviewPage(props) {
                               <p className="source">
                                 Figures based on
                                 {' '}
-                                {AfgData.sp_year.value}
+                                {AfgData.fortune_year.value}
                                 {' '}
                                 10-K reports for S&P 500 Companies
                               </p>
