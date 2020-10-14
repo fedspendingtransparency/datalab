@@ -406,6 +406,7 @@ export default function OverviewPage({ location }) {
                                 {' '}
                                 <strong>
                                   to renting a
+                                  {' '}
                                   {AfgData.household_spending_type.value}
                                 </strong>
                                 {' '}
