@@ -204,7 +204,7 @@ export default function OverviewPage({ location }) {
                                 </strong>
                                 .
                               </p>
-                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-4-outline.svg" alt="" />
+                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-3-outline.svg" alt="" />
                               <p>
                                 That is roughly equal to the cost of
                                 {' '}
@@ -244,7 +244,7 @@ export default function OverviewPage({ location }) {
                                 {' '}
                                 in the S&P 500.
                               </p>
-                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-5-outline.svg" alt="" />
+                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-4-outline.svg" alt="" />
                               <p className="source">
                                 Figures based on
                                 {' '}
