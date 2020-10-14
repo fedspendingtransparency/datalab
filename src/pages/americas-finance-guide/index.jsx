@@ -60,12 +60,15 @@ export default function OverviewPage({ location }) {
                   {' '}
                   <span className="bp-header__break">
                     government
+                    {' '}
                     <span className="bp-header__collect-text">collect</span>
                     {' '}
                     and
+                    {' '}
                     <span className="bp-header__spend-text">spend</span>
                     {' '}
                     in
+                    {' '}
                     {AfgData.current_fy.value}
                     ?
                   </span>
