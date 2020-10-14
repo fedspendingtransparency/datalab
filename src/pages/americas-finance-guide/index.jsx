@@ -760,7 +760,7 @@ export default function OverviewPage({ location }) {
                                 <strong>{AfgData.household_share_debt.value}</strong>
                                 .
                               </p>
-                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-2-outline.svg" alt="" />
+                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-1-outline.svg" alt="" />
                               <p>
                                 That is about equal to the
                                 {' '}
@@ -789,7 +789,7 @@ export default function OverviewPage({ location }) {
                                 {' '}
                                 per individual in the U.S.
                               </p>
-                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-3-outline.svg" alt="" />
+                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-2-outline.svg" alt="" />
                               <p>
                                 That is equal to the
                                 {' '}
