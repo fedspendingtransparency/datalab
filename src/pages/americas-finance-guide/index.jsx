@@ -99,6 +99,7 @@ export default function OverviewPage({ location }) {
                     {' '}
                     <span className="chapter__big-number">
                       collected
+                      {' '}
                       {AfgData.current_fy_revenue.value}
                       {' '}
                       in revenue.
@@ -114,6 +115,7 @@ export default function OverviewPage({ location }) {
                         <span className="anecdote__teaser">
                           {' '}
                           Show me what
+                          {' '}
                           {AfgData.current_fy_revenue_short.value}
                           {' '}
                           is equal to
@@ -134,6 +136,7 @@ export default function OverviewPage({ location }) {
                                 Federal government revenue equates to about
                                 {' '}
                                 <strong>
+                                  {' '}
                                   {AfgData.revenue_second.value}
                                   {' '}
                                   of revenue per second
@@ -146,6 +149,7 @@ export default function OverviewPage({ location }) {
                                 {' '}
                                 <strong>
                                   roughly
+                                  {' '}
                                   {AfgData.revenue_during_read.value}
                                   {' '}
                                   in revenue
@@ -229,6 +233,7 @@ export default function OverviewPage({ location }) {
                                 {' '}
                                 <strong>
                                   revenue of the top
+                                  {' '}
                                   {AfgData.fortune_companies.value}
                                   {' '}
                                   companies
@@ -313,6 +318,7 @@ export default function OverviewPage({ location }) {
                     {' '}
                     <span className="chapter__big-number">
                       spent
+                      {' '}
                       {AfgData.current_fy_spending.value}
                       .
                     </span>
@@ -326,6 +332,7 @@ export default function OverviewPage({ location }) {
                         <span className="anecdote__teaser">
                           {' '}
                           Show me what
+                          {' '}
                           {AfgData.current_fy_spending_short.value}
                           {' '}
                           is equal to
@@ -539,6 +546,7 @@ export default function OverviewPage({ location }) {
                         <span className="anecdote__teaser">
                           {' '}
                           Show me what
+                          {' '}
                           {AfgData.current_fy_deficit_short.value}
                           {' '}
                           is equal to
@@ -724,6 +732,7 @@ export default function OverviewPage({ location }) {
                         <span className="anecdote__teaser">
                           {' '}
                           Show me what
+                          {' '}
                           {AfgData.current_fy_debt_short.value}
                           {' '}
                           is equal to
