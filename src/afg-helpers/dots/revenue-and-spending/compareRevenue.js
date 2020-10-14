@@ -121,7 +121,7 @@ export function initRevenueOverlay(_config) {
 
 	compareLayer = generateOverlay(compareCount, svg.select('.main-container'), `spending-layer`, config.comparisonColor);
 
-	if (typeof window !== 'undefined' && window.innerWidth < 959) {
+	if (typeof window !== 'undefined' && window.innerWidth <= 959) {
 		placeLegendMobile(compareLayer);
 	} else {
 		placeLegend(compareLayer);
