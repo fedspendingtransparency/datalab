@@ -7,7 +7,7 @@ const chartSectionTextStr = 'Click to see subcategories';
 
 let svg,
     config = {
-        data: byYear('2019'),
+        data: byYear('2020'),
         filteredData: null,
         sectionColor: colors.colorSpendingPrimary,
         dataType: 'category',
