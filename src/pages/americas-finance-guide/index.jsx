@@ -19,7 +19,7 @@ import AfgData from '../../../static/americas-finance-guide/_data/object_mapping
 import 'src/styles/afg/cg.scss';
 import 'src/afg-helpers/big-picture/scss/bp.scss';
 
-export default function OverviewPage(props) {
+export default function OverviewPage({ location }) {
   useEffect(() => {
     smoothscroll.polyfill();
   }, []);
@@ -44,7 +44,7 @@ export default function OverviewPage(props) {
               <div className="ffg-share ffg-share--big-picture">
                 <ControlBar>
                   <Share
-                    location={props.location}
+                    location={location}
                     title="Data Lab - Your Guide to America’s Finances – U.S. Treasury"
                     twitter="How much did the federal government collect and spend last year? Your Guide to America’s Finances has federal revenue, spending, deficit, and debt data available for .CSV download. #YourGuide #DataLab #OpenGov"
                   />
@@ -60,12 +60,15 @@ export default function OverviewPage(props) {
                   {' '}
                   <span className="bp-header__break">
                     government
+                    {' '}
                     <span className="bp-header__collect-text">collect</span>
                     {' '}
                     and
+                    {' '}
                     <span className="bp-header__spend-text">spend</span>
                     {' '}
                     in
+                    {' '}
                     {AfgData.current_fy.value}
                     ?
                   </span>
@@ -93,10 +96,13 @@ export default function OverviewPage(props) {
                 <div className="chapter__primary">
                   <h1 className="chapter__heading">
                     In
+                    {' '}
                     {AfgData.current_fy.value}
                     , the federal government
+                    {' '}
                     <span className="chapter__big-number">
                       collected
+                      {' '}
                       {AfgData.current_fy_revenue.value}
                       {' '}
                       in revenue.
@@ -112,6 +118,7 @@ export default function OverviewPage(props) {
                         <span className="anecdote__teaser">
                           {' '}
                           Show me what
+                          {' '}
                           {AfgData.current_fy_revenue_short.value}
                           {' '}
                           is equal to
@@ -130,7 +137,9 @@ export default function OverviewPage(props) {
                             <div className="anecdote__pane">
                               <p>
                                 Federal government revenue equates to about
+                                {' '}
                                 <strong>
+                                  {' '}
                                   {AfgData.revenue_second.value}
                                   {' '}
                                   of revenue per second
@@ -140,8 +149,10 @@ export default function OverviewPage(props) {
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-1-outline.svg" alt="" />
                               <p>
                                 In the time it takes you to read this statement, that’s
+                                {' '}
                                 <strong>
                                   roughly
+                                  {' '}
                                   {AfgData.revenue_during_read.value}
                                   {' '}
                                   in revenue
@@ -176,6 +187,7 @@ export default function OverviewPage(props) {
                               </p>
                               <p className="source">
                                 Source -
+                                {' '}
                                 <a href={AfgData.bls_occ_employment.value} rel="noopener noreferrer" target="_blank">Bureau of Labor Statistics</a>
                               </p>
                             </div>
@@ -195,20 +207,24 @@ export default function OverviewPage(props) {
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-4-outline.svg" alt="" />
                               <p>
                                 That is roughly equal to the cost of
+                                {' '}
                                 <strong>
                                   renting a
                                   {AfgData.household_contribution_type.value}
                                 </strong>
                                 {' '}
                                 in
+                                {' '}
                                 {AfgData.household_contribution_city.value}
                                 .
                               </p>
                               <p className="source">
                                 Source -
+                                {' '}
                                 <a href={AfgData.hud_median_rent.value} rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development</a>
                                 {' '}
                                 &
+                                {' '}
                                 <a href={AfgData.census_household.value} rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a>
                               </p>
                             </div>
@@ -220,6 +236,7 @@ export default function OverviewPage(props) {
                                 {' '}
                                 <strong>
                                   revenue of the top
+                                  {' '}
                                   {AfgData.fortune_companies.value}
                                   {' '}
                                   companies
@@ -230,6 +247,7 @@ export default function OverviewPage(props) {
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-5-outline.svg" alt="" />
                               <p className="source">
                                 Figures based on
+                                {' '}
                                 {AfgData.fortune_year.value}
                                 {' '}
                                 10-K reports for S&P 500 Companies
@@ -241,6 +259,7 @@ export default function OverviewPage(props) {
                       </div>
                       <a href="/americas-finance-guide/revenue/" className="anecdote__cta link-button">
                         Go Explore Revenue
+                        {' '}
                         <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right" />
                       </a>
                     </div>
@@ -271,9 +290,11 @@ export default function OverviewPage(props) {
                   <img src="/americas-finance-guide/images/revenue-graph-outline.svg" alt="Federal revenue has increased over the past five years. Annual revenue was $3.25 trillion, $3.27 trillion, $3.31 trillion $3.33 trillion and $3.5 trillion for the years 2015 to 2019 respectively. " />
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
+                    {' '}
                     <a href={AfgData.overview_mts.value} target="_blank" rel="noopener noreferrer">U.S. Department of the Treasury</a>
                     {' '}
                     and refers to Fiscal Year
+                    {' '}
                     {AfgData.current_fy.value}
                     .
                   </p>
@@ -294,10 +315,13 @@ export default function OverviewPage(props) {
                 <div className="chapter__primary">
                   <h1 className="chapter__heading">
                     In
+                    {' '}
                     {AfgData.current_fy.value}
                     , the federal government
+                    {' '}
                     <span className="chapter__big-number">
                       spent
+                      {' '}
                       {AfgData.current_fy_spending.value}
                       .
                     </span>
@@ -311,6 +335,7 @@ export default function OverviewPage(props) {
                         <span className="anecdote__teaser">
                           {' '}
                           Show me what
+                          {' '}
                           {AfgData.current_fy_spending_short.value}
                           {' '}
                           is equal to
@@ -329,6 +354,7 @@ export default function OverviewPage(props) {
                             <div className="anecdote__pane">
                               <p>
                                 Federal government spending equates to about
+                                {' '}
                                 <strong>{AfgData.spending_second.value}</strong>
                                 {' '}
                                 per second.
@@ -336,6 +362,7 @@ export default function OverviewPage(props) {
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/spending-1-outline.svg" alt="" />
                               <p>
                                 In just 10 seconds, that's
+                                {' '}
                                 <strong>
                                   {AfgData.spending_ten_seconds.value}
                                   {' '}
@@ -359,6 +386,7 @@ export default function OverviewPage(props) {
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/spending-2-outline.svg" alt="" />
                               <p className="source">
                                 Source -
+                                {' '}
                                 <a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a>
                               </p>
                             </div>
@@ -375,20 +403,24 @@ export default function OverviewPage(props) {
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/spending-3-outline.svg" alt="" />
                               <p>
                                 That is roughly equal
+                                {' '}
                                 <strong>
                                   to renting a
                                   {AfgData.household_spending_type.value}
                                 </strong>
                                 {' '}
                                 in
+                                {' '}
                                 {AfgData.household_spending_city.value}
                                 .
                               </p>
                               <p className="source">
                                 Source -
+                                {' '}
                                 <a href={AfgData.hud_median_rent.value} rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development</a>
                                 {' '}
                                 &
+                                {' '}
                                 <a href={AfgData.census_household.value} rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a>
                               </p>
                             </div>
@@ -414,6 +446,7 @@ export default function OverviewPage(props) {
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/spending-4-outline.svg" alt="" />
                               <p className="source">
                                 Source -
+                                {' '}
                                 <a href={AfgData.artba_road_cost.value} rel="noopener noreferrer" target="_blank">American Road & Transportation Builders Association</a>
                               </p>
                             </div>
@@ -423,6 +456,7 @@ export default function OverviewPage(props) {
                       </div>
                       <a href="/americas-finance-guide/spending/" className="anecdote__cta link-button">
                         Go Explore Spending
+                        {' '}
                         <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right" />
                       </a>
                     </div>
@@ -452,9 +486,11 @@ export default function OverviewPage(props) {
                   <img src="/americas-finance-guide/images/spending-graph-outline.svg" alt="Federal spending has increased steadily over the past five years. Annual spending was $3.69 trillion, $3.85 trillion, $3.98 trillion $4.11 trillion, and $4.4 trillion for the years 2015 to 2019 respectively." />
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
+                    {' '}
                     <a href={AfgData.overview_mts.value} target="_blank" rel="noopener noreferrer">U.S. Department of the Treasury</a>
                     {' '}
                     and refers to Fiscal Year
+                    {' '}
                     {AfgData.current_fy.value}
                   </p>
                 </div>
@@ -493,11 +529,14 @@ export default function OverviewPage(props) {
                 <div className="chapter__primary">
                   <h1 className="chapter__heading">
                     In
+                    {' '}
                     {AfgData.current_fy.value}
                     , the federal government spent
+                    {' '}
                     {AfgData.current_fy_deficit.value}
                     {' '}
                     more than it collected,
+                    {' '}
                     <span className="chapter__big-number">resulting in a deficit.</span>
                   </h1>
 
@@ -509,6 +548,7 @@ export default function OverviewPage(props) {
                         <span className="anecdote__teaser">
                           {' '}
                           Show me what
+                          {' '}
                           {AfgData.current_fy_deficit_short.value}
                           {' '}
                           is equal to
@@ -545,6 +585,7 @@ export default function OverviewPage(props) {
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/deficit-1-outline.svg" alt="" />
                               <p className="source">
                                 Source -
+                                {' '}
                                 <a href={AfgData.frbny_microecon.value} rel="noopener noreferrer" target="_blank">Federal Reserve Bank of New York</a>
                               </p>
                             </div>
@@ -568,8 +609,10 @@ export default function OverviewPage(props) {
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/deficit-2-outline.svg" alt="" />
                               <p>
                                 In
+                                {' '}
                                 {AfgData.current_fy.value}
                                 , there were an estimated
+                                {' '}
                                 <strong>
                                   {AfgData.us_households.value}
                                   {' '}
@@ -580,6 +623,7 @@ export default function OverviewPage(props) {
                               </p>
                               <p className="source">
                                 Source -
+                                {' '}
                                 <a href={AfgData.census_household.value} rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a>
                               </p>
                             </div>
@@ -612,6 +656,7 @@ export default function OverviewPage(props) {
 
                   <p className="chapter__paragraph--tightened">
                     A deficit occurs when money going out exceeds the money coming in. In
+                    {' '}
                     {AfgData.current_fy.value}
                     , the federal government spent more than it collected.
                   </p>
@@ -621,6 +666,7 @@ export default function OverviewPage(props) {
                       <div className="accordion__content">
                         <p>
                           A surplus occurs when the government collects more money than it spends. The last federal surplus occurred in
+                          {' '}
                           {AfgData.last_surplus.value}
                           . The government primarily uses surpluses to reduce the federal debt.
                         </p>
@@ -642,9 +688,11 @@ export default function OverviewPage(props) {
                   <img src="/americas-finance-guide/images/deficit-graph-outline.svg" alt="Since the government spent $4.4 trillion in 2019 and collected $3.5 trillion, the deficit for the year was $984 billion." />
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
+                    {' '}
                     <a href={AfgData.overview_mts.value} target="_blank" rel="noopener noreferrer">U.S. Department of the Treasury</a>
                     {' '}
                     and refers to Fiscal Year
+                    {' '}
                     {AfgData.current_fy.value}
                   </p>
                 </div>
@@ -665,8 +713,10 @@ export default function OverviewPage(props) {
                 <div className="chapter__primary">
                   <h1 className="chapter__heading">
                     By the end of
+                    {' '}
                     {AfgData.current_fy.value}
                     , the government had
+                    {' '}
                     <span className="chapter__big-number">
                       {AfgData.current_fy_debt.value}
                       {' '}
@@ -682,6 +732,7 @@ export default function OverviewPage(props) {
                         <span className="anecdote__teaser">
                           {' '}
                           Show me what
+                          {' '}
                           {AfgData.current_fy_debt_short.value}
                           {' '}
                           is equal to
@@ -700,15 +751,18 @@ export default function OverviewPage(props) {
                             <div className="anecdote__pane">
                               <p>
                                 If the federal debt was split evenly among households,
+                                {' '}
                                 <strong>your household's share</strong>
                                 {' '}
                                 would be roughly
+                                {' '}
                                 <strong>{AfgData.household_share_debt.value}</strong>
                                 .
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-2-outline.svg" alt="" />
                               <p>
                                 That is about equal to the
+                                {' '}
                                 <strong>
                                   median home price in
                                   {AfgData.share_debt_city.value}
@@ -720,6 +774,7 @@ export default function OverviewPage(props) {
                               </p>
                               <p className="source">
                                 Source -
+                                {' '}
                                 <a href={AfgData.census_median_home.value} rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a>
                               </p>
                             </div>
@@ -736,6 +791,7 @@ export default function OverviewPage(props) {
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-3-outline.svg" alt="" />
                               <p>
                                 That is equal to the
+                                {' '}
                                 <strong>
                                   average salary of
                                   {AfgData.debt_average_salary_type.value}
@@ -744,9 +800,11 @@ export default function OverviewPage(props) {
                               </p>
                               <p className="source">
                                 Source -
+                                {' '}
                                 <a href={AfgData.bls_occ_employment.value} rel="noopener noreferrer" target="_blank">Bureau of Labor Statistics</a>
                                 {' '}
                                 &
+                                {' '}
                                 <a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a>
                               </p>
                             </div>
@@ -769,6 +827,7 @@ export default function OverviewPage(props) {
                       <div className="accordion__content">
                         <p>
                           It can, and does. While the Department of the Treasury prints actual dollars, “printing money” is also a term that is sometimes used to describe a means of
+                          {' '}
                           <a href={AfgData.monetary_policy.value} rel="noopener noreferrer" target="_blank">monetary policy</a>
                           , which is conducted by the Federal Reserve. Monetary policy involves controlling the supply of money and the cost of borrowing. The Federal Reserve uses monetary policy to promote maximum employment, stable prices, and moderate long-term interest rates on the behalf of the Congress. The federal government uses fiscal policy, or the control of taxation and government spending, to promote economic activity.
                         </p>
@@ -790,9 +849,11 @@ export default function OverviewPage(props) {
                   <img src="/americas-finance-guide/images/debt-graph-outline.svg" alt="Federal debt has increased over the past five years. Federal debt was $18.2 trillion, $19.6 trillion, $20.2 trillion, $21.5 trillion and $22.7 trillion at the end of the years 2015 to 2019 respectively." />
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
+                    {' '}
                     <a href={AfgData.overview_mspd.value} rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a>
                     {' '}
                     and refers to Fiscal Year
+                    {' '}
                     {AfgData.current_fy.value}
                   </p>
                 </div>
@@ -804,28 +865,36 @@ export default function OverviewPage(props) {
             <AccordionList title="Data Sources and Methodology">
               <p>
                 This analysis was conducted using the
+                {' '}
                 <a href={AfgData.mts_homepage.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a>
                 {' '}
                 as the data source for federal government revenue and spending of the United States and the
+                {' '}
                 <a href={AfgData.mspd_homepage.value} rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a>
                 {' '}
                 as the data source for federal debt.
               </p>
               <p>
                 U.S. Census Bureau data was used for
+                {' '}
                 <a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">population</a>
                 {' '}
                 and
+                {' '}
                 <a href={AfgData.census_household.value} rel="noopener noreferrer" target="_blank">household</a>
                 {' '}
                 estimates. Median home price estimates are also provided by the U.S. Census Bureau. Rent estimates come from the
+                {' '}
                 <a href={AfgData.hud_median_rent.value} rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development (HUD)</a>
                 . The Bureau of Labor Statistics (BLS)
+                {' '}
                 <a href={AfgData.bls_occ_employment.value} rel="noopener noreferrer" target="_blank">Occupational Employment Statistics</a>
                 {' '}
                 was used for wage estimates. Information on the amount of credit card debt added by Americans comes from the Federal Reserve Bank of New York’s
+                {' '}
                 <a href={AfgData.frbny_microecon.value} rel="noopener noreferrer" target="_blank">Center for Microeconomic Data</a>
                 . The annual 10-K reports of the top S&P 500 companies were compiled in order to find the equivalent revenue from companies to match the federal government’s revenue for the year. The
+                {' '}
                 <a href={AfgData.artba_road_cost.value} rel="noopener noreferrer" target="_blank">American Road and Transportation Builders Association</a>
                 {' '}
                 provides information about the cost of building new roads derived from the cost models of different states.
@@ -845,11 +914,14 @@ export default function OverviewPage(props) {
           <div className="historical-quote">
             <blockquote>
               We might hope to see the finances of the Union as
+              {' '}
               <strong>clear and intelligible as a merchant's books</strong>
               , so that every member of Congress, and
+              {' '}
               <strong>every person</strong>
               {' '}
               of any mind in the Union should be able to
+              {' '}
               <strong>comprehend them</strong>
               , to investigate abuses, and consequently to control them.
             </blockquote>
