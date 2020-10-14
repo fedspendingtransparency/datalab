@@ -112,9 +112,9 @@ export default function OverviewPage(props) {
                               <p className="source">Source - <a href={AfgData.hud_median_rent.value} rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development</a> & <a href={AfgData.census_household.value} rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
                             </div>
                             <div className="anecdote__pane">
-                              <p>{AfgData.current_fy_revenue.value} equates to the <strong>revenue of the top {AfgData.sp_companies.value} companies</strong> in the S&P 500.</p>
+                              <p>{AfgData.current_fy_revenue.value} equates to the <strong>revenue of the top {AfgData.fortune_companies.value} companies</strong> in the S&P 500.</p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-5-outline.svg" alt=""></img>
-                              <p className="source">Figures based on {AfgData.sp_year.value} 10-K reports for S&P 500 Companies</p>
+                              <p className="source">Figures based on {AfgData.fortune_year.value} 10-K reports for S&P 500 Companies</p>
                             </div>
                           </div>
                         </div>
