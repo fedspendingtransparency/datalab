@@ -60,7 +60,23 @@ const RevenueIntro = (props) => {
         }
     }
 
+    window.addEventListener('resize', () => {
+      if (debounce) {
+        clearTimeout(debounce);
+      }
+
+      debounce = setTimeout(resizeChart(config, props.selection), 100);
+    });
+
     return () => {
+      window.removeEventListener('resize', () => {
+        if (debounce) {
+          clearTimeout(debounce);
+        }
+
+        debounce = setTimeout(resizeChart(config, props.selection), 100);
+      });
+
       d3.select('svg.main').selectAll('*')
         .remove();
 
