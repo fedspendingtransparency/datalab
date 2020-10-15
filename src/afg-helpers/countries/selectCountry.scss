@@ -126,8 +126,12 @@
     }
 }
 
-.select-country.active .list-div {
+.select-country .list-div:not(.hidden) {
     display: block;
+}
+
+.hidden {
+    display: none;
 }
 
 .available-container {

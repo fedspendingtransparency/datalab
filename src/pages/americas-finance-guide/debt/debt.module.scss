@@ -6,6 +6,10 @@
   .debtCopyMobile {
     display: none;
   }
+
+  .mobileHeading {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 959px) {
@@ -24,6 +28,13 @@
     p {
       margin-top: 25px;
     }
+  }
+
+  .mobileHeading {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555555;
   }
 
 }

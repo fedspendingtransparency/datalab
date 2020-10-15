@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
+import { establishContainer, translator, findAmountInCsv } from 'src/afg-helpers/utils';
 import { createLayers } from './helpers/createLayers';
 import { startLegendAnimation } from './helpers/legend';
 import { setChartWidth } from './helpers/widthManager';
-import { establishContainer, translator, findAmountInCsv } from 'src/afg-helpers/utils';
 import colors from '../../../styles/afg/colors.scss';
 import { setDotsPerRow } from './helpers/dotConstants';
 import { layersInit, resetLayers } from './helpers/manageLayers';
@@ -50,7 +50,7 @@ const DeficitIntro = () => {
     mainContainer = establishContainer(300, null, config.accessibilityAttrs.default).append('g')
       .classed('main', true);
     config.mainContainer = mainContainer;
-  };
+  }
 
   useEffect(() => {
     setChartWidth();
@@ -78,15 +78,15 @@ const DeficitIntro = () => {
       if (debounce) {
         clearTimeout(debounce);
       }
-      
+
       if (previousWidth === window.innerWidth) {
         return;
       }
 
       previousWidth = window.innerWidth;
-      
+
       debounce = setTimeout(resizeChart, 100);
-    }
+    };
 
     window.addEventListener('resize', handleResize);
 
