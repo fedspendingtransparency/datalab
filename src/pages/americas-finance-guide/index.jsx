@@ -147,6 +147,7 @@ export default function OverviewPage({ location }) {
                                 .
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-1-outline.svg" alt="" />
+                              <br />
                               <p>
                                 In the time it takes you to read this statement, that’s
                                 {' '}
@@ -166,9 +167,9 @@ export default function OverviewPage({ location }) {
                                 {' '}
                                 is the same amount as
                                 {' '}
-                                <strong>{AfgData.number_of_salaries.value}</strong>
+                                {AfgData.number_of_salaries.value}
                                 {' '}
-                                individuals each receiving a salary of
+                                individuals each receiving
                                 {' '}
                                 <strong>
                                   {AfgData.individual_salary.value}
@@ -177,11 +178,14 @@ export default function OverviewPage({ location }) {
                                 </strong>
                               </p>
                               <img className="anecdote__illustration" src="/americas-finance-guide/images/revenue-2-outline.svg" alt="" />
+                              <br />
                               <p>
+                                That is roughly equal to the
+                                {' '}
                                 <strong>
-                                  (roughly equal to the average annual salary of
+                                  average annual salary of
+                                  {' '}
                                   {AfgData.salary_job_type.value}
-                                  )
                                 </strong>
                                 .
                               </p>
@@ -195,7 +199,7 @@ export default function OverviewPage({ location }) {
                               <p>
                                 {AfgData.current_fy_revenue.value}
                                 {' '}
-                                equates to the average U.S. household contributing
+                                equates to every U.S. household contributing
                                 {' '}
                                 <strong>
                                   {AfgData.household_contribution.value}
@@ -205,11 +209,13 @@ export default function OverviewPage({ location }) {
                                 .
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-3-outline.svg" alt="" />
+                              <br />
                               <p>
                                 That is roughly equal to the cost of
                                 {' '}
                                 <strong>
                                   renting a
+                                  {' '}
                                   {AfgData.household_contribution_type.value}
                                 </strong>
                                 {' '}
@@ -245,12 +251,13 @@ export default function OverviewPage({ location }) {
                                 in the S&P 500.
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-4-outline.svg" alt="" />
+                              <br />
                               <p className="source">
                                 Figures based on
                                 {' '}
                                 {AfgData.fortune_year.value}
                                 {' '}
-                                10-K reports for S&P 500 Companies
+                                revenue reports of S&P 500 Companies
                               </p>
                             </div>
                           </div>
@@ -360,6 +367,7 @@ export default function OverviewPage({ location }) {
                                 per second.
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/spending-1-outline.svg" alt="" />
+                              <br />
                               <p>
                                 In just 10 seconds, that's
                                 {' '}
@@ -384,6 +392,7 @@ export default function OverviewPage({ location }) {
                                 .
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/spending-2-outline.svg" alt="" />
+                              <br />
                               <p className="source">
                                 Source -
                                 {' '}
@@ -401,6 +410,7 @@ export default function OverviewPage({ location }) {
                                 per month.
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/spending-3-outline.svg" alt="" />
+                              <br />
                               <p>
                                 That is roughly equal
                                 {' '}
@@ -445,6 +455,7 @@ export default function OverviewPage({ location }) {
                                 miles of roadway!)
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/spending-4-outline.svg" alt="" />
+                              <br />
                               <p className="source">
                                 Source -
                                 {' '}
@@ -584,6 +595,7 @@ export default function OverviewPage({ location }) {
                                 ).
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/deficit-1-outline.svg" alt="" />
+                              <br />
                               <p className="source">
                                 Source -
                                 {' '}
@@ -608,6 +620,7 @@ export default function OverviewPage({ location }) {
                                 .
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/deficit-2-outline.svg" alt="" />
+                              <br />
                               <p>
                                 In
                                 {' '}
@@ -761,11 +774,13 @@ export default function OverviewPage({ location }) {
                                 .
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-1-outline.svg" alt="" />
+                              <br />
                               <p>
                                 That is about equal to the
                                 {' '}
                                 <strong>
                                   median home price in
+                                  {' '}
                                   {AfgData.share_debt_city.value}
                                 </strong>
                                 {' '}
@@ -790,11 +805,13 @@ export default function OverviewPage({ location }) {
                                 per individual in the U.S.
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-2-outline.svg" alt="" />
+                              <br />
                               <p>
                                 That is equal to the
                                 {' '}
                                 <strong>
                                   average salary of
+                                  {' '}
                                   {AfgData.debt_average_salary_type.value}
                                 </strong>
                                 .
