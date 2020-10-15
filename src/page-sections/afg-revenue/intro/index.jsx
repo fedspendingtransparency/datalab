@@ -2,21 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { initChart, initChartMobile } from '../../../afg-helpers/dots/revenue-and-spending/init';
 import colors from '../../../styles/afg/colors.scss';
 import revenueData from '../../../../static/americas-finance-guide/data/federal_revenue_gdp.csv';
-import { establishContainer, findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
+import { findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
 import {
   resetForResize,
   setFactsTrigger,
   toggleFactsMobile,
   toggleSelectedFacts,
 } from '../../../afg-helpers/dots/revenue-and-spending/compareManager';
-import * as d3 from 'd3v3';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
-import {
-  chartWidth,
-  setChartWidth,
-} from '../../../afg-helpers/dots/revenue-and-spending/widthManager';
-import { setDotsPerRow } from '../../../afg-helpers/dots/revenue-and-spending/dotConstants';
-import { placeDots } from '../../../afg-helpers/dots/revenue-and-spending/placeDots';
 
 const RevenueIntro = (props) => {
   const config = {
@@ -78,7 +71,7 @@ const RevenueIntro = (props) => {
       if (props.selection) {
         initChartMobile(config);
         setFactsTrigger();
-        setTimeout(() => toggleSelectedFacts(props.selection), 700);
+        toggleSelectedFacts(props.selection);
 
       } else {
         initChart(config);

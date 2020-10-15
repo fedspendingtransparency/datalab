@@ -184,7 +184,7 @@ function resizeSvgMobile(id) {
 
   d3.select('svg.main')
     .transition()
-    .attr('height', h + 50);
+    .attr('height', h + 80);
 }
 
 export function generateOverlay(count, container, className, color) {

@@ -4,16 +4,14 @@ import colors from '../../../styles/afg/colors.scss';
 import SpendingData from '../../../../static/americas-finance-guide/data/federal_spending_gdp.csv';
 import { findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
 import {
+	resetForResize,
 	setFactsTrigger,
 	toggleFactsMobile,
 	toggleSelectedFacts,
 } from '../../../afg-helpers/dots/revenue-and-spending/compareManager';
-import * as d3 from 'd3v3';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
-import RevenueIntro from '../../afg-revenue/intro';
 
 export default function SpendingIntro(props) {
-  let debounce;
   const config = {
     anecdoteName: 'anecdote-spending.svg',
     comparisonAmount: findAmountInCsv('federal revenue', SpendingData),
@@ -41,17 +39,39 @@ export default function SpendingIntro(props) {
   };
 
 	const [hasDotScale, setHasDotScale] = useState(false);
+	let debounce, previousWidth;
+
+	function resizeChart () {
+		resetForResize();
+		initChartMobile(config);
+
+		if (isMobileDevice()) {
+			toggleFactsMobile(props.selection);
+
+		} else {
+			setFactsTrigger();
+
+			if (props.selection) {
+				toggleSelectedFacts(props.selection);
+
+			} else {
+				setHasDotScale(true);
+
+			}
+		}
+	}
 
 	useEffect(() => {
+		resetForResize();
 		if (isMobileDevice()) {
-			config.selectedLayer = props.selection;
 			initChartMobile(config);
 			toggleFactsMobile(props.selection);
+
 		} else {
 			if (props.selection) {
 				initChartMobile(config);
 				setFactsTrigger();
-				setTimeout(() => toggleSelectedFacts(props.selection), 700);
+				toggleSelectedFacts(props.selection);
 
 			} else {
 				initChart(config);
@@ -59,33 +79,30 @@ export default function SpendingIntro(props) {
 				setHasDotScale(true);
 			}
 		}
+	}, []);
+
+	useEffect(() => {
+		const resizeHandler = () => {
+			if (debounce) {
+				clearTimeout(debounce);
+			}
+
+			if (previousWidth === window.innerWidth) {
+				return;
+			}
+
+			previousWidth = window.innerWidth;
+
+			debounce = setTimeout(resizeChart, 100);
+
+		}
+
+		window.addEventListener('resize',resizeHandler);
 
 		return () => {
-			d3.select('svg.main').selectAll('*')
-				.remove();
-
-			d3.selectAll('.facts__section').classed('facts__section--active', false);
+			window.removeEventListener('resize',resizeHandler);
 		}
-  }, []);
-
-  // useEffect(() => {
-  //   window.addEventListener('resize', () => {
-  //     if (debounce) {
-	// clearTimeout(debounce);
-  //     }
-  //     debounce = setTimeout(resizeChart, 100);
-  //   });
-	//
-  //   return (_) => {
-  //     window.removeEventListener('resize', () => {
-	// if (debounce) {
-	//   clearTimeout(debounce);
-	// }
-	//
-	// debounce = setTimeout(resizeChart, 100);
-  //     });
-  //   };
-  // });
+	});
 
 	const topLegend = () => {
 		const label = props.selection ? props.selection === 'gdp' ? 'FY20 U.S. Gross Domestic Product' : 'Federal Revenue' : '';
