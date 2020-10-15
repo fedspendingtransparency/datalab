@@ -137,8 +137,8 @@ export function toggleFacts() {
   }
 }
 
-export function toggleSelectedFacts(id) {
-  const button = d3.select(`#${id}-facts__trigger`).classed(buttonActive, true);
+export function toggleSelectedFacts(id, redraw) {
+  d3.select(`#${id}-facts__trigger`).classed(buttonActive, true);
   const targetSection = d3.select(`#${id}-facts`);
   targetSection.classed(sectionActive, true);
 

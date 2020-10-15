@@ -1,10 +1,15 @@
 import { select, selectAll } from 'd3-selection';
-import { establishContainer } from 'src/afg-helpers/utils';
-import { placeDots, readyDots } from './placeDots';
+import { establishContainer, isMobileDevice } from 'src/afg-helpers/utils';
+import { placeDots } from './placeDots';
 import { startLegendAnimation } from './legend';
 import { setChartWidth, chartWidth } from './widthManager';
 import { setDotsPerRow } from './dotConstants';
-import { resetForResize, setFactsTrigger, toggleSelectedFacts } from './compareManager';
+import {
+  resetForResize,
+  setFactsTrigger,
+  toggleFactsMobile,
+  toggleSelectedFacts,
+} from './compareManager';
 import { triggerMainInfoBox } from 'src/afg-helpers/infoBox';
 
 const d3 = { select, selectAll };
@@ -36,26 +41,3 @@ export function initChartMobile(_config) {
   establishContainer(500, chartWidth, config.accessibilityAttrs.default);
   placeDots(config);
 };
-
-export function resizeChart(_config, selection) {
-  config = _config || config;
-
-  if(selection) {
-    initChartMobile(config);
-    setFactsTrigger();
-    toggleSelectedFacts(props.selection);
-
-  } else {
-    if (typeof document !== 'undefined') {
-      if (Object.keys(config)
-        .indexOf('mainContainer') !== -1) {
-        config.mainContainer.selectAll('*')
-          .remove();
-      }
-      setChartWidth();
-      setDotsPerRow();
-      resetForResize();
-      placeDots(config);
-    }
-  }
-}

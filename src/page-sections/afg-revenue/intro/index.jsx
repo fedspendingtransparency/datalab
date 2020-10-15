@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { initChart, initChartMobile, resizeChart } from '../../../afg-helpers/dots/revenue-and-spending/init';
+import { initChart, initChartMobile } from '../../../afg-helpers/dots/revenue-and-spending/init';
 import colors from '../../../styles/afg/colors.scss';
 import revenueData from '../../../../static/americas-finance-guide/data/federal_revenue_gdp.csv';
-import { findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
+import { establishContainer, findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
 import {
+  resetForResize,
   setFactsTrigger,
   toggleFactsMobile,
   toggleSelectedFacts,
 } from '../../../afg-helpers/dots/revenue-and-spending/compareManager';
 import * as d3 from 'd3v3';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
+import {
+  chartWidth,
+  setChartWidth,
+} from '../../../afg-helpers/dots/revenue-and-spending/widthManager';
+import { setDotsPerRow } from '../../../afg-helpers/dots/revenue-and-spending/dotConstants';
+import { placeDots } from '../../../afg-helpers/dots/revenue-and-spending/placeDots';
 
 const RevenueIntro = (props) => {
-  let debounce;
   const config = {
     anecdoteName: 'anecdote-revenue.svg',
     comparisonAmount: findAmountInCsv('federal spending', revenueData),
@@ -40,49 +46,73 @@ const RevenueIntro = (props) => {
   };
 
   const [hasDotScale, setHasDotScale] = useState(false);
+  const [selection, setSelection] = useState(props.selection);
+  let debounce, previousWidth;
 
-  useEffect(() => {
-      if (isMobileDevice()) {
-        config.selectedLayer = props.selection;
-        initChartMobile(config);
-        toggleFactsMobile(props.selection);
+  function resizeChart () {
+    resetForResize();
+    console.log(props.selection);
+    initChartMobile(config);
+
+    if (isMobileDevice()) {
+      toggleFactsMobile(props.selection);
+
+    } else {
+      setFactsTrigger();
+
+      if (props.selection) {
+        toggleSelectedFacts(props.selection, true);
 
       } else {
-        if (props.selection) {
-          initChartMobile(config);
-          setFactsTrigger();
-          setTimeout(() => toggleSelectedFacts(props.selection), 700);
+        setHasDotScale(true);
 
-        } else {
-          initChart(config);
-          setFactsTrigger();
-          setHasDotScale(true);
-        }
+      }
     }
+  }
 
-    window.addEventListener('resize', () => {
+  useEffect(() => {
+    console.log(props.selection)
+
+    if (isMobileDevice()) {
+      initChartMobile(config);
+      toggleFactsMobile(props.selection);
+
+    } else {
+      if (props.selection) {
+        initChartMobile(config);
+        setFactsTrigger();
+        setTimeout(() => toggleSelectedFacts(props.selection), 700);
+
+      } else {
+        initChart(config);
+        setFactsTrigger();
+        setHasDotScale(true);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const resizeHandler = () => {
       if (debounce) {
         clearTimeout(debounce);
       }
 
-      debounce = setTimeout(resizeChart(config, props.selection), 100);
-    });
+      if (previousWidth === window.innerWidth) {
+        return;
+      }
+
+      previousWidth = window.innerWidth;
+
+      debounce = setTimeout(resizeChart, 100);
+
+    }
+
+    window.addEventListener('resize',resizeHandler);
 
     return () => {
-      window.removeEventListener('resize', () => {
-        if (debounce) {
-          clearTimeout(debounce);
-        }
-
-        debounce = setTimeout(resizeChart(config, props.selection), 100);
-      });
-
-      d3.select('svg.main').selectAll('*')
-        .remove();
-
-      d3.selectAll('.facts__section').classed('facts__section--active', false);
+      window.removeEventListener('resize',resizeHandler);
     }
-  }, []);
+  });
 
   const topLegend = () => {
     const label = props.selection ? props.selection === 'gdp' ? 'FY20 U.S. Gross Domestic Product' : 'Federal Spending' : '';

@@ -20,18 +20,28 @@ import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AfgLayout from 'src/components/layouts/afg/afg';
 import { isMobileDevice } from '../../../afg-helpers/utils';
 import styles from './revenue.module.scss';
+import DebtIntro from '../../../page-sections/afg-debt/intro';
 
 function RevenueAndGdpPage(props) {
 	const layers = ['', 'spending', 'gdp'];
 
 	const [activeLayer, setActiveLayer] = useState('');
+	const [isMobile, setIsMobile] = useState(true);
 
 	const handleTabChange = (newTabValue) => {
 		setActiveLayer(layers[newTabValue])
 	}
 
-	const setDesktopActiveLayer = (newLayer, currentLayer) => {
-		currentLayer === newLayer ? setActiveLayer('') : setActiveLayer(newLayer);
+	const setDesktopActiveLayer = (newLayer) => {
+		setActiveLayer(newLayer);
+		// setActiveLayer(prevActiveLayer => {
+		// 	if(prevActiveLayer === newLayer) {
+		// 		return '';
+		// 	} else {
+		// 		return newLayer;
+		// 	}
+		// } );
+		// need to use a ref to set the state from the child component
 	}
 
   const tabs = [
@@ -52,7 +62,7 @@ function RevenueAndGdpPage(props) {
     },
   ];
 
-  const [vizComponent, updateVizComponent] = useState(<RevenueIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} />);
+  const [vizComponent, updateVizComponent] = useState(<RevenueIntro selection={activeLayer} />);
 
 	useEffect(() => {
 		handleResize();
@@ -65,10 +75,21 @@ function RevenueAndGdpPage(props) {
 		}
 	}, [activeLayer]);
 
-  const handleResize = () => {
-  	// get active layer
-		updateVizComponent(!isMobileDevice() ? <RevenueIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />)
-  };
+	const handleResize = () => {
+		console.log('in handle resize ' + activeLayer)
+
+		// const isCurrentlyMobileState = isMobileDevice();
+		//
+		// if(isCurrentlyMobileState && isMobile || !isCurrentlyMobileState && !isMobile) {
+		// 	return;
+		// }
+		//
+		// console.log('change from mobile to desktop ' + activeLayer)
+		//
+		// setIsMobile(isCurrentlyMobileState);
+		updateVizComponent(!isMobileDevice() ? <RevenueIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />);
+
+	}
 
   return (
     <>
@@ -216,10 +237,10 @@ function RevenueAndGdpPage(props) {
 		  <div className="facts__triggers">
 		    <button className="facts__trigger"
 								id='spending-facts__trigger'
-								onClick={(e) => setDesktopActiveLayer('spending', activeLayer)}
+								onClick={() => setDesktopActiveLayer('spending', activeLayer)}
 								data-trigger-id="spending">Federal Spending</button>
 		    <button className="facts__trigger"
-								onClick={(e) => setDesktopActiveLayer('gdp', activeLayer)}
+								onClick={() => setDesktopActiveLayer('gdp', activeLayer)}
 								id='gdp-facts__trigger'
 								data-trigger-id="gdp">U.S. Economy</button>
 		  </div>

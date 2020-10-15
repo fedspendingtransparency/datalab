@@ -23,6 +23,7 @@ function ExploreDebtPage(props) {
 	const layers = ['', 'deficit', 'gdp'];
 
 	const [activeLayer, setActiveLayer] = useState('');
+	const [isMobile, setIsMobile] = useState(true);
 
 	const handleTabChange = (newTabValue) => {
 		setActiveLayer(layers[newTabValue])
@@ -65,7 +66,19 @@ function ExploreDebtPage(props) {
 	const [vizComponent, updateVizComponent] = useState(<DebtIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} />);
 
 	const handleResize = () => {
+		console.log(activeLayer)
+
+		const isCurrentlyMobileState = isMobileDevice();
+
+		if(isCurrentlyMobileState && isMobile || !isCurrentlyMobileState && !isMobile) {
+			return;
+		}
+
+		console.log(activeLayer + ' 2')
+
+		setIsMobile(isCurrentlyMobileState);
 		updateVizComponent(!isMobileDevice() ? <DebtIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />);
+
 	}
 
 	return (
