@@ -94,14 +94,14 @@ function placeLegendMobile(g) {
 		.style('font-weight', '600')
 		.attr('x', rectWidth + 40)
 		.attr('dx', 0)
-		.attr('dy', height / 2);
+		.attr('dy', height / 4);
 
 	text.append('tspan')
 		.text(`${compareString.charAt(0).toUpperCase()}${compareString.slice(1)}`)
 		.style('font-weight', '600')
 		.attr('x', rectWidth + 40)
 		.attr('dx', 0)
-		.attr('dy', height / 2);
+		.attr('dy', 20);
 
 	text.append('tspan')
 		.text(simplifyNumber(comparisonAmount))
