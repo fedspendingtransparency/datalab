@@ -17,8 +17,7 @@ $headerBg: rgba(255,255,255,0.9);
 }
 
 .bp-header__bg {
-    background: gray;
-    background-size: cover;
+    background: radial-gradient(circle at 50% 72%, #ffffff, #eaeaea 41%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +30,7 @@ $headerBg: rgba(255,255,255,0.9);
     position: relative;
     margin: 2rem;
     background: #fff;
-    border: solid 1px #ddd;
+    border: solid 1px #eaeaea;
 }
 
 .bp-header__app-name {
@@ -44,6 +43,12 @@ $headerBg: rgba(255,255,255,0.9);
     margin: 0 0 0.5rem;
 }
 
+.bp-header__title {
+    font-weight: 600;
+    color: #242424;
+    letter-spacing: normal;
+}
+
 .bp-header__heading {
     margin-top: 0;
     margin-bottom: 1rem;
@@ -51,9 +56,20 @@ $headerBg: rgba(255,255,255,0.9);
     font-weight: normal;
 }
 
-.bp-header__heading, .bp-header__heading > span {
+.bp-header__heading {
     color: #555;
     font-weight: 300;
+    line-height: normal;
+
+    .bp-header__collect-text {
+        color: $revenue-primary;
+        font-weight: 700;
+    }
+    
+    .bp-header__spend-text {
+        color: $color-spending-primary;
+        font-weight: 700;
+    }
 }
 
 .bp-header__scroll {
@@ -74,16 +90,6 @@ $headerBg: rgba(255,255,255,0.9);
     }
 }
 
-.bp-header__collect-text {
-    color: $revenue-primary;
-    font-weight: 700;
-}
-
-.bp-header__spend-text {
-    color: $color-spending-primary;
-    font-weight: 700;
-}
-
 .overview-chart {
     order: 1;
 }
@@ -91,6 +97,7 @@ $headerBg: rgba(255,255,255,0.9);
 .bp-header__text {
     font-weight:400;
     font-size: 1rem;
+    line-height: normal;
 
     p {
         margin: 0;
@@ -99,7 +106,7 @@ $headerBg: rgba(255,255,255,0.9);
 
 @media only screen and (min-width: 800px) {
     .bp-header__heading, .bp-header__heading span {
-        @include baseHeaderDesktop();
+        font-size: 2.5rem;
     }
 
     .bp-header {
@@ -114,7 +121,7 @@ $headerBg: rgba(255,255,255,0.9);
         display: inline-block;
         padding: 2rem;
         border-radius: 5px;
-        max-width: 950px;
+        max-width: 750px;
     }
 
     .bp-header__text {
@@ -157,7 +164,9 @@ $headerBg: rgba(255,255,255,0.9);
     }
 
     .bp-header__main {
-        padding: 1.5rem 1rem;
+        margin: 38px 15px;
+        padding: 18px 15px;
+        opacity: 0.9;
     }
 
     .bp-header__heading, .bp-header__heading span {

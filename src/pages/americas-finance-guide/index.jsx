@@ -51,18 +51,14 @@ export default function OverviewPage({ location }) {
                     />
                   </h3>
                   <h1 className="bp-header__heading">
-                    How much money did the federal
+                    How much money did the federal government
+                    <span className="bp-header__collect-text"> collect </span>
+                    and
+                    <span className="bp-header__spend-text"> spend </span>
+                    in
                     {' '}
-                    <span className="bp-header__break">
-                      government
-                      <span className="bp-header__collect-text"> collect </span>
-                      and
-                      <span className="bp-header__spend-text"> spend </span>
-                      in
-                      {' '}
-                      {AfgData.current_fy.value}
-                      ?
-                    </span>
+                    {AfgData.current_fy.value}
+                    ?
                   </h1>
                   <div className="bp-header__text">
                     <span>Interested in learning about the deficit or federal debt? </span>
