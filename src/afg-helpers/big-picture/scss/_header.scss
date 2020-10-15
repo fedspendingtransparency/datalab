@@ -21,6 +21,7 @@ $headerBg: rgba(255,255,255,0.9);
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 400px;
     width: 100%;
     z-index: 0;
 }
@@ -113,10 +114,6 @@ $headerBg: rgba(255,255,255,0.9);
         padding-top: 2rem;
     }
 
-    .bp-header__bg {
-        height: 480px;
-    }
-
     .bp-header__main {
         display: inline-block;
         padding: 2rem;
@@ -164,7 +161,7 @@ $headerBg: rgba(255,255,255,0.9);
     }
 
     .bp-header__main {
-        margin: 38px 15px;
+        margin: auto 15px;
         padding: 18px 15px;
         opacity: 0.9;
     }
