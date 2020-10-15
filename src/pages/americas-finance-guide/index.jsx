@@ -248,7 +248,7 @@ export default function OverviewPage({ location }) {
                                   companies
                                 </strong>
                                 {' '}
-                                in the S&P 500.
+                                in the Fortune 500.
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-4-outline.svg" alt="" />
                               <br />
@@ -257,7 +257,7 @@ export default function OverviewPage({ location }) {
                                 {' '}
                                 {AfgData.fortune_year.value}
                                 {' '}
-                                revenue reports of S&P 500 Companies
+                                revenue reports of Fortune 500 Companies
                               </p>
                             </div>
                           </div>
@@ -403,7 +403,7 @@ export default function OverviewPage({ location }) {
                               <p>
                                 {AfgData.current_fy_spending.value}
                                 {' '}
-                                equates to the average household spending
+                                equates to every U.S. household spending
                                 {' '}
                                 <strong>{AfgData.household_spending_month.value}</strong>
                                 {' '}
@@ -585,7 +585,7 @@ export default function OverviewPage({ location }) {
                                 <strong>
                                   {AfgData.times_cc_debt.value}
                                   {' '}
-                                  times the amount of credit card debt Americans created in
+                                  times the amount of credit card debt Americans held in
                                   {' '}
                                   {AfgData.current_fy.value}
                                 </strong>
@@ -621,20 +621,6 @@ export default function OverviewPage({ location }) {
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/deficit-2-outline.svg" alt="" />
                               <br />
-                              <p>
-                                In
-                                {' '}
-                                {AfgData.current_fy.value}
-                                , there were an estimated
-                                {' '}
-                                <strong>
-                                  {AfgData.us_households.value}
-                                  {' '}
-                                  households
-                                </strong>
-                                {' '}
-                                in the United States.
-                              </p>
                               <p className="source">
                                 Source -
                                 {' '}
@@ -783,10 +769,6 @@ export default function OverviewPage({ location }) {
                                   {' '}
                                   {AfgData.share_debt_city.value}
                                 </strong>
-                                {' '}
-                                (
-                                {AfgData.share_debt_city_price.value}
-                                ).
                               </p>
                               <p className="source">
                                 Source -
