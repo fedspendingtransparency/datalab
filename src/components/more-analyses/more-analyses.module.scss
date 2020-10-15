@@ -121,3 +121,9 @@ $darkGrey: #666666;
     }
   }
 }
+
+@media (min-width: 960px) and (max-width: 1000px) {
+  .afg .subtitle {
+    font-size: 1.125rem !important;
+  }
+}
