@@ -221,5 +221,6 @@ export function initGdp(_config) {
     placeLegend(gdpLayer);
     placeDonut(gdpLayer);
   }
+
   registerLayer('gdp', gdpLayer, getNewSvgHeight());
 }

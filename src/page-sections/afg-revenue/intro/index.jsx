@@ -46,12 +46,10 @@ const RevenueIntro = (props) => {
   };
 
   const [hasDotScale, setHasDotScale] = useState(false);
-  const [selection, setSelection] = useState(props.selection);
   let debounce, previousWidth;
 
   function resizeChart () {
     resetForResize();
-    console.log(props.selection);
     initChartMobile(config);
 
     if (isMobileDevice()) {
@@ -61,7 +59,7 @@ const RevenueIntro = (props) => {
       setFactsTrigger();
 
       if (props.selection) {
-        toggleSelectedFacts(props.selection, true);
+        toggleSelectedFacts(props.selection);
 
       } else {
         setHasDotScale(true);
@@ -71,8 +69,7 @@ const RevenueIntro = (props) => {
   }
 
   useEffect(() => {
-    console.log(props.selection)
-
+    resetForResize();
     if (isMobileDevice()) {
       initChartMobile(config);
       toggleFactsMobile(props.selection);

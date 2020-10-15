@@ -3,12 +3,10 @@ import { chartWidth } from './widthManager';
 import { dotConstants, dotsPerRow } from './dotConstants';
 import { translator } from 'src/afg-helpers/utils';
 import { touchIe } from 'src/afg-helpers/touchIe';
-import { addSpendingLegend } from 'src/afg-helpers/dots/revenue-and-spending/legend';
 import { isMobileDevice } from '../../../afg-helpers/utils';
 
 const layers = {};
 const duration = 500;
-const scaleFactor = 0.6;
 const sectionActive = 'facts__section--active';
 const buttonActive = 'facts__trigger--active';
 
@@ -137,7 +135,7 @@ export function toggleFacts() {
   }
 }
 
-export function toggleSelectedFacts(id, redraw) {
+export function toggleSelectedFacts(id) {
   d3.select(`#${id}-facts__trigger`).classed(buttonActive, true);
   const targetSection = d3.select(`#${id}-facts`);
   targetSection.classed(sectionActive, true);
@@ -149,7 +147,7 @@ export function toggleSelectedFacts(id, redraw) {
 
   handleLayers(id);
 
-  resizeSvg(id === 'gdp');
+  setTimeout(() => resizeSvg(id === 'gdp'), 500);
 
 }
 
@@ -168,9 +166,6 @@ export function toggleFactsMobile(id) {
 
 function resizeSvg(gdp) {
   const h = gdp ? gdpHeight : originalHeight;
-
-  console.log(h);
-  console.log(gdpHeight);
 
   d3.select('svg.main')
     .transition()

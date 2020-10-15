@@ -33,15 +33,13 @@ function RevenueAndGdpPage(props) {
 	}
 
 	const setDesktopActiveLayer = (newLayer) => {
-		setActiveLayer(newLayer);
-		// setActiveLayer(prevActiveLayer => {
-		// 	if(prevActiveLayer === newLayer) {
-		// 		return '';
-		// 	} else {
-		// 		return newLayer;
-		// 	}
-		// } );
-		// need to use a ref to set the state from the child component
+		setActiveLayer(prevActiveLayer => {
+			if(prevActiveLayer === newLayer) {
+				return '';
+			} else {
+				return newLayer;
+			}
+		} );
 	}
 
   const tabs = [
@@ -76,17 +74,6 @@ function RevenueAndGdpPage(props) {
 	}, [activeLayer]);
 
 	const handleResize = () => {
-		console.log('in handle resize ' + activeLayer)
-
-		// const isCurrentlyMobileState = isMobileDevice();
-		//
-		// if(isCurrentlyMobileState && isMobile || !isCurrentlyMobileState && !isMobile) {
-		// 	return;
-		// }
-		//
-		// console.log('change from mobile to desktop ' + activeLayer)
-		//
-		// setIsMobile(isCurrentlyMobileState);
 		updateVizComponent(!isMobileDevice() ? <RevenueIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />);
 
 	}
