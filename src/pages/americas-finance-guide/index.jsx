@@ -340,7 +340,6 @@ export default function OverviewPage({ location }) {
                           {' '}
                           is equal to
                         </span>
-
                       </button>
                     </div>
 
@@ -554,7 +553,6 @@ export default function OverviewPage({ location }) {
                           {' '}
                           is equal to
                         </span>
-
                       </button>
                     </div>
 
@@ -652,7 +650,6 @@ export default function OverviewPage({ location }) {
                       <a href="/americas-finance-guide/deficit/" className="anecdote__cta link-button">
                         Go Explore Deficit
                         <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right" />
-
                       </a>
                     </div>
                   </section>
@@ -740,7 +737,6 @@ export default function OverviewPage({ location }) {
                           {' '}
                           is equal to
                         </span>
-
                       </button>
                     </div>
 
@@ -819,7 +815,6 @@ export default function OverviewPage({ location }) {
                       <a href="/americas-finance-guide/debt/" className="anecdote__cta link-button">
                         Go Explore Debt
                         <FontAwesomeIcon icon={faAngleRight} width={11} className="fa fa-chevron-right" />
-
                       </a>
                     </div>
                   </section>
