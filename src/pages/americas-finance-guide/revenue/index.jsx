@@ -81,7 +81,7 @@ function RevenueAndGdpPage(props) {
 		<>
 			<SEO
 				title="Data Lab - Federal Revenue and GDP – U.S. Treasury"
-				description="In 2020, the government collected $3.42 T in revenue. If you lived or worked in the U.S. in 2020, most likely your contributions are part of the $3.42 T."
+				description={`In ${AfgData.current_fy.value}, the government collected ${AfgData.current_fy_revenue_short.value} in revenue. If you lived or worked in the U.S. in ${AfgData.current_fy.value}, most likely your contributions are part of the ${AfgData.current_fy_revenue_short.value}.`}
 				excerpt="Federal revenue consists mostly of individual, corporate, and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal Year."
 				keywords={['revenue, federal revenue, U.S. revenue, gdp, receipts, income taxes, corporate taxes']}
 			/>
