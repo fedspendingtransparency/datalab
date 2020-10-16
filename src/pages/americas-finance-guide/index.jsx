@@ -282,7 +282,7 @@ export default function OverviewPage({ location }) {
                 </div>
 
                 <div className="chapter__chart">
-                  <img src="/americas-finance-guide/images/revenue-graph-outline.svg" title="Federal Revenue 2016 to 2020" alt="Federal revenue has increased over the past five years from $3.27 T in 2016 to $3.42 T in 2020."/>
+                  <img src="/americas-finance-guide/images/revenue-graph-outline.svg" title="Federal Revenue 2016 to 2020" alt={`Federal revenue has increased over the past five years from ${AfgData.year_5_revenue.value} in ${AfgData.year_5.value} to ${AfgData.current_fy_revenue_short.value} in ${AfgData.current_fy.value}.`}/>
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
                     {' '}
@@ -483,7 +483,7 @@ export default function OverviewPage({ location }) {
                   </a>
                 </div>
                 <div className="chapter__chart">
-                  <img src="/americas-finance-guide/images/spending-graph-outline.svg" alt="Federal spending has increased steadily over the past five years from $3.85 T in 2016 to $6.55 T in 2020." />
+                  <img src="/americas-finance-guide/images/spending-graph-outline.svg" alt={`Federal spending has increased steadily over the past five years from ${AfgData.year_5_spending.value} in ${AfgData.year_5.value} to ${AfgData.current_fy_spending_short.value} in ${AfgData.current_fy.value}.`} />
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
                     {' '}
@@ -673,7 +673,7 @@ export default function OverviewPage({ location }) {
                   </a>
                 </div>
                 <div className="chapter__chart">
-                  <img src="/americas-finance-guide/images/deficit-graph-outline.svg" alt="Since the government spent $6.55 T and collected $3.42 T in 2020, the deficit for the year was $3.13 T." />
+                  <img src="/americas-finance-guide/images/deficit-graph-outline.svg" alt={`Since the government spent ${AfgData.current_fy_spending_short.value} and collected ${AfgData.current_fy_revenue_short.value} in ${AfgData.current_fy.value}, the deficit for the year was ${AfgData.current_fy_deficit_short.value}.`} />
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
                     {' '}
@@ -834,7 +834,7 @@ export default function OverviewPage({ location }) {
                   </a>
                 </div>
                 <div className="chapter__chart">
-                  <img src="/americas-finance-guide/images/debt-graph-outline.svg" alt="Federal debt has increased over the past five years. Federal debt was $19.57 T in 2016 and $26.95 T in 2020." />
+                  <img src="/americas-finance-guide/images/debt-graph-outline.svg" alt={`Federal debt has increased over the past five years. Federal debt was ${AfgData.year_5_debt.value} in ${AfgData.year_5.value} and ${AfgData.current_fy_debt_short.value} in ${AfgData.current_fy.value}.`} />
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
                     {' '}
