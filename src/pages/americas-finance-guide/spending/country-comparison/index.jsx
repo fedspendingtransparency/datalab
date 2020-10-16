@@ -63,6 +63,9 @@ function SpendingCountryComparisonPage(props) {
                     <div className="country-copy">
                         <div className="country-copy__text">
                             <p>How does the United States compare to countries of similar size and gross domestic product? Explore the chart, which shows the total spending of the United States compared to {AfgData.countries_compared.value} other countries listed in the CIA World Factbook.  You can compare spending (in dollars) and spending as a percent of gross domestic product. Find a country of interest and see for yourself. To ensure an accurate comparison, {AfgData.country_compare_year.value} spending data is used in this section, not current fiscal year data.</p>
+                            <p>
+                                Interested in seeing a longer period of GDP data? U.S. GDP data is available from 1947 to present day on FRED.
+                            </p>
                             <p><em>Please note that the countries depicted in this chart have different forms of government, and these differences may impact the scope of finances reported by each country.</em></p>
                         </div>
                         {!isMobile && breadcrumbs}

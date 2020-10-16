@@ -171,6 +171,7 @@ function SpendingAndGdpPage(props) {
 							in federal spending?  If you divide it by the U.S. population estimate in
 							{' '}{AfgData.current_fy.value}
 							,
+							{' '}
 							{AfgData.us_population.value}
 							{' '}
 							(
@@ -195,8 +196,7 @@ function SpendingAndGdpPage(props) {
 							In this visualization, one dot represents
 							{' '}{AfgData.dot_represents.value}
 							{' '}
-							of federal spending.
-							{' '}
+							dollars.
 						</p>
 					</div>
 					{' '}
@@ -211,6 +211,11 @@ function SpendingAndGdpPage(props) {
 								<GdpTemplate />
 								{' '}
 								The spending-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that go out from the federal government annually. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.
+							</p>
+							<p>
+								USAspending.gov contains spending data from the federal government’s response to COVID-19 and is available to view and download on
+								{' '}
+								<a href={AfgData.usaspending_home.value} rel="noopener noreferrer" target="_blank">USAspending</a>.
 							</p>
 							<div className="afg__download--div">
 								<div className="afg__download--heading">Download Source Data</div>
