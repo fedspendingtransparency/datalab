@@ -65,7 +65,7 @@ function DeficitTrendsPage(props) {
 				<h1>Federal Deficit Trends Over Time</h1>
 
 				<img className='deficit-trend'
-						 src='/americas-finance-guide/images/federal-deficit-trends-viz.svg'
+						 src='/americas-finance-guide/images/deficit-trends-viz.svg'
 						 alt={`Since the government spent ${AfgData.current_fy_spending_short.value} and collected ${AfgData.current_fy_revenue_short.value} in ${AfgData.current_fy.value}, the deficit for the year was ${AfgData.current_fy_deficit_short.value}.`} />
 
 				<aside className='deficit-aside'>
