@@ -6,6 +6,8 @@ import { Grid, Hidden } from '@material-ui/core';
 import { Link } from 'gatsby';
 import flag from '../../../../images/home/new-data-flag.svg';
 
+const hiddenDate = '12/06/2020';
+
 const SecondaryTile = (props) => (
 	<section className={secondaryAnalysesTileStyles.highlight}>
 		<Link
@@ -25,7 +27,8 @@ const SecondaryTile = (props) => (
 					</div>
 					{/* <Grid item> */}
 					<div>
-						<img
+						{(Date.parse(hiddenDate) > Date.now()) ?
+							<img
 							style={{
 								position: 'absolute',
 								marginTop: '10px',
@@ -34,6 +37,7 @@ const SecondaryTile = (props) => (
 							src={flag}
 							role='presentation'
 							alt=''/>
+							: ''}
 						<img
 							style={{ width: '100%' }}
 							data-src={props.imgSrc}
@@ -64,7 +68,8 @@ const SecondaryTile = (props) => (
 					</Grid>
 					<Grid item xs={12} md={6}>
 						<div>
-							<img
+							{(Date.parse(hiddenDate) > Date.now()) ?
+								<img
 								style={{
 									position: 'absolute',
 									marginTop: '10px',
@@ -73,6 +78,7 @@ const SecondaryTile = (props) => (
 								src={flag}
 								role='presentation'
 								alt=''/>
+								: '' }
 							<img
 								style={{ width: '100%' }}
 								data-src={props.imgSrc}
