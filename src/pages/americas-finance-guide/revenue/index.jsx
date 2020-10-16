@@ -22,36 +22,60 @@ import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function RevenueAndGdpPage(props) {
-	// RevenueIntro component used as placeholder until the mobile dot viz components are finished
+	const layers = ['', 'spending', 'gdp'];
+
+	const [activeLayer, setActiveLayer] = useState('');
+	const [isMobile, setIsMobile] = useState(true);
+
+	const handleTabChange = (newTabValue) => {
+		setActiveLayer(layers[newTabValue])
+	}
+
+	const setDesktopActiveLayer = (newLayer) => {
+		setActiveLayer(prevActiveLayer => {
+			if(prevActiveLayer === newLayer) {
+				return '';
+			} else {
+				return newLayer;
+			}
+		} );
+	}
+
 	const tabs = [
 		{
 			label: 'Revenue',
-			component: <RevenueIntro />
+			component: <RevenueIntro selection={''} />,
+			trigger: 'revenue'
 		},
 		{
 			label: 'Spending',
-			component: <RevenueIntro />
+			component: <RevenueIntro selection={'spending'} />,
+			trigger: 'spending'
 		},
 		{
 			label: 'U.S. Economy',
-			component: <RevenueIntro />
+			component: <RevenueIntro selection={'gdp'} />,
+			trigger: 'gdp'
 		},
-	]
+	];
 
-	const [vizComponent, updateVizComponent] = useState(<RevenueIntro />);
-
-	const handleResize = () => {
-		updateVizComponent(window.innerWidth > 959 ? <RevenueIntro /> : <TabsWrapper tabs={tabs} />);
-	}
-
-	if (typeof window !== 'undefined') {
-		window.addEventListener('resize', handleResize);
-	}
+	const [vizComponent, updateVizComponent] = useState(<RevenueIntro selection={activeLayer} />);
 
 	useEffect(() => {
 		handleResize();
-		setFactsTrigger();
-	}, []);
+
+		if (typeof window !== 'undefined') {
+			window.addEventListener('resize', handleResize);
+			return () => {
+				window.removeEventListener('resize', handleResize);
+			}
+		}
+	}, [activeLayer]);
+
+	const handleResize = () => {
+		updateVizComponent(!isMobileDevice() ? <RevenueIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />);
+
+	}
 
 	return (
 		<>
