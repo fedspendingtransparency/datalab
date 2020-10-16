@@ -71,8 +71,8 @@ function ExploreDebtPage({ location }) {
     <>
       <SEO
         title="Data Lab - Explore Federal Debt – U.S. Treasury"
-        description="By the end of 2019, the government had $22.7 trillion in federal debt."
-        excerpt="How did we end up with $22.7 trillion in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to people using their credit card for a purchase rather than cash, check, or a debit card. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows."
+        description={`By the end of ${AfgData.current_fy.value}, the government had ${AfgData.current_fy_debt_short.value} in federal debt.`}
+        excerpt={`How did we end up with ${AfgData.current_fy_debt.value} trillion in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to people using their credit card for a purchase rather than cash, check, or a debit card. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows.`}
         keywords={['debt, national debt, federal debt, U.S. debt, deficit vs. debt, deficit, national deficit, interest, surplus, spending exceeds income, spending exceeds revenue, federal deficit, total debt, federal government’s debt, monthly statement of the public debt, MSPD']}
       />
       <Og socialMediaImage="/americas-finance-guide/images/social-share/social-media-share-debt.jpg" />
