@@ -7,6 +7,7 @@ import colors from '../../../styles/afg/colors.scss';
 import { trendMobile } from 'src/afg-helpers/trendsMobile/index';
 import { manualThresholds } from './utils/manualThresholds';
 import CategoryData from '../../../../static/americas-finance-guide/data/federal_revenue_trends.csv';
+import AfgData from "../../../../static/americas-finance-guide/_data/object_mapping.yml";
 
 export default function RevenueTrends() {
   // IE shim

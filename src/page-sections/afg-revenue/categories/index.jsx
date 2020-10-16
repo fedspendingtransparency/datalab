@@ -6,6 +6,7 @@ import { init as initBarGraph, initChart } from "src/page-sections/afg-spending/
 
 import colors from 'src/styles/afg/colors.scss';
 import React, { useEffect } from 'react';
+import AfgData from "../../../../static/americas-finance-guide/_data/object_mapping.yml";
 
 const config = {
     data: [],
