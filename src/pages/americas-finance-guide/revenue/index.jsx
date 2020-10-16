@@ -93,19 +93,19 @@ function RevenueAndGdpPage(props) {
 						<img src={AnecdoteRevenueSVG} alt="anecdote icon" />
 						<p>
 							How much is
-							{' '}{AfgData.current_fy_revenue.value}
-							? If you take
-							{' '}{AfgData.current_fy_revenue.value}{' '}
-							divided by the U.S. population estimate in
+							{' '}
+							{AfgData.current_fy_revenue.value}
+							? If you divide it by the U.S. population estimate in
 							{' '}
 							{AfgData.current_fy.value}
-							, of
-							{' '}{AfgData.us_population.value}
+							,
+							{' '}
+							{AfgData.us_population.value}
 							(
 							<a href={AfgData.census_population.value} target="_blank" rel="noopener noreferrer">U.S. Census Bureau</a>
-							)
-							that would equate to a little more than
-							{' '}{AfgData.revenue_per_individual.value}
+							), it would equate to a little more than
+							{' '}
+							{AfgData.revenue_per_individual.value}
 							{' '}
 							in revenue for every individual in the U.S.
 						</p>
@@ -116,7 +116,7 @@ function RevenueAndGdpPage(props) {
 							In this visualization, one dot represents
 							{' '}{AfgData.dot_represents.value}
 							{' '}
-							of federal revenue.
+							dollars.
 						</p>
 					</div>
 					<div className="info-box" id="gdp-info">

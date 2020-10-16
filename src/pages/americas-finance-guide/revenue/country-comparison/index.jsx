@@ -27,7 +27,7 @@ function RevenueCountryComparisonPage(props) {
 
         window.addEventListener('resize', handleResize);
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', handleResize)
         }
     }, [])
 
