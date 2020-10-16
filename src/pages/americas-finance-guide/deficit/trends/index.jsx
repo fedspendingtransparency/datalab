@@ -68,6 +68,12 @@ function DeficitTrendsPage(props) {
 
 				<aside className='deficit-aside'>
 					<p>Since {AfgData.last_surplus.value}, the U.S. has experienced a deficit each year. Beginning in 2016, increases in spending on Social Security, health care, and interest on federal debt have outpaced the growth of federal revenue.</p>
+					<p>
+						In {AfgData.current_fy.value}, federal spending increased in response to the COVID-19 pandemic. Visit our The Federal Response to COVID-19 analysis to learn more.
+					</p>
+					<p>
+						If you are interested in learning more and seeing how the federal spending and debt have changed over time, you can view the Historical Debt Outstanding dataset to see outstanding debt from 1789 to the current year.
+					</p>
 
 					<section className='accordion'>
 						<AccordionList title='What does it mean when there is a surplus, balanced budget, and deficit?' className='accordion__heading'>
