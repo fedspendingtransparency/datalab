@@ -17,16 +17,16 @@ export default function SpendingIntro() {
     sectionColor: colors.colorSpendingPrimary,
     accessibilityAttrs: {
       default: {
-	title: '2019 Federal Spending',
-	desc: 'The image illustrates federal spending in 2019 using dots, and each dot is equal to a billion dollars. There are 4,400 dots.',
+	title: '2020 Federal Spending',
+	desc: 'The image illustrates federal spending in 2030 using dots, and each dot is equal to a billion dollars. There are 6,550 dots.',
       },
       gdp: {
-	title: '2019 Federal Spending and GDP',
-	desc: 'The U.S. economy, as measured by gross domestic product, produced $21.3 trillion worth of goods and services. In 2019, federal spending was equivalent to 21% of gross domestic product.',
+	title: '2020 Federal Spending and GDP',
+	desc: 'The U.S. economy, as measured by GDP, produced $19.5 T worth of goods and services. In 2020, federal spending was equivalent to 34% of GDP.',
       },
       revenue: {
-	title: '2019 Federal Spending and Revenue',
-	desc: 'The image illustrates federal revenue in 2019 using dots, and each dot is equal to a billion dollars. There are 3,500 dots. Due to rounding, there are 900 more spending dots than revenue dots, representing the deficit for 2019, $984 billion. ',
+	title: '2020 Federal Spending and Revenue',
+	desc: '2020 Federal spending using dots, each dot totaling $1 billion, with federal revenue box overlaying the dots, representing a $3.13 T deficit.',
       },
     },
   };

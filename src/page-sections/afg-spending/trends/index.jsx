@@ -156,8 +156,8 @@ export default function SpendingTrends() {
     fyArray.sort();
 
     const accessibilityAttrs = {
-      title: '2019 Federal Spending Trends by Category and Agency over Time',
-      desc: 'Each spending category has seen its own trends develop over the last five years. Social Security has increased from $958 billion in 2015 to $1.0 trillion in 2019. National Defense spending in 2015 was $670 billion and $688 billion in 2019. Medicare spending has increased in the past five years from $589 billion in 2015 to $651 billion in 2019. Health spending over the past five years has also increased from $489 billion to $585 billion. Income Security has remained relatively stable from 2015 to 2019, with $550 billion and $515 billion respectively. Net Interest from Debt, Trust Funds, and Other Investments has increased significantly since 2015 from $241 billion to $376 billion. Spending related to the Department of Health and Human Services has increased slightly over the last five years from $1.1 trillion to $1.2 trillion. The Social Security Administration has seen similar increases from $1.0 trillion in 2015 to $1.1 trillion in 2019. Department of the Treasury spending has increased from $524 billion to $689 billion, mainly due to the increased spending on interest on the federal debt. Department of Defense – Military Programs spending has remained steady over the past five years, from $607 billion to $654 billion. Spending related to the Department of Veterans Affairs has increased from $172 billion in 2015 to $200 billion in 2019. Note: Data for 2015 is adjusted for inflation.'
+      title: '2020 Federal Spending Trends by Category and Agency Over Time',
+      desc: 'Each spending category and agency has seen its own trends develop over the last five years.'
     },
     selectBudgetFunction = d3.select('#select-budget-function'),
     selectAgency = d3.select('#select-agency'),
