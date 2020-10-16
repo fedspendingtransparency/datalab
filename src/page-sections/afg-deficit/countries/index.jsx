@@ -4,6 +4,7 @@ import colors from 'src/styles/afg/colors.scss';
 import { loadSourceData } from '../../../afg-helpers/countries/data';
 import CountryData from '../../../../static/americas-finance-guide/data/deficit_country_comparison.csv';
 import { chartInit } from '../../../afg-helpers/countries/chart';
+import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 const spendingConfig = {
   accessibilityAttrs: {

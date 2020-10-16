@@ -34,7 +34,7 @@ const DeficitIntro = () => {
       },
       debt: {
         title: `${AfgData.current_fy.value} Federal Deficit and Debt`,
-        desc: `The ${AfgData.current_fy_deficit_short.value} deficit contributed to the ${AfgData.added_debt_short.value} increase in debt from ${AfgData.prior_fy_debt.value} at the end of ${AfgData.prior_year.value} to ${AfgData.current_fy_debt_short.value} by the end of ${AfgData.current_fy.value}.`,
+        desc: `The ${AfgData.current_fy_deficit_short.value} deficit contributed to the ${AfgData.added_debt_short.value} increase in debt from ${AfgData.prior_fy_debt.value} at the end of ${AfgData.prior_fy.value} to ${AfgData.current_fy_debt_short.value} by the end of ${AfgData.current_fy.value}.`,
       },
       deficit: {
         title: `${AfgData.current_fy.value} Federal Deficit, Revenue, and Spending`,
