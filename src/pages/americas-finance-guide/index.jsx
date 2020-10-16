@@ -243,9 +243,9 @@ export default function OverviewPage({ location }) {
                                 {' '}
                                 {AfgData.fortune_year.value}
                                 {' '}
-                                10-K reports for
+                                revenue reports of
                                 {' '}
-                                <a href={AfgData.fortune_url.value} rel="noopener noreferrer" target="_blank">S&P 500 Companies</a>
+                                <a href={AfgData.fortune_url.value} rel="noopener noreferrer" target="_blank">Fortune 500 Companies</a>
                               </p>
                             </div>
                           </div>
