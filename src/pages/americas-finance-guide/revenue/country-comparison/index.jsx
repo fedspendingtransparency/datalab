@@ -45,7 +45,7 @@ function RevenueCountryComparisonPage(props) {
         <>
             <SEO
                 title='Data Lab - Revenue Country Comparison – U.S. Treasury'
-                description='Compare revenue of the United States to 169 different countries.'
+                description='Curious how U.S. revenue compares to other countries? Explore the revenue of the United States and 169 different countries.'
                 excerpt='How does the U.S. compare to other countries? We encourage you to check out the chart below. You can compare total revenue (in dollars) and revenue as a percent of gross domestic product (GDP). Find a country of interest and see for yourself.'
                 keywords={[`federal revenue, U.S. revenue, gross domestic product, gdp, federal receipts, income taxes, corporate taxes, compare the U.S. GDP to other countries`]}
             />
