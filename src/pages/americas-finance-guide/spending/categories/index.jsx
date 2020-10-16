@@ -19,8 +19,8 @@ function SpendingCategoriesPage(props) {
         <>
             <SEO
                 title='Data Lab - Federal Spending Categories – U.S. Treasury'
-                description='In 2019, the U.S. government spent $4.4 trillion. Explore the breakdown of federal spending by category or agency.'
-                excerpt='You can explore $4.4 trillion in spending either by category or by agency.  Curious to find out more? Dive deeper to see spending details by sub-category and other options.'
+                description='In 2020, the U.S. government spent $6.55 T. Explore the breakdown of federal spending by category or agency.'
+                excerpt='You can explore $6.55 trillion in spending either by category or by agency.  Curious to find out more? Dive deeper to see spending details by sub-category and other options.'
                 keywords={[`federal spending, revenue, federal revenue, U.S. spending, social security, national defense, medicare, health,  interest from debt, veteran’s benefits`]}
             />
 

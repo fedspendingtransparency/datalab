@@ -45,8 +45,8 @@ function SpendingCountryComparisonPage(props) {
         <>
             <SEO
                 title='Data Lab - Spending Country Comparison – U.S. Treasury'
-                description='Compare federal spending of the United States to other countries.'
-                excerpt=' Check out total spending of the United States compared to 169 different countries in 2017. In this section, figures are presented using financial data from 2017 which allows us to provide you with the most recent spending data. In 2017, the United States spent $4 trillion, which is equivalent to about 21% of U.S. gross domestic product (GDP).'
+                description='How does the U.S compare to countries of similar size and GDP? Explore and compare federal spending of the United States to other countries.'
+                excerpt=' Check out total spending of the United States compared to 169 different countries in 2020. In this section, figures are presented using financial data from 2020 which allows us to provide you with the most recent spending data. In 2020, the United States spent $6.55 trillion, which is equivalent to about 34% of U.S. gross domestic product (GDP).'
                 keywords={[`spending, federal spending, U.S. spending, gross domestic product, GDP,  federal spending per capita, country comparison, federal spending of the United States compared to other countries`]}
             />
             <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />

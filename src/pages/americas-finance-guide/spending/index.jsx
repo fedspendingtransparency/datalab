@@ -57,8 +57,8 @@ function SpendingAndGdpPage(props) {
     <>
       <SEO
         title="Data Lab - Federal Spending and GDP – U.S. Treasury"
-        description="In 2019, the U.S. government spent $4.4 trillion."
-				excerpt="Where does all the money go? Most government spending is concentrated on programs that ensure the health and well-being of the people of the United States. Explore how spending compares to the size of the economy or to federal revenue."
+        description="How does federal spending compare to federal revenue and the size of the economy? In 2020, the U.S. government spent $6.55 T."
+		excerpt="Where does all the money go? Most government spending is concentrated on programs that ensure the health and well-being of the people of the United States. Explore how spending compares to the size of the economy or to federal revenue."
         keywords={['federal spending, outlays, U.S. spending, U.S. revenue, gross domestic product, GDP, deficit, debt, mandatory spending, discretionary spending']}
       />
       <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />
