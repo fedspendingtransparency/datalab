@@ -68,7 +68,7 @@ function DebtAnalysisPage({ location }) {
               <img
                 src="/americas-finance-guide/images/us-debt-top-investors.svg"
                 alt={`Domestic investors own ${AfgData.debt_owned_us_investors.value} in federal debt and The Social Security trust funds owns ${AfgData.debt_owned_trust_funds.value}. Foreign investors own ${AfgData.debt_owned_foreign_investors.value} of federal debt.`}
-                className="card__image"
+                className="card__image card__image--width-constrain"
               />
               At the end of
               {' '}

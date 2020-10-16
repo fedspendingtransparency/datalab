@@ -127,7 +127,7 @@ function mobilePlaceDonut(g) {
       .attr('cx', r)
       .attr('cy', r);
 
-    createMobileDonut(donutContainer, config.gdpPercent / 100, r * 2, config.debtColor);
+    createMobileDonut(donutContainer, config.gdpPercent / 100, r * 2, config.debtColor, config.sectionName);
 }
 
 function createGdp() {
