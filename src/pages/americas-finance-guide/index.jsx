@@ -755,7 +755,7 @@ export default function OverviewPage({ location }) {
                                 <strong>
                                   median home price in
                                   {' '}
-                                  {AfgData.share_debt_city.value}
+                                  {AfgData.share_debt_city.value}.
                                 </strong>
                               </p>
                               <p className="source">
