@@ -12,8 +12,8 @@ const config = {
     containerClass: receiptsConstants.shaderContainerClass,
     sectionColor: colors.colorPrimaryDarker,
     accessibilityAttrs: {
-        title: '2020 Federal Revenue Categories',
-        desc: 'Bar chart showing source categories of revenue collected by the federal government in 2020, with the largest category being individual income taxes.'
+        title: `${AfgData.current_fy.value} Federal Revenue Categories`,
+        desc: `Bar chart showing source categories of revenue collected by the federal government in ${AfgData.current_fy.value}, with the largest category being individual income taxes.`
     }
 };
 

@@ -31,7 +31,7 @@ export default function RevenueTrends() {
   },
 	data = trendData(),
 	accessibilityAttrs = {
-	  title: '2020 Federal Revenue Trends Over Time',
+	  title: `${AfgData.current_fy.value} Federal Revenue Trends Over Time`,
 	  desc: 'Line charts showing federal revenue changes of the last five years by category of revenue.'
 	},
 	config = {

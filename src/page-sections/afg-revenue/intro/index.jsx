@@ -2,11 +2,19 @@ import React, { useEffect } from 'react';
 import { initChart, resizeChart } from '../../../afg-helpers/dots/revenue-and-spending/init';
 import colors from '../../../styles/afg/colors.scss';
 import revenueData from '../../../../static/americas-finance-guide/data/federal_revenue_gdp.csv';
-import { findAmountInCsv } from 'src/afg-helpers/utils';
+import { findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 const RevenueIntro = () => {
   let debounce;
+  const defaultDesc = isMobileDevice() ?
+      `${AfgData.current_fy.value} federal revenue using dots, and each dot is equal to ${AfgData.dot_represents_mobile.value}. There are ${AfgData.dot_number_revenue.value} dots.`
+      :
+      `${AfgData.current_fy.value} federal revenue using dots, and each dot is equal to ${AfgData.dot_represents.value}. There are ${AfgData.dot_number_revenue.value} dots.`;
+  const revenueDesc = isMobileDevice() ?
+      `${AfgData.current_fy.value} Federal revenue represented by dots, each dot totaling ${AfgData.dot_represents_mobile.value}, with federal spending box overlaying the dots, representing a ${AfgData.current_fy_deficit_short.value}.`
+      :
+      `${AfgData.current_fy.value} Federal revenue represented by dots, each dot totaling ${AfgData.dot_represents.value}, with federal spending box overlaying the dots, representing a ${AfgData.current_fy_deficit_short.value}.`
   const config = {
     anecdoteName: 'anecdote-revenue.svg',
     comparisonAmount: findAmountInCsv('federal spending', revenueData),
@@ -18,16 +26,16 @@ const RevenueIntro = () => {
     sectionColor: colors.revenuePrimary,
     accessibilityAttrs: {
       default: {
-	title: '2020 Federal Revenue',
-	desc: '2020 federal revenue using dots, and each dot is equal to $1 billion. There are 3,420 dots.',
+	title: `${AfgData.current_fy.value} Federal Revenue`,
+	desc: defaultDesc,
       },
       gdp: {
-	title: '2020 Federal Revenue and GDP',
-	desc: 'The U.S. economy, as measured by gross domestic product, in 2020 produced $19.5 worth of goods and services.',
+	title: `${AfgData.current_fy.value} Federal Revenue and GDP`,
+	desc: `The U.S. economy, as measured by gross domestic product, in ${AfgData.current_fy.value} produced ${AfgData.current_fy_gdp.value} worth of goods and services.`,
       },
       spending: {
-	title: '2020 Federal Revenue and Spending',
-	desc: '2020 Federal revenue represented by dots, each dot totaling $1 billion, with federal spending box overlaying the dots, representing a $3.13 T.',
+	title: `${AfgData.current_fy.value} Federal Revenue and Spending`,
+	desc: revenueDesc,
       },
     },
   };

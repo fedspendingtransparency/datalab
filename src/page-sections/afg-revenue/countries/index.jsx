@@ -35,7 +35,7 @@ const incomeConfig = {
   }],
   accessibilityAttrs: {
     title: 'Federal Revenue Country Comparison',
-    desc: 'Top 5 countries in terms of federal revenue in 2017 were the United States ($3.3T), China ($2.6T) Japan ($1.7T) Germany ($1.6T) and France ($1.4T).',
+    desc: `Top 5 countries in terms of federal revenue in ${AfgData.country_compare_year.value} were the United States ($3.3T), China ($2.6T) Japan ($1.7T) Germany ($1.6T) and France ($1.4T).`,
   },
 };
 
