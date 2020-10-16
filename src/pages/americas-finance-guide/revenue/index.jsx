@@ -2,7 +2,7 @@ import 'src/styles/afg/chapterIntroCommon.scss';
 import 'src/styles/afg/cg.scss';
 import 'src/page-sections/afg-revenue/intro/revenue-intro.scss';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SEO from 'src/components/seo';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 import GdpTemplate from 'src/components/gdp-template/gdp-template';
@@ -14,12 +14,13 @@ import TabsWrapper from 'src/components/tabs/tabs';
 import AnecdoteRevenueSVG from '../../../../static/americas-finance-guide/icons/anecdote-revenue.svg';
 import DefinitionSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
 import RevenueIntro from 'src/page-sections/afg-revenue/intro/index';
-import { setFactsTrigger } from 'src/afg-helpers/dots/revenue-and-spending/compareManager';
-import { afgDesktop } from 'src/styles/variables.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AfgLayout from 'src/components/layouts/afg/afg';
+import { isMobileDevice } from '../../../afg-helpers/utils';
+import styles from './revenue.module.scss';
+import DebtIntro from '../../../page-sections/afg-debt/intro';
 
 function RevenueAndGdpPage(props) {
 	const layers = ['', 'spending', 'gdp'];
@@ -41,25 +42,25 @@ function RevenueAndGdpPage(props) {
 		} );
 	}
 
-	const tabs = [
-		{
-			label: 'Revenue',
-			component: <RevenueIntro selection={''} />,
-			trigger: 'revenue'
-		},
-		{
-			label: 'Spending',
-			component: <RevenueIntro selection={'spending'} />,
-			trigger: 'spending'
-		},
-		{
-			label: 'U.S. Economy',
-			component: <RevenueIntro selection={'gdp'} />,
-			trigger: 'gdp'
-		},
-	];
+  const tabs = [
+    {
+      label: 'Revenue',
+      component: <RevenueIntro selection={''} />,
+      trigger: 'revenue'
+    },
+    {
+      label: 'Spending',
+      component: <RevenueIntro selection={'spending'} />,
+      trigger: 'spending'
+    },
+    {
+      label: 'U.S. Economy',
+      component: <RevenueIntro selection={'gdp'} />,
+      trigger: 'gdp'
+    },
+  ];
 
-	const [vizComponent, updateVizComponent] = useState(<RevenueIntro selection={activeLayer} />);
+  const [vizComponent, updateVizComponent] = useState(<RevenueIntro selection={activeLayer} />);
 
 	useEffect(() => {
 		handleResize();

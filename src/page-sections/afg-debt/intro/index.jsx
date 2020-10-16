@@ -22,6 +22,7 @@ const config = {
 	gdpPercent: findAmountInCsv('federal debt percent of gdp', DebtData) * 100,
 	deficitColor: colors.colorDeficitPrimary,
 	debtColor: colors.colorDebtPrimary,
+	sectionName: 'debt',
 	accessibilityAttrs: {
 		default: {
 			title: '2019 Federal Debt',

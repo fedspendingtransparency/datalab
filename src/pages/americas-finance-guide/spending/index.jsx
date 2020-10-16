@@ -19,39 +19,58 @@ import { setFactsTrigger } from 'src/afg-helpers/dots/revenue-and-spending/compa
 import AnecdoteSpendingSVG from '../../../../static/americas-finance-guide/icons/anecdote-spending.svg';
 import DefinitionSpendingSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
 import AfgLayout from '../../../components/layouts/afg/afg';
+import { isMobileDevice } from '../../../afg-helpers/utils';
+import styles from './spending.module.scss';
 
 
 function SpendingAndGdpPage(props) {
-	// SpendingIntro component used as placeholder until the mobile dot viz components are finished
+	const layers = ['', 'spending', 'gdp'];
+
+	const [activeLayer, setActiveLayer] = useState('');
+
+	const handleTabChange = (newTabValue) => {
+		setActiveLayer(layers[newTabValue])
+	}
+
+	const setDesktopActiveLayer = (newLayer, currentLayer) => {
+		currentLayer === newLayer ? setActiveLayer('') : setActiveLayer(newLayer);
+	}
+
 	const tabs = [
 		{
 			label: 'Spending',
-			component: <SpendingIntro />
+			component: <SpendingIntro selection={''} />,
+			trigger: 'spending'
 		},
 		{
 			label: 'Revenue',
-			component: <SpendingIntro />
+			component: <SpendingIntro selection={'spending'} />,
+			trigger: 'spending'
 		},
 		{
 			label: 'U.S. Economy',
-			component: <SpendingIntro />
+			component: <SpendingIntro selection={'gdp'} />,
+			trigger: 'gdp'
 		},
 	]
 
-	const [vizComponent, updateVizComponent] = useState(<SpendingIntro />);
+	const [vizComponent, updateVizComponent] = useState(<SpendingIntro selection={activeLayer} />);
+
+	useEffect(() => {
+		handleResize();
+
+		if (typeof window !== 'undefined') {
+			window.addEventListener('resize', handleResize);
+			return () => {
+				window.removeEventListener('resize', handleResize);
+			}
+		}
+	}, [activeLayer]);
 
 	const handleResize = () => {
-		updateVizComponent(window.innerWidth > 959 ? <SpendingIntro /> : <TabsWrapper tabs={tabs} />);
-	}
-
-	if (typeof window !== 'undefined') {
-		window.addEventListener('resize', handleResize);
-	}
-
-  useEffect(() => {
-		handleResize();
-    setFactsTrigger();
-  }, []);
+		// get active layer
+		updateVizComponent(!isMobileDevice() ? <SpendingIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />)
+	};
 
   return (
     <>
@@ -82,15 +101,16 @@ function SpendingAndGdpPage(props) {
 							<img src={AnecdoteSpendingSVG} alt="anecdote icon" />
 						</button>
 					</h1>
+					<div className={styles.mobileHeading}>How does federal spending compare to federal revenue and the size of the economy?</div>
 					<div className="viz-wrapper">
 						{vizComponent}
 						<div className="intro-math intro-hidden">
 							<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
-							{AfgData.dot_number_spending.value}
+							{isMobileDevice() ? AfgData.dot_number_spending_mobile.value : AfgData.dot_represents.value}
 							{' '}
 							dots x
 							{' '}
-							{AfgData.dot_represents.value}
+							{isMobileDevice() ? AfgData.dot_represents_mobile.value : AfgData.dot_represents.value}
 							{' '}
 							=
 							{' '}
@@ -104,8 +124,14 @@ function SpendingAndGdpPage(props) {
 								<div id="compare-options">
 									<p className="facts__prompt">How does federal spending compare to federal revenue and the size of the economy?</p>
 									<div className="facts__triggers">
-										<button className="facts__trigger" data-trigger-id="revenue">Federal Revenue</button>
-										<button className="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
+										<button className="facts__trigger"
+														id='revenue-facts__trigger'
+														onClick={(e) => setDesktopActiveLayer('spending', activeLayer)}
+														data-trigger-id="revenue">Federal Revenue</button>
+										<button className="facts__trigger"
+														onClick={(e) => setDesktopActiveLayer('gdp', activeLayer)}
+														id='gdp-facts__trigger'
+														data-trigger-id="gdp">U.S. Economy</button>
 									</div>
 								</div>
 								<section id="revenue-facts" className="facts__section">
