@@ -4,6 +4,7 @@ import secondaryAnalysesTileStyles from './secondary-tile.module.scss';
 
 import { Grid, Hidden } from '@material-ui/core';
 import { Link } from 'gatsby';
+import flag from '../../../../images/home/new-data-flag.svg';
 
 const SecondaryTile = (props) => (
 	<section className={secondaryAnalysesTileStyles.highlight}>
@@ -23,21 +24,31 @@ const SecondaryTile = (props) => (
 						</Hidden>
 					</div>
 					{/* <Grid item> */}
+					<div>
+						<img
+							style={{
+								position: 'absolute',
+								marginTop: '10px',
+								marginLeft: '-8px'
+							}}
+							src={flag}
+							role='presentation'
+							alt=''/>
 						<img
 							style={{ width: '100%' }}
 							data-src={props.imgSrc}
 							className='lazyload'
-							role='presentation'
 							alt={props.imgAlt}
 						/>
-						<Hidden mdDown>
-							<p className={secondaryAnalysesTileStyles.subheading}>{props.subheading}</p>
-						</Hidden>
+					</div>
+					<Hidden mdDown>
+						<p className={secondaryAnalysesTileStyles.subheading}>{props.subheading}</p>
+					</Hidden>
 					{/* </Grid> */}
 					{/* <Grid item> */}
-						<p className={secondaryAnalysesTileStyles.text}>
-							{props.body}
-						</p>
+					<p className={secondaryAnalysesTileStyles.text}>
+						{props.body}
+					</p>
 					{/* </Grid>
 				</Grid> */}
 			</Hidden>
@@ -52,12 +63,23 @@ const SecondaryTile = (props) => (
 						</p>
 					</Grid>
 					<Grid item xs={12} md={6}>
-						<img
-							style={{ width: '100%' }}
-							data-src={props.imgSrc}
-							className='lazyload'
-							alt={props.imgAlt}
-						/>
+						<div>
+							<img
+								style={{
+									position: 'absolute',
+									marginTop: '10px',
+									marginLeft: '-8px'
+								}}
+								src={flag}
+								role='presentation'
+								alt=''/>
+							<img
+								style={{ width: '100%' }}
+								data-src={props.imgSrc}
+								className='lazyload'
+								alt={props.imgAlt}
+							/>
+						</div>
 					</Grid>
 				</Grid>
 			</Hidden>
