@@ -37,7 +37,7 @@ const spendingConfig = {
   }],
   accessibilityAttrs: {
     title: 'Federal Spending Country Comparison',
-    desc: '2017 top five countries in terms of federal spending: United States ($4T), China ($3.1T) Japan ($1.9T) Germany ($1.6T) and France $1.5T.',
+    desc: `${AfgData.country_compare_year.value} top five countries in terms of federal spending: United States ($4T), China ($3.1T) Japan ($1.9T) Germany ($1.6T) and France $1.5T.`,
   },
 };
 

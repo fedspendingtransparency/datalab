@@ -156,7 +156,7 @@ export default function SpendingTrends() {
     fyArray.sort();
 
     const accessibilityAttrs = {
-      title: '2020 Federal Spending Trends by Category and Agency Over Time',
+      title: `${AfgData.current_fy.value} Federal Spending Trends by Category and Agency Over Time`,
       desc: 'Each spending category and agency has seen its own trends develop over the last five years.'
     },
     selectBudgetFunction = d3.select('#select-budget-function'),

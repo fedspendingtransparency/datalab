@@ -12,8 +12,8 @@ let svg,
         sectionColor: colors.colorSpendingPrimary,
         dataType: 'category',
         accessibilityAttrs : {
-            title: '2020 Federal Spending by Category and Agency',
-            desc: 'The government reports spending by category & agency. Top categories in 2020: Social Security, National Defense, Medicare, Health, & Income Security.'
+            title: `${AfgData.current_fy.value} Federal Spending by Category and Agency`,
+            desc: `The government reports spending by category & agency. Top categories in ${AfgData.current_fy.value}: Social Security, National Defense, Medicare, Health, & Income Security.`
         }
     },
     currentlyActive,

@@ -2,10 +2,18 @@ import React, { useEffect } from 'react';
 import { initChart, resizeChart } from '../../../afg-helpers/dots/revenue-and-spending/init';
 import colors from '../../../styles/afg/colors.scss';
 import SpendingData from '../../../../static/americas-finance-guide/data/federal_spending_gdp.csv';
-import { findAmountInCsv } from 'src/afg-helpers/utils';
+import { findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
 
 export default function SpendingIntro() {
   let debounce;
+  const defaultDesc = isMobileDevice() ?
+      `The image illustrates federal spending in ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents_mobile.value}. There are ${AfgData.dot_number_spending.value} dots.`
+      :
+      `The image illustrates federal spending in ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents.value}. There are ${AfgData.dot_number_spending.value} dots.`;
+  const revenueDesc = isMobileDevice() ?
+      `${AfgData.current_fy.value} Federal spending using dots, each dot totaling ${AfgData.dot_represents_mobile.value}, with federal revenue box overlaying the dots, representing a ${AfgData.current_fy_deficit_short.value} deficit.`
+      :
+      `${AfgData.current_fy.value} Federal spending using dots, each dot totaling ${AfgData.dot_represents.value}, with federal revenue box overlaying the dots, representing a ${AfgData.current_fy_deficit_short.value} deficit.`;
   const config = {
     anecdoteName: 'anecdote-spending.svg',
     comparisonAmount: findAmountInCsv('federal revenue', SpendingData),
@@ -17,16 +25,16 @@ export default function SpendingIntro() {
     sectionColor: colors.colorSpendingPrimary,
     accessibilityAttrs: {
       default: {
-	title: '2020 Federal Spending',
-	desc: 'The image illustrates federal spending in 2030 using dots, and each dot is equal to a billion dollars. There are 6,550 dots.',
+	title: `${AfgData.current_fy.value} Federal Spending`,
+	desc: defaultDesc,
       },
       gdp: {
-	title: '2020 Federal Spending and GDP',
-	desc: 'The U.S. economy, as measured by GDP, produced $19.5 T worth of goods and services. In 2020, federal spending was equivalent to 34% of GDP.',
+	title: `${AfgData.current_fy.value} Federal Spending and GDP`,
+	desc: `The U.S. economy, as measured by GDP, produced ${AfgData.current_fy_gdp.value} worth of goods and services. In ${AfgData.current_fy.value}, federal spending was equivalent to ${AfgData.spending_percent_gdp.value} of GDP.`,
       },
       revenue: {
-	title: '2020 Federal Spending and Revenue',
-	desc: '2020 Federal spending using dots, each dot totaling $1 billion, with federal revenue box overlaying the dots, representing a $3.13 T deficit.',
+	title: `${AfgData.current_fy.value} Federal Spending and Revenue`,
+	desc: revenueDesc,
       },
     },
   };
