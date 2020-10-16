@@ -12,8 +12,8 @@ const config = {
     containerClass: receiptsConstants.shaderContainerClass,
     sectionColor: colors.colorPrimaryDarker,
     accessibilityAttrs: {
-        title: '2019 Federal Revenue Categories',
-        desc: 'The federal government collected $1.7 trillion in individual income taxes in 2019. That represented 49.6% of all federal revenue for the year. Social Security and Medicare taxes added another $1.2 trillion (or 34%) of total federal revenue. Corporate income taxes were the third largest source of revenue for the federal government in 2019 with $2.3 billion collected. Miscellaneous revenue, excise taxes, unemployment insurance, customs duties, estate and gift taxes, and other retirement taxes contributed the remaining $322 billion of federal revenue for 2019.'
+        title: '2020 Federal Revenue Categories',
+        desc: 'Bar chart showing source categories of revenue collected by the federal government in 2020, with the largest category being individual income taxes.'
     }
 };
 

@@ -31,8 +31,8 @@ export default function RevenueTrends() {
   },
 	data = trendData(),
 	accessibilityAttrs = {
-	  title: 'Federal Revenue Trends Over Time',
-	  desc: 'Individual income taxes have increased over the past five years from $1.4 trillion in 2015 to $1.7 trillion in 2019. Social Security and Medicare taxes have also increased from $960 billion in 2015 to $1.2 trillion in 2019. Corporate income taxes have decreased from $320 billion in 2015 to $230 billion in 2019.'
+	  title: '2020 Federal Revenue Trends Over Time',
+	  desc: 'Line charts showing federal revenue changes of the last five years by category of revenue.'
 	},
 	config = {
 	  chapter: 'revenue',
