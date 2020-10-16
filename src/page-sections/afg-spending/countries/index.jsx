@@ -5,6 +5,7 @@ import { loadSourceData } from 'src/afg-helpers/countries/data';
 import { chartInit } from 'src/afg-helpers/countries/chart';
 import colors from 'src/styles/afg/colors.scss';
 import CountryData from '../../../../static/americas-finance-guide/data/spending_country_comparison.csv';
+import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 const spendingConfig = {
   amountField: 'spending_usd',

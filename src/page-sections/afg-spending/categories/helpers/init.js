@@ -2,6 +2,8 @@ import * as d3 from 'd3v3';
 import {byYear} from 'src/page-sections/afg-spending/categories/helpers/data-spending';
 import { drawChart as barChart } from '../../../../afg-helpers/bar/chart';
 import colors from '../../../../styles/afg/colors.scss';
+import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
+
 
 const chartSectionTextStr = 'Click to see subcategories';
 

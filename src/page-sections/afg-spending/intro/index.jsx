@@ -12,7 +12,6 @@ import {
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 export default function SpendingIntro(props) {
-  let debounce;
   const defaultDesc = isMobileDevice() ?
       `The image illustrates federal spending in ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents_mobile.value}. There are ${AfgData.dot_number_spending.value} dots.`
       :
