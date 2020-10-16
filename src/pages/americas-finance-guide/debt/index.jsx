@@ -196,6 +196,7 @@ function ExploreDebtPage({ location }) {
                 people&nbsp;
                 <a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">(U.S. Census Bureau)</a>
                 ,
+                {' '}
                 {AfgData.current_fy_debt.value}
                 {' '}
                 would be equivalent to more than&nbsp;
