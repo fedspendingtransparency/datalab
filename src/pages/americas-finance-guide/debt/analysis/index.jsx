@@ -115,7 +115,7 @@ function DebtAnalysisPage({ location }) {
               <span> as the data source for federal debt of the United States and the </span>
               <a href={AfgData.current_mts.value} target="_blank" rel="noopener noreferrer"> Monthly Treasury Statement (MTS)</a>
               <span> as the data source for federal government revenue and spending. Average interest rates on federal debt come from </span>
-              <a href={AfgData.debt_interest_rates.value} target="_blank" rel="noopener noreferrer">FiscalData.gov</a>
+              <a href={AfgData.debt_interest_rates.value} target="_blank" rel="noopener noreferrer">FiscalData.Treasury.gov</a>
               .
               <span> Holders of United States Treasury securities were identified using three sources: MSPD which contains detailed information on trust funds that own Treasury securities, the </span>
               <a href={AfgData.tic_foreign_holders.value} target="_blank" rel="noopener noreferrer">Treasury International Capital (TIC)</a>
