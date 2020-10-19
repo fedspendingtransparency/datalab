@@ -82,15 +82,17 @@ function SpendingCountryComparisonPage(props) {
                     {isMobile && breadcrumbs}
                     <section className="hwcta">
                         <AccordionList title="Data Sources and Methodology">
-                            <p>The visualization was created using the <a href={AfgData.country_comparison_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. Gross domestic product (GDP) figures come from the <a href={AfgData.bea_gdp.value} rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. Gross domestic product data for countries other than the United States comes from the <a href={AfgData.imf_gdp.value} rel="noopener noreferrer" target="_blank">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>.</p>
-                            <p>In researching potential data sources for information on the spending of other governments for the country comparison module, we chose the <a href={AfgData.cia_world_factbook.value} rel="noopener noreferrer" target="_blank">CIA World Factbook</a> because it provides the best comparison for the following reasons:</p>
+                            <p>The visualization was created using the <a href={AfgData.country_comparison_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. Gross domestic product (GDP) figures for the United States come from the <a href={AfgData.bea_gdp.value} rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. Gross domestic product data for countries other than the United States comes from the <a href={AfgData.imf_gdp.value} rel="noopener noreferrer" target="_blank">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>.</p>
+                            <p>In researching potential data sources for information on the spending of other governments for the country comparison module, the <a href={AfgData.cia_world_factbook.value} rel="noopener noreferrer" target="_blank">CIA World Factbook</a> was chosen because it provides the best comparison for the following reasons:</p>
                             <ul>
                                 <li>the number of countries with {AfgData.country_compare_year.value} data,</li>
                                 <li>relative consistency with the level of government measured (central government only as a standard),</li>
-                                <li>all figures expressed in US dollars</li>
+                                <li>all figures expressed in US dollars.</li>
                             </ul>
-                            <p>Countries with figures before {AfgData.country_compare_year.value} were excluded from the country comparison data set. Although most countries in the data set feature spending from central government sources only, some countries included state/provincial/local spending. As a result, this visualization should not be considered an absolute comparison of the spending of central governments for all countries.</p>
-                            <p>To finish the data set for Country Comparison, gross domestic product figures from BEA and the IMF WEOD were combined with spending figures from the CIA World Factbook data set, excluding countries that did not have data available from both sources.</p>
+                            <p>Countries with figures before {AfgData.country_compare_year.value} were excluded from the country comparison data set. Although most countries in the data set feature spending from central government sources only, there may be countries with state/provincial/local spending included. As a result, this visualization should not be considered an absolute comparison of the spending of central governments for all countries.</p>
+                            <p>
+                                To finish the data set for Country Comparison, gross domestic product figures from the IMF World Economic Outlook Database were combined with the CIA World Factbook data set, excluding countries that did not have data available from both sources.
+                            </p>
                             <div className="afg__download--div">
                                 <div className="afg__download--heading">Download Source Data</div>
                                 <ul>

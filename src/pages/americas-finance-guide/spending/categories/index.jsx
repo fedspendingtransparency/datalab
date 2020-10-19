@@ -129,7 +129,7 @@ function SpendingCategoriesPage(props) {
                             <section className="tour">
                                 <div className="tour__part-one">
                                     <h1>How has federal spending changed over time?</h1>
-                                    <p>When you are done here we encourage you to explore trends in government spending over the past {AfgData.number_trend_years.value} years.</p>
+                                    <p>When you are done here, we encourage you to explore trends in government spending over the past {AfgData.number_trend_years.value} years.</p>
                                 </div>
                                 <a href="/americas-finance-guide/spending/trends/" className="tour__link" >Continue<FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right"/></a>
                             </section>
