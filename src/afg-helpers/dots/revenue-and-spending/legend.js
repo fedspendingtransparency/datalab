@@ -1,16 +1,16 @@
 import { select, selectAll } from 'd3-selection';
 import { establishContainer, translator, fadeAndRemove } from 'src/afg-helpers/utils';
+import { transition } from 'd3-transition';
 import colors from '../../../styles/afg/colors.scss';
 import { placeDots } from './placeDots';
 import { chartWidth } from './widthManager';
-import { transition } from 'd3-transition';
 
 const d3 = { select, selectAll, transition };
 const introWidth = 365;
 const radius = 75;
 
 let svg; let largeDot; let billion; let explanation; let
-config = {};
+  config = {};
 
 function buildLegend() {
   const g = d3.select('.income-dot-legend');
@@ -40,7 +40,7 @@ function buildLegend() {
     .text('= $1 Billion')
     .attr('fill', colors.textColorParagraph)
     .attr('opacity', 0)
-    .style('font-size', 16)
+    .attr('font-size', 16)
     .attr('y', 5)
     .attr('x', 7)
     .transition()
@@ -67,8 +67,6 @@ function buildLegend() {
 }
 
 function addText() {
-  const duration = 500;
-
   explanation = this.largeDot.append('text')
     .attr('y', 54)
     .attr('opacity', 0)
@@ -113,13 +111,11 @@ function addText() {
     .attr('opacity', 1)
     .ease();
 
-    if (window.innerWidth < 959) {
-      //setTimeout(buildLegend, 1000);
-      placeDots(config);
-      return;
-    } else {
-      setTimeout(buildLegend, 200);
-    }
+  if (window.innerWidth < 959) {
+    placeDots(config);
+  } else {
+    setTimeout(buildLegend, 200);
+  }
 }
 
 export function initDot() {
