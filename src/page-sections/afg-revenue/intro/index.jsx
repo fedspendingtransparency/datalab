@@ -13,13 +13,13 @@ import {
 
 const RevenueIntro = (props) => {
   const defaultDesc = isMobileDevice() ?
-      `${AfgData.current_fy.value} federal revenue using dots, and each dot is equal to ${AfgData.dot_represents_mobile.value}. There are ${AfgData.dot_number_revenue.value} dots.`
+      `${AfgData.current_fy.value} federal revenue using dots, and each dot is equal to ${AfgData.dot_represents_mobile.value}. There are ${AfgData.dot_number_revenue_mobile.value} dots.`
       :
       `${AfgData.current_fy.value} federal revenue using dots, and each dot is equal to ${AfgData.dot_represents.value}. There are ${AfgData.dot_number_revenue.value} dots.`;
   const revenueDesc = isMobileDevice() ?
-      `${AfgData.current_fy.value} Federal revenue represented by dots, each dot totaling ${AfgData.dot_represents_mobile.value}, with federal spending box overlaying the dots, representing a ${AfgData.current_fy_deficit_short.value}.`
+      `${AfgData.current_fy.value} Federal revenue represented by dots, each dot totaling ${AfgData.dot_represents_mobile.value}, with federal spending box overlaying the dots, representing a ${AfgData.current_fy_deficit_short.value} deficit.`
       :
-      `${AfgData.current_fy.value} Federal revenue represented by dots, each dot totaling ${AfgData.dot_represents.value}, with federal spending box overlaying the dots, representing a ${AfgData.current_fy_deficit_short.value}.`
+      `${AfgData.current_fy.value} Federal revenue represented by dots, each dot totaling ${AfgData.dot_represents.value}, with federal spending box overlaying the dots, representing a ${AfgData.current_fy_deficit_short.value} deficit.`
   const config = {
     anecdoteName: 'anecdote-revenue.svg',
     comparisonAmount: findAmountInCsv('federal spending', revenueData),
