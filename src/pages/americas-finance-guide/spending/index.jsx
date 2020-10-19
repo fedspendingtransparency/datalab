@@ -121,9 +121,7 @@ function SpendingAndGdpPage(props) {
                             <strong>{AfgData.current_fy_spending.value}</strong>
                         </div>
                         <div id="copy" className="intro-hidden">
-                            <p>Where does all the money go? The government spends money on a variety of programs to
-                                promote the well-being of Americans. Why does the federal government do this? The
-                                Constitution provides an answer! The Constitution’s preamble states that the purpose of
+                            <p>Where does all the money go? The government spends money on programs that ensure the well-being of the people of the United States. Why does the federal government do this? The Constitution provides an answer! The Constitution’s preamble states that the purpose of
                                 our government is “…to establish Justice, insure domestic Tranquility, provide for the
                                 common defense, promote the general Welfare, and secure the Blessings of Liberty to
                                 ourselves and our Posterity.”</p>
@@ -252,10 +250,12 @@ function SpendingAndGdpPage(props) {
                         <AccordionList title="Data Sources and Methodology">
                             <p>
                                 The visualization was created using the
+                                {' '}
                                 <a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank">Monthly
                                     Treasury Statement (MTS)</a>
                                 {' '}
                                 as the data source for federal government spending of the United States.
+                                {' '}
                                 <GdpTemplate/>
                                 {' '}
                                 The spending-to-gross domestic product ratio is included to provide you with context for
