@@ -125,8 +125,8 @@ function ExploreDeficitPage({ location }) {
     <>
       <SEO
         title="Data Lab - Explore Deficit – U.S. Treasury"
-        description="In 2019, the federal government spent $984 billion more than it collected, resulting in a deficit."
-        excerpt="How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent $4.4 trillion and collected $3.5 trillion in 2019, the government ran a deficit for the year."
+        description={`In ${AfgData.current_fy.value}, the federal government spent ${AfgData.current_fy_deficit_short.value} more than it collected, resulting in a deficit.`}
+        excerpt={`How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent ${AfgData.current_fy_spending_short.value} and collected ${AfgData.current_fy_revenue_short.value} in ${AfgData.current_fy.value}, the government ran a deficit for the year.`}
         keywords={['Deficit, federal deficit, national deficit, spending, revenue, U.S. deficit money going out, money coming in, debt, national debt, federal debt, deficit vs. debt']}
       />
       <Og socialMediaImage="/americas-finance-guide/images/social-share/social-media-share-deficit.jpg" />
@@ -208,6 +208,7 @@ function ExploreDeficitPage({ location }) {
                 people&nbsp;
                 <a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">(U.S. Census Bureau)</a>
                 ,
+                {' '}
                 {AfgData.current_fy_deficit.value}
                 {' '}
                 would be equivalent to a little less than&nbsp;
