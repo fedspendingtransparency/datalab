@@ -202,7 +202,7 @@ function placeDonutMobile(g) {
 		.attr('opacity', 0)
 		.attr('transform', `${translator(x, y)} scale(${reScaleDonut})`);
 
-	createMobileDonut(donutContainer, config.gdpPercent / 100, r * 2, config.sectionColor, config.sectionName);
+	createMobileDonut(donutContainer, config.gdpPercent / 100, r * 2, config.sectionColor, config.compareString);
 }
 
 export function initGdp(_config) {

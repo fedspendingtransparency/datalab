@@ -44,7 +44,7 @@ function RevenueTrendsPage(props) {
         <>
             <SEO
                 title='Data Lab - Federal Revenue Trends – U.S. Treasury'
-                description='Find out how federal revenue has changed over time.'
+                description='Find out how U.S. federal revenue has changed over time.'
                 excerpt='This chart shows the categories for federal revenue sources over a five year period. Explore the interactive visualization to see what changes have occurred over the past five years.'
                 keywords={[`federal revenue, revenue trends over time, federal revenue sources, federal income sources, U.S. revenue categories`]}
             />

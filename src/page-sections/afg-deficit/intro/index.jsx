@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { establishContainer, translator, findAmountInCsv } from 'src/afg-helpers/utils';
+import { establishContainer, translator, findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
 import { createLayers } from './helpers/createLayers';
 import { startLegendAnimation } from './helpers/legend';
 import { setChartWidth } from './helpers/widthManager';
@@ -8,8 +8,13 @@ import { setDotsPerRow } from './helpers/dotConstants';
 import { layersInit, resetLayers } from './helpers/manageLayers';
 import 'src/afg-helpers/matchesPolyfill';
 import DeficitData from '../../../../static/americas-finance-guide/data/explore_federal_deficit.csv';
+import AfgData from "../../../../static/americas-finance-guide/_data/object_mapping.yml";
 
 const DeficitIntro = () => {
+  const defaultDesc = isMobileDevice() ?
+      `The image illustrates the federal government’s deficit in ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents_mobile.value}. There are Federal Revenue and GDP dots.`
+      :
+      `The image illustrates the federal government’s deficit in ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents.value}.`;
   const config = {
     anecdoteName: 'anecdote-deficit.svg',
     revenueAmount: findAmountInCsv('federal revenue', DeficitData),
@@ -24,16 +29,16 @@ const DeficitIntro = () => {
     debtColor: colors.colorDebtPrimary,
     accessibilityAttrs: {
       default: {
-        title: '2019 Federal Deficit',
-        desc: 'The image illustrates the federal government’s deficit in 2019 using dots, and each dot is equal to a billion dollars. There are 984 dots.',
+        title: `${AfgData.current_fy.value} Federal Deficit`,
+        desc: defaultDesc,
       },
       debt: {
-        title: '2019 Federal Deficit and Debt',
-        desc: 'When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The $984 billion deficit contributed to the $1.2 trillion increase in debt from $21.5 trillion at the end of 2018 to $22.7 trillion by the end of 2019.',
+        title: `${AfgData.current_fy.value} Federal Deficit and Debt`,
+        desc: `The ${AfgData.current_fy_deficit_short.value} deficit contributed to the ${AfgData.added_debt_short.value} increase in debt from ${AfgData.prior_fy_debt.value} at the end of ${AfgData.prior_fy.value} to ${AfgData.current_fy_debt_short.value} by the end of ${AfgData.current_fy.value}.`,
       },
       deficit: {
-        title: '2019 Federal Deficit, Revenue, and Spending',
-        desc: 'A deficit occurs when spending exceeds revenue. For 2019, the $4.4 trillion in federal spending exceeded the $3.5 trillion in federal revenue leading to a deficit of $984 billion.',
+        title: `${AfgData.current_fy.value} Federal Deficit, Revenue, and Spending`,
+        desc: `In ${AfgData.current_fy.value}, the ${AfgData.current_fy_spending_short.value} in federal spending exceeded ${AfgData.current_fy_revenue_short.value} in federal revenue leading to a deficit of ${AfgData.current_fy_deficit_short.value}.`,
       },
     },
   };

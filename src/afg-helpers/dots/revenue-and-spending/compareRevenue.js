@@ -119,7 +119,7 @@ export function initRevenueOverlay(_config) {
 	const dotScale = isMobileDevice() ? tenbillion : billion;
 	const compareCount = Math.ceil(config.comparisonAmount / dotScale);
 
-	compareLayer = generateOverlay(compareCount, svg.select('.main-container'), `spending-layer`, config.comparisonColor);
+	compareLayer = generateOverlay(compareCount, svg.select('.main-container'), `${config.compareString}-layer`, config.comparisonColor);
 
 	if (typeof window !== 'undefined' && window.innerWidth <= 959) {
 		placeLegendMobile(compareLayer);

@@ -14,7 +14,6 @@ import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
 import TabsWrapper from 'src/components/tabs/tabs';
-import {setFactsTrigger} from 'src/afg-helpers/dots/revenue-and-spending/compareManager';
 
 import AnecdoteSpendingSVG from '../../../../static/americas-finance-guide/icons/anecdote-spending.svg';
 import DefinitionSpendingSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
@@ -24,55 +23,53 @@ import styles from './spending.module.scss';
 
 
 function SpendingAndGdpPage(props) {
-    const layers = ['', 'spending', 'gdp'];
+	const layers = ['', 'revenue', 'gdp'];
 
-    const [activeLayer, setActiveLayer] = useState('');
+	const [activeLayer, setActiveLayer] = useState('');
 
-    const handleTabChange = (newTabValue) => {
-        setActiveLayer(layers[newTabValue])
-    }
+	const handleTabChange = (newTabValue) => {
+		setActiveLayer(layers[newTabValue])
+	}
 
-    const setDesktopActiveLayer = (newLayer, currentLayer) => {
-        currentLayer === newLayer ? setActiveLayer('') : setActiveLayer(newLayer);
-    }
+	const setDesktopActiveLayer = (newLayer, currentLayer) => {
+		currentLayer === newLayer ? setActiveLayer('') : setActiveLayer(newLayer);
+	}
 
-    const tabs = [
-        {
-            label: 'Spending',
-            component: <SpendingIntro selection={''}/>,
-            trigger: 'spending'
-        },
-        {
-            label: 'Revenue',
-            component: <SpendingIntro selection={'spending'}/>,
-            trigger: 'spending'
-        },
-        {
-            label: 'U.S. Economy',
-            component: <SpendingIntro selection={'gdp'}/>,
-            trigger: 'gdp'
-        },
-    ]
+	const tabs = [
+		{
+			label: 'Spending',
+			component: <SpendingIntro selection={''} />,
+			trigger: 'spending'
+		},
+		{
+			label: 'Revenue',
+			component: <SpendingIntro selection={'revenue'} />,
+			trigger: 'revenue'
+		},
+		{
+			label: 'U.S. Economy',
+			component: <SpendingIntro selection={'gdp'} />,
+			trigger: 'gdp'
+		},
+	]
 
-    const [vizComponent, updateVizComponent] = useState(<SpendingIntro selection={activeLayer}/>);
+	const [vizComponent, updateVizComponent] = useState(<SpendingIntro selection={activeLayer} />);
 
-    useEffect(() => {
-        handleResize();
+	useEffect(() => {
+		handleResize();
 
-        if (typeof window !== 'undefined') {
-            window.addEventListener('resize', handleResize);
-            return () => {
-                window.removeEventListener('resize', handleResize);
-            }
-        }
-    }, [activeLayer]);
+		if (typeof window !== 'undefined') {
+			window.addEventListener('resize', handleResize);
+			return () => {
+				window.removeEventListener('resize', handleResize);
+			}
+		}
+	}, [activeLayer]);
 
-    const handleResize = () => {
-        // get active layer
-        updateVizComponent(!isMobileDevice() ?
-            <SpendingIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer}/> :
-            <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)}/>)
-    };
+	const handleResize = () => {
+		// get active layer
+		updateVizComponent(!isMobileDevice() ? <SpendingIntro selection={activeLayer} setDesktopActiveLayer={setDesktopActiveLayer} /> : <TabsWrapper tabs={tabs} handleTabChange={handleTabChange} activeTab={layers.indexOf(activeLayer)} />)
+	};
 
     return (
         <>
@@ -110,7 +107,7 @@ function SpendingAndGdpPage(props) {
                         {vizComponent}
                         <div className="intro-math intro-hidden">
                             <FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon"/>
-                            {isMobileDevice() ? AfgData.dot_number_spending_mobile.value : AfgData.dot_represents.value}
+                            {isMobileDevice() ? AfgData.dot_number_spending_mobile.value : AfgData.dot_number_spending.value}
                             {' '}
                             dots x
                             {' '}
@@ -134,7 +131,7 @@ function SpendingAndGdpPage(props) {
                                     <div className="facts__triggers">
                                         <button className="facts__trigger"
                                                 id='revenue-facts__trigger'
-                                                onClick={(e) => setDesktopActiveLayer('spending', activeLayer)}
+                                                onClick={(e) => setDesktopActiveLayer('revenue', activeLayer)}
                                                 data-trigger-id="revenue">Federal Revenue
                                         </button>
                                         <button className="facts__trigger"
