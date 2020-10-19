@@ -113,7 +113,6 @@ function ExploreDebtPage({ location }) {
               <div className="intro-math intro-hidden">
                 <FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
                 {isMobileDevice() ? AfgData.dot_number_debt_mobile.value : AfgData.dot_number_debt.value}
-
                 {' '}
                 dots x
                 {' '}
