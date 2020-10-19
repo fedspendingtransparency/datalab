@@ -79,10 +79,8 @@ export default function createMobileSpendingViz(config, height, width, dotsHeigh
     .attr('x', 0)
     .attr('dy', 16);
 
-  const revenueTextHeight = d3.selectAll('.revenue-text').node().getBoundingClientRect().height;
-
   d3.selectAll('.revenue-text>text')
-    .attr('y', (spendingRectHeight - revenueTextHeight) * 0.5);
+    .attr('y', (revenueRectHeight * 0.5) - 4);
 
   d3.selectAll('.spending-text>text')
     .attr('y', (spendingRectHeight * 0.5) - 4);

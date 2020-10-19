@@ -65,8 +65,6 @@ export function labelMaker(parent, height, label, amount) {
     .attr('y', height / 2 + 15)
     .attr('font-size', 24);
 
-  console.log('test', text);
-
   if (spending) {
     lineData.forEach((r, i) => {
       r.x = (i === 0 || i === 3) ? chartWidth + 20 : chartWidth + 30;
