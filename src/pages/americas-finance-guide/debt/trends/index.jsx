@@ -24,8 +24,8 @@ function DebtTrendsPage(props) {
 
             <SEO
                 title='Data Lab - Federal Debt Trends – U.S. Treasury'
-                description='The U.S. has generally increased the federal debt since 2000.'
-                excerpt=' In the U.S., federal debt has generally increased over the past two decades. According to the most recent Financial Report of the United States Government (FR), the current fiscal policy is not sustainable. By the end of 2019, federal debt was $22.7 trillion.'
+                description={`The U.S. has generally increased the federal debt since ${AfgData.debt_trend_start.value}.`}
+                excerpt={`In the U.S., federal debt has generally increased over the past two decades. According to the most recent Financial Report of the United States Government (FR), the current fiscal policy is not sustainable. By the end of ${AfgData.current_fy.value}, federal debt was ${AfgData.current_fy_debt.value} trillion.`}
                 keywords={[`debt, national debt, federal debt, U.S. debt, deficit vs. debt, deficit, national deficit, surplus, spending exceeds income, spending exceeds revenue, federal deficit, total debt, federal government’s debt, monthly statement of the public debt, MSPD`]}
             />
 
@@ -45,8 +45,8 @@ function DebtTrendsPage(props) {
                     <DebtTrendsToggle />
 
                     <div className="trend-chart-container">
-                        <img id="debt-image" className="trend-chart-container__image trend-chart-container__image--active" src="/americas-finance-guide/images/debt-trends-dollar.svg" alt="Federal debt steadily rose from $5.7 trillion in 2000 to $10 trillion in 2008. In response to actions taken to address the Great Recession, federal debt increased at a faster rate after 2008. Federal debt rose from $10 trillion in 2008 to $16 trillion in 2012. Federal debt exceeded $20 trillion for the first time in 2017 and reached $22.7 trillion by the end of 2019. "/>
-                        <img id="gdp-image" className="trend-chart-container__image" src="/americas-finance-guide/images/debt-trends-gdp.svg" alt="Another way to look at trends in federal debt is to compare it to the size of the economy, as measured by gross domestic product. Federal debt as a percent of gross domestic product in 2000 was 55%. By 2008, this ratio had reached 68%. From 2008 to 2012 federal debt as a percent of gross domestic product increased to 99% and has remained above 100% since 2016. By the end of 2019 the ratio stood at 107%."/>
+                        <img id="debt-image" className="trend-chart-container__image trend-chart-container__image--active" src="/americas-finance-guide/images/debt-trends-dollar.svg" title={`${AfgData.current_fy.value} Federal Debt Trends by Total Dollar and Percent of GDP`} alt={`Federal debt has steadily risen since ${AfgData.debt_trend_start.value} and reached ${AfgData.current_fy_debt_short.value}  by the end of ${AfgData.current_fy.value}. Federal debt as a percent of GDP for ${AfgData.current_fy.value} stood at ${AfgData.debt_percent_gdp.value}.`}/>
+                        <img id="gdp-image" className="trend-chart-container__image" src="/americas-finance-guide/images/debt-trends-gdp.svg" title={`${AfgData.current_fy.value} Federal Debt Trends by Total Dollar and Percent of GDP`} alt={`Federal debt has steadily risen since ${AfgData.debt_trend_start.value} and reached ${AfgData.current_fy_debt_short.value}  by the end of ${AfgData.current_fy.value}. Federal debt as a percent of GDP for ${AfgData.current_fy.value} stood at ${AfgData.debt_percent_gdp.value}.`}/>
                     </div>
 
                     <aside className="debt-aside">
