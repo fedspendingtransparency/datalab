@@ -227,8 +227,6 @@ function ExploreDebtPage({ location }) {
                 {' '}
                 as the data source for federal government revenue and spending.
                 <GdpTemplate />
-                {' '}
-                Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.
               </p>
               <div className="afg__download--div">
                 <div className="afg__download--heading">Download Source Data</div>
