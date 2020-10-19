@@ -105,7 +105,7 @@ function SpendingCategoriesPage(props) {
                                             {' '}
                                             laws for the federal government to use in relief efforts, to aid the nation’s recovery from the coronavirus disease 2019 (COVID-19). These four supplemental appropriations laws, including the Coronavirus Aid, Relief, and Economic Security (CARES) Act, totaled $2.58 trillion for use by federal agencies. You can take an in-depth look at those supplemental appropriation laws in the
                                             {' '}
-                                            <a href={'https://datalab.usaspending.gov/federal-covid-funding/?utm_source=Release%20Notes&utm_medium=Email&utm_campaign=2020.08.26'} rel='noopener noreferrer' target='_blank'>COVID-19 funding analysis</a>
+                                            <a href={'/federal-covid-funding/'} rel='noopener noreferrer'>COVID-19 funding analysis</a>
                                             .
                                         </p>
                                     </div>
