@@ -133,6 +133,7 @@ export default function OverviewPage({ location }) {
                                 .
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-1-outline.svg" alt="" />
+                              <br />
                               <p>
                                 In the time it takes you to read this statement, that’s
                                 {' '}
@@ -152,9 +153,9 @@ export default function OverviewPage({ location }) {
                                 {' '}
                                 is the same amount as
                                 {' '}
-                                <strong>{AfgData.number_of_salaries.value}</strong>
+                                {AfgData.number_of_salaries.value}
                                 {' '}
-                                individuals each receiving a salary of
+                                individuals each receiving
                                 {' '}
                                 <strong>
                                   {AfgData.individual_salary.value}
@@ -163,11 +164,14 @@ export default function OverviewPage({ location }) {
                                 </strong>
                               </p>
                               <img className="anecdote__illustration" src="/americas-finance-guide/images/revenue-2-outline.svg" alt="" />
+                              <br />
                               <p>
+                                That is roughly equal to the
+                                {' '}
                                 <strong>
-                                  (roughly equal to the average annual salary of
+                                  average annual salary of
+                                  {' '}
                                   {AfgData.salary_job_type.value}
-                                  )
                                 </strong>
                                 .
                               </p>
@@ -181,7 +185,7 @@ export default function OverviewPage({ location }) {
                               <p>
                                 {AfgData.current_fy_revenue.value}
                                 {' '}
-                                equates to the average U.S. household contributing
+                                equates to every U.S. household contributing
                                 {' '}
                                 <strong>
                                   {AfgData.household_contribution.value}
@@ -190,12 +194,14 @@ export default function OverviewPage({ location }) {
                                 </strong>
                                 .
                               </p>
-                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-4-outline.svg" alt="" />
+                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-3-outline.svg" alt="" />
+                              <br />
                               <p>
                                 That is roughly equal to the cost of
                                 {' '}
                                 <strong>
                                   renting a
+                                  {' '}
                                   {AfgData.household_contribution_type.value}
                                 </strong>
                                 {' '}
@@ -228,15 +234,18 @@ export default function OverviewPage({ location }) {
                                   companies
                                 </strong>
                                 {' '}
-                                in the S&P 500.
+                                in the Fortune 500.
                               </p>
-                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-5-outline.svg" alt="" />
+                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/revenue-4-outline.svg" alt="" />
+                              <br />
                               <p className="source">
                                 Figures based on
                                 {' '}
                                 {AfgData.fortune_year.value}
                                 {' '}
-                                10-K reports for S&P 500 Companies
+                                revenue reports of
+                                {' '}
+                                <a href={AfgData.fortune_url.value} rel="noopener noreferrer" target="_blank">Fortune 500 Companies</a>
                               </p>
                             </div>
                           </div>
@@ -273,7 +282,7 @@ export default function OverviewPage({ location }) {
                 </div>
 
                 <div className="chapter__chart">
-                  <img src="/americas-finance-guide/images/revenue-graph-outline.svg" alt="Federal revenue has increased over the past five years. Annual revenue was $3.25 trillion, $3.27 trillion, $3.31 trillion $3.33 trillion and $3.5 trillion for the years 2015 to 2019 respectively. " />
+                  <img src="/americas-finance-guide/images/revenue-graph-outline.svg" title="Federal Revenue 2016 to 2020" alt={`Federal revenue has increased over the past five years from ${AfgData.year_5_revenue.value} in ${AfgData.year_5.value} to ${AfgData.current_fy_revenue_short.value} in ${AfgData.current_fy.value}.`}/>
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
                     {' '}
@@ -346,6 +355,7 @@ export default function OverviewPage({ location }) {
                                 per second.
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/spending-1-outline.svg" alt="" />
+                              <br />
                               <p>
                                 In just 10 seconds, that's
                                 {' '}
@@ -370,6 +380,7 @@ export default function OverviewPage({ location }) {
                                 .
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/spending-2-outline.svg" alt="" />
+                              <br />
                               <p className="source">
                                 Source -
                                 {' '}
@@ -380,18 +391,20 @@ export default function OverviewPage({ location }) {
                               <p>
                                 {AfgData.current_fy_spending.value}
                                 {' '}
-                                equates to the average household spending
+                                equates to every U.S. household spending
                                 {' '}
                                 <strong>{AfgData.household_spending_month.value}</strong>
                                 {' '}
                                 per month.
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/spending-3-outline.svg" alt="" />
+                              <br />
                               <p>
                                 That is roughly equal
                                 {' '}
                                 <strong>
                                   to renting a
+                                  {' '}
                                   {AfgData.household_spending_type.value}
                                 </strong>
                                 {' '}
@@ -430,6 +443,7 @@ export default function OverviewPage({ location }) {
                                 miles of roadway!)
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/spending-4-outline.svg" alt="" />
+                              <br />
                               <p className="source">
                                 Source -
                                 {' '}
@@ -469,7 +483,7 @@ export default function OverviewPage({ location }) {
                   </a>
                 </div>
                 <div className="chapter__chart">
-                  <img src="/americas-finance-guide/images/spending-graph-outline.svg" alt="Federal spending has increased steadily over the past five years. Annual spending was $3.69 trillion, $3.85 trillion, $3.98 trillion $4.11 trillion, and $4.4 trillion for the years 2015 to 2019 respectively." />
+                  <img src="/americas-finance-guide/images/spending-graph-outline.svg" alt={`Federal spending has increased steadily over the past five years from ${AfgData.year_5_spending.value} in ${AfgData.year_5.value} to ${AfgData.current_fy_spending_short.value} in ${AfgData.current_fy.value}.`} />
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
                     {' '}
@@ -559,7 +573,7 @@ export default function OverviewPage({ location }) {
                                 <strong>
                                   {AfgData.times_cc_debt.value}
                                   {' '}
-                                  times the amount of credit card debt Americans created in
+                                  times the amount of credit card debt Americans held in
                                   {' '}
                                   {AfgData.current_fy.value}
                                 </strong>
@@ -569,6 +583,7 @@ export default function OverviewPage({ location }) {
                                 ).
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/deficit-1-outline.svg" alt="" />
+                              <br />
                               <p className="source">
                                 Source -
                                 {' '}
@@ -593,20 +608,7 @@ export default function OverviewPage({ location }) {
                                 .
                               </p>
                               <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/deficit-2-outline.svg" alt="" />
-                              <p>
-                                In
-                                {' '}
-                                {AfgData.current_fy.value}
-                                , there were an estimated
-                                {' '}
-                                <strong>
-                                  {AfgData.us_households.value}
-                                  {' '}
-                                  households
-                                </strong>
-                                {' '}
-                                in the United States.
-                              </p>
+                              <br />
                               <p className="source">
                                 Source -
                                 {' '}
@@ -671,7 +673,7 @@ export default function OverviewPage({ location }) {
                   </a>
                 </div>
                 <div className="chapter__chart">
-                  <img src="/americas-finance-guide/images/deficit-graph-outline.svg" alt="Since the government spent $4.4 trillion in 2019 and collected $3.5 trillion, the deficit for the year was $984 billion." />
+                  <img src="/americas-finance-guide/images/deficit-graph-outline.svg" alt={`Since the government spent ${AfgData.current_fy_spending_short.value} and collected ${AfgData.current_fy_revenue_short.value} in ${AfgData.current_fy.value}, the deficit for the year was ${AfgData.current_fy_deficit_short.value}.`} />
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
                     {' '}
@@ -745,18 +747,16 @@ export default function OverviewPage({ location }) {
                                 <strong>{AfgData.household_share_debt.value}</strong>
                                 .
                               </p>
-                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-2-outline.svg" alt="" />
+                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-1-outline.svg" alt="" />
+                              <br />
                               <p>
                                 That is about equal to the
                                 {' '}
                                 <strong>
                                   median home price in
-                                  {AfgData.share_debt_city.value}
+                                  {' '}
+                                  {AfgData.share_debt_city.value}.
                                 </strong>
-                                {' '}
-                                (
-                                {AfgData.share_debt_city_price.value}
-                                ).
                               </p>
                               <p className="source">
                                 Source -
@@ -774,12 +774,14 @@ export default function OverviewPage({ location }) {
                                 {' '}
                                 per individual in the U.S.
                               </p>
-                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-3-outline.svg" alt="" />
+                              <img role="presentation" className="anecdote__illustration" src="/americas-finance-guide/images/debt-2-outline.svg" alt="" />
+                              <br />
                               <p>
                                 That is equal to the
                                 {' '}
                                 <strong>
                                   average salary of
+                                  {' '}
                                   {AfgData.debt_average_salary_type.value}
                                 </strong>
                                 .
@@ -832,7 +834,7 @@ export default function OverviewPage({ location }) {
                   </a>
                 </div>
                 <div className="chapter__chart">
-                  <img src="/americas-finance-guide/images/debt-graph-outline.svg" alt="Federal debt has increased over the past five years. Federal debt was $18.2 trillion, $19.6 trillion, $20.2 trillion, $21.5 trillion and $22.7 trillion at the end of the years 2015 to 2019 respectively." />
+                  <img src="/americas-finance-guide/images/debt-graph-outline.svg" alt={`Federal debt has increased over the past five years. Federal debt was ${AfgData.year_5_debt.value} in ${AfgData.year_5.value} and ${AfgData.current_fy_debt_short.value} in ${AfgData.current_fy.value}.`} />
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
                     {' '}
@@ -869,7 +871,11 @@ export default function OverviewPage({ location }) {
                 {' '}
                 <a href={AfgData.census_household.value} rel="noopener noreferrer" target="_blank">household</a>
                 {' '}
-                estimates. Median home price estimates are also provided by the U.S. Census Bureau. Rent estimates come from the
+                estimates.
+                {' '}
+                <a href={AfgData.census_median_home.value} rel="noopener noreferrer" target="_blank">Median home price estimates</a>
+                {' '}
+                are also provided by the U.S. Census Bureau. Rent estimates come from the
                 {' '}
                 <a href={AfgData.hud_median_rent.value} rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development (HUD)</a>
                 . The Bureau of Labor Statistics (BLS)

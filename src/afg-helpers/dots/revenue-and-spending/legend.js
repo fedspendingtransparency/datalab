@@ -3,9 +3,9 @@ import { establishContainer, translator, fadeAndRemove } from 'src/afg-helpers/u
 import colors from '../../../styles/afg/colors.scss';
 import { placeDots } from './placeDots';
 import { chartWidth } from './widthManager';
-import { triggerInfoBox } from 'src/afg-helpers/infoBox';
+import { transition } from 'd3-transition';
 
-const d3 = { select, selectAll };
+const d3 = { select, selectAll, transition };
 const introWidth = 365;
 const radius = 75;
 
