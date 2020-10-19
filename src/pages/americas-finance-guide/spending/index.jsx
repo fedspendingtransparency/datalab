@@ -105,7 +105,7 @@ function SpendingAndGdpPage(props) {
 						{vizComponent}
 						<div className="intro-math intro-hidden">
 							<FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
-							{isMobileDevice() ? AfgData.dot_number_spending_mobile.value : AfgData.dot_represents.value}
+							{isMobileDevice() ? AfgData.dot_number_spending_mobile.value : AfgData.dot_number_spending.value}
 							{' '}
 							dots x
 							{' '}
