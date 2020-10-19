@@ -14,7 +14,6 @@ import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
 import TabsWrapper from 'src/components/tabs/tabs';
-import { setFactsTrigger } from 'src/afg-helpers/dots/revenue-and-spending/compareManager';
 
 import AnecdoteSpendingSVG from '../../../../static/americas-finance-guide/icons/anecdote-spending.svg';
 import DefinitionSpendingSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
@@ -24,7 +23,7 @@ import styles from './spending.module.scss';
 
 
 function SpendingAndGdpPage(props) {
-	const layers = ['', 'spending', 'gdp'];
+	const layers = ['', 'revenue', 'gdp'];
 
 	const [activeLayer, setActiveLayer] = useState('');
 
@@ -44,8 +43,8 @@ function SpendingAndGdpPage(props) {
 		},
 		{
 			label: 'Revenue',
-			component: <SpendingIntro selection={'spending'} />,
-			trigger: 'spending'
+			component: <SpendingIntro selection={'revenue'} />,
+			trigger: 'revenue'
 		},
 		{
 			label: 'U.S. Economy',
@@ -126,7 +125,7 @@ function SpendingAndGdpPage(props) {
 									<div className="facts__triggers">
 										<button className="facts__trigger"
 														id='revenue-facts__trigger'
-														onClick={(e) => setDesktopActiveLayer('spending', activeLayer)}
+														onClick={(e) => setDesktopActiveLayer('revenue', activeLayer)}
 														data-trigger-id="revenue">Federal Revenue</button>
 										<button className="facts__trigger"
 														onClick={(e) => setDesktopActiveLayer('gdp', activeLayer)}
