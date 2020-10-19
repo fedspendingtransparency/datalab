@@ -71,7 +71,7 @@ function DeficitTrendsPage(props) {
 					<p>
 						In {AfgData.current_fy.value}, federal spending increased in response to the COVID-19 pandemic. Visit our
 						{' '}
-						<a href={'https://datalab.usaspending.gov/federal-covid-funding/'} rel='noopener noreferrer' target='_blank'>The Federal Response to COVID-19</a>
+						<a href={'/federal-covid-funding/'} rel='noopener noreferrer'>The Federal Response to COVID-19</a>
 						{' '}
 						analysis to learn more.
 					</p>
