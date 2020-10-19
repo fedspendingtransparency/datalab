@@ -90,7 +90,7 @@ function SpendingCategoriesPage(props) {
                             </section>
 
                             <section className="accordion">
-                                <AccordionList title="What are mandatory and discretionary spending?" className="accordion__heading">
+                                <AccordionList title="What are mandatory, discretionary, and supplemental spending?" className="accordion__heading">
                                     <div className="accordion__content">
                                         <p>The difference between mandatory and discretionary spending relates to whether spending is dictated by prior law or voted on in the annual appropriations process. Programs like Social Security, Medicare, and various income security programs, are based on laws previously established that dictate the money budgeted for spending each year, which is why spending for those programs is referred to as mandatory.</p>
                                         <p>Discretionary spending is money formally approved by the President and voted on by Congress during the appropriations process each year. Generally, a majority of the discretionary spending is budgeted towards national defense. The rest of discretionary spending is budgeted to other federal agency programs ranging from transportation, education, housing, social service programs, as well as science and environmental organizations.</p>
