@@ -95,7 +95,18 @@ function SpendingCategoriesPage(props) {
                                         <p>The difference between mandatory and discretionary spending relates to whether spending is dictated by prior law or voted on in the annual appropriations process. Programs like Social Security, Medicare, and various income security programs, are based on laws previously established that dictate the money budgeted for spending each year, which is why spending for those programs is referred to as mandatory.</p>
                                         <p>Discretionary spending is money formally approved by the President and voted on by Congress during the appropriations process each year. Generally, a majority of the discretionary spending is budgeted towards national defense. The rest of discretionary spending is budgeted to other federal agency programs ranging from transportation, education, housing, social service programs, as well as science and environmental organizations.</p>
                                         <p>
-                                            An additional type of spending that impacts federal spending is supplemental appropriations, also referred to as supplemental spending. In 2020, the U.S. Congress passed four supplemental appropriations laws for the federal government to use in relief efforts, to aid the nation’s recovery from the coronavirus disease 2019 (COVID-19). These four supplemental appropriations laws, including the Coronavirus Aid, Relief, and Economic Security (CARES) Act, totaled $2.58 trillion for use by federal agencies. You can take an in-depth look at those supplemental appropriation laws in the COVID-19 funding analysis.
+                                            An additional type of spending that impacts federal spending is
+                                            {' '}
+                                            <a href={'https://www.senate.gov/reference/glossary_term/supplemental_appropriation.htm#:~:text=supplemental%20appropriation%20-%20Budget%20authority%20provided%2cor%20continuing%20appropriations%20already%20provided.'} rel='noopener noreferrer' target='_blank'>supplemental appropriations</a>
+                                            {' '}
+                                            , also referred to as supplemental spending. In 2020, the U.S. Congress passed four supplemental
+                                            {' '}
+                                            <a href={'https://www.usaspending.gov/?glossary=appropriation'} rel='noopener noreferrer' target='_blank'>appropriations</a>
+                                            {' '}
+                                            laws for the federal government to use in relief efforts, to aid the nation’s recovery from the coronavirus disease 2019 (COVID-19). These four supplemental appropriations laws, including the Coronavirus Aid, Relief, and Economic Security (CARES) Act, totaled $2.58 trillion for use by federal agencies. You can take an in-depth look at those supplemental appropriation laws in the
+                                            {' '}
+                                            <a href={'https://datalab.usaspending.gov/federal-covid-funding/?utm_source=Release%20Notes&utm_medium=Email&utm_campaign=2020.08.26'} rel='noopener noreferrer' target='_blank'>COVID-19 funding analysis</a>
+                                            .
                                         </p>
                                     </div>
                                 </AccordionList>
