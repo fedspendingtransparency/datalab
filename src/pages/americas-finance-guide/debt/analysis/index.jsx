@@ -61,7 +61,7 @@ function DebtAnalysisPage({ location }) {
                 alt={`Even though federal debt has more than doubled since ${AfgData.year_10.value}, the average interest rate on federal debt has decreased from ${AfgData.year_10_interest_rate.value} in ${AfgData.year_10.value} to ${AfgData.current_interest_rate.value} in ${AfgData.current_fy.value}. Is there more information about who owns the debt?`}
                 className="card__image"
               />
-              Interest rates have steadily fallen over the past ten years. Low interest rates are the reason for the interest expense the federal government pays on its debt remaining stable, even as the federal debt has increased.
+              Interest rates have steadily fallen over the past ten years. Interest expenses on the debt paid by the federal government have remained relatively stable, even as the federal debt has increased, because of low interest rates.
             </div>
           </section>
           <section className="card">

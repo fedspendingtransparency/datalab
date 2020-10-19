@@ -63,7 +63,9 @@ function DebtCountryComparisonPage(props) {
                     <div className="country-copy">
                         <div className="country-copy__text">
                             <p>How does the United States compare to countries of similar size and gross domestic product? Explore the chart, which shows the total debt of the United States compared to {AfgData.countries_compared.value} other countries listed in the CIA World Factbook. You can compare total debt (in dollars) and debt as a percent of gross domestic product. Find a country of interest and see for yourself. For instance, while the U.S. federal debt was greater than that of China and Japan combined, it ranked {AfgData.compare_us_debt_gdp_rank.value} in debt to gross domestic product. Because the U.S. government has more money coming in and going out than any other country, it helps to compare the debt of the U.S. government to other countries based on the size of their economies. To ensure an accurate comparison, {AfgData.country_compare_year.value} debt data is used in this section, not current fiscal year data.</p>
-                            <p><em>Please note that the countries depicted in this chart have different forms of government, and these differences may impact the scope of finances reported by each country.</em></p>
+                            <p><em>
+                                Please note that the countries depicted in this chart have different forms of government, and in order to gather nominal debt numbers for a comprehensive list of countries, general government gross debt is used for all countries except the US, for which we use only federal debt. Both of these factors may impact the scope of finances reported by each country.
+                            </em></p>
                         </div>
                         {!isMobile && breadcrumbs}
                     </div>

@@ -226,6 +226,7 @@ function ExploreDebtPage({ location }) {
                 <a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a>
                 {' '}
                 as the data source for federal government revenue and spending.
+                {' '}
                 <GdpTemplate />
               </p>
               <div className="afg__download--div">
