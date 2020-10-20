@@ -40,7 +40,7 @@ function buildLegend() {
     .text('= $1 Billion')
     .attr('fill', colors.textColorParagraph)
     .attr('opacity', 0)
-    .attr('font-size', 16)
+    .attr('font-size', '1rem')
     .attr('y', 5)
     .attr('x', 7)
     .transition()
@@ -75,7 +75,7 @@ function addText() {
 
   explanation.append('tspan')
     .attr('x', 0)
-    .attr('font-size', 18)
+    .attr('font-size', '1.125rem')
     .text('In this analysis');
 
   explanation.append('tspan')
@@ -99,7 +99,7 @@ function addText() {
   billion = this.largeDot.append('text')
     .text('$1,000,000,000')
     .attr('text-anchor', 'middle')
-    .attr('font-size', 18)
+    .attr('font-size', '1.125rem')
     .attr('x', this.radius)
     .attr('y', this.radius + 7)
     .attr('fill', 'white')
