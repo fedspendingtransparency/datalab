@@ -35,7 +35,7 @@ function placeLegend(g) {
     .attr('text-anchor', 'end')
     .attr('x', 0)
     .attr('y', -10)
-    .attr('font-size', 24);
+    .style('font-size', '1.5rem');
 
   legendContainer.append('path')
     .attr('d', line(lineData))
