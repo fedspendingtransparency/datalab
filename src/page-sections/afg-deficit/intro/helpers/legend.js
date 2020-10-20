@@ -3,6 +3,7 @@ import { establishContainer, translator, fadeAndRemove } from 'src/afg-helpers/u
 import { triggerMainInfoBox } from 'src/afg-helpers/infoBox';
 import colors from '../../../../styles/afg/colors.scss';
 import { chartWidth } from './widthManager';
+import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 const introWidth = 365;
 const radius = 75;
@@ -38,7 +39,7 @@ function buildLegend() {
     .ease();
 
   g.append('text')
-    .text('= $1 Billion')
+    .text(`= ${AfgData.dot_represents.value}`)
     .attr('fill', colors.textColorParagraph)
     .attr('opacity', 0)
     .style('font-size', 16)
@@ -66,17 +67,17 @@ function addText() {
   explanation.append('tspan')
     .attr('x', 0)
     .attr('dy', 28)
-    .attr('font-size', 24)
+    .attr('font-size', '1.5rem')
     .attr('font-weight', '600')
     .text('One Dot');
 
   explanation.append('tspan')
-    .attr('font-size', 24)
+    .attr('font-size', '1.5rem')
     .text(' represents');
 
   explanation.append('tspan')
     .attr('x', 0)
-    .attr('font-size', 24)
+    .attr('font-size', '1.5rem')
     .attr('font-weight', '600')
     .attr('dy', 30)
     .text('One Billion Dollars');

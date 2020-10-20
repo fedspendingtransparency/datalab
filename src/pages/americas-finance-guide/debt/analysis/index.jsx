@@ -40,7 +40,8 @@ function DebtAnalysisPage({ location }) {
               <h1 className="card__heading">How much does it cost to maintain the federal debt?</h1>
               <img
                 src="/americas-finance-guide/images/debt-to-interest-expense.svg"
-                alt="Federal debt has increased steadily from $10.0 trillion in 2008 to $22.7 trillion in 2019. Interest expense varied some from 2008 to 2015 but has increased consistently from $402 billion in 2015 to $573 billion in 2019."
+                title={`Cost to Maintain Federal Debt from ${AfgData.year_10.value} to ${AfgData.current_fy.value}`}
+                alt={`Federal debt has increased from ${AfgData.year_10.value} to ${AfgData.current_fy.value} (${AfgData.current_fy_debt_short.value}). Interest expense have increased from $402 B in 2015 to ${AfgData.current_interest_expense.value} in ${AfgData.current_fy.value}.`}
                 className="card__image"
               />
               Interest expense is what the government pays to investors who loan money to the government. How much the government pays in interest depends on:
@@ -56,10 +57,11 @@ function DebtAnalysisPage({ location }) {
               <h1 className="card__heading">How have interest rates on the federal debt changed?</h1>
               <img
                 src="/americas-finance-guide/images/debt-to-interest-rate.svg"
-                alt="Similarly, even though federal debt has more than doubled since 2008, the average interest rate on federal debt has decreased from 4.2% in 2008 to 2.5% in 2019."
+                title={`Interest Rate Changes on Federal Debt from ${AfgData.year_10.value} to ${AfgData.current_fy.value}`}
+                alt={`Even though federal debt has more than doubled since ${AfgData.year_10.value}, the average interest rate on federal debt has decreased from ${AfgData.year_10_interest_rate.value} in ${AfgData.year_10.value} to ${AfgData.current_interest_rate.value} in ${AfgData.current_fy.value}. Is there more information about who owns the debt?`}
                 className="card__image"
               />
-              Interest rates have steadily fallen over the past ten years. Low interest rates are the reason for the interest expense the federal government pays on its debt remaining stable, even as the federal debt has increased.
+              Interest rates have steadily fallen over the past ten years. Interest expenses on the debt paid by the federal government have remained relatively stable, even as the federal debt has increased, because of low interest rates.
             </div>
           </section>
           <section className="card">
@@ -67,8 +69,9 @@ function DebtAnalysisPage({ location }) {
               <h1 className="card__heading">Is there more information about who owns the debt?</h1>
               <img
                 src="/americas-finance-guide/images/us-debt-top-investors.svg"
+                title="Who Owns Federal Debt"
                 alt={`Domestic investors own ${AfgData.debt_owned_us_investors.value} in federal debt and The Social Security trust funds owns ${AfgData.debt_owned_trust_funds.value}. Foreign investors own ${AfgData.debt_owned_foreign_investors.value} of federal debt.`}
-                className="card__image"
+                className="card__image card__image--width-constrain"
               />
               At the end of
               {' '}
@@ -112,7 +115,7 @@ function DebtAnalysisPage({ location }) {
               <span> as the data source for federal debt of the United States and the </span>
               <a href={AfgData.current_mts.value} target="_blank" rel="noopener noreferrer"> Monthly Treasury Statement (MTS)</a>
               <span> as the data source for federal government revenue and spending. Average interest rates on federal debt come from </span>
-              <a href={AfgData.debt_interest_rates.value} target="_blank" rel="noopener noreferrer">FiscalData.gov</a>
+              <a href={AfgData.debt_interest_rates.value} target="_blank" rel="noopener noreferrer">FiscalData.Treasury.gov</a>
               .
               <span> Holders of United States Treasury securities were identified using three sources: MSPD which contains detailed information on trust funds that own Treasury securities, the </span>
               <a href={AfgData.tic_foreign_holders.value} target="_blank" rel="noopener noreferrer">Treasury International Capital (TIC)</a>

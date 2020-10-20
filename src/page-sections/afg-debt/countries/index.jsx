@@ -4,6 +4,7 @@ import colors from 'src/styles/afg/colors.scss';
 import { loadSourceData } from '../../../afg-helpers/countries/data';
 import CountryData from '../../../../static/americas-finance-guide/data/debt_country_comparison.csv';
 import { chartInit } from '../../../afg-helpers/countries/chart';
+import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 const spendingConfig = {
   amountField: 'debt_usd',
@@ -36,8 +37,7 @@ const spendingConfig = {
   }],
   accessibilityAttrs: {
     title: 'Federal Debt Country Comparison',
-    desc: 'By the end of 2017, the five largest countries in terms of federal revenue and spending had the following government debt outstanding: the United States with $20.2 trillion (103% of gross domestic product), Japan with $11.6 trillion (239%), China with $5.8 trillion (48%), France with $2.6 trillion (101%), and Germany with $2.5 trillion (68%).',
-  },
+    desc: `${AfgData.country_compare_year.value} Top countries in Outstanding Govt. Debt: U.S. ($20.2T), Japan ($11.6T) China ($5.8T) France ($2.6T) & Germany ($2.5T).`},
 };
 
 const DebtCountryComparison = () => {

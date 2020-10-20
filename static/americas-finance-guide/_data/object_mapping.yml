@@ -127,9 +127,9 @@ dot_number_spending:
 dot_number_spending_mobile:
   value: '655'
 dot_represents:
-  value: $1 Billion
+  value: $1 billion
 dot_represents_mobile:
-  value: $10 Billion
+  value: $10 billion
 financial_report:
   value: https://www.fiscal.treasury.gov/reports-statements/financial-report/
 fortune_companies:
@@ -147,13 +147,13 @@ gdp_nipa_url:
 household_contribution:
   value: $2,200 
 household_contribution_city:
-  value: West Palm Beach, FL ($2,207/month)
+  value: West Palm Beach, FL
 household_contribution_type:
   value: three-bedroom apartment
 household_share_debt:
   value: $208,900 
 household_spending_city:
-  value: Santa Jose, CA ($4,165/month)
+  value: Santa Jose, CA
 household_spending_month:
   value: $4,200 
 household_spending_type:
