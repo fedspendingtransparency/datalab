@@ -2,6 +2,8 @@ import * as d3 from 'd3v3';
 import {byYear} from 'src/page-sections/afg-spending/categories/helpers/data-spending';
 import { drawChart as barChart } from '../../../../afg-helpers/bar/chart';
 import colors from '../../../../styles/afg/colors.scss';
+import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
+
 
 const chartSectionTextStr = 'Click to see subcategories';
 
@@ -12,8 +14,8 @@ let svg,
         sectionColor: colors.colorSpendingPrimary,
         dataType: 'category',
         accessibilityAttrs : {
-            title: '2019 Federal Spending by Category and Agency',
-            desc: 'The federal government reports spending by category and by agency. The top five spending categories for 2019 were Social Security with $1 trillion (24% of total spending), National Defense with $688 billion (15%), Medicare with $651 billion (15%), Health with $585 billion (13%) and Income Security with $515 billion (12%). The top five agencies by federal spending for 2019 were Department of Health and Human Services with $1.2 trillion (27% of total spending), Social Security Administration with $1.1 trillion (25%), Department of the Treasury with $689 billion (16%), Department of Defense – Military Programs with $654 billion (15%) and Department of Veterans Affairs with $200 billion (4%).'
+            title: `${AfgData.current_fy.value} Federal Spending by Category and Agency`,
+            desc: `The government reports spending by category & agency. Top categories in ${AfgData.current_fy.value}: Social Security, National Defense, Medicare, Health, & Income Security.`
         }
     },
     currentlyActive,

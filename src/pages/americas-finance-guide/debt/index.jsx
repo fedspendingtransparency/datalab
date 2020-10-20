@@ -71,8 +71,8 @@ function ExploreDebtPage({ location }) {
     <>
       <SEO
         title="Data Lab - Explore Federal Debt – U.S. Treasury"
-        description="By the end of 2019, the government had $22.7 trillion in federal debt."
-        excerpt="How did we end up with $22.7 trillion in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to people using their credit card for a purchase rather than cash, check, or a debit card. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows."
+        description={`By the end of ${AfgData.current_fy.value}, the government had ${AfgData.current_fy_debt_short.value} in federal debt.`}
+        excerpt={`How did we end up with ${AfgData.current_fy_debt.value} trillion in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to people using their credit card for a purchase rather than cash, check, or a debit card. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows.`}
         keywords={['debt, national debt, federal debt, U.S. debt, deficit vs. debt, deficit, national deficit, interest, surplus, spending exceeds income, spending exceeds revenue, federal deficit, total debt, federal government’s debt, monthly statement of the public debt, MSPD']}
       />
       <Og socialMediaImage="/americas-finance-guide/images/social-share/social-media-share-debt.jpg" />
@@ -113,7 +113,6 @@ function ExploreDebtPage({ location }) {
               <div className="intro-math intro-hidden">
                 <FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
                 {isMobileDevice() ? AfgData.dot_number_debt_mobile.value : AfgData.dot_number_debt.value}
-
                 {' '}
                 dots x
                 {' '}
@@ -197,6 +196,7 @@ function ExploreDebtPage({ location }) {
                 people&nbsp;
                 <a href={AfgData.census_population.value} rel="noopener noreferrer" target="_blank">(U.S. Census Bureau)</a>
                 ,
+                {' '}
                 {AfgData.current_fy_debt.value}
                 {' '}
                 would be equivalent to more than&nbsp;
@@ -226,9 +226,8 @@ function ExploreDebtPage({ location }) {
                 <a href={AfgData.current_mts.value} rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a>
                 {' '}
                 as the data source for federal government revenue and spending.
-                <GdpTemplate />
                 {' '}
-                Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.
+                <GdpTemplate />
               </p>
               <div className="afg__download--div">
                 <div className="afg__download--heading">Download Source Data</div>

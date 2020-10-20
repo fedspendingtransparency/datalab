@@ -12,6 +12,14 @@ import {
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 export default function SpendingIntro(props) {
+  const defaultDesc = isMobileDevice() ?
+      `The image illustrates federal spending in ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents_mobile.value}. There are ${AfgData.dot_number_spending.value} dots.`
+      :
+      `The image illustrates federal spending in ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents.value}. There are ${AfgData.dot_number_spending.value} dots.`;
+  const revenueDesc = isMobileDevice() ?
+      `${AfgData.current_fy.value} Federal spending using dots, each dot totaling ${AfgData.dot_represents_mobile.value}, with federal revenue box overlaying the dots, representing a ${AfgData.current_fy_deficit_short.value} deficit.`
+      :
+      `${AfgData.current_fy.value} Federal spending using dots, each dot totaling ${AfgData.dot_represents.value}, with federal revenue box overlaying the dots, representing a ${AfgData.current_fy_deficit_short.value} deficit.`;
   const config = {
     anecdoteName: 'anecdote-spending.svg',
     comparisonAmount: findAmountInCsv('federal revenue', SpendingData),
@@ -24,16 +32,16 @@ export default function SpendingIntro(props) {
 		sectionName: 'spending',
     accessibilityAttrs: {
       default: {
-	title: '2019 Federal Spending',
-	desc: 'The image illustrates federal spending in 2019 using dots, and each dot is equal to a billion dollars. There are 4,400 dots.',
+	title: `${AfgData.current_fy.value} Federal Spending`,
+	desc: defaultDesc,
       },
       gdp: {
-	title: '2019 Federal Spending and GDP',
-	desc: 'The U.S. economy, as measured by gross domestic product, produced $21.3 trillion worth of goods and services. In 2019, federal spending was equivalent to 21% of gross domestic product.',
+	title: `${AfgData.current_fy.value} Federal Spending and GDP`,
+	desc: `The U.S. economy, as measured by GDP, produced ${AfgData.current_fy_gdp.value} worth of goods and services. In ${AfgData.current_fy.value}, federal spending was equivalent to ${AfgData.spending_percent_gdp.value} of GDP.`,
       },
       revenue: {
-	title: '2019 Federal Spending and Revenue',
-	desc: 'The image illustrates federal revenue in 2019 using dots, and each dot is equal to a billion dollars. There are 3,500 dots. Due to rounding, there are 900 more spending dots than revenue dots, representing the deficit for 2019, $984 billion. ',
+	title: `${AfgData.current_fy.value} Federal Spending and Revenue`,
+	desc: revenueDesc,
       },
     },
   };
