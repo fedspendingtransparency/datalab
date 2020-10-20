@@ -5,6 +5,7 @@ import { establishContainer, translator, fadeAndRemove } from 'src/afg-helpers/u
 import colors from '../../../../styles/afg/colors.scss';
 import { chartWidth } from './widthManager';
 import { triggerInfoBox, triggerMainInfoBox } from 'src/afg-helpers/infoBox';
+import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 const introWidth = 365;
 const radius = 75;
@@ -41,7 +42,7 @@ function buildLegend() {
 		.ease();
 
 	g.append('text')
-		.text('= $1 Billion')
+		.text(`= ${AfgData.dot_represents.value}`)
 		.attr('fill', colors.textColorParagraph)
 		.attr('opacity', 0)
 		.style('font-size', 16)
