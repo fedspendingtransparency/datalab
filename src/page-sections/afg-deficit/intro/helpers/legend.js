@@ -67,17 +67,17 @@ function addText() {
   explanation.append('tspan')
     .attr('x', 0)
     .attr('dy', 28)
-    .attr('font-size', 24)
+    .attr('font-size', '1.5rem')
     .attr('font-weight', '600')
     .text('One Dot');
 
   explanation.append('tspan')
-    .attr('font-size', 24)
+    .attr('font-size', '1.5rem')
     .text(' represents');
 
   explanation.append('tspan')
     .attr('x', 0)
-    .attr('font-size', 24)
+    .attr('font-size', '1.5rem')
     .attr('font-weight', '600')
     .attr('dy', 30)
     .text('One Billion Dollars');

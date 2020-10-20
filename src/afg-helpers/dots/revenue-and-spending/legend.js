@@ -1,9 +1,10 @@
 import { select, selectAll } from 'd3-selection';
 import { establishContainer, translator, fadeAndRemove } from 'src/afg-helpers/utils';
+import { transition } from 'd3-transition';
 import colors from '../../../styles/afg/colors.scss';
 import { placeDots } from './placeDots';
 import { chartWidth } from './widthManager';
-import { transition } from 'd3-transition';
+
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 const d3 = { select, selectAll, transition };
@@ -11,7 +12,7 @@ const introWidth = 365;
 const radius = 75;
 
 let svg; let largeDot; let billion; let explanation; let
-config = {};
+  config = {};
 
 function buildLegend() {
   const g = d3.select('.income-dot-legend');
@@ -41,7 +42,7 @@ function buildLegend() {
     .text(`= ${AfgData.dot_represents.value}`)
     .attr('fill', colors.textColorParagraph)
     .attr('opacity', 0)
-    .style('font-size', 16)
+    .attr('font-size', '1rem')
     .attr('y', 5)
     .attr('x', 7)
     .transition()
@@ -68,8 +69,6 @@ function buildLegend() {
 }
 
 function addText() {
-  const duration = 500;
-
   explanation = this.largeDot.append('text')
     .attr('y', 54)
     .attr('opacity', 0)
@@ -78,23 +77,23 @@ function addText() {
 
   explanation.append('tspan')
     .attr('x', 0)
-    .attr('font-size', 18)
+    .attr('font-size', '1.125rem')
     .text('In this analysis');
 
   explanation.append('tspan')
     .attr('x', 0)
     .attr('dy', 28)
-    .attr('font-size', 24)
+    .attr('font-size', '1.5rem')
     .attr('font-weight', '600')
     .text('One Dot');
 
   explanation.append('tspan')
-    .attr('font-size', 24)
+    .attr('font-size', '1.5rem')
     .text(' represents');
 
   explanation.append('tspan')
     .attr('x', 0)
-    .attr('font-size', 24)
+    .attr('font-size', '1.5rem')
     .attr('font-weight', '600')
     .attr('dy', 30)
     .text('One Billion Dollars');
@@ -102,7 +101,7 @@ function addText() {
   billion = this.largeDot.append('text')
     .text('$1,000,000,000')
     .attr('text-anchor', 'middle')
-    .attr('font-size', 18)
+    .attr('font-size', '1.125rem')
     .attr('x', this.radius)
     .attr('y', this.radius + 7)
     .attr('fill', 'white')
@@ -114,13 +113,11 @@ function addText() {
     .attr('opacity', 1)
     .ease();
 
-    if (window.innerWidth < 959) {
-      //setTimeout(buildLegend, 1000);
-      placeDots(config);
-      return;
-    } else {
-      setTimeout(buildLegend, 200);
-    }
+  if (window.innerWidth < 959) {
+    placeDots(config);
+  } else {
+    setTimeout(buildLegend, 200);
+  }
 }
 
 export function initDot() {

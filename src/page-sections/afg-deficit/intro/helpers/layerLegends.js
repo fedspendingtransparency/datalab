@@ -25,7 +25,7 @@ export function deficitLabel(yMax, parent, amount) {
     .attr('text-anchor', 'middle')
     .attr('x', 0)
     .attr('y', dotConstants.offset.y + (yMax / 2) + 44)
-    .style('font-size', 24);
+    .attr('font-size', '1.5rem');
 
   layer.append('path')
     .attr('d', lineFn(lineData))
@@ -63,7 +63,7 @@ export function labelMaker(parent, height, label, amount) {
     .attr('text-anchor', 'end')
     .attr('x', 0)
     .attr('y', height / 2 + 15)
-    .style('font-size', 24);
+    .attr('font-size', '1.5rem');
 
   if (spending) {
     lineData.forEach((r, i) => {

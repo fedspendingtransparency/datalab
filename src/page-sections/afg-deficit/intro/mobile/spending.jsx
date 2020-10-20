@@ -1,19 +1,17 @@
 import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
-
-import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
-import DeficitData from '../../../../../static/americas-finance-guide/data/explore_federal_deficit.csv';
+import { faReply } from '@fortawesome/free-solid-svg-icons';
 
 import { establishContainer, findAmountInCsv } from 'src/afg-helpers/utils';
 import { resetForResizeMobile } from 'src/afg-helpers/dots/revenue-and-spending/compareManager';
+import colors from 'src/styles/afg/colors.scss';
+import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
+import DeficitData from '../../../../../static/americas-finance-guide/data/explore_federal_deficit.csv';
+
 import { setChartWidth } from '../helpers/widthManager';
 import { dotsPerRow, setDotsPerRow } from '../helpers/dotConstants';
-import { createMobileLayers } from '../helpers/createLayers';
-import colors from 'src/styles/afg/colors.scss';
 import { initMobileLegend } from '../helpers/legend';
-import { layersInitMobile } from '../helpers/manageLayers';
-import { createMobileSpendingViz } from '../helpers/createMobileSpendingViz';
+import createMobileSpendingViz from '../helpers/createMobileSpendingViz';
 
 const SpendingTab = () => {
   const config = {
@@ -31,32 +29,32 @@ const SpendingTab = () => {
     accessibilityAttrs: {
       title: '2019 Federal Deficit, Revenue, and Spending',
       desc: 'A deficit occurs when spending exceeds revenue. For 2019, the $4.4 trillion in federal spending exceeded the $3.5 trillion in federal revenue leading to a deficit of $984 billion.',
-    }
-  }
+    },
+  };
 
   let chartHeight;
   let dotsHeight;
 
   const setMainContainer = () => {
     const count = config.deficitAmount / 10000000000;
-    const rows = Math.ceil(count / dotsPerRow)
+    const rows = Math.ceil(count / dotsPerRow);
     dotsHeight = (rows * 5);
-    
+
     const spendingCount = config.spendingAmount / 10000000000;
     const spendingRows = Math.ceil(spendingCount / dotsPerRow);
     chartHeight = (spendingRows * 5) + 35;
-    
+
     const mainContainer = establishContainer(chartHeight, window.innerWidth - 30, config.accessibilityAttrs).append('g').classed('main', true);
     config.mainContainer = mainContainer;
-  }
+  };
 
   const init = () => {
     setChartWidth();
-    setDotsPerRow(window.innerWidth * .25);
+    setDotsPerRow(window.innerWidth * 0.25);
     setMainContainer();
     initMobileLegend(config);
-    createMobileSpendingViz(config, chartHeight, window.innerWidth - 30, dotsHeight)
-  }
+    createMobileSpendingViz(config, chartHeight, window.innerWidth - 30, dotsHeight);
+  };
 
   useEffect(() => {
     init();
@@ -67,12 +65,12 @@ const SpendingTab = () => {
       if (window.innerWidth < 960) {
         init();
       }
-    }
+    };
 
     window.addEventListener('resize', resetAndInit);
     return () => {
       window.removeEventListener('resize', resetAndInit);
-    }
+    };
   }, []);
 
   return (
@@ -81,7 +79,15 @@ const SpendingTab = () => {
         <div id="viz" />
         <div className="intro-math" style={{ marginTop: 25 }}>
           <FontAwesomeIcon icon={faReply} className="fas fa-reply intro-math__icon" />
-          {AfgData.dot_number_deficit_mobile.value} dots x {AfgData.dot_represents_mobile.value} = <strong>{AfgData.current_fy_deficit.value}</strong>
+          {AfgData.dot_number_deficit_mobile.value}
+          {' '}
+          dots x
+          {' '}
+          {AfgData.dot_represents_mobile.value}
+          {' '}
+          =
+          {' '}
+          <strong>{AfgData.current_fy_deficit.value}</strong>
         </div>
       </div>
       <div className="deficit-tab-text">
@@ -92,6 +98,6 @@ const SpendingTab = () => {
       </div>
     </>
   );
-}
- 
+};
+
 export default SpendingTab;
