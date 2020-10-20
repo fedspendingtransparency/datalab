@@ -18,7 +18,9 @@ import explorer from 'src/images/home/contractexplorersunburst.png';
 import homeStyles from './index.module.scss';
 import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
 
-function IndexPage() {
+function IndexPage(props) {
+	console.log(props);
+
   return (
     <Home>
       <SEO
@@ -52,7 +54,7 @@ function IndexPage() {
             imgAlt="Illustration of finance icons: dollar bill, bag of money, etc. with the text ‘Answer all your questions about federal government finance.” overlaid."
             heading="Your Guide to America's Finances"
             body={`Your Guide to America's Finances is an overview of U.S. government finances for 2020. Here you’ll find information on spending, revenue, the deficit, and debt. The Guide presents a series of interactive visualizations exploring each category and how it has changed over time. Ultimately, the Guide seeks to provide a comprehensive overview of the trillions of dollars collected and spent by the federal government each year.`}
-            mobileBody="Your guide to understanding the trillions of dollars that make up the federal balance sheet. Our interactive visualizations walk you through federal spending, revenue, the deficit, and debt."
+						mobileBody={[<><p>Your guide to understanding the trillions of dollars that make up the federal <a href='/?glossary=budget_function'>balance sheet</a>. Our interactive visualizations walk you through federal spending, revenue, the deficit, and debt.</p></>]}
 	  />
 	</Grid>
 	<Grid item md={12} lg={4}>

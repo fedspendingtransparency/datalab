@@ -39,36 +39,37 @@ const FeatureTile = (props) => {
 	}
 
   return (
-    <Link
-      to={props.href}
-      className="primary__link"
-      ga-on="click" ga-event-category="Data Lab Home Page"
-      ga-event-action={"Clicked " + props.heading}
-    >
+		<section className={featuredAnalysesTitleStyles.featured}>
+			<Link
+				to={props.href}
+				className="primary__link"
+				ga-on="click" ga-event-category="Data Lab Home Page"
+				ga-event-action={"Clicked " + props.heading}
+			>
 
-      <section className={featuredAnalysesTitleStyles.featured}>
-        <h1 className={featuredAnalysesTitleStyles.headingMobile}>
-          {props.heading}
-        </h1>
+					<h1 className={featuredAnalysesTitleStyles.headingMobile}>
+						{props.heading}
+					</h1>
 
-        <DisplayedImg />
+					<DisplayedImg />
+			</Link>
 
-        <div className={featuredAnalysesTitleStyles.content}>
-          <h2 className={featuredAnalysesTitleStyles.heading}>
-            {props.heading}
-          </h2>
+			<div className={featuredAnalysesTitleStyles.content}>
+					<h2 className={featuredAnalysesTitleStyles.heading}>
+						{props.heading}
+					</h2>
 
-          <p className={featuredAnalysesTitleStyles.text}>
-            {props.body}
-          </p>
+					<p className={featuredAnalysesTitleStyles.text}>
+						{props.body}
+					</p>
 
-          <p className={featuredAnalysesTitleStyles.textMobile}>
-            {props.mobileBody}
-          </p>
-        </div>
-      </section>
-    </Link>
-  );
+					<p className={featuredAnalysesTitleStyles.textMobile}>
+						{props.mobileBody}
+					</p>
+			</div>
+		</section>
+
+	);
 }
 
 export default FeatureTile;
