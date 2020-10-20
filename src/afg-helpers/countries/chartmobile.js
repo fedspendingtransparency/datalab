@@ -142,7 +142,7 @@ function rescale() {
   }
 
   d3.select('svg.main').selectAll('g.bar-group')
-    .each(() => {
+    .each(function () {
       const group = d3.select(this);
       const labels = group.selectAll('text');
       const zeroLines = group.selectAll('line');
@@ -176,7 +176,6 @@ function sort() {
 
 function placeHeaders() {
   const labelXPadding = 12;
-
   const percentLabelOffset = Math.min(mobileDimensions.countryColumnWidth + mobileDimensions.gdpColumnWidth / 2 + 10 - fontSize, document.body.clientWidth - 160);
 
   svg.append('g')
@@ -208,7 +207,7 @@ function placeHeaders() {
   svg.selectAll('g.header')
     .on('click', sort)
     .attr('style', 'cursor:pointer')
-    .each(() => {
+    .each(function () {
       renderSortIcon(this, null, primaryColor);
     });
 
@@ -286,7 +285,7 @@ function addDGPIcon(row, d) {
   const timeoutForAdd = 500;
 
   setTimeout(() => {
-    dataRows.each(() => {
+    dataRows.each(function () {
       const gdpPercent = d[config.gdpField] / 100;
       const donutColor = gdpPercent > 0 ? primaryColor : negativeColor;
       createDonut(d3.select(this), d[config.gdpField] / 100, donutRadius * 2, donutColor);
