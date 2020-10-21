@@ -2,7 +2,11 @@ import { select, selectAll } from 'd3-selection';
 import { min, max, range } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
 import {
-  translator, simplifyNumber, establishContainer, wordWrap, getElementBox,
+  translator,
+  simplifyNumber,
+  establishContainer,
+  wordWrap,
+  getElementBox,
 } from 'src/afg-helpers/utils';
 import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
@@ -14,7 +18,6 @@ import { redrawMobile, updateMobileTableList, sortMobileTable } from './chartmob
 import './selectCountry.scss';
 import { setData, prepareData } from './data';
 import { renderSortIcon, updateIcons } from './sortIcon';
-import { pan } from './pan';
 
 const d3 = {
   select,
@@ -43,8 +46,6 @@ let data;
 let config;
 let primaryColor;
 let negativeColor;
-let debounce;
-let previousWidth;
 let svg;
 
 dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
@@ -52,7 +53,7 @@ dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - d
 function barTransition(selection) {
   selection.transition()
     .duration(barFadeTime)
-    .attr('x', (d) => scales.x(0))
+    .attr('x', () => scales.x(0))
     .attr('width', (d) => Math.abs(scales.x(Math.abs(d[config.amountField])) - scales.x(0)))
     .ease();
 }
@@ -80,8 +81,6 @@ function addBarGroups() {
   const groups = containers.data.selectAll('g.bar-group')
     .data(data, (d) => d.country);
 
-  let enterGroups;
-
   if (groups.size()) {
     groups.transition()
       .duration(addRemoveDuration)
@@ -91,7 +90,7 @@ function addBarGroups() {
 
   groups.exit().remove();
 
-  enterGroups = groups.enter()
+  const enterGroups = groups.enter()
     .append('g')
     .classed('bar-group', true)
     .attr('transform', (_, i) => translator(0, i * dimensions.rowHeight));
@@ -166,11 +165,9 @@ function placeCountryLabels() {
         const selection = d3.select(this);
         const textWidth = getElementBox(selection).width;
 
-        let x; let
-          y;
         if (textWidth > max) {
-          x = selection.attr('x');
-          y = selection.attr('y') - textHeight / 2;
+          const x = selection.attr('x');
+          const y = selection.attr('y') - textHeight / 2;
           wordWrap(selection, max);
           selection.selectAll('tspan').attr('x', x).attr('y', y);
         }

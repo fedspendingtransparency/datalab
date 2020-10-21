@@ -112,7 +112,7 @@ function ink() {
 function barTransition(selection) {
   selection.transition()
     .duration(barFadeTime)
-    .attr('x', (d) => scales.x(0))
+    .attr('x', () => scales.x(0))
     .attr('width', (d) => Math.abs(scales.x(Math.abs(d[config.amountField])) - scales.x(0)))
     .ease();
 }
@@ -176,7 +176,6 @@ function sort() {
 
 function placeHeaders() {
   const labelXPadding = 12;
-
   const percentLabelOffset = Math.min(mobileDimensions.countryColumnWidth + mobileDimensions.gdpColumnWidth / 2 + 10 - fontSize, document.body.clientWidth - 160);
 
   svg.append('g')
@@ -218,6 +217,8 @@ function placeHeaders() {
 function placeLegend() {
   const boxSize = 12;
   const animationDuration = 0;
+
+  d3.select('.legend').remove();
 
   legendEl = svg.append('g').classed('legend', true);
 
@@ -345,8 +346,6 @@ function sortRows() {
   svg.selectAll('g.cg-data-row')
     .data(data, (d) => d.country)
     .each(sortRow);
-
-  // sortRow(rows);
 }
 
 function sortRow(_, i) {
