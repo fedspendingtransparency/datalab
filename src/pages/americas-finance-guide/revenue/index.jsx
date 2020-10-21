@@ -62,9 +62,9 @@ function RevenueAndGdpPage(props) {
 					<div className="info-box" id="fiscal-year">
 						<img src={AnecdoteRevenueSVG} alt="anecdote icon" />
 						<p>
-							Fiscal Year refers to the period of time used by the government
-							for accounting and budget purposes. For the federal government,
-							the fiscal year runs from October 1 through September 30.
+							Fiscal Year refers to the period of time used by the government for
+							accounting and budget purposes. For the federal government, the fiscal
+							year runs from October 1 through September 30.
 						</p>
 					</div>
 					<div className="info-box" id="per-individual">
@@ -72,8 +72,7 @@ function RevenueAndGdpPage(props) {
 						<p>
 							How much is {AfgData.current_fy_revenue.value}? If you take{" "}
 							{AfgData.current_fy_revenue.value} divided by the U.S. population
-							estimate in {AfgData.current_fy.value}, of{" "}
-							{AfgData.us_population.value}(
+							estimate in {AfgData.current_fy.value}, of {AfgData.us_population.value}(
 							<a
 								href={AfgData.census_population.value}
 								target="_blank"
@@ -81,26 +80,26 @@ function RevenueAndGdpPage(props) {
 								U.S. Census Bureau
 							</a>
 							) that would equate to a little more than{" "}
-							{AfgData.revenue_per_individual.value} in revenue for every
-							individual in the U.S.
+							{AfgData.revenue_per_individual.value} in revenue for every individual in
+							the U.S.
 						</p>
 					</div>
 					<div className="info-box" id="billion-dollars">
 						<img src={AnecdoteRevenueSVG} alt="anecdote icon" />
 						<p>
-							In this visualization, one dot represents{" "}
-							{AfgData.dot_represents.value} of federal revenue.
+							In this visualization, one dot represents {AfgData.dot_represents.value}{" "}
+							of federal revenue.
 						</p>
 					</div>
 					<div className="info-box" id="gdp-info">
 						<img src={DefinitionSVG} alt="definition icon" />
 						<p>
-							<strong>Gross domestic product (GDP)</strong> measures the size of
-							the nation's economy by the total value of final goods and
-							services that are produced in a year. Gross domestic product is
-							used to compare the economies of different countries, measure
-							growth in the economy, and determine the right monetary policies
-							to address inflation and unemployment.
+							<strong>Gross domestic product (GDP)</strong> measures the size of the
+							nation's economy by the total value of final goods and services that are
+							produced in a year. Gross domestic product is used to compare the
+							economies of different countries, measure growth in the economy, and
+							determine the right monetary policies to address inflation and
+							unemployment.
 						</p>
 					</div>
 					<div className="viz-wrapper">
@@ -110,18 +109,17 @@ function RevenueAndGdpPage(props) {
 								icon={faReply}
 								className="fas fa-reply intro-math__icon"
 							/>
-							{AfgData.dot_number_revenue.value} dots x{" "}
-							{AfgData.dot_represents.value} ={" "}
-							<strong>{AfgData.current_fy_revenue.value}</strong>
+							{AfgData.dot_number_revenue.value} dots x {AfgData.dot_represents.value}{" "}
+							= <strong>{AfgData.current_fy_revenue.value}</strong>
 						</div>
 						<div id="copy" className="intro-hidden">
 							<p>
-								Where does the money come from? If you lived or worked in the
-								United States in {AfgData.current_fy.value}, most likely your
-								contributions are part of the {AfgData.current_fy_revenue.value}
-								. Federal revenue consists mostly of individual, corporate, and
-								social insurance taxes collected from the people who live, work,
-								or do business in the United States each Fiscal Year.
+								Where does the money come from? If you lived or worked in the United
+								States in {AfgData.current_fy.value}, most likely your contributions are
+								part of the {AfgData.current_fy_revenue.value}. Federal revenue consists
+								mostly of individual, corporate, and social insurance taxes collected
+								from the people who live, work, or do business in the United States each
+								Fiscal Year.
 								<button className="info-box-trigger" data-box-id="fiscal-year">
 									<img src={AnecdoteRevenueSVG} alt="anecdote icon" />
 								</button>
@@ -131,13 +129,11 @@ function RevenueAndGdpPage(props) {
 							<div className="facts__inner">
 								<div id="compare-options">
 									<p className="facts__prompt">
-										How does federal revenue compare to federal spending and the
-										size of the economy?
+										How does federal revenue compare to federal spending and the size of
+										the economy?
 									</p>
 									<div className="facts__triggers">
-										<button
-											className="facts__trigger"
-											data-trigger-id="spending">
+										<button className="facts__trigger" data-trigger-id="spending">
 											Federal Spending
 										</button>
 										<button className="facts__trigger" data-trigger-id="gdp">
@@ -148,33 +144,31 @@ function RevenueAndGdpPage(props) {
 
 								<section id="spending-facts" className="facts__section">
 									<h1>
-										In Fiscal Year {AfgData.current_fy.value}, the federal
-										government spent {AfgData.current_fy_spending.value}.
+										In Fiscal Year {AfgData.current_fy.value}, the federal government
+										spent {AfgData.current_fy_spending.value}.
 									</h1>
 									<p>
-										Since the government spent more than it collected, the
-										deficit for {AfgData.current_fy.value} was{" "}
-										{AfgData.current_fy_deficit.value}.
+										Since the government spent more than it collected, the deficit for{" "}
+										{AfgData.current_fy.value} was {AfgData.current_fy_deficit.value}.
 									</p>
 								</section>
 
 								<section id="gdp-facts" className="facts__section">
 									<h1>
-										In Fiscal Year {AfgData.current_fy.value}, federal revenue
-										was equal to {AfgData.revenue_percent_gdp.value} of total
-										gross domestic product (GDP), or economic activity, of the
-										United States that year ({AfgData.current_fy_gdp.value}
+										In Fiscal Year {AfgData.current_fy.value}, federal revenue was equal
+										to {AfgData.revenue_percent_gdp.value} of total gross domestic product
+										(GDP), or economic activity, of the United States that year (
+										{AfgData.current_fy_gdp.value}
 										).
 									</h1>
 									<p>
-										Why do we compare federal revenue to gross domestic product?
-										For one, the comparison serves as a rough gauge of the size
-										of the federal government's footprint related to size of the
-										entire country's economic activity. In addition, federal
-										taxes are based on a percentage of income for people and
-										businesses. If an economy is performing well, people and
-										businesses earn more, and federal revenue from taxes
-										increases.
+										Why do we compare federal revenue to gross domestic product? For one,
+										the comparison serves as a rough gauge of the size of the federal
+										government's footprint related to size of the entire country's
+										economic activity. In addition, federal taxes are based on a
+										percentage of income for people and businesses. If an economy is
+										performing well, people and businesses earn more, and federal revenue
+										from taxes increases.
 									</p>
 
 									<strong>
@@ -215,19 +209,15 @@ function RevenueAndGdpPage(props) {
 									target="_blank">
 									Monthly Treasury Statement (MTS)
 								</a>{" "}
-								as the data source for federal government revenue of the United
-								States.
-								<GdpTemplate /> The revenue-to-gross domestic product ratio is
-								included to provide you with context for the trillions of
-								dollars that come in to the federal government annually.
-								Throughout this page, we use the gross domestic product for the
-								Fiscal Year, not the Calendar Year, in order to facilitate an
-								appropriate comparison.
+								as the data source for federal government revenue of the United States.
+								<GdpTemplate /> The revenue-to-gross domestic product ratio is included
+								to provide you with context for the trillions of dollars that come in to
+								the federal government annually. Throughout this page, we use the gross
+								domestic product for the Fiscal Year, not the Calendar Year, in order to
+								facilitate an appropriate comparison.
 							</p>
 							<div className="afg__download--div">
-								<div className="afg__download--heading">
-									Download Source Data
-								</div>
+								<div className="afg__download--heading">Download Source Data</div>
 								<ul>
 									<li>
 										<a

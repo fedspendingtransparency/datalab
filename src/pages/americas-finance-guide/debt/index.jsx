@@ -58,13 +58,12 @@ function ExploreDebtPage(props) {
 							<p>
 								How did we end up with&nbsp;
 								{AfgData.current_fy_debt.value} in federal debt? When the U.S.
-								government has a deficit, most of the deficit spending is
-								covered by the government taking on new debt. It is similar to a
-								person using his or her credit card for a purchase (rather than
-								cash, check, or a debit card) and not paying the full credit
-								card balance each month. Over the years, if the federal
-								government experiences more deficits than surpluses, the federal
-								debt grows.
+								government has a deficit, most of the deficit spending is covered by the
+								government taking on new debt. It is similar to a person using his or
+								her credit card for a purchase (rather than cash, check, or a debit
+								card) and not paying the full credit card balance each month. Over the
+								years, if the federal government experiences more deficits than
+								surpluses, the federal debt grows.
 							</p>
 						</div>
 						<div className="viz-wrapper-debt">
@@ -75,8 +74,7 @@ function ExploreDebtPage(props) {
 									icon={faReply}
 									className="fas fa-reply intro-math__icon"
 								/>
-								{AfgData.dot_number_debt.value} dots x{" "}
-								{AfgData.dot_represents.value} ={" "}
+								{AfgData.dot_number_debt.value} dots x {AfgData.dot_represents.value} ={" "}
 								<strong>{AfgData.current_fy_debt.value}</strong>
 							</div>
 
@@ -84,13 +82,11 @@ function ExploreDebtPage(props) {
 								<div className="facts__inner">
 									<div id="compare-options">
 										<p className="facts__prompt">
-											How does the national debt compare to the deficit and the
-											size of the economy?
+											How does the national debt compare to the deficit and the size of the
+											economy?
 										</p>
 										<div className="facts__triggers">
-											<button
-												className="facts__trigger"
-												data-trigger-id="deficit">
+											<button className="facts__trigger" data-trigger-id="deficit">
 												Deficit
 											</button>
 											<button className="facts__trigger" data-trigger-id="gdp">
@@ -102,24 +98,22 @@ function ExploreDebtPage(props) {
 									<section id="deficit-facts" className="facts__section">
 										<h1>Deficit</h1>
 										<p>
-											The change in federal debt each year is heavily influenced
-											by the deficit or surplus that year. When there is not
-											enough revenue to pay for spending, the government borrows
-											money to make up the difference. When there is excess
-											revenue in a given year, the majority of those funds are
-											used to pay down the federal debt.
+											The change in federal debt each year is heavily influenced by the
+											deficit or surplus that year. When there is not enough revenue to pay
+											for spending, the government borrows money to make up the difference.
+											When there is excess revenue in a given year, the majority of those
+											funds are used to pay down the federal debt.
 										</p>
 									</section>
 
 									<section id="gdp-facts" className="facts__section">
 										<h1>U.S. Economy</h1>
 										<p>
-											By comparing the total federal debt to gross domestic
-											product (GDP), we can observe the government's ability to
-											utilize the resources at hand to finance the debt the same
-											way you and your family manage your finances to make sure
-											that your monthly payments for your mortgage, car loans,
-											and credit cards can be made.
+											By comparing the total federal debt to gross domestic product (GDP),
+											we can observe the government's ability to utilize the resources at
+											hand to finance the debt the same way you and your family manage your
+											finances to make sure that your monthly payments for your mortgage,
+											car loans, and credit cards can be made.
 										</p>
 									</section>
 								</div>
@@ -129,10 +123,9 @@ function ExploreDebtPage(props) {
 								<AccordionList title="Who owns the federal government's debt?">
 									<div>
 										<p>
-											Most of the federal government's debt is owned by federal
-											trust funds and domestic investors in the United States.
-											Foreign investors, including other governments, also own
-											part of the debt.
+											Most of the federal government's debt is owned by federal trust funds
+											and domestic investors in the United States. Foreign investors,
+											including other governments, also own part of the debt.
 										</p>
 									</div>
 								</AccordionList>
@@ -142,14 +135,12 @@ function ExploreDebtPage(props) {
 								<div className="tour__part-one">
 									<h1>How has the federal debt changed over time?</h1>
 									<p>
-										When you are done here, we encourage you to explore trends
-										in the federal debt since&nbsp;
+										When you are done here, we encourage you to explore trends in the
+										federal debt since&nbsp;
 										{AfgData.debt_trend_start.value}.
 									</p>
 								</div>
-								<a
-									href="/americas-finance-guide/debt/trends/"
-									className="tour__link">
+								<a href="/americas-finance-guide/debt/trends/" className="tour__link">
 									Explore
 									<FontAwesomeIcon
 										icon={faAngleRight}
@@ -164,8 +155,8 @@ function ExploreDebtPage(props) {
 							<img src={AnecdoteDebtSVG} alt="anecdote icon" />
 							<p>
 								How much is&nbsp;
-								{AfgData.current_fy_debt.value} in federal debt? If you take the
-								U.S. population estimate in&nbsp;
+								{AfgData.current_fy_debt.value} in federal debt? If you take the U.S.
+								population estimate in&nbsp;
 								{AfgData.current_fy.value} of&nbsp;
 								{AfgData.us_population.value} people&nbsp;
 								<a
@@ -174,10 +165,8 @@ function ExploreDebtPage(props) {
 									target="_blank">
 									(U.S. Census Bureau)
 								</a>
-								,{AfgData.current_fy_debt.value} would be equivalent to more
-								than&nbsp;
-								{AfgData.debt_per_individual.value} for every individual in the
-								U.S.
+								,{AfgData.current_fy_debt.value} would be equivalent to more than&nbsp;
+								{AfgData.debt_per_individual.value} for every individual in the U.S.
 							</p>
 						</div>
 						<div className="info-box" id="billion-dollars">
@@ -199,8 +188,7 @@ function ExploreDebtPage(props) {
 									target="_blank">
 									Monthly Statement of the Public Debt (MSPD)
 								</a>{" "}
-								as the data source for federal debt of the United States and
-								the&nbsp;
+								as the data source for federal debt of the United States and the&nbsp;
 								<a
 									href={AfgData.current_mts.value}
 									rel="noopener noreferrer"
@@ -208,14 +196,12 @@ function ExploreDebtPage(props) {
 									Monthly Treasury Statement (MTS)
 								</a>{" "}
 								as the data source for federal government revenue and spending.
-								<GdpTemplate /> Throughout this page, we use the gross domestic
-								product for the Fiscal Year, not the Calendar Year, in order to
-								facilitate an appropriate comparison.
+								<GdpTemplate /> Throughout this page, we use the gross domestic product
+								for the Fiscal Year, not the Calendar Year, in order to facilitate an
+								appropriate comparison.
 							</p>
 							<div className="afg__download--div">
-								<div className="afg__download--heading">
-									Download Source Data
-								</div>
+								<div className="afg__download--heading">Download Source Data</div>
 								<ul>
 									<li>
 										<a

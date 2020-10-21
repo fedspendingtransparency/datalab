@@ -71,15 +71,14 @@ export default function OverviewPage(props) {
 								<h1 className="bp-header__heading">
 									How much money did the federal{" "}
 									<span className="bp-header__break">
-										government{" "}
-										<span className="bp-header__collect-text">collect</span> and{" "}
-										<span className="bp-header__spend-text">spend</span> in{" "}
+										government <span className="bp-header__collect-text">collect</span>{" "}
+										and <span className="bp-header__spend-text">spend</span> in{" "}
 										{AfgData.current_fy.value}?
 									</span>
 								</h1>
 								<div className="bp-header__text">
-									Interested in learning about the deficit or federal debt? Keep
-									reading or{" "}
+									Interested in learning about the deficit or federal debt? Keep reading
+									or{" "}
 									<a href="#deficit-debt-heading" className="scroll-to">
 										jump to the deficit and federal debt section
 									</a>
@@ -87,9 +86,7 @@ export default function OverviewPage(props) {
 								</div>
 							</div>
 							<div className="bp-header__scroll scroll-to">
-								<a
-									href="#revenue-chapter"
-									aria-label="Scroll to revenue chapter">
+								<a href="#revenue-chapter" aria-label="Scroll to revenue chapter">
 									<FontAwesomeIcon
 										icon={faAngleDown}
 										width={20}
@@ -126,10 +123,7 @@ export default function OverviewPage(props) {
 												/>{" "}
 												<span className="anecdote__teaser">
 													{" "}
-													Show me what {
-														AfgData.current_fy_revenue_short.value
-													}{" "}
-													is equal to
+													Show me what {AfgData.current_fy_revenue_short.value} is equal to
 												</span>
 											</button>
 										</div>
@@ -146,8 +140,7 @@ export default function OverviewPage(props) {
 															<p>
 																Federal government revenue equates to about{" "}
 																<strong>
-																	{AfgData.revenue_second.value} of revenue per
-																	second
+																	{AfgData.revenue_second.value} of revenue per second
 																</strong>
 																.
 															</p>
@@ -157,26 +150,19 @@ export default function OverviewPage(props) {
 																src="/americas-finance-guide/images/revenue-1-outline.svg"
 																alt=""></img>
 															<p>
-																In the time it takes you to read this statement,
-																that’s{" "}
+																In the time it takes you to read this statement, that’s{" "}
 																<strong>
-																	roughly {AfgData.revenue_during_read.value} in
-																	revenue
+																	roughly {AfgData.revenue_during_read.value} in revenue
 																</strong>
 																.
 															</p>
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_revenue.value} is the same
-																amount as{" "}
-																<strong>
-																	{AfgData.number_of_salaries.value}
-																</strong>{" "}
-																individuals each receiving a salary of{" "}
-																<strong>
-																	{AfgData.individual_salary.value} per year
-																</strong>
+																{AfgData.current_fy_revenue.value} is the same amount as{" "}
+																<strong>{AfgData.number_of_salaries.value}</strong> individuals
+																each receiving a salary of{" "}
+																<strong>{AfgData.individual_salary.value} per year</strong>
 															</p>
 															<img
 																className="anecdote__illustration"
@@ -201,11 +187,10 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_revenue.value} equates to
-																the average U.S. household contributing{" "}
+																{AfgData.current_fy_revenue.value} equates to the average U.S.
+																household contributing{" "}
 																<strong>
-																	{AfgData.household_contribution.value} per
-																	month
+																	{AfgData.household_contribution.value} per month
 																</strong>
 																.
 															</p>
@@ -217,8 +202,7 @@ export default function OverviewPage(props) {
 															<p>
 																That is roughly equal to the cost of{" "}
 																<strong>
-																	renting a{" "}
-																	{AfgData.household_contribution_type.value}
+																	renting a {AfgData.household_contribution_type.value}
 																</strong>{" "}
 																in {AfgData.household_contribution_city.value}.
 															</p>
@@ -241,11 +225,9 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_revenue.value} equates to
-																the{" "}
+																{AfgData.current_fy_revenue.value} equates to the{" "}
 																<strong>
-																	revenue of the top{" "}
-																	{AfgData.sp_companies.value} companies
+																	revenue of the top {AfgData.sp_companies.value} companies
 																</strong>{" "}
 																in the S&P 500.
 															</p>
@@ -255,8 +237,8 @@ export default function OverviewPage(props) {
 																src="/americas-finance-guide/images/revenue-5-outline.svg"
 																alt=""></img>
 															<p className="source">
-																Figures based on {AfgData.sp_year.value} 10-K
-																reports for S&P 500 Companies
+																Figures based on {AfgData.sp_year.value} 10-K reports for S&P
+																500 Companies
 															</p>
 														</div>
 													</div>
@@ -277,26 +259,23 @@ export default function OverviewPage(props) {
 									</section>
 
 									<p className="chapter__paragraph--tightened">
-										The federal government collects revenue from a variety of
-										sources, including individual income taxes, payroll taxes,
-										corporate income taxes, and excise taxes. It also collects
-										revenue from services like admission to national parks and
-										customs duties.
+										The federal government collects revenue from a variety of sources,
+										including individual income taxes, payroll taxes, corporate income
+										taxes, and excise taxes. It also collects revenue from services like
+										admission to national parks and customs duties.
 									</p>
 
 									<section className="accordion">
 										<AccordionList title="What makes federal revenue increase or decrease?">
 											<div className="accordion__content">
 												<p>
-													The majority of federal revenue comes from individual
-													and corporate income taxes as well as social insurance
-													taxes. When individuals and corporations earn more
-													money, they pay more in taxes, and thus federal
-													revenue increases. Alternatively, if they make the
-													same amount, but tax rates increase, the federal
-													revenue will also increase. Decreases in federal
-													revenue are largely due to either individuals or
-													corporations making less money or a decrease in tax
+													The majority of federal revenue comes from individual and corporate
+													income taxes as well as social insurance taxes. When individuals
+													and corporations earn more money, they pay more in taxes, and thus
+													federal revenue increases. Alternatively, if they make the same
+													amount, but tax rates increase, the federal revenue will also
+													increase. Decreases in federal revenue are largely due to either
+													individuals or corporations making less money or a decrease in tax
 													rates.
 												</p>
 											</div>
@@ -371,10 +350,7 @@ export default function OverviewPage(props) {
 												/>
 												<span className="anecdote__teaser">
 													{" "}
-													Show me what {
-														AfgData.current_fy_spending_short.value
-													}{" "}
-													is equal to
+													Show me what {AfgData.current_fy_spending_short.value} is equal to
 												</span>
 											</button>
 										</div>
@@ -390,8 +366,7 @@ export default function OverviewPage(props) {
 														<div className="anecdote__pane">
 															<p>
 																Federal government spending equates to about{" "}
-																<strong>{AfgData.spending_second.value}</strong>{" "}
-																per second.
+																<strong>{AfgData.spending_second.value}</strong> per second.
 															</p>
 															<img
 																role="presentation"
@@ -401,20 +376,16 @@ export default function OverviewPage(props) {
 															<p>
 																In just 10 seconds, that's{" "}
 																<strong>
-																	{AfgData.spending_ten_seconds.value} in
-																	spending.
+																	{AfgData.spending_ten_seconds.value} in spending.
 																</strong>
 															</p>
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_spending.value} is
-																equivalent to a little more than{" "}
-																<strong>
-																	{AfgData.spending_per_individual.value}
-																</strong>{" "}
-																in spending <strong>per U.S. individual</strong>
-																.
+																{AfgData.current_fy_spending.value} is equivalent to a little
+																more than{" "}
+																<strong>{AfgData.spending_per_individual.value}</strong> in
+																spending <strong>per U.S. individual</strong>.
 															</p>
 															<img
 																role="presentation"
@@ -433,12 +404,10 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_spending.value} equates to
-																the average household spending{" "}
-																<strong>
-																	{AfgData.household_spending_month.value}
-																</strong>{" "}
-																per month.
+																{AfgData.current_fy_spending.value} equates to the average
+																household spending{" "}
+																<strong>{AfgData.household_spending_month.value}</strong> per
+																month.
 															</p>
 															<img
 																role="presentation"
@@ -448,8 +417,7 @@ export default function OverviewPage(props) {
 															<p>
 																That is roughly equal{" "}
 																<strong>
-																	to renting a{" "}
-																	{AfgData.household_spending_type.value}
+																	to renting a {AfgData.household_spending_type.value}
 																</strong>{" "}
 																in {AfgData.household_spending_city.value}.
 															</p>
@@ -472,15 +440,14 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_spending.value} is
-																equivalent to building a new{" "}
+																{AfgData.current_fy_spending.value} is equivalent to building a
+																new{" "}
 																<strong>
-																	four-lane road from Washington D.C. to San
-																	Francisco and back...
+																	four-lane road from Washington D.C. to San Francisco and
+																	back...
 																	{AfgData.dc_sf_trips.value} times!
 																</strong>{" "}
-																(That's {AfgData.dc_sf_miles.value} miles of
-																roadway!)
+																(That's {AfgData.dc_sf_miles.value} miles of roadway!)
 															</p>
 															<img
 																role="presentation"
@@ -493,8 +460,7 @@ export default function OverviewPage(props) {
 																	href={AfgData.artba_road_cost.value}
 																	rel="noopener noreferrer"
 																	target="_blank">
-																	American Road & Transportation Builders
-																	Association
+																	American Road & Transportation Builders Association
 																</a>
 															</p>
 														</div>
@@ -516,38 +482,33 @@ export default function OverviewPage(props) {
 									</section>
 
 									<p className="chapter__paragraph--tightened">
-										The federal government funds a variety of programs and
-										services that support the American public. The federal
-										government also spends money on interest it has incurred on
-										outstanding federal debt, including Treasury notes and
-										bonds.
+										The federal government funds a variety of programs and services that
+										support the American public. The federal government also spends money
+										on interest it has incurred on outstanding federal debt, including
+										Treasury notes and bonds.
 									</p>
 
 									<section className="accordion">
 										<AccordionList title="Who controls government spending anyway?">
 											<div className="accordion__content">
 												<p>
-													Government spending can be broken down into two
-													categories: mandatory and discretionary. Mandatory
-													spending is determined by previous law and includes
-													spending for programs like Social Security and
-													Medicare. Discretionary spending is determined by the
-													President and Congress each year in the budget and
-													appropriations process. First, the President puts
-													together a budget proposal and sends it to Congress.
-													Then, the House and Senate both draft budget
-													resolutions. Congress can change funding levels, as
-													well as add or eliminate programs, taxes, and other
-													sources of revenue. Once the budget resolutions have
-													been finalized in the House and Senate, Congress
-													reconciles the differences and votes on a final
-													budget. The discretionary spending levels in the
-													budget are divided among the twelve Appropriations
-													Subcommittees, who then draft bills providing funding
-													levels for the Departments, bureaus and agencies
-													within their jurisdiction. After the House and Senate
-													agree to a final funding level for each bill, they are
-													sent to the President for approval or veto.
+													Government spending can be broken down into two categories:
+													mandatory and discretionary. Mandatory spending is determined by
+													previous law and includes spending for programs like Social
+													Security and Medicare. Discretionary spending is determined by the
+													President and Congress each year in the budget and appropriations
+													process. First, the President puts together a budget proposal and
+													sends it to Congress. Then, the House and Senate both draft budget
+													resolutions. Congress can change funding levels, as well as add or
+													eliminate programs, taxes, and other sources of revenue. Once the
+													budget resolutions have been finalized in the House and Senate,
+													Congress reconciles the differences and votes on a final budget.
+													The discretionary spending levels in the budget are divided among
+													the twelve Appropriations Subcommittees, who then draft bills
+													providing funding levels for the Departments, bureaus and agencies
+													within their jurisdiction. After the House and Senate agree to a
+													final funding level for each bill, they are sent to the President
+													for approval or veto.
 												</p>
 											</div>
 										</AccordionList>
@@ -595,9 +556,8 @@ export default function OverviewPage(props) {
 					<section className="deficit-debt-heading" id="deficit-debt-heading">
 						<h1 className="deficit-debt-heading__heading">
 							How did federal revenue and spending affect the{" "}
-							<span className="chapter__divider--text-deficit">deficit</span>{" "}
-							and federal{" "}
-							<span className="chapter__divider--text-debt">debt</span> in{" "}
+							<span className="chapter__divider--text-deficit">deficit</span> and
+							federal <span className="chapter__divider--text-debt">debt</span> in{" "}
 							{AfgData.current_fy.value}?
 						</h1>
 						<div className="deficit-debt-heading__arrow-container scroll-to">
@@ -623,9 +583,7 @@ export default function OverviewPage(props) {
 									<h1 className="chapter__heading">
 										In {AfgData.current_fy.value}, the federal government spent{" "}
 										{AfgData.current_fy_deficit.value} more than it collected,{" "}
-										<span className="chapter__big-number">
-											resulting in a deficit.
-										</span>
+										<span className="chapter__big-number">resulting in a deficit.</span>
 									</h1>
 
 									<section className="anecdote">
@@ -639,10 +597,7 @@ export default function OverviewPage(props) {
 												/>
 												<span className="anecdote__teaser">
 													{" "}
-													Show me what {
-														AfgData.current_fy_deficit_short.value
-													}{" "}
-													is equal to
+													Show me what {AfgData.current_fy_deficit_short.value} is equal to
 												</span>
 											</button>
 										</div>
@@ -659,9 +614,8 @@ export default function OverviewPage(props) {
 															<p>
 																{AfgData.current_fy_deficit.value} is almost{" "}
 																<strong>
-																	{AfgData.times_cc_debt.value} times the amount
-																	of credit card debt Americans created in{" "}
-																	{AfgData.current_fy.value}
+																	{AfgData.times_cc_debt.value} times the amount of credit card
+																	debt Americans created in {AfgData.current_fy.value}
 																</strong>{" "}
 																({AfgData.cc_debt_total.value}).
 															</p>
@@ -682,11 +636,9 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_deficit.value} breaks down
-																to about{" "}
+																{AfgData.current_fy_deficit.value} breaks down to about{" "}
 																<strong>
-																	{AfgData.deficit_per_household.value} of
-																	deficit spending
+																	{AfgData.deficit_per_household.value} of deficit spending
 																</strong>{" "}
 																per household in {AfgData.current_fy.value}.
 															</p>
@@ -696,12 +648,9 @@ export default function OverviewPage(props) {
 																src="/americas-finance-guide/images/deficit-2-outline.svg"
 																alt=""></img>
 															<p>
-																In {AfgData.current_fy.value}, there were an
-																estimated{" "}
-																<strong>
-																	{AfgData.us_households.value} households
-																</strong>{" "}
-																in the United States.
+																In {AfgData.current_fy.value}, there were an estimated{" "}
+																<strong>{AfgData.us_households.value} households</strong> in the
+																United States.
 															</p>
 															<p className="source">
 																Source -{" "}
@@ -716,10 +665,8 @@ export default function OverviewPage(props) {
 														<div className="anecdote__pane">
 															<p>
 																{AfgData.current_fy_deficit.value} equates to{" "}
-																<strong>{AfgData.deficit_minute.value}</strong>{" "}
-																in deficit spending{" "}
-																<strong>every minute</strong> for an entire
-																year.
+																<strong>{AfgData.deficit_minute.value}</strong> in deficit
+																spending <strong>every minute</strong> for an entire year.
 															</p>
 															<img
 																role="presentation"
@@ -745,20 +692,19 @@ export default function OverviewPage(props) {
 									</section>
 
 									<p className="chapter__paragraph--tightened">
-										A deficit occurs when money going out exceeds the money
-										coming in. In {AfgData.current_fy.value}, the federal
-										government spent more than it collected.
+										A deficit occurs when money going out exceeds the money coming in. In{" "}
+										{AfgData.current_fy.value}, the federal government spent more than it
+										collected.
 									</p>
 
 									<section className="accordion">
 										<AccordionList title="What happens when there is a surplus?">
 											<div className="accordion__content">
 												<p>
-													A surplus occurs when the government collects more
-													money than it spends. The last federal surplus
-													occurred in {AfgData.last_surplus.value}. The
-													government primarily uses surpluses to reduce the
-													federal debt.
+													A surplus occurs when the government collects more money than it
+													spends. The last federal surplus occurred in{" "}
+													{AfgData.last_surplus.value}. The government primarily uses
+													surpluses to reduce the federal debt.
 												</p>
 											</div>
 										</AccordionList>
@@ -832,8 +778,7 @@ export default function OverviewPage(props) {
 												/>
 												<span className="anecdote__teaser">
 													{" "}
-													Show me what {AfgData.current_fy_debt_short.value} is
-													equal to
+													Show me what {AfgData.current_fy_debt_short.value} is equal to
 												</span>
 											</button>
 										</div>
@@ -848,14 +793,9 @@ export default function OverviewPage(props) {
 													<div className="anecdote__panes">
 														<div className="anecdote__pane">
 															<p>
-																If the federal debt was split evenly among
-																households,{" "}
-																<strong>your household's share</strong> would be
-																roughly{" "}
-																<strong>
-																	{AfgData.household_share_debt.value}
-																</strong>
-																.
+																If the federal debt was split evenly among households,{" "}
+																<strong>your household's share</strong> would be roughly{" "}
+																<strong>{AfgData.household_share_debt.value}</strong>.
 															</p>
 															<img
 																role="presentation"
@@ -865,8 +805,7 @@ export default function OverviewPage(props) {
 															<p>
 																That is about equal to the{" "}
 																<strong>
-																	median home price in{" "}
-																	{AfgData.share_debt_city.value}
+																	median home price in {AfgData.share_debt_city.value}
 																</strong>{" "}
 																({AfgData.share_debt_city_price.value}).
 															</p>
@@ -882,12 +821,9 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_debt.value} equates to a
-																little less than{" "}
-																<strong>
-																	{AfgData.debt_per_individual.value}
-																</strong>{" "}
-																per individual in the U.S.
+																{AfgData.current_fy_debt.value} equates to a little less than{" "}
+																<strong>{AfgData.debt_per_individual.value}</strong> per
+																individual in the U.S.
 															</p>
 															<img
 																role="presentation"
@@ -897,8 +833,7 @@ export default function OverviewPage(props) {
 															<p>
 																That is equal to the{" "}
 																<strong>
-																	average salary of{" "}
-																	{AfgData.debt_average_salary_type.value}
+																	average salary of {AfgData.debt_average_salary_type.value}
 																</strong>
 																.
 															</p>
@@ -937,41 +872,39 @@ export default function OverviewPage(props) {
 									</section>
 
 									<p className="chapter__paragraph--tightened">
-										To pay for a deficit, the federal government borrows
-										additional funds, which increases the debt. The total debt
-										that the federal government owes is essentially the
-										accumulation of deficits over time, minus debt repaid by any
-										surpluses, plus debt that the Treasury owes to other parts
-										of the federal government. Other activities contribute to
-										the change in federal debt, such as changes in the
-										Treasury's operating cash account and federal student loans.
+										To pay for a deficit, the federal government borrows additional funds,
+										which increases the debt. The total debt that the federal government
+										owes is essentially the accumulation of deficits over time, minus debt
+										repaid by any surpluses, plus debt that the Treasury owes to other
+										parts of the federal government. Other activities contribute to the
+										change in federal debt, such as changes in the Treasury's operating
+										cash account and federal student loans.
 									</p>
 									<p className="chapter__paragraph--tightened">
-										Are federal debt and deficit the same thing? No, but they do
-										affect one another.
+										Are federal debt and deficit the same thing? No, but they do affect
+										one another.
 									</p>
 
 									<section className="accordion">
 										<AccordionList title="Why can’t the government just print more money?">
 											<div className="accordion__content">
 												<p>
-													It can, and does. While the Department of the Treasury
-													prints actual dollars, “printing money” is also a term
-													that is sometimes used to describe a means of{" "}
+													It can, and does. While the Department of the Treasury prints
+													actual dollars, “printing money” is also a term that is sometimes
+													used to describe a means of{" "}
 													<a
 														href={AfgData.monetary_policy.value}
 														rel="noopener noreferrer"
 														target="_blank">
 														monetary policy
 													</a>
-													, which is conducted by the Federal Reserve. Monetary
-													policy involves controlling the supply of money and
-													the cost of borrowing. The Federal Reserve uses
-													monetary policy to promote maximum employment, stable
-													prices, and moderate long-term interest rates on the
-													behalf of the Congress. The federal government uses
-													fiscal policy, or the control of taxation and
-													government spending, to promote economic activity.
+													, which is conducted by the Federal Reserve. Monetary policy
+													involves controlling the supply of money and the cost of borrowing.
+													The Federal Reserve uses monetary policy to promote maximum
+													employment, stable prices, and moderate long-term interest rates on
+													the behalf of the Congress. The federal government uses fiscal
+													policy, or the control of taxation and government spending, to
+													promote economic activity.
 												</p>
 											</div>
 										</AccordionList>
@@ -1026,8 +959,8 @@ export default function OverviewPage(props) {
 									target="_blank">
 									Monthly Treasury Statement (MTS)
 								</a>{" "}
-								as the data source for federal government revenue and spending
-								of the United States and the{" "}
+								as the data source for federal government revenue and spending of the
+								United States and the{" "}
 								<a
 									href={AfgData.mspd_homepage.value}
 									rel="noopener noreferrer"
@@ -1051,8 +984,8 @@ export default function OverviewPage(props) {
 									target="_blank">
 									household
 								</a>{" "}
-								estimates. Median home price estimates are also provided by the
-								U.S. Census Bureau. Rent estimates come from the{" "}
+								estimates. Median home price estimates are also provided by the U.S.
+								Census Bureau. Rent estimates come from the{" "}
 								<a
 									href={AfgData.hud_median_rent.value}
 									rel="noopener noreferrer"
@@ -1066,31 +999,29 @@ export default function OverviewPage(props) {
 									target="_blank">
 									Occupational Employment Statistics
 								</a>{" "}
-								was used for wage estimates. Information on the amount of credit
-								card debt added by Americans comes from the Federal Reserve Bank
-								of New York’s{" "}
+								was used for wage estimates. Information on the amount of credit card
+								debt added by Americans comes from the Federal Reserve Bank of New
+								York’s{" "}
 								<a
 									href={AfgData.frbny_microecon.value}
 									rel="noopener noreferrer"
 									target="_blank">
 									Center for Microeconomic Data
 								</a>
-								. The annual 10-K reports of the top S&P 500 companies were
-								compiled in order to find the equivalent revenue from companies
-								to match the federal government’s revenue for the year. The{" "}
+								. The annual 10-K reports of the top S&P 500 companies were compiled in
+								order to find the equivalent revenue from companies to match the federal
+								government’s revenue for the year. The{" "}
 								<a
 									href={AfgData.artba_road_cost.value}
 									rel="noopener noreferrer"
 									target="_blank">
 									American Road and Transportation Builders Association
 								</a>{" "}
-								provides information about the cost of building new roads
-								derived from the cost models of different states.
+								provides information about the cost of building new roads derived from
+								the cost models of different states.
 							</p>
 							<div className="afg__download--div">
-								<div className="afg__download--heading">
-									Download Source Data
-								</div>
+								<div className="afg__download--heading">Download Source Data</div>
 								<ul>
 									<li>
 										<a
@@ -1128,11 +1059,10 @@ export default function OverviewPage(props) {
 					<div className="historical-quote">
 						<blockquote>
 							We might hope to see the finances of the Union as{" "}
-							<strong>clear and intelligible as a merchant's books</strong>, so
-							that every member of Congress, and <strong>every person</strong>{" "}
-							of any mind in the Union should be able to{" "}
-							<strong>comprehend them</strong>, to investigate abuses, and
-							consequently to control them.
+							<strong>clear and intelligible as a merchant's books</strong>, so that
+							every member of Congress, and <strong>every person</strong> of any mind
+							in the Union should be able to <strong>comprehend them</strong>, to
+							investigate abuses, and consequently to control them.
 						</blockquote>
 						<img
 							role="presentation"
@@ -1156,17 +1086,17 @@ export default function OverviewPage(props) {
 								target="_blank">
 								Citizen’s Guide to the Financial Report of the U.S. Government
 							</a>
-							. This site was created in response to the public’s desire to
-							learn more about the financial picture of the United States. Where
-							does the money come from? Where does it go? What are the trends
-							over time, and how does the U.S. compare to other countries? This
-							guide was created to make federal financial information open and
-							accessible to all - reflecting the very principles that our
-							founding fathers set forth when the United States was formed.
+							. This site was created in response to the public’s desire to learn more
+							about the financial picture of the United States. Where does the money
+							come from? Where does it go? What are the trends over time, and how does
+							the U.S. compare to other countries? This guide was created to make
+							federal financial information open and accessible to all - reflecting the
+							very principles that our founding fathers set forth when the United
+							States was formed.
 						</p>
 						<p className="about-us__source">
-							<strong>Your Guide to America's Finances</strong> is brought to
-							you by the U.S. Department of the Treasury
+							<strong>Your Guide to America's Finances</strong> is brought to you by
+							the U.S. Department of the Treasury
 						</p>
 						<img
 							src="/americas-finance-guide/images/treasury-seal.svg"
