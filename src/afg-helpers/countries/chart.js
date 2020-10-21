@@ -20,7 +20,13 @@ import { setData, prepareData } from './data';
 import { renderSortIcon, updateIcons } from './sortIcon';
 
 const d3 = {
-  select, selectAll, min, max, scaleLinear, axisBottom, transition,
+  select,
+  selectAll,
+  min,
+  max,
+  scaleLinear,
+  axisBottom,
+  transition,
 };
 const dimensions = {
   chartWidth: 800,
@@ -437,14 +443,14 @@ function isMobile() {
   return parseInt(d3.select('svg.main').attr('width'), 10) < 800;
 }
 
-export function chartInit(_config) {
+export function chartInit(_config, first) {
   config = _config;
 
   primaryColor = config.primaryColor || '#EEE';
   negativeColor = config.negativeValueColor || '#EEE';
 
   selectedCountries.set(config.defaultCountries);
-  data = prepareData(config);
+  data = prepareData(config, first);
 
   setContainer();
 

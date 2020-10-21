@@ -48,9 +48,9 @@ const DefecitCountryComparison = () => {
   if (typeof window !== 'undefined') {
     const [width, setWidth] = useState(window.innerWidth);
 
-    const init = () => {
+    const init = (first) => {
       loadSourceData(CountryData);
-      chartInit(spendingConfig);
+      chartInit(spendingConfig, first);
     };
 
     const handleResize = () => {
@@ -66,7 +66,7 @@ const DefecitCountryComparison = () => {
     };
 
     useEffect(() => {
-      init();
+      init(true);
       window.addEventListener('resize', handleResize);
       return () => {
         window.removeEventListener('resize', handleResize);
