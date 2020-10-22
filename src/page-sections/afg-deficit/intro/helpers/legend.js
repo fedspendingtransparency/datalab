@@ -147,7 +147,7 @@ export function initMobileLegend(_config, debtTab) {
     .attr('transform', 'translate(6 7)');
 
   g.append('text')
-    .text('= $10 Billion')
+    .text(`= ${AfgData.dot_represents_mobile.value}`)
     .attr('fill', colors.textColorParagraph)
     .style('font-size', 12)
     .attr('y', 5)
