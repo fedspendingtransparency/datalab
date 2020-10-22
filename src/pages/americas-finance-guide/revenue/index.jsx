@@ -178,6 +178,34 @@ function RevenueAndGdpPage({ location }) {
               {' '}
               <strong>{AfgData.current_fy_revenue.value}</strong>
             </div>
+            {activeLayer === 'spending' && (
+            <div className={styles.mobileCopy}>
+              <p className={styles.mobileCopyHeading}>
+                In Fiscal Year 2020, the federal government spent $6.3 trillion.
+              </p>
+              <p className={styles.mobileCopySubheading}>
+                Since the government spent more than it collected, the deficit for 2020 was $3 trillion.
+              </p>
+            </div>
+            )}
+            {activeLayer === 'gdp' && (
+            <div className={styles.mobileCopy}>
+              <p className={styles.mobileCopyHeading}>
+                In Fiscal Year 2020, federal revenue was equal to 17% of total gross domestic product (GDP), or economic activity, of the United States that year ($19.3 trillion).
+              </p>
+              <p className={styles.mobileCopySubheading}>
+                Why do we compare federal revenue to gross domestic product? For one, the comparison serves as a rough gauge of the size of the federal government's
+                footprint related to size of the entire country's economic activity. In addition, federal taxes are based on a percentage of income for people and businesses.
+                If an economy is performing well, people and businesses earn more, and federal revenue from taxes increases.
+              </p>
+              <p className={styles.mobileCopyGdpLine}>
+                What is gross domestic product?
+                <button className="info-box-trigger" data-box-id="gdp-info">
+                  <img src={DefinitionSVG} alt="definition icon" />
+                </button>
+              </p>
+            </div>
+            )}
             <div id="copy" className="intro-hidden">
               <p>
                 Where does the money come from? If you lived or worked in the United States in
@@ -256,7 +284,7 @@ function RevenueAndGdpPage({ location }) {
                     and federal revenue from taxes increases.
                   </p>
                   <strong>
-                    What's gross domestic product?
+                    What is gross domestic product?
                     <button className="info-box-trigger" data-box-id="gdp-info">
                       <img src={DefinitionSVG} alt="definition icon" />
                     </button>
