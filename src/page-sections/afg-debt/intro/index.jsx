@@ -70,8 +70,8 @@ export default class DebtIntro extends React.Component {
   }
 
 	resizeSvg = () => {
-		const scaleFactor = 1.3;
-		const h = this.state.activeCompare === 'gdp' ? vizHeight * scaleFactor : vizHeight;
+		const scaleFactor = 0.65;
+		const h = this.state.activeCompare !== '' ? vizHeight * scaleFactor : vizHeight;
 		establishContainer().transition().duration(this.duration).attr('height', h);
 	}
 
