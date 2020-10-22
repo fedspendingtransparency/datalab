@@ -12,47 +12,48 @@ const closeButtonClass = 'info-box__close';
 const activeClass = 'info-box--active';
 
 function addCloseIcon() {
-	const box = d3.select(this);
-	const closeButton = box.append('button');
-	ReactDOM.render(<CloseIcon />, closeButton.node());
-	closeButton.lower();
-	closeButton.attr('class', closeButtonClass);
-	closeButton.attr('aria-label', 'Close');
+  const box = d3.select(this);
+  box.selectAll(`.${closeButtonClass}`).remove();
+  const closeButton = box.append('button');
+  ReactDOM.render(<CloseIcon />, closeButton.node());
+  closeButton.lower();
+  closeButton.attr('class', closeButtonClass);
+  closeButton.attr('aria-label', 'Close');
 }
 
 function closeBox(trigger, box) {
-	box.classed(activeClass, null);
-	trigger.classed(triggerClassActive, null);
+  box.classed(activeClass, null);
+  trigger.classed(triggerClassActive, null);
 }
 
 export function triggerInfoBox() {
-	const trigger = d3.select(this);
-	const id = trigger.attr('data-box-id');
-	const box = d3.select(`#${id}`);
-	const { innerWidth } = window;
-	const coords = trigger.node().getBoundingClientRect();
+  const trigger = d3.select(this);
+  const id = trigger.attr('data-box-id');
+  const box = d3.select(`#${id}`);
+  const { innerWidth } = window;
+  const coords = trigger.node().getBoundingClientRect();
 
-	let x = coords.left - 10;
+  let x = coords.left - 10;
 
-	if (x > innerWidth - 300) {
-		x = innerWidth - 300;
-	}
+  if (x > innerWidth - 300) {
+    x = innerWidth - 300;
+  }
 
-	box.classed(activeClass, true);
-	trigger.classed(triggerClassActive, true);
+  box.classed(activeClass, true);
+  trigger.classed(triggerClassActive, true);
 
-	box.attr('style', `top:${coords.top - 15 + window.pageYOffset}px;left:${x}px`);
+  box.attr('style', `top:${coords.top - 15 + window.pageYOffset}px;left:${x}px`);
 
-	box.select(`.${closeButtonClass}`)
-		.on('click', null)
-		.on('click', () => {
-			closeBox(trigger, box);
-		});
+  box.select(`.${closeButtonClass}`)
+    .on('click', null)
+    .on('click', () => {
+      closeBox(trigger, box);
+    });
 }
 
 export function triggerMainInfoBox() {
-	d3.selectAll(infoBoxClass).each(addCloseIcon);
+  d3.selectAll(infoBoxClass).each(addCloseIcon);
 
-	d3.selectAll(triggerClass)
-		.on('click', triggerInfoBox);
+  d3.selectAll(triggerClass)
+    .on('click', triggerInfoBox);
 }
