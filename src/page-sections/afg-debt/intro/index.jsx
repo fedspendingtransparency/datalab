@@ -9,6 +9,7 @@ import { setDotsPerRow } from './helpers/dotConstants';
 import { chartWidth } from './helpers/widthManager';
 import { vizHeight } from './helpers/debtDots';
 import { touchIe } from 'src/afg-helpers/touchIe';
+import { triggerMainInfoBox } from 'src/afg-helpers/infoBox';
 import DebtData from '../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
 import './debt-intro.scss';
 import colors from '../../../styles/afg/colors.scss';
@@ -43,7 +44,7 @@ const config = {
 	},
 };
 
-const 	d3 = { select, selectAll };
+const d3 = { select, selectAll };
 
 export default class DebtIntro extends React.Component {
 	constructor(props) {
@@ -69,8 +70,8 @@ export default class DebtIntro extends React.Component {
   }
 
 	resizeSvg = () => {
-		const scaleFactor = 1.3;
-		const h = this.state.activeCompare === 'gdp' ? vizHeight * scaleFactor : vizHeight;
+		const scaleFactor = 0.65;
+		const h = this.state.activeCompare !== '' ? vizHeight * scaleFactor : vizHeight;
 		establishContainer().transition().duration(this.duration).attr('height', h);
 	}
 
@@ -263,6 +264,8 @@ export default class DebtIntro extends React.Component {
 			if (!isMobileDevice()) {
 				startLegendAnimation(config);
 				this.setState({hasDotScale: true});
+			} else {
+				triggerMainInfoBox();
 			}
 
 			createLayers(config);
