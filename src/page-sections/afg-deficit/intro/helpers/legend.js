@@ -173,4 +173,6 @@ export function initMobileLegend(_config, debtTab) {
       .attr('x', 7)
       .attr('transform', 'translate(6 6)');
   }
+
+  triggerMainInfoBox();
 }
