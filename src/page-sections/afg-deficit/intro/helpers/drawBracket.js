@@ -17,25 +17,25 @@ export default function drawBracket(svg, xPosition, height, rightSide) {
     .attr('fill', '#b4b4b4')
     .attr('width', '6')
     .attr('height', '1')
-    .attr('x', x1)
-    
+    .attr('x', x1);
+
   bracket.append('rect')
     .attr('fill', '#b4b4b4')
     .attr('width', '1')
     .attr('height', height)
-    .attr('x', x2)
+    .attr('x', x2);
 
   bracket.append('rect')
     .attr('fill', '#b4b4b4')
     .attr('width', '6')
     .attr('height', '1')
     .attr('x', x1)
-    .attr('y', height - 1)
+    .attr('y', height - 1);
 
   bracket.append('rect')
     .attr('fill', '#b4b4b4')
     .attr('width', '6')
     .attr('height', '1')
     .attr('x', x3)
-    .attr('y', (height - 1) / 2)
+    .attr('y', (height - 1) / 2);
 }

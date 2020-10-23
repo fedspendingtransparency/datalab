@@ -19,8 +19,8 @@ function DeficitTrendsPage(props) {
 	const tabContainer = '#surplusComponent',
 		config = {
 			accessibilityAttributes: {
-				title: '2019 Federal Deficit Trends over Time',
-				desc: 'In 2000 and 2001 the federal government experienced surpluses of $237 billion and $127 billion respectively. Since 2001, the federal government has not had another surplus. While the annual deficit did not exceed $500 billion from 2002 to 2008, the annual deficit increased substantially in response to the Great Recession with annual deficits exceeding $1 trillion from 2009 to 2012. The annual deficit declined from 2012 to 2015, falling below the $500 billion mark in 2015. Since then, however, the annual deficit has grown each year to $984 billion in 2019.'
+				title: `${AfgData.current_fy.value} Federal Deficit Trends over Time`,
+				desc: `Since ${AfgData.last_surplus.value}, the federal government has not had another surplus. The annual deficit has grown each year to ${AfgData.current_fy_deficit_short.value}  in ${AfgData.current_fy.value}.`
 			},
 			tabs: [
 				{
@@ -64,10 +64,26 @@ function DeficitTrendsPage(props) {
 
 				<h1>Federal Deficit Trends Over Time</h1>
 
-				<img className='deficit-trend' src='/americas-finance-guide/images/deficit-trend.svg' alt='In 2000 and 2001 the federal government experienced surpluses of $237 billion and $127 billion respectively. Since 2001, the federal government has not had another surplus. While the annual deficit did not exceed $500 billion from 2002 to 2008, the annual deficit increased substantially in response to the Great Recession with annual deficits exceeding $1 trillion from 2009 to 2012. The annual deficit declined from 2012 to 2015, falling below the $500 billion mark in 2015. Since then, however, the annual deficit has grown each year to $984 billion in 2019.'></img>
+				<img className='deficit-trend'
+						 src='/americas-finance-guide/images/deficit-trends-viz.svg'
+						 alt={`Since the government spent ${AfgData.current_fy_spending_short.value} and collected ${AfgData.current_fy_revenue_short.value} in ${AfgData.current_fy.value}, the deficit for the year was ${AfgData.current_fy_deficit_short.value}.`} />
 
 				<aside className='deficit-aside'>
 					<p>Since {AfgData.last_surplus.value}, the U.S. has experienced a deficit each year. Beginning in 2016, increases in spending on Social Security, health care, and interest on federal debt have outpaced the growth of federal revenue.</p>
+					<p>
+						In {AfgData.current_fy.value}, federal spending increased in response to the COVID-19 pandemic. Visit our
+						{' '}
+						<a href={'/federal-covid-funding/'} rel='noopener noreferrer'>The Federal Response to COVID-19</a>
+						{' '}
+						analysis to learn more.
+					</p>
+					<p>
+						If you are interested in learning more and seeing how the federal spending and debt have changed over time, you can view the
+						{' '}
+						<a href={'https://fiscaldata.treasury.gov/datasets/historical-debt-outstanding/historical-debt-outstanding'} rel='noopener noreferrer' target='_blank'>Historical Debt Outstanding</a>
+						{' '}
+						dataset to see outstanding debt from 1789 to the current year.
+					</p>
 
 					<section className='accordion'>
 						<AccordionList title='What does it mean when there is a surplus, balanced budget, and deficit?' className='accordion__heading'>

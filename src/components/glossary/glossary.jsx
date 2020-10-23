@@ -407,7 +407,15 @@ export default function Glossary() {
 
       if (window.location.search.indexOf('glossary') !== -1) {
         showGlossary();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        let glossaryTerm = urlParams.get('glossary');
+        if (glossaryTerm) {
+          glossaryTerm = glossaryTerm.replace('_', ' ');
+          showIndividualTerm(filteredData, glossaryTerm);
+        }
       }
+
     }
 
     init();

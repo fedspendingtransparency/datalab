@@ -19,8 +19,8 @@ function SpendingCategoriesPage(props) {
         <>
             <SEO
                 title='Data Lab - Federal Spending Categories – U.S. Treasury'
-                description='In 2019, the U.S. government spent $4.4 trillion. Explore the breakdown of federal spending by category or agency.'
-                excerpt='You can explore $4.4 trillion in spending either by category or by agency.  Curious to find out more? Dive deeper to see spending details by sub-category and other options.'
+                description={`In ${AfgData.current_fy.value}, the U.S. government spent ${AfgData.current_fy_spending_short.value}. Explore the breakdown of federal spending by category or agency.`}
+                excerpt={`You can explore ${AfgData.current_fy_spending_short.value} in spending either by category or by agency.  Curious to find out more? Dive deeper to see spending details by sub-category and other options.`}
                 keywords={[`federal spending, revenue, federal revenue, U.S. spending, social security, national defense, medicare, health,  interest from debt, veteran’s benefits`]}
             />
 
@@ -90,10 +90,24 @@ function SpendingCategoriesPage(props) {
                             </section>
 
                             <section className="accordion">
-                                <AccordionList title="What are mandatory and discretionary spending?" className="accordion__heading">
+                                <AccordionList title="What are mandatory, discretionary, and supplemental spending?" className="accordion__heading">
                                     <div className="accordion__content">
                                         <p>The difference between mandatory and discretionary spending relates to whether spending is dictated by prior law or voted on in the annual appropriations process. Programs like Social Security, Medicare, and various income security programs, are based on laws previously established that dictate the money budgeted for spending each year, which is why spending for those programs is referred to as mandatory.</p>
                                         <p>Discretionary spending is money formally approved by the President and voted on by Congress during the appropriations process each year. Generally, a majority of the discretionary spending is budgeted towards national defense. The rest of discretionary spending is budgeted to other federal agency programs ranging from transportation, education, housing, social service programs, as well as science and environmental organizations.</p>
+                                        <p>
+                                            An additional type of spending that impacts federal spending is
+                                            {' '}
+                                            <a href={'https://www.senate.gov/reference/glossary_term/supplemental_appropriation.htm#:~:text=supplemental%20appropriation%20-%20Budget%20authority%20provided%2cor%20continuing%20appropriations%20already%20provided.'} rel='noopener noreferrer' target='_blank'>supplemental appropriations</a>
+                                            {' '}
+                                            , also referred to as supplemental spending. In 2020, the U.S. Congress passed four supplemental
+                                            {' '}
+                                            <a href={'https://www.usaspending.gov/?glossary=appropriation'} rel='noopener noreferrer' target='_blank'>appropriations</a>
+                                            {' '}
+                                            laws for the federal government to use in relief efforts, to aid the nation’s recovery from the coronavirus disease 2019 (COVID-19). These four supplemental appropriations laws, including the Coronavirus Aid, Relief, and Economic Security (CARES) Act, totaled $2.58 trillion for use by federal agencies. You can take an in-depth look at those supplemental appropriation laws in the
+                                            {' '}
+                                            <a href={'/federal-covid-funding/'} rel='noopener noreferrer'>COVID-19 funding analysis</a>
+                                            .
+                                        </p>
                                     </div>
                                 </AccordionList>
                             </section>
@@ -102,7 +116,12 @@ function SpendingCategoriesPage(props) {
                                 <AccordionList title="What does the future of Social Security and Medicare look like?" className="accordion__heading">
                                     <div className="accordion__content">
                                         <p>Each year, the Social Security and Medicare Boards of Trustees publish their <a href={AfgData.trustees_report.value} rel="noopener noreferrer" target="_blank">Annual Report</a> on the financial status of Social Security and Medicare. The Boards’ projections indicate that spending will continue to increase. As the average age of Americans increases, more funding is needed to support entitlement programs like Social Security, Medicare, and retirement and disability services for both military and civil servants. In {AfgData.trustees_fy.value}, the cost of the Social Security and Medicare programs was {AfgData.ss_med_cost.value}.</p>
-                                        <p>The majority of Social Security and Medicare funding comes from tax revenue and interest on trust fund reserves. For {AfgData.trustees_fy.value}, income for these programs was {AfgData.ss_med_income.value}. However, costs are expected to exceed revenue starting in {AfgData.med_deficit_year.value} for Medicare Part A and {AfgData.ss_deficit_year.value} for Social Security, and will require the federal government to begin drawing down trust fund balances in order to continue paying full benefits. While Medicare Parts B and D are largely funded by general revenues and beneficiary premiums, the Boards project that Medicare Part A trust fund will be depleted by {AfgData.med_deplete_year.value} and the Social Security trust fund will be depleted by {AfgData.ss_deplete_year.value}.</p>
+                                        <p>
+                                            The majority of Social Security and Medicare funding comes from tax revenue and interest on trust fund reserves. For {AfgData.trustees_fy.value}, income for these programs was {AfgData.ss_med_income.value}. However, costs exceeded revenue starting in {AfgData.med_deficit_year.value} for Medicare Part A and are expected to exceed revenue beginning in {AfgData.ss_deficit_year.value} for Social Security. This will require the federal government to begin drawing down trust fund balances in order to continue paying full benefits. While Medicare Parts B and D are largely funded by general revenues and beneficiary premiums, the Boards project that Medicare Part A trust fund will be depleted by {AfgData.med_deplete_year.value} and the Social Security trust fund will be depleted by {AfgData.ss_deplete_year.value}.
+                                        </p>
+                                        <p>
+                                            It is important to note that these projections do not include the possible impacts the COVID-19 pandemic may have on the Social Security and Medicare programs.
+                                        </p>
                                     </div>
                                 </AccordionList>
                             </section>
@@ -110,7 +129,7 @@ function SpendingCategoriesPage(props) {
                             <section className="tour">
                                 <div className="tour__part-one">
                                     <h1>How has federal spending changed over time?</h1>
-                                    <p>When you are done here we encourage you to explore trends in government spending over the past {AfgData.number_trend_years.value} years.</p>
+                                    <p>When you are done here, we encourage you to explore trends in government spending over the past {AfgData.number_trend_years.value} years.</p>
                                 </div>
                                 <a href="/americas-finance-guide/spending/trends/" className="tour__link" >Continue<FontAwesomeIcon icon={faAngleRight} width={7} className="fa fa-angle-right"/></a>
                             </section>

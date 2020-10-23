@@ -5,43 +5,36 @@ import { createMobileLayers } from './createLayers';
 import { dotConstants } from './dotConstants';
 import drawBracket from './drawBracket';
 
-export function createMobileSpendingViz(config, height, width, dotsHeight) {
-  let svg;
-  let dots;
-  let revenueRect;
-  let spendingRect;
-  let revenueText;
-  let spendingText;
+export default function createMobileSpendingViz(config, height, width, dotsHeight) {
+  const rectWidth = width * 0.25 + dotConstants.radius;
 
-  const rectWidth = width * .25 + dotConstants.radius;
-
-  svg = establishContainer(height, width, config.accessibilityAttrs);
+  const svg = establishContainer(height, width, config.accessibilityAttrs);
 
   const dotsContainer = svg.append('g')
     .classed('dots-container', true)
     .attr('shape-rendering', 'geometricPrecision')
     .attr('height', dotsHeight)
     .attr('width', rectWidth)
-    .attr('transform', `translate(${width * .23},${height - 40 - dotsHeight})`);
+    .attr('transform', `translate(${width * 0.23},${height - 40 - dotsHeight})`);
 
   createMobileLayers(config, dotsContainer);
 
   const spendingRectHeight = height - 35;
   const revenueRectHeight = spendingRectHeight - dotsHeight - 8;
 
-  revenueRect = svg.append('g')
+  const revenueRect = svg.append('g')
     .classed('revenue-rect', true)
-    .attr('transform', `translate(${width * .23},35)`);
+    .attr('transform', `translate(${width * 0.23},35)`);
 
   revenueRect.append('rect')
     .attr('fill', config.revenueColor)
     .attr('height', revenueRectHeight)
-    .attr('width', rectWidth)
+    .attr('width', rectWidth);
 
-  revenueText = svg.append('g')
+  const revenueText = svg.append('g')
     .classed('revenue-text', true)
-    .attr('transform', `translate(${(width * .08) - 14},35)`)
-    .attr('width', width * .15)
+    .attr('transform', `translate(${(width * 0.23) - 19},35)`)
+    .attr('width', width * 0.15);
 
   revenueText.append('text')
     .text('Federal Revenue')
@@ -49,27 +42,28 @@ export function createMobileSpendingViz(config, height, width, dotsHeight) {
     .attr('font-weight', 600)
     .attr('fill', '#555')
     .attr('x', 0)
-    .call(wordWrap, width * .15)
-  .append('tspan')
+    .attr('text-anchor', 'end')
+    .call(wordWrap, width * 0.15)
+    .append('tspan')
     .text(formatNumber('dollars suffix', config.revenueAmount))
     .attr('font-size', 14)
     .attr('font-weight', 'normal')
     .attr('x', 0)
-    .attr('dy', '1.1rem')
+    .attr('dy', 16);
 
-  spendingRect = svg.append('g')
+  const spendingRect = svg.append('g')
     .classed('spending-rect', true)
-    .attr('transform', `translate(${width * .52},35)`);
+    .attr('transform', `translate(${width * 0.52},35)`);
 
   spendingRect.append('rect')
     .attr('fill', config.spendingColor)
     .attr('height', spendingRectHeight)
-    .attr('width', rectWidth)
+    .attr('width', rectWidth);
 
-  spendingText = svg.append('g')
+  const spendingText = svg.append('g')
     .classed('spending-text', true)
-    .attr('transform', `translate(${(width * .77) + 20},35)`)
-    .attr('width', width * .15)
+    .attr('transform', `translate(${(width * 0.77) + 20},35)`)
+    .attr('width', width * 0.15);
 
   spendingText.append('text')
     .text('Spending')
@@ -77,24 +71,20 @@ export function createMobileSpendingViz(config, height, width, dotsHeight) {
     .attr('font-weight', 600)
     .attr('fill', '#555')
     .attr('x', 0)
-    .call(wordWrap, width * .15)
-  .append('tspan')
+    .call(wordWrap, width * 0.15)
+    .append('tspan')
     .text(formatNumber('dollars suffix', config.spendingAmount))
     .attr('font-size', 14)
     .attr('font-weight', 'normal')
     .attr('x', 0)
-    .attr('dy', '1.1rem')
-
-  const revenueTextHeight = d3.selectAll('.revenue-text').node().getBoundingClientRect().height;
-  const spendingTextHeight = d3.selectAll('.spending-text').node().getBoundingClientRect().height;
+    .attr('dy', 16);
 
   d3.selectAll('.revenue-text>text')
-    .attr('y', (spendingRectHeight - revenueTextHeight) * .5);
+    .attr('y', (revenueRectHeight * 0.5) - 4);
 
   d3.selectAll('.spending-text>text')
-    .attr('y', (spendingRectHeight - spendingTextHeight) * .5);
+    .attr('y', (spendingRectHeight * 0.5) - 4);
 
-  drawBracket(svg, (width * .23) - 1, revenueRectHeight)
-  drawBracket(svg, (width * .52) + 1, spendingRectHeight, rectWidth)
-    
+  drawBracket(svg, (width * 0.23) - 1, revenueRectHeight);
+  drawBracket(svg, (width * 0.52) + 1, spendingRectHeight, rectWidth);
 }
