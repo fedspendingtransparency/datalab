@@ -1,5 +1,5 @@
 import { line } from 'd3-shape';
-import { simplifyNumber } from 'src/afg-helpers/utils';
+import formatNumber from 'src/utils/number-formatter/number-formatter';
 import colors from '../../../../styles/afg/colors.scss';
 import { chartWidth } from './widthManager';
 import { dotConstants } from './dotConstants';
@@ -10,7 +10,7 @@ const lineFn = d3.line()
   .x((d) => d.x)
   .y((d) => d.y);
 
-export function deficitLabel(yMax, parent, amount) {
+export function deficitLabel(yMax, parent, amount, sig) {
   const layer = parent.append('g').classed('legend', true);
   const lineData = [
     { x: -20, y: dotConstants.offset.y },
@@ -34,7 +34,7 @@ export function deficitLabel(yMax, parent, amount) {
     .attr('stroke-width', 2);
 
   text.append('tspan')
-    .text(simplifyNumber(amount))
+    .text(formatNumber('dollars suffix', amount, sig))
     .attr('x', textX)
     .attr('dx', -30)
     .attr('dy', -30);
@@ -47,7 +47,7 @@ export function deficitLabel(yMax, parent, amount) {
     .attr('dy', -30);
 }
 
-export function labelMaker(parent, height, label, amount) {
+export function labelMaker(parent, height, label, amount, sig) {
   const lineData = [
     { x: -20, y: 0 },
     { x: -30, y: 0 },
@@ -87,7 +87,7 @@ export function labelMaker(parent, height, label, amount) {
     .attr('dy', -24);
 
   text.append('tspan')
-    .text(simplifyNumber(amount))
+    .text(formatNumber('dollars suffix', amount, sig))
     .attr('x', textX)
     .attr('dx', 0)
     .attr('dy', 24);

@@ -63,7 +63,7 @@ export default function createMobileDebtViz(config, height, width, dotsHeight) {
     .attr('x', 0)
     .call(wordWrap, (width * 0.3) - 22)
     .append('tspan')
-    .text(formatNumber('dollars suffix', config.debtBalance))
+    .text(formatNumber('dollars suffix', config.debtBalance, 4))
     .attr('font-size', 14)
     .attr('font-weight', 'normal')
     .attr('x', 0)

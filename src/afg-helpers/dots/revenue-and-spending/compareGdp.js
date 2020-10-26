@@ -1,8 +1,9 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import {
-  establishContainer, translator, simplifyNumber, findAmountInCsv, isMobileDevice,
+  establishContainer, translator, findAmountInCsv, isMobileDevice,
 } from 'src/afg-helpers/utils';
+import formatNumber from 'src/utils/number-formatter/number-formatter';
 import { generateOverlay, registerLayer } from './compareManager';
 import { createDonut, createMobileDonut } from '../donut';
 import colors from '../../../styles/afg/colors.scss';
@@ -86,7 +87,7 @@ function placeLegend(g) {
     .attr('dy', 20);
 
   text.append('tspan')
-    .text(simplifyNumber(gdpAmount))
+    .text(formatNumber('dollars suffix', gdpAmount, 4))
     .attr('x', textX)
     .attr('dx', 0)
     .attr('dy', 25);
@@ -151,7 +152,7 @@ function placeLegendMobile(g) {
     .attr('dy', 20);
 
   text.append('tspan')
-    .text(simplifyNumber(gdpAmount))
+    .text(formatNumber('dollars suffix', gdpAmount, 4))
     .attr('x', rectWidth + 40)
     .attr('dx', 0)
     .attr('dy', 20);

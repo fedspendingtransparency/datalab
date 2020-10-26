@@ -1,6 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
-import { establishContainer, simplifyNumber } from 'src/afg-helpers/utils';
+import { establishContainer } from 'src/afg-helpers/utils';
+import formatNumber from 'src/utils/number-formatter/number-formatter';
 import {
   generateOverlay, registerLayer,
 } from './compareManager';
@@ -51,7 +52,7 @@ function placeLegend(g) {
     .attr('dy', height / 2);
 
   text.append('tspan')
-    .text(simplifyNumber(comparisonAmount))
+    .text(formatNumber('dollars suffix', comparisonAmount, 3))
     .attr('x', textX)
     .attr('dx', 0)
     .attr('dy', 30);
@@ -104,7 +105,7 @@ function placeLegendMobile(g) {
     .attr('dy', 20);
 
   text.append('tspan')
-    .text(simplifyNumber(comparisonAmount))
+    .text(formatNumber('dollars suffix', comparisonAmount, 3))
     .attr('x', rectWidth + 40)
     .attr('dx', 0)
     .attr('dy', 20);
