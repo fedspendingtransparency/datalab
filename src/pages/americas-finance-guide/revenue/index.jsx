@@ -94,7 +94,7 @@ function RevenueAndGdpPage({ location }) {
               twitter="How does federal revenue compare to spending and the size of the economy? Download the .CSV data files from Your Guide to America’s Finances and perform your own analysis! #YourGuide #DataLab #OpenGov"
             />
           </ControlBar>
-          <h1>
+          <h1 className={styles.mainHeading}>
             In
             {' '}
             {AfgData.current_fy.value}
@@ -206,7 +206,7 @@ function RevenueAndGdpPage({ location }) {
               </p>
             </div>
             )}
-            <div id="copy" className="intro-hidden">
+            <div id="copy" className={`intro-hidden ${styles.mainMobileCopy}`}>
               <p>
                 Where does the money come from? If you lived or worked in the United States in
                 {' '}

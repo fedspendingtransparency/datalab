@@ -38,7 +38,7 @@ function placeLegend(g) {
   ];
   const text = legendContainer.append('text')
     .classed('reset touch-label', true)
-    .attr('fill', colors.textColorParagraph)
+    .attr('fill', '#555')
     .attr('text-anchor', 'end')
     .attr('x', 0)
     .attr('y', (height / 2) - 60)
@@ -110,7 +110,7 @@ function placeLegendMobile(g) {
   ];
   const text = legendContainer.append('text')
     .classed('reset touch-label', true)
-    .attr('fill', colors.textColorParagraph)
+    .attr('fill', '#555')
     .attr('text-anchor', 'start')
     .attr('x', 0)
     .attr('y', 0) // (height / 2 - 60)

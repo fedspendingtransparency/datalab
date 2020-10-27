@@ -1,16 +1,10 @@
 import { select, selectAll } from 'd3-selection';
-import { establishContainer, isMobileDevice } from 'src/afg-helpers/utils';
+import { establishContainer } from 'src/afg-helpers/utils';
+import { triggerMainInfoBox } from 'src/afg-helpers/infoBox';
 import { placeDots } from './placeDots';
 import { startLegendAnimation } from './legend';
 import { setChartWidth, chartWidth } from './widthManager';
 import { setDotsPerRow } from './dotConstants';
-import {
-  resetForResize,
-  setFactsTrigger,
-  toggleFactsMobile,
-  toggleSelectedFacts,
-} from './compareManager';
-import { triggerMainInfoBox } from 'src/afg-helpers/infoBox';
 
 const d3 = { select, selectAll };
 
@@ -30,7 +24,7 @@ export function initChart(_config) {
   startLegendAnimation(config);
 }
 
-export function initChartMobile(_config) {
+export function initChartMobile(_config, activeLayer) {
   triggerMainInfoBox();
 
   d3.select('#viz').selectAll('*').remove();
@@ -39,5 +33,5 @@ export function initChartMobile(_config) {
   setChartWidth();
   setDotsPerRow();
   establishContainer(500, chartWidth, config.accessibilityAttrs.default);
-  placeDots(config);
-};
+  placeDots(config, activeLayer);
+}
