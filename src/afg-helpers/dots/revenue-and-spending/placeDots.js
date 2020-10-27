@@ -69,7 +69,7 @@ export function readyDots(width, activeLayer) {
           .getBoundingClientRect().height;
       }
 
-      svg.style('height', dotRectHeight + 40);
+      svg.style('height', dotRectHeight + 30);
     }, 1000);
   }
 }
