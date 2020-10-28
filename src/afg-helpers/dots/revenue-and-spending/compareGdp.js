@@ -177,10 +177,9 @@ function placeDonut(g) {
 }
 
 function placeDonutMobile(g) {
-  const r = 20;
+  const r = 30;
   const reScaleDonut = 1.4;
-  // const x = r + 25;
-  const x = (chartWidth * 0.654) / 2 - 80 * reScaleDonut;
+  const x = (chartWidth * 0.627 - 190) / 2;
   const spendDotHeight = d3.select('.spending-dots').node().getBBox().height;
   const vizHeight = d3.select('svg.main').node().getBBox().height;
   const y = (vizHeight - spendDotHeight) / reScaleDonut - 35;
@@ -188,11 +187,11 @@ function placeDonutMobile(g) {
 
   const vizDescription = g.append('g')
     .classed('donut', true)
-    .attr('transform', `${translator(x - 10, y - 10)} scale(${reScaleDonut})`);
+    .attr('transform', `${translator(x - 10, y - 10)}`);
 
   vizDescription.append('rect')
     .attr('fill', 'white')
-    .attr('width', '160px')
+    .attr('width', '210px')
     .style('border', 'solid 1px #dddddd')
     .style('border-radius', '2px')
     .attr('height', r * 2.75);
@@ -200,7 +199,7 @@ function placeDonutMobile(g) {
   const donutContainer = g.append('g')
     .classed('gdp-step-two', true)
     .attr('opacity', 0)
-    .attr('transform', `${translator(x, y)} scale(${reScaleDonut})`);
+    .attr('transform', `${translator(x, y)}`);
 
   createMobileDonut(donutContainer, config.gdpPercent / 100, r * 2, config.sectionColor, config.compareString);
 }
