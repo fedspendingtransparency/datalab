@@ -172,7 +172,7 @@ export function drawChart(data, type, _config, detail, parentWidth) {
 			calculatedWidth = bodyWidth * 0.45
 		}
 
-		console.log(document.getElementById("viz-wrapper"))
+		console.log(document.getElementById("viz-wrapper").clientWidth)
 	}
 
 	config.width = parentWidth || calculatedWidth
