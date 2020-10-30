@@ -168,9 +168,7 @@ export function initOverlay(d, parentConfig) {
 		.attr("transform", translator(0, 0) + " scale(0)")
 		.attr("opacity", 1)
 
-	config.width = d3.select("#viz").attr("width") - 60 - overlayPadding * 2
-
-	console.log(config.width)
+	config.width = d3.select("svg.main").attr("width") - 20 - overlayPadding * 2
 	config.data = d.subcategories
 
 	detailBackground = detailLayer
