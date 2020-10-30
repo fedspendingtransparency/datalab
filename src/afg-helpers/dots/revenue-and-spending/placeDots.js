@@ -5,7 +5,6 @@ import { initRevenueOverlay } from './compareRevenue';
 import { initGdp } from './compareGdp';
 import { revealCompare } from './compareManager';
 
-
 const d3 = { select, selectAll };
 
 let svg;
@@ -27,7 +26,7 @@ export function readyDots(width, activeLayer) {
 
     const dotContainer = svg.append('g')
       .classed('main-container', true)
-      .attr('transform', translator(0, 15))
+      .attr('transform', translator(0, isMobile ? 15 : 30))
       .append('g')
       .classed('spending-dots', true)
       .attr('opacity', 0);
@@ -63,17 +62,19 @@ export function readyDots(width, activeLayer) {
     dotContainer.attr('data-rect-height', dotRectHeight);
 
     setTimeout(() => {
-      if (activeLayer !== '') {
-        dotRectHeight = svg.select(`.${activeLayer}-layer`)
-          .node()
-          .getBoundingClientRect().height;
+      if (isMobile) {
+        if (activeLayer !== '') {
+          dotRectHeight = svg.select(`.${activeLayer}-layer`)
+            .node()
+            .getBoundingClientRect().height;
+        }
+        svg.style('height', dotRectHeight + 30);
+      } else {
+        svg.attr('height', dotRectHeight + 50);
       }
-
-      svg.style('height', dotRectHeight + 30);
     }, 1000);
   }
 }
-
 
 export function placeDots(_config, activeLayer) {
   d3.select('.main-container').remove();
