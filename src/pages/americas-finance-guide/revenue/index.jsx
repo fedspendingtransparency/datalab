@@ -172,7 +172,7 @@ function RevenueAndGdpPage({ location }) {
               {' '}
               dots x
               {' '}
-              {AfgData.dot_represents.value}
+              {AfgData.dot_represents_mobile.value}
               {' '}
               =
               {' '}
@@ -206,7 +206,7 @@ function RevenueAndGdpPage({ location }) {
               </p>
             </div>
             )}
-            <div id="copy" className="intro-hidden">
+            <div id="copy" className={`intro-hidden ${styles.mainMobileCopy}`}>
               <p>
                 Where does the money come from? If you lived or worked in the United States in
                 {' '}
