@@ -94,7 +94,7 @@ function RevenueAndGdpPage({ location }) {
               twitter="How does federal revenue compare to spending and the size of the economy? Download the .CSV data files from Your Guide to America’s Finances and perform your own analysis! #YourGuide #DataLab #OpenGov"
             />
           </ControlBar>
-          <h1 className={styles.mainHeading}>
+          <h1>
             In
             {' '}
             {AfgData.current_fy.value}
@@ -172,7 +172,7 @@ function RevenueAndGdpPage({ location }) {
               {' '}
               dots x
               {' '}
-              {AfgData.dot_represents.value}
+              {AfgData.dot_represents_mobile.value}
               {' '}
               =
               {' '}

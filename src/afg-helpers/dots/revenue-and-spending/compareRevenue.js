@@ -72,9 +72,6 @@ function placeLegendMobile(g) {
   const lineData = [
     { x: rectWidth + 10, y: 0 },
     { x: rectWidth + 20, y: 0 },
-    { x: rectWidth + 20, y: height / 2 },
-    { x: rectWidth + 30, y: height / 2 },
-    { x: rectWidth + 20, y: height / 2 },
     { x: rectWidth + 20, y: height },
     { x: rectWidth + 10, y: height },
   ];
@@ -90,7 +87,7 @@ function placeLegendMobile(g) {
     .attr('d', line(lineData))
     .attr('fill', 'none')
     .attr('stroke', '#aaa')
-    .attr('stroke-width', 1);
+    .attr('stroke-width', 2);
 
   text.append('tspan')
     .text('Federal ')

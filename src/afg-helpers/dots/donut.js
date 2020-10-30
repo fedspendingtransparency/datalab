@@ -94,10 +94,10 @@ export function createMobileDonut(container, percent, diameter, fillColor, secti
   const text = g.append('g')
     .attr('transform', translator(0, diameter / 2))
     .append('text')
-    .attr('fill', '#555')
+    .attr('fill', colors.textColorParagraph)
     .attr('font-size', '0.875rem')
     .attr('text-anchor', 'left')
-    .attr('font-weight', 600);
+    .attr('font-weight', 'bold');
 
   text.append('tspan')
     .attr('x', diameter / 2 + 10)
