@@ -160,26 +160,28 @@ export function drawChart(data, type, _config, detail, parentWidth) {
 
 	let calculatedWidth = 450
 
-	if (typeof document !== "undefined") {
-		const bodyWidth = document.body.offsetWidth
-		if (bodyWidth > 1850) {
-			calculatedWidth = bodyWidth * 0.5
-		} else if (bodyWidth > 1500) {
-			calculatedWidth = bodyWidth * 0.65
-		} else if (bodyWidth < 776) {
-			calculatedWidth = bodyWidth * 0.85
-		} else {
-			calculatedWidth = bodyWidth * 0.45
-		}
+	// Hack for IE
+	if (typeof document !== "undefined" && !parentWidth) {
+		// const bodyWidth = document.body.offsetWidth
+		// if (bodyWidth > 1850) {
+		// 	calculatedWidth = bodyWidth * 0.5
+		// } else if (bodyWidth > 1500) {
+		// 	calculatedWidth = bodyWidth * 0.65
+		// } else if (bodyWidth < 776) {
+		// 	calculatedWidth = bodyWidth * 0.85
+		// } else {
+		// 	calculatedWidth = bodyWidth * 0.45
+		// }
+		const bodyWidth = document.getElementById("viz-wrapper").clientWidth
 
-		console.log(document.getElementById("viz-wrapper").clientWidth)
+		calculatedWidth = bodyWidth * 0.9
 	}
 
 	config.width = parentWidth || calculatedWidth
-	console.log("config width ", config.width)
-	console.log("parent width ", parentWidth)
-	console.log("calculated width ", calculatedWidth)
-	console.log("detail ", detail)
+	// console.log("config width ", config.width)
+	// console.log("parent width ", parentWidth)
+	// console.log("calculated width ", calculatedWidth)
+	// console.log("detail ", detail)
 
 	config.barWidth = detail ? config.width * 0.3 : config.width / 2
 	config.data = data
