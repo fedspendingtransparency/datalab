@@ -158,23 +158,29 @@ export function drawChart(data, type, _config, detail, parentWidth) {
 
 	config.height = data.length * rowHeight
 
-	// let calculatedWidth = 450;
-	//
-	// if(typeof document !== 'undefined') {
-	//     const bodyWidth = document.body.offsetWidth;
-	//     if (bodyWidth > 1850) {
-	//       calculatedWidth = bodyWidth * .5;
-	//     } else if (bodyWidth > 1500) {
-	//         calculatedWidth = bodyWidth * .65;
-	//     } else if (bodyWidth < 776) {
-	//         calculatedWidth = bodyWidth * .85;
-	//     } else {
-	//         calculatedWidth = bodyWidth * .45;
-	//     }
-	// }
+	let calculatedWidth = 450
 
-	// config.width = parentWidth || calculatedWidth;
-	config.width = parentWidth
+	if (typeof document !== "undefined") {
+		const bodyWidth = document.body.offsetWidth
+		if (bodyWidth > 1850) {
+			calculatedWidth = bodyWidth * 0.5
+		} else if (bodyWidth > 1500) {
+			calculatedWidth = bodyWidth * 0.65
+		} else if (bodyWidth < 776) {
+			calculatedWidth = bodyWidth * 0.85
+		} else {
+			calculatedWidth = bodyWidth * 0.45
+		}
+
+		console.log(document.getElementById("viz-wrapper"))
+	}
+
+	config.width = parentWidth || calculatedWidth
+	console.log("config width ", config.width)
+	console.log("parent width ", parentWidth)
+	console.log("calculated width ", calculatedWidth)
+	console.log("detail ", detail)
+
 	config.barWidth = detail ? config.width * 0.3 : config.width / 2
 	config.data = data
 	config.rowHeight = rowHeight
