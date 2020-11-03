@@ -182,21 +182,23 @@ function RevenueAndGdpPage({ location }) {
 						{activeLayer === "spending" && (
 							<div className={styles.mobileCopy}>
 								<p className={styles.mobileCopyHeading}>
-									In Fiscal Year 2020, the federal government spent $6.3
-									trillion.
+									In Fiscal Year {AfgData.current_fy.value}, the federal
+									government spent {AfgData.current_fy_spending.value}.
 								</p>
 								<p className={styles.mobileCopySubheading}>
 									Since the government spent more than it collected, the deficit
-									for 2020 was $3 trillion.
+									for {AfgData.current_fy.value} was{" "}
+									{AfgData.current_fy_deficit.value}.
 								</p>
 							</div>
 						)}
 						{activeLayer === "gdp" && (
 							<div className={styles.mobileCopy}>
 								<p className={styles.mobileCopyHeading}>
-									In Fiscal Year 2020, federal revenue was equal to 17% of total
-									gross domestic product (GDP), or economic activity, of the
-									United States that year ($19.3 trillion).
+									In Fiscal Year {AfgData.current_fy.value}, federal revenue was
+									equal to {AfgData.compare_us_revenue_gdp.value} of total gross
+									domestic product (GDP), or economic activity, of the United
+									States that year ({AfgData.current_fy_gdp.value}).
 								</p>
 								<p className={styles.mobileCopySubheading}>
 									Why do we compare federal revenue to gross domestic product?
