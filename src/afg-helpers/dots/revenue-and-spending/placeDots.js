@@ -1,15 +1,13 @@
 import { select, selectAll } from 'd3-selection';
+import { establishContainer, translator, isMobileDevice } from 'src/afg-helpers/utils';
 import { dotConstants, dotsPerRow } from './dotConstants';
-import { establishContainer, translator } from 'src/afg-helpers/utils';
 import { initRevenueOverlay } from './compareRevenue';
 import { initGdp } from './compareGdp';
 import { revealCompare } from './compareManager';
-import { isMobileDevice } from 'src/afg-helpers/utils';
 
 const d3 = { select, selectAll };
 
 let svg;
-let rowCount;
 let config = {};
 
 function dotFactory(container, x, y) {
@@ -22,19 +20,18 @@ function dotFactory(container, x, y) {
     .style('fill', color);
 }
 
-export function readyDots(width) {
+export function readyDots(width, activeLayer) {
   if (typeof window !== 'undefined') {
-
-    let isMobile = (width <= 959);
+    const isMobile = (width <= 959);
 
     const dotContainer = svg.append('g')
       .classed('main-container', true)
-      .attr('transform', translator(0, 30))
+      .attr('transform', translator(0, isMobile ? 15 : 30))
       .append('g')
       .classed('spending-dots', true)
       .attr('opacity', 0);
 
-    let dotVal = (isMobile) ? 10000000000 : 1000000000;
+    const dotVal = (isMobile) ? 10000000000 : 1000000000;
     let i = 0;
     let dotRectHeight;
     const sectionAmountInBillions = config.sectionAmount / dotVal;
@@ -65,17 +62,25 @@ export function readyDots(width) {
     dotContainer.attr('data-rect-height', dotRectHeight);
 
     setTimeout(() => {
-      svg.attr('height', dotRectHeight + 50);
+      if (isMobile) {
+        if (activeLayer !== '') {
+          dotRectHeight = svg.select(`.${activeLayer}-layer`)
+            .node()
+            .getBoundingClientRect().height;
+        }
+        svg.style('height', dotRectHeight + 30);
+      } else {
+        svg.attr('height', dotRectHeight + 50);
+      }
     }, 1000);
   }
 }
 
-
-export function placeDots(_config) {
+export function placeDots(_config, activeLayer) {
   d3.select('.main-container').remove();
   config = _config || config;
   svg = establishContainer();
-  readyDots(window.innerWidth);
+  readyDots(window.innerWidth, activeLayer);
   initRevenueOverlay(config);
   initGdp(config);
 }

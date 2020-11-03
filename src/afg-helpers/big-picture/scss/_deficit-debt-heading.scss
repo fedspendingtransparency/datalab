@@ -3,17 +3,18 @@
 @import '../../../styles/afg/generalVars';
 
 .deficit-debt-heading {
-    background: url('/americas-finance-guide/images/deficit-debt-image.jpg') 0 0 no-repeat;
+    background: url('/americas-finance-guide/images/deficit_debt_image.png') 0 0 no-repeat;
     background-size: cover;
     width: 100%;
-    padding: 1rem;
+    padding: 35px 15px 0;
     background-color: #FFF;
     box-sizing: border-box;
+    border-radius: 5px;
 }
 
 .deficit-debt-heading__arrow-container {
     text-align: center;
-    margin-top: 1rem;
+    margin: 10px 0;
 
     a {
         color:$text-color-paragraph;
@@ -26,15 +27,17 @@
 }
 
 .deficit-debt-heading__heading {
-    @include baseHeader();
+    font-size: 2rem;
+    font-weight: 300;
     background: #fff;
+    color: #555;
     margin: 0 auto;
     max-width: 1000px;
-    padding: 0 1rem;
+    padding: 15px;
 
     strong, span {
         font-weight: $heavyBoldWeight;
-        font-size: $baseHeaderSize;
+        font-size: 2rem;
     }
 }
 

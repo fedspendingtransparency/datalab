@@ -17,7 +17,8 @@ $headerBg: rgba(255,255,255,0.9);
 }
 
 .bp-header__bg {
-    background: radial-gradient(circle at 50% 72%, #ffffff, #eaeaea 41%);
+    background: url(/americas-finance-guide/images/header_mobile.png) center top no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;

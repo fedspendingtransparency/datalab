@@ -3,7 +3,6 @@ import SEO from 'src/components/seo';
 import Og from 'src/components/og-tag/og';
 import Default from 'src/components/layouts/default/default';
 import AccordionList from 'src/components/accordion-list/accordion-list';
-import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import BpToc from 'src/components/bpToc/bpToc';
 import AfgAnecdote from 'src/components/anecdote/anecdote';
@@ -282,7 +281,7 @@ export default function OverviewPage({ location }) {
                 </div>
 
                 <div className="chapter__chart">
-                  <img src="/americas-finance-guide/images/revenue-graph-outline.svg" title="Federal Revenue 2016 to 2020" alt={`Federal revenue has increased over the past five years from ${AfgData.year_5_revenue.value} in ${AfgData.year_5.value} to ${AfgData.current_fy_revenue_short.value} in ${AfgData.current_fy.value}.`}/>
+                  <img src="/americas-finance-guide/images/revenue-graph-outline.svg" title="Federal Revenue 2016 to 2020" alt={`Federal revenue has increased over the past five years from ${AfgData.year_5_revenue.value} in ${AfgData.year_5.value} to ${AfgData.current_fy_revenue_short.value} in ${AfgData.current_fy.value}.`} />
                   <p className="chapter__chart--reference">
                     Data used throughout this site is provided by the
                     {' '}
@@ -755,7 +754,8 @@ export default function OverviewPage({ location }) {
                                 <strong>
                                   median home price in
                                   {' '}
-                                  {AfgData.share_debt_city.value}.
+                                  {AfgData.share_debt_city.value}
+                                  .
                                 </strong>
                               </p>
                               <p className="source">
