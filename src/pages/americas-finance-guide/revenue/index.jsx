@@ -196,7 +196,7 @@ function RevenueAndGdpPage({ location }) {
 							<div className={styles.mobileCopy}>
 								<p className={styles.mobileCopyHeading}>
 									In Fiscal Year {AfgData.current_fy.value}, federal revenue was
-									equal to {AfgData.compare_us_revenue_gdp.value} of total gross
+									equal to {AfgData.revenue_percent_gdp.value} of total gross
 									domestic product (GDP), or economic activity, of the United
 									States that year ({AfgData.current_fy_gdp.value}).
 								</p>
