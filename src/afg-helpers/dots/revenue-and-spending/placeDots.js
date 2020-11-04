@@ -26,7 +26,7 @@ export function readyDots(width, activeLayer) {
 
     const dotContainer = svg.append('g')
       .classed('main-container', true)
-      .attr('transform', translator(0, isMobile ? 15 : 30))
+      .attr('transform', translator(0, isMobile ? 0 : 30))
       .append('g')
       .classed('spending-dots', true)
       .attr('opacity', 0);
@@ -64,11 +64,13 @@ export function readyDots(width, activeLayer) {
     setTimeout(() => {
       if (isMobile) {
         if (activeLayer !== '') {
-          dotRectHeight = svg.select(`.${activeLayer}-layer`)
+          const activeLayerHeight = svg.select(`.${activeLayer}-layer`)
             .node()
             .getBoundingClientRect().height;
+          
+          if (activeLayerHeight > dotRectHeight) dotRectHeight = activeLayerHeight;
         }
-        svg.style('height', dotRectHeight + 30);
+        svg.style('height', dotRectHeight + 18);
       } else {
         svg.attr('height', dotRectHeight + 50);
       }
