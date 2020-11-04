@@ -36,6 +36,15 @@ const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
     }
   };
 
+  const activeStyle = {
+    color: legacyBlue,
+    fontWeight: 600,
+  };
+
+  const inactiveStyle = {
+    color: '#555',
+  };
+
   return (
     <>
       <StyledTabs
@@ -48,7 +57,7 @@ const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
             value={index}
             label={tab.label}
             aria-label={tab.label}
-            style={value === index ? { color: legacyBlue } : { color: '#555' }}
+            style={value === index ? activeStyle : inactiveStyle}
           />
         ))}
       </StyledTabs>
