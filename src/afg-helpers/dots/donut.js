@@ -78,7 +78,7 @@ export function createMobileDonut(container, percent, diameter, fillColor, secti
   const donut = pie.append('path')
     .attr('d', arcFn);
 
-  donut.style('fill', (d, i) => {
+  donut.style('fill', (_, i) => {
     const shadedColor = fillColor || '#dd6666';
     return (i === shadedColorIterator) ? shadedColor : '#dddddd';
   });
@@ -86,7 +86,7 @@ export function createMobileDonut(container, percent, diameter, fillColor, secti
   g.append('text')
     .text(`${Math.round(absPercent * 100)}%`)
     .attr('fill', colors.textColorParagraph)
-    .attr('font-size', '0.875rem')
+    .attr('font-size', '1rem')
     .attr('text-anchor', 'middle')
     .attr('font-weight', 'bold')
     .attr('y', diameter * 0.08);

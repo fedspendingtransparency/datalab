@@ -74,7 +74,7 @@ export default class DebtIntro extends React.Component {
 		if (isMobileDevice()) {
 			mobileModifier = 20;
 			if (this.state.activeCompare === 'gdp') {
-				scaleFactor = 1.3
+				scaleFactor = 1.25
 			} else {
 				scaleFactor = 0.95
 			}
