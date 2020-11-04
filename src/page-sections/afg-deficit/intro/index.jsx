@@ -1,115 +1,106 @@
 import React, { useEffect } from 'react';
+import { establishContainer, translator, findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
 import { createLayers } from './helpers/createLayers';
 import { startLegendAnimation } from './helpers/legend';
 import { setChartWidth } from './helpers/widthManager';
-import { establishContainer, translator, findAmountInCsv } from 'src/afg-helpers/utils';
 import colors from '../../../styles/afg/colors.scss';
 import { setDotsPerRow } from './helpers/dotConstants';
 import { layersInit, resetLayers } from './helpers/manageLayers';
 import 'src/afg-helpers/matchesPolyfill';
 import DeficitData from '../../../../static/americas-finance-guide/data/explore_federal_deficit.csv';
+import AfgData from "../../../../static/americas-finance-guide/_data/object_mapping.yml";
 
 const DeficitIntro = () => {
-	const config = {
-		anecdoteName: 'anecdote-deficit.svg',
-		revenueAmount: findAmountInCsv('federal revenue', DeficitData),
-		spendingAmount: findAmountInCsv('federal spending', DeficitData),
-		debtBalance: findAmountInCsv('federal debt', DeficitData),
-		reportedDeficitAmount: findAmountInCsv('federal deficit', DeficitData),
-		compareString: 'revenue',
-		revenueColor: colors.colorPrimary,
-		spendingColor: colors.colorSpendingPrimary,
-		deficitColor: colors.colorDeficitPrimary,
-		debtColor: colors.colorDebtPrimary,
-		accessibilityAttrs: {
-			default: {
-				title: '2019 Federal Deficit',
-				desc: 'The image illustrates the federal government’s deficit in 2019 using dots, and each dot is equal to a billion dollars. There are 984 dots.',
-			},
-			debt: {
-				title: '2019 Federal Deficit and Debt',
-				desc: 'When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The $984 billion deficit contributed to the $1.2 trillion increase in debt from $21.5 trillion at the end of 2018 to $22.7 trillion by the end of 2019.',
-			},
-			deficit: {
-				title: '2019 Federal Deficit, Revenue, and Spending',
-				desc: 'A deficit occurs when spending exceeds revenue. For 2019, the $4.4 trillion in federal spending exceeded the $3.5 trillion in federal revenue leading to a deficit of $984 billion.',
-			},
-		},
-	};
+  const defaultDesc = isMobileDevice() ?
+      `The image illustrates the federal government’s deficit in ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents_mobile.value}. There are Federal Revenue and GDP dots.`
+      :
+      `The image illustrates the federal government’s deficit in ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents.value}.`;
+  const config = {
+    anecdoteName: 'anecdote-deficit.svg',
+    revenueAmount: findAmountInCsv('federal revenue', DeficitData),
+    spendingAmount: findAmountInCsv('federal spending', DeficitData),
+    debtBalance: findAmountInCsv('federal debt', DeficitData),
+    reportedDeficitAmount: findAmountInCsv('federal deficit', DeficitData),
+    deficitAmount: Math.abs(findAmountInCsv('federal deficit', DeficitData)),
+    compareString: 'revenue',
+    revenueColor: colors.colorPrimary,
+    spendingColor: colors.colorSpendingPrimary,
+    deficitColor: colors.colorDeficitPrimary,
+    debtColor: colors.colorDebtPrimary,
+    accessibilityAttrs: {
+      default: {
+        title: `${AfgData.current_fy.value} Federal Deficit`,
+        desc: defaultDesc,
+      },
+      debt: {
+        title: `${AfgData.current_fy.value} Federal Deficit and Debt`,
+        desc: `The ${AfgData.current_fy_deficit_short.value} deficit contributed to the ${AfgData.added_debt_short.value} increase in debt from ${AfgData.prior_fy_debt.value} at the end of ${AfgData.prior_fy.value} to ${AfgData.current_fy_debt_short.value} by the end of ${AfgData.current_fy.value}.`,
+      },
+      deficit: {
+        title: `${AfgData.current_fy.value} Federal Deficit, Revenue, and Spending`,
+        desc: `In ${AfgData.current_fy.value}, the ${AfgData.current_fy_spending_short.value} in federal spending exceeded ${AfgData.current_fy_revenue_short.value} in federal revenue leading to a deficit of ${AfgData.current_fy_deficit_short.value}.`,
+      },
+    },
+  };
 
-	let mainContainer; let debounce; let
-		previousWidth;
+  let mainContainer;
+  let debounce;
+  let previousWidth;
 
-	// the math needs to be precise for the chart to work - no rounding
-	config.deficitAmount = config.spendingAmount - config.revenueAmount;
-	config.priorDebtBalance = config.debtBalance - config.deficitAmount;
+  // the math needs to be precise for the chart to work - no rounding
+  config.deficitAmount = config.spendingAmount - config.revenueAmount;
+  config.priorDebtBalance = config.debtBalance - config.deficitAmount;
 
-	function setMainContainer() {
-		mainContainer = establishContainer(300, null, config.accessibilityAttrs.default).append('g')
-			.classed('main', true);
+  function setMainContainer() {
+    mainContainer = establishContainer(300, null, config.accessibilityAttrs.default).append('g')
+      .classed('main', true);
+    config.mainContainer = mainContainer;
+  }
 
-		config.mainContainer = mainContainer;
-	}
+  useEffect(() => {
+    setChartWidth();
+    setMainContainer();
+    setDotsPerRow();
+    startLegendAnimation(config);
+    createLayers(config);
 
-	function legendCallback() {
+    setTimeout(() => {
+      layersInit(config);
+    }, 4500);
+  }, []);
 
-	}
+  function resizeChart() {
+    setChartWidth();
+    setDotsPerRow();
+    config.mainContainer.selectAll('*').remove();
+    createLayers(config);
+    layersInit(config);
+    resetLayers();
+  }
 
-	useEffect(() => {
-		setChartWidth();
-		setMainContainer();
-		setDotsPerRow();
-		startLegendAnimation(config, legendCallback);
-		createLayers(config);
+  useEffect(() => {
+    const handleResize = () => {
+      if (debounce) {
+        clearTimeout(debounce);
+      }
 
-		setTimeout(() => {
-			layersInit(config);
-		}, 4500);
-	}, []);
+      if (previousWidth === window.innerWidth) {
+        return;
+      }
 
-	function resizeChart() {
-		setChartWidth();
-		setDotsPerRow();
-		config.mainContainer.selectAll('*').remove();
-		createLayers(config);
-		layersInit(config);
-		resetLayers();
-	}
+      previousWidth = window.innerWidth;
 
-	useEffect(() => {
-		window.addEventListener('resize', () => {
-			if (debounce) {
-				clearTimeout(debounce);
-			}
+      debounce = setTimeout(resizeChart, 100);
+    };
 
-			if (previousWidth === window.innerWidth) {
-				return;
-			}
+    window.addEventListener('resize', handleResize);
 
-			previousWidth = window.innerWidth;
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
 
-			debounce = setTimeout(resizeChart, 100);
-		});
-
-		return (_) => {
-			window.removeEventListener('resize', () => {
-				if (debounce) {
-					clearTimeout(debounce);
-				}
-
-				if (previousWidth === window.innerWidth) {
-					return;
-				}
-
-				previousWidth = window.innerWidth;
-
-				debounce = setTimeout(resizeChart, 100);
-			});
-		};
-	});
-
-
-	return (<div id="viz" />);
+  return (<div id="viz" />);
 };
 
 export default DeficitIntro;

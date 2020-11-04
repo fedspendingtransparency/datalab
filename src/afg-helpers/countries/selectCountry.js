@@ -24,8 +24,8 @@ function createTrigger() {
     trigger = parentDiv.append('button')
         .classed('trigger-button', true)
         .on('click', function () {
-            parentDiv.classed('active', function () {
-                if (parentDiv.classed('active')) {
+            listDiv.classed('hidden', function () {
+                if (listDiv.classed('hidden')) {
                     return false;
                 } else {
                     setTimeout(function () {
@@ -239,7 +239,8 @@ function listAvailableCountries(filterStr) {
 
 function createListDiv() {
     listDiv = parentDiv.append('div')
-        .classed('list-div', true);
+        .classed('list-div', true)
+        .classed('hidden', true);
 
     listDiv.append('ul');
     listDiv.append('hr');
@@ -251,7 +252,7 @@ function createListDiv() {
 }
 
 function onListUpdated(isMobileInd) {
-    parentDiv.classed('active', false);
+    listDiv.classed('hidden', true)
     input.node().value = null;
     listselectedCountries();
     listAvailableCountries();

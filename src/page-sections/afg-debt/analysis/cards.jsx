@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { select, selectAll } from 'd3-selection';
 import { max, min } from 'd3-array';
 import SyncAltIcon from '@material-ui/icons/SyncAlt';
@@ -64,7 +64,7 @@ export default function DebtCards() {
 
     return (
       <div id='debtCardIcon' className='hidden'>
-          <SyncAltIcon/>
+          <SyncAltIcon />
       </div>
     )
 }
