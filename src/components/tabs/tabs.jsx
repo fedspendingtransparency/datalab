@@ -13,31 +13,37 @@ const StyledTabs = withStyles({
     backgroundColor: legacyBlue,
     height: 4,
   },
-})(Tabs)
+})(Tabs);
 
-const StyledTab = withStyles((theme) => ({
+const StyledTab = withStyles({
   root: {
     padding: 0,
     textTransform: 'capitalize',
     color: '#555',
-    '&$selected': {
-      color: `${legacyBlue} !important`,
-    },
     '&:focus': {
       color: `${legacyBlue} !important`,
     },
   },
-}))((props) => <Tab disableRipple {...props} />)
+})((props) => <Tab disableRipple {...props} />);
 
 const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
   const [value, setValue] = useState(activeTab < 0 ? 0 : activeTab);
 
-  const handleChange = (e, newValue) => {
+  const handleChange = (_, newValue) => {
     setValue(newValue);
     if (handleTabChange) {
       handleTabChange(newValue);
     }
-  }
+  };
+
+  const activeStyle = {
+    color: legacyBlue,
+    fontWeight: 600,
+  };
+
+  const inactiveStyle = {
+    color: '#555',
+  };
 
   return (
     <>
@@ -47,7 +53,12 @@ const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
         variant="fullWidth"
       >
         {tabs.map((tab, index) => (
-          <StyledTab value={index} label={tab.label} aria-label={tab.label} />
+          <StyledTab
+            value={index}
+            label={tab.label}
+            aria-label={tab.label}
+            style={value === index ? activeStyle : inactiveStyle}
+          />
         ))}
       </StyledTabs>
       {tabs.map((tab, index) => (
@@ -57,6 +68,6 @@ const TabsWrapper = ({ tabs, handleTabChange, activeTab }) => {
       ))}
     </>
   );
-}
+};
 
 export default TabsWrapper;
