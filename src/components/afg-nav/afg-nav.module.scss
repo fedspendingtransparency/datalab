@@ -227,17 +227,13 @@
 
     .chapter-nav-primary-list {
         .inactive-section {
-            max-width: 12.5%;
-            min-width: 85px;
-
             .section-name {
                 text-transform: uppercase;
             }
         }
 
-        .chapter-nav-overview {
-            max-width: 10%;
-            min-width: 100px;
+        .li:not(.chapter-nav-subpages) {
+            width: 130px;
         }
     }
 }

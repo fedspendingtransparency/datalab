@@ -121,10 +121,14 @@ const AfgNav = ({ chapter }) => {
     setActiveSection(section);
   };
 
-  const resetActiveSection = (e) => {
+  const resetActiveSection = () => {
     const section = sections.find((s) => s.chapter === chapter);
     setActiveSection(section);
   };
+
+  const subPages = sections.find((section) => section.chapter === activeSection.chapter).pages.map((page) => (
+    <li>{page.name}</li>
+  ));
 
   return (
     <nav className={style.chapterNav} style={stickyStyle}>
@@ -141,39 +145,18 @@ const AfgNav = ({ chapter }) => {
             </div>
           </a>
         </li>
-        {sections.map((section) => {
-          if (activeSection.chapter === section.chapter) {
-            return (
-              <li className={style.chapterNavActiveSection} onMouseLeave={resetActiveSection}>
-                <ul className={style.chapterNavActiveList}>
-                  {activeSection.pages.map((s) => {
-                    let activePageClass;
-                    if (typeof window !== 'undefined' && s.url === window.location.pathname) {
-                      activePageClass = style.active;
-                    }
-                    return (
-                      <li className={`${activeSection.navClass} ${style.activeSection} ${activePageClass}`}>
-                        <a href={s.url} aria-label={s.name}>
-                          <div className={style.sectionName}>
-                            {s.name}
-                          </div>
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </li>
-            );
-          }
-
-          return (
-            <li className={`${section.navClass} ${style.inactiveSection}`} onMouseEnter={handleActiveSectionChange} onMouseLeave={resetActiveSection}>
-              <div className={style.sectionName} onClick={handleActiveSectionChange}>
-                {section.name}
-              </div>
-            </li>
-          );
-        })}
+        {sections.map((section) => (
+          <li className={`${section.navClass} ${style.inactiveSection}`} onMouseEnter={handleActiveSectionChange} onMouseLeave={resetActiveSection}>
+            <div className={style.sectionName} onClick={handleActiveSectionChange}>
+              {section.name}
+            </div>
+          </li>
+        ))}
+        <li className={style.chapterNavSubpages}>
+          <ul>
+            {subPages}
+          </ul>
+        </li>
       </ul>
     </nav>
   );

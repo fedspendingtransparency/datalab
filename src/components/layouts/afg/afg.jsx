@@ -6,7 +6,7 @@ import Default from '../default/default';
 import { AFGHeader } from '../../headers/headers';
 import MoreAnalyses from '../../more-analyses/more-analyses';
 
-import styles from './afg.module.scss';
+import './afg.module.scss';
 import '../../../styles/index.scss';
 import AfgNav from '../../afg-nav/afg-nav';
 

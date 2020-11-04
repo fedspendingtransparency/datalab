@@ -9,6 +9,7 @@ import AfgAnecdote from 'src/components/anecdote/anecdote';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleDown, faStreetView } from '@fortawesome/free-solid-svg-icons';
 import { AFGHeader } from 'src/components/headers/headers';
+import AfgNav from 'src/components/afg-nav/afg-nav';
 
 import 'src/afg-helpers/big-picture/scrollTo';
 import smoothscroll from 'smoothscroll-polyfill';
@@ -35,6 +36,7 @@ export default function OverviewPage({ location }) {
 
       <Default>
         <AFGHeader />
+        <AfgNav chapter="revenue" />
         <div className="cg-wrapper bp-wrapper">
           <header>
             <div className="bp-header">
