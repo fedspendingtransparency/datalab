@@ -64,11 +64,13 @@ export function readyDots(width, activeLayer) {
     setTimeout(() => {
       if (isMobile) {
         if (activeLayer !== '') {
-          dotRectHeight = svg.select(`.${activeLayer}-layer`)
+          const activeLayerHeight = svg.select(`.${activeLayer}-layer`)
             .node()
             .getBoundingClientRect().height;
+          
+          if (activeLayerHeight > dotRectHeight) dotRectHeight = activeLayerHeight;
         }
-        svg.style('height', dotRectHeight + 30);
+        svg.style('height', dotRectHeight + 31);
       } else {
         svg.attr('height', dotRectHeight + 50);
       }
