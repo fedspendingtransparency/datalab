@@ -4,23 +4,27 @@ import { translator } from 'src/afg-helpers/utils';
 import colors from '../../styles/afg/colors.scss';
 
 const d3 = {
-  select, selectAll, arc, pie,
+  select,
+  selectAll,
+  arc,
+  pie,
 };
 const arcFn = d3.arc();
-const pieFn = d3.pie()
+const pieFn = d3
+  .pie()
   .sort(null)
-  .value((d) => d);
+  .value(d => d);
 
 function setArcRadius(radius) {
-  arcFn.outerRadius(radius)
-    .innerRadius((radius) * 0.8);
+  arcFn.outerRadius(radius).innerRadius(radius * 0.8);
 }
 
 export function createDonut(container, percent, diameter, fillColor) {
   const absPercent = Math.abs(percent);
   const isNegativeVal = percent < 0;
   const shadedColorIterator = isNegativeVal ? 1 : 0;
-  const g = container.append('g')
+  const g = container
+    .append('g')
     .attr('transform', translator(diameter / 2, diameter / 2));
 
   let data = [absPercent * 100, 100 - absPercent * 100];
@@ -31,18 +35,18 @@ export function createDonut(container, percent, diameter, fillColor) {
 
   setArcRadius(diameter / 2);
 
-  const pie = g.selectAll('.arc')
+  const pie = g
+    .selectAll('.arc')
     .data(pieFn(data))
     .enter()
     .append('g')
     .attr('class', 'arc');
 
-  const donut = pie.append('path')
-    .attr('d', arcFn);
+  const donut = pie.append('path').attr('d', arcFn);
 
   donut.style('fill', (d, i) => {
     const shadedColor = fillColor || '#dd6666';
-    return (i === shadedColorIterator) ? shadedColor : '#dddddd';
+    return i === shadedColorIterator ? shadedColor : '#dddddd';
   });
 
   g.append('text')
@@ -54,11 +58,18 @@ export function createDonut(container, percent, diameter, fillColor) {
     .attr('y', diameter * 0.08);
 }
 
-export function createMobileDonut(container, percent, diameter, fillColor, sectionName) {
+export function createMobileDonut(
+  container,
+  percent,
+  diameter,
+  fillColor,
+  sectionName,
+) {
   const absPercent = Math.abs(percent);
   const isNegativeVal = percent < 0;
   const shadedColorIterator = isNegativeVal ? 1 : 0;
-  const g = container.append('g')
+  const g = container
+    .append('g')
     .attr('transform', translator(diameter / 2, diameter / 2));
 
   let data = [absPercent * 100, 100 - absPercent * 100];
@@ -69,18 +80,18 @@ export function createMobileDonut(container, percent, diameter, fillColor, secti
 
   setArcRadius(diameter / 2);
 
-  const pie = g.selectAll('.arc')
+  const pie = g
+    .selectAll('.arc')
     .data(pieFn(data))
     .enter()
     .append('g')
     .attr('class', 'arc');
 
-  const donut = pie.append('path')
-    .attr('d', arcFn);
+  const donut = pie.append('path').attr('d', arcFn);
 
   donut.style('fill', (_, i) => {
     const shadedColor = fillColor || '#dd6666';
-    return (i === shadedColorIterator) ? shadedColor : '#dddddd';
+    return i === shadedColorIterator ? shadedColor : '#dddddd';
   });
 
   g.append('text')
@@ -91,7 +102,8 @@ export function createMobileDonut(container, percent, diameter, fillColor, secti
     .attr('font-weight', 'bold')
     .attr('y', diameter * 0.08);
 
-  const text = g.append('g')
+  const text = g
+    .append('g')
     .attr('transform', translator(0, diameter / 2))
     .append('text')
     .attr('fill', colors.textColorParagraph)
@@ -99,17 +111,20 @@ export function createMobileDonut(container, percent, diameter, fillColor, secti
     .attr('text-anchor', 'left')
     .attr('font-weight', 'bold');
 
-  text.append('tspan')
+  text
+    .append('tspan')
     .attr('x', diameter / 2 + 10)
     .attr('dy', -diameter * 0.75)
     .text(`Federal ${sectionName}`);
 
-  text.append('tspan')
+  text
+    .append('tspan')
     .attr('x', diameter / 2 + 10)
     .attr('dy', diameter / 4 + 4)
     .text(`accounted for ${Math.round(absPercent * 100)}%`);
 
-  text.append('tspan')
+  text
+    .append('tspan')
     .attr('x', diameter / 2 + 10)
     .attr('dy', diameter / 4 + 4)
     .text('of the U.S. economy');
