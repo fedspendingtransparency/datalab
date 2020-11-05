@@ -76,8 +76,27 @@ a {
   }
 }
 
-@media only screen and (max-width: $desktop - 1) {
+@media only screen and (min-width: $tablet - 1) and (max-width: $desktop - 1) {
+  .container {
+    margin: 50px 40px;
+  }
+  
   .toc-container {
     display: none;
+  }
+}
+
+@media only screen and (max-width: $tablet - 1) {
+  .container {
+    margin: 32px 15px;
+  }
+
+  .toc-container {
+    display: none;
+  }
+
+  .section-container:not(:last-of-type) {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
   }
 }
