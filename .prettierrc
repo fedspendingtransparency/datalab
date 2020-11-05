@@ -1,8 +1,8 @@
 {
     "endOfLine": "auto",
-    "semi": false,
-    "singleQuote": false,
-    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 1,
     "trailingComma": "es5",
     "useTabs": true,
     "jsxBracketSameLine": true
