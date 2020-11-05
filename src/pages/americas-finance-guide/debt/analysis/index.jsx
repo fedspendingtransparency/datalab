@@ -94,7 +94,7 @@ function DebtAnalysisPage({ location }) {
 								alt={`Domestic investors own ${AfgData.debt_owned_us_investors.value} in federal debt and The Social Security trust funds owns ${AfgData.debt_owned_trust_funds.value}. Foreign investors own ${AfgData.debt_owned_foreign_investors.value} of federal debt.`}
 								className="card__image card__image--width-constrain"
 							/>
-							The top 10 owners of debt reflect 84% of total debt, which was $22.1
+							The top 10 owners of debt reflect 83% of total debt, which was $22.1
 							trillion in {AfgData.current_fy.value}. At the end of{' '}
 							{AfgData.tic_date.value}, {AfgData.debt_owned_us_investors.value} of
 							federal debt was owned by investors from the United States, including the
