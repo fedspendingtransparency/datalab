@@ -76,6 +76,12 @@ const AboutUs = () => {
           setActiveHeading(heading[0].name);
         }
       });
+
+      document.addEventListener('resize', () => {
+        headings.forEach((h) => {
+          h.height = getElementHeight(h.href);
+        });
+      })
     }
   }, []);
 
@@ -98,7 +104,7 @@ const AboutUs = () => {
         </div>
         <div className={styles.container} id="about-us-container">
           <Grid container>
-            <Grid className={`${styles.tocContainer}  ${bottomClass}`} item lg={4}>
+            <Grid className={`${styles.tocContainer} ${bottomClass}`} item lg={4}>
               <div className={`${styles.scrollingToc} ${fixedClass}`}>
                 {headings.map((heading) => {
                   const activeClass = activeHeading === heading.name ? styles.active : '';
