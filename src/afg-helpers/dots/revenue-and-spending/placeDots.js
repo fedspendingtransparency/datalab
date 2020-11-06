@@ -1,80 +1,88 @@
 import { select, selectAll } from 'd3-selection';
-import { transition } from 'd3-transition';
+import { establishContainer, translator, isMobileDevice } from 'src/afg-helpers/utils';
 import { dotConstants, dotsPerRow } from './dotConstants';
-import { establishContainer, translator } from 'src/afg-helpers/utils';
 import { initRevenueOverlay } from './compareRevenue';
 import { initGdp } from './compareGdp';
-import { chartWidth } from './widthManager';
 import { revealCompare } from './compareManager';
-import colors from '../../../styles/afg/colors.scss';
 
 const d3 = { select, selectAll };
 
 let svg;
-let rowCount;
 let config = {};
 
 function dotFactory(container, x, y) {
-	const color = config.sectionColor;
+  const color = config.sectionColor;
 
-	container.append('circle')
-		.attr('cx', x)
-		.attr('cy', y)
-		.attr('r', 2)
-		.style('fill', color);
+  container.append('circle')
+    .attr('cx', x)
+    .attr('cy', y)
+    .attr('r', 2)
+    .style('fill', color);
 }
 
-function readyDots() {
-	if (typeof window !== 'undefined') {
-		const dotContainer = svg.append('g')
-			.classed('main-container', true)
-			.attr('transform', translator(0, 30))
-			.append('g')
-			.classed('spending-dots', true)
-			.attr('opacity', 0);
-		const oneBillion = 1000000000;
+export function readyDots(width, activeLayer) {
+  if (typeof window !== 'undefined') {
+    const isMobile = (width <= 959);
 
-		let i = 0;
-		let dotRectHeight;
-		const sectionAmountInBillions = config.sectionAmount / oneBillion;
-		let x = dotConstants.radius;
-		let y = 2;
+    const dotContainer = svg.append('g')
+      .classed('main-container', true)
+      .attr('transform', translator(0, isMobile ? 15 : 30))
+      .append('g')
+      .classed('spending-dots', true)
+      .attr('opacity', 0);
 
-		for (i; i < sectionAmountInBillions; i++) {
-			dotFactory(dotContainer, x, y);
-			x += dotConstants.offset.x;
+    const dotVal = (isMobile) ? 10000000000 : 1000000000;
+    let i = 0;
+    let dotRectHeight;
+    const sectionAmountInBillions = config.sectionAmount / dotVal;
+    let x = dotConstants.radius;
+    let y = 2;
 
-			if ((i + 1) % dotsPerRow === 0) {
-				y += dotConstants.offset.y;
-				x = dotConstants.radius;
-			}
-		}
+    for (i; i < sectionAmountInBillions; i++) {
+      dotFactory(dotContainer, x, y);
+      x += dotConstants.offset.x;
 
-		dotContainer.transition()
-			.delay(1000)
-			.duration(1000)
-			.attr('opacity', 1)
-			.on('end', revealCompare)
-			.ease();
+      if ((i + 1) % dotsPerRow === 0) {
+        y += dotConstants.offset.y;
+        x = dotConstants.radius;
+      }
+    }
 
-		dotRectHeight = d3.select('g.spending-dots')
-			.node()
-			.getBoundingClientRect().height;
+    dotContainer.transition()
+      .delay(1000)
+      .duration(1000)
+      .attr('opacity', 1)
+      .on('end', revealCompare)
+      .ease();
 
-		dotContainer.attr('data-rect-height', dotRectHeight);
+    dotRectHeight = d3.select('g.spending-dots')
+      .node()
+      .getBoundingClientRect().height;
 
-		setTimeout(() => {
-			svg.attr('height', dotRectHeight + 50);
-		}, 1000);
-	}
+    dotContainer.attr('data-rect-height', dotRectHeight);
+
+    setTimeout(() => {
+      if (isMobile) {
+        if (activeLayer !== '') {
+          const activeLayerHeight = svg.select(`.${activeLayer}-layer`)
+            .node()
+            .getBoundingClientRect().height;
+          
+          if (activeLayerHeight > dotRectHeight) dotRectHeight = activeLayerHeight;
+        }
+        svg.style('height', dotRectHeight + 31);
+      } else {
+        svg.attr('height', dotRectHeight + 50);
+      }
+    }, 1000);
+  }
 }
 
-export function placeDots(_config) {
-	d3.select('.main-container').remove();
-	config = _config || config;
-	svg = establishContainer();
-
-	readyDots();
-	initRevenueOverlay(config);
-	initGdp(config);
+export function placeDots(_config, activeLayer) {
+  d3.select('.main-container').remove();
+  config = _config || config;
+  svg = establishContainer();
+  readyDots(window.innerWidth, activeLayer);
+  initRevenueOverlay(config);
+  initGdp(config);
 }

@@ -1,32 +1,30 @@
-import React, { useEffect } from "react"
-import SEO from "src/components/seo"
-import Og from "src/components/og-tag/og"
-import AfgData from "../../../static/americas-finance-guide/_data/object_mapping.yml"
-import Default from "src/components/layouts/default/default"
-import AccordionList from "src/components/accordion-list/accordion-list"
-import ControlBar from "src/components/control-bar/control-bar"
-import Share from "src/components/share/share"
-import BpToc from "src/components/bpToc/bpToc"
-import AfgAnecdote from "src/components/anecdote/anecdote"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React, { useEffect } from 'react';
+import SEO from 'src/components/seo';
+import Og from 'src/components/og-tag/og';
+import Default from 'src/components/layouts/default/default';
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import Share from 'src/components/share/share';
+import BpToc from 'src/components/bpToc/bpToc';
+import AfgAnecdote from 'src/components/anecdote/anecdote';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faAngleRight,
 	faAngleDown,
 	faStreetView,
-} from "@fortawesome/free-solid-svg-icons"
-import { AFGHeader } from "src/components/headers/headers"
+} from '@fortawesome/free-solid-svg-icons';
+import { AFGHeader } from 'src/components/headers/headers';
 
-import "src/afg-helpers/big-picture/parallax"
-import "src/afg-helpers/big-picture/scrollTo"
-import smoothscroll from "smoothscroll-polyfill"
+import 'src/afg-helpers/big-picture/scrollTo';
+import smoothscroll from 'smoothscroll-polyfill';
+import AfgData from '../../../static/americas-finance-guide/_data/object_mapping.yml';
 
-import "src/styles/afg/cg.scss"
-import "src/afg-helpers/big-picture/scss/bp.scss"
+import 'src/styles/afg/cg.scss';
+import 'src/afg-helpers/big-picture/scss/bp.scss';
 
-export default function OverviewPage(props) {
+export default function OverviewPage({ location }) {
 	useEffect(() => {
-		smoothscroll.polyfill()
-	}, [])
+		smoothscroll.polyfill();
+	}, []);
 
 	return (
 		<>
@@ -35,78 +33,64 @@ export default function OverviewPage(props) {
 				description="Explore U.S. revenue, spending, deficit, and debt with Your Guide to America’s Finances, an accessible and open-source guide to federal finances."
 				excerpt="Your Guide to America’s Finances visualizes federal revenue, spending, deficit, and debt. It was created in response to the public’s desire to learn more about the financial picture of the United States. The federal financial information is open and accessible to all - the very principles that our founding fathers set forth when the United States was formed."
 				keywords={[
-					`federal, revenue, federal income, federal taxes, federal spending, deficit, debt`,
+					'federal, revenue, federal income, federal taxes, federal spending, deficit, debt',
 				]}
 			/>
 
-			<Og
-				socialMediaImage={
-					"/americas-finance-guide/images/social-share/social-media-share-overview.jpg"
-				}
-			/>
+			<Og socialMediaImage="/americas-finance-guide/images/social-share/social-media-share-overview.jpg" />
 
 			<Default>
 				<AFGHeader />
 				<div className="cg-wrapper bp-wrapper">
 					<header>
 						<div className="bp-header">
-							<div className="bp-header__bg"></div>
-							<div className="ffg-share ffg-share--big-picture">
-								<ControlBar>
-									<Share
-										location={props.location}
-										title="Data Lab - Your Guide to America’s Finances – U.S. Treasury"
-										twitter="How much did the federal government collect and spend last year? Your Guide to America’s Finances has federal revenue, spending, deficit, and debt data available for .CSV download. #YourGuide #DataLab #OpenGov"
-									/>
-								</ControlBar>
-							</div>
-
-							<div className="bp-header__main">
-								<div className="bp-header__coming-soon">
-									<img src="/americas-finance-guide/images/new-data-badge.svg" />
+							<div className="bp-header__bg">
+								<div className="bp-header__main">
+									<h3 className="bp-header__app-name">
+										<div className="bp-header__spacing" />
+										<span className="bp-header__title">
+											YOUR GUIDE TO AMERICA'S FINANCES
+										</span>
+										<Share
+											location={location}
+											title="Data Lab - Your Guide to America’s Finances – U.S. Treasury"
+											twitter="How much did the federal government collect and spend last year? Your Guide to America’s Finances has federal revenue, spending, deficit, and debt data available for .CSV download. #YourGuide #DataLab #OpenGov"
+										/>
+									</h3>
+									<h1 className="bp-header__heading">
+										How much money did the federal government
+										<span className="bp-header__collect-text"> collect </span>
+										and
+										<span className="bp-header__spend-text"> spend </span>
+										in {AfgData.current_fy.value}?
+									</h1>
+									<div className="bp-header__text">
+										<span>
+											Interested in learning about the deficit or federal debt?{' '}
+										</span>
+										<span>
+											Keep reading or
+											<a href="#deficit-debt-heading" className="scroll-to">
+												{' '}
+												jump to the deficit and federal debt section.
+											</a>
+										</span>
+									</div>
 								</div>
-								<h3 className="bp-header__app-name">
-									YOUR GUIDE TO AMERICA'S FINANCES
-								</h3>
-								<h1 className="bp-header__heading">
-									How much money did the federal{" "}
-									<span className="bp-header__break">
-										government <span className="bp-header__collect-text">collect</span>{" "}
-										and <span className="bp-header__spend-text">spend</span> in{" "}
-										{AfgData.current_fy.value}?
-									</span>
-								</h1>
-								<div className="bp-header__text">
-									Interested in learning about the deficit or federal debt? Keep reading
-									or{" "}
-									<a href="#deficit-debt-heading" className="scroll-to">
-										jump to the deficit and federal debt section
-									</a>
-									.
-								</div>
-							</div>
-							<div className="bp-header__scroll scroll-to">
-								<a href="#revenue-chapter" aria-label="Scroll to revenue chapter">
-									<FontAwesomeIcon
-										icon={faAngleDown}
-										width={20}
-										className="fa fa-chevron-down"
-									/>
-								</a>
 							</div>
 						</div>
 					</header>
 
 					{/* <!-- begin REVENUE chapter --> */}
 					<section className="chapter chapter--revenue">
-						<div className="chapter-scroll-target" id="revenue-chapter"></div>
+						<div className="chapter-scroll-target" id="revenue-chapter" />
 						<div className="chapter__content">
-							<BpToc></BpToc>
+							<BpToc />
 
 							<div className="chapter__flex">
 								<div className="chapter__primary">
 									<h1 className="chapter__heading">
-										In {AfgData.current_fy.value}, the federal government{" "}
+										In {AfgData.current_fy.value}, the federal government{' '}
 										<span className="chapter__big-number">
 											collected {AfgData.current_fy_revenue.value} in revenue.
 										</span>
@@ -120,9 +104,9 @@ export default function OverviewPage(props) {
 													icon={faStreetView}
 													width={11}
 													className="fas fa-street-view"
-												/>{" "}
+												/>{' '}
 												<span className="anecdote__teaser">
-													{" "}
+													{' '}
 													Show me what {AfgData.current_fy_revenue_short.value} is equal to
 												</span>
 											</button>
@@ -132,14 +116,15 @@ export default function OverviewPage(props) {
 										<div className="anecdote__contents">
 											<h1 className="anecdote__heading">Did you know?</h1>
 											<div className="anecdote__nav">
-												<div className="anecdote__nav-control"></div>
+												<div className="anecdote__nav-control" />
 												<div className="anecdote__nav-contents">
 													{/* <!-- panes --> */}
 													<div className="anecdote__panes">
 														<div className="anecdote__pane">
 															<p>
-																Federal government revenue equates to about{" "}
+																Federal government revenue equates to about{' '}
 																<strong>
+																	{' '}
 																	{AfgData.revenue_second.value} of revenue per second
 																</strong>
 																.
@@ -148,9 +133,11 @@ export default function OverviewPage(props) {
 																role="presentation"
 																className="anecdote__illustration"
 																src="/americas-finance-guide/images/revenue-1-outline.svg"
-																alt=""></img>
+																alt=""
+															/>
+															<br />
 															<p>
-																In the time it takes you to read this statement, that’s{" "}
+																In the time it takes you to read this statement, that’s{' '}
 																<strong>
 																	roughly {AfgData.revenue_during_read.value} in revenue
 																</strong>
@@ -159,24 +146,25 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_revenue.value} is the same amount as{" "}
-																<strong>{AfgData.number_of_salaries.value}</strong> individuals
-																each receiving a salary of{" "}
+																{AfgData.current_fy_revenue.value} is the same amount as{' '}
+																{AfgData.number_of_salaries.value} individuals each receiving{' '}
 																<strong>{AfgData.individual_salary.value} per year</strong>
 															</p>
 															<img
 																className="anecdote__illustration"
 																src="/americas-finance-guide/images/revenue-2-outline.svg"
-																alt=""></img>
+																alt=""
+															/>
+															<br />
 															<p>
+																That is roughly equal to the{' '}
 																<strong>
-																	(roughly equal to the average annual salary of{" "}
-																	{AfgData.salary_job_type.value})
+																	average annual salary of {AfgData.salary_job_type.value}
 																</strong>
 																.
 															</p>
 															<p className="source">
-																Source -{" "}
+																Source -{' '}
 																<a
 																	href={AfgData.bls_occ_employment.value}
 																	rel="noopener noreferrer"
@@ -187,8 +175,8 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_revenue.value} equates to the average U.S.
-																household contributing{" "}
+																{AfgData.current_fy_revenue.value} equates to every U.S.
+																household contributing{' '}
 																<strong>
 																	{AfgData.household_contribution.value} per month
 																</strong>
@@ -197,24 +185,26 @@ export default function OverviewPage(props) {
 															<img
 																role="presentation"
 																className="anecdote__illustration"
-																src="/americas-finance-guide/images/revenue-4-outline.svg"
-																alt=""></img>
+																src="/americas-finance-guide/images/revenue-3-outline.svg"
+																alt=""
+															/>
+															<br />
 															<p>
-																That is roughly equal to the cost of{" "}
+																That is roughly equal to the cost of{' '}
 																<strong>
 																	renting a {AfgData.household_contribution_type.value}
-																</strong>{" "}
+																</strong>{' '}
 																in {AfgData.household_contribution_city.value}.
 															</p>
 															<p className="source">
-																Source -{" "}
+																Source -{' '}
 																<a
 																	href={AfgData.hud_median_rent.value}
 																	rel="noopener noreferrer"
 																	target="_blank">
 																	Department of Housing and Urban Development
-																</a>{" "}
-																&{" "}
+																</a>{' '}
+																&{' '}
 																<a
 																	href={AfgData.census_household.value}
 																	rel="noopener noreferrer"
@@ -225,30 +215,37 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_revenue.value} equates to the{" "}
+																{AfgData.current_fy_revenue.value} equates to the{' '}
 																<strong>
-																	revenue of the top {AfgData.sp_companies.value} companies
-																</strong>{" "}
-																in the S&P 500.
+																	revenue of the top {AfgData.fortune_companies.value} companies
+																</strong>{' '}
+																in the Fortune 500.
 															</p>
 															<img
 																role="presentation"
 																className="anecdote__illustration"
-																src="/americas-finance-guide/images/revenue-5-outline.svg"
-																alt=""></img>
+																src="/americas-finance-guide/images/revenue-4-outline.svg"
+																alt=""
+															/>
+															<br />
 															<p className="source">
-																Figures based on {AfgData.sp_year.value} 10-K reports for S&P
-																500 Companies
+																Figures based on {AfgData.fortune_year.value} revenue reports of{' '}
+																<a
+																	href={AfgData.fortune_url.value}
+																	rel="noopener noreferrer"
+																	target="_blank">
+																	Fortune 500 Companies
+																</a>
 															</p>
 														</div>
 													</div>
 												</div>
-												<div className="anecdote__nav-control"></div>
+												<div className="anecdote__nav-control" />
 											</div>
 											<a
 												href="/americas-finance-guide/revenue/"
 												className="anecdote__cta link-button">
-												Go Explore Revenue{" "}
+												Go Explore Revenue{' '}
 												<FontAwesomeIcon
 													icon={faAngleRight}
 													width={11}
@@ -306,15 +303,17 @@ export default function OverviewPage(props) {
 								<div className="chapter__chart">
 									<img
 										src="/americas-finance-guide/images/revenue-graph-outline.svg"
-										alt="Federal revenue has increased over the past five years. Annual revenue was $3.25 trillion, $3.27 trillion, $3.31 trillion $3.33 trillion and $3.5 trillion for the years 2015 to 2019 respectively. "></img>
+										title="Federal Revenue 2016 to 2020"
+										alt={`Federal revenue has increased over the past five years from ${AfgData.year_5_revenue.value} in ${AfgData.year_5.value} to ${AfgData.current_fy_revenue_short.value} in ${AfgData.current_fy.value}.`}
+									/>
 									<p className="chapter__chart--reference">
-										Data used throughout this site is provided by the{" "}
+										Data used throughout this site is provided by the{' '}
 										<a
 											href={AfgData.overview_mts.value}
 											target="_blank"
 											rel="noopener noreferrer">
 											U.S. Department of the Treasury
-										</a>{" "}
+										</a>{' '}
 										and refers to Fiscal Year {AfgData.current_fy.value}.
 									</p>
 								</div>
@@ -322,18 +321,18 @@ export default function OverviewPage(props) {
 						</div>
 					</section>
 
-					<section className="chapter-break"></section>
+					<section className="chapter-break" />
 
 					{/* <!-- begin SPENDING chapter --> */}
 					<section className="chapter chapter--spending">
-						<div className="chapter-scroll-target" id="spending-chapter"></div>
+						<div className="chapter-scroll-target" id="spending-chapter" />
 						<div className="chapter__content">
-							<BpToc></BpToc>
+							<BpToc />
 
 							<div className="chapter__flex">
 								<div className="chapter__primary">
 									<h1 className="chapter__heading">
-										In {AfgData.current_fy.value}, the federal government{" "}
+										In {AfgData.current_fy.value}, the federal government{' '}
 										<span className="chapter__big-number">
 											spent {AfgData.current_fy_spending.value}.
 										</span>
@@ -349,7 +348,7 @@ export default function OverviewPage(props) {
 													className="fas fa-street-view"
 												/>
 												<span className="anecdote__teaser">
-													{" "}
+													{' '}
 													Show me what {AfgData.current_fy_spending_short.value} is equal to
 												</span>
 											</button>
@@ -359,22 +358,24 @@ export default function OverviewPage(props) {
 										<div className="anecdote__contents">
 											<h1 className="anecdote__heading">Did you know?</h1>
 											<div className="anecdote__nav">
-												<div className="anecdote__nav-control"></div>
+												<div className="anecdote__nav-control" />
 												<div className="anecdote__nav-contents">
 													{/* <!-- panes --> */}
 													<div className="anecdote__panes">
 														<div className="anecdote__pane">
 															<p>
-																Federal government spending equates to about{" "}
+																Federal government spending equates to about{' '}
 																<strong>{AfgData.spending_second.value}</strong> per second.
 															</p>
 															<img
 																role="presentation"
 																className="anecdote__illustration"
 																src="/americas-finance-guide/images/spending-1-outline.svg"
-																alt=""></img>
+																alt=""
+															/>
+															<br />
 															<p>
-																In just 10 seconds, that's{" "}
+																In just 10 seconds, that's{' '}
 																<strong>
 																	{AfgData.spending_ten_seconds.value} in spending.
 																</strong>
@@ -383,7 +384,7 @@ export default function OverviewPage(props) {
 														<div className="anecdote__pane">
 															<p>
 																{AfgData.current_fy_spending.value} is equivalent to a little
-																more than{" "}
+																more than{' '}
 																<strong>{AfgData.spending_per_individual.value}</strong> in
 																spending <strong>per U.S. individual</strong>.
 															</p>
@@ -391,9 +392,11 @@ export default function OverviewPage(props) {
 																role="presentation"
 																className="anecdote__illustration"
 																src="/americas-finance-guide/images/spending-2-outline.svg"
-																alt=""></img>
+																alt=""
+															/>
+															<br />
 															<p className="source">
-																Source -{" "}
+																Source -{' '}
 																<a
 																	href={AfgData.census_population.value}
 																	rel="noopener noreferrer"
@@ -404,8 +407,8 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_spending.value} equates to the average
-																household spending{" "}
+																{AfgData.current_fy_spending.value} equates to every U.S.
+																household spending{' '}
 																<strong>{AfgData.household_spending_month.value}</strong> per
 																month.
 															</p>
@@ -413,23 +416,25 @@ export default function OverviewPage(props) {
 																role="presentation"
 																className="anecdote__illustration"
 																src="/americas-finance-guide/images/spending-3-outline.svg"
-																alt=""></img>
+																alt=""
+															/>
+															<br />
 															<p>
-																That is roughly equal{" "}
+																That is roughly equal{' '}
 																<strong>
 																	to renting a {AfgData.household_spending_type.value}
-																</strong>{" "}
+																</strong>{' '}
 																in {AfgData.household_spending_city.value}.
 															</p>
 															<p className="source">
-																Source -{" "}
+																Source -{' '}
 																<a
 																	href={AfgData.hud_median_rent.value}
 																	rel="noopener noreferrer"
 																	target="_blank">
 																	Department of Housing and Urban Development
-																</a>{" "}
-																&{" "}
+																</a>{' '}
+																&{' '}
 																<a
 																	href={AfgData.census_household.value}
 																	rel="noopener noreferrer"
@@ -441,21 +446,23 @@ export default function OverviewPage(props) {
 														<div className="anecdote__pane">
 															<p>
 																{AfgData.current_fy_spending.value} is equivalent to building a
-																new{" "}
+																new{' '}
 																<strong>
 																	four-lane road from Washington D.C. to San Francisco and
 																	back...
 																	{AfgData.dc_sf_trips.value} times!
-																</strong>{" "}
+																</strong>{' '}
 																(That's {AfgData.dc_sf_miles.value} miles of roadway!)
 															</p>
 															<img
 																role="presentation"
 																className="anecdote__illustration"
 																src="/americas-finance-guide/images/spending-4-outline.svg"
-																alt=""></img>
+																alt=""
+															/>
+															<br />
 															<p className="source">
-																Source -{" "}
+																Source -{' '}
 																<a
 																	href={AfgData.artba_road_cost.value}
 																	rel="noopener noreferrer"
@@ -466,12 +473,12 @@ export default function OverviewPage(props) {
 														</div>
 													</div>
 												</div>
-												<div className="anecdote__nav-control"></div>
+												<div className="anecdote__nav-control" />
 											</div>
 											<a
 												href="/americas-finance-guide/spending/"
 												className="anecdote__cta link-button">
-												Go Explore Spending{" "}
+												Go Explore Spending{' '}
 												<FontAwesomeIcon
 													icon={faAngleRight}
 													width={11}
@@ -537,15 +544,16 @@ export default function OverviewPage(props) {
 								<div className="chapter__chart">
 									<img
 										src="/americas-finance-guide/images/spending-graph-outline.svg"
-										alt="Federal spending has increased steadily over the past five years. Annual spending was $3.69 trillion, $3.85 trillion, $3.98 trillion $4.11 trillion, and $4.4 trillion for the years 2015 to 2019 respectively."></img>
+										alt={`Federal spending has increased steadily over the past five years from ${AfgData.year_5_spending.value} in ${AfgData.year_5.value} to ${AfgData.current_fy_spending_short.value} in ${AfgData.current_fy.value}.`}
+									/>
 									<p className="chapter__chart--reference">
-										Data used throughout this site is provided by the{" "}
+										Data used throughout this site is provided by the{' '}
 										<a
 											href={AfgData.overview_mts.value}
 											target="_blank"
 											rel="noopener noreferrer">
 											U.S. Department of the Treasury
-										</a>{" "}
+										</a>{' '}
 										and refers to Fiscal Year {AfgData.current_fy.value}
 									</p>
 								</div>
@@ -555,9 +563,9 @@ export default function OverviewPage(props) {
 
 					<section className="deficit-debt-heading" id="deficit-debt-heading">
 						<h1 className="deficit-debt-heading__heading">
-							How did federal revenue and spending affect the{" "}
+							How did federal revenue and spending affect the{' '}
 							<span className="chapter__divider--text-deficit">deficit</span> and
-							federal <span className="chapter__divider--text-debt">debt</span> in{" "}
+							federal <span className="chapter__divider--text-debt">debt</span> in{' '}
 							{AfgData.current_fy.value}?
 						</h1>
 						<div className="deficit-debt-heading__arrow-container scroll-to">
@@ -573,16 +581,16 @@ export default function OverviewPage(props) {
 
 					{/* <!-- begin DEFICIT chapter --> */}
 					<section className="chapter chapter--deficit">
-						<div className="chapter-scroll-target" id="deficit-chapter"></div>
+						<div className="chapter-scroll-target" id="deficit-chapter" />
 
 						<div className="chapter__content">
-							<BpToc></BpToc>
+							<BpToc />
 
 							<div className="chapter__flex">
 								<div className="chapter__primary">
 									<h1 className="chapter__heading">
-										In {AfgData.current_fy.value}, the federal government spent{" "}
-										{AfgData.current_fy_deficit.value} more than it collected,{" "}
+										In {AfgData.current_fy.value}, the federal government spent{' '}
+										{AfgData.current_fy_deficit.value} more than it collected,{' '}
 										<span className="chapter__big-number">resulting in a deficit.</span>
 									</h1>
 
@@ -596,7 +604,7 @@ export default function OverviewPage(props) {
 													className="fas fa-street-view"
 												/>
 												<span className="anecdote__teaser">
-													{" "}
+													{' '}
 													Show me what {AfgData.current_fy_deficit_short.value} is equal to
 												</span>
 											</button>
@@ -606,26 +614,29 @@ export default function OverviewPage(props) {
 										<div className="anecdote__contents">
 											<h1 className="anecdote__heading">Did you know?</h1>
 											<div className="anecdote__nav">
-												<div className="anecdote__nav-control"></div>
+												<div className="anecdote__nav-control" />
 												<div className="anecdote__nav-contents">
 													{/* <!-- panes --> */}
 													<div className="anecdote__panes">
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_deficit.value} is almost{" "}
+																{AfgData.current_fy_deficit.value} is almost{' '}
 																<strong>
 																	{AfgData.times_cc_debt.value} times the amount of credit card
-																	debt Americans created in {AfgData.current_fy.value}
-																</strong>{" "}
-																({AfgData.cc_debt_total.value}).
+																	debt Americans held in {AfgData.current_fy.value}
+																</strong>{' '}
+																({AfgData.cc_debt_total.value}
+																).
 															</p>
 															<img
 																role="presentation"
 																className="anecdote__illustration"
 																src="/americas-finance-guide/images/deficit-1-outline.svg"
-																alt=""></img>
+																alt=""
+															/>
+															<br />
 															<p className="source">
-																Source -{" "}
+																Source -{' '}
 																<a
 																	href={AfgData.frbny_microecon.value}
 																	rel="noopener noreferrer"
@@ -636,24 +647,21 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_deficit.value} breaks down to about{" "}
+																{AfgData.current_fy_deficit.value} breaks down to about{' '}
 																<strong>
 																	{AfgData.deficit_per_household.value} of deficit spending
-																</strong>{" "}
+																</strong>{' '}
 																per household in {AfgData.current_fy.value}.
 															</p>
 															<img
 																role="presentation"
 																className="anecdote__illustration"
 																src="/americas-finance-guide/images/deficit-2-outline.svg"
-																alt=""></img>
-															<p>
-																In {AfgData.current_fy.value}, there were an estimated{" "}
-																<strong>{AfgData.us_households.value} households</strong> in the
-																United States.
-															</p>
+																alt=""
+															/>
+															<br />
 															<p className="source">
-																Source -{" "}
+																Source -{' '}
 																<a
 																	href={AfgData.census_household.value}
 																	rel="noopener noreferrer"
@@ -664,7 +672,7 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_deficit.value} equates to{" "}
+																{AfgData.current_fy_deficit.value} equates to{' '}
 																<strong>{AfgData.deficit_minute.value}</strong> in deficit
 																spending <strong>every minute</strong> for an entire year.
 															</p>
@@ -672,11 +680,12 @@ export default function OverviewPage(props) {
 																role="presentation"
 																className="anecdote__illustration"
 																src="/americas-finance-guide/images/deficit-3-outline.svg"
-																alt=""></img>
+																alt=""
+															/>
 														</div>
 													</div>
 												</div>
-												<div className="anecdote__nav-control"></div>
+												<div className="anecdote__nav-control" />
 											</div>
 											<a
 												href="/americas-finance-guide/deficit/"
@@ -692,7 +701,7 @@ export default function OverviewPage(props) {
 									</section>
 
 									<p className="chapter__paragraph--tightened">
-										A deficit occurs when money going out exceeds the money coming in. In{" "}
+										A deficit occurs when money going out exceeds the money coming in. In{' '}
 										{AfgData.current_fy.value}, the federal government spent more than it
 										collected.
 									</p>
@@ -702,7 +711,7 @@ export default function OverviewPage(props) {
 											<div className="accordion__content">
 												<p>
 													A surplus occurs when the government collects more money than it
-													spends. The last federal surplus occurred in{" "}
+													spends. The last federal surplus occurred in{' '}
 													{AfgData.last_surplus.value}. The government primarily uses
 													surpluses to reduce the federal debt.
 												</p>
@@ -733,15 +742,16 @@ export default function OverviewPage(props) {
 								<div className="chapter__chart">
 									<img
 										src="/americas-finance-guide/images/deficit-graph-outline.svg"
-										alt="Since the government spent $4.4 trillion in 2019 and collected $3.5 trillion, the deficit for the year was $984 billion."></img>
+										alt={`Since the government spent ${AfgData.current_fy_spending_short.value} and collected ${AfgData.current_fy_revenue_short.value} in ${AfgData.current_fy.value}, the deficit for the year was ${AfgData.current_fy_deficit_short.value}.`}
+									/>
 									<p className="chapter__chart--reference">
-										Data used throughout this site is provided by the{" "}
+										Data used throughout this site is provided by the{' '}
 										<a
 											href={AfgData.overview_mts.value}
 											target="_blank"
 											rel="noopener noreferrer">
 											U.S. Department of the Treasury
-										</a>{" "}
+										</a>{' '}
 										and refers to Fiscal Year {AfgData.current_fy.value}
 									</p>
 								</div>
@@ -749,19 +759,19 @@ export default function OverviewPage(props) {
 						</div>
 					</section>
 
-					<section className="chapter-break"></section>
+					<section className="chapter-break" />
 
 					{/* <!-- begin DEBT chapter --> */}
 					<section className="chapter chapter--debt">
-						<div className="chapter-scroll-target" id="debt-chapter"></div>
+						<div className="chapter-scroll-target" id="debt-chapter" />
 
 						<div className="chapter__content">
-							<BpToc></BpToc>
+							<BpToc />
 
 							<div className="chapter__flex">
 								<div className="chapter__primary">
 									<h1 className="chapter__heading">
-										By the end of {AfgData.current_fy.value}, the government had{" "}
+										By the end of {AfgData.current_fy.value}, the government had{' '}
 										<span className="chapter__big-number">
 											{AfgData.current_fy_debt.value} in federal debt.
 										</span>
@@ -777,7 +787,7 @@ export default function OverviewPage(props) {
 													className="fas fa-street-view"
 												/>
 												<span className="anecdote__teaser">
-													{" "}
+													{' '}
 													Show me what {AfgData.current_fy_debt_short.value} is equal to
 												</span>
 											</button>
@@ -787,30 +797,31 @@ export default function OverviewPage(props) {
 										<div className="anecdote__contents">
 											<h1 className="anecdote__heading">Did you know?</h1>
 											<div className="anecdote__nav">
-												<div className="anecdote__nav-control"></div>
+												<div className="anecdote__nav-control" />
 												<div className="anecdote__nav-contents">
 													{/* <!-- panes --> */}
 													<div className="anecdote__panes">
 														<div className="anecdote__pane">
 															<p>
-																If the federal debt was split evenly among households,{" "}
-																<strong>your household's share</strong> would be roughly{" "}
+																If the federal debt was split evenly among households,{' '}
+																<strong>your household's share</strong> would be roughly{' '}
 																<strong>{AfgData.household_share_debt.value}</strong>.
 															</p>
 															<img
 																role="presentation"
 																className="anecdote__illustration"
-																src="/americas-finance-guide/images/debt-2-outline.svg"
-																alt=""></img>
+																src="/americas-finance-guide/images/debt-1-outline.svg"
+																alt=""
+															/>
+															<br />
 															<p>
-																That is about equal to the{" "}
+																That is about equal to the{' '}
 																<strong>
-																	median home price in {AfgData.share_debt_city.value}
-																</strong>{" "}
-																({AfgData.share_debt_city_price.value}).
+																	median home price in {AfgData.share_debt_city.value}.
+																</strong>
 															</p>
 															<p className="source">
-																Source -{" "}
+																Source -{' '}
 																<a
 																	href={AfgData.census_median_home.value}
 																	rel="noopener noreferrer"
@@ -821,31 +832,33 @@ export default function OverviewPage(props) {
 														</div>
 														<div className="anecdote__pane">
 															<p>
-																{AfgData.current_fy_debt.value} equates to a little less than{" "}
+																{AfgData.current_fy_debt.value} equates to a little less than{' '}
 																<strong>{AfgData.debt_per_individual.value}</strong> per
 																individual in the U.S.
 															</p>
 															<img
 																role="presentation"
 																className="anecdote__illustration"
-																src="/americas-finance-guide/images/debt-3-outline.svg"
-																alt=""></img>
+																src="/americas-finance-guide/images/debt-2-outline.svg"
+																alt=""
+															/>
+															<br />
 															<p>
-																That is equal to the{" "}
+																That is equal to the{' '}
 																<strong>
 																	average salary of {AfgData.debt_average_salary_type.value}
 																</strong>
 																.
 															</p>
 															<p className="source">
-																Source -{" "}
+																Source -{' '}
 																<a
 																	href={AfgData.bls_occ_employment.value}
 																	rel="noopener noreferrer"
 																	target="_blank">
 																	Bureau of Labor Statistics
-																</a>{" "}
-																&{" "}
+																</a>{' '}
+																&{' '}
 																<a
 																	href={AfgData.census_population.value}
 																	rel="noopener noreferrer"
@@ -856,7 +869,7 @@ export default function OverviewPage(props) {
 														</div>
 													</div>
 												</div>
-												<div className="anecdote__nav-control"></div>
+												<div className="anecdote__nav-control" />
 											</div>
 											<a
 												href="/americas-finance-guide/debt/"
@@ -889,9 +902,9 @@ export default function OverviewPage(props) {
 										<AccordionList title="Why can’t the government just print more money?">
 											<div className="accordion__content">
 												<p>
-													It can, and does. While the Department of the Treasury prints
-													actual dollars, “printing money” is also a term that is sometimes
-													used to describe a means of{" "}
+													While the Department of the Treasury prints actual dollars,
+													“printing money” is also a term that is sometimes used to describe
+													a means of{' '}
 													<a
 														href={AfgData.monetary_policy.value}
 														rel="noopener noreferrer"
@@ -933,15 +946,16 @@ export default function OverviewPage(props) {
 								<div className="chapter__chart">
 									<img
 										src="/americas-finance-guide/images/debt-graph-outline.svg"
-										alt="Federal debt has increased over the past five years. Federal debt was $18.2 trillion, $19.6 trillion, $20.2 trillion, $21.5 trillion and $22.7 trillion at the end of the years 2015 to 2019 respectively."></img>
+										alt={`Federal debt has increased over the past five years. Federal debt was ${AfgData.year_5_debt.value} in ${AfgData.year_5.value} and ${AfgData.current_fy_debt_short.value} in ${AfgData.current_fy.value}.`}
+									/>
 									<p className="chapter__chart--reference">
-										Data used throughout this site is provided by the{" "}
+										Data used throughout this site is provided by the{' '}
 										<a
 											href={AfgData.overview_mspd.value}
 											rel="noopener noreferrer"
 											target="_blank">
 											U.S. Department of the Treasury
-										</a>{" "}
+										</a>{' '}
 										and refers to Fiscal Year {AfgData.current_fy.value}
 									</p>
 								</div>
@@ -952,56 +966,63 @@ export default function OverviewPage(props) {
 					<section className="hwcta">
 						<AccordionList title="Data Sources and Methodology">
 							<p>
-								This analysis was conducted using the{" "}
+								This analysis was conducted using the{' '}
 								<a
 									href={AfgData.mts_homepage.value}
 									rel="noopener noreferrer"
 									target="_blank">
 									Monthly Treasury Statement (MTS)
-								</a>{" "}
+								</a>{' '}
 								as the data source for federal government revenue and spending of the
-								United States and the{" "}
+								United States and the{' '}
 								<a
 									href={AfgData.mspd_homepage.value}
 									rel="noopener noreferrer"
 									target="_blank">
 									Monthly Statement of the Public Debt (MSPD)
-								</a>{" "}
+								</a>{' '}
 								as the data source for federal debt.
 							</p>
 							<p>
-								U.S. Census Bureau data was used for{" "}
+								U.S. Census Bureau data was used for{' '}
 								<a
 									href={AfgData.census_population.value}
 									rel="noopener noreferrer"
 									target="_blank">
 									population
-								</a>{" "}
-								and{" "}
+								</a>{' '}
+								and{' '}
 								<a
 									href={AfgData.census_household.value}
 									rel="noopener noreferrer"
 									target="_blank">
 									household
-								</a>{" "}
-								estimates. Median home price estimates are also provided by the U.S.
-								Census Bureau. Rent estimates come from the{" "}
+								</a>{' '}
+								estimates.{' '}
+								<a
+									href={AfgData.census_median_home.value}
+									rel="noopener noreferrer"
+									target="_blank">
+									Median home price estimates
+								</a>{' '}
+								are also provided by the U.S. Census Bureau. Rent estimates come from
+								the{' '}
 								<a
 									href={AfgData.hud_median_rent.value}
 									rel="noopener noreferrer"
 									target="_blank">
 									Department of Housing and Urban Development (HUD)
 								</a>
-								. The Bureau of Labor Statistics (BLS){" "}
+								. The Bureau of Labor Statistics (BLS){' '}
 								<a
 									href={AfgData.bls_occ_employment.value}
 									rel="noopener noreferrer"
 									target="_blank">
 									Occupational Employment Statistics
-								</a>{" "}
+								</a>{' '}
 								was used for wage estimates. Information on the amount of credit card
 								debt added by Americans comes from the Federal Reserve Bank of New
-								York’s{" "}
+								York’s{' '}
 								<a
 									href={AfgData.frbny_microecon.value}
 									rel="noopener noreferrer"
@@ -1010,13 +1031,13 @@ export default function OverviewPage(props) {
 								</a>
 								. The annual 10-K reports of the top S&P 500 companies were compiled in
 								order to find the equivalent revenue from companies to match the federal
-								government’s revenue for the year. The{" "}
+								government’s revenue for the year. The{' '}
 								<a
 									href={AfgData.artba_road_cost.value}
 									rel="noopener noreferrer"
 									target="_blank">
 									American Road and Transportation Builders Association
-								</a>{" "}
+								</a>{' '}
 								provides information about the cost of building new roads derived from
 								the cost models of different states.
 							</p>
@@ -1058,7 +1079,7 @@ export default function OverviewPage(props) {
 
 					<div className="historical-quote">
 						<blockquote>
-							We might hope to see the finances of the Union as{" "}
+							We might hope to see the finances of the Union as{' '}
 							<strong>clear and intelligible as a merchant's books</strong>, so that
 							every member of Congress, and <strong>every person</strong> of any mind
 							in the Union should be able to <strong>comprehend them</strong>, to
@@ -1068,7 +1089,8 @@ export default function OverviewPage(props) {
 							role="presentation"
 							className="historical-quote__image"
 							src="/americas-finance-guide/images/jefferson.png"
-							alt=""></img>
+							alt=""
+						/>
 						<p className="historical-quote__credit">
 							<strong>Thomas Jefferson</strong> to Albert Gallatin, 1802
 							<br />
@@ -1079,7 +1101,7 @@ export default function OverviewPage(props) {
 					<div className="about-us">
 						<h1 className="about-us__heading">Americans asked. We listened.</h1>
 						<p className="about-us__main-copy">
-							<em>Your Guide to America's Finances</em> is a re-invention of the{" "}
+							<em>Your Guide to America's Finances</em> is a re-invention of the{' '}
 							<a
 								href={AfgData.citizens_guide_link.value}
 								rel="noopener noreferrer"
@@ -1101,11 +1123,12 @@ export default function OverviewPage(props) {
 						<img
 							src="/americas-finance-guide/images/treasury-seal.svg"
 							className="about-us__logo"
-							alt="U.S. Treasury Logo"></img>
+							alt="U.S. Treasury Logo"
+						/>
 					</div>
 				</div>
 			</Default>
 			<AfgAnecdote />
 		</>
-	)
+	);
 }

@@ -17,13 +17,12 @@ $headerBg: rgba(255,255,255,0.9);
 }
 
 .bp-header__bg {
-    position: absolute;
-    background: url(/americas-finance-guide/images/header-mobile.jpg) center top no-repeat;
+    background: url(/americas-finance-guide/images/header_mobile.png) center top no-repeat;
     background-size: cover;
-    height: 600px;
-    margin-top: 50px;
-    top: 0;
-    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
     width: 100%;
     z-index: 0;
 }
@@ -31,12 +30,14 @@ $headerBg: rgba(255,255,255,0.9);
 .bp-header__main {
     z-index: 1;
     position: relative;
-    background: $headerBg;
-    margin: 1rem 0;
-    padding: 1rem;
+    margin: 2rem;
+    background: #fff;
+    border: solid 1px #eaeaea;
 }
 
 .bp-header__app-name {
+    display: flex;
+    justify-content: space-between;
     color: #3C3C3C;
     font-weight: 800;
     font-size: 1.2rem;
@@ -44,22 +45,33 @@ $headerBg: rgba(255,255,255,0.9);
     margin: 0 0 0.5rem;
 }
 
-.bp-header__coming-soon {
-    padding-bottom: 15px;
+.bp-header__title {
+    font-weight: 600;
+    color: #242424;
+    letter-spacing: normal;
 }
 
 .bp-header__heading {
     margin-top: 0;
     margin-bottom: 1rem;
     text-align: center;
-
-    span {
-        font-size: $baseHeaderSize;
-    }
+    font-weight: normal;
 }
 
-.bp-header__heading, .bp-header__heading > span {
-    @include baseHeader();
+.bp-header__heading {
+    color: #555;
+    font-weight: 300;
+    line-height: normal;
+
+    .bp-header__collect-text {
+        color: $revenue-primary;
+        font-weight: 700;
+    }
+
+    .bp-header__spend-text {
+        color: $color-spending-primary;
+        font-weight: 700;
+    }
 }
 
 .bp-header__scroll {
@@ -80,16 +92,6 @@ $headerBg: rgba(255,255,255,0.9);
     }
 }
 
-.bp-header__collect-text {
-    color: $revenue-primary;
-    font-weight: 700;
-}
-
-.bp-header__spend-text {
-    color: $color-spending-primary;
-    font-weight: 700;
-}
-
 .overview-chart {
     order: 1;
 }
@@ -97,11 +99,16 @@ $headerBg: rgba(255,255,255,0.9);
 .bp-header__text {
     font-weight:400;
     font-size: 1rem;
+    line-height: normal;
+
+    p {
+        margin: 0;
+    }
 }
 
 @media only screen and (min-width: 800px) {
     .bp-header__heading, .bp-header__heading span {
-        @include baseHeaderDesktop();
+        font-size: 2.5rem;
     }
 
     .bp-header {
@@ -109,9 +116,19 @@ $headerBg: rgba(255,255,255,0.9);
     }
 
     .bp-header__main {
-        margin: 2rem 0;
-        padding: 2rem 3rem;
         display: inline-block;
+        padding: 2rem;
+        border-radius: 5px;
+        max-width: 750px;
+    }
+
+    .bp-header__text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bp-header__spacing {
+        width: 84px;
     }
 }
 
@@ -123,20 +140,12 @@ $headerBg: rgba(255,255,255,0.9);
 
 @media only screen and (min-width: 800px) {
     .bp-header__bg {
-        background-position-y: -5px;
-        background-size: 100%;
         background: url(/americas-finance-guide/images/header_image.jpg) center top no-repeat;
+        background-size: cover;
     }
-}
 
-@media only screen and (min-width: 1200px) {
     .bp-header__break {
         display: block;
-    }
-
-    .bp-header__bg {
-        background-size: 120%;
-        background-position-y: -20px;
     }
 }
 
@@ -144,5 +153,36 @@ $headerBg: rgba(255,255,255,0.9);
     .bp-header__bg {
         background-size: cover;
         background-position-y: -23px;
+    }
+}
+
+@media only screen and (max-width: 799px) {
+    .bp-header__bg {
+        margin-top: 2rem;
+    }
+
+    .bp-header__main {
+        margin: auto 15px;
+        padding: 18px 15px;
+        opacity: 0.9;
+    }
+
+    .bp-header__heading, .bp-header__heading span {
+        font-size: 2rem;
+    }
+
+    .bp-header__app-name {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bp-header__title {
+        margin-top: 1rem;
+    }
+
+    .bp-header__spacing {
+        display: none;
     }
 }

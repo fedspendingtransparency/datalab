@@ -3,208 +3,262 @@ import { chartWidth } from './widthManager';
 import { dotConstants, dotsPerRow } from './dotConstants';
 import { translator } from 'src/afg-helpers/utils';
 import { touchIe } from 'src/afg-helpers/touchIe';
+import { isMobileDevice } from '../../../afg-helpers/utils';
 
-const stateManager = {};
 const layers = {};
 const duration = 500;
-const idMap = {
-	gdp: '#gdp-facts',
-	revenue: '#revenue-facts',
-};
-
 const sectionActive = 'facts__section--active';
 const buttonActive = 'facts__trigger--active';
 
-let gdpHeight; let originalHeight; let config = {};
+let gdpHeight, originalHeight, spendingHeight, config = {};
 
 function setLayerOpacity(id, active) {
-	layers[id].transition()
-		.duration(duration)
-		.attr('opacity', () => (active ? 1 : 0));
+  layers[id].transition()
+    .duration(duration)
+    .attr('opacity', () => (active ? 1 : 0));
 }
 
 function handleGdpLayer(reset) {
-	const scale = reset ? 1 : 0.6;
-	const x = reset ? 0 : chartWidth * 0.5 - (chartWidth * scale / 2);
-	const stepTwoOpacity = reset ? 0 : 1;
-	const mainContainer = d3.select('.main-container');
+  const scale = reset ? 1 : 0.6;
+  const x = reset ? 0 : chartWidth * 0.5 - (chartWidth * scale / 2);
+  const stepTwoOpacity = reset ? 0 : 1;
+  const mainContainer = d3.select('.main-container');
 
-	const accessibilityType = !reset ? 'gdp' : '';
+  const accessibilityType = !reset ? 'gdp' : '';
 
-	if (reset && !mainContainer.classed('gdp-active', !reset)) {
-		return;
-	}
+  if (reset && !mainContainer.classed('gdp-active', !reset)) {
+    return;
+  }
 
-	setAccessibility(accessibilityType);
-	mainContainer.classed('gdp-active', !reset);
+  setAccessibility(accessibilityType);
+  mainContainer.classed('gdp-active', !reset);
 
-	mainContainer.transition()
-		.duration(2000)
-		.attr('transform', `${translator(x, 30)} scale(${scale})`)
-		.ease();
+  if (window.innerWidth < 959) {
+    return;
+  }
 
-	d3.selectAll('.gdp-step-two')
-		.transition()
-		.delay(1000)
-		.duration(1500)
-		.attr('opacity', stepTwoOpacity)
-		.on('end', touchIe)
-		.ease();
+  mainContainer.transition()
+    .duration(2000)
+    .attr('transform', `${translator(x, 30)} scale(${scale})`)
+    .ease();
+
+  d3.selectAll('.gdp-step-two')
+    .transition()
+    .delay(1000)
+    .duration(1500)
+    .attr('opacity', stepTwoOpacity)
+    // .on('end', touchIe)
+    .ease();
 }
 
 function setAccessibility(type) {
-	const svgEl = d3.select('svg.main');
-	const descEl = svgEl.select('desc');
+  const svgEl = d3.select('svg.main');
+  const descEl = svgEl.select('desc');
 
-	let accessibilityAttr = config.accessibilityAttrs.default;
-	if (type) {
-		accessibilityAttr = config.accessibilityAttrs[type];
-	}
+  let accessibilityAttr = config.accessibilityAttrs.default;
+  if (type) {
+    accessibilityAttr = config.accessibilityAttrs[type];
+  }
 
-	descEl.text(accessibilityAttr.desc);
+  descEl.text(accessibilityAttr.desc);
 }
 
 function handleRevenueLayer(reset) {
-	const scale = reset ? 1 : 0.6;
-	const x = reset ? 0 : chartWidth * 0.5 - (chartWidth * scale / 2);
-	const stepTwoOpacity = reset ? 0 : 1;
-	const mainContainer = d3.select('.main-container');
+  const scale = reset ? 1 : 0.6;
+  const x = reset ? 0 : chartWidth * 0.5 - (chartWidth * scale / 2);
+  const stepTwoOpacity = reset ? 0 : 1;
+  const mainContainer = d3.select('.main-container');
 
-	const accessibilityType = !reset ? config.compareString : '';
+  const accessibilityType = !reset ? config.compareString : '';
 
-	if (reset && !mainContainer.classed('gdp-active', !reset)) {
-		return;
-	}
+  if (reset && !mainContainer.classed('gdp-active', !reset)) {
+    return;
+  }
 
-	setAccessibility(accessibilityType);
-	mainContainer.classed('gdp-active', !reset);
+  setAccessibility(accessibilityType);
+  mainContainer.classed('gdp-active', !reset);
 
-	mainContainer.transition()
-		.duration(2000)
-		.attr('transform', `${translator(x, 30)} scale(${scale})`)
-		.ease();
+  if (window.innerWidth < 959) {
+    return;
+  }
 
-	d3.selectAll(`.${config.compareString}-step-two`)
-		.transition()
-		.delay(1000)
-		.duration(1500)
-		.attr('opacity', stepTwoOpacity)
-		.on('end', touchIe)
-		.ease();
+  mainContainer.transition()
+    .duration(2000)
+    .attr('transform', `${translator(x, 30)} scale(${scale})`)
+    .ease();
+
+  d3.selectAll(`.${config.compareString}-step-two`)
+    .transition()
+    .delay(1000)
+    .duration(1500)
+    .attr('opacity', stepTwoOpacity)
+    // .on('end', touchIe)
+    .ease();
 }
 
 function handleLayers(id, reset) {
-	if (id === 'gdp') {
-		handleGdpLayer(reset);
-	} else {
-		handleRevenueLayer(reset);
-	}
+  if (id === 'gdp') {
+    handleGdpLayer(reset);
+  } else {
+    handleRevenueLayer(reset);
+  }
 }
 
-function toggleFacts() {
-	const button = d3.select(this);
-	const desktop = (document.documentElement.clientWidth > 959);
-	const id = button.attr('data-trigger-id');
-	const targetSection = d3.select(`#${id}-facts`);
-	const wasPreviouslyActive = button.classed(buttonActive);
+export function toggleFacts() {
+  const button = d3.select(this);
+  const id = button.attr('data-trigger-id');
+  const targetSection = d3.select(`#${id}-facts`);
+  const wasPreviouslyActive = button.classed(buttonActive);
 
-	d3.selectAll('.facts__trigger')
-		.classed(buttonActive, null);
-	d3.selectAll('.facts__section')
-		.classed(sectionActive, null);
+  d3.selectAll('.facts__trigger')
+    .classed(buttonActive, null);
+  d3.selectAll('.facts__section')
+    .classed(sectionActive, null);
 
-	setLayerOpacity(Object.keys(layers)
-		.filter((k) => k != id)[0]);
+  setLayerOpacity(Object.keys(layers)
+    .filter((k) => k != id)[0]);
 
-	if (wasPreviouslyActive) {
-		setLayerOpacity(id);
-	} else {
-		button.classed(buttonActive, true);
-		targetSection.classed(sectionActive, true);
-		setLayerOpacity(id, true);
-	}
+  if (wasPreviouslyActive) {
+    setLayerOpacity(id);
+  } else {
+    button.classed(buttonActive, true);
+    targetSection.classed(sectionActive, true);
+    setLayerOpacity(id, true);
+  }
 
-	resizeSvg((id === 'gdp' && !wasPreviouslyActive));
+  resizeSvg((id === 'gdp' && !wasPreviouslyActive));
 
-	if (!wasPreviouslyActive && desktop) {
-		handleLayers(id);
-	} else if (desktop) {
-		handleLayers(id, true);
-	}
+  if (!wasPreviouslyActive) {
+    handleLayers(id);
+  } else {
+    handleLayers(id, true);
+  }
+}
+
+export function toggleSelectedFacts(id) {
+  d3.select(`#${id}-facts__trigger`).classed(buttonActive, true);
+  const targetSection = d3.select(`#${id}-facts`);
+  targetSection.classed(sectionActive, true);
+
+  setLayerOpacity(Object.keys(layers)
+    .filter((k) => k != id)[0]);
+
+  setLayerOpacity(id, true);
+
+  handleLayers(id);
+
+  setTimeout(() => resizeSvg(id === 'gdp'), 500);
+
+}
+
+export function toggleFactsMobile(id) {
+  d3.selectAll('.facts__trigger')
+    .classed(buttonActive, null);
+  d3.selectAll('.facts__section')
+    .classed(sectionActive, null);
+
+  d3.selectAll(`.revenue-layer, .spending-layer, .gdp-layer`).attr('opacity', 0);
+  d3.select(`.${id}-layer`).attr('opacity', 1);
+  const targetSection = d3.select(`#mobile-${id}-facts`);
+  targetSection.classed(sectionActive, true);
+  setTimeout(() => resizeSvgMobile(id), 1000);
 }
 
 function resizeSvg(gdp) {
-	const h = gdp ? gdpHeight : originalHeight;
+  const h = gdp ? gdpHeight : originalHeight;
 
-	d3.select('svg.main')
-		.transition()
-		.duration(500)
-		.attr('height', h + 50);
+  d3.select('svg.main')
+    .transition()
+    .duration(500)
+    .attr('height', h + 50);
+}
+
+function resizeSvgMobile(id) {
+  let h = originalHeight;
+
+  if(id === 'spending') {
+    h = spendingHeight;
+  } else if (id === 'gdp') {
+    h = gdpHeight;
+  }
+
+  d3.select('svg.main')
+    .transition()
+    .attr('height', h + 80);
 }
 
 export function generateOverlay(count, container, className, color) {
-	const rows = Math.floor(count / dotsPerRow);
-	const remainder = count % dotsPerRow;
-	const spacing = dotConstants.offset.y - (dotConstants.radius * 2);
-	const mainRectHeight = (rows * dotConstants.offset.y) - spacing / 2;
-	const secondaryRectHeight = (dotConstants.radius * 2) + spacing / 2;
-	const overlayHeight = mainRectHeight + secondaryRectHeight;
-	const rectColor = color || '#ccc';
+  const rows = Math.floor(count / dotsPerRow);
+  const remainder = count % dotsPerRow;
+  const spacing = dotConstants.offset.y - (dotConstants.radius * 2);
+  const mainRectHeight = (rows * dotConstants.offset.y) - spacing / 2;
+  const secondaryRectHeight = (dotConstants.radius * 2) + spacing / 2;
+  const overlayHeight = mainRectHeight + secondaryRectHeight;
+  const rectColor = color || '#ccc';
+  const opacity = window.innerWidth < 959 ? '0.4' : '0.8';
 
-	const overlayLayer = container.append('g')
-		.attr('data-rect-height', overlayHeight)
-		.classed(className, true);
+  const overlayLayer = container.append('g')
+    .attr('data-rect-height', overlayHeight)
+    .classed(className, true);
 
-	overlayLayer.attr('opacity', 0);
+  overlayLayer.attr('opacity', 0);
 
-	overlayLayer.append('rect')
-		.attr('width', dotsPerRow * dotConstants.offset.x)
-		.attr('height', mainRectHeight)
-		.attr('fill', rectColor)
-		.attr('opacity', 0.8);
+  overlayLayer.append('rect')
+    .attr('width', dotsPerRow * dotConstants.offset.x)
+    .attr('height', mainRectHeight)
+    .attr('fill', rectColor)
+    .attr('opacity', opacity);
 
-	overlayLayer.append('rect')
-		.attr('width', remainder * dotConstants.offset.x)
-		.attr('y', mainRectHeight)
-		.attr('height', secondaryRectHeight)
-		.attr('fill', rectColor)
-		.attr('opacity', 0.8);
+  overlayLayer.append('rect')
+    .attr('width', remainder * dotConstants.offset.x)
+    .attr('y', mainRectHeight)
+    .attr('height', secondaryRectHeight)
+    .attr('fill', rectColor)
+    .attr('opacity', opacity);
 
-	return overlayLayer;
+  return overlayLayer;
 }
 
 export function registerLayer(id, layer, _n, _config) {
-	config = _config || config;
-	layers[id] = layer;
-	const n = _n;
+  config = _config || config;
+  layers[id] = layer;
+  const n = _n;
+  const gdpMultiplier = isMobileDevice() ? 1.1 : 0.6;
 
-	if (n) {
-		gdpHeight = n * 0.6;
-	} else if (!originalHeight) {
-		originalHeight = d3.select('g.spending-dots')
-			.node()
-			.getBoundingClientRect().height;
-	}
+  if (n) {
+    gdpHeight = n * gdpMultiplier;
+    spendingHeight = n * 0.4;
+  } else if (!originalHeight) {
+    originalHeight = d3.select('g.spending-dots')
+      .node()
+      .getBoundingClientRect().height;
+  }
 }
 
 export function resetForResize() {
-	d3.selectAll('.sidebar')
-		.classed('intro-hidden', true);
-	Object.keys(layers)
-		.forEach(setLayerOpacity);
-	d3.selectAll('.facts__trigger')
-		.classed(buttonActive, null);
-	d3.selectAll('.facts__section')
-		.classed(sectionActive, null);
+  d3.selectAll('.sidebar')
+    .classed('intro-hidden', true);
+  Object.keys(layers)
+    .forEach(setLayerOpacity);
+  d3.selectAll('.facts__trigger')
+    .classed(buttonActive, null);
+  d3.selectAll('.facts__section')
+    .classed(sectionActive, null);
+}
+
+export function resetForResizeMobile() {
+	d3.select('#viz')
+		.selectAll('*')
+		.remove();
 }
 
 export function revealCompare() {
-	setTimeout(() => {
-		d3.selectAll('.intro-hidden')
-			.classed('intro-hidden', null);
-	}, 500);
+  setTimeout(() => {
+    d3.selectAll('.intro-hidden')
+      .classed('intro-hidden', null);
+  }, 500);
 }
 
 export function setFactsTrigger() {
-	d3.selectAll('.facts__trigger').on('click', toggleFacts);
+  d3.selectAll('.facts__trigger').on('click', toggleFacts);
 }

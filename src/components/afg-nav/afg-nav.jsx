@@ -96,18 +96,8 @@ const AfgNav = (props) => {
 		}
 	}
 
-	function initButton() {
-		const button = document
-			.getElementsByClassName(style.chapterNavTrigger)
-			.item(0);
-
-		button.addEventListener('click', toggleActiveStatus);
-	}
-
 	useEffect(() => {
-		if (setCurrentPageActive()) {
-			initButton();
-		}
+		setCurrentPageActive();
 	});
 
 	switch (props.chapter) {
@@ -234,7 +224,10 @@ const AfgNav = (props) => {
 				</li>
 				{navHtml}
 			</ul>
-			<button className={style.chapterNavTrigger}>
+			<button
+				className={style.chapterNavTrigger}
+				onClick={toggleActiveStatus}
+			>
 				<FontAwesomeIcon
 					icon={faAngleDown}
 					className="fas fa-lg fa-angle-down menu-down"

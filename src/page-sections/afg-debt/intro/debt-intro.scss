@@ -2,115 +2,152 @@
 
 .debt-intro-wrapper {
 
+  .viz-wrapper-debt {
+    position: relative;
+  }
 
-.viz-wrapper-debt {
-  position: relative;
-}
+  .sidebar--hidden {
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
 
-.sidebar--hidden {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
+  .intro-math {
+    transition: opacity 1s ease;
+  }
 
-.intro-math {
-  transition: opacity 1s ease;
-}
+  .intro-math--hidden {
+    opacity: 0;
+  }
 
-.intro-math--hidden {
-  opacity: 0;
-}
+  .facts__section {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
 
-.facts__section {
-  display: none;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
+  .facts__triggers {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.facts__triggers {
-  display: flex;
-  justify-content: space-between;
-}
+  .facts__trigger {
+    border: 1px solid $color-debt-primary;
+  }
 
-.facts__trigger {
-  border: 1px solid $color-debt-primary;
-}
+  .facts__trigger.facts__trigger--active {
+    background: $color-debt-primary;
+    color: white;
+  }
 
-.facts__trigger.facts__trigger--active {
-  background: $color-debt-primary;
-  color: white;
-}
+  .facts__section.facts__section--active {
+    display: block;
+    opacity: 1;
+  }
 
-.facts__section.facts__section--active {
-  display: block;
-  opacity: 1;
-}
+  .facts.facts--hidden {
+    opacity: 0;
+  }
 
-.facts.facts--hidden {
-  opacity: 0;
-}
+  aside {
+    section {
+      h1 {
+        font-size: 1.1rem;
+        text-align: left;
+        margin: 0 0 0.5rem;
+      }
+    }
+  }
 
-aside {
-  section {
-    h1 {
-      font-size: 1.1rem;
-      text-align: left;
-      margin: 0 0 0.5rem;
+
+
+  #viz {
+    margin: 0 auto;
+    width: auto;
+    overflow: hidden;
+  }
+
+  #compare-options {
+    padding: 1rem;
+  }
+
+  @media only screen and (min-width: 960px) {
+    #mobile-gdp-facts, #mobile-spending-facts {
+      display: none;
+    }
+
+    #viz {
+      width: 66%;
+      float: left;
+    }
+
+    .sidebar {
+      position: relative;
+      width: calc(34% - 1rem);
+      margin-left: calc(66% + 1rem);
+      transition: opacity 1s ease;
+      transform: translateY(30px);
+    }
+
+    .tour.sidebar {
+      float: none;
+    }
+
+    .facts__inner {
+      width: auto;
+      max-width: none;
+      margin: 0;
+      border-left: 3px solid $color-debt-primary;
+      box-shadow: none;
+    }
+
+    .tour {
+      box-sizing: border-box;
+    }
+
+    #compare-options {
+      padding-top: 0;
+      padding-right: 0;
+    }
+
+    .hwcta {
+      clear: both;
+      transform: translateY(2rem);
+    }
+
+  }
+
+  @media only screen and (max-width: 959px) {
+    .dotScale {
+      margin: 15px 0;
+
+      svg circle {
+        fill: #4a0072;
+      }
+      span {
+        font-size: 0.875rem;
+        color: #555;
+      }
+    }
+
+    .facts__section {
+      margin-top: 27px;
+      border-top: 1px solid #ddd;
+
+      h1 {
+        margin-top: 15px;
+        text-align: left;
+        font-size: 1rem;
+        color: #555;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: #555;
+      }
     }
   }
 }
 
 
-
-#viz {
-  margin: 0 auto;
-  width: auto;
-  overflow: hidden;
-}
-
-#compare-options {
-  padding: 1rem;
-}
-
-@media only screen and (min-width: 960px) {
-  #viz {
-    width: 66%;
-    float: left;
-  }
-
-  .sidebar {
-    position: relative;
-    width: calc(34% - 1rem);
-    margin-left: calc(66% + 1rem);
-    transition: opacity 1s ease;
-    transform: translateY(30px);
-  }
-
-  .tour.sidebar {
-    float: none;
-  }
-
-  .facts__inner {
-    width: auto;
-    max-width: none;
-    margin: 0;
-    border-left: 3px solid $color-debt-primary;
-    box-shadow: none;
-  }
-
-  .tour {
-    box-sizing: border-box;
-  }
-
-  #compare-options {
-    padding-top: 0;
-    padding-right: 0;
-  }
-
-  .hwcta {
-    clear: both;
-    transform: translateY(2rem);
-  }
-}
-
-}
 

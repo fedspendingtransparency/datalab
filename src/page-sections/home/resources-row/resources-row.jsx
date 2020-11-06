@@ -65,7 +65,7 @@ const ResourcesRow = () => {
                   />
                 </div>
                 <div className={resourcesRowStyles.titleContainer}>
-                  <h1 className={resourcesRowStyles.titleAPI}>
+                  <h1 className={`${resourcesRowStyles.title} ${resourcesRowStyles.titleAPI}`}>
                     {resource.title}
                   </h1>
                   <p className={resourcesRowStyles.description}>
