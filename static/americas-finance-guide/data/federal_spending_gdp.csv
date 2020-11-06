@@ -1,5 +1,5 @@
 "year","category","amount","source_url","source_url_name"
 2020,"federal spending",6551872254654,"https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/summary-of-receipts-outlays-and-the-deficit-surplus-of-the-u-s-government","Monthly Treasury Statement"
 2020,"federal revenue",3419955005765,"https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/summary-of-receipts-outlays-and-the-deficit-surplus-of-the-u-s-government","Monthly Treasury Statement"
-2020,"gdp",1.95201e+13,"https://apps.bea.gov/iTable/index_nipa.cfm","Bureau of Economic Analysis"
-2020,"federal spending percent of gdp",0.335647473868167,NA,NA
+2020,"gdp",2.09966e+13,"https://apps.bea.gov/iTable/index_nipa.cfm","Bureau of Economic Analysis"
+2020,"federal spending percent of gdp",0.312044438368784,NA,NA

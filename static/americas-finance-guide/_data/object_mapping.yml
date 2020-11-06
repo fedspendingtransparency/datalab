@@ -63,7 +63,7 @@ current_fy_deficit:
 current_fy_deficit_short:
   value: $3.13 T
 current_fy_gdp:
-  value: $19.52 trillion
+  value: $21.00 trillion
 current_fy_revenue:
   value: $3.42 trillion
 current_fy_revenue_short:
@@ -91,15 +91,17 @@ debt_gdp_high:
 debt_gdp_low:
   value: 2001
 debt_owned_foreign_investors:
-  value: 27%
+  value: 26%
 debt_owned_trust_funds:
   value: 22%
 debt_owned_us_investors:
-  value: 51%
+  value: 52%
 debt_per_individual:
   value: $82,000 
 debt_percent_gdp:
-  value: 138%
+  value: 128%
+debt_top10_percent:
+  value: 83%
 debt_trend_start:
   value: 2000
 deficit_minute:
@@ -141,7 +143,7 @@ fortune_year:
 frbny_microecon:
   value: https://www.newyorkfed.org/microeconomics/databank.html
 gdp_date:
-  value: June 2020
+  value: October 2020
 gdp_nipa_url:
   value: https://www.bea.gov/resources/methodologies/nipa-handbook
 household_contribution:
@@ -201,7 +203,7 @@ revenue_per_household:
 revenue_per_individual:
   value: $10,400 
 revenue_percent_gdp:
-  value: 18%
+  value: 16%
 revenue_second:
   value: $108,000 
 salary_job_type:
@@ -215,7 +217,7 @@ soma_domestic_securities:
 spending_per_individual:
   value: $19,800 
 spending_percent_gdp:
-  value: 34%
+  value: 31%
 spending_proportion:
   value: $3 out of every $10
 spending_second:
@@ -232,6 +234,8 @@ ss_med_income:
   value: $1.86 trillion
 tic_date:
   value: July 2020
+tic_total:
+  value: $26.52 trillion
 tic_foreign_holders:
   value: http://ticdata.treasury.gov/Publish/mfh.txt
 times_cc_debt:
