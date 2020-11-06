@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import DefaultLayout from 'src/components/layouts/default/default';
 import HeaderOnly from 'src/components/layouts/header-only/header-only';
@@ -6,15 +6,83 @@ import SEO from 'src/components/seo';
 import styles from './about.module.scss';
 
 const AboutUs = () => {
+  const getElementHeight = (id) => {
+    if (typeof window !== 'undefined' && document.getElementById(id)) {
+      return document.getElementById(id).getBoundingClientRect().height;
+    }
+    return null;
+  };
+
   const headings = [
-    'Mission',
-    'Who We Are',
-    'Background',
-    'Data Sources',
-    'Contact Us',
+    {
+      name: 'Mission',
+      href: 'mission',
+      height: getElementHeight('mission'),
+      index: 0,
+    },
+    {
+      name: 'Who We Are',
+      href: 'who-we-are',
+      height: getElementHeight('who-we-are'),
+      index: 1,
+    },
+    {
+      name: 'Background',
+      href: 'background',
+      height: getElementHeight('background'),
+      index: 2,
+    },
+    {
+      name: 'Data Sources',
+      href: 'data-sources',
+      height: getElementHeight('data-sources'),
+      index: 3,
+    },
+    {
+      name: 'Contact Us',
+      href: 'contact-us',
+      height: getElementHeight('contact-us'),
+      index: 4,
+    },
   ];
 
-  const [activeHeading, setActiveHeading] = useState(headings[0]);
+  const getElementPosition = (index) => {
+    let headingHeight = 0;
+    headings.forEach((h) => {
+      if (h.index < index) {
+        headingHeight += h.height;
+      }
+    });
+    return 326 + headingHeight;
+  };
+
+  const [activeHeading, setActiveHeading] = useState(headings[0].name);
+  const [fixedClass, setFixedClass] = useState('');
+  const [bottomClass, setBottomClass] = useState('');
+
+  useEffect(() => {
+    headings.forEach((h) => {
+      h.height = getElementHeight(h.href);
+    });
+
+    if (typeof window !== 'undefined') {
+      document.addEventListener('scroll', () => {
+        const bottomLimit = document.getElementById('about-us-container').getBoundingClientRect().height - 4;
+        setFixedClass(window.scrollY > 296 && window.scrollY <= bottomLimit ? styles.fixed : '');
+        setBottomClass(window.scrollY > bottomLimit ? styles.bottom : '');
+
+        const heading = headings.filter((h) => getElementPosition(h.index) > window.scrollY);
+        if (headings.length > 0) {
+          setActiveHeading(heading[0].name);
+        }
+      });
+    }
+  }, []);
+
+  const scrollToElement = (name) => {
+    const heading = headings.find((h) => h.name === name);
+    window.scrollTo(0, getElementPosition(heading.index) - 50);
+  };
 
   return (
     <DefaultLayout>
@@ -28,18 +96,30 @@ const AboutUs = () => {
             About Data Lab
           </h1>
         </div>
-        <div className={styles.container}>
+        <div className={styles.container} id="about-us-container">
           <Grid container>
-            <Grid className={styles.tocContainer} item lg={4}>
-              <div className={styles.scrollingToc}>
+            <Grid className={`${styles.tocContainer}  ${bottomClass}`} item lg={4}>
+              <div className={`${styles.scrollingToc} ${fixedClass}`}>
                 {headings.map((heading) => {
-                  const activeClass = activeHeading === heading ? styles.active : '';
-                  return <h2 className={`${styles.tocSection} ${activeClass}`}>{heading}</h2>;
+                  const activeClass = activeHeading === heading.name ? styles.active : '';
+                  return (
+                    <>
+                      <h2 className={styles.tocSection}>
+                        <a
+                          className={`${styles.aboutUsTocLink} ${activeClass}`}
+                          onClick={() => scrollToElement(heading.name)}
+                        >
+                          {heading.name}
+                        </a>
+                      </h2>
+                    </>
+                  );
                 })}
               </div>
             </Grid>
             <Grid item md={12} lg={8}>
-              <div className={styles.sectionContainer}>
+              <div className={styles.sectionContainer} id="mission">
+                <div className="anchor-padding" />
                 <h1 className={styles.sectionTitle}>
                   Mission
                 </h1>
@@ -47,7 +127,8 @@ const AboutUs = () => {
                   Data Lab’s mission is to promote transparency of government finances by providing engaging and informative data-driven analyses of federal spending data.
                 </p>
               </div>
-              <div className={styles.sectionContainer}>
+              <div className={styles.sectionContainer} id="who-we-are">
+                <div className="anchor-padding" />
                 <h1 className={styles.sectionTitle}>
                   Who We Are
                 </h1>
@@ -56,7 +137,8 @@ const AboutUs = () => {
                   public debt, central payment systems, and government accounting. Our team is comprised of data analysts, developers, and UX designers who are passionate about putting trusted data in the hands of the people.
                 </p>
               </div>
-              <div className={styles.sectionContainer}>
+              <div className={styles.sectionContainer} id="background">
+                <div className="anchor-padding" />
                 <h1 className={styles.sectionTitle}>
                   Background
                 </h1>
@@ -69,7 +151,8 @@ const AboutUs = () => {
                   Data Officer, within the Bureau of the Fiscal Service, to deliver on the Department of the Treasury’s strategic goal of increasing access to and the use of federal financial data by the public and federal agencies.
                 </p>
               </div>
-              <div className={styles.sectionContainer}>
+              <div className={styles.sectionContainer} id="data-sources">
+                <div className="anchor-padding" />
                 <h1 className={styles.sectionTitle}>
                   Data Sources
                 </h1>
@@ -90,7 +173,8 @@ const AboutUs = () => {
                   You can find more detailed information about the data sources used in the “Data Sources and Methodologies” at the end of each analysis.
                 </p>
               </div>
-              <div className={styles.sectionContainer}>
+              <div className={styles.sectionContainer} id="contact-us">
+                <div className="anchor-padding" />
                 <h1 className={styles.sectionTitle}>
                   Contact Us
                 </h1>

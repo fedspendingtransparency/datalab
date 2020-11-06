@@ -21,6 +21,12 @@
 
 .toc-container {
   display: flex;
+  justify-content: flex-end;
+  padding-right: 33px;
+
+  &.bottom {
+    align-items: flex-end;
+  }
 
   .scrolling-toc {
     display: flex;
@@ -32,12 +38,26 @@
     border-radius: 2px;
     padding: 25px 30px 25px;
 
-    .toc-section {
-      font-size: 1.25rem;
-      color: #555;
+    &.fixed {
+      position: fixed;
+      top: 80px;
+    }
 
-      &.active {
-        font-weight: 600;
+    .toc-section {
+      .about-us-toc-link {
+        font-size: 1.25rem;
+        color: #555;
+        cursor: pointer;
+
+        &.active {
+          font-weight: 600;
+          border-bottom: solid 4px $legacyBlue;
+          padding-bottom: 4px;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
       }
     }
   }
