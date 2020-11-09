@@ -87,7 +87,7 @@ const AboutUs = () => {
 
   const scrollToElement = (name) => {
     const heading = headings.find((h) => h.name === name);
-    window.scrollTo(0, getElementPosition(heading.index) - 50);
+    window.scrollTo(0, getElementPosition(heading.index) - 80);
   };
 
   return (
