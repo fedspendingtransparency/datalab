@@ -172,7 +172,7 @@ class MobileMenu extends React.Component {
             <div>
               <li className={styles.item} data-id="4" id="about">
                 <Link to="/about">
-                  <button id="aboutBtn" className={styles.mobileMenuBtn} disabled>
+                  <button id="aboutBtn" className={styles.mobileMenuBtn} tabIndex={-1}>
                     About Us
                     <span className={styles.arrow}>
                       {' '}
