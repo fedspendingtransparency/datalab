@@ -1,0 +1,102 @@
+@import "src/styles/variables.scss";
+
+.about-us-header-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+  height: 250px;
+  background: #ddd;
+
+  .header-title {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #555;
+  }
+}
+
+.container {
+  margin: 50px;
+}
+
+.toc-container {
+  display: flex;
+
+  .scrolling-toc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+    width: 261px;
+    border: solid 1px #ddd;
+    border-radius: 2px;
+    padding: 25px 30px 25px;
+
+    .toc-section {
+      font-size: 1.25rem;
+      color: #555;
+
+      &.active {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.section-container {
+  margin-bottom: 50px;
+  
+  &:not(:last-of-type) {
+    border-bottom: solid 1px #eaeaea;
+    padding-bottom: 50px;
+  }
+
+  .section-title {
+    margin: 0 0 15px;
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: left;
+    color: #555;
+  }
+  
+  .section-body {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #555;
+  }
+}
+
+
+a {
+  color: $legacyBlue;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media only screen and (min-width: $tablet - 1) and (max-width: $desktop - 1) {
+  .container {
+    margin: 50px 40px;
+  }
+  
+  .toc-container {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: $tablet - 1) {
+  .container {
+    margin: 32px 15px;
+  }
+
+  .toc-container {
+    display: none;
+  }
+
+  .section-container:not(:last-of-type) {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+}
