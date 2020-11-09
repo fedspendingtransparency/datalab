@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Arrow from '../../svgs/arrow.svg';
 import Book from '../../svgs/book.svg';
-import Dropdown from '../../components/headers/dropdown.jsx';
+import Dropdown from './dropdown.jsx';
 import styles from './page.module.scss';
 import Glossary from '../glossary/glossary';
-import { Link } from 'gatsby';
 
 class MobileMenu extends React.Component {
   constructor(props) {
@@ -19,7 +21,6 @@ class MobileMenu extends React.Component {
     };
   }
 
-
   returnActiveList = (data, name) => {
     return data.map((item, key) => {
       let id = '';
@@ -29,8 +30,8 @@ class MobileMenu extends React.Component {
       if (item.link.match(matchy)) {
         return (
           <>
-            <li className={styles.dataListLi} key={i}>
-              <a href={item.link} target="_blank" className={styles.dataListA}>{item.name}</a>
+            <li className={styles.dataListLi} key={key}>
+              <a href={item.link} target="_blank" rel="noopener noreferrer" className={styles.dataListA}>{item.name}</a>
             </li>
             <hr className={styles.mobileHr} />
           </>
@@ -39,21 +40,21 @@ class MobileMenu extends React.Component {
       return (
         <>
           <li className={styles.dataListLi} key={key} onKeyDown={(e) => this.sublistTab(e, name)}>
-            <a id={id} href={item.link} tabIndex='0' className={styles.dataListA}>{item.name}</a>
+            <a id={id} href={item.link} tabIndex="0" className={styles.dataListA}>{item.name}</a>
           </li>
           <hr className={styles.mobileHr} />
         </>
       );
     });
-  };
+  }
 
   sublistTab = (e, name) => {
     if (e.key === 'Escape') {
-      if (name === "Analyses") {
+      if (name === 'Analyses') {
         this.handleClick('Analyses');
         document.getElementById('analysesBtn').focus();
-      } else if (name === "Resources") {
-        this.handleClick("Resources");
+      } else if (name === 'Resources') {
+        this.handleClick('Resources');
         document.getElementById('resourcesBtn').focus();
       } else if (name === "America's Finance Guide") {
         this.handleClick("America's Finance Guide");
@@ -64,10 +65,10 @@ class MobileMenu extends React.Component {
     }
     if (e.key === 'Tab') {
       if ((document.activeElement.id === 'menu-first-item' && e.shiftKey) || (document.activeElement.id === 'menu-last-item' && !e.shiftKey)) {
-        if (name === "Analyses") {
+        if (name === 'Analyses') {
           this.handleClick('Analyses');
-        } else if (name === "Resources") {
-          this.handleClick("Resources");
+        } else if (name === 'Resources') {
+          this.handleClick('Resources');
         } else if (name === "America's Finance Guide") {
           this.handleClick("America's Finance Guide");
         } else {
@@ -75,28 +76,28 @@ class MobileMenu extends React.Component {
         }
       }
     }
-  };
+  }
 
   handleClick = (dropdown) => {
     switch (dropdown) {
-    case "Analyses":
-      this.setState({ analysesCheck: !this.state.analysesCheck });
-      document.getElementById('analyses').childNodes[0].childNodes[0].focus();
-      break;
-    case "America's Finance Guide":
-      this.setState({ afgCheck: !this.state.afgCheck });
-      document.getElementById('afg').childNodes[0].childNodes[0].focus();
-      break;
-    case "Resources":
-      this.setState({ resourcesCheck: !this.state.resourcesCheck });
-      document.getElementById('resources').childNodes[0].childNodes[0].focus();
-      break;
-    case "Glossary":
-      this.setState({ glossaryCheck: !this.state.glossaryCheck });
-      document.getElementById('glossary').childNodes[0].childNodes[0].focus();
-      break;
-    };
-  };
+      case 'Analyses':
+        this.setState({ analysesCheck: !this.state.analysesCheck });
+        document.getElementById('analyses').childNodes[0].childNodes[0].focus();
+        break;
+      case "America's Finance Guide":
+        this.setState({ afgCheck: !this.state.afgCheck });
+        document.getElementById('afg').childNodes[0].childNodes[0].focus();
+        break;
+      case 'Resources':
+        this.setState({ resourcesCheck: !this.state.resourcesCheck });
+        document.getElementById('resources').childNodes[0].childNodes[0].focus();
+        break;
+      case 'Glossary':
+        this.setState({ glossaryCheck: !this.state.glossaryCheck });
+        document.getElementById('glossary').childNodes[0].childNodes[0].focus();
+        break;
+    }
+  }
 
   handleExit = (e) => {
     if (e.key === 'Tab') {
@@ -107,80 +108,101 @@ class MobileMenu extends React.Component {
   }
 
   render() {
-
     return (
       <>
         <div>
-          <ul className={`${styles.mobile} ${this.state.isShowing ? `` : styles.hidden}`} onKeyDown={this.handleExit}>
+          <ul className={`${styles.mobile} ${this.state.isShowing ? '' : styles.hidden}`} onKeyDown={this.handleExit}>
             <div>
-              <li className={styles.item} data-id='0' onClick={() => this.handleClick('Analyses')}>
+              <li className={styles.item} data-id="0" onClick={() => this.handleClick('Analyses')}>
                 <button id="analysesBtn" className={styles.mobileMenuBtn}>
                   Analyses
-                  <span className={styles.arrow} onClick={() => this.handleClick('Analyses')}> <Arrow /></span>
+                  <span className={styles.arrow} onClick={() => this.handleClick('Analyses')}>
+                    {' '}
+                    <Arrow />
+                  </span>
                 </button>
               </li>
-              <ul id="analyses" className={`${styles.toggleList} ${this.state.analysesCheck ? `` : ' ' + styles.hidden}`}>{this.returnActiveList(this.state.data[0].analyses, "Analyses")}</ul>
+              <ul id="analyses" className={`${styles.toggleList} ${this.state.analysesCheck ? '' : ` ${styles.hidden}`}`}>{this.returnActiveList(this.state.data[0].analyses, 'Analyses')}</ul>
             </div>
-
             <div>
-              <li className={styles.item} data-id='2' onClick={() => this.handleClick("America's Finance Guide")}>
+              <li className={styles.item} data-id="2" onClick={() => this.handleClick("America's Finance Guide")}>
                 <button id="afgBtn" className={styles.mobileMenuBtn}>
                   America's Finance Guide
-                  <span className={styles.arrow} onClick={() => this.handleClick("America's Finance Guide")}> <Arrow /></span>
+                  <span className={styles.arrow} onClick={() => this.handleClick("America's Finance Guide")}>
+                    {' '}
+                    <Arrow />
+                  </span>
                 </button>
               </li>
-              <ul id="afg" className={`${styles.toggleList} ${this.state.afgCheck ? `` : ' ' + styles.hidden}`}>
+              <ul id="afg" className={`${styles.toggleList} ${this.state.afgCheck ? '' : styles.hidden}`}>
                 <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
-                  <Link to={'/americas-finance-guide/'} id="menu-first-item" className={styles.dataListA} >Overview</Link>
+                  <Link to="/americas-finance-guide/" id="menu-first-item" className={styles.dataListA}>Overview</Link>
                 </li>
                 <hr className={styles.mobileHr} />
                 <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
-                  <Link to={'/americas-finance-guide/revenue/'} className={styles.dataListA}>Revenue</Link>
+                  <Link to="/americas-finance-guide/revenue/" className={styles.dataListA}>Revenue</Link>
                 </li>
                 <hr className={styles.mobileHr} />
                 <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
-                  <Link to={'/americas-finance-guide/spending/'} className={styles.dataListA}>Spending</Link>
+                  <Link to="/americas-finance-guide/spending/" className={styles.dataListA}>Spending</Link>
                 </li>
                 <hr className={styles.mobileHr} />
                 <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
-                  <Link to={'/americas-finance-guide/deficit/'} className={styles.dataListA}>Deficit</Link>
+                  <Link to="/americas-finance-guide/deficit/" className={styles.dataListA}>Deficit</Link>
                 </li>
                 <hr className={styles.mobileHr} />
                 <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
-                  <Link to={'/americas-finance-guide/debt/'} id="menu-last-item" className={styles.dataListA}>Debt</Link>
+                  <Link to="/americas-finance-guide/debt/" id="menu-last-item" className={styles.dataListA}>Debt</Link>
                 </li>
                 <hr className={styles.mobileHr} />
               </ul>
             </div>
-
             <div>
-              <li className={styles.item} data-id='3' onClick={() => this.handleClick("Resources")}>
+              <li className={styles.item} data-id="3" onClick={() => this.handleClick('Resources')}>
                 <button id="resourcesBtn" className={styles.mobileMenuBtn}>
                   Resources
-                  <span className={styles.arrow} onClick={() => this.handleClick('Resources')}> <Arrow /></span>
+                  <span className={styles.arrow} onClick={() => this.handleClick('Resources')}>
+                    {' '}
+                    <Arrow />
+                  </span>
                 </button>
               </li>
-              <ul id="resources" className={`${styles.toggleList} ${this.state.resourcesCheck ? `` : ' ' + styles.hidden}`}>{this.returnActiveList(this.state.data[3].resources, "Resources")}</ul>
+              <ul id="resources" className={`${styles.toggleList} ${this.state.resourcesCheck ? '' : ` ${styles.hidden}`}`}>{this.returnActiveList(this.state.data[3].resources, 'Resources')}</ul>
             </div>
-
             <div>
-              <li className={`${styles.item} ${styles.glossary}`} data-id='4' id="glossary" onClick={() => this.handleClick("Glossary")}>
+              <li className={styles.item} data-id="4" id="about">
+                <Link to="/about">
+                  <button id="aboutBtn" className={styles.mobileMenuBtn} disabled>
+                    About Us
+                    <span className={styles.arrow}>
+                      {' '}
+                      <FontAwesomeIcon icon={faInfoCircle} className="fa-xs" />
+                    </span>
+                  </button>
+                </Link>
+              </li>
+            </div>
+            <div>
+              <li className={`${styles.item} ${styles.glossary}`} data-id="5" id="glossary" onClick={() => this.handleClick('Glossary')}>
                 <button id="glossaryBtn" className={styles.mobileMenuBtn}>
-                  Glossary 
-                  <span className={styles.arrow}> <Book /></span>
+                  Glossary
+                  <span className={styles.arrow}>
+                    {' '}
+                    <Book />
+                  </span>
                 </button>
               </li>
             </div>
           </ul>
-
-          <Dropdown clickedItem={this.state.clickedItem}
-                    data={this.state.data} />
-
+          <Dropdown
+            clickedItem={this.state.clickedItem}
+            data={this.state.data}
+          />
         </div>
         <Glossary />
       </>
     );
-  };
+  }
 }
 
 export default MobileMenu;

@@ -12,7 +12,8 @@ import MobileMenu from '../../components/headers/mobile-menu.jsx';
 import Glossary from '../glossary/glossary';
 import ScrollToTopButton from '../scroll-to-top-button/scroll-to-top-button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "gatsby";
 
 export default class PageHeader extends React.Component {
   constructor(props) {
@@ -180,16 +181,26 @@ export default class PageHeader extends React.Component {
                 onKeyUp={this.menuKeyUp}
               >
                 <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.focusMenu} onKeyDown={this.handleKeyPress}>
-                  <button className={styles.anchor}>Analyses <span className={styles.arrow}><Arrow /></span></button>
+                  <button className={styles.anchor}>Analyses<span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.focusMenu} onKeyDown={this.handleKeyPress}>
-                  <button className={styles.anchor}>America's Finance Guide <span className={styles.arrow}><Arrow /></span></button>
+                  <button className={styles.anchor}>America's Finance Guide<span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.focusMenu} onKeyDown={this.handleKeyPress}>
-                  <button className={styles.anchor}>Resources <span className={styles.arrow}><Arrow /></span></button>
+                  <button className={styles.anchor}>Resources<span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item}>
-                  <button className={`${styles.anchor} ${styles.glossary}`}><span className={styles.arrow}><Book /></span> Glossary </button>
+                <Link to="/about/" className={styles.about}>
+                  <button className={styles.anchor} disabled>
+                    <span className={styles.arrow}>
+                      <FontAwesomeIcon icon={faInfoCircle} className="fa-xs" />
+                    </span>
+                    About Us
+                  </button>
+                </Link>
+                </li>
+                <li className={styles.item}>
+                  <button className={`${styles.anchor} ${styles.glossary}`}><span className={styles.arrow}><Book /></span>Glossary</button>
                 </li>
               </ul>
             </nav>
