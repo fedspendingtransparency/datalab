@@ -191,9 +191,9 @@ export default class PageHeader extends React.Component {
                 </li>
                 <li className={styles.item}>
                 <Link to="/about/" className={styles.about}>
-                  <button className={styles.anchor} disabled>
+                  <button className={styles.anchor} tabIndex={-1}>
                     <span className={styles.arrow}>
-                      <FontAwesomeIcon icon={faInfoCircle} className="fa-xs" />
+                      <FontAwesomeIcon icon={faInfoCircle} className="fa-xs" width={12} />
                     </span>
                     About Us
                   </button>
