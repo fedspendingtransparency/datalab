@@ -77,7 +77,7 @@ const AboutUs = () => {
         }
       });
 
-      document.addEventListener('resize', () => {
+      window.addEventListener('resize', () => {
         headings.forEach((h) => {
           h.height = getElementHeight(h.href);
         });
