@@ -7,7 +7,7 @@ import styles from './about.module.scss';
 
 const AboutUs = () => {
   const getElementHeight = (id) => {
-    if (typeof window !== 'undefined' && document.getElementById(id)) {
+    if (typeof window !== 'undefined' && window.innerWidth >= 992 && document.getElementById(id)) {
       return document.getElementById(id).getBoundingClientRect().height;
     }
     return null;
@@ -72,7 +72,7 @@ const AboutUs = () => {
         setBottomClass(window.scrollY > bottomLimit ? styles.bottom : '');
 
         const heading = headings.filter((h) => getElementPosition(h.index) > window.scrollY);
-        if (headings.length > 0) {
+        if (headings.length > 0 && window.innerWidth >= 992) {
           setActiveHeading(heading[0].name);
         }
       });
