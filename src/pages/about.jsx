@@ -3,11 +3,12 @@ import Grid from '@material-ui/core/Grid';
 import DefaultLayout from 'src/components/layouts/default/default';
 import { StorypageHeader } from 'src/components/headers/headers';
 import SEO from 'src/components/seo';
+import { lg } from 'src/styles/variables.scss';
 import styles from './about.module.scss';
 
 const AboutUs = () => {
   const getElementHeight = (id) => {
-    if (typeof window !== 'undefined' && window.innerWidth >= 992 && document.getElementById(id)) {
+    if (typeof window !== 'undefined' && window.innerWidth >= lg && document.getElementById(id)) {
       return document.getElementById(id).getBoundingClientRect().height;
     }
     return null;
@@ -72,7 +73,7 @@ const AboutUs = () => {
         setBottomClass(window.scrollY > bottomLimit ? styles.bottom : '');
 
         const heading = headings.filter((h) => getElementPosition(h.index) > window.scrollY);
-        if (headings.length > 0 && window.innerWidth >= 992) {
+        if (headings.length > 0 && window.innerWidth >= lg) {
           setActiveHeading(heading[0].name);
         }
       });
