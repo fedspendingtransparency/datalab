@@ -153,6 +153,10 @@ export default class PageHeader extends React.Component {
     }
   }
 
+  aboutUsRedirect = () => {
+    window.location.href = '/about/';
+  }
+
   render() {
 
     let { isSticky, skinnyTop, skinnySub, activeItem, showMenu, showMobileMenu, isMobileTag, scrollButtonVisible } = this.state;
@@ -190,12 +194,12 @@ export default class PageHeader extends React.Component {
                   <button className={styles.anchor}>Resources<span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item}>
-                <Link to="/about/" className={`${styles.about} ${styles.anchor}`}>
-                    <span className={styles.arrow}>
-                      <FontAwesomeIcon icon={faInfoCircle} className="fa-xs" width={12} />
-                    </span>
-                    About Us
-                </Link>
+                  <button onClick={this.aboutUsRedirect} className={`${styles.about} ${styles.anchor}`}>
+                      <span className={styles.arrow}>
+                        <FontAwesomeIcon icon={faInfoCircle} className="fa-xs" width={12} />
+                      </span>
+                      About Us
+                  </button>
                 </li>
                 <li className={styles.item}>
                   <button className={`${styles.anchor} ${styles.glossary}`}><span className={styles.arrow}><Book /></span>Glossary</button>
