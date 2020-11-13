@@ -49,6 +49,14 @@
         color: #555;
         cursor: pointer;
 
+        button {
+          background-color: transparent;
+          border: none;
+          font-family: 'Source Sans Pro';
+          font-size: 1.25rem;
+          color: #555;
+        }
+
         &.active {
           font-weight: 600;
           border-bottom: solid 4px $legacyBlue;

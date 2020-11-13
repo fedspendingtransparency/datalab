@@ -4,6 +4,7 @@ import DefaultLayout from 'src/components/layouts/default/default';
 import { StorypageHeader } from 'src/components/headers/headers';
 import SEO from 'src/components/seo';
 import { lg } from 'src/styles/variables.scss';
+import scrolledToBottom from 'src/utils/scrolled-to-bottom';
 import styles from './about.module.scss';
 
 const AboutUs = () => {
@@ -54,7 +55,7 @@ const AboutUs = () => {
         headingHeight += h.height;
       }
     });
-    return 326 + headingHeight;
+    return 266 + headingHeight;
   };
 
   const [activeHeading, setActiveHeading] = useState(headings[0].name);
@@ -69,11 +70,13 @@ const AboutUs = () => {
     if (typeof window !== 'undefined') {
       document.addEventListener('scroll', () => {
         const bottomLimit = document.getElementById('about-us-container').getBoundingClientRect().height - 4;
-        setFixedClass(window.scrollY > 296 && window.scrollY <= bottomLimit ? styles.fixed : '');
-        setBottomClass(window.scrollY > bottomLimit ? styles.bottom : '');
+        setFixedClass(window.pageYOffset > 266 && window.pageYOffset <= bottomLimit ? styles.fixed : '');
+        setBottomClass(window.pageYOffset > bottomLimit ? styles.bottom : '');
 
-        const heading = headings.filter((h) => getElementPosition(h.index) > window.scrollY);
-        if (headings.length > 0 && window.innerWidth >= lg) {
+        const heading = headings.filter((h) => getElementPosition(h.index) > window.pageYOffset);
+        if (scrolledToBottom()) {
+          setActiveHeading(headings[4].name);
+        } else if (headings.length > 0 && window.innerWidth >= lg) {
           setActiveHeading(heading[0].name);
         }
       });
@@ -88,7 +91,8 @@ const AboutUs = () => {
 
   const scrollToElement = (name) => {
     const heading = headings.find((h) => h.name === name);
-    window.scrollTo(0, getElementPosition(heading.index) - 80);
+    window.scrollTo(0, getElementPosition(heading.index) - 30);
+    setActiveHeading(heading.name);
   };
 
   return (
@@ -112,12 +116,11 @@ const AboutUs = () => {
                 return (
                   <>
                     <h2 className={styles.tocSection}>
-                      <a
-                        className={`${styles.aboutUsTocLink} ${activeClass}`}
-                        onClick={() => scrollToElement(heading.name)}
-                      >
-                        {heading.name}
-                      </a>
+                      <span className={`${styles.aboutUsTocLink} ${activeClass}`}>
+                        <button onClick={() => scrollToElement(heading.name)}>
+                          {heading.name}
+                        </button>
+                      </span>
                     </h2>
                   </>
                 );
