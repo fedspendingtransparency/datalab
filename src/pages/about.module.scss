@@ -15,7 +15,7 @@
   }
 }
 
-#about-us-container {
+.about-us-container {
   display: flex;
   justify-content: center;
   max-width: 1140px;
@@ -112,7 +112,7 @@ a {
 }
 
 @media only screen and (min-width: $tablet - 1) and (max-width: $desktop - 1) {
-  #about-us-container {
+  .about-us-container {
     margin: 50px 40px;
 
     .container {
@@ -126,7 +126,7 @@ a {
 }
 
 @media only screen and (max-width: $tablet - 1) {
-  #about-us-container {
+  .about-us-container {
     margin: 32px 15px;
 
     .container {

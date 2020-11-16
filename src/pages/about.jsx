@@ -107,7 +107,7 @@ const AboutUs = () => {
           About Data Lab
         </h1>
       </div>
-      <div id={styles.aboutUsContainer}>
+      <div id="about-us-container" className={styles.aboutUsContainer}>
         <Grid container className={styles.container}>
           <Grid className={`${styles.tocContainer} ${bottomClass}`} item lg={4}>
             <div className={`${styles.scrollingToc} ${fixedClass}`}>
