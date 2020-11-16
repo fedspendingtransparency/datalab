@@ -113,12 +113,12 @@ function DebtTrendsPage({ location }) {
 								for the Fiscal Year, not the Calendar Year, in order to facilitate an
 								appropriate comparison.
 							</p>
-							{/*<div className="afg__download--div">*/}
-							{/*  <div className="afg__download--heading">Download Source Data</div>*/}
-							{/*  <ul>*/}
-							{/*    <li><a href="/americas-finance-guide/data/federal_debt_trends.csv" download="federal_debt_trends.csv">federal_debt_trends.csv</a></li>*/}
-							{/*  </ul>*/}
-							{/*</div>*/}
+							<div className="afg__download--div">
+							 <div className="afg__download--heading">Download Source Data</div>
+							 <ul>
+							   <li><a href="/americas-finance-guide/data/federal_debt_trends.csv" download="federal_debt_trends.csv">federal_debt_trends.csv</a></li>
+							 </ul>
+							</div>
 						</AccordionList>
 					</section>
 				</div>
