@@ -114,6 +114,10 @@ a {
 @media only screen and (min-width: $tablet - 1) and (max-width: $desktop - 1) {
   #about-us-container {
     margin: 50px 40px;
+
+    .container {
+      padding: 0;
+    }
   }
   
   .toc-container {
@@ -124,6 +128,10 @@ a {
 @media only screen and (max-width: $tablet - 1) {
   #about-us-container {
     margin: 32px 15px;
+
+    .container {
+      padding: 0;
+    }
   }
 
   .toc-container {
