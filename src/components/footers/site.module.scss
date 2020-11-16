@@ -20,17 +20,30 @@
   }
 }
 
-@media (min-width: $phone) and (max-width: $tablet - 1) {
-  .site-footer {
-    flex-direction: column-reverse;
-    text-align: center;
+//@media (max-width: $tablet - 1) {
+//  .site-footer {
+//    //flex-direction: column-reverse;
+//    text-align: center;
+//  }
+//}
+
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  .site-footer .note {
+    max-width: 220px;
+    text-align: right;
   }
 }
 
-@media (max-width: $phone) {
+@media (max-width: $tablet - 1) {
   .site-footer {
-    display: block;
+    flex-direction: column;
     padding: 25px;
     text-align: center;
+    align-items: center;
+
+    .note {
+      max-width: 220px;
+      text-align: center;
+    }
   }
 }

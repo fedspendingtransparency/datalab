@@ -31,7 +31,7 @@ export default class PageFooter extends React.Component {
 						<DataLab fillColor="#666" />
 					</Link>
 				</Grid>
-				<Grid item xs={12} lg={2} className={pageFooterStyles.ourSites}>
+				<Grid item xs={12} md={4} lg={2} className={pageFooterStyles.ourSites}>
 					<div>
 						<div className={pageFooterStyles.title}>About</div>
 						<a target="_blank" rel="noopener noreferrer" href="/about">
@@ -39,7 +39,7 @@ export default class PageFooter extends React.Component {
 						</a>
 					</div>
 				</Grid>
-				<Grid item xs={12} lg={2} className={pageFooterStyles.ourSites}>
+				<Grid item xs={12} md={4} lg={2} className={pageFooterStyles.ourSites}>
 					<div>
 						<div className={pageFooterStyles.title}>Our Sites</div>
 						<a
@@ -56,7 +56,7 @@ export default class PageFooter extends React.Component {
 						</a>
 					</div>
 				</Grid>
-				<Grid item xs={12} lg={2} className={pageFooterStyles.ourSites}>
+				<Grid item xs={12} md={4} lg={2} className={pageFooterStyles.ourSites}>
 					<div>
 						<div className={pageFooterStyles.title}>Help</div>
 						<a

@@ -76,7 +76,7 @@ $col-padding: 15px;
 @media (max-width: $desktop - 1) {
   .page-footer .content {
     text-align: center;
-    max-width: 300px;
+    width: 53%;
     margin: 0 auto;
 
     .logo {
@@ -88,23 +88,13 @@ $col-padding: 15px;
     }
 
     .social {
+        border-top: 1px solid #ccc;
+        padding-top: 40px;
+
       p {
         margin-bottom: 1rem;
       }
-
-      .contents {
-        margin-bottom: 2rem;
-      }
     }
   }
 }
 
-
-@media (max-width: $tablet - 1) {
-  .page-footer .content {
-    .social {
-      border-top: 1px solid #ccc;
-      padding-top: 30px;
-    }
-  }
-}
