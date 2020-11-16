@@ -26,19 +26,27 @@ export default class PageFooter extends React.Component {
 	render = () => (
 		<div className={pageFooterStyles.pageFooter}>
 			<Grid container className={pageFooterStyles.content}>
-				<Grid item xs={12} lg={4} className={pageFooterStyles.logo}>
+				<Grid item xs={12} lg={3} className={pageFooterStyles.logo}>
 					<Link to="/">
 						<DataLab fillColor="#666" />
 					</Link>
 				</Grid>
-				<Grid item xs={12} lg={4} className={pageFooterStyles.ourSites}>
+				<Grid item xs={12} lg={2} className={pageFooterStyles.ourSites}>
+					<div>
+						<div className={pageFooterStyles.title}>About</div>
+						<a target="_blank" rel="noopener noreferrer" href="/about">
+							About Data Lab
+						</a>
+					</div>
+				</Grid>
+				<Grid item xs={12} lg={2} className={pageFooterStyles.ourSites}>
 					<div>
 						<div className={pageFooterStyles.title}>Our Sites</div>
 						<a
 							target="_blank"
 							rel="noopener noreferrer"
 							href="https://www.usaspending.gov/#/">
-							USASpending
+							USAspending
 						</a>
 						<a
 							target="_blank"
@@ -48,7 +56,19 @@ export default class PageFooter extends React.Component {
 						</a>
 					</div>
 				</Grid>
-				<Grid item xs={12} lg={4} className={pageFooterStyles.social}>
+				<Grid item xs={12} lg={2} className={pageFooterStyles.ourSites}>
+					<div>
+						<div className={pageFooterStyles.title}>Help</div>
+						<a
+							target="_blank"
+							rel="noopener noreferrer"
+							href="mailto: USAspending.Help@Fiscal.Treasury.gov?subject=Data Lab - Contact Us">
+							Contact Us
+						</a>
+					</div>
+				</Grid>
+
+				<Grid item xs={12} lg={3} className={pageFooterStyles.social}>
 					<div className={pageFooterStyles.title}>Join the Conversation</div>
 					<p>
 						Visit our{' '}

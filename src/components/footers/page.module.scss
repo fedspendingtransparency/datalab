@@ -14,9 +14,9 @@ $col-padding: 15px;
       line-height: 1.24;
       letter-spacing: normal;
       margin-bottom: 0.5rem;
+      color: #555;
     }
 
-    .title,
     a {
       color: $legacyBlue;
     }
@@ -44,7 +44,7 @@ $col-padding: 15px;
 
       div {
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
       }
 
       a {
@@ -57,9 +57,10 @@ $col-padding: 15px;
 
 @media (min-width: $desktop) {
   .page-footer .content {
-    div + div {
-      padding: 0 $col-padding;
+
+    .social {
       border-left: 1px solid #ccc;
+      padding: 0 $col-padding;
     }
 
     .logo {
@@ -94,6 +95,16 @@ $col-padding: 15px;
       .contents {
         margin-bottom: 2rem;
       }
+    }
+  }
+}
+
+
+@media (max-width: $tablet - 1) {
+  .page-footer .content {
+    .social {
+      border-top: 1px solid #ccc;
+      padding-top: 30px;
     }
   }
 }
