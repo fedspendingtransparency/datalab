@@ -15,8 +15,15 @@
   }
 }
 
-.container {
-  margin: 50px;
+.about-us-container {
+  display: flex;
+  justify-content: center;
+  max-width: 1140px;
+  margin: 0 auto;
+
+  .container {
+    padding: 50px;
+  }
 }
 
 .toc-container {
@@ -48,6 +55,14 @@
         font-size: 1.25rem;
         color: #555;
         cursor: pointer;
+
+        button {
+          background-color: transparent;
+          border: none;
+          font-family: 'Source Sans Pro';
+          font-size: 1.25rem;
+          color: #555;
+        }
 
         &.active {
           font-weight: 600;
@@ -97,8 +112,12 @@ a {
 }
 
 @media only screen and (min-width: $tablet - 1) and (max-width: $desktop - 1) {
-  .container {
+  .about-us-container {
     margin: 50px 40px;
+
+    .container {
+      padding: 0;
+    }
   }
   
   .toc-container {
@@ -107,8 +126,12 @@ a {
 }
 
 @media only screen and (max-width: $tablet - 1) {
-  .container {
+  .about-us-container {
     margin: 32px 15px;
+
+    .container {
+      padding: 0;
+    }
   }
 
   .toc-container {
