@@ -1,14 +1,18 @@
 @import "../../styles/variables";
 
 .site-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   font-size: 0.75rem;
   letter-spacing: 1px;
   padding: 0.5rem 1rem;
   color: #dbdbdb;
   background-color: #262626;
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
 
   a,
   div {
@@ -20,22 +24,8 @@
   }
 }
 
-//@media (max-width: $tablet - 1) {
-//  .site-footer {
-//    //flex-direction: column-reverse;
-//    text-align: center;
-//  }
-//}
-
-@media (min-width: $tablet) and (max-width: $desktop - 1) {
-  .site-footer .note {
-    max-width: 220px;
-    text-align: right;
-  }
-}
-
 @media (max-width: $tablet - 1) {
-  .site-footer {
+  .site-footer .content {
     flex-direction: column;
     padding: 25px;
     text-align: center;
@@ -47,3 +37,29 @@
     }
   }
 }
+
+@media screen and (min-width: $desktop-xl) {
+  .site-footer .content {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: $desktop) and (max-width: $desktop-xl - 1) {
+  .site-footer .content {
+    max-width: 940px;
+  }
+}
+
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  .site-footer .content {
+    max-width: 720px;
+
+    .note {
+      max-width: 220px;
+      text-align: right;
+    }
+  }
+}
+
+
+
