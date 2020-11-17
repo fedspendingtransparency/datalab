@@ -52,7 +52,21 @@
 }
 
 @media only screen and (min-width: 800px) {
-    .deficit-debt-heading {
-        padding: 65px 250px 15px;
+    .deficit-debt-heading__heading {
+        max-width: 750px;
+    }
+}
+
+@media only screen and (max-width: 799px) {
+    .deficit-debt-heading__heading {
+        font-size: 2rem;
+
+        .chapter__divider--text-deficit {
+            font-size: 2rem;
+        }
+        
+        .chapter__divider--text-debt {
+            font-size: 2rem;
+        }
     }
 }
