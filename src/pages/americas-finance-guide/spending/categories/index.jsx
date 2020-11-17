@@ -166,9 +166,9 @@ function SpendingCategoriesPage(props) {
 												rel="noopener noreferrer"
 												target="_blank">
 												USAspending.gov
-											</a>{' '}
-											allows visitors to explore federal spending by the types of items and
-											services purchased by the federal government. Go explore federal
+											</a>
+											, allows visitors to explore federal spending by the types of items
+											and services purchased by the federal government. Go explore federal
 											spending by{' '}
 											<a
 												href={AfgData.usaspending_object_class.value}
@@ -222,7 +222,7 @@ function SpendingCategoriesPage(props) {
 												rel="noopener noreferrer"
 												target="_blank">
 												supplemental appropriations
-											</a>{' '}
+											</a>
 											, also referred to as supplemental spending. In 2020, the U.S.
 											Congress passed four supplemental{' '}
 											<a
