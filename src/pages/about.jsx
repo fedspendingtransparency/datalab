@@ -129,7 +129,7 @@ const AboutUs = () => {
               })}
             </div>
           </Grid>
-          <Grid item md={12} lg={8}>
+          <Grid item xs={12} lg={8}>
             <div className={styles.sectionContainer} id="mission">
               <div className="anchor-padding" />
               <h1 className={styles.sectionTitle}>
