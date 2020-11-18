@@ -5,6 +5,8 @@ import { StorypageHeader } from 'src/components/headers/headers';
 import SEO from 'src/components/seo';
 import { lg } from 'src/styles/variables.scss';
 import scrolledToBottom from 'src/utils/scrolled-to-bottom';
+import WhoWeAreIllustration from 'src/svgs/about-us/who-we-are.svg'
+import BackgroundIllustration from 'src/svgs/about-us/background.svg'
 import styles from './about.module.scss';
 
 const AboutUs = () => {
@@ -139,6 +141,9 @@ const AboutUs = () => {
             </div>
             <div className={styles.sectionContainer} id="who-we-are">
               <div className="anchor-padding" />
+              <div className={styles.svgContainer}>
+                <WhoWeAreIllustration />
+              </div>
               <h1 className={styles.sectionTitle}>
                 Who We Are
               </h1>
@@ -149,6 +154,9 @@ const AboutUs = () => {
             </div>
             <div className={styles.sectionContainer} id="background">
               <div className="anchor-padding" />
+              <div className={styles.svgContainer}>
+                <BackgroundIllustration />
+              </div>
               <h1 className={styles.sectionTitle}>
                 Background
               </h1>
