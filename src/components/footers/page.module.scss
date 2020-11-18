@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-$col-padding: 15px;
+$col-padding: 20px;
 
 .page-footer {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
@@ -64,7 +64,7 @@ $col-padding: 15px;
 
     .social {
       border-left: 1px solid #ccc;
-      padding: 0 $col-padding;
+      padding-left: 44px;
     }
 
     .our-sites {
@@ -116,6 +116,10 @@ $col-padding: 15px;
 @media (min-width: $desktop) and (max-width: $desktop-xl - 1) {
   .page-footer .content {
     max-width: 940px;
+
+    .social {
+      padding-left: 34px !important;
+    }
   }
 }
 
