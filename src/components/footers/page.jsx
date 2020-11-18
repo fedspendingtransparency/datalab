@@ -15,14 +15,6 @@ export default class PageFooter extends React.Component {
 		super(props);
 	}
 
-	calculateLogoWidth = () => {
-		let width = 200;
-		if (typeof window !== 'undefined') {
-			width = '15%';
-		}
-		return width;
-	};
-
 	render = () => (
 		<div className={pageFooterStyles.pageFooter}>
 			<Grid container className={pageFooterStyles.content}>
