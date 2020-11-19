@@ -156,9 +156,8 @@ const AboutUs = () => {
                 Data Lab launched in September 2017 to provide the public with a better understanding of government spending. Our site demonstrates how open data can be used to inspire innovation both inside and outside of the government. Since launching, we have added
                 {' '}
                 <a href="/americas-finance-guide">Your Guide to America’s Finances</a>
-                , a re-invention of the Financial Report of the U.S. Government and published nine analyses on Data Lab. Additionally, Data Lab helps the Office of Chief
-                {' '}
-                Data Officer, within the Bureau of the Fiscal Service, to deliver on the Department of the Treasury’s strategic goal of increasing access to and the use of federal financial data by the public and federal agencies.
+                , a re-invention of the Financial Report of the U.S. Government and published nine analyses on Data Lab. Additionally, Data Lab helps the Office of Chief Data Officer,
+                within the Bureau of the Fiscal Service, to deliver on the Department of the Treasury’s strategic goal of increasing access to and the use of federal financial data by the public and federal agencies.
               </p>
             </div>
             <div className={styles.sectionContainer} id="data-sources">
@@ -179,7 +178,6 @@ const AboutUs = () => {
               <br />
               <p className={styles.sectionBody}>
                 Additionally, we partner with other government agencies to acquire data or utilize other publicly available data sources from reliable sources for our analyses.
-                {' '}
                 You can find more detailed information about the data sources used in the “Data Sources and Methodologies” at the end of each analysis.
               </p>
             </div>
@@ -189,15 +187,21 @@ const AboutUs = () => {
                 Contact Us
               </h1>
               <p className={styles.sectionBody}>
-                For general inquiries or questions on Data Lab activities or operations, please contact: USAspending.Help@Fiscal.Treasury.gov
+                For general inquiries or questions on Data Lab activities or operations, please contact:
+                {' '}
+                <a target="_blank" rel="noopener noreferrer" href="mailto: USAspending.Help@Fiscal.Treasury.gov">USAspending.Help@Fiscal.Treasury.gov</a>
               </p>
               <br />
               <p className={styles.sectionBody}>
-                For media inquiries, please contact: Media.relations@fiscal.treasury.gov
+                For media inquiries, please contact:
+                {' '}
+                <a target="_blank" rel="noopener noreferrer" href="mailto: Media.relations@fiscal.treasury.gov">Media.relations@fiscal.treasury.gov</a>
               </p>
               <br />
               <p className={styles.sectionBody}>
-                To join our mailing list, send a blank email with no subject to: datalab@lists.fiscal.treasury.gov
+                To join our mailing list, send a blank email with no subject to:
+                {' '}
+                <a target="_blank" rel="noopener noreferrer" href="mailto: datalab@lists.fiscal.treasury.gov">datalab@lists.fiscal.treasury.gov</a>
               </p>
               <br />
               <p className={styles.sectionBody}>
