@@ -194,7 +194,7 @@ export default class PageHeader extends React.Component {
                   <button className={styles.anchor}>Resources<span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item}>
-                  <button onClick={this.aboutUsRedirect} className={`${styles.about} ${styles.anchor}`}>
+                  <button onClick={this.aboutUsRedirect} className={styles.anchor}>
                       <span className={styles.arrow}>
                         <FontAwesomeIcon icon={faInfoCircle} className="fa-xs" width={12} />
                       </span>
