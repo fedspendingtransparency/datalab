@@ -69,7 +69,7 @@ const AboutUs = () => {
 
     if (typeof window !== 'undefined') {
       document.addEventListener('scroll', () => {
-        const bottomLimit = document.getElementById('about-us-container').getBoundingClientRect().height - 4;
+        const bottomLimit = document.getElementById('about-us-container').getBoundingClientRect().height - 132;
         setFixedClass(window.pageYOffset > 266 && window.pageYOffset <= bottomLimit ? styles.fixed : '');
         setBottomClass(window.pageYOffset > bottomLimit ? styles.bottom : '');
 
