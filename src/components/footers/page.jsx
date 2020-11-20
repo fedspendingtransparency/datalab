@@ -66,8 +66,9 @@ export default class PageFooter extends React.Component {
 							href="https://usaspending-help.zendesk.com/hc/en-us/community/topics"
 							target="_blank"
 							rel="noopener noreferrer">
-							Community Page.
-						</a>
+							Community Page
+						</a>{' '}
+						today.
 					</p>
 					<div className={pageFooterStyles.contents}>
 						<a
