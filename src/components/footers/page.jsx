@@ -26,9 +26,7 @@ export default class PageFooter extends React.Component {
 				<Grid item xs={12} md={4} lg={2} className={pageFooterStyles.ourSites}>
 					<div>
 						<div className={pageFooterStyles.title}>About</div>
-						<a target="_blank" rel="noopener noreferrer" href="/about">
-							About Data Lab
-						</a>
+						<a href="/about">About Data Lab</a>
 					</div>
 				</Grid>
 				<Grid item xs={12} md={4} lg={2} className={pageFooterStyles.ourSites}>
@@ -68,7 +66,7 @@ export default class PageFooter extends React.Component {
 							href="https://usaspending-help.zendesk.com/hc/en-us/community/topics"
 							target="_blank"
 							rel="noopener noreferrer">
-							Community Page today.
+							Community Page.
 						</a>
 					</p>
 					<div className={pageFooterStyles.contents}>
