@@ -66,20 +66,6 @@
         }
     }
 
-    .about {
-        display: flex;
-        align-items: flex-end;
-
-        &:focus {
-            border-bottom: 2px solid #046b99;
-            padding-bottom: 0.4375rem; // 7pxpx
-            
-            .anchor {
-                color: #046b99;
-            }
-        }
-    }
-
     .glossary {
         position: relative;
     }
@@ -271,7 +257,7 @@ ul.ul-nav {
     }
 
     .resources {
-        margin-left: 31rem;
+        margin-left: 350px;
         padding: 0;
         justify-content: flex-end;
         flex-direction: row;
