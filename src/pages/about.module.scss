@@ -6,7 +6,9 @@
   align-items: center;
   margin-top: 18px;
   height: 250px;
-  background: #ddd;
+  background-image: url(../images/about-us/header.svg);
+  background-position: center;
+  background-repeat: no-repeat;
 
   .header-title {
     margin: 0;
@@ -75,6 +77,16 @@
         }
       }
     }
+  }
+}
+
+.svg-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  svg {
+    height: 100%
   }
 }
 
