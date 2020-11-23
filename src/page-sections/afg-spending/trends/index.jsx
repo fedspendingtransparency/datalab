@@ -178,15 +178,15 @@ export default function SpendingTrends() {
 		}
 
 		function renderChart(data) {
-			const zoomThreshold = setThreshold(data),
-				config = {
-					chapter: 'spending',
-					baseColor: colors.colorSpendingPrimary,
-					secondaryColor: '#00766C',
-					zoomThreshold,
-					subcategoryThresholds: manualThresholds,
-					fiscalYearArray: fyArray,
-				};
+			const zoomThreshold = setThreshold(data);
+			const config = {
+				chapter: 'spending',
+				baseColor: colors.colorSpendingPrimary,
+				secondaryColor: '#00766C',
+				zoomThreshold: zoomThreshold,
+				subcategoryThresholds: manualThresholds,
+				fiscalYearArray: fyArray,
+			};
 
 			let container;
 
