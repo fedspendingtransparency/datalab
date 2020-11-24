@@ -42,7 +42,6 @@ function lookForOverlaps(data, threshold) {
 	});
 	if (overlaps.length) {
 		overlapExtent = d3.extent(overlaps);
-		s;
 		return overlapExtent[1];
 	}
 
