@@ -205,7 +205,9 @@ const AboutUs = () => {
               </p>
               <br />
               <p className={styles.sectionBody}>
-                Join the conversation by visiting our Community Page.
+                Join the conversation by visiting our
+                {' '}
+                <a target="_blank" rel="noopener noreferrer" href="https://usaspending-help.zendesk.com/hc/en-us/community/topics">Community Page.</a>
               </p>
             </div>
           </Grid>
