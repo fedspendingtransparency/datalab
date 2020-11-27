@@ -1,16 +1,22 @@
 import * as d3 from 'd3v3';
+import { translator } from 'src/afg-helpers/utils';
 import { chartWidth } from './widthManager';
 import { dotConstants, dotsPerRow } from './dotConstants';
-import { translator } from 'src/afg-helpers/utils';
-import { touchIe } from 'src/afg-helpers/touchIe';
-import { isMobileDevice } from '../../../afg-helpers/utils';
+import { isMobileDevice } from '../../utils';
 
 const layers = {};
 const duration = 500;
 const sectionActive = 'facts__section--active';
 const buttonActive = 'facts__trigger--active';
 
-let gdpHeight, originalHeight, spendingHeight, config = {};
+let gdpHeight = 0;
+let originalHeight = 0;
+let spendingHeight = 0;
+let config = {};
+export let activeLayer = '';
+export function setActiveLayer(id) {
+  activeLayer = id;
+}
 
 function setLayerOpacity(id, active) {
   layers[id].transition()
@@ -116,14 +122,16 @@ export function toggleFacts() {
     .classed(sectionActive, null);
 
   setLayerOpacity(Object.keys(layers)
-    .filter((k) => k != id)[0]);
+    .filter((k) => k !== id)[0]);
 
   if (wasPreviouslyActive) {
     setLayerOpacity(id);
+    setActiveLayer('');
   } else {
     button.classed(buttonActive, true);
     targetSection.classed(sectionActive, true);
     setLayerOpacity(id, true);
+    setActiveLayer(id);
   }
 
   resizeSvg((id === 'gdp' && !wasPreviouslyActive));
@@ -176,7 +184,7 @@ function resizeSvg(gdp) {
 function resizeSvgMobile(id) {
   let h = originalHeight;
 
-  if(id === 'spending') {
+  if (id === 'spending') {
     h = spendingHeight;
   } else if (id === 'gdp') {
     h = gdpHeight;
@@ -244,12 +252,24 @@ export function resetForResize() {
     .classed(buttonActive, null);
   d3.selectAll('.facts__section')
     .classed(sectionActive, null);
+  const activeButton = d3.select(`#facts__trigger-${activeLayer}`);
+  const activeSection = d3.select(`#${activeLayer}-facts`);
+  if (!activeButton.empty()) {
+    activeButton.classed(buttonActive, true);
+    activeSection.classed(sectionActive, true);
+  }
 }
 
 export function resetForResizeMobile() {
-	d3.select('#viz')
-		.selectAll('*')
-		.remove();
+  d3.select('#viz')
+    .selectAll('*')
+    .remove();
+  const activeButton = d3.select(`#facts__trigger-${activeLayer}`);
+  const activeSection = d3.select(`#${activeLayer}-facts`);
+  if (!activeButton.empty()) {
+    activeButton.classed(buttonActive, true);
+    activeSection.classed(sectionActive, true);
+  }
 }
 
 export function revealCompare() {
