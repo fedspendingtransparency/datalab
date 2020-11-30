@@ -40,7 +40,8 @@ export default function RevenueTrends() {
 	  baseColor: colors.revenuePrimary,
 	  secondaryColor: colors.colorPrimaryDarker,
 	  subcategoryThresholds: manualThresholds,
-	  fiscalYearArray: fyArray
+    fiscalYearArray: fyArray,
+    zoomThreshold: 210000000000,
 	};
 
   let container;

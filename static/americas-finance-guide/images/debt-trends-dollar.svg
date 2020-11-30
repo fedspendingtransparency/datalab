@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="751px" height="426px" viewBox="0 0 751 426" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="752px" height="426px" viewBox="0 0 752 426" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>debt-trends-dollar</title>
     <defs>
         <filter x="-27.9%" y="-38.7%" width="155.8%" height="177.4%" filterUnits="objectBoundingBox" id="filter-1">
@@ -10,7 +10,7 @@
         </filter>
     </defs>
     <g id="05.-Debt" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Updated-Viz---SVG" transform="translate(-41.000000, -88.000000)">
+        <g id="Update-11/20" transform="translate(-41.000000, -88.000000)">
             <g id="debt-trends-dollar" transform="translate(41.000000, 95.000000)">
                 <g id="x-data-outlines" transform="translate(64.432000, 410.200000)" fill="#555555" fill-rule="nonzero">
                     <path d="M664.992,7.8 L664.992,6.948 L662.772,6.948 C662.572,6.948 662.36,6.956 662.136,6.972 C661.912,6.988 661.696,7.004 661.488,7.02 C661.944,6.548 662.362,6.102 662.742,5.682 C663.122,5.262 663.45,4.858 663.726,4.47 C664.002,4.082 664.218,3.706 664.374,3.342 C664.53,2.978 664.608,2.616 664.608,2.256 C664.608,1.576 664.404,1.03 663.996,0.618 C663.588,0.206 663.028,-2.84217094e-14 662.316,-2.84217094e-14 C661.812,-2.84217094e-14 661.38,0.106 661.02,0.318 C660.66,0.53 660.32,0.812 660,1.164 L660,1.164 L660.564,1.728 C660.788,1.472 661.036,1.254 661.308,1.074 C661.58,0.894 661.876,0.804 662.196,0.804 C662.684,0.804 663.048,0.944 663.288,1.224 C663.528,1.504 663.648,1.864 663.648,2.304 C663.648,2.616 663.568,2.938 663.408,3.27 C663.248,3.602 663.016,3.966 662.712,4.362 C662.408,4.758 662.032,5.188 661.584,5.652 C661.136,6.116 660.624,6.636 660.048,7.212 L660.048,7.212 L660.048,7.8 L664.992,7.8 Z M668.52,7.944 C669.288,7.944 669.888,7.6 670.32,6.912 C670.752,6.224 670.968,5.236 670.968,3.948 C670.968,2.66 670.752,1.68 670.32,1.008 C669.888,0.336 669.288,-2.84217094e-14 668.52,-2.84217094e-14 C667.744,-2.84217094e-14 667.14,0.336 666.708,1.008 C666.276,1.68 666.06,2.66 666.06,3.948 C666.06,5.236 666.276,6.224 666.708,6.912 C667.14,7.6 667.744,7.944 668.52,7.944 Z M668.52,7.152 C668.072,7.152 667.71,6.898 667.434,6.39 C667.158,5.882 667.02,5.068 667.02,3.948 C667.02,3.388 667.056,2.908 667.128,2.508 C667.2,2.108 667.302,1.782 667.434,1.53 C667.566,1.278 667.724,1.092 667.908,0.972 C668.092,0.852 668.296,0.792 668.52,0.792 C668.744,0.792 668.946,0.852 669.126,0.972 C669.306,1.092 669.462,1.278 669.594,1.53 C669.726,1.782 669.828,2.108 669.9,2.508 C669.972,2.908 670.008,3.388 670.008,3.948 C670.008,4.508 669.972,4.99 669.9,5.394 C669.828,5.798 669.726,6.13 669.594,6.39 C669.462,6.65 669.306,6.842 669.126,6.966 C668.946,7.09 668.744,7.152 668.52,7.152 Z M676.92,7.8 L676.92,6.948 L674.7,6.948 C674.5,6.948 674.288,6.956 674.064,6.972 C673.84,6.988 673.624,7.004 673.416,7.02 C673.872,6.548 674.29,6.102 674.67,5.682 C675.05,5.262 675.378,4.858 675.654,4.47 C675.93,4.082 676.146,3.706 676.302,3.342 C676.458,2.978 676.536,2.616 676.536,2.256 C676.536,1.576 676.332,1.03 675.924,0.618 C675.516,0.206 674.956,-2.84217094e-14 674.244,-2.84217094e-14 C673.74,-2.84217094e-14 673.308,0.106 672.948,0.318 C672.588,0.53 672.248,0.812 671.928,1.164 L671.928,1.164 L672.492,1.728 C672.716,1.472 672.964,1.254 673.236,1.074 C673.508,0.894 673.804,0.804 674.124,0.804 C674.612,0.804 674.976,0.944 675.216,1.224 C675.456,1.504 675.576,1.864 675.576,2.304 C675.576,2.616 675.496,2.938 675.336,3.27 C675.176,3.602 674.944,3.966 674.64,4.362 C674.336,4.758 673.96,5.188 673.512,5.652 C673.064,6.116 672.552,6.636 671.976,7.212 L671.976,7.212 L671.976,7.8 L676.92,7.8 Z M680.448,7.944 C681.216,7.944 681.816,7.6 682.248,6.912 C682.68,6.224 682.896,5.236 682.896,3.948 C682.896,2.66 682.68,1.68 682.248,1.008 C681.816,0.336 681.216,-2.84217094e-14 680.448,-2.84217094e-14 C679.672,-2.84217094e-14 679.068,0.336 678.636,1.008 C678.204,1.68 677.988,2.66 677.988,3.948 C677.988,5.236 678.204,6.224 678.636,6.912 C679.068,7.6 679.672,7.944 680.448,7.944 Z M680.448,7.152 C680,7.152 679.638,6.898 679.362,6.39 C679.086,5.882 678.948,5.068 678.948,3.948 C678.948,3.388 678.984,2.908 679.056,2.508 C679.128,2.108 679.23,1.782 679.362,1.53 C679.494,1.278 679.652,1.092 679.836,0.972 C680.02,0.852 680.224,0.792 680.448,0.792 C680.672,0.792 680.874,0.852 681.054,0.972 C681.234,1.092 681.39,1.278 681.522,1.53 C681.654,1.782 681.756,2.108 681.828,2.508 C681.9,2.908 681.936,3.388 681.936,3.948 C681.936,4.508 681.9,4.99 681.828,5.394 C681.756,5.798 681.654,6.13 681.522,6.39 C681.39,6.65 681.234,6.842 681.054,6.966 C680.874,7.09 680.672,7.152 680.448,7.152 Z" id="2020"></path>
@@ -83,10 +83,10 @@
                     </g>
                     <rect id="Rectangle" fill="#B5B5B5" x="53" y="18" width="10" height="1"></rect>
                 </g>
-                <g id="great_recession" transform="translate(244.000000, 0.000000)">
-                    <rect id="Rectangle-Copy" fill-opacity="0.3" fill="#D8D8D8" fill-rule="nonzero" x="63" y="0" width="67" height="400"></rect>
+                <g id="great_recession" transform="translate(282.000000, 0.000000)">
+                    <rect id="Rectangle-Copy" fill-opacity="0.3" fill="#D8D8D8" fill-rule="nonzero" x="63" y="0" width="58" height="400"></rect>
                     <rect id="Rectangle-Copy-2" fill="#B5B5B5" fill-rule="nonzero" x="63" y="0" width="1" height="400"></rect>
-                    <rect id="Rectangle-Copy-3" fill="#B5B5B5" fill-rule="nonzero" x="129" y="0" width="1" height="400"></rect>
+                    <rect id="Rectangle-Copy-3" fill="#B5B5B5" fill-rule="nonzero" x="121" y="0" width="1" height="400"></rect>
                     <g id="txt_box">
                         <rect id="Rectangle-Copy-32" fill="#242424" opacity="0.2" filter="url(#filter-2)" x="5" y="5" width="43" height="31" rx="2"></rect>
                         <rect id="Rectangle" stroke="#B5B5B5" fill="#FFFFFF" x="0.5" y="0.5" width="52" height="35" rx="2"></rect>
@@ -94,29 +94,29 @@
                     </g>
                     <rect id="Rectangle" fill="#B5B5B5" x="53" y="18" width="10" height="1"></rect>
                 </g>
-                <g id="data-line" transform="translate(73.000000, 19.000000)" fill-rule="nonzero" stroke="#4A0072">
-                    <polyline id="Path-3" stroke-width="2" points="2 300 35.0555556 300 68.1111111 295 101.166667 285.971668 134.222222 278.999955 167.277778 268 200.333333 261 233.388889 252.9 266.444444 241 299.5 215 332.555556 190 365.611111 173 398.666667 156 431.722222 146 464.777778 132 497.833333 126 530.888889 107 563.944444 100 597 79 630 58 663 3"></polyline>
-                    <circle id="Oval-Copy" fill="#FFFFFF" cx="465" cy="132" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="432" cy="146" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="399" cy="156" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="366" cy="173" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="333" cy="190" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="300" cy="215" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="267" cy="241" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="234" cy="253" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="201" cy="261" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="168" cy="268" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="135" cy="279" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="102" cy="286" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="69" cy="295" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="36" cy="300" r="3"></circle>
-                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="3" cy="300" r="3"></circle>
-                    <circle id="Oval" fill="#FFFFFF" cx="564" cy="100" r="3"></circle>
-                    <circle id="Oval" fill="#FFFFFF" cx="597" cy="79" r="3"></circle>
-                    <circle id="Oval-Copy-3" fill="#FFFFFF" cx="630" cy="58" r="3"></circle>
+                <g id="data-line" transform="translate(73.000000, 23.000000)" fill-rule="nonzero" stroke="#4A0072">
+                    <polyline id="Path-3" stroke-width="2" points="2 296 35.0555556 296 68.1111111 291 101.166667 281.971668 134.222222 274.999955 167.277778 264 200.333333 257 233.388889 248.9 266.444444 237 299.5 211 332.555556 186 365.611111 169 398.666667 148 431.722222 142 464.777778 128 497.833333 122 530.888889 103 563.944444 96 597 75 630 52 663 3"></polyline>
+                    <circle id="Oval-Copy" fill="#FFFFFF" cx="465" cy="128" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="432" cy="142" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="399" cy="148" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="366" cy="169" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="333" cy="186" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="300" cy="211" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="267" cy="237" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="234" cy="249" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="201" cy="257" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="168" cy="264" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="135" cy="275" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="102" cy="282" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="69" cy="291" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="36" cy="296" r="3"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" cx="3" cy="296" r="3"></circle>
+                    <circle id="Oval" fill="#FFFFFF" cx="564" cy="96" r="3"></circle>
+                    <circle id="Oval" fill="#FFFFFF" cx="597" cy="75" r="3"></circle>
+                    <circle id="Oval-Copy-3" fill="#FFFFFF" cx="630" cy="52" r="3"></circle>
                     <circle id="Oval-Copy-4" fill="#FFFFFF" cx="663" cy="3" r="3"></circle>
-                    <circle id="Oval" fill="#FFFFFF" cx="531" cy="107" r="3"></circle>
-                    <circle id="Oval-Copy" fill="#FFFFFF" cx="498" cy="126" r="3"></circle>
+                    <circle id="Oval" fill="#FFFFFF" cx="531" cy="103" r="3"></circle>
+                    <circle id="Oval-Copy" fill="#FFFFFF" cx="498" cy="122" r="3"></circle>
                 </g>
             </g>
         </g>

@@ -889,9 +889,10 @@ export default function OverviewPage({ location }) {
 										which increases the debt. The total debt that the federal government
 										owes is essentially the accumulation of deficits over time, minus debt
 										repaid by any surpluses, plus debt that the Treasury owes to other
-										parts of the federal government. Other activities contribute to the
-										change in federal debt, such as changes in the Treasury's operating
-										cash account and federal student loans.
+										parts of the federal government such as the Social Security program.
+										Other activities contribute to the change in federal debt, such as
+										changes in the Treasury's operating cash account and federal student
+										loans.
 									</p>
 									<p className="chapter__paragraph--tightened">
 										Are federal debt and deficit the same thing? No, but they do affect
