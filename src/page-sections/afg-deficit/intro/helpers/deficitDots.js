@@ -96,7 +96,7 @@ export function placeDotsMobile(c, startPosition, separateContainer) {
   config = c;
   const container = separateContainer || config.mainContainer;
   layer = container.append('g')
-    .attr('transform', 'translate(0,30)')
+    .attr('transform', 'translate(0,25)')
     .attr('data-o', 0);
 
   const dotVal = 10000000000;

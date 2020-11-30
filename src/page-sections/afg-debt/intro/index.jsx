@@ -15,10 +15,9 @@ import './debt-intro.scss';
 import colors from '../../../styles/afg/colors.scss';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
-const defaultDesc = isMobileDevice() ?
-	`The federal government’s debt at the end of ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents_mobile.value}. There are ${AfgData.dot_number_debt_mobile.value} dots.`
-	:
-	`The federal government’s debt at the end of ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents.value}. There are ${AfgData.dot_number_debt.value} dots.`;
+const defaultDesc = isMobileDevice()
+	? `The federal government’s debt at the end of ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents_mobile.value}. There are ${AfgData.dot_number_debt_mobile.value} dots.`
+	: `The federal government’s debt at the end of ${AfgData.current_fy.value} using dots, and each dot is equal to ${AfgData.dot_represents.value}. There are ${AfgData.dot_number_debt.value} dots.`;
 const config = {
 	anecdoteName: 'anecdote-debt.svg',
 	debtAmount: findAmountInCsv('federal debt', DebtData),
@@ -71,14 +70,16 @@ export default class DebtIntro extends React.Component {
 
 	resizeSvg = () => {
 		let scaleFactor = 0.65;
+		let mobileModifier = 0;
 		if (isMobileDevice()) {
+			mobileModifier = 20;
 			if (this.state.activeCompare === 'gdp') {
-				scaleFactor = 1.3
+				scaleFactor = 1.3;
 			} else {
-				scaleFactor = 0.95
+				scaleFactor = 0.95;
 			}
 		}
-		const h = this.state.activeCompare !== '' ? vizHeight * scaleFactor : vizHeight;
+		const h = this.state.activeCompare !== '' ? vizHeight * scaleFactor : vizHeight - mobileModifier;
 		establishContainer().transition().duration(this.duration).attr('height', h);
 	}
 
@@ -296,7 +297,8 @@ export default class DebtIntro extends React.Component {
 	topLegend = () => {
 		const label = this.state.activeCompare ? this.state.activeCompare === 'gdp' ? 'FY20 U.S. Gross Domestic Product' : 'Federal Deficit' : '';
 
-		const isMobile = <div className='dotScale'>
+		const isMobile = (
+		<div className='dotScale'>
 											<svg width='.75rem' height='1rem'>
 												<circle cx='3' cy='12' r='3' />
 											</svg>
@@ -308,13 +310,16 @@ export default class DebtIntro extends React.Component {
 											</svg>
 											<span>&nbsp;&nbsp;{label}</span>
 										</div>
+		)
 
-		const isDesktop = <div className='dotScale'>
+		const isDesktop = (
+		<div className='dotScale'>
 												<svg width='.75rem' height='1rem'>
 													<circle cx='3' cy='12' r='3' />
 												</svg>
 												<span>= {AfgData.dot_represents.value}</span>
 											</div>
+		)
 
 		let toRender = <></>
 

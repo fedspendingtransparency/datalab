@@ -14,7 +14,8 @@
 
 .deficit-debt-heading__arrow-container {
     text-align: center;
-    margin: 10px 0;
+    margin-top: 15px;
+    font-size: 1.875rem;
 
     a {
         color:$text-color-paragraph;
@@ -27,17 +28,18 @@
 }
 
 .deficit-debt-heading__heading {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 300;
     background: #fff;
     color: #555;
     margin: 0 auto;
     max-width: 1000px;
-    padding: 15px;
+    padding: 25px 30px;
+    line-height: normal;
 
     strong, span {
         font-weight: $heavyBoldWeight;
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 }
 
@@ -50,11 +52,21 @@
 }
 
 @media only screen and (min-width: 800px) {
-    .deficit-debt-heading {
-        padding: 4rem 2rem 2rem;
+    .deficit-debt-heading__heading {
+        max-width: 750px;
     }
+}
 
-    .deficit-debt-heading__heading, .deficit-debt-heading__heading span {
-        @include baseHeaderDesktop();
+@media only screen and (max-width: 799px) {
+    .deficit-debt-heading__heading {
+        font-size: 2rem;
+
+        .chapter__divider--text-deficit {
+            font-size: 2rem;
+        }
+        
+        .chapter__divider--text-debt {
+            font-size: 2rem;
+        }
     }
 }
