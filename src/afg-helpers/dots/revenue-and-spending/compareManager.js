@@ -173,7 +173,12 @@ export function toggleFactsMobile(id) {
 }
 
 function resizeSvg(gdp) {
-  const h = gdp ? gdpHeight : originalHeight;
+  let h = originalHeight;
+  if ((activeLayer === 'spending' || activeLayer === 'revenue') && !gdp) {
+    h = spendingHeight;
+  } else if (activeLayer === 'gdp' && gdp) {
+    h = gdpHeight;
+  }
 
   d3.select('svg.main')
     .transition()
