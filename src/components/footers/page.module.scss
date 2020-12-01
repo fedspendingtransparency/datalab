@@ -1,12 +1,13 @@
 @import "../../styles/variables";
 
-$col-padding: 15px;
+$col-padding: 20px;
 
 .page-footer {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
 
   .content {
     padding: 3rem 0 4rem;
+    margin: 0 auto;
 
     .title {
       font-size: 1rem;
@@ -14,9 +15,9 @@ $col-padding: 15px;
       line-height: 1.24;
       letter-spacing: normal;
       margin-bottom: 0.5rem;
+      color: #555;
     }
 
-    .title,
     a {
       color: $legacyBlue;
     }
@@ -28,15 +29,18 @@ $col-padding: 15px;
     p {
       font-size: 0.9375rem;
       font-style: normal;
-      font-weight: 300;
+      font-weight: normal;
       line-height: 1.33;
       letter-spacing: 0.2px;
       margin-top: 0;
       margin-bottom: 2rem;
     }
 
-    .social .contents a {
-      padding-right: 8px;
+    .social {
+
+      .contents a {
+        padding-right: 8px;
+      }
     }
 
     .our-sites {
@@ -44,12 +48,11 @@ $col-padding: 15px;
 
       div {
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
       }
 
       a {
         margin-bottom: .5rem;
-        font-weight: 300;
       }
     }
   }
@@ -57,16 +60,22 @@ $col-padding: 15px;
 
 @media (min-width: $desktop) {
   .page-footer .content {
-    div + div {
-      padding: 0 $col-padding;
+
+    .social {
       border-left: 1px solid #ccc;
+      padding-left: 44px;
+    }
+
+    .our-sites {
+      padding-left: $col-padding;
     }
 
     .logo {
-      text-align: center;
+      text-align: left;
+      margin-top: -20px;
 
       svg {
-        max-width: 90%;
+        width: calc(100% - 60px);
       }
     }
   }
@@ -75,7 +84,7 @@ $col-padding: 15px;
 @media (max-width: $desktop - 1) {
   .page-footer .content {
     text-align: center;
-    max-width: 300px;
+    width: 60%;
     margin: 0 auto;
 
     .logo {
@@ -87,13 +96,46 @@ $col-padding: 15px;
     }
 
     .social {
+        border-top: 1px solid #ccc;
+        padding-top: 40px;
+
       p {
         margin-bottom: 1rem;
-      }
-
-      .contents {
-        margin-bottom: 2rem;
       }
     }
   }
 }
+
+@media screen and (min-width: $desktop-xl) {
+  .page-footer .content {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: $desktop) and (max-width: $desktop-xl - 1) {
+  .page-footer .content {
+    max-width: 940px;
+
+    .social {
+      padding-left: 34px !important;
+    }
+  }
+}
+
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  .page-footer .content {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: $tablet - 1) {
+  .page-footer .content {
+    .logo svg {
+      width: 100%;
+    }
+  }
+}
+
+
+
+

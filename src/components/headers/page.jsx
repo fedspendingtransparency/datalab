@@ -12,7 +12,8 @@ import MobileMenu from '../../components/headers/mobile-menu.jsx';
 import Glossary from '../glossary/glossary';
 import ScrollToTopButton from '../scroll-to-top-button/scroll-to-top-button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "gatsby";
 
 export default class PageHeader extends React.Component {
   constructor(props) {
@@ -152,6 +153,10 @@ export default class PageHeader extends React.Component {
     }
   }
 
+  aboutUsRedirect = () => {
+    window.location.href = '/about/';
+  }
+
   render() {
 
     let { isSticky, skinnyTop, skinnySub, activeItem, showMenu, showMobileMenu, isMobileTag, scrollButtonVisible } = this.state;
@@ -180,16 +185,24 @@ export default class PageHeader extends React.Component {
                 onKeyUp={this.menuKeyUp}
               >
                 <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.focusMenu} onKeyDown={this.handleKeyPress}>
-                  <button className={styles.anchor}>Analyses <span className={styles.arrow}><Arrow /></span></button>
+                  <button className={styles.anchor}>Analyses<span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.focusMenu} onKeyDown={this.handleKeyPress}>
-                  <button className={styles.anchor}>America's Finance Guide <span className={styles.arrow}><Arrow /></span></button>
+                  <button className={styles.anchor}>America's Finance Guide<span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item} onMouseOver={this.activateMenu} onFocus={this.focusMenu} onKeyDown={this.handleKeyPress}>
-                  <button className={styles.anchor}>Resources <span className={styles.arrow}><Arrow /></span></button>
+                  <button className={styles.anchor}>Resources<span className={styles.arrow}><Arrow /></span></button>
                 </li>
                 <li className={styles.item}>
-                  <button className={`${styles.anchor} ${styles.glossary}`}><span className={styles.arrow}><Book /></span> Glossary </button>
+                  <button onClick={this.aboutUsRedirect} className={styles.anchor}>
+                      <span className={styles.arrow}>
+                        <FontAwesomeIcon icon={faInfoCircle} className="fa-xs" width={12} />
+                      </span>
+                      About Us
+                  </button>
+                </li>
+                <li className={styles.item}>
+                  <button className={`${styles.anchor} ${styles.glossary}`}><span className={styles.arrow}><Book /></span>Glossary</button>
                 </li>
               </ul>
             </nav>

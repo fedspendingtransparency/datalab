@@ -19,8 +19,6 @@ import homeStyles from "./index.module.scss"
 import CovidCopy from "src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml"
 
 function IndexPage(props) {
-	console.log(props)
-
 	return (
 		<Home>
 			<SEO

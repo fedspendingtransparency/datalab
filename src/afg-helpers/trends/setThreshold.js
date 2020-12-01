@@ -1,12 +1,12 @@
-import { extent, min } from "d3-array"
+import { extent, min } from 'd3-array';
 
 const d3 = { extent, min },
-	ratio = 0.2
+	ratio = 0.2;
 
 let overlaps = [],
-	maxIterator = 10
+	maxIterator = 10;
 
-export let dataRange
+export let dataRange;
 
 function establishRange(data) {
 	/*
@@ -16,42 +16,42 @@ function establishRange(data) {
 	 * of each object within data.
 	 */
 	const reduced = data.reduceRight((a, b) => {
-		return a.concat(b.values.map(r => r.amount))
-	}, [])
-	const extent = d3.extent(reduced)
+		return a.concat(b.values.map(r => r.amount));
+	}, []);
+	const extent = d3.extent(reduced);
 
-	dataRange = [extent[0], extent[1]]
+	dataRange = [extent[0], extent[1]];
 
-	extent[0] = d3.min([0, extent[0]])
-	return extent
+	extent[0] = d3.min([0, extent[0]]);
+	return extent;
 }
 
 function findThreshold(extentedData, data) {
-	let threshold = extentedData[0] + (extentedData[1] - extentedData[0]) * ratio
+	let threshold = extentedData[0] + (extentedData[1] - extentedData[0]) * ratio;
 
-	return lookForOverlaps(data, threshold)
+	return lookForOverlaps(data, threshold);
 }
 
 function lookForOverlaps(data, threshold) {
-	let overlapExtent
-	overlaps = []
+	let overlapExtent;
+	overlaps = [];
 	data.forEach(d => {
-		const extent = d3.extent(d.values.map(r => r.amount))
+		const extent = d3.extent(d.values.map(r => r.amount));
 		if (extent[0] <= threshold && extent[1] >= threshold) {
-			overlaps.push(extent[0], extent[1])
+			overlaps.push(extent[0], extent[1]);
 		}
-	})
+	});
 	if (overlaps.length) {
-		overlapExtent = d3.extent(overlaps)
-		return overlapExtent[1]
+		overlapExtent = d3.extent(overlaps);
+		return overlapExtent[1];
 	}
 
-	return threshold
+	return threshold;
 }
 
 export function setThreshold(data) {
 	const extent = establishRange(data),
-		threshold = findThreshold(extent, data)
+		threshold = findThreshold(extent, data);
 
-	return threshold
+	return threshold;
 }

@@ -9,7 +9,7 @@ exports[`Share expect the snapshot to match 1`] = `
   >
     <button
       aria-hidden="true"
-      className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-34 MuiButton-text vizShareIcon"
+      className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-2 MuiButton-text vizShareIcon"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
