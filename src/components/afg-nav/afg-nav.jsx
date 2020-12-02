@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHome,
-  faAngleDown,
-  faAngleUp,
-} from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import style from './afg-nav.module.scss';
 
 const AfgNav = ({ chapter }) => {
@@ -32,6 +28,7 @@ const AfgNav = ({ chapter }) => {
       ],
       name: 'Revenue',
       navClass: style.chapterNavRevenue,
+      colorClass: style.revenueColor,
     },
     {
       chapter: 'spending',
@@ -55,6 +52,7 @@ const AfgNav = ({ chapter }) => {
       ],
       name: 'Spending',
       navClass: style.chapterNavSpending,
+      colorClass: style.spendingColor,
     },
     {
       chapter: 'deficit',
@@ -74,6 +72,7 @@ const AfgNav = ({ chapter }) => {
       ],
       name: 'Deficit',
       navClass: style.chapterNavDeficit,
+      colorClass: style.deficitColor,
     },
     {
       chapter: 'debt',
@@ -97,6 +96,7 @@ const AfgNav = ({ chapter }) => {
       ],
       name: 'Debt',
       navClass: style.chapterNavDebt,
+      colorClass: style.debtColor,
     },
   ];
 
@@ -115,48 +115,74 @@ const AfgNav = ({ chapter }) => {
   }, []);
 
   const [activeSection, setActiveSection] = useState(sections.find((s) => s.chapter === chapter));
+  const [clickedSection, setClickedSection] = useState(sections.find((s) => s.chapter === chapter));
 
   const handleActiveSectionChange = (e) => {
     const section = sections.find((s) => s.name === e.target.textContent);
-    setActiveSection(section);
+    if (e.target === e.currentTarget) {
+      setActiveSection(section);
+      setClickedSection(section);
+    } else {
+      setActiveSection(section);
+    }
   };
 
   const resetActiveSection = () => {
-    const section = sections.find((s) => s.chapter === chapter);
-    setActiveSection(section);
+    setActiveSection(clickedSection);
   };
 
-  const subPages = sections.find((section) => section.chapter === activeSection.chapter).pages.map((page) => (
-    <li>{page.name}</li>
+  const activeSubPage = typeof window !== 'undefined' ? window.location.pathname : '';
+
+  const subPages = activeSection && sections.find((section) => section.chapter === activeSection.chapter).pages.map((page) => (
+    <li className={`${style.subPage} ${page.url === activeSubPage ? style.activeSubPage : ''}`}>
+      <a className={activeSection.colorClass} href={page.url}>
+        {page.name}
+      </a>
+      <div className={style.subPageBorder} />
+    </li>
   ));
 
   return (
     <nav className={style.chapterNav} style={stickyStyle}>
       <ul className={style.chapterNavPrimaryList}>
         <li className={style.chapterNavOverview}>
-          <a href="/americas-finance-guide/">
-            <FontAwesomeIcon
-              icon={faHome}
-              className="fas fa-home"
-              width={8}
-            />
-            <div className={style.sectionName}>
+          <div className={style.sectionName}>
+            <a href="/americas-finance-guide/">
+              <FontAwesomeIcon
+                icon={faHome}
+                className="fas fa-home"
+                width={8}
+              />
               Overview
-            </div>
-          </a>
+            </a>
+          </div>
         </li>
-        {sections.map((section) => (
-          <li className={`${section.navClass} ${style.inactiveSection}`} onMouseEnter={handleActiveSectionChange} onMouseLeave={resetActiveSection}>
-            <div className={style.sectionName} onClick={handleActiveSectionChange}>
-              {section.name}
-            </div>
-          </li>
-        ))}
-        <li className={style.chapterNavSubpages}>
-          <ul>
-            {subPages}
-          </ul>
-        </li>
+        {sections.map((section) => {
+          if (activeSection && activeSection.chapter === section.chapter) {
+            return (
+              <>
+                <li className={`${section.navClass} ${style.activeSection}`} onMouseEnter={handleActiveSectionChange} onMouseLeave={resetActiveSection}>
+                  <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange} onFocus={handleActiveSectionChange}>
+                    {section.name}
+                  </div>
+                </li>
+                <li className={style.chapterNavSubpages}>
+                  <ul>
+                    {subPages}
+                  </ul>
+                </li>
+              </>
+            );
+          }
+
+          return (
+            <li className={`${section.navClass} ${style.inactiveSection}`} onMouseEnter={handleActiveSectionChange} onMouseLeave={resetActiveSection}>
+              <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange} onFocus={handleActiveSectionChange}>
+                {section.name}
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

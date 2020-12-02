@@ -1,5 +1,21 @@
 @import '../../styles/variables.scss';
 
+.revenue-color {
+    color: #0A2F5A;
+}
+
+.spending-color {
+    color: #00796B;
+}
+
+.deficit-color {
+    color: #B3532D;
+}
+
+.debt-color {
+    color: #4A0072;
+}
+
 .chapter-nav {
     display: flex;
     justify-content: space-between;
@@ -7,14 +23,14 @@
     min-height: 3.5rem;
     box-sizing: border-box;
     z-index: 1000;
-    background-color: #D6D7D9;
+    background-color: #ebe9e9;
 }
 
 .chapter-nav-primary-list {
     max-width: 1440px;
     color: white;
 
-    .inactive-section {
+    .inactive-section, .active-section {
         border-right: solid 2px #eee;
 
         .section-name {
@@ -24,6 +40,11 @@
             justify-content: center;
             align-items: center;
         }
+    }
+
+    .active-section {
+        font-weight: bold;
+        text-decoration: underline;
     }
 
     li:not(.active):not(.chapter-nav-active-section):hover {
@@ -37,12 +58,35 @@
     background-color: #555;
     border-right: solid 2px #eee;
 
-    i {
-        margin-right: 1rem;
-    }
+    .section-name {
+        height: 100%;
+        width: 100%;
+        text-transform: uppercase;
 
+        &:before {
+            border-left: 4px solid #555;
+        }
+
+        &:after {
+            border-left: 0 !important;
+        }
+
+        a {
+            color: #fff;
+        }
+    }
+    
     &:hover {
         background-color: #666;
+        text-decoration: underline;
+
+        .section-name:before {
+            border-left: 4px solid #666;
+        }
+    }
+
+    svg {
+        margin-right: 9px;
     }
 }
 
@@ -65,32 +109,68 @@
 .chapter-nav-revenue {
     background-color: #0A2F5A;
 
+    .section-name:before {
+        border-left: 4px solid #0A2F5A;
+    }
+    
     &:hover {
         background-color: #082548;
+        text-decoration: underline;
+
+        .section-name:before {
+            border-left: 4px solid #082548;
+        }
     }
 }
 
 .chapter-nav-spending {
     background-color: #00796B;
 
+    .section-name:before {
+        border-left: 4px solid #00796B;
+    }
+    
     &:hover {
         background-color: #005E56;
+        text-decoration: underline;
+
+        .section-name:before {
+            border-left: 4px solid #005E56;
+        }
     }
 }
 
 .chapter-nav-deficit {
     background-color: #B3532D;
 
+    .section-name:before {
+        border-left: 4px solid #B3532D;
+    }
+    
     &:hover {
         background-color: #9F4224;
+        text-decoration: underline;
+
+        .section-name:before {
+            border-left: 4px solid #9F4224;
+        }
     }
 }
 
 .chapter-nav-debt {
     background-color: #4A0072;
 
+    .section-name:before {
+        border-left: 4px solid #4A0072;
+    }
+    
     &:hover {
         background-color: #3B005B;
+        text-decoration: underline;
+
+        .section-name:before {
+            border-left: 4px solid #3B005B;
+        }
     }
 }
 
@@ -114,6 +194,15 @@
 .chapter-nav li {
     padding: 0;
     cursor: pointer;
+    margin-right: 4px;
+
+    &:not(.chapter-nav-subpages):not(.sub-page) {
+        max-width: 130px;
+
+        &:not(.chapter-nav-overview) {
+            min-width: 110px;
+        }
+    }
 
     .section-name {
         color: white;
@@ -125,7 +214,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
     text-decoration: none;
     height: 100%;
     line-height: 3rem;
@@ -161,7 +249,44 @@
     }
 }
 
-@media only screen and (min-width: 990px) {
+.chapter-nav-subpages {
+    display: flex;
+    flex-grow: 0 !important;
+
+    .sub-page {
+        margin: 0;
+        padding-left: 0.5rem;
+        flex-grow: 0;
+        font-size: 0.875rem;
+        text-align: center;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:last-of-type {
+            margin-right: 0.5rem;
+
+            .sub-page-border {
+                display: none;
+            }
+        }
+    }
+
+    .active-sub-page {
+        text-decoration: underline;
+        font-weight: 600;
+    }
+
+    .sub-page-border {
+        height: 1rem;
+        width: 1px;
+        background-color: black;
+        margin-left: 0.5rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
     .chapter-nav {
         min-height: auto;
         height: 3rem;
@@ -186,6 +311,30 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        .section-name {
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                left: 0; bottom: 0; width: 0; height: 0;
+                border-left: 4px solid #ebe9e9;
+                border-top: 24px solid transparent;
+                border-bottom: 24px solid transparent;
+            }
+            
+            &:before {
+                content: '';
+                position: absolute;
+                right: -4px;
+                bottom: 0;
+                width: 0;
+                height: 0;
+                border-top: 24px solid transparent;
+                border-bottom: 24px solid transparent;
+            }
+        }
     }
 
     .chapter-nav li:last-of-type {
@@ -226,19 +375,21 @@
     }
 
     .chapter-nav-primary-list {
-        .inactive-section {
-            .section-name {
-                text-transform: uppercase;
-            }
+        .section-name {
+            text-transform: uppercase;
         }
 
         .li:not(.chapter-nav-subpages) {
             width: 130px;
         }
     }
+    
+    .chapter-nav-overview {
+        min-width: 120px;
+    }
 }
 
-@media only screen and (max-width: 989px) and (min-width: 660px) {
+@media only screen and (max-width: 991px) and (min-width: 660px) {
     .chapter-nav {
         min-height: auto;
         height: 3rem;
@@ -280,7 +431,7 @@
     }
 
     .chapter-nav-active-list {
-        max-width: calc(990px - 22.5%);
+        max-width: calc(992px - 22.5%);
 
         li {
             padding: 0 5px;
