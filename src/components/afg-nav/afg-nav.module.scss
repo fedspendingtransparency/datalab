@@ -196,7 +196,7 @@
     cursor: pointer;
     margin-right: 4px;
 
-    &:not(.chapter-nav-subpages):not(.sub-page) {
+    &:not(.chapter-nav-subpages):not(.sub-page):not(.chapter-nav-sub-pages) {
         max-width: 100px;
 
         &:not(.chapter-nav-overview) {
@@ -388,20 +388,14 @@
         min-width: 120px;
     }
 
-    .chapter-nav-sub-pages {
+    .chapter-nav-sub-pages {        
         .sub-page {
             padding-left: 0.5rem;
         }
+    }
 
-        &.closed {
-            width: 0;
-            transition: 500ms width;
-            margin: 0;
-    
-            ul {
-                display: none;
-            }
-        }
+    .mobile-block, .mobile-menu-button-container {
+        display: none;
     }
 }
 
