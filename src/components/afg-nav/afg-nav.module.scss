@@ -387,6 +387,22 @@
     .chapter-nav-overview {
         min-width: 120px;
     }
+
+    .chapter-nav-sub-pages {
+        .sub-page {
+            padding-left: 0.5rem;
+        }
+
+        &.closed {
+            width: 0;
+            transition: 500ms width;
+            margin: 0;
+    
+            ul {
+                display: none;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 991px) and (min-width: 660px) {
