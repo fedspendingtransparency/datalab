@@ -249,43 +249,6 @@
     }
 }
 
-.chapter-nav-subpages {
-    display: flex;
-    flex-grow: 0 !important;
-
-    .sub-page {
-        margin: 0;
-        padding-left: 0.5rem;
-        flex-grow: 0;
-        font-size: 0.875rem;
-        text-align: center;
-
-        &:hover {
-            text-decoration: underline;
-        }
-
-        &:last-of-type {
-            margin-right: 0.5rem;
-
-            .sub-page-border {
-                display: none;
-            }
-        }
-    }
-
-    .active-sub-page {
-        text-decoration: underline;
-        font-weight: 600;
-    }
-
-    .sub-page-border {
-        height: 1rem;
-        width: 1px;
-        background-color: black;
-        margin-left: 0.5rem;
-    }
-}
-
 @media only screen and (min-width: 992px) {
     .chapter-nav {
         min-height: auto;
@@ -377,6 +340,16 @@
     .chapter-nav-primary-list {
         .section-name {
             text-transform: uppercase;
+            position: relative;
+
+            .section-name-extension {
+                height: 5px;
+                width: 98px;
+                position: absolute;
+                top: 48px;
+                left: 0px;
+                z-index: 3000;
+            }
         }
 
         .li:not(.chapter-nav-subpages) {
@@ -388,9 +361,41 @@
         min-width: 120px;
     }
 
-    .chapter-nav-sub-pages {        
+    .chapter-nav-sub-pages {
+        display: flex;
+        flex-grow: 0 !important;
+        transition: 500ms;
+    
         .sub-page {
+            margin: 0;
             padding-left: 0.5rem;
+            flex-grow: 0;
+            font-size: 0.875rem;
+            text-align: center;
+    
+            &:hover {
+                text-decoration: underline;
+            }
+    
+            &:last-of-type {
+                margin-right: 0.5rem;
+    
+                .sub-page-border {
+                    display: none;
+                }
+            }
+    
+            .sub-page-border {
+                height: 1rem;
+                width: 1px;
+                background-color: black;
+                margin-left: 0.5rem;
+            }
+        }
+    
+        .active-sub-page {
+            text-decoration: underline;
+            font-weight: 600;
         }
     }
 

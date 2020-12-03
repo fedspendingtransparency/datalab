@@ -112,7 +112,6 @@ const AfgNav = ({ chapter }) => {
   const [stickyStyle, setStickyStyle] = useState({ marginTop: '3rem' });
   const [screenMode, setScreenMode] = useState(0);
   const [activeSection, setActiveSection] = useState(sections.find((s) => s.chapter === chapter));
-  const [clickedSection, setClickedSection] = useState(sections.find((s) => s.chapter === chapter));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const activeSubPage = typeof window !== 'undefined' ? window.location.pathname : '';
@@ -149,36 +148,23 @@ const AfgNav = ({ chapter }) => {
 
   const handleActiveSectionChange = (e) => {
     const section = sections.find((s) => s.name === e.target.textContent);
-    if (e.target === e.currentTarget) {
-      setActiveSection(section);
-      setClickedSection(section);
-    } else {
-      setActiveSection(section);
-    }
-  };
-
-  const resetActiveSection = () => {
-    setActiveSection(clickedSection);
+    setActiveSection(activeSection && section.name === activeSection.name ? '' : section);
   };
 
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
   };
 
-  const subPages = activeSection && sections.find((section) => section.chapter === activeSection.chapter).pages.map((page) => (
-    <li className={`${style.subPage} ${page.url === activeSubPage ? style.activeSubPage : ''} ${screenMode > ScreenModeEnum.tablet || !isMenuOpen ? style.closed : ''}`}>
-      <a className={screenMode >= ScreenModeEnum.desktop ? activeSection.colorClass : ''} href={page.url}>
-        {page.name}
-      </a>
-      <div className={style.subPageBorder} />
-    </li>
-  ));
+  const activeSubPageStyle = { width: 500, transition: '500ms width' };
+  const inactiveSubPageStyle = { width: 0, margin: 0, transition: '500ms width' };
+  const activeSubPageItemStyle = { opacity: 1, transition: '250ms opacity', transitionDelay: '500ms' };
+  const inactiveSubPageItemStyle = { opacity: 0, transition: '250ms opacity', transitionDelay: '500ms', width: 0 };
 
   return (
     <div className={`${style.chapterNavContainer} ${!isMenuOpen ? style.chapterNavContainerClosed : style.chapterNavContainerOpen}`} style={stickyStyle}>
       <nav className={style.chapterNav}>
         <ul className={style.chapterNavPrimaryList}>
-          <li className={`${style.chapterNavOverview} ${activeSection && !isMenuOpen ? style.closed : ''}`}>
+          <li className={`${style.chapterNavOverview} ${activeSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : ''}`}>
             <div className={style.sectionName}>
               <a href="/americas-finance-guide/">
                 <FontAwesomeIcon
@@ -191,31 +177,36 @@ const AfgNav = ({ chapter }) => {
             </div>
           </li>
           {sections.map((section) => {
-            if (activeSection && activeSection.chapter === section.chapter) {
-              return (
-                <>
-                  <li className={`${section.navClass} ${style.activeSection}`} onMouseEnter={handleActiveSectionChange} onMouseLeave={resetActiveSection}>
-                    <div className={`${style.mobileBlock} ${section.backgroundColorClass}`} />
-                    <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange} onFocus={handleActiveSectionChange}>
-                      {section.name}
-                    </div>
-                  </li>
-                  <li className={`${style.chapterNavSubPages} ${screenMode > ScreenModeEnum.tablet || !isMenuOpen ? style.closed : ''}`}>
-                    <ul className={screenMode <= ScreenModeEnum.tablet ? activeSection.transparentColorClass : ''}>
-                      {subPages}
-                    </ul>
-                  </li>
-                </>
-              );
-            }
-
+            const isActive = activeSection && activeSection.chapter === section.chapter;
+            const subpageSection = activeSection ? sections.find((sec) => sec.chapter === activeSection.chapter) : { chapter: '', pages: [] };
             return (
-              <li className={`${section.navClass} ${style.inactiveSection} ${screenMode <= ScreenModeEnum.tablet && !isMenuOpen ? style.closed : ''}`} onMouseEnter={handleActiveSectionChange} onMouseLeave={resetActiveSection}>
-                <div className={`${style.mobileBlock} ${section.backgroundColorClass}`} />
-                <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange} onFocus={handleActiveSectionChange}>
-                  {section.name}
-                </div>
-              </li>
+              <>
+                <li className={`${section.navClass} ${style.activeSection}`}>
+                  <div className={`${style.mobileBlock} ${section.backgroundColorClass}`} />
+                  <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange}>
+                    {section.name}
+                    {isActive && <div className={`${style.sectionNameExtension} ${section.backgroundColorClass}`} />}
+                  </div>
+                </li>
+                <li
+                  className={`${style.chapterNavSubPages} ${screenMode > ScreenModeEnum.tablet || !isMenuOpen ? style.closed : ''}`}
+                  style={isActive ? activeSubPageStyle : inactiveSubPageStyle}
+                >
+                  <ul className={screenMode <= ScreenModeEnum.tablet && activeSection ? activeSection.transparentColorClass : ''}>
+                    {subpageSection.pages.map((page) => (
+                      <li
+                        className={`${style.subPage} ${page.url === activeSubPage ? style.activeSubPage : ''} ${screenMode > ScreenModeEnum.tablet || !isMenuOpen ? style.closed : ''}`}
+                        style={isActive ? activeSubPageItemStyle : inactiveSubPageItemStyle}
+                      >
+                        <a className={screenMode >= ScreenModeEnum.desktop ? activeSection.colorClass : ''} href={page.url}>
+                          {page.name}
+                        </a>
+                        <div className={style.subPageBorder} />
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              </>
             );
           })}
         </ul>
