@@ -424,13 +424,37 @@
 
             .section-name-extension {
                 height: 5px;
-                width: 98px;
                 position: absolute;
                 top: 48px;
                 left: 0px;
                 z-index: 1;
                 border-right: 1px solid transparent;
             }
+        }
+
+        li:not(.chapter-nav-overview) {
+            .section-name-extension {
+                width: 98px;
+            }
+        }
+
+        .chapter-nav-overview {
+            .section-name-extension {
+                width: 118px;
+            }
+
+            &:not(:hover) {
+                .section-name-extension {
+                    border-top: 5px solid #555;
+                }
+            }
+            
+            &:hover {
+                .section-name-extension {
+                    border-top: 5px solid #666;
+                }
+            }
+        
         }
 
         .inactive-section {

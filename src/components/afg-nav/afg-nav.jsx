@@ -163,7 +163,7 @@ const AfgNav = ({ chapter }) => {
     <div className={`${style.chapterNavContainer} ${!isMenuOpen ? style.chapterNavContainerClosed : style.chapterNavContainerOpen}`} style={stickyStyle}>
       <nav className={style.chapterNav}>
         <ul className={style.chapterNavPrimaryList}>
-          <li className={`${style.chapterNavOverview} ${activeSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : ''}`}>
+          <li className={`${style.chapterNavOverview} ${activeSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : style.inactiveSection}`}>
             <div className={style.sectionName}>
               <a href="/americas-finance-guide/">
                 <FontAwesomeIcon
@@ -173,15 +173,18 @@ const AfgNav = ({ chapter }) => {
                 />
                 Overview
               </a>
+              {screenMode >= ScreenModeEnum.desktop && <div className={style.sectionNameExtension} />}
             </div>
           </li>
           {sections.map((section) => {
             const isActive = activeSection && activeSection.chapter === section.chapter;
             const subpageSection = activeSection ? sections.find((sec) => sec.chapter === activeSection.chapter) : { chapter: '', pages: [] };
+
             const activeSubPageStyle = { width: section.subPageWidth, transition: '500ms width' };
             const inactiveSubPageStyle = { width: 0, margin: 0, transition: '500ms width' };
             const activeSubPageItemStyle = { opacity: 1, transition: '250ms opacity', transitionDelay: '500ms' };
             const inactiveSubPageItemStyle = { opacity: 0, transition: '250ms opacity', transitionDelay: '500ms', width: 0 };
+
             return (
               <>
                 <li className={`${section.navClass} ${isActive ? style.activeSection : style.inactiveSection}`}>
