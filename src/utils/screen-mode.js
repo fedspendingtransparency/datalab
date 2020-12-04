@@ -19,7 +19,7 @@ export function checkAfgScreenMode(width) {
   if (width < 660) {
     return ScreenModeEnum.mobile;
   }
-  if (width < 990) {
+  if (width < 992) {
     return ScreenModeEnum.tablet;
   }
   if (width < 1200) {
