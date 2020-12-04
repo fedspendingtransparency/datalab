@@ -32,7 +32,7 @@ const AfgNav = ({ chapter }) => {
       colorClass: style.revenueColor,
       backgroundColorClass: style.revenueBackgroundColor,
       transparentColorClass: style.revenueTransparentColor,
-      subPageWidth: 547,
+      subPageWidth: 550,
     },
     {
       chapter: 'spending',
@@ -59,7 +59,7 @@ const AfgNav = ({ chapter }) => {
       colorClass: style.spendingColor,
       backgroundColorClass: style.spendingBackgroundColor,
       transparentColorClass: style.spendingTransparentColor,
-      subPageWidth: 563,
+      subPageWidth: 567,
     },
     {
       chapter: 'deficit',
@@ -82,7 +82,7 @@ const AfgNav = ({ chapter }) => {
       colorClass: style.deficitColor,
       backgroundColorClass: style.deficitBackgroundColor,
       transparentColorClass: style.deficitTransparentColor,
-      subPageWidth: 383,
+      subPageWidth: 387,
     },
     {
       chapter: 'debt',
@@ -109,7 +109,7 @@ const AfgNav = ({ chapter }) => {
       colorClass: style.debtColor,
       backgroundColorClass: style.debtBackgroundColor,
       transparentColorClass: style.debtTransparentColor,
-      subPageWidth: 504,
+      subPageWidth: 508,
     },
   ];
 
