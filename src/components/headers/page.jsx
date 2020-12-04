@@ -13,7 +13,6 @@ import Glossary from '../glossary/glossary';
 import ScrollToTopButton from '../scroll-to-top-button/scroll-to-top-button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { Link } from "gatsby";
 
 export default class PageHeader extends React.Component {
   constructor(props) {
