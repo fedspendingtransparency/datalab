@@ -16,6 +16,38 @@
     color: #4A0072;
 }
 
+.revenue-background-color {
+    background-color: #0A2F5A;
+}
+
+.spending-background-color {
+    background-color: #00796B;
+}
+
+.deficit-background-color {
+    background-color: #B3532D;
+}
+
+.debt-background-color {
+    background-color: #4A0072;
+}
+
+.revenue-transparent-color {
+    background-color: rgba(10, 47, 90, 0.1);
+}
+
+.spending-transparent-color {
+    background-color: rgba(0, 121, 107, 0.1);
+}
+
+.deficit-transparent-color {
+    background-color: rgba(179, 83, 45, 0.1);
+}
+
+.debt-transparent-color {
+    background-color: rgba(74, 0, 114, 0.1);
+}
+
 .chapter-nav {
     display: flex;
     justify-content: space-between;
@@ -39,6 +71,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            &:focus {
+                outline: none;
+            }
         }
     }
 
@@ -112,6 +148,12 @@
     .section-name:before {
         border-left: 4px solid #0A2F5A;
     }
+
+    &:not(:hover) {
+        .section-name-extension {
+            border-top: 5px solid #0A2F5A;
+        }
+    }
     
     &:hover {
         background-color: #082548;
@@ -120,6 +162,11 @@
         .section-name:before {
             border-left: 4px solid #082548;
         }
+        
+            .section-name-extension {
+                border-top: 5px solid #082548;
+            }
+
     }
 }
 
@@ -129,6 +176,12 @@
     .section-name:before {
         border-left: 4px solid #00796B;
     }
+
+    &:not(:hover) {
+        .section-name-extension {
+            border-top: 5px solid #00796B;
+        }
+    }
     
     &:hover {
         background-color: #005E56;
@@ -137,6 +190,11 @@
         .section-name:before {
             border-left: 4px solid #005E56;
         }
+        
+            .section-name-extension {
+                border-top: 5px solid #005E56;
+            }
+
     }
 }
 
@@ -146,6 +204,12 @@
     .section-name:before {
         border-left: 4px solid #B3532D;
     }
+
+    &:not(:hover) {
+        .section-name-extension {
+            border-top: 5px solid #B3532D;
+        }
+    }
     
     &:hover {
         background-color: #9F4224;
@@ -154,6 +218,11 @@
         .section-name:before {
             border-left: 4px solid #9F4224;
         }
+        
+            .section-name-extension {
+                border-top: 5px solid #9F4224;
+            }
+
     }
 }
 
@@ -163,6 +232,12 @@
     .section-name:before {
         border-left: 4px solid #4A0072;
     }
+
+    &:not(:hover) {
+        .section-name-extension {
+            border-top: 5px solid #4A0072;
+        }
+    }
     
     &:hover {
         background-color: #3B005B;
@@ -171,6 +246,11 @@
         .section-name:before {
             border-left: 4px solid #3B005B;
         }
+        
+            .section-name-extension {
+                border-top: 5px solid #3B005B;
+            }
+
     }
 }
 
@@ -348,7 +428,16 @@
                 position: absolute;
                 top: 48px;
                 left: 0px;
-                z-index: 3000;
+                z-index: 1;
+                border-right: 1px solid transparent;
+            }
+        }
+
+        .inactive-section {
+            .section-name:not(:hover) {
+                .section-name-extension {
+                    display: none;
+                }
             }
         }
 

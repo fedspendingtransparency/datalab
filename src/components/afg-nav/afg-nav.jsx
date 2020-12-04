@@ -32,6 +32,7 @@ const AfgNav = ({ chapter }) => {
       colorClass: style.revenueColor,
       backgroundColorClass: style.revenueBackgroundColor,
       transparentColorClass: style.revenueTransparentColor,
+      subPageWidth: 547,
     },
     {
       chapter: 'spending',
@@ -58,6 +59,7 @@ const AfgNav = ({ chapter }) => {
       colorClass: style.spendingColor,
       backgroundColorClass: style.spendingBackgroundColor,
       transparentColorClass: style.spendingTransparentColor,
+      subPageWidth: 563,
     },
     {
       chapter: 'deficit',
@@ -80,6 +82,7 @@ const AfgNav = ({ chapter }) => {
       colorClass: style.deficitColor,
       backgroundColorClass: style.deficitBackgroundColor,
       transparentColorClass: style.deficitTransparentColor,
+      subPageWidth: 383,
     },
     {
       chapter: 'debt',
@@ -106,6 +109,7 @@ const AfgNav = ({ chapter }) => {
       colorClass: style.debtColor,
       backgroundColorClass: style.debtBackgroundColor,
       transparentColorClass: style.debtTransparentColor,
+      subPageWidth: 504,
     },
   ];
 
@@ -155,11 +159,6 @@ const AfgNav = ({ chapter }) => {
     setIsMenuOpen((prevState) => !prevState);
   };
 
-  const activeSubPageStyle = { width: 500, transition: '500ms width' };
-  const inactiveSubPageStyle = { width: 0, margin: 0, transition: '500ms width' };
-  const activeSubPageItemStyle = { opacity: 1, transition: '250ms opacity', transitionDelay: '500ms' };
-  const inactiveSubPageItemStyle = { opacity: 0, transition: '250ms opacity', transitionDelay: '500ms', width: 0 };
-
   return (
     <div className={`${style.chapterNavContainer} ${!isMenuOpen ? style.chapterNavContainerClosed : style.chapterNavContainerOpen}`} style={stickyStyle}>
       <nav className={style.chapterNav}>
@@ -179,13 +178,17 @@ const AfgNav = ({ chapter }) => {
           {sections.map((section) => {
             const isActive = activeSection && activeSection.chapter === section.chapter;
             const subpageSection = activeSection ? sections.find((sec) => sec.chapter === activeSection.chapter) : { chapter: '', pages: [] };
+            const activeSubPageStyle = { width: section.subPageWidth, transition: '500ms width' };
+            const inactiveSubPageStyle = { width: 0, margin: 0, transition: '500ms width' };
+            const activeSubPageItemStyle = { opacity: 1, transition: '250ms opacity', transitionDelay: '500ms' };
+            const inactiveSubPageItemStyle = { opacity: 0, transition: '250ms opacity', transitionDelay: '500ms', width: 0 };
             return (
               <>
-                <li className={`${section.navClass} ${style.activeSection}`}>
+                <li className={`${section.navClass} ${isActive ? style.activeSection : style.inactiveSection}`}>
                   <div className={`${style.mobileBlock} ${section.backgroundColorClass}`} />
                   <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange}>
                     {section.name}
-                    {isActive && <div className={`${style.sectionNameExtension} ${section.backgroundColorClass}`} />}
+                    {screenMode >= ScreenModeEnum.desktop && <div className={style.sectionNameExtension} />}
                   </div>
                 </li>
                 <li
