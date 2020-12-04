@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
-import { select } from 'd3-selection';
 import { initChart, initChartMobile } from '../../../afg-helpers/dots/revenue-and-spending/init';
 import colors from '../../../styles/afg/colors.scss';
 import revenueData from '../../../../static/americas-finance-guide/data/federal_revenue_gdp.csv';
