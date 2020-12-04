@@ -29,10 +29,6 @@ function SpendingAndGdpPage({ location }) {
     setActiveLayer(layers[newTabValue]);
   };
 
-  const setDesktopActiveLayer = (newLayer, currentLayer) => {
-    currentLayer === newLayer ? setActiveLayer('') : setActiveLayer(newLayer);
-  };
-
   const tabs = [
     {
       label: 'Spending',
@@ -61,7 +57,6 @@ function SpendingAndGdpPage({ location }) {
       !isMobileDevice() ? (
         <SpendingIntro
           selection={activeLayer}
-          setDesktopActiveLayer={setDesktopActiveLayer}
         />
       ) : (
         <TabsWrapper
@@ -232,14 +227,12 @@ function SpendingAndGdpPage({ location }) {
                     <button
                       className="facts__trigger"
                       id="revenue-facts__trigger"
-                      onClick={(e) => setDesktopActiveLayer('revenue', activeLayer)}
                       data-trigger-id="revenue"
                     >
                       Federal Revenue
                     </button>
                     <button
                       className="facts__trigger"
-                      onClick={(e) => setDesktopActiveLayer('gdp', activeLayer)}
                       id="gdp-facts__trigger"
                       data-trigger-id="gdp"
                     >
