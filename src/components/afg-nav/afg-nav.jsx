@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { checkAfgScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
+// import { lg } from 'src/styles/variables.scss';
 import style from './afg-nav.module.scss';
 
 const AfgNav = ({ chapter }) => {
@@ -113,7 +114,7 @@ const AfgNav = ({ chapter }) => {
     },
   ];
 
-  const [stickyStyle, setStickyStyle] = useState({ marginTop: '3rem' });
+  // const [stickyStyle, setStickyStyle] = useState({ marginTop: '3rem' });
   const [screenMode, setScreenMode] = useState(0);
   const [activeSection, setActiveSection] = useState(sections.find((s) => s.chapter === chapter));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -122,13 +123,13 @@ const AfgNav = ({ chapter }) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const marginTop = window.innerWidth < 990 ? 50 : '3rem';
+      // const marginTop = window.innerWidth < lg ? 50 : '3rem';
 
-      const scrollListener = () => {
-        setStickyStyle(window.pageYOffset > 26 && window.innerWidth >= 992 ? { position: 'sticky', top: 50 } : { marginTop });
-      };
+      // const scrollListener = () => {
+      //   setStickyStyle(window.pageYOffset > 26 && window.innerWidth >= lg ? { position: 'sticky', top: 50 } : { marginTop });
+      // };
 
-      window.addEventListener('scroll', scrollListener);
+      // window.addEventListener('scroll', scrollListener);
 
       const resizeWindow = () => {
         const newMode = checkAfgScreenMode(window.innerWidth);
@@ -160,7 +161,7 @@ const AfgNav = ({ chapter }) => {
   };
 
   return (
-    <div className={`${style.chapterNavContainer} ${!isMenuOpen ? style.chapterNavContainerClosed : style.chapterNavContainerOpen}`} style={stickyStyle}>
+    <div className={`${style.chapterNavContainer} ${!isMenuOpen ? style.chapterNavContainerClosed : style.chapterNavContainerOpen}`}>
       <nav className={style.chapterNav}>
         <ul className={style.chapterNavPrimaryList}>
           <li className={`${style.chapterNavOverview} ${activeSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : style.inactiveSection}`}>
