@@ -33,7 +33,7 @@ const AfgNav = ({ chapter }) => {
       colorClass: style.revenueColor,
       backgroundColorClass: style.revenueBackgroundColor,
       transparentColorClass: style.revenueTransparentColor,
-      subPageWidth: 550,
+      subPageWidth: 551,
     },
     {
       chapter: 'spending',
@@ -117,6 +117,7 @@ const AfgNav = ({ chapter }) => {
   // const [stickyStyle, setStickyStyle] = useState({ marginTop: '3rem' });
   const [screenMode, setScreenMode] = useState(0);
   const [activeSection, setActiveSection] = useState(sections.find((s) => s.chapter === chapter));
+  const [activeMainSection, setActiveMainSection] = useState(sections.find((s) => s.chapter === chapter));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const activeSubPage = typeof window !== 'undefined' ? window.location.pathname : '';
@@ -146,6 +147,7 @@ const AfgNav = ({ chapter }) => {
       section.pages.forEach((page) => {
         if (page.url === activeSubPage) {
           setActiveSection(section);
+          setActiveMainSection(section);
         }
       });
     });
@@ -153,7 +155,7 @@ const AfgNav = ({ chapter }) => {
 
   const handleActiveSectionChange = (e) => {
     const section = sections.find((s) => s.name === e.target.textContent);
-    setActiveSection(activeSection && section.name === activeSection.name ? '' : section);
+    setActiveSection(activeSection && section.name === activeSection.name ? activeMainSection : section);
   };
 
   const toggleMenu = () => {
@@ -164,7 +166,7 @@ const AfgNav = ({ chapter }) => {
     <div className={`${style.chapterNavContainer} ${!isMenuOpen ? style.chapterNavContainerClosed : style.chapterNavContainerOpen}`}>
       <nav className={style.chapterNav}>
         <ul className={style.chapterNavPrimaryList}>
-          <li className={`${style.chapterNavOverview} ${activeSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : style.inactiveSection}`}>
+          <li className={`${style.chapterNavOverview} ${activeSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : style.inactiveSection} ${!activeMainSection ? style.activeMainSection : ''}`}>
             <div className={style.sectionName}>
               <a href="/americas-finance-guide/">
                 <FontAwesomeIcon
@@ -179,6 +181,7 @@ const AfgNav = ({ chapter }) => {
           </li>
           {sections.map((section) => {
             const isActive = activeSection && activeSection.chapter === section.chapter;
+            const isMainSection = activeMainSection && activeMainSection.chapter === section.chapter;
             const subpageSection = activeSection ? sections.find((sec) => sec.chapter === activeSection.chapter) : { chapter: '', pages: [] };
 
             const activeSubPageStyle = { width: section.subPageWidth, transition: '500ms width' };
@@ -188,7 +191,7 @@ const AfgNav = ({ chapter }) => {
 
             return (
               <>
-                <li className={`${section.navClass} ${isActive ? style.activeSection : style.inactiveSection}`}>
+                <li className={`${section.navClass} ${isActive ? style.activeSection : style.inactiveSection} ${isMainSection ? style.activeMainSection : ''}`}>
                   <div className={`${style.mobileBlock} ${section.backgroundColorClass}`} />
                   <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange}>
                     {section.name}
