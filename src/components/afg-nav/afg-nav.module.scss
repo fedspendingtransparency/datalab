@@ -1,19 +1,148 @@
+@import '../../styles/variables.scss';
+
+.revenue-color {
+    color: #0A2F5A;
+}
+
+.spending-color {
+    color: #00796B;
+}
+
+.deficit-color {
+    color: #B3532D;
+}
+
+.debt-color {
+    color: #4A0072;
+}
+
+.revenue-background-color {
+    background-color: #0A2F5A;
+}
+
+.spending-background-color {
+    background-color: #00796B;
+}
+
+.deficit-background-color {
+    background-color: #B3532D;
+}
+
+.debt-background-color {
+    background-color: #4A0072;
+}
+
+.revenue-transparent-color {
+    background-color: rgba(10, 47, 90, 0.1);
+}
+
+.spending-transparent-color {
+    background-color: rgba(0, 121, 107, 0.1);
+}
+
+.deficit-transparent-color {
+    background-color: rgba(179, 83, 45, 0.1);
+}
+
+.debt-transparent-color {
+    background-color: rgba(74, 0, 114, 0.1);
+}
+
+.chapter-nav-container {
+    margin-top: 3rem;
+}
+
 .chapter-nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
     min-height: 3.5rem;
     box-sizing: border-box;
-    /* adding this to get out from under the datalab nav; */
-    margin-top: 3rem;
+    z-index: 1000;
+    background-color: #ebe9e9;
 }
 
 .chapter-nav-primary-list {
+    max-width: 1440px;
     color: white;
+
+    .inactive-section, .active-section {
+        border-right: solid 2px #eee;
+
+        .section-name {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .active-main-section {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    li:not(.active):not(.chapter-nav-active-section):hover {
+        .section-name {
+            font-weight: $semibold;
+        }
+    }
 }
 
-.chapter-nav-overview i {
-    margin-right: 1rem;
+.chapter-nav-overview {
+    background-color: #555;
+    border-right: solid 2px #eee;
+
+    .section-name {
+        height: 100%;
+        width: 100%;
+        text-transform: uppercase;
+
+        &:after {
+            border-left: 0 !important;
+        }
+
+        a {
+            color: #fff;
+        }
+    }
+
+    &:not(.active-main-section) {
+        .section-name:before {
+            border-left: 4px solid #555;
+        }
+    }
+
+    &.active-main-section {
+        .section-name:before {
+            border-left: 4px solid #444;
+        }
+
+        .section-name-extension {
+            border-top: 5px solid #444;
+        }
+    }
+    
+    &:hover {
+        background-color: #666;
+
+        .section-name:before {
+            border-left: 4px solid #666;
+        }
+    }
+
+    svg {
+        margin-right: 9px;
+    }
+
+    &.active-main-section:not(:hover) {
+        background-color: #444;
+    }
 }
 
 .menu-open .chapter-nav-overview {
@@ -34,18 +163,126 @@
 
 .chapter-nav-revenue {
     background-color: #0A2F5A;
+
+    .section-name:before {
+        border-left: 4px solid #0A2F5A;
+    }
+
+    &:not(:hover) {
+        .section-name-extension {
+            border-top: 5px solid #0A2F5A;
+        }
+    }
+    
+    &:hover {
+        background-color: #082548;
+
+        .section-name:before {
+            border-left: 4px solid #082548;
+        }
+        
+            .section-name-extension {
+                border-top: 5px solid #082548;
+            }
+
+    }
+
+    &.active-main-section:not(:hover) {
+        background-color: #082548 !important;
+    }
 }
 
 .chapter-nav-spending {
     background-color: #00796B;
+
+    .section-name:before {
+        border-left: 4px solid #00796B;
+    }
+
+    &:not(:hover) {
+        .section-name-extension {
+            border-top: 5px solid #00796B;
+        }
+    }
+    
+    &:hover {
+        background-color: #005E56;
+
+        .section-name:before {
+            border-left: 4px solid #005E56;
+        }
+        
+            .section-name-extension {
+                border-top: 5px solid #005E56;
+            }
+
+    }
+
+    &.active-main-section:not(:hover) {
+        background-color: #005E56 !important;
+    }
 }
 
 .chapter-nav-deficit {
     background-color: #B3532D;
+
+    .section-name:before {
+        border-left: 4px solid #B3532D;
+    }
+
+    &:not(:hover) {
+        .section-name-extension {
+            border-top: 5px solid #B3532D;
+        }
+    }
+    
+    &:hover {
+        background-color: #9F4224;
+
+        .section-name:before {
+            border-left: 4px solid #9F4224;
+        }
+        
+            .section-name-extension {
+                border-top: 5px solid #9F4224;
+            }
+
+    }
+
+    &.active-main-section:not(:hover) {
+        background-color: #9F4224 !important;
+    }
 }
 
 .chapter-nav-debt {
     background-color: #4A0072;
+
+    .section-name:before {
+        border-left: 4px solid #4A0072;
+    }
+
+    &:not(:hover) {
+        .section-name-extension {
+            border-top: 5px solid #4A0072;
+        }
+    }
+    
+    &:hover {
+        background-color: #3B005B;
+
+        .section-name:before {
+            border-left: 4px solid #3B005B;
+        }
+        
+            .section-name-extension {
+                border-top: 5px solid #3B005B;
+            }
+
+    }
+
+    &.active-main-section:not(:hover) {
+        background-color: #3B005B !important;
+    }
 }
 
 .chapter-nav .chapter-nav-trigger {
@@ -67,18 +304,38 @@
 
 .chapter-nav li {
     padding: 0;
+    cursor: pointer;
+    margin-right: 4px;
+
+    &:not(.chapter-nav-subpages):not(.sub-page):not(.chapter-nav-sub-pages) {
+        max-width: 100px;
+
+        &:not(.chapter-nav-overview) {
+            min-width: 100px;
+        }
+    }
+
+    .section-name {
+        color: white;
+        font-size: 0.875rem;
+    }
 }
 
 .chapter-nav li a {
-    display: block;
-    color: white;
-    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
-    height: 0rem;
+    height: 100%;
     line-height: 3rem;
     overflow: hidden;
     opacity: 1;
     transition: height 0.3s ease;
+
+    .section-name {
+        color: white;
+        font-size: 0.875rem;
+    }
 }
 
 .chapter-nav.menu-open li a {
@@ -95,7 +352,15 @@
     opacity: 1;
 }
 
-@media only screen and (min-width: 840px) {
+.chapter-nav-active-list {
+    height: 100%;
+
+    .chapter-nav-deficit li {
+        max-width: 33%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
     .chapter-nav {
         min-height: auto;
         height: 3rem;
@@ -112,13 +377,199 @@
     .chapter-nav ul {
         display: flex;
         width: 100%;
-        max-width: 1200px;
         margin: 0 auto;
     }
 
     .chapter-nav li {
         flex-grow: 1;
-        border-right: rgba(255,255,255,0.5) 1px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .section-name {
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                left: 0; bottom: 0; width: 0; height: 0;
+                border-left: 4px solid #ebe9e9;
+                border-top: 24px solid transparent;
+                border-bottom: 24px solid transparent;
+            }
+            
+            &:before {
+                content: '';
+                position: absolute;
+                right: -4px;
+                bottom: 0;
+                width: 0;
+                height: 0;
+                border-top: 24px solid transparent;
+                border-bottom: 24px solid transparent;
+            }
+        }
+    }
+
+    .chapter-nav li:last-of-type {
+        border-right: none;
+    }
+
+    .chapter-nav li a, .chapter-nav li.active a {
+        width: 100%;
+        line-height: normal;
+
+        .section-name {
+            margin: 0 5px;
+        }
+    }
+
+    .chapter-nav-active-list {
+        max-width: calc(1400px - 22.5%);
+
+        .chapter-nav-deficit:not(:last-of-type) {
+            max-width: 33.3%;
+        }
+
+        .chapter-nav-deficit:last-of-type {
+            max-width: 33.4%;
+        }
+
+        li:not(.chapter-nav-deficit) {
+            max-width: 25%;
+        }
+
+        .active-section:not(:last-child) {
+            border-right: solid 2px rgba(238, 238, 238, 0.3);
+        }
+    }
+
+    .chapter-nav-active-section + li {
+        border-left: solid 2px #eee;
+    }
+
+    .chapter-nav-primary-list {
+        .section-name {
+            text-transform: uppercase;
+            position: relative;
+
+            .section-name-extension {
+                height: 5px;
+                position: absolute;
+                top: 48px;
+                left: 0px;
+                z-index: 1;
+                border-right: 1px solid transparent;
+            }
+        }
+
+        li:not(.chapter-nav-overview) {
+            .section-name-extension {
+                width: 98px;
+            }
+        }
+
+        .chapter-nav-overview {
+            .section-name-extension {
+                width: 118px;
+            }
+
+            &:not(.active-section):not(:hover) {
+                .section-name-extension {
+                    border-top: 5px solid #555;
+                }
+            }
+            
+            &:hover {
+                .section-name-extension {
+                    border-top: 5px solid #666;
+                }
+            }
+        
+        }
+
+        .inactive-section {
+            .section-name:not(:hover) {
+                .section-name-extension {
+                    display: none;
+                }
+            }
+        }
+
+        .li:not(.chapter-nav-subpages) {
+            width: 130px;
+        }
+    }
+    
+    .chapter-nav-overview {
+        min-width: 120px;
+    }
+
+    .chapter-nav-sub-pages {
+        display: flex;
+        flex-grow: 0 !important;
+        transition: 500ms;
+    
+        .sub-page {
+            margin: 0;
+            padding-left: 0.5rem;
+            flex-grow: 0;
+            font-size: 0.875rem;
+            text-align: center;
+    
+            &:hover {
+                text-decoration: underline;
+            }
+    
+            &:last-of-type {
+                margin-right: 0.5rem;
+    
+                .sub-page-border {
+                    display: none;
+                }
+            }
+    
+            .sub-page-border {
+                height: 1rem;
+                width: 1px;
+                background-color: black;
+                margin-left: 0.5rem;
+            }
+        }
+    
+        .active-sub-page {
+            text-decoration: underline;
+            font-weight: 600;
+        }
+    }
+
+    .mobile-block, .mobile-menu-button-container {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 660px) {
+    .chapter-nav {
+        min-height: auto;
+        height: 3rem;
+    }
+
+    .chapter-nav button {
+        display: none;
+    }
+
+    .menu-open .chapter-nav-overview {
+        border-bottom: none;
+    }
+
+    .chapter-nav ul {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .chapter-nav li {
+        flex-grow: 1;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -136,5 +587,33 @@
         height: auto;
         text-align: center;
         line-height: normal;
+    }
+
+    .chapter-nav-active-list {
+        max-width: calc(992px - 22.5%);
+
+        li {
+            padding: 0 5px;
+        }
+    }
+
+    .chapter-nav-primary-list {
+        .inactive-section {
+            max-width: 12.5%;
+            min-width: 85px;
+
+            .section-name {
+                max-width: 80%;
+            }
+        }
+
+        .chapter-nav-overview {
+            max-width: 45px;
+            min-width: 45px;
+
+            .section-name {
+                display: none;
+            }
+        }
     }
 }
