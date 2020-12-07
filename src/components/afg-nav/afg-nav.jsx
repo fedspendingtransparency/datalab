@@ -167,7 +167,7 @@ const AfgNav = ({ chapter }) => {
     <div className={`${style.chapterNavContainer} ${!isMenuOpen ? style.chapterNavContainerClosed : style.chapterNavContainerOpen}`}>
       <nav className={style.chapterNav}>
         <ul className={style.chapterNavPrimaryList}>
-          <li className={`${style.chapterNavOverview} ${activeMainSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : ''} ${!activeMainSection ? style.activeMainSection : ''}`}>
+          <li className={`${style.chapterNavOverview} ${activeMainSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : style.inactiveSection} ${!activeMainSection ? style.activeMainSection : ''}`}>
             <div className={style.sectionName}>
               <a href="/americas-finance-guide/">
                 <FontAwesomeIcon

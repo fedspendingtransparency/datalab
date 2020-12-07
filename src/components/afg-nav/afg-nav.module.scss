@@ -48,10 +48,6 @@
     background-color: rgba(74, 0, 114, 0.1);
 }
 
-.chapter-nav-container {
-    margin-top: 3rem;
-}
-
 .chapter-nav {
     display: flex;
     justify-content: space-between;
@@ -275,6 +271,10 @@
 }
 
 @media only screen and (min-width: 992px) {
+    .chapter-nav-container {
+        margin-top: 3rem;
+    }
+    
     .chapter-nav {
         min-height: auto;
         height: 3rem;
@@ -630,6 +630,7 @@
 @media only screen and (max-width: 659px) {
     .chapter-nav-container {
         position: relative;
+        margin-top: 50px;
     }
 
     .chapter-nav {
