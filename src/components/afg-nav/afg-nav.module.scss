@@ -762,3 +762,9 @@
         }
     }
 }
+
+@media only screen and (max-width: 450px) {
+    .chapter-nav-container {
+        margin-top: 48px;
+    }
+}
