@@ -86,12 +86,6 @@
         font-weight: bold;
         text-decoration: underline;
     }
-
-    li:not(.active):not(.chapter-nav-active-section):hover {
-        .section-name {
-            font-weight: $semibold;
-        }
-    }
 }
 
 .chapter-nav-overview {
