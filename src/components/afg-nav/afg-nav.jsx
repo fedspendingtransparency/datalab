@@ -169,7 +169,7 @@ const AfgNav = ({ chapter }) => {
         <ul className={style.chapterNavPrimaryList}>
           <li className={`${style.chapterNavOverview} ${activeMainSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : style.inactiveSection} ${!activeMainSection ? style.activeMainSection : ''}`}>
             <div className={style.sectionName}>
-              <a href="/americas-finance-guide/" style={!isMenuOpen && !activeMainSection ? { textTransform: 'none', fontSize: '1rem' } : {}}>
+              <a href="/americas-finance-guide/" style={screenMode <= ScreenModeEnum.tablet && !isMenuOpen && !activeMainSection ? { textTransform: 'none', fontSize: '1rem' } : {}}>
                 <FontAwesomeIcon
                   icon={faHome}
                   className="fas fa-home"
@@ -194,7 +194,7 @@ const AfgNav = ({ chapter }) => {
               <>
                 <li className={`${section.navClass} ${isActive ? style.activeSection : style.inactiveSection} ${isMainSection ? style.activeMainSection : ''}`}>
                   <div className={`${style.mobileBlock} ${section.backgroundColorClass}`} />
-                  <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange} style={!isMenuOpen ? { textTransform: 'none', fontSize: '1rem' } : {}}>
+                  <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange}>
                     {section.name}
                     <div className={style.sectionNameExtension} />
                   </div>
@@ -230,12 +230,18 @@ const AfgNav = ({ chapter }) => {
             const activeSubPageItemStyle = { opacity: 1, transition: '250ms opacity', transitionDelay: '500ms' };
             const inactiveSubPageItemStyle = { opacity: 0, transition: '250ms opacity', transitionDelay: '500ms', height: 0 };
 
+            let activeSubPageName = section.name;
+
+            if (activeSection && !isMenuOpen) {
+              activeSubPageName = activeSection.pages.find((page) => page.url === activeSubPage).name;
+            }
+
             return (
               <>
                 <li className={`${section.navClass} ${isActive ? style.activeSection : style.inactiveSection} ${isMainSection ? style.activeMainSection : ''} ${!isMenuOpen ? style.closed : ''}`}>
                   <div className={`${style.mobileBlock} ${section.backgroundColorClass}`} />
-                  <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange}>
-                    {section.name}
+                  <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange} style={!isMenuOpen ? { textTransform: 'none', fontSize: '1rem' } : {}}>
+                    {activeSubPageName}
                     {screenMode >= ScreenModeEnum.desktop && <div className={style.sectionNameExtension} />}
                   </div>
                 </li>
