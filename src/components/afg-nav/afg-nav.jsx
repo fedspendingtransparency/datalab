@@ -119,30 +119,30 @@ const AfgNav = ({ chapter }) => {
   const [activeSection, setActiveSection] = useState(sections.find((s) => s.chapter === chapter));
   const [activeMainSection, setActiveMainSection] = useState(sections.find((s) => s.chapter === chapter));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const activeSubPage = typeof window !== 'undefined' ? window.location.pathname : '';
+  const [activeSubPage, setActiveSubPage] = useState('');
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // const marginTop = window.innerWidth < lg ? 50 : '3rem';
+    // const marginTop = window.innerWidth < lg ? 50 : '3rem';
 
-      // const scrollListener = () => {
-      //   setStickyStyle(window.pageYOffset > 26 && window.innerWidth >= lg ? { position: 'sticky', top: 50 } : { marginTop });
-      // };
+    // const scrollListener = () => {
+    //   setStickyStyle(window.pageYOffset > 26 && window.innerWidth >= lg ? { position: 'sticky', top: 50 } : { marginTop });
+    // };
 
-      // window.addEventListener('scroll', scrollListener);
+    // window.addEventListener('scroll', scrollListener);
 
-      const resizeWindow = () => {
-        const newMode = checkAfgScreenMode(window.innerWidth);
-        if (newMode !== screenMode) {
-          setScreenMode(newMode);
-        }
-      };
+    const resizeWindow = () => {
+      const newMode = checkAfgScreenMode(window.innerWidth);
+      if (newMode !== screenMode) {
+        setScreenMode(newMode);
+      }
+    };
 
-      resizeWindow();
-      window.addEventListener('resize', resizeWindow);
-    }
+    resizeWindow();
+    window.addEventListener('resize', resizeWindow);
 
+    setActiveSubPage(window.location.pathname);
+    
     sections.forEach((section) => {
       section.pages.forEach((page) => {
         if (page.url === activeSubPage) {
@@ -151,6 +151,8 @@ const AfgNav = ({ chapter }) => {
         }
       });
     });
+
+    setIsMounted(true);
   }, []);
 
   const handleActiveSectionChange = (e) => {
@@ -200,13 +202,13 @@ const AfgNav = ({ chapter }) => {
                 </li>
                 <li
                   className={`${style.chapterNavSubPages} ${screenMode > ScreenModeEnum.tablet || !isMenuOpen ? style.closed : ''}`}
-                  style={isActive ? activeSubPageStyle : inactiveSubPageStyle}
+                  style={isActive && isMounted ? activeSubPageStyle : inactiveSubPageStyle}
                 >
                   <ul className={screenMode <= ScreenModeEnum.tablet && activeSection ? activeSection.transparentColorClass : ''}>
                     {subpageSection.pages.map((page) => (
                       <li
                         className={`${style.subPage} ${page.url === activeSubPage ? style.activeSubPage : ''} ${screenMode > ScreenModeEnum.tablet || !isMenuOpen ? style.closed : ''}`}
-                        style={isActive ? activeSubPageItemStyle : inactiveSubPageItemStyle}
+                        style={isActive && isMounted ? activeSubPageItemStyle : inactiveSubPageItemStyle}
                       >
                         <a className={screenMode >= ScreenModeEnum.desktop ? activeSection.colorClass : ''} href={page.url}>
                           {page.name}
