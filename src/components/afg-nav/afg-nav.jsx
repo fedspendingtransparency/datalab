@@ -169,7 +169,7 @@ const AfgNav = ({ chapter }) => {
         <ul className={style.chapterNavPrimaryList}>
           <li className={`${style.chapterNavOverview} ${activeMainSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : style.inactiveSection} ${!activeMainSection ? style.activeMainSection : ''}`}>
             <div className={style.sectionName}>
-              <a href="/americas-finance-guide/">
+              <a href="/americas-finance-guide/" style={!isMenuOpen && !activeMainSection ? { textTransform: 'none', fontSize: '1rem' } : {}}>
                 <FontAwesomeIcon
                   icon={faHome}
                   className="fas fa-home"
@@ -194,7 +194,7 @@ const AfgNav = ({ chapter }) => {
               <>
                 <li className={`${section.navClass} ${isActive ? style.activeSection : style.inactiveSection} ${isMainSection ? style.activeMainSection : ''}`}>
                   <div className={`${style.mobileBlock} ${section.backgroundColorClass}`} />
-                  <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange}>
+                  <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange} style={!isMenuOpen ? { textTransform: 'none', fontSize: '1rem' } : {}}>
                     {section.name}
                     <div className={style.sectionNameExtension} />
                   </div>
