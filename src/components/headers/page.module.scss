@@ -82,9 +82,15 @@
         margin-top: 0.1rem;
 
         .item {
-            padding-left: 18px;
-            padding-right: 18px;
-            font-size: 0.9375rem;
+            padding-left: 24px;
+
+            &:first-of-type {
+                margin-left: 12px;
+            }
+
+            button {
+                font-size: 1rem;
+            }
         }
     }
 } // end header-nav
