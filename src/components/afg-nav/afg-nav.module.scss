@@ -48,10 +48,6 @@
     background-color: rgba(74, 0, 114, 0.1);
 }
 
-.chapter-nav-container {
-    margin-top: 3rem;
-}
-
 .chapter-nav {
     display: flex;
     justify-content: space-between;
@@ -67,8 +63,6 @@
     color: white;
 
     .inactive-section, .active-section {
-        border-right: solid 2px #eee;
-
         .section-name {
             height: 100%;
             width: 100%;
@@ -84,7 +78,6 @@
 
     .active-main-section {
         font-weight: bold;
-        text-decoration: underline;
     }
 
     li:not(.active):not(.chapter-nav-active-section):hover {
@@ -96,7 +89,6 @@
 
 .chapter-nav-overview {
     background-color: #555;
-    border-right: solid 2px #eee;
 
     .section-name {
         height: 100%;
@@ -139,10 +131,6 @@
     svg {
         margin-right: 9px;
     }
-
-    &.active-main-section:not(:hover) {
-        background-color: #444;
-    }
 }
 
 .menu-open .chapter-nav-overview {
@@ -173,23 +161,6 @@
             border-top: 5px solid #0A2F5A;
         }
     }
-    
-    &:hover {
-        background-color: #082548;
-
-        .section-name:before {
-            border-left: 4px solid #082548;
-        }
-        
-            .section-name-extension {
-                border-top: 5px solid #082548;
-            }
-
-    }
-
-    &.active-main-section:not(:hover) {
-        background-color: #082548 !important;
-    }
 }
 
 .chapter-nav-spending {
@@ -203,23 +174,6 @@
         .section-name-extension {
             border-top: 5px solid #00796B;
         }
-    }
-    
-    &:hover {
-        background-color: #005E56;
-
-        .section-name:before {
-            border-left: 4px solid #005E56;
-        }
-        
-            .section-name-extension {
-                border-top: 5px solid #005E56;
-            }
-
-    }
-
-    &.active-main-section:not(:hover) {
-        background-color: #005E56 !important;
     }
 }
 
@@ -235,23 +189,6 @@
             border-top: 5px solid #B3532D;
         }
     }
-    
-    &:hover {
-        background-color: #9F4224;
-
-        .section-name:before {
-            border-left: 4px solid #9F4224;
-        }
-        
-            .section-name-extension {
-                border-top: 5px solid #9F4224;
-            }
-
-    }
-
-    &.active-main-section:not(:hover) {
-        background-color: #9F4224 !important;
-    }
 }
 
 .chapter-nav-debt {
@@ -265,23 +202,6 @@
         .section-name-extension {
             border-top: 5px solid #4A0072;
         }
-    }
-    
-    &:hover {
-        background-color: #3B005B;
-
-        .section-name:before {
-            border-left: 4px solid #3B005B;
-        }
-        
-            .section-name-extension {
-                border-top: 5px solid #3B005B;
-            }
-
-    }
-
-    &.active-main-section:not(:hover) {
-        background-color: #3B005B !important;
     }
 }
 
@@ -298,22 +218,12 @@
 
 .chapter-nav ul {
     list-style-type: none;
-    margin: 5px 1rem;
     padding: 0;
 }
 
 .chapter-nav li {
     padding: 0;
     cursor: pointer;
-    margin-right: 4px;
-
-    &:not(.chapter-nav-subpages):not(.sub-page):not(.chapter-nav-sub-pages) {
-        max-width: 100px;
-
-        &:not(.chapter-nav-overview) {
-            min-width: 100px;
-        }
-    }
 
     .section-name {
         color: white;
@@ -361,6 +271,10 @@
 }
 
 @media only screen and (min-width: 992px) {
+    .chapter-nav-container {
+        margin-top: 3rem;
+    }
+
     .chapter-nav {
         min-height: auto;
         height: 3rem;
@@ -385,6 +299,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-right: 4px;
+
+        &:not(.chapter-nav-subpages):not(.sub-page):not(.chapter-nav-sub-pages) {
+            max-width: 100px;
+    
+            &:not(.chapter-nav-overview) {
+                min-width: 100px;
+            }
+        }
 
         .section-name {
             position: relative;
@@ -470,6 +393,8 @@
         }
 
         .chapter-nav-overview {
+            border-right: solid 2px #eee;
+
             .section-name-extension {
                 width: 118px;
             }
@@ -485,7 +410,87 @@
                     border-top: 5px solid #666;
                 }
             }
+
+            &.active-main-section:not(:hover) {
+                background-color: #444;
+            }
+        }
+
+        .chapter-nav-revenue {
+            &:hover {
+                background-color: #082548;
+
+                .section-name:before {
+                    border-left: 4px solid #082548;
+                }
+                
+                .section-name-extension {
+                    border-top: 5px solid #082548;
+                }
+            }
+
+            &.active-main-section:not(:hover) {
+                background-color: #082548 !important;
+            }
+        }
         
+        .chapter-nav-spending {
+            &:hover {
+                background-color: #005E56;
+
+                .section-name:before {
+                    border-left: 4px solid #005E56;
+                }
+                
+                .section-name-extension {
+                    border-top: 5px solid #005E56;
+                }
+            }
+
+            &.active-main-section:not(:hover) {
+                background-color: #005E56 !important;
+            }
+        }
+        
+        .chapter-nav-deficit {
+            &:hover {
+                background-color: #9F4224;
+
+                .section-name:before {
+                    border-left: 4px solid #9F4224;
+                }
+                
+                .section-name-extension {
+                    border-top: 5px solid #9F4224;
+                }
+            }
+
+            &.active-main-section:not(:hover) {
+                background-color: #9F4224 !important;
+            }
+        }
+        
+        .chapter-nav-debt {
+            &:hover {
+                background-color: #3B005B;
+
+                .section-name:before {
+                    border-left: 4px solid #3B005B;
+                }
+                
+                .section-name-extension {
+                    border-top: 5px solid #3B005B;
+                }
+            }
+
+            &.active-main-section:not(:hover) {
+                background-color: #3B005B !important;
+            }
+        }
+        
+
+        .active-section, .inactive-section {
+            border-right: solid 2px #eee;
         }
 
         .inactive-section {
@@ -494,6 +499,10 @@
                     display: none;
                 }
             }
+        }
+
+        .active-main-section {
+            text-decoration: underline;
         }
 
         .li:not(.chapter-nav-subpages) {
@@ -615,5 +624,148 @@
                 display: none;
             }
         }
+    }
+}
+
+@media only screen and (max-width: 659px) {
+    .chapter-nav-container {
+        position: relative;
+        margin-top: 50px;
+    }
+
+    .chapter-nav {
+        min-height: 40px;
+        flex-direction: column;
+
+        .closed:not(.active-main-section) {
+            height: 0 !important;
+    
+            .section-name {
+                display: none !important;
+            }
+        }
+
+        .chapter-nav-primary-list {
+            width: 100%;
+            margin: 0;
+    
+            .chapter-nav-overview {
+                a {
+                    width: 100%;
+                    justify-content: flex-start;
+                    padding-left: 20px;
+    
+                    svg {
+                        display: none;
+                    }
+                }
+            }
+    
+            .chapter-nav-overview, .active-section, .inactive-section {
+                height: 40px;
+                transition: 500ms height;
+                text-transform: uppercase;
+    
+                .section-name {
+                    justify-content: flex-start;
+                }
+            }
+    
+            .active-section {
+                display: flex;
+    
+                .section-name {
+                    text-decoration: none;
+                }
+    
+                .mobile-block {
+                    width: 20px;
+                    margin-right: 11px;
+                }
+            }
+    
+            .inactive-section {
+                display: flex;
+                background-color: #ebe9e9;
+
+                &:not(:last-of-type):not(.closed) {
+                    border-bottom: solid 2px #eee;
+                }
+                .section-name, .section-name > a {
+                    color: #555;
+                }
+    
+                .mobile-block {
+                    width: 20px;
+                    margin-right: 11px;
+                }
+            }
+    
+            .chapter-nav-sub-pages {
+                &:not(.closed) {
+                    border-bottom: solid 2px #eee;
+                }
+    
+                ul {
+                    width: 100%;
+                }
+                
+                .sub-page {
+                    font-size: 0.875rem;
+
+                    &.active-sub-page {
+                        font-weight: bold;
+                    }
+
+                    a {
+                        justify-content: flex-start;
+                        padding-left: 31px;
+                        color: #555;
+                    }
+    
+                    .sub-page-border {
+                        display: none;
+                    }
+    
+                }
+            }
+        }
+    }
+
+    .chapter-nav-container-closed {
+        flex-direction: row;
+    }
+    
+    .chapter-nav-container-open {
+        flex-direction: column;
+
+        .mobile-menu-button {
+            margin: 2px 0;
+        }
+    }
+
+    .mobile-menu-button-container {
+        display: flex;
+        justify-content: flex-end;
+        height: 40px;
+
+        &.closed {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .mobile-menu-button {
+            width: 60px;
+            border: none;
+            background-color: #ebe9e9;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .chapter-nav-container {
+        margin-top: 48px;
     }
 }

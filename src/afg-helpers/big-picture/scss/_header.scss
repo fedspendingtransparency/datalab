@@ -186,3 +186,13 @@ $headerBg: rgba(255,255,255,0.9);
         display: none;
     }
 }
+
+@media only screen and (max-width: 799px) {
+    .bp-header {
+        padding-top: 0;
+
+        .bp-header__bg {
+            margin-top: 0;
+        }
+    }
+}
