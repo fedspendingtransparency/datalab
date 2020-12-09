@@ -79,12 +79,6 @@
     .active-main-section {
         font-weight: bold;
     }
-
-    li:not(.active):not(.chapter-nav-active-section):hover {
-        .section-name {
-            font-weight: $semibold;
-        }
-    }
 }
 
 .chapter-nav-overview {
@@ -152,56 +146,156 @@
 .chapter-nav-revenue {
     background-color: #0A2F5A;
 
-    .section-name:before {
-        border-left: 4px solid #0A2F5A;
+    &:not(.active-main-section) {
+        .section-name:before {
+            border-left: 4px solid #0A2F5A;
+        }
     }
 
-    &:not(:hover) {
+    &:not(.active-main-section):not(:hover) {
         .section-name-extension {
             border-top: 5px solid #0A2F5A;
         }
+    }
+
+    &.active-main-section {
+        .section-name:before {
+            border-left: 4px solid #082548;
+        }
+
+        .section-name-extension {
+            border-top: 5px solid #082548;
+        }
+    }
+    
+    &:hover {
+        background-color: #082548;
+
+        .section-name:before {
+            border-left: 4px solid #082548;
+        }
+        
+            .section-name-extension {
+                border-top: 5px solid #082548;
+            }
+
     }
 }
 
 .chapter-nav-spending {
     background-color: #00796B;
 
-    .section-name:before {
-        border-left: 4px solid #00796B;
+    &:not(.active-main-section) {
+        .section-name:before {
+            border-left: 4px solid #00796B;
+        }
     }
 
-    &:not(:hover) {
+    &:not(.active-main-section):not(:hover) {
         .section-name-extension {
             border-top: 5px solid #00796B;
         }
+    }
+
+    &.active-main-section {
+        .section-name:before {
+            border-left: 4px solid #005E56;
+        }
+
+        .section-name-extension {
+            border-top: 5px solid #005E56;
+        }
+    }
+    
+    &:hover {
+        background-color: #005E56;
+
+        .section-name:before {
+            border-left: 4px solid #005E56;
+        }
+        
+            .section-name-extension {
+                border-top: 5px solid #005E56;
+            }
+
     }
 }
 
 .chapter-nav-deficit {
     background-color: #B3532D;
 
-    .section-name:before {
-        border-left: 4px solid #B3532D;
+    &:not(.active-main-section) {
+        .section-name:before {
+            border-left: 4px solid #B3532D;
+        }
     }
 
-    &:not(:hover) {
+    &:not(.active-main-section):not(:hover) {
         .section-name-extension {
             border-top: 5px solid #B3532D;
         }
+    }
+
+    &.active-main-section {
+        .section-name:before {
+            border-left: 4px solid #9F4224;
+        }
+
+        .section-name-extension {
+            border-top: 5px solid #9F4224;
+        }
+    }
+    
+    &:hover {
+        background-color: #9F4224;
+
+        .section-name:before {
+            border-left: 4px solid #9F4224;
+        }
+        
+            .section-name-extension {
+                border-top: 5px solid #9F4224;
+            }
+
     }
 }
 
 .chapter-nav-debt {
     background-color: #4A0072;
 
-    .section-name:before {
-        border-left: 4px solid #4A0072;
+    &:not(.active-main-section) {
+        .section-name:before {
+            border-left: 4px solid #4A0072;
+        }
     }
 
-    &:not(:hover) {
+    &:not(.active-main-section):not(:hover) {
         .section-name-extension {
             border-top: 5px solid #4A0072;
         }
+    }
+
+    &.active-main-section {
+        .section-name:before {
+            border-left: 4px solid #3B005B;
+        }
+
+        .section-name-extension {
+            border-top: 5px solid #3B005B;
+        }
+    }
+    
+    &:hover {
+        background-color: #3B005B;
+
+        .section-name:before {
+            border-left: 4px solid #3B005B;
+        }
+        
+            .section-name-extension {
+                border-top: 5px solid #3B005B;
+            }
+
     }
 }
 
@@ -399,7 +493,7 @@
                 width: 118px;
             }
 
-            &:not(.active-section):not(:hover) {
+            &:not(.active-section):not(.active-main-section):not(:hover) {
                 .section-name-extension {
                     border-top: 5px solid #555;
                 }
@@ -493,7 +587,7 @@
             border-right: solid 2px #eee;
         }
 
-        .inactive-section {
+        .inactive-section:not(.active-main-section) {
             .section-name:not(:hover) {
                 .section-name-extension {
                     display: none;
