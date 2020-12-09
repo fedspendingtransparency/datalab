@@ -17,6 +17,7 @@ import homelessImg from 'src/images/home/homelessness.png';
 import explorer from 'src/images/home/contractexplorersunburst.png';
 import homeStyles from './index.module.scss';
 import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
+import { Helmet } from 'react-helmet/es/Helmet';
 
 function IndexPage(props) {
 	return (

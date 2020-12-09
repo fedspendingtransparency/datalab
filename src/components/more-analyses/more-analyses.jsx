@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { Grid } from '@material-ui/core';
 import moreAnalysesStyles from './more-analyses.module.scss';
 

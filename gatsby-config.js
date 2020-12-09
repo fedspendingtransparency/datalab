@@ -61,6 +61,11 @@ module.exports = {
 				siteUrl: `https://datalab.usaspending.gov`,
 				noHash: true,
 				noQueryString: true,
+				exclude: [
+					'https://datalab.usaspending.gov',
+					'https://datalab.usaspending.gov/',
+					'https://datalab.usaspending.gov/index.html',
+				],
 			},
 		},
 		// this (optional) plugin enables Progressive Web App + Offline functionality
