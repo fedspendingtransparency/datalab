@@ -17,11 +17,14 @@ import homelessImg from 'src/images/home/homelessness.png';
 import explorer from 'src/images/home/contractexplorersunburst.png';
 import homeStyles from './index.module.scss';
 import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
-import { Helmet } from 'react-helmet/es/Helmet';
+import { Helmet } from 'react-helmet';
 
 function IndexPage(props) {
 	return (
 		<Home>
+			<Helmet>
+				<link rel="canonical" href="https://datalab.usaspending.gov" />
+			</Helmet>
 			<SEO
 				title="Data Lab - U.S. Treasury"
 				description="The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending."
