@@ -121,6 +121,7 @@ const AfgNav = ({ chapter }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSubPage, setActiveSubPage] = useState('');
   const [isMounted, setIsMounted] = useState(false);
+  const [isLarger, setIsLarger] = useState('');
 
   useEffect(() => {
     // const marginTop = window.innerWidth < lg ? 50 : '3rem';
@@ -142,7 +143,7 @@ const AfgNav = ({ chapter }) => {
     window.addEventListener('resize', resizeWindow);
 
     setActiveSubPage(window.location.pathname);
-    
+
     sections.forEach((section) => {
       section.pages.forEach((page) => {
         if (page.url === activeSubPage) {
@@ -152,23 +153,39 @@ const AfgNav = ({ chapter }) => {
       });
     });
 
+    setIsLarger(activeMainSection ? activeMainSection.name : '');
     setIsMounted(true);
   }, []);
 
   const handleActiveSectionChange = (e) => {
     const section = sections.find((s) => s.name === e.target.textContent);
     setActiveSection(activeSection && section.name === activeSection.name ? activeMainSection : section);
+    if (activeMainSection && activeSection && activeSection.name !== activeMainSection.name) {
+      setIsLarger(section.name);
+    }
   };
 
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
   };
 
+  const handleMouseEnter = (e) => {
+    setIsLarger(e.target.textContent);
+  };
+
+  const handleMouseLeave = () => {
+    setIsLarger(activeMainSection ? activeMainSection.name : '');
+  };
+
   return (
     <div className={`${style.chapterNavContainer} ${!isMenuOpen ? style.chapterNavContainerClosed : style.chapterNavContainerOpen}`}>
       <nav className={style.chapterNav}>
         <ul className={style.chapterNavPrimaryList}>
-          <li className={`${style.chapterNavOverview} ${activeSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : style.inactiveSection} ${!activeMainSection ? style.activeMainSection : ''}`}>
+          <li
+            className={`${style.chapterNavOverview} ${activeSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : style.inactiveSection} ${!activeMainSection ? style.activeMainSection : ''}`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             <div className={style.sectionName}>
               <a href="/americas-finance-guide/">
                 <FontAwesomeIcon
@@ -178,7 +195,7 @@ const AfgNav = ({ chapter }) => {
                 />
                 Overview
               </a>
-              {screenMode >= ScreenModeEnum.desktop && <div className={style.sectionNameExtension} />}
+              {screenMode >= ScreenModeEnum.desktop && (isLarger === 'Overview' || (!isLarger && !activeMainSection)) && <div className={style.sectionNameExtension} />}
             </div>
           </li>
           {sections.map((section) => {
@@ -191,13 +208,19 @@ const AfgNav = ({ chapter }) => {
             const activeSubPageItemStyle = { opacity: 1, transition: '250ms opacity', transitionDelay: '500ms' };
             const inactiveSubPageItemStyle = { opacity: 0, transition: '250ms opacity', transitionDelay: '500ms', width: 0 };
 
+            const larger = isLarger === section.name || (isLarger === '' && activeMainSection && activeMainSection.name === section.name);
+
             return (
               <>
-                <li className={`${section.navClass} ${isActive ? style.activeSection : style.inactiveSection} ${isMainSection ? style.activeMainSection : ''}`}>
+                <li
+                  className={`${section.navClass} ${isActive ? style.activeSection : style.inactiveSection} ${isMainSection ? style.activeMainSection : ''}`}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <div className={`${style.mobileBlock} ${section.backgroundColorClass}`} />
                   <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange}>
                     {section.name}
-                    {screenMode >= ScreenModeEnum.desktop && <div className={style.sectionNameExtension} />}
+                    {screenMode >= ScreenModeEnum.desktop && larger && <div className={style.sectionNameExtension} />}
                   </div>
                 </li>
                 <li

@@ -516,7 +516,7 @@
                 width: 118px;
             }
 
-            &:not(.active-section):not(:hover) {
+            &:not(.active-section):not(.active-main-section):not(:hover) {
                 .section-name-extension {
                     border-top: 5px solid #555;
                 }
@@ -530,7 +530,7 @@
         
         }
 
-        .inactive-section {
+        .inactive-section:not(.active-main-section) {
             .section-name:not(:hover) {
                 .section-name-extension {
                     display: none;
