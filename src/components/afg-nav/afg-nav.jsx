@@ -167,6 +167,7 @@ const AfgNav = ({ chapter }) => {
 
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
+    setActiveSection(activeMainSection);
   };
 
   const handleMouseEnter = (e) => {
@@ -182,12 +183,12 @@ const AfgNav = ({ chapter }) => {
       <nav className={style.chapterNav}>
         <ul className={style.chapterNavPrimaryList}>
           <li
-            className={`${style.chapterNavOverview} ${activeSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : style.inactiveSection} ${!activeMainSection ? style.activeMainSection : ''}`}
+            className={`${style.chapterNavOverview} ${activeMainSection && !isMenuOpen ? style.closed : ''} ${!activeSection ? style.activeSection : style.inactiveSection} ${!activeMainSection ? style.activeMainSection : ''}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             <div className={style.sectionName}>
-              <a href="/americas-finance-guide/">
+              <a href="/americas-finance-guide/" style={screenMode <= ScreenModeEnum.tablet && !isMenuOpen && !activeMainSection ? { fontSize: '1rem' } : {}}>
                 <FontAwesomeIcon
                   icon={faHome}
                   className="fas fa-home"
@@ -198,7 +199,7 @@ const AfgNav = ({ chapter }) => {
               {screenMode >= ScreenModeEnum.desktop && (isLarger === 'Overview' || (!isLarger && !activeMainSection)) && <div className={style.sectionNameExtension} />}
             </div>
           </li>
-          {sections.map((section) => {
+          {screenMode >= ScreenModeEnum.desktop && sections.map((section) => {
             const isActive = activeSection && activeSection.chapter === section.chapter;
             const isMainSection = activeMainSection && activeMainSection.chapter === section.chapter;
             const subpageSection = activeSection ? sections.find((sec) => sec.chapter === activeSection.chapter) : { chapter: '', pages: [] };
@@ -244,9 +245,55 @@ const AfgNav = ({ chapter }) => {
               </>
             );
           })}
+          {screenMode <= ScreenModeEnum.tablet && sections.map((section) => {
+            const isActive = activeSection && activeSection.chapter === section.chapter;
+            const isMainSection = activeMainSection && activeMainSection.chapter === section.chapter;
+            const subpageSection = activeSection ? sections.find((sec) => sec.chapter === activeSection.chapter) : { chapter: '', pages: [] };
+
+            const activeSubPageStyle = { height: 48 * section.pages.length, transition: '500ms height' };
+            const inactiveSubPageStyle = { height: 0, margin: 0, transition: '500ms height' };
+            const activeSubPageItemStyle = { opacity: 1, transition: '250ms opacity', transitionDelay: '500ms' };
+            const inactiveSubPageItemStyle = { opacity: 0, transition: '250ms opacity', transitionDelay: '500ms', height: 0 };
+
+            let activeSubPageName = section.name;
+
+            if (activeSection && !isMenuOpen) {
+              activeSubPageName = activeSection.pages.find((page) => page.url === activeSubPage).name;
+            }
+
+            return (
+              <>
+                <li className={`${section.navClass} ${isActive ? style.activeSection : style.inactiveSection} ${isMainSection ? style.activeMainSection : ''} ${!isMenuOpen ? style.closed : ''}`}>
+                  <div className={`${style.mobileBlock} ${section.backgroundColorClass}`} />
+                  <div className={style.sectionName} tabIndex={0} onClick={handleActiveSectionChange} style={!isMenuOpen ? { fontSize: '1rem' } : {}}>
+                    {activeSubPageName}
+                    {screenMode >= ScreenModeEnum.desktop && <div className={style.sectionNameExtension} />}
+                  </div>
+                </li>
+                <li
+                  className={`${style.chapterNavSubPages} ${!isMenuOpen || !isActive ? style.closed : ''}`}
+                  style={isActive ? activeSubPageStyle : inactiveSubPageStyle}
+                >
+                  <ul className={screenMode <= ScreenModeEnum.tablet && activeSection ? activeSection.transparentColorClass : ''}>
+                    {subpageSection.pages.map((page) => (
+                      <li
+                        className={`${style.subPage} ${page.url === activeSubPage ? style.activeSubPage : ''} ${!isMenuOpen || !isActive ? style.closed : ''}`}
+                        style={isActive ? activeSubPageItemStyle : inactiveSubPageItemStyle}
+                      >
+                        <a className={screenMode >= ScreenModeEnum.desktop ? activeSection.colorClass : ''} href={page.url}>
+                          {page.name}
+                        </a>
+                        <div className={style.subPageBorder} />
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              </>
+            );
+          })}
         </ul>
       </nav>
-      <div className={style.mobileMenuButtonContainer}>
+      <div className={`${style.mobileMenuButtonContainer} ${!isMenuOpen ? style.closed : ''}`}>
         <button className={style.mobileMenuButton} onClick={toggleMenu}>
           {isMenuOpen
             ? <FontAwesomeIcon
