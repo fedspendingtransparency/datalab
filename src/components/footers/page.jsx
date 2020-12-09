@@ -26,7 +26,7 @@ export default class PageFooter extends React.Component {
 				<Grid item xs={12} md={4} lg={2} className={pageFooterStyles.ourSites}>
 					<div>
 						<div className={pageFooterStyles.title}>About</div>
-						<a href="/about">About Data Lab</a>
+						<a href="/about/">About Data Lab</a>
 					</div>
 				</Grid>
 				<Grid item xs={12} md={4} lg={2} className={pageFooterStyles.ourSites}>

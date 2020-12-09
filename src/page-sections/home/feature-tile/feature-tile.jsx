@@ -1,11 +1,10 @@
-import React from "react"
-import { Link } from "gatsby"
-import flag from "src/images/home/new-data-flag.svg"
+import React from 'react';
+import flag from 'src/images/home/new-data-flag.svg';
 
-import featuredAnalysesTitleStyles from "./feature-tile.module.scss"
-import PropTypes from "prop-types"
+import featuredAnalysesTitleStyles from './feature-tile.module.scss';
+import PropTypes from 'prop-types';
 
-const hiddenDate = "12/06/2020"
+const hiddenDate = '12/06/2020';
 
 const FeatureTile = props => {
 	function DisplayedImg() {
@@ -15,9 +14,9 @@ const FeatureTile = props => {
 					<div>
 						<img
 							style={{
-								position: "absolute",
-								marginTop: "10px",
-								marginLeft: "-9px",
+								position: 'absolute',
+								marginTop: '10px',
+								marginLeft: '-9px',
 							}}
 							src={flag}
 							role="presentation"
@@ -29,7 +28,7 @@ const FeatureTile = props => {
 							alt={props.imgAlt}
 						/>
 					</div>
-				)
+				);
 			} else {
 				return (
 					<img
@@ -37,7 +36,7 @@ const FeatureTile = props => {
 						src={props.imgSrc}
 						alt={props.imgAlt}
 					/>
-				)
+				);
 			}
 		} else {
 			return (
@@ -46,39 +45,38 @@ const FeatureTile = props => {
 					src={props.imgSrc}
 					alt={props.imgAlt}
 				/>
-			)
+			);
 		}
 	}
 
 	return (
 		<section className={featuredAnalysesTitleStyles.featured}>
-			<Link
-				to={props.href}
+			<a
+				href={props.href}
 				className="primary__link"
 				ga-on="click"
 				ga-event-category="Data Lab Home Page"
-				ga-event-action={"Clicked " + props.heading}>
+				ga-event-action={'Clicked ' + props.heading}>
 				<h1 className={featuredAnalysesTitleStyles.headingMobile}>
 					{props.heading}
 				</h1>
 
 				<DisplayedImg />
-			</Link>
+			</a>
 
 			<div className={featuredAnalysesTitleStyles.content}>
-				<h2 className={featuredAnalysesTitleStyles.heading}>{props.heading}</h2>
+				<a href={props.href}>
+					<h2 className={featuredAnalysesTitleStyles.heading}>{props.heading}</h2>
 
-				<p className={featuredAnalysesTitleStyles.text}>{props.body}</p>
-
-				<p className={featuredAnalysesTitleStyles.textMobile}>
-					{props.mobileBody}
-				</p>
+					<p className={featuredAnalysesTitleStyles.text}>{props.body}</p>
+				</a>
+				<p className={featuredAnalysesTitleStyles.textMobile}>{props.mobileBody}</p>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default FeatureTile
+export default FeatureTile;
 
 FeatureTile.propTypes = {
 	href: PropTypes.string.isRequired,
@@ -88,4 +86,4 @@ FeatureTile.propTypes = {
 	imgSrc: PropTypes.string.isRequired,
 	imgAlt: PropTypes.string.isRequired,
 	isMain: PropTypes.bool,
-}
+};

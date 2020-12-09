@@ -1,7 +1,8 @@
 module.exports = {
 	siteMetadata: {
 		title: 'Data Lab',
-		description: 'The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending.',
+		description:
+			'The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending.',
 		author: '@gatsbyjs',
 	},
 	plugins: [
@@ -52,10 +53,18 @@ module.exports = {
 			resolve: 'gatsby-plugin-google-analytics',
 			options: {
 				trackingId: 'UA-19138737-13',
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-  ],
+			},
+		},
+		{
+			resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+			options: {
+				siteUrl: `https://datalab.usaspending.gov`,
+				noHash: true,
+				noQueryString: true,
+			},
+		},
+		// this (optional) plugin enables Progressive Web App + Offline functionality
+		// To learn more, visit: https://gatsby.dev/offline
+		// `gatsby-plugin-offline`,
+	],
 };
