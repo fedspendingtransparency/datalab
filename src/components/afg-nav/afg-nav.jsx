@@ -258,7 +258,8 @@ const AfgNav = ({ chapter }) => {
             let activeSubPageName = section.name;
 
             if (activeSection && !isMenuOpen) {
-              activeSubPageName = activeSection.pages.find((page) => page.url === activeSubPage).name;
+              const page = activeSection.pages.find((p) => p.url === activeSubPage);
+              activeSubPageName = page ? page.name : '';
             }
 
             return (
