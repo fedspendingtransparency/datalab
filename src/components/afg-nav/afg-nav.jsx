@@ -250,7 +250,7 @@ const AfgNav = ({ chapter }) => {
             const isMainSection = activeMainSection && activeMainSection.chapter === section.chapter;
             const subpageSection = activeSection ? sections.find((sec) => sec.chapter === activeSection.chapter) : { chapter: '', pages: [] };
 
-            const activeSubPageStyle = { height: 48 * section.pages.length, transition: '500ms height' };
+            const activeSubPageStyle = { height: 40 * section.pages.length, transition: '500ms height' };
             const inactiveSubPageStyle = { height: 0, margin: 0, transition: '500ms height' };
             const activeSubPageItemStyle = { opacity: 1, transition: '250ms opacity', transitionDelay: '500ms' };
             const inactiveSubPageItemStyle = { opacity: 0, transition: '250ms opacity', transitionDelay: '500ms', height: 0 };
