@@ -651,77 +651,7 @@
     }
 }
 
-@media only screen and (max-width: 991px) and (min-width: 660px) {
-    .chapter-nav {
-        min-height: auto;
-        height: 3rem;
-    }
-
-    .chapter-nav button {
-        display: none;
-    }
-
-    .menu-open .chapter-nav-overview {
-        border-bottom: none;
-    }
-
-    .chapter-nav ul {
-        display: flex;
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .chapter-nav li {
-        flex-grow: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .chapter-nav.chapter-nav-deficit li {
-        width: 33%;
-    }
-
-    .chapter-nav li:last-of-type {
-        border-right: none;
-    }
-
-    .chapter-nav li a, .chapter-nav li.active a {
-        height: auto;
-        text-align: center;
-        line-height: normal;
-    }
-
-    .chapter-nav-active-list {
-        max-width: calc(992px - 22.5%);
-
-        li {
-            padding: 0 5px;
-        }
-    }
-
-    .chapter-nav-primary-list {
-        .inactive-section {
-            max-width: 12.5%;
-            min-width: 85px;
-
-            .section-name {
-                max-width: 80%;
-            }
-        }
-
-        .chapter-nav-overview {
-            max-width: 45px;
-            min-width: 45px;
-
-            .section-name {
-                display: none;
-            }
-        }
-    }
-}
-
-@media only screen and (max-width: 659px) {
+@media only screen and (max-width: 991px) {
     .chapter-nav-container {
         position: relative;
         margin-top: 50px;
@@ -805,6 +735,7 @@
                 }
                 
                 .sub-page {
+                    height: 40px;
                     font-size: 0.875rem;
 
                     &.active-sub-page {
@@ -855,6 +786,12 @@
             background-color: #ebe9e9;
             font-size: 1.5rem;
         }
+    }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+    .chapter-nav-container {
+        margin-top: 48px;
     }
 }
 
