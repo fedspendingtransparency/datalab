@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { checkAfgScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
-// import { lg } from 'src/styles/variables.scss';
+import { lg } from 'src/styles/variables.scss';
 import style from './afg-nav.module.scss';
 
 const AfgNav = ({ chapter }) => {
@@ -114,7 +114,9 @@ const AfgNav = ({ chapter }) => {
     },
   ];
 
-  // const [stickyStyle, setStickyStyle] = useState({ marginTop: '3rem' });
+  const [stickyStyle, setStickyStyle] = useState({});
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [pauseScrollListener, setPauseScrollListener] = useState(0);
   const [screenMode, setScreenMode] = useState(0);
   const [activeSection, setActiveSection] = useState(sections.find((s) => s.chapter === chapter));
   const [activeMainSection, setActiveMainSection] = useState(sections.find((s) => s.chapter === chapter));
@@ -124,14 +126,6 @@ const AfgNav = ({ chapter }) => {
   const [isLarger, setIsLarger] = useState('');
 
   useEffect(() => {
-    // const marginTop = window.innerWidth < lg ? 50 : '3rem';
-
-    // const scrollListener = () => {
-    //   setStickyStyle(window.pageYOffset > 26 && window.innerWidth >= lg ? { position: 'sticky', top: 50 } : { marginTop });
-    // };
-
-    // window.addEventListener('scroll', scrollListener);
-
     const resizeWindow = () => {
       const newMode = checkAfgScreenMode(window.innerWidth);
       if (newMode !== screenMode) {
@@ -157,6 +151,27 @@ const AfgNav = ({ chapter }) => {
     setIsMounted(true);
   }, []);
 
+  useEffect(() => {
+    setScrollPosition(window.pageYOffset);
+
+    const scrollPositionListener = () => {
+      setScrollPosition(window.pageYOffset);
+    };
+
+    const scrollListener = () => {
+      if (!isMenuOpen) {
+        if (window.pageYOffset < scrollPosition) {
+          setStickyStyle(window.pageYOffset > 26 ? { position: 'sticky', top: 50 } : {});
+        } else {
+          setStickyStyle({});
+        }
+      }
+    };
+
+    window.addEventListener('scroll', scrollPositionListener);
+    window.addEventListener('scroll', scrollListener);
+  }, [scrollPosition]);
+
   const handleActiveSectionChange = (e) => {
     const section = sections.find((s) => s.name === e.target.textContent);
     setActiveSection(activeSection && section.name === activeSection.name ? activeMainSection : section);
@@ -179,7 +194,7 @@ const AfgNav = ({ chapter }) => {
   };
 
   return (
-    <div className={`${style.chapterNavContainer} ${!isMenuOpen ? style.chapterNavContainerClosed : style.chapterNavContainerOpen}`}>
+    <div className={`${style.chapterNavContainer} ${!isMenuOpen ? style.chapterNavContainerClosed : style.chapterNavContainerOpen}`} style={stickyStyle}>
       <nav className={style.chapterNav}>
         <ul className={style.chapterNavPrimaryList}>
           <li
