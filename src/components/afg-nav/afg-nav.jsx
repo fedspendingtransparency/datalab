@@ -130,6 +130,7 @@ const AfgNav = ({ chapter }) => {
 	const [activeSubPage, setActiveSubPage] = useState('');
 	const [isMounted, setIsMounted] = useState(false);
 	const [isLarger, setIsLarger] = useState('');
+	const [isTabActive, setIsTabActive] = useState('');
 
 	useEffect(() => {
 		// const marginTop = window.innerWidth < lg ? 50 : '3rem';
@@ -166,7 +167,6 @@ const AfgNav = ({ chapter }) => {
 	}, []);
 
 	const handleActiveSectionChange = e => {
-		console.log(e.target);
 		const section = sections.find(s => s.name === e.target.textContent);
 		setActiveSection(
 			activeSection && section.name === activeSection.name
@@ -182,15 +182,26 @@ const AfgNav = ({ chapter }) => {
 		}
 	};
 
-	const handleKeyPress = e => {
-		console.log(e.charCode);
-		console.log(e.key);
-
+	const handleEnterPress = e => {
 		if (e.key == 'Enter') {
-			console.log('in condition');
 			handleActiveSectionChange(e);
+			setTimeout(() => {
+				document
+					.getElementById('active-chapter')
+					.getElementsByTagName('a')[0]
+					.focus();
+				setIsTabActive('');
+			}, 100);
 		}
 	};
+
+	const handleTabEnter = e => {
+		console.log(e.target.textContent);
+		if (e.key == 'Tab') {
+			setIsTabActive(e.target.textContent);
+		}
+	};
+
 	const toggleMenu = () => {
 		setIsMenuOpen(prevState => !prevState);
 		setActiveSection(activeMainSection);
@@ -214,15 +225,14 @@ const AfgNav = ({ chapter }) => {
 			<nav className={style.chapterNav}>
 				<ul className={style.chapterNavPrimaryList}>
 					<li
-						className={`${style.chapterNavOverview} ${
-							activeMainSection && !isMenuOpen ? style.closed : ''
-						} ${!activeSection ? style.activeSection : style.inactiveSection} ${
-							!activeMainSection ? style.activeMainSection : ''
-						}`}
-						tabIndex={0}
+						id={`${activeSection ? 'active-section' : ''}`}
+						className={`${style.chapterNavOverview} 
+						${activeMainSection && !isMenuOpen ? style.closed : ''} 
+						${!activeSection ? style.activeSection : style.inactiveSection}
+						${!activeMainSection ? style.activeMainSection : ''}`}
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
-						onKeyUp={console.log('here')}>
+						onKeyUp={handleTabEnter}>
 						<div className={style.sectionName}>
 							<a
 								href="/americas-finance-guide/"
@@ -286,7 +296,8 @@ const AfgNav = ({ chapter }) => {
 											isActive ? style.activeSection : style.inactiveSection
 										} ${isMainSection ? style.activeMainSection : ''}`}
 										onMouseEnter={handleMouseEnter}
-										onMouseLeave={handleMouseLeave}>
+										onMouseLeave={handleMouseLeave}
+										onKeyUp={handleTabEnter}>
 										<div
 											className={`${style.mobileBlock} ${section.backgroundColorClass}`}
 										/>
@@ -294,14 +305,20 @@ const AfgNav = ({ chapter }) => {
 											className={style.sectionName}
 											tabIndex={0}
 											onClick={handleActiveSectionChange}
-											onKeyUp={handleKeyPress}>
-											{section.name}
+											onKeyUp={handleEnterPress}>
+											<span
+												className={`${
+													isTabActive === section.name && !isActive ? style.outlined : ''
+												}`}>
+												{section.name}
+											</span>
 											{screenMode >= ScreenModeEnum.desktop && larger && (
 												<div className={style.sectionNameExtension} />
 											)}
 										</div>
 									</li>
 									<li
+										id={`${isActive ? 'active-chapter' : ''}`}
 										className={`${style.chapterNavSubPages} ${
 											screenMode > ScreenModeEnum.tablet || !isMenuOpen ? style.closed : ''
 										}`}
@@ -329,6 +346,7 @@ const AfgNav = ({ chapter }) => {
 															: inactiveSubPageItemStyle
 													}>
 													<a
+														tabIndex={isActive ? 0 : -1}
 														className={
 															screenMode >= ScreenModeEnum.desktop
 																? activeSection.colorClass
@@ -398,7 +416,7 @@ const AfgNav = ({ chapter }) => {
 											className={style.sectionName}
 											tabIndex={0}
 											onClick={handleActiveSectionChange}
-											onKeyDown={handleKeyPress}
+											onKeyDown={handleEnterPress}
 											style={!isMenuOpen ? { fontSize: '1rem' } : {}}>
 											{activeSubPageName}
 											{screenMode >= ScreenModeEnum.desktop && (
