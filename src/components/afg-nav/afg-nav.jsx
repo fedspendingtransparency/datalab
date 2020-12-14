@@ -9,6 +9,7 @@ import {
 import { checkAfgScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
 // import { lg } from 'src/styles/variables.scss';
 import style from './afg-nav.module.scss';
+import * as d3 from 'd3v3';
 
 const AfgNav = ({ chapter }) => {
 	const sections = [
@@ -196,8 +197,7 @@ const AfgNav = ({ chapter }) => {
 	};
 
 	const handleTabEnter = e => {
-		console.log(e.target.textContent);
-		if (e.key == 'Tab') {
+		if (e.key === 'Tab') {
 			setIsTabActive(e.target.textContent);
 		}
 	};
@@ -230,12 +230,14 @@ const AfgNav = ({ chapter }) => {
 						${activeMainSection && !isMenuOpen ? style.closed : ''} 
 						${!activeSection ? style.activeSection : style.inactiveSection}
 						${!activeMainSection ? style.activeMainSection : ''}`}
+						tabIndex={-1}
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						onKeyUp={handleTabEnter}>
 						<div className={style.sectionName}>
 							<a
 								href="/americas-finance-guide/"
+								tabindex={-1}
 								style={
 									screenMode <= ScreenModeEnum.tablet &&
 									!isMenuOpen &&
@@ -244,7 +246,7 @@ const AfgNav = ({ chapter }) => {
 										: {}
 								}>
 								<FontAwesomeIcon icon={faHome} className="fas fa-home" width={8} />
-								Overview
+								<span tabIndex={0}>Overview</span>
 							</a>
 							{screenMode >= ScreenModeEnum.desktop &&
 								(isLarger === 'Overview' || (!isLarger && !activeMainSection)) && (
@@ -303,13 +305,9 @@ const AfgNav = ({ chapter }) => {
 										/>
 										<div
 											className={style.sectionName}
-											tabIndex={0}
 											onClick={handleActiveSectionChange}
 											onKeyUp={handleEnterPress}>
-											<span
-												className={`${
-													isTabActive === section.name && !isActive ? style.outlined : ''
-												}`}>
+											<span tabIndex={0} className="section-name">
 												{section.name}
 											</span>
 											{screenMode >= ScreenModeEnum.desktop && larger && (
@@ -416,7 +414,7 @@ const AfgNav = ({ chapter }) => {
 											className={style.sectionName}
 											tabIndex={0}
 											onClick={handleActiveSectionChange}
-											onKeyDown={handleEnterPress}
+											onKeyUp={handleEnterPress}
 											style={!isMenuOpen ? { fontSize: '1rem' } : {}}>
 											{activeSubPageName}
 											{screenMode >= ScreenModeEnum.desktop && (
