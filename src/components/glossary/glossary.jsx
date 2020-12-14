@@ -455,7 +455,7 @@ export default function Glossary() {
 	return (
 		<>
 			<div id="afg-launch-glossary-div" className="hidden">
-				<button id="afg-floating-glossary-button">
+				<button id="afg-floating-glossary-button" tabIndex={-1}>
 					<div className="button-content">
 						<FontAwesomeIcon icon={faBook} className="floating-glossary-icon" />
 						Glossary
