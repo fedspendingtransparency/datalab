@@ -230,7 +230,6 @@ const AfgNav = ({ chapter }) => {
 						${activeMainSection && !isMenuOpen ? style.closed : ''} 
 						${!activeSection ? style.activeSection : style.inactiveSection}
 						${!activeMainSection ? style.activeMainSection : ''}`}
-						tabIndex={-1}
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						onKeyUp={handleTabEnter}>
