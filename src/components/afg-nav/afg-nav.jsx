@@ -116,7 +116,6 @@ const AfgNav = ({ chapter }) => {
 
   const [stickyStyle, setStickyStyle] = useState({});
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [pauseScrollListener, setPauseScrollListener] = useState(0);
   const [screenMode, setScreenMode] = useState(0);
   const [activeSection, setActiveSection] = useState(sections.find((s) => s.chapter === chapter));
   const [activeMainSection, setActiveMainSection] = useState(sections.find((s) => s.chapter === chapter));
@@ -159,12 +158,14 @@ const AfgNav = ({ chapter }) => {
     };
 
     const scrollListener = () => {
-      if (!isMenuOpen) {
-        if (window.pageYOffset < scrollPosition) {
-          setStickyStyle(window.pageYOffset > 26 ? { position: 'sticky', top: 50 } : {});
-        } else {
+      if (window.pageYOffset > 26) {
+        if (screenMode >= ScreenModeEnum.desktop && window.pageYOffset > scrollPosition) {
           setStickyStyle({});
+        } else {
+          setStickyStyle({ position: 'sticky', top: 50 });
         }
+      } else {
+        setStickyStyle({});
       }
     };
 
@@ -268,7 +269,7 @@ const AfgNav = ({ chapter }) => {
             const activeSubPageStyle = { height: 40 * section.pages.length, transition: '500ms height' };
             const inactiveSubPageStyle = { height: 0, margin: 0, transition: '500ms height' };
             const activeSubPageItemStyle = { opacity: 1, transition: '250ms opacity', transitionDelay: '500ms' };
-            const inactiveSubPageItemStyle = { opacity: 0, transition: '250ms opacity', transitionDelay: '500ms', height: 0 };
+            const inactiveSubPageItemStyle = { height: 0, opacity: 0, transition: '250ms opacity', transitionDelay: '500ms' };
 
             let activeSubPageName = section.name;
 
