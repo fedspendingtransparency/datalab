@@ -338,7 +338,6 @@
     line-height: 3rem;
     overflow: hidden;
     opacity: 1;
-    transition: height 0.3s ease;
 
     .section-name {
         color: white;
@@ -691,7 +690,6 @@
     
             .chapter-nav-overview, .active-section, .inactive-section {
                 height: 40px;
-                transition: 500ms height;
                 text-transform: uppercase;
     
                 .section-name {
