@@ -128,6 +128,7 @@ const AfgNav = ({ chapter }) => {
   const [activeMainSection, setActiveMainSection] = useState(
 		sections.find(s => s.chapter === chapter)
 	);
+  const [activeMainSectionClosed, setActiveMainSectionClosed] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSubPage, setActiveSubPage] = useState('');
   const [isMounted, setIsMounted] = useState(false);
@@ -184,20 +185,32 @@ const AfgNav = ({ chapter }) => {
   }, [scrollPosition]);
 
   const handleActiveSectionChange = (e) => {
-		const section = sections.find((s) => s.name === e.target.textContent);
-		setActiveSection(
-			activeSection && section.name === activeSection.name
-				? activeMainSection
-				: section
-		);
-		if (
+    const section = sections.find((s) => s.name === e.target.textContent);
+
+    if (activeSection
+      && activeMainSection
+      && section.name === activeMainSection.name
+      && activeSection.name === activeMainSection.name
+    ) {
+      setActiveMainSectionClosed((prevState) => !prevState);
+    } else if (activeSection && section.name === activeSection.name) {
+      setActiveSection(activeMainSection);
+      setActiveMainSectionClosed(false);
+    } else {
+      setActiveSection(section);
+      setActiveMainSectionClosed(false);
+    }
+
+    setActiveSection(activeSection && section.name === activeSection.name ? activeMainSection : section);
+
+    if (
 			activeMainSection &&
 			activeSection &&
 			activeSection.name !== activeMainSection.name
 		) {
 			setIsLarger(section.name);
 		}
-	};
+  };
 
 	const handleEnterPress = e => {
 		if (e.key == 'Enter') {
@@ -269,11 +282,7 @@ const AfgNav = ({ chapter }) => {
 								<FontAwesomeIcon icon={faHome} className="fas fa-home" width={8} />
 								<span tabIndex={0}>Overview</span>
 							</a>
-							{screenMode >= ScreenModeEnum.desktop &&
-								(isLarger === 'Overview' || (!isLarger && !activeMainSection)) && (
-									<div className={style.sectionNameExtension} />
-								)
-              }
+							{screenMode >= ScreenModeEnum.desktop && (isLarger === 'Overview' || !activeMainSection) && <div className={style.sectionNameExtension} />}
 						</div>
 					</li>
 					{screenMode >= ScreenModeEnum.desktop &&
@@ -305,11 +314,7 @@ const AfgNav = ({ chapter }) => {
 								width: 0,
 							};
 
-							const larger =
-								isLarger === section.name ||
-								(isLarger === '' &&
-									activeMainSection &&
-									activeMainSection.name === section.name);
+              const larger = isLarger === section.name || (activeMainSection && activeMainSection.name === section.name);
 
 							return (
 								<>
@@ -435,7 +440,8 @@ const AfgNav = ({ chapter }) => {
 											tabIndex={0}
 											onClick={handleActiveSectionChange}
 											onKeyUp={handleEnterPress}
-											style={!isMenuOpen ? { fontSize: '1rem' } : {}}>
+											style={!isMenuOpen ? { fontSize: '1rem' } : {}}
+                    >
 											{activeSubPageName}
 											{screenMode >= ScreenModeEnum.desktop && (
 												<div className={style.sectionNameExtension} />
@@ -446,28 +452,30 @@ const AfgNav = ({ chapter }) => {
 										className={`${style.chapterNavSubPages} ${
 											!isMenuOpen || !isActive ? style.closed : ''
 										}`}
-										style={isActive ? activeSubPageStyle : inactiveSubPageStyle}>
+										style={isActive && !activeMainSectionClosed ? activeSubPageStyle : inactiveSubPageStyle}
+                  >
 										<ul
 											className={
 												screenMode <= ScreenModeEnum.tablet && activeSection
 													? activeSection.transparentColorClass
 													: ''
-											}>
-											{subpageSection.pages.map(page => (
+											}
+                    >
+											{subpageSection.pages.map((page) => (
 												<li
 													className={`${style.subPage} ${
 														page.url === activeSubPage ? style.activeSubPage : ''
 													} ${!isMenuOpen || !isActive ? style.closed : ''}`}
-													style={
-														isActive ? activeSubPageItemStyle : inactiveSubPageItemStyle
-													}>
+													style={isActive && !activeMainSectionClosed ? activeSubPageItemStyle : inactiveSubPageItemStyle}
+                        >
 													<a
 														className={
 															screenMode >= ScreenModeEnum.desktop
 																? activeSection.colorClass
 																: ''
 														}
-														href={page.url}>
+														href={page.url}
+                          >
 														{page.name}
 													</a>
 													<div className={style.subPageBorder} />
@@ -486,7 +494,11 @@ const AfgNav = ({ chapter }) => {
 				}`}>
 				<button className={style.mobileMenuButton} onClick={toggleMenu}>
 					{isMenuOpen ? (
-						<FontAwesomeIcon icon={faAngleUp} width={14} className="fa fa-angle-up" />
+						<FontAwesomeIcon
+              icon={faAngleUp}
+              width={14}
+              className="fa fa-angle-up"
+            />
 					) : (
 						<FontAwesomeIcon
 							icon={faAngleDown}
