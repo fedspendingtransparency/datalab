@@ -83,6 +83,11 @@
     .active-main-section {
         font-weight: bold;
     }
+
+    span {
+        font-size: inherit;
+    }
+
 }
 
 .chapter-nav-overview {
@@ -117,7 +122,7 @@
             border-top: 5px solid #444;
         }
     }
-    
+
     &:hover {
         background-color: #666;
 
@@ -171,14 +176,14 @@
             border-top: 5px solid #082548;
         }
     }
-    
+
     &:hover {
         background-color: #082548;
 
         .section-name:before {
             border-left: 4px solid #082548;
         }
-        
+
             .section-name-extension {
                 border-top: 5px solid #082548;
             }
@@ -210,14 +215,14 @@
             border-top: 5px solid #005E56;
         }
     }
-    
+
     &:hover {
         background-color: #005E56;
 
         .section-name:before {
             border-left: 4px solid #005E56;
         }
-        
+
             .section-name-extension {
                 border-top: 5px solid #005E56;
             }
@@ -249,14 +254,14 @@
             border-top: 5px solid #9F4224;
         }
     }
-    
+
     &:hover {
         background-color: #9F4224;
 
         .section-name:before {
             border-left: 4px solid #9F4224;
         }
-        
+
             .section-name-extension {
                 border-top: 5px solid #9F4224;
             }
@@ -288,14 +293,14 @@
             border-top: 5px solid #3B005B;
         }
     }
-    
+
     &:hover {
         background-color: #3B005B;
 
         .section-name:before {
             border-left: 4px solid #3B005B;
         }
-        
+
             .section-name-extension {
                 border-top: 5px solid #3B005B;
             }
@@ -400,7 +405,7 @@
 
         &:not(.chapter-nav-subpages):not(.sub-page):not(.chapter-nav-sub-pages) {
             max-width: 100px;
-    
+
             &:not(.chapter-nav-overview) {
                 min-width: 100px;
             }
@@ -417,7 +422,7 @@
                 border-top: 24px solid transparent;
                 border-bottom: 24px solid transparent;
             }
-            
+
             &:before {
                 content: '';
                 position: absolute;
@@ -501,7 +506,7 @@
                     border-top: 5px solid #555;
                 }
             }
-            
+
             &:hover {
                 .section-name-extension {
                     border-top: 5px solid #666;
@@ -520,7 +525,7 @@
                 .section-name:before {
                     border-left: 4px solid #082548;
                 }
-                
+
                 .section-name-extension {
                     border-top: 5px solid #082548;
                 }
@@ -530,7 +535,7 @@
                 background-color: #082548 !important;
             }
         }
-        
+
         .chapter-nav-spending {
             &:hover {
                 background-color: #005E56;
@@ -538,7 +543,7 @@
                 .section-name:before {
                     border-left: 4px solid #005E56;
                 }
-                
+
                 .section-name-extension {
                     border-top: 5px solid #005E56;
                 }
@@ -548,7 +553,7 @@
                 background-color: #005E56 !important;
             }
         }
-        
+
         .chapter-nav-deficit {
             &:hover {
                 background-color: #9F4224;
@@ -556,7 +561,7 @@
                 .section-name:before {
                     border-left: 4px solid #9F4224;
                 }
-                
+
                 .section-name-extension {
                     border-top: 5px solid #9F4224;
                 }
@@ -566,7 +571,7 @@
                 background-color: #9F4224 !important;
             }
         }
-        
+
         .chapter-nav-debt {
             &:hover {
                 background-color: #3B005B;
@@ -574,7 +579,7 @@
                 .section-name:before {
                     border-left: 4px solid #3B005B;
                 }
-                
+
                 .section-name-extension {
                     border-top: 5px solid #3B005B;
                 }
@@ -584,7 +589,7 @@
                 background-color: #3B005B !important;
             }
         }
-        
+
 
         .active-section, .inactive-section {
             border-right: solid 2px #eee;
@@ -606,7 +611,7 @@
             width: 130px;
         }
     }
-    
+
     .chapter-nav-overview {
         min-width: 120px;
     }
@@ -615,26 +620,26 @@
         display: flex;
         flex-grow: 0 !important;
         transition: 500ms;
-    
+
         .sub-page {
             margin: 0;
             padding-left: 0.5rem;
             flex-grow: 0;
             font-size: 0.875rem;
             text-align: center;
-    
+
             &:hover {
                 text-decoration: underline;
             }
-    
+
             &:last-of-type {
                 margin-right: 0.5rem;
-    
+
                 .sub-page-border {
                     display: none;
                 }
             }
-    
+
             .sub-page-border {
                 height: 1rem;
                 width: 1px;
@@ -642,7 +647,7 @@
                 margin-left: 0.5rem;
             }
         }
-    
+
         .active-sub-page {
             text-decoration: underline;
             font-weight: 600;
@@ -666,7 +671,7 @@
 
         .closed:not(.active-main-section) {
             height: 0 !important;
-    
+
             .section-name {
                 display: none !important;
             }
@@ -675,41 +680,41 @@
         .chapter-nav-primary-list {
             width: 100%;
             margin: 0;
-    
+
             .chapter-nav-overview {
                 a {
                     width: 100%;
                     justify-content: flex-start;
                     padding-left: 20px;
-    
+
                     svg {
                         display: none;
                     }
                 }
             }
-    
+
             .chapter-nav-overview, .active-section, .inactive-section {
                 height: 40px;
                 text-transform: uppercase;
-    
+
                 .section-name {
                     justify-content: flex-start;
                 }
             }
-    
+
             .active-section {
                 display: flex;
-    
+
                 .section-name {
                     text-decoration: none;
                 }
-    
+
                 .mobile-block {
                     width: 20px;
                     margin-right: 11px;
                 }
             }
-    
+
             .inactive-section {
                 display: flex;
                 background-color: #ebe9e9;
@@ -720,22 +725,22 @@
                 .section-name, .section-name > a {
                     color: #555;
                 }
-    
+
                 .mobile-block {
                     width: 20px;
                     margin-right: 11px;
                 }
             }
-    
+
             .chapter-nav-sub-pages {
                 &:not(.closed) {
                     border-bottom: solid 2px #eee;
                 }
-    
+
                 ul {
                     width: 100%;
                 }
-                
+
                 .sub-page {
                     height: 40px;
                     font-size: 0.875rem;
@@ -749,11 +754,11 @@
                         padding-left: 31px;
                         color: #555;
                     }
-    
+
                     .sub-page-border {
                         display: none;
                     }
-    
+
                 }
             }
         }
@@ -762,7 +767,7 @@
     .chapter-nav-container-closed {
         flex-direction: row;
     }
-    
+
     .chapter-nav-container-open {
         flex-direction: column;
 
