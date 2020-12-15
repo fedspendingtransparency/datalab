@@ -7,7 +7,7 @@ import {
 	faAngleUp,
 } from '@fortawesome/free-solid-svg-icons';
 import { checkAfgScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
-// import { lg } from 'src/styles/variables.scss';
+import { lg } from 'src/styles/variables.scss';
 import style from './afg-nav.module.scss';
 import * as d3 from 'd3v3';
 
@@ -119,35 +119,28 @@ const AfgNav = ({ chapter }) => {
 		},
 	];
 
-	// const [stickyStyle, setStickyStyle] = useState({ marginTop: '3rem' });
-	const [screenMode, setScreenMode] = useState(0);
-	const [activeSection, setActiveSection] = useState(
+  const [stickyStyle, setStickyStyle] = useState({});
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [screenMode, setScreenMode] = useState(0);
+  const [activeSection, setActiveSection] = useState(
 		sections.find(s => s.chapter === chapter)
 	);
-	const [activeMainSection, setActiveMainSection] = useState(
+  const [activeMainSection, setActiveMainSection] = useState(
 		sections.find(s => s.chapter === chapter)
 	);
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const [activeSubPage, setActiveSubPage] = useState('');
-	const [isMounted, setIsMounted] = useState(false);
-	const [isLarger, setIsLarger] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSubPage, setActiveSubPage] = useState('');
+  const [isMounted, setIsMounted] = useState(false);
+  const [isLarger, setIsLarger] = useState('');
 	const [isTabActive, setIsTabActive] = useState('');
 
-	useEffect(() => {
-		// const marginTop = window.innerWidth < lg ? 50 : '3rem';
-
-		// const scrollListener = () => {
-		//   setStickyStyle(window.pageYOffset > 26 && window.innerWidth >= lg ? { position: 'sticky', top: 50 } : { marginTop });
-		// };
-
-		// window.addEventListener('scroll', scrollListener);
-
-		const resizeWindow = () => {
-			const newMode = checkAfgScreenMode(window.innerWidth);
-			if (newMode !== screenMode) {
-				setScreenMode(newMode);
-			}
-		};
+  useEffect(() => {
+    const resizeWindow = () => {
+      const newMode = checkAfgScreenMode(window.innerWidth);
+      if (newMode !== screenMode) {
+        setScreenMode(newMode);
+      }
+    };
 
 		resizeWindow();
 		window.addEventListener('resize', resizeWindow);
@@ -167,8 +160,31 @@ const AfgNav = ({ chapter }) => {
 		setIsMounted(true);
 	}, []);
 
-	const handleActiveSectionChange = e => {
-		const section = sections.find(s => s.name === e.target.textContent);
+  useEffect(() => {
+    setScrollPosition(window.pageYOffset);
+
+    const scrollPositionListener = () => {
+      setScrollPosition(window.pageYOffset);
+    };
+
+    const scrollListener = () => {
+      if (window.pageYOffset > 26) {
+        if (screenMode >= ScreenModeEnum.desktop && window.pageYOffset > scrollPosition) {
+          setStickyStyle({});
+        } else {
+          setStickyStyle({ position: 'sticky', top: 50 });
+        }
+      } else {
+        setStickyStyle({});
+      }
+    };
+
+    window.addEventListener('scroll', scrollPositionListener);
+    window.addEventListener('scroll', scrollListener);
+  }, [scrollPosition]);
+
+  const handleActiveSectionChange = (e) => {
+		const section = sections.find((s) => s.name === e.target.textContent);
 		setActiveSection(
 			activeSection && section.name === activeSection.name
 				? activeMainSection
@@ -206,12 +222,12 @@ const AfgNav = ({ chapter }) => {
 		setIsMenuOpen(prevState => !prevState);
 		setActiveSection(activeMainSection);
 	};
-
-	const handleMouseEnter = e => {
+  
+  const handleMouseEnter = (e) => {
 		setIsLarger(e.target.textContent);
 	};
-
-	const handleMouseLeave = () => {
+  
+  const handleMouseLeave = () => {
 		setIsLarger(activeMainSection ? activeMainSection.name : '');
 	};
 
@@ -221,18 +237,23 @@ const AfgNav = ({ chapter }) => {
 				!isMenuOpen
 					? style.chapterNavContainerClosed
 					: style.chapterNavContainerOpen
-			}`}>
+			}`}
+      style={stickyStyle}
+    >
 			<nav className={style.chapterNav}>
 				<ul className={style.chapterNavPrimaryList}>
 					<li
 						id={`${activeSection ? 'active-section' : ''}`}
-						className={`${style.chapterNavOverview} 
-						${activeMainSection && !isMenuOpen ? style.closed : ''} 
-						${!activeSection ? style.activeSection : style.inactiveSection}
-						${!activeMainSection ? style.activeMainSection : ''}`}
+						className={`
+              ${style.chapterNavOverview} 
+						  ${activeMainSection && !isMenuOpen ? style.closed : ''} 
+						  ${!activeSection ? style.activeSection : style.inactiveSection}
+						  ${!activeMainSection ? style.activeMainSection : ''}
+            `}
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
-						onKeyUp={handleTabEnter}>
+						onKeyUp={handleTabEnter}
+          >
 						<div className={style.sectionName}>
 							<a
 								href="/americas-finance-guide/"
@@ -243,24 +264,24 @@ const AfgNav = ({ chapter }) => {
 									!activeMainSection
 										? { fontSize: '1rem' }
 										: {}
-								}>
+								}
+              >
 								<FontAwesomeIcon icon={faHome} className="fas fa-home" width={8} />
 								<span tabIndex={0}>Overview</span>
 							</a>
 							{screenMode >= ScreenModeEnum.desktop &&
 								(isLarger === 'Overview' || (!isLarger && !activeMainSection)) && (
 									<div className={style.sectionNameExtension} />
-								)}
+								)
+              }
 						</div>
 					</li>
 					{screenMode >= ScreenModeEnum.desktop &&
-						sections.map(section => {
-							const isActive =
-								activeSection && activeSection.chapter === section.chapter;
-							const isMainSection =
-								activeMainSection && activeMainSection.chapter === section.chapter;
+						sections.map((section) => {
+							const isActive = activeSection && activeSection.chapter === section.chapter;
+							const isMainSection = activeMainSection && activeMainSection.chapter === section.chapter;
 							const subpageSection = activeSection
-								? sections.find(sec => sec.chapter === activeSection.chapter)
+								? sections.find((sec) => sec.chapter === activeSection.chapter)
 								: { chapter: '', pages: [] };
 
 							const activeSubPageStyle = {

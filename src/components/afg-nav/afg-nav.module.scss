@@ -48,6 +48,10 @@
     background-color: rgba(74, 0, 114, 0.1);
 }
 
+.chapter-nav-container {
+    z-index: 20;
+}
+
 .chapter-nav {
     display: flex;
     justify-content: space-between;
@@ -339,7 +343,6 @@
     line-height: 3rem;
     overflow: hidden;
     opacity: 1;
-    transition: height 0.3s ease;
 
     .section-name {
         color: white;
@@ -692,7 +695,6 @@
 
             .chapter-nav-overview, .active-section, .inactive-section {
                 height: 40px;
-                transition: 500ms height;
                 text-transform: uppercase;
 
                 .section-name {
