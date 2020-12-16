@@ -44,6 +44,12 @@ export default {
           have National Interest Actions, although there are discussions ongoing about whether to
           include them.
         </p>,
+        <p>
+          In addition to National Interest Action codes, agencies are required to use the
+          Disaster Emergency Fund Code (DEFC) to tag funding associated with emergency
+          funding in their financial reporting. Each code links to one or more legislative bills
+          that authorized the funding.
+        </p>,
       ],
     },
   ],
