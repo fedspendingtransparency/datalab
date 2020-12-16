@@ -254,7 +254,7 @@ export default {
       accordionContent: [
         <p>
           To see linkages between award financial data (File C) and procurement (File D1) and
-          financial assistance data (File D2) data, you can use the following Structured Query
+          financial assistance data (File D2), you can use the following Structured Query
           Langue (SQL) commands
           {' '}
           <a
