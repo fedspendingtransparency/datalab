@@ -196,7 +196,7 @@ export default class PageHeader extends React.Component {
 									onClick={this.burgerClick}
 									tabIndex="0">
 									<span className={styles.toggle}>
-										<FontAwesomeIcon icon={faBars} />
+										<FontAwesomeIcon icon={faBars} width={21} />
 									</span>
 								</button>
 

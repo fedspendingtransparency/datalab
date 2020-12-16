@@ -119,29 +119,29 @@ const AfgNav = ({ chapter }) => {
 		},
 	];
 
-  const [stickyStyle, setStickyStyle] = useState({});
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [screenMode, setScreenMode] = useState(0);
-  const [activeSection, setActiveSection] = useState(
+	const [stickyStyle, setStickyStyle] = useState({});
+	const [scrollPosition, setScrollPosition] = useState(0);
+	const [screenMode, setScreenMode] = useState(0);
+	const [activeSection, setActiveSection] = useState(
 		sections.find(s => s.chapter === chapter)
 	);
-  const [activeMainSection, setActiveMainSection] = useState(
+	const [activeMainSection, setActiveMainSection] = useState(
 		sections.find(s => s.chapter === chapter)
 	);
-  const [activeMainSectionClosed, setActiveMainSectionClosed] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSubPage, setActiveSubPage] = useState('');
-  const [isMounted, setIsMounted] = useState(false);
-  const [isLarger, setIsLarger] = useState('');
+	const [activeMainSectionClosed, setActiveMainSectionClosed] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [activeSubPage, setActiveSubPage] = useState('');
+	const [isMounted, setIsMounted] = useState(false);
+	const [isLarger, setIsLarger] = useState('');
 	const [isTabActive, setIsTabActive] = useState('');
 
-  useEffect(() => {
-    const resizeWindow = () => {
-      const newMode = checkAfgScreenMode(window.innerWidth);
-      if (newMode !== screenMode) {
-        setScreenMode(newMode);
-      }
-    };
+	useEffect(() => {
+		const resizeWindow = () => {
+			const newMode = checkAfgScreenMode(window.innerWidth);
+			if (newMode !== screenMode) {
+				setScreenMode(newMode);
+			}
+		};
 
 		resizeWindow();
 		window.addEventListener('resize', resizeWindow);
@@ -161,56 +161,64 @@ const AfgNav = ({ chapter }) => {
 		setIsMounted(true);
 	}, []);
 
-  useEffect(() => {
-    setScrollPosition(window.pageYOffset);
+	useEffect(() => {
+		setScrollPosition(window.pageYOffset);
 
-    const scrollPositionListener = () => {
-      setScrollPosition(window.pageYOffset);
-    };
+		const scrollPositionListener = () => {
+			setScrollPosition(window.pageYOffset);
+		};
 
-    const scrollListener = () => {
-      if (window.pageYOffset > 26) {
-        if (screenMode >= ScreenModeEnum.desktop && window.pageYOffset > scrollPosition) {
-          setStickyStyle({});
-        } else {
-          setStickyStyle({ position: 'sticky', top: 50 });
-        }
-      } else {
-        setStickyStyle({});
-      }
-    };
+		const scrollListener = () => {
+			if (window.pageYOffset > 26) {
+				if (
+					screenMode >= ScreenModeEnum.desktop &&
+					window.pageYOffset > scrollPosition
+				) {
+					setStickyStyle({});
+				} else {
+					setStickyStyle({ position: 'sticky', top: 50 });
+				}
+			} else {
+				setStickyStyle({});
+			}
+		};
 
-    window.addEventListener('scroll', scrollPositionListener);
-    window.addEventListener('scroll', scrollListener);
-  }, [scrollPosition]);
+		window.addEventListener('scroll', scrollPositionListener);
+		window.addEventListener('scroll', scrollListener);
+	}, [scrollPosition]);
 
-  const handleActiveSectionChange = (e) => {
-    const section = sections.find((s) => s.name === e.target.textContent);
+	const handleActiveSectionChange = e => {
+		const section = sections.find(s => s.name === e.target.textContent);
 
-    if (activeSection
-      && activeMainSection
-      && section.name === activeMainSection.name
-      && activeSection.name === activeMainSection.name
-    ) {
-      setActiveMainSectionClosed((prevState) => !prevState);
-    } else if (activeSection && section.name === activeSection.name) {
-      setActiveSection(activeMainSection);
-      setActiveMainSectionClosed(false);
-    } else {
-      setActiveSection(section);
-      setActiveMainSectionClosed(false);
-    }
+		if (
+			activeSection &&
+			activeMainSection &&
+			section.name === activeMainSection.name &&
+			activeSection.name === activeMainSection.name
+		) {
+			setActiveMainSectionClosed(prevState => !prevState);
+		} else if (activeSection && section.name === activeSection.name) {
+			setActiveSection(activeMainSection);
+			setActiveMainSectionClosed(false);
+		} else {
+			setActiveSection(section);
+			setActiveMainSectionClosed(false);
+		}
 
-    setActiveSection(activeSection && section.name === activeSection.name ? activeMainSection : section);
+		setActiveSection(
+			activeSection && section.name === activeSection.name
+				? activeMainSection
+				: section
+		);
 
-    if (
+		if (
 			activeMainSection &&
 			activeSection &&
 			activeSection.name !== activeMainSection.name
 		) {
 			setIsLarger(section.name);
 		}
-  };
+	};
 
 	const handleEnterPress = e => {
 		if (e.key == 'Enter') {
@@ -235,12 +243,12 @@ const AfgNav = ({ chapter }) => {
 		setIsMenuOpen(prevState => !prevState);
 		setActiveSection(activeMainSection);
 	};
-  
-  const handleMouseEnter = (e) => {
+
+	const handleMouseEnter = e => {
 		setIsLarger(e.target.textContent);
 	};
-  
-  const handleMouseLeave = () => {
+
+	const handleMouseLeave = () => {
 		setIsLarger(activeMainSection ? activeMainSection.name : '');
 	};
 
@@ -251,8 +259,7 @@ const AfgNav = ({ chapter }) => {
 					? style.chapterNavContainerClosed
 					: style.chapterNavContainerOpen
 			}`}
-      style={stickyStyle}
-    >
+			style={{ ...stickyStyle, display: isMounted ? 'block' : 'none' }}>
 			<nav className={style.chapterNav}>
 				<ul className={style.chapterNavPrimaryList}>
 					<li
@@ -265,8 +272,7 @@ const AfgNav = ({ chapter }) => {
             `}
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
-						onKeyUp={handleTabEnter}
-          >
+						onKeyUp={handleTabEnter}>
 						<div className={style.sectionName}>
 							<a
 								href="/americas-finance-guide/"
@@ -277,20 +283,24 @@ const AfgNav = ({ chapter }) => {
 									!activeMainSection
 										? { fontSize: '1rem' }
 										: {}
-								}
-              >
+								}>
 								<FontAwesomeIcon icon={faHome} className="fas fa-home" width={8} />
 								<span tabIndex={0}>Overview</span>
 							</a>
-							{screenMode >= ScreenModeEnum.desktop && (isLarger === 'Overview' || !activeMainSection) && <div className={style.sectionNameExtension} />}
+							{screenMode >= ScreenModeEnum.desktop &&
+								(isLarger === 'Overview' || !activeMainSection) && (
+									<div className={style.sectionNameExtension} />
+								)}
 						</div>
 					</li>
 					{screenMode >= ScreenModeEnum.desktop &&
-						sections.map((section) => {
-							const isActive = activeSection && activeSection.chapter === section.chapter;
-							const isMainSection = activeMainSection && activeMainSection.chapter === section.chapter;
+						sections.map(section => {
+							const isActive =
+								activeSection && activeSection.chapter === section.chapter;
+							const isMainSection =
+								activeMainSection && activeMainSection.chapter === section.chapter;
 							const subpageSection = activeSection
-								? sections.find((sec) => sec.chapter === activeSection.chapter)
+								? sections.find(sec => sec.chapter === activeSection.chapter)
 								: { chapter: '', pages: [] };
 
 							const activeSubPageStyle = {
@@ -314,7 +324,9 @@ const AfgNav = ({ chapter }) => {
 								width: 0,
 							};
 
-              const larger = isLarger === section.name || (activeMainSection && activeMainSection.name === section.name);
+							const larger =
+								isLarger === section.name ||
+								(activeMainSection && activeMainSection.name === section.name);
 
 							return (
 								<>
@@ -440,8 +452,7 @@ const AfgNav = ({ chapter }) => {
 											tabIndex={0}
 											onClick={handleActiveSectionChange}
 											onKeyUp={handleEnterPress}
-											style={!isMenuOpen ? { fontSize: '1rem' } : {}}
-                    >
+											style={!isMenuOpen ? { fontSize: '1rem' } : {}}>
 											{activeSubPageName}
 											{screenMode >= ScreenModeEnum.desktop && (
 												<div className={style.sectionNameExtension} />
@@ -452,30 +463,34 @@ const AfgNav = ({ chapter }) => {
 										className={`${style.chapterNavSubPages} ${
 											!isMenuOpen || !isActive ? style.closed : ''
 										}`}
-										style={isActive && !activeMainSectionClosed ? activeSubPageStyle : inactiveSubPageStyle}
-                  >
+										style={
+											isActive && !activeMainSectionClosed
+												? activeSubPageStyle
+												: inactiveSubPageStyle
+										}>
 										<ul
 											className={
 												screenMode <= ScreenModeEnum.tablet && activeSection
 													? activeSection.transparentColorClass
 													: ''
-											}
-                    >
-											{subpageSection.pages.map((page) => (
+											}>
+											{subpageSection.pages.map(page => (
 												<li
 													className={`${style.subPage} ${
 														page.url === activeSubPage ? style.activeSubPage : ''
 													} ${!isMenuOpen || !isActive ? style.closed : ''}`}
-													style={isActive && !activeMainSectionClosed ? activeSubPageItemStyle : inactiveSubPageItemStyle}
-                        >
+													style={
+														isActive && !activeMainSectionClosed
+															? activeSubPageItemStyle
+															: inactiveSubPageItemStyle
+													}>
 													<a
 														className={
 															screenMode >= ScreenModeEnum.desktop
 																? activeSection.colorClass
 																: ''
 														}
-														href={page.url}
-                          >
+														href={page.url}>
 														{page.name}
 													</a>
 													<div className={style.subPageBorder} />
@@ -494,11 +509,7 @@ const AfgNav = ({ chapter }) => {
 				}`}>
 				<button className={style.mobileMenuButton} onClick={toggleMenu}>
 					{isMenuOpen ? (
-						<FontAwesomeIcon
-              icon={faAngleUp}
-              width={14}
-              className="fa fa-angle-up"
-            />
+						<FontAwesomeIcon icon={faAngleUp} width={14} className="fa fa-angle-up" />
 					) : (
 						<FontAwesomeIcon
 							icon={faAngleDown}
