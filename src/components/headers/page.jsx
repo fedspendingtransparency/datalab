@@ -155,6 +155,10 @@ export default class PageHeader extends React.Component {
 		}
 	};
 
+	afgRedirect = () => {
+		window.location.href = '/americas-finance-guide/';
+	};
+
 	aboutUsRedirect = () => {
 		window.location.href = '/about/';
 	};
@@ -167,7 +171,6 @@ export default class PageHeader extends React.Component {
 			activeItem,
 			showMenu,
 			showMobileMenu,
-			isMobileTag,
 			scrollButtonVisible,
 		} = this.state;
 
@@ -216,16 +219,9 @@ export default class PageHeader extends React.Component {
 											</span>
 										</button>
 									</li>
-									<li
-										className={styles.item}
-										onMouseOver={this.activateMenu}
-										onFocus={this.focusMenu}
-										onKeyDown={this.handleKeyPress}>
-										<button className={styles.anchor}>
+									<li className={styles.item}>
+										<button onClick={this.afgRedirect} className={styles.anchor}>
 											America's Finance Guide
-											<span className={styles.arrow}>
-												<Arrow />
-											</span>
 										</button>
 									</li>
 									<li
