@@ -120,8 +120,7 @@ export default {
     {
       accordionTitles: [
         <>
-          Is there a data dictionary, glossary of terms, or other meta
-          information on the fields available for download?
+          Is there a data dictionary or other meta information on the fields available for download?
         </>,
         <>How can I get agency data?</>,
       ],
