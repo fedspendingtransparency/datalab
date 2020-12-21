@@ -7,9 +7,7 @@ import {
 	faAngleUp,
 } from '@fortawesome/free-solid-svg-icons';
 import { checkAfgScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
-import { lg } from 'src/styles/variables.scss';
 import style from './afg-nav.module.scss';
-import * as d3 from 'd3v3';
 
 const AfgNav = ({ chapter }) => {
 	const sections = [
@@ -370,11 +368,8 @@ const AfgNav = ({ chapter }) => {
 												<li
 													className={`${style.subPage} ${
 														page.url === activeSubPage ? style.activeSubPage : ''
-													} ${
-														screenMode > ScreenModeEnum.tablet || !isMenuOpen
-															? style.closed
-															: ''
-													}`}
+													} ${activeSection.colorClass}
+													${screenMode > ScreenModeEnum.tablet || !isMenuOpen ? style.closed : ''}`}
 													style={
 														isActive && isMounted
 															? activeSubPageItemStyle
