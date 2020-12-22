@@ -8,28 +8,33 @@ const incomeConfig = {
   amountField: 'revenue_usd',
   gdpField: 'revenue_gdp',
   amountLabel: 'Revenue',
-  sourceFields: ['revenue_source', 'gdp_source'],
+  sourceFields: ['source'],
   chapter: 'revenue',
   primaryColor: colors.revenuePrimary,
   defaultCountries: [{
     display: 'United States',
     plainName: 'United States',
-  }, {
-    display: 'China',
-    plainName: 'China',
-  }, {
-    display: 'Japan',
-    plainName: 'Japan',
-  }, {
+  },
+  //   {
+  //   display: 'China',
+  //   plainName: 'China',
+  // },
+  //   {
+  //   display: 'Japan',
+  //   plainName: 'Japan',
+  // },
+    {
     display: 'Germany',
     plainName: 'Germany',
   }, {
     display: 'United Kingdom',
     plainName: 'United Kingdom',
-  }, {
-    display: 'India',
-    plainName: 'India',
-  }, {
+  },
+  //   {
+  //   display: 'India',
+  //   plainName: 'India',
+  // },
+    {
     display: 'France',
     plainName: 'France',
   }],
@@ -44,6 +49,8 @@ const RevenueCountryComparison = () => {
     const [width, setWidth] = useState(window.innerWidth);
 
     const init = () => {
+      console.log('CountryData', CountryData)
+      console.log('incomeConfig', incomeConfig)
       loadSourceData(CountryData);
       chartInit(incomeConfig);
     };
