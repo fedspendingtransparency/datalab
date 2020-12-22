@@ -65,7 +65,6 @@ $mdGrey: #555555;
     display: flex;
     align-items: flex-end;
     height: 40px;
-    font-size: 1rem;
     font-weight: bold;
     font-style: italic;
     color: black;
@@ -120,11 +119,11 @@ $mdGrey: #555555;
   }
 
   .faded {
-    opacity: 0.7;
+    opacity: 0.6;
     
     &:not(.number) {
       font-style: italic;
-      font-weight: 400;
+      font-weight: 300;
     }
   }
 }
@@ -189,6 +188,7 @@ $mdGrey: #555555;
 
   .coming-soon {
     align-items: center;
+    font-size: 0.75rem;
   }
 }
 
