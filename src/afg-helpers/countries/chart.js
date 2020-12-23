@@ -122,7 +122,6 @@ function addBarGroups() {
 }
 
 function setScales() {
-    console.log('in setScales, data', data);
     const amountVals = data.map(r => Math.abs(r[config.amountField])),
         min = d3.min([0, d3.min(amountVals)]),
         max = d3.max(amountVals) * 1.15;
@@ -425,7 +424,6 @@ export function refreshData(sortField, countriesUpdated, isMobileInd) {
 }
 
 function redraw() {
-    console.log('in redraw, data', data);
     establishContainers();
     ink(containers, dimensions, data.length);
     setScales();

@@ -71,8 +71,6 @@ export function getSources() {
 
 export function prepareData(_config) {
     config = _config;
-
-    console.log('in prepareData, config.amountField', config.amountField );
     activeSortField = config.amountField;
 
     sourceData.forEach(r => {
@@ -106,8 +104,6 @@ export function prepareData(_config) {
 }
 
 export function setData(sortField, countriesUpdated) {
-    // console.log('sortField', sortField);
-    // console.log('countriesUpdated', countriesUpdated);
     if (!countriesUpdated) {
         setSort(sortField);
     }

@@ -4,7 +4,7 @@ import { loadSourceData } from '../../../afg-helpers/countries/data';
 import { chartInit } from '../../../afg-helpers/countries/chart';
 import CountryData from '../../../../static/americas-finance-guide/data/revenue_country_comparison.csv';
 
-const incomeConfig = {
+const revenueConfig = {
   amountField: 'revenue_usd',
   gdpField: 'revenue_gdp',
   amountLabel: 'Revenue',
@@ -14,29 +14,24 @@ const incomeConfig = {
   defaultCountries: [{
     display: 'United States',
     plainName: 'United States',
-  },
-  //   {
-  //   display: 'China',
-  //   plainName: 'China',
-  // },
-  //   {
-  //   display: 'Japan',
-  //   plainName: 'Japan',
-  // },
-    {
+  }, {
     display: 'Germany',
     plainName: 'Germany',
   }, {
     display: 'United Kingdom',
     plainName: 'United Kingdom',
-  },
-  //   {
-  //   display: 'India',
-  //   plainName: 'India',
-  // },
-    {
+  }, {
     display: 'France',
     plainName: 'France',
+  }, {
+    display: 'Australia',
+    plainName: 'Australia',
+  }, {
+    display: 'Korea',
+    plainName: 'Korea',
+  }, {
+    display: 'Canada',
+    plainName: 'Canada',
   }],
   accessibilityAttrs: {
     title: 'Federal Revenue Country Comparison',
@@ -49,10 +44,8 @@ const RevenueCountryComparison = () => {
     const [width, setWidth] = useState(window.innerWidth);
 
     const init = () => {
-      console.log('CountryData', CountryData)
-      console.log('incomeConfig', incomeConfig)
       loadSourceData(CountryData);
-      chartInit(incomeConfig);
+      chartInit(revenueConfig);
     };
 
     const handleResize = () => {
