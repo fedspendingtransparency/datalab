@@ -3,17 +3,19 @@
 @import '../../../styles/afg/generalVars';
 
 .deficit-debt-heading {
-    background: url('/americas-finance-guide/images/deficit-debt-image.jpg') 0 0 no-repeat;
+    background: url('/americas-finance-guide/images/deficit_debt_image.png') 0 0 no-repeat;
     background-size: cover;
     width: 100%;
-    padding: 1rem;
+    padding: 35px 15px 0;
     background-color: #FFF;
     box-sizing: border-box;
+    border-radius: 5px;
 }
 
 .deficit-debt-heading__arrow-container {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 15px;
+    font-size: 1.875rem;
 
     a {
         color:$text-color-paragraph;
@@ -26,15 +28,18 @@
 }
 
 .deficit-debt-heading__heading {
-    @include baseHeader();
+    font-size: 2.5rem;
+    font-weight: 300;
     background: #fff;
+    color: #555;
     margin: 0 auto;
     max-width: 1000px;
-    padding: 0 1rem;
+    padding: 25px 30px;
+    line-height: normal;
 
     strong, span {
         font-weight: $heavyBoldWeight;
-        font-size: $baseHeaderSize;
+        font-size: 2.5rem;
     }
 }
 
@@ -47,11 +52,21 @@
 }
 
 @media only screen and (min-width: 800px) {
-    .deficit-debt-heading {
-        padding: 4rem 2rem 2rem;
+    .deficit-debt-heading__heading {
+        max-width: 750px;
     }
+}
 
-    .deficit-debt-heading__heading, .deficit-debt-heading__heading span {
-        @include baseHeaderDesktop();
+@media only screen and (max-width: 799px) {
+    .deficit-debt-heading__heading {
+        font-size: 2rem;
+
+        .chapter__divider--text-deficit {
+            font-size: 2rem;
+        }
+        
+        .chapter__divider--text-debt {
+            font-size: 2rem;
+        }
     }
 }

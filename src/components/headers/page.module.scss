@@ -11,10 +11,10 @@
 
 @keyframes smoothy {
     0% {
-	transform: translateY(-50px);
+        transform: translateY(-50px);
     }
     100% {
-	transform: translateY(0px);
+        transform: translateY(0px);
     }
 }
 
@@ -43,42 +43,55 @@
     height: 30px;
 
     .anchor {
-	position: relative;
-	border: none;
-	background-color: transparent;
-	cursor: pointer;
-	text-decoration: none;
-	color: #666;
-	padding-top: 0.125rem; // 2px;
+        position: relative;
+        border: none;
+        font-family: 'Source Sans Pro';
+        font-size: 0.875rem;
+        letter-spacing: 0.97px;
+        background-color: transparent;
+        cursor: pointer;
+        text-decoration: none;
+        color: #666;
+        padding-top: 0.125rem; // 2px;
 
-	&:hover,
-	&:focus {
-	    color: #046b99;
-	    border-bottom: 2px solid #046b99;
-	    padding-bottom: 0.4375rem; // 7pxpx
-	}
+        &:hover,
+        &:focus {
+            color: #046b99;
+            border-bottom: 2px solid #046b99;
+            padding-bottom: 0.4375rem; // 7pxpx
+        }
+
+        svg {
+            margin: 0 7px;
+        }
     }
 
     .glossary {
-	position: relative;
+        position: relative;
     }
 
     .arrow {
-	font-weight: 800;
+        font-weight: 800;
     }
 
     #burger-menu {
-	display: flex;
-	list-style: none;
-	font-size: 0.8125rem;
-	padding: 0;
-	margin-top: 0.1rem;
+        display: flex;
+        list-style: none;
+        font-size: 0.8125rem;
+        padding: 0;
+        margin-top: 0.1rem;
 
-	.item {
-	    font-size: 0.9375rem;
-	    padding-left: 30px;
-	    padding-right: 30px;
-	}
+        .item {
+            padding-left: 24px;
+
+            &:first-of-type {
+                margin-left: 12px;
+            }
+
+            button {
+                font-size: 1rem;
+            }
+        }
     }
 } // end header-nav
 
@@ -139,17 +152,17 @@ ul.ul-nav {
     background-color: #f9f9f9;
 
     ul.ul-dropdown > li.secondaryNavli > a {
-	text-decoration: none;
-	color: #666;
+        text-decoration: none;
+        color: #666;
     }
 
     .secondaryNavli {
-	float: left;
-	font-size: 0.8125rem;
-	white-space: nowrap;
-	padding-left: 2rem;
-	padding-right: 2rem;
-	width: 100%;
+        float: left;
+        font-size: 0.8125rem;
+        white-space: nowrap;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        width: 100%;
     }
 } // end header sub
 
@@ -180,105 +193,105 @@ ul.ul-nav {
     padding-bottom: 0.25rem;
 
     .ul {
-	list-style-type: none;
-	justify-content: center;
-	font-size: 0.875rem;
-	padding-top: 25px;
-	padding-bottom: 25px;
-	margin: 0;
+        list-style-type: none;
+        justify-content: center;
+        font-size: 0.875rem;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        margin: 0;
 
-	.li {
-	    padding-top: 0.5rem;
-	    padding-bottom: 0.5rem;
-	    font-weight: 300;
-	}
+        .li {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            font-weight: 300;
+        }
     }
 
     .ul-analyses {
-	padding: 0;
+        padding: 0;
     }
 
     // specific for FFG section as they have headers.
     .section {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	height: 100%;
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
-	padding-top: 25px;
-	padding-bottom: 25px;
-	font-size: 0.875rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        font-size: 0.875rem;
 
-	.ul-ffg {
-	    display: flex;
-	    flex-direction: column;
-	    list-style-type: none;
-	    justify-content: center;
-	    margin: 0;
-	    padding: 0;
-	}
+        .ul-ffg {
+            display: flex;
+            flex-direction: column;
+            list-style-type: none;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
 
-	.li {
-	    padding-top: 0.5rem;
-	    padding-bottom: 0.5rem;
-	    font-weight: 300;
-	}
+        .li {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            font-weight: 300;
+        }
 
-	.sectionTitle {
-	    margin: 0;
-	    padding-bottom: 0.5rem;
-	    color: #555555;
-	    font-size: 0.875rem; // 14px
-	    line-height: 18px;
-	}
+        .sectionTitle {
+            margin: 0;
+            padding-bottom: 0.5rem;
+            color: #555555;
+            font-size: 0.875rem; // 14px
+            line-height: 18px;
+        }
     }
 
     .a {
-	color: #555555;
+        color: #555555;
     }
 
     .a:hover {
-	color: #046b99;
+        color: #046b99;
     }
 }
 
 // data list modifiers for spacing
 .data-list {
     .analyses {
-	margin-right: 2rem;
+        margin-right: 2rem;
     }
 
     .resources {
-	margin-left: 31rem;
-	padding: 0;
-	justify-content: flex-end;
-	flex-direction: row;
+        margin-left: 350px;
+        padding: 0;
+        justify-content: flex-end;
+        flex-direction: row;
     }
     .ul-resources {
-	padding: 0;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-right: 20px;
-	padding-left: 20px;
+        padding: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 20px;
+        padding-left: 20px;
     }
     .express {
-	margin-right: 15rem;
-	padding: 0;
+        margin-right: 15rem;
+        padding: 0;
     }
     .ul-express {
-	padding: 0;
-	padding-top: 15px;
-	padding-bottom: 15px;
+        padding: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
     .glossary {
-	margin-left: 42rem;
-	padding: 0;
+        margin-left: 42rem;
+        padding: 0;
     }
     .ul-glossary {
-	padding: 0;
-	padding-top: 15px;
-	padding-bottom: 15px;
+        padding: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
 }
 
@@ -286,7 +299,7 @@ ul.ul-nav {
     font-size: 32px;
     display: none;
     &:hover {
-	cursor: pointer;
+        cursor: pointer;
     }
 }
 

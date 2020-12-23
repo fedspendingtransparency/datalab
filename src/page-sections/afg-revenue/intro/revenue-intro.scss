@@ -67,13 +67,11 @@
 
   @media only screen and (max-width: 959px) {
     .dotScale {
-      margin: 15px 0;
+      margin: 15px 0 0;
 
-      svg circle {
-        fill: #4a0072;
-      }
       span {
-        font-size: 0.875rem;
+        margin-right: 40px;
+        font-size: 0.75rem;
         color: #555;
       }
     }

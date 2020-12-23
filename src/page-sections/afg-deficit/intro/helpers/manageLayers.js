@@ -69,12 +69,6 @@ function zoom(out) {
   }
 }
 
-function showHideMath() {
-  if (!isMobileDevice()) {
-    d3.selectAll('.intro-math').classed('intro-math--hidden', activeCompare);
-  }
-}
-
 function doubleClickBlocker(id) {
   if (doubleClickBlock === id) {
     return true;
@@ -124,7 +118,6 @@ function toggleLayer(redraw, initialId) {
     activeCompare = null;
     toggleFacts();
     resizeSvg();
-    showHideMath();
     setAccessibility();
     setActiveLayer('');
     return;
@@ -156,7 +149,6 @@ function toggleLayer(redraw, initialId) {
 
   toggleFacts();
   resizeSvg();
-  showHideMath();
 }
 
 function initialDebtCompare(noDelay) {
@@ -325,9 +317,9 @@ export function setActiveLayer(id) {
 }
 
 export function resetLayers() {
-    if (activeCompare) {
-        setTimeout(toggleLayer, 1000, 'redraw', activeLayer);
-    }
+  if (activeCompare) {
+    setTimeout(toggleLayer, 1000, 'redraw', activeLayer);
+  }
 }
 
 export function layersInit(_config) {
@@ -335,7 +327,6 @@ export function layersInit(_config) {
   d3.selectAll('.facts__trigger').on('click', toggleLayer);
   zoom();
   deficitOnly();
-  setTimeout(showHideMath, duration * 2);
   setTimeout(revealHiddenElements, duration);
 
   const button = d3.select(`#data-trigger-${activeLayer}`);

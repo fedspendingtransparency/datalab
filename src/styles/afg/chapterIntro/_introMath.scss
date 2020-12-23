@@ -20,5 +20,9 @@
 @media screen and (max-width: 959px) {
     .intro-math {
         text-align: left;
+
+        svg {
+            margin-right: 6px;
+        }
     }
 }

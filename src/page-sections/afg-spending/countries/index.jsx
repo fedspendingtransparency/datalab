@@ -5,6 +5,7 @@ import { loadSourceData } from 'src/afg-helpers/countries/data';
 import { chartInit } from 'src/afg-helpers/countries/chart';
 import colors from 'src/styles/afg/colors.scss';
 import CountryData from '../../../../static/americas-finance-guide/data/spending_country_comparison.csv';
+import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 const spendingConfig = {
   amountField: 'spending_usd',
@@ -37,7 +38,7 @@ const spendingConfig = {
   }],
   accessibilityAttrs: {
     title: 'Federal Spending Country Comparison',
-    desc: 'The top five countries in terms of federal spending in 2017 were the United States with $4 Trillion (21% of its gross domestic product), China with $3.1 trillion (26%), Japan with $1.9 trillion (39%), Germany with $1.6 trillion (43%), and France with $1.5 trillion (59%). ',
+    desc: `${AfgData.country_compare_year.value} top five countries in terms of federal spending: United States ($4T), China ($3.1T) Japan ($1.9T) Germany ($1.6T) and France $1.5T.`,
   },
 };
 

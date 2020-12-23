@@ -3,6 +3,7 @@ import colors from 'src/styles/afg/colors.scss';
 import { loadSourceData } from '../../../afg-helpers/countries/data';
 import { chartInit } from '../../../afg-helpers/countries/chart';
 import CountryData from '../../../../static/americas-finance-guide/data/revenue_country_comparison.csv';
+import AfgData from "../../../../static/americas-finance-guide/_data/object_mapping.yml";
 
 const revenueConfig = {
   amountField: 'revenue_usd',
@@ -35,7 +36,7 @@ const revenueConfig = {
   }],
   accessibilityAttrs: {
     title: 'Federal Revenue Country Comparison',
-    desc: 'The top five countries in terms of federal revenue in 2019 were the United States with $3.5 trillion, 17% of its gross domestic product), China with $2.6 trillion (22%), Japan with $1.7 trillion (34%), Germany with $1.6 trillion (43%), and France with $1.4 trillion (56%).',
+    desc: `Top 5 countries in terms of federal revenue in ${AfgData.country_compare_year.value} were the United States ($3.3T), China ($2.6T) Japan ($1.7T) Germany ($1.6T) and France ($1.4T).`,
   },
 };
 

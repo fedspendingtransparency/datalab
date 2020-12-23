@@ -28,6 +28,7 @@ function generateOverlay(number, id, label, rectColor) {
   let overlayHeight = mainRectHeight + secondaryRectHeight;
   let mainY = 0;
   let secondaryY = mainRectHeight;
+  let sig = 3;
 
   overlayLayer.attr('opacity', 0);
 
@@ -35,6 +36,7 @@ function generateOverlay(number, id, label, rectColor) {
     mainY += secondaryRectHeight + deficitY1;
     secondaryY += secondaryRectHeight + deficitY1;
     overlayHeight += secondaryRectHeight + deficitY1;
+    sig = 4;
 
     overlayLayer.append('rect')
       .attr('width', debtRowOne * dotConstants.offset.x)
@@ -67,7 +69,7 @@ function generateOverlay(number, id, label, rectColor) {
   }
 
   if (!isMobileDevice()) {
-    labelMaker(overlayLayer, overlayHeight, label, labelAmount);
+    labelMaker(overlayLayer, overlayHeight, label, labelAmount, sig);
   }
 
   overlayLayer.attr('data-height', overlayHeight);
@@ -122,7 +124,7 @@ function createDeficitDots() {
   deficitRemainder = deficitDots.remainder;
   deficitY1 = deficitDots.y - 2;
 
-  deficitLabel(deficitDots.y, layers.deficit, config.reportedDeficitAmount);
+  deficitLabel(deficitDots.y, layers.deficit, config.reportedDeficitAmount, 3);
 }
 
 export function createLayers(c) {

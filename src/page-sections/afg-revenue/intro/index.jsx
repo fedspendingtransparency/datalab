@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
 import { initChart, initChartMobile } from '../../../afg-helpers/dots/revenue-and-spending/init';
 import colors from '../../../styles/afg/colors.scss';
 import revenueData from '../../../../static/americas-finance-guide/data/federal_revenue_gdp.csv';
-import { findAmountInCsv, isMobileDevice } from 'src/afg-helpers/utils';
+import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 import {
   resetForResize,
   setFactsTrigger,
   toggleFactsMobile,
   toggleSelectedFacts,
 } from '../../../afg-helpers/dots/revenue-and-spending/compareManager';
-import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
-const RevenueIntro = (props) => {
+const RevenueIntro = ({ selection }) => {
+  const defaultDesc = isMobileDevice()
+    ? `${AfgData.current_fy.value} federal revenue using dots, and each dot is equal to ${AfgData.dot_represents_mobile.value}. There are ${AfgData.dot_number_revenue_mobile.value} dots.`
+    : `${AfgData.current_fy.value} federal revenue using dots, and each dot is equal to ${AfgData.dot_represents.value}. There are ${AfgData.dot_number_revenue.value} dots.`;
+  const revenueDesc = isMobileDevice()
+    ? `${AfgData.current_fy.value} Federal revenue represented by dots, each dot totaling ${AfgData.dot_represents_mobile.value}, with federal spending box overlaying the dots, representing a ${AfgData.current_fy_deficit_short.value} deficit.`
+    : `${AfgData.current_fy.value} Federal revenue represented by dots, each dot totaling ${AfgData.dot_represents.value}, with federal spending box overlaying the dots, representing a ${AfgData.current_fy_deficit_short.value} deficit.`;
   const config = {
     anecdoteName: 'anecdote-revenue.svg',
     comparisonAmount: findAmountInCsv('federal spending', revenueData),
@@ -24,39 +30,37 @@ const RevenueIntro = (props) => {
     sectionColor: colors.revenuePrimary,
     accessibilityAttrs: {
       default: {
-        title: '2019 Federal Revenue',
-        desc: 'The image illustrates federal revenue in 2019 using dots, and each dot is equal to a billion dollars. There are 3,500 dots.',
+        title: `${AfgData.current_fy.value} Federal Revenue`,
+        desc: defaultDesc,
       },
       gdp: {
-        title: '2019 Federal Revenue and GDP',
-        desc: 'The U.S. economy, as measured by gross domestic product, produced $21.3 trillion worth of goods and services. In 2019, federal revenue was equivalent to 16% of gross domestic product.',
+        title: `${AfgData.current_fy.value} Federal Revenue and GDP`,
+        desc: `The U.S. economy, as measured by gross domestic product, in ${AfgData.current_fy.value} produced ${AfgData.current_fy_gdp.value} worth of goods and services.`,
       },
       spending: {
-        title: '2019 Federal Revenue and Spending',
-        desc: 'The image illustrates federal spending in 2019 using dots, and each dot is equal to a billion dollars. There are 4,400 dots. Due to rounding, there are 900 more spending dots than revenue dots, representing the deficit for 2019, $984 billion.',
+        title: `${AfgData.current_fy.value} Federal Revenue and Spending`,
+        desc: revenueDesc,
       },
     },
   };
 
   const [hasDotScale, setHasDotScale] = useState(false);
-  let debounce, previousWidth;
+  let debounce;
+  let previousWidth;
 
-  function resizeChart () {
+  function resizeChart() {
     resetForResize();
-    initChartMobile(config);
+    initChartMobile(config, selection);
 
     if (isMobileDevice()) {
-      toggleFactsMobile(props.selection);
-
+      toggleFactsMobile(selection);
     } else {
       setFactsTrigger();
 
-      if (props.selection) {
-        toggleSelectedFacts(props.selection);
-
+      if (selection) {
+        toggleSelectedFacts(selection);
       } else {
         setHasDotScale(true);
-
       }
     }
   }
@@ -64,20 +68,16 @@ const RevenueIntro = (props) => {
   useEffect(() => {
     resetForResize();
     if (isMobileDevice()) {
-      initChartMobile(config);
-      toggleFactsMobile(props.selection);
-
+      initChartMobile(config, selection);
+      toggleFactsMobile(selection);
+    } else if (selection) {
+      initChartMobile(config, selection);
+      setFactsTrigger();
+      toggleSelectedFacts(selection);
     } else {
-      if (props.selection) {
-        initChartMobile(config);
-        setFactsTrigger();
-        toggleSelectedFacts(props.selection);
-
-      } else {
-        initChart(config);
-        setFactsTrigger();
-        setHasDotScale(true);
-      }
+      initChart(config);
+      setFactsTrigger();
+      setHasDotScale(true);
     }
   }, []);
 
@@ -94,54 +94,82 @@ const RevenueIntro = (props) => {
       previousWidth = window.innerWidth;
 
       debounce = setTimeout(resizeChart, 100);
+    };
 
-    }
-
-    window.addEventListener('resize',resizeHandler);
+    window.addEventListener('resize', resizeHandler);
 
     return () => {
-      window.removeEventListener('resize',resizeHandler);
-    }
+      window.removeEventListener('resize', resizeHandler);
+    };
   });
 
   const topLegend = () => {
-    const label = props.selection ? props.selection === 'gdp' ? 'FY20 U.S. Gross Domestic Product' : 'Federal Spending' : '';
+    let label = '';
+    let fillColor = '#fff';
 
-    const isMobile = <div className='dotScale'>
-      <svg width='.75rem' height='1rem'>
-        <circle cx='3' cy='12' r='3' />
-      </svg>
-      <span>= {AfgData.dot_represents_mobile.value}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      <svg fill={props.selection ? props.selection === 'gdp' ? '#dddddd' : '#a6c9c4' : '#fff'}
-           width='10px'
-           height='10px'>
-        <rect width='10' height='10' />
-      </svg>
-      <span>&nbsp;&nbsp;{label}</span>
-    </div>
+    if (selection) {
+      if (selection === 'gdp') {
+        label = 'FY20 U.S. Gross Domestic Product';
+        fillColor = '#dddddd';
+      } else {
+        label = 'Federal Spending';
+        fillColor = '#a6c9c4';
+      }
+    }
 
-    const isDesktop = <div className='dotScale'>
-      <svg width='.75rem' height='1rem'>
-        <circle cx='3' cy='12' r='3' />
-      </svg>
-      <span>= {AfgData.dot_represents.value}</span>
-    </div>
+    const isMobile = (
+      <div className="dotScale">
+        <svg width=".75rem" height="1rem">
+          <circle cx="3" cy="12" r="3" fill={colors.revenuePrimary} />
+        </svg>
+        <span>
+          =
+          {' '}
+          {AfgData.dot_represents_mobile.value}
+        </span>
+        <svg
+          fill={fillColor}
+          width="10px"
+          height="10px"
+        >
+          <rect width="10" height="10" />
+        </svg>
+        <span>
+          {' '}
+          {label}
+        </span>
+      </div>
+    );
 
-    let toRender = <></>
+    const isDesktop = (
+      <div className="dotScale">
+        <svg width=".75rem" height="1rem">
+          <circle cx="3" cy="12" r="3" />
+        </svg>
+        <span>
+          =
+          {' '}
+          {AfgData.dot_represents.value}
+        </span>
+      </div>
+    );
 
-    if(!isMobileDevice() && !hasDotScale) {
+    let toRender = <></>;
+
+    if (!isMobileDevice() && !hasDotScale) {
       toRender = isDesktop;
-    }	else if (isMobileDevice()) {
+    } else if (isMobileDevice()) {
       toRender = isMobile;
     }
 
     return toRender;
-  }
+  };
 
-  return (<>
-    {topLegend()}
-    <div id="viz"></div>
-  </>
+  return (
+    <>
+      {topLegend()}
+      <div id="viz" />
+    </>
   );
 };
 
