@@ -28,6 +28,7 @@ const d3 = {
   axisBottom,
   transition,
 };
+
 const dimensions = {
   chartWidth: 800,
   rowHeight: 72,
@@ -37,6 +38,7 @@ const dimensions = {
   header: 50,
   barYOffset: 3,
 };
+
 const addRemoveDuration = 1000;
 const barFadeTime = 1000;
 const scales = {};
