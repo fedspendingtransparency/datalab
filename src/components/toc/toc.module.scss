@@ -36,9 +36,43 @@ $mdGrey: #555555;
     margin-top: 10px;
   }
 
+  .new-flag-container {
+    display: flex;
+    align-items: center;
+    height: 40px;
+
+    .new-flag {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      color: #fff;
+      background-color: $legacyBlue;
+      text-transform: uppercase;
+      font-weight: bold;
+  
+      &:before {
+        content: "";
+        height: 0;
+        left: 0;
+        position: absolute;
+        width: 0;
+      }
+    }
+  }
+
+  .coming-soon {
+    display: flex;
+    align-items: flex-end;
+    height: 40px;
+    font-weight: bold;
+    font-style: italic;
+    color: black;
+  }
+
   .legacy-anchor:hover {
     color: $legacyBlue;
-    * {
+    .a {
       color: $legacyBlue !important;
       text-decoration: underline;
     }
@@ -46,7 +80,7 @@ $mdGrey: #555555;
 
   .colleges-and-universities-anchor:hover {
     color: $cuRed;
-    * {
+    .a {
       color: $cuRed !important;
       text-decoration: underline;
     }
@@ -54,7 +88,7 @@ $mdGrey: #555555;
 
   .federal-covid-funding-anchor:hover {
     color: $covidPurple;
-    * {
+    .a {
       color: $covidPurple !important;
       text-decoration: underline;
     }
@@ -62,7 +96,7 @@ $mdGrey: #555555;
 
   .homelessness-analysis-anchor:hover {
     color: $homelessAnalysisPurple;
-    * {
+    .a {
       color: $homelessAnalysisPurple !important;
       text-decoration: underline;
     }
@@ -83,6 +117,15 @@ $mdGrey: #555555;
   .homelessness-analysis-section {
     color: $homelessAnalysisPurple;
   }
+
+  .faded {
+    opacity: 0.6;
+    
+    &:not(.number) {
+      font-style: italic;
+      font-weight: 300;
+    }
+  }
 }
 
 
@@ -91,6 +134,10 @@ $mdGrey: #555555;
   #TOC {
     margin-top: $margin-75;
     margin-bottom: $margin-100;
+
+    .content {
+      flex-direction: column;
+    }
 
     .container {
       justify-content: space-around;
@@ -102,6 +149,46 @@ $mdGrey: #555555;
     .tile {
       padding: 1rem 1.5rem;
     }
+
+    .a {
+      margin-top: 10px;
+    }
+
+    .new-flag-container {
+      width: 100%;
+
+      .new-flag {
+        height: 30px;
+        width: 44px;
+        font-size: 1rem;
+
+        &::before {
+          border-top: 12px solid $legacyBlue;
+          border-left: 22px solid transparent;
+          border-right: 22px solid transparent;
+          top: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $desktop - 1) {
+  .new-flag {
+    height: 25px;
+    width: 36px;
+
+    &::before {
+      border-top: 8px solid $legacyBlue;
+      border-left: 18px solid transparent;
+      border-right: 18px solid transparent;
+      top: 25px;
+    }
+  }
+
+  .coming-soon {
+    align-items: center;
+    font-size: 0.75rem;
   }
 }
 
@@ -118,6 +205,10 @@ $mdGrey: #555555;
       }
     }
 
+    .content {
+      flex-direction: column;
+    }
+
     .a {
       max-width: 250px;
     }
@@ -126,7 +217,7 @@ $mdGrey: #555555;
       min-height: 50%;
 
       &:nth-child(even) {
-        a {
+        .link-container {
           flex-direction: row-reverse;
         }
       }
@@ -135,12 +226,12 @@ $mdGrey: #555555;
         border-right: none;
       }
 
-      a {
+      .link-container {
         display: flex;
         height: 100%;
 
         .content {
-          padding: 1rem 0 1.875rem;
+          padding-bottom: 1.875rem;
         }
 
         .bottom-border {
@@ -151,10 +242,18 @@ $mdGrey: #555555;
           border-right: 1px solid $light-grey-border;
         }
 
+        .top-padding {
+          padding-top: 20px;
+        }
+
         .tablet-divider {
           width: 15px;
         }
       }
+    }
+
+    .new-flag-container {
+      align-items: flex-start;
     }
   }
 }
@@ -162,7 +261,8 @@ $mdGrey: #555555;
 @media (max-width: $tablet - 1) {
   #TOC {
     .a {
-      width: 100%;
+      display: flex;
+      flex-grow: 1;
     }
     .tile {
       border-right: unset;
@@ -181,6 +281,10 @@ $mdGrey: #555555;
     margin-bottom: $margin-25;
     margin-top: $margin-25;
 
+    .content {
+      margin-bottom: 10px;
+    }
+
     .tile {
       padding: 0;
       border: none;
@@ -192,12 +296,28 @@ $mdGrey: #555555;
       font-size: 1.5rem;
       line-height: 3.125rem;
       margin: 0;
+      max-width: 40px;
+      min-width: 40px;
     }
     .section {
       margin: auto 0;
     }
     .blurb {
       text-transform: uppercase;
+    }
+
+    .new-flag-container {
+      height: 50px;
+      align-items: center;
+      
+      .new-flag {
+        width: 36px;
+        margin-right: 14px;
+      }
+
+      .coming-soon  {
+        height: 22px;
+      }
     }
   }
 }
