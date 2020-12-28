@@ -56,9 +56,6 @@ class MobileMenu extends React.Component {
       } else if (name === 'Resources') {
         this.handleClick('Resources');
         document.getElementById('resourcesBtn').focus();
-      } else if (name === "America's Finance Guide") {
-        this.handleClick("America's Finance Guide");
-        document.getElementById('afgBtn').focus();
       } else {
         return null;
       }
@@ -69,8 +66,6 @@ class MobileMenu extends React.Component {
           this.handleClick('Analyses');
         } else if (name === 'Resources') {
           this.handleClick('Resources');
-        } else if (name === "America's Finance Guide") {
-          this.handleClick("America's Finance Guide");
         } else {
           return null;
         }
