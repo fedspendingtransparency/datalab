@@ -56,9 +56,6 @@ class MobileMenu extends React.Component {
       } else if (name === 'Resources') {
         this.handleClick('Resources');
         document.getElementById('resourcesBtn').focus();
-      } else if (name === "America's Finance Guide") {
-        this.handleClick("America's Finance Guide");
-        document.getElementById('afgBtn').focus();
       } else {
         return null;
       }
@@ -69,8 +66,6 @@ class MobileMenu extends React.Component {
           this.handleClick('Analyses');
         } else if (name === 'Resources') {
           this.handleClick('Resources');
-        } else if (name === "America's Finance Guide") {
-          this.handleClick("America's Finance Guide");
         } else {
           return null;
         }
@@ -125,37 +120,13 @@ class MobileMenu extends React.Component {
               <ul id="analyses" className={`${styles.toggleList} ${this.state.analysesCheck ? '' : ` ${styles.hidden}`}`}>{this.returnActiveList(this.state.data[0].analyses, 'Analyses')}</ul>
             </div>
             <div>
-              <li className={styles.item} data-id="2" onClick={() => this.handleClick("America's Finance Guide")}>
-                <button id="afgBtn" className={styles.mobileMenuBtn}>
-                  America's Finance Guide
-                  <span className={styles.arrow} onClick={() => this.handleClick("America's Finance Guide")}>
-                    {' '}
-                    <Arrow />
-                  </span>
-                </button>
+              <li className={styles.item} data-id="2" id="afg">
+                <Link to="/americas-finance-guide/">
+                  <button id="afgBtn" className={styles.mobileMenuBtn} tabIndex={-1}>
+                    America's Finance Guide
+                  </button>
+                </Link>
               </li>
-              <ul id="afg" className={`${styles.toggleList} ${this.state.afgCheck ? '' : styles.hidden}`}>
-                <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
-                  <Link to="/americas-finance-guide/" id="menu-first-item" className={styles.dataListA}>Overview</Link>
-                </li>
-                <hr className={styles.mobileHr} />
-                <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
-                  <Link to="/americas-finance-guide/revenue/" className={styles.dataListA}>Revenue</Link>
-                </li>
-                <hr className={styles.mobileHr} />
-                <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
-                  <Link to="/americas-finance-guide/spending/" className={styles.dataListA}>Spending</Link>
-                </li>
-                <hr className={styles.mobileHr} />
-                <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
-                  <Link to="/americas-finance-guide/deficit/" className={styles.dataListA}>Deficit</Link>
-                </li>
-                <hr className={styles.mobileHr} />
-                <li className={styles.dataListLi} onKeyDown={(e) => this.sublistTab(e, "America's Finance Guide")}>
-                  <Link to="/americas-finance-guide/debt/" id="menu-last-item" className={styles.dataListA}>Debt</Link>
-                </li>
-                <hr className={styles.mobileHr} />
-              </ul>
             </div>
             <div>
               <li className={styles.item} data-id="3" onClick={() => this.handleClick('Resources')}>
