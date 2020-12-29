@@ -1,9 +1,8 @@
 @import "../../styles/variables.scss";
 
 .main-container {
-  position: sticky;
-  top: 50%;
-  transform: translate(0, -50%);
+  position: fixed;
+  height: 100%;
   z-index: 10;
 
   .section-container {
@@ -33,6 +32,11 @@
       &:hover {
         cursor: pointer;
       }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #888;
+      }
     }
     
     .label {
@@ -55,6 +59,28 @@
         border-top: 10px solid transparent;
         border-bottom: 10px solid transparent;
       }
+
+      &.fade {
+        opacity: 0;
+        transition: opacity 500ms;
+      }
+    }
+  }
+}
+
+// @media screen and (min-width: $desktop) {
+//   .main-container {
+//     transform: translate(0, -50%);
+//   }
+// }
+
+@media screen and (max-width: $desktop - 1) {
+  .main-container {
+    right: 15px;
+    width: 50px;
+
+    .label {
+      display: none;
     }
   }
 }

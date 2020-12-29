@@ -7,16 +7,21 @@ import styles from './scrolling-circles.module.scss';
 const ScrollingCircles = ({ sections }) => {
   const [activeSection, setActiveSection] = useState(sections[0].anchor);
   const [fillColor, setFillColor] = useState(legacy);
+  const [top, setTop] = useState(106);
+  const [fadeClass, setFadeClass] = useState('');
 
-  const sectionScrollPositions = [];
+  const [positions, setPositions] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const pathname = window.location.pathname.split('/').join('');
     setFillColor(pageColorMap[pathname]);
 
+    const sectionScrollPositions = [];
     sections.forEach((section) => {
       const target = document.getElementById(`section-${section.anchor}`);
-      const callback = (entries) => {
+
+      const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           const id = entry.target.id.split('-')[1];
           const { top, bottom } = entry.boundingClientRect;
@@ -28,32 +33,42 @@ const ScrollingCircles = ({ sections }) => {
               bottom,
             });
           }
+
+          setPositions(sectionScrollPositions);
         });
-      };
-      
-      const observer = new IntersectionObserver(callback);
+      });
+
       observer.observe(target);
-      console.log('observing')
     });
 
-    
     window.addEventListener('scroll', () => {
       const scrollPositions = sectionScrollPositions.sort((a, b) => a.bottom - b.bottom);
       const newActiveSection = scrollPositions.find((s) => s.bottom > window.pageYOffset);
-      if (newActiveSection) setActiveSection(newActiveSection.id);
+
+      if (newActiveSection) {
+        setActiveSection(newActiveSection.id);
+      }
+
+      if (window.pageYOffset <= 26) setTop(106 - window.pageYOffset);
     });
   }, []);
 
-  const scrollToSection = (id) => {
-    console.log(id, sectionScrollPositions)
-    const section = sectionScrollPositions.find((s) => s.id === id);
-    window.scrollTo(section.top);
+  useEffect(() => {
+    setFadeClass('');
+    setTimeout(() => {
+      setFadeClass(styles.fade);
+    }, 2000);
+  }, [activeSection]);
+
+  const scrollToSection = (id, e) => {
+    if (!e || e.key === 'Enter') {
+      const section = positions.find((s) => s.id === id);
+      window.scrollTo(0, section.top + 10);
+    }
   };
 
-  console.log(sectionScrollPositions)
-
   return (
-    <div className={styles.mainContainer}>
+    <div className={styles.mainContainer} style={{ top }}>
       {sections.map((section, number) => {
         const isActive = activeSection === section.anchor;
 
@@ -68,25 +83,31 @@ const ScrollingCircles = ({ sections }) => {
           };
 
           label = (
-            <div className={styles.label} style={activeStyle}>
+            <div className={`${styles.label} ${fadeClass}`} style={activeStyle}>
               <div className={styles.beforeArrow} style={{ borderRight: `solid 10px ${fillColor}` }} />
               {section.section}
             </div>
           );
         }
 
-        return (
-          <div className={styles.sectionContainer}>
-            <div
-              className={`${styles.circle} ${isActive ? styles.active : ''}`}
-              style={activeStyle}
-              onClick={() => scrollToSection(section.anchor)}
-            >
-              {`0${number}`}
+        if (!section.comingSoon && sections.length > 1) {
+          return (
+            <div className={styles.sectionContainer}>
+              <div
+                className={`${styles.circle} ${isActive ? styles.active : ''}`}
+                style={activeStyle}
+                tabIndex={0}
+                onClick={() => scrollToSection(section.anchor)}
+                onKeyPress={(e) => scrollToSection(section.anchor, e)}
+              >
+                {`0${number}`}
+              </div>
+              {label}
             </div>
-            {label}
-          </div>
-        );
+          );
+        }
+
+        return null;
       })}
     </div>
   );
