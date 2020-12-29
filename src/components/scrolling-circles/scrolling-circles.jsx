@@ -3,11 +3,13 @@ import pageColorMap from 'src/utils/page-color';
 import { legacy } from 'src/styles/variables.scss';
 
 import styles from './scrolling-circles.module.scss';
+import { checkScreenMode, ScreenModeEnum } from '../../utils/screen-mode';
 
 const ScrollingCircles = ({ sections }) => {
+	const [screenMode, setScreenMode] = useState(0);
   const [activeSection, setActiveSection] = useState(sections[0].anchor);
   const [fillColor, setFillColor] = useState(legacy);
-  const [top, setTop] = useState(106);
+  const [topMargin, setTopMargin] = useState(106);
   const [fadeClass, setFadeClass] = useState('');
 
   const [positions, setPositions] = useState([]);
@@ -18,28 +20,34 @@ const ScrollingCircles = ({ sections }) => {
     setFillColor(pageColorMap[pathname]);
 
     const sectionScrollPositions = [];
-    sections.forEach((section) => {
-      const target = document.getElementById(`section-${section.anchor}`);
+    const observe = () => {
+      setPositions([]);
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const id = entry.target.id.split('-')[1];
-          const { top, bottom } = entry.boundingClientRect;
+      sections.forEach((section) => {
+        const target = document.getElementById(`section-${section.anchor}`);
 
-          if (!sectionScrollPositions.find((s) => s.id === id)) {
-            sectionScrollPositions.push({
-              id,
-              top,
-              bottom,
-            });
-          }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            const id = entry.target.id.split('-')[1];
+            const { top, bottom } = entry.boundingClientRect;
 
-          setPositions(sectionScrollPositions);
+            if (!sectionScrollPositions.find((s) => s.id === id)) {
+              sectionScrollPositions.push({
+                id,
+                top,
+                bottom,
+              });
+            }
+
+            setPositions(sectionScrollPositions);
+          });
         });
-      });
 
-      observer.observe(target);
-    });
+        observer.observe(target);
+      });
+    };
+
+    observe();
 
     window.addEventListener('scroll', () => {
       const scrollPositions = sectionScrollPositions.sort((a, b) => a.bottom - b.bottom);
@@ -49,7 +57,25 @@ const ScrollingCircles = ({ sections }) => {
         setActiveSection(newActiveSection.id);
       }
 
-      if (window.pageYOffset <= 26) setTop(106 - window.pageYOffset);
+      if (window.pageYOffset <= 26) {
+        setTopMargin(106 - window.pageYOffset);
+      } else {
+        setTopMargin(80);
+      }
+    });
+
+    const resizeWindow = () => {
+      const newMode = checkScreenMode(window.innerWidth);
+      if (newMode !== screenMode) {
+        setScreenMode(newMode);
+      }
+    };
+
+    resizeWindow();
+
+    window.addEventListener('resize', () => {
+      resizeWindow();
+      observe();
     });
   }, []);
 
@@ -68,7 +94,7 @@ const ScrollingCircles = ({ sections }) => {
   };
 
   return (
-    <div className={styles.mainContainer} style={{ top }}>
+    <div className={styles.mainContainer} style={{ top: topMargin }}>
       {sections.map((section, number) => {
         const isActive = activeSection === section.anchor;
 
