@@ -54,8 +54,8 @@ function SpendingCountryComparisonPage(props) {
 		<>
 			<SEO
 				title="Data Lab - Spending Country Comparison – U.S. Treasury"
-				description="How does the U.S compare to countries of similar size and GDP? Explore and compare federal spending of the United States to other countries."
-				excerpt={`Check out total spending of the United States compared to ${AfgData.countries_compared.value} different countries in ${AfgData.country_compare_year.value}. In this section, figures are presented using financial data from ${AfgData.country_compare_year.value} which allows us to provide you with the most recent spending data. In ${AfgData.country_compare_year.value}, the United States spent ${AfgData.compare_us_spending.value}, which is equivalent to about ${AfgData.compare_us_spending_gdp.value} of U.S. gross domestic product (GDP).`}
+				description={`How does U.S. federal spending compare to other countries? Check out Your Guide to America’s Finances for data from 82 ${AfgData.countries_compared_spending.value}. #YourGuide #DataLab #OpenGov https://datalab.usaspending.gov/americas-finance-guide/spending/country-comparison/`}
+				excerpt={`Check out total spending of the United States compared to ${AfgData.countries_compared_spending.value} different countries in ${AfgData.country_compare_year.value}.`}
 				keywords={[
 					`spending, federal spending, U.S. spending, gross domestic product, GDP,  federal spending per capita, country comparison, federal spending of the United States compared to other countries`,
 				]}
@@ -81,8 +81,8 @@ function SpendingCountryComparisonPage(props) {
 								How does the United States compare to countries of similar size and
 								gross domestic product? Explore the chart, which shows the total
 								spending of the United States compared to{' '}
-								{AfgData.countries_compared.value} other countries listed in the CIA
-								World Factbook. You can compare spending (in dollars) and spending as a
+								{AfgData.countries_compared_spending.value} other countries.
+								You can compare spending (in dollars) and spending as a
 								percent of gross domestic product. Find a country of interest and see
 								for yourself. To ensure an accurate comparison,{' '}
 								{AfgData.country_compare_year.value} spending data is used in this
@@ -144,52 +144,49 @@ function SpendingCountryComparisonPage(props) {
 									target="_blank">
 									Bureau of Economic Analysis (BEA)
 								</a>
-								. Gross domestic product data for countries other than the United States
-								comes from the{' '}
-								<a
-									href={AfgData.imf_gdp.value}
-									rel="noopener noreferrer"
-									target="_blank">
-									International Monetary Fund (IMF) World Economic Outlook Database
-									(WEOD)
-								</a>
 								.
 							</p>
 							<p>
-								In researching potential data sources for information on the spending of
-								other governments for the country comparison module, the{' '}
+								In researching potential data sources for information on the spending and spending as a
+								percent of GDP of other governments for the country comparison module, the{' '}
 								<a
-									href={AfgData.cia_world_factbook.value}
-									rel="noopener noreferrer"
+									href={AfgData.gfs_url.value}
+									rel="noopener noreferrer"
 									target="_blank">
-									CIA World Factbook
-								</a>{' '}
-								was chosen because it provides the best comparison for the following
-								reasons:
+									International Monetary Fund Global Financial Statistics
+								</a>
+								{' '}and{' '}
+								<a
+									href={AfgData.eurostats_url.value}
+									rel="noopener noreferrer"
+									target="_blank">
+									Eurostats
+								</a>
+								{' '}were chosen because they provide the best comparison for the following reasons:
 							</p>
 							<ul>
 								<li>
-									the number of countries with {AfgData.country_compare_year.value} data,
+									consistency with the level of government measured (central government only as a standard),
 								</li>
 								<li>
-									relative consistency with the level of government measured (central
-									government only as a standard),
+									frequency of updates to the data,
 								</li>
-								<li>all figures expressed in US dollars.</li>
+								<li>
+									use of real figures over estimates in these datasets.
+								</li>
 							</ul>
 							<p>
-								Countries with figures before {AfgData.country_compare_year.value} were
-								excluded from the country comparison data set. Although most countries
-								in the data set feature spending from central government sources only,
-								there may be countries with state/provincial/local spending included. As
-								a result, this visualization should not be considered an absolute
-								comparison of the spending of central governments for all countries.
+								Countries without {AfgData.country_compare_year.value} figures were excluded from the country comparison data set, as well as countries reporting only general government figures.  General government figures include province, state, and local revenue and are not as useful of a comparison to federal financial figures for the United States. Some governments rely more heavily on provincial, state, or local revenue than on the central government, and as a result, this visualization should not be considered an absolute comparison of the revenue of central governments for all countries.
 							</p>
 							<p>
-								To finish the data set for Country Comparison, gross domestic product
-								figures from the IMF World Economic Outlook Database were combined with
-								the CIA World Factbook data set, excluding countries that did not have
-								data available from both sources.
+								Spending figures were converted to U.S. dollars using the{' '}
+								<a
+									href={AfgData.exchange_url.value}
+									rel="noopener noreferrer"
+									target="_blank">
+									Rates of Exchange
+								</a>
+								{' '}published by the US Treasury for {AfgData.conversion_date.value}. Countries were excluded that did not have both spending and exchange rate data available.
 							</p>
 							<div className="afg__download--div">
 								<div className="afg__download--heading">Download Source Data</div>
