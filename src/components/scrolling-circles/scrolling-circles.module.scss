@@ -35,7 +35,6 @@
 
       &:focus {
         outline: none;
-        box-shadow: 0 0 0 2px #888;
       }
     }
     
@@ -68,11 +67,11 @@
   }
 }
 
-// @media screen and (min-width: $desktop) {
-//   .main-container {
-//     transform: translate(0, -50%);
-//   }
-// }
+@media screen and (min-width: $desktop) {
+  .circle:focus {
+    box-shadow: 0 0 0 2px #888;
+  }
+}
 
 @media screen and (max-width: $desktop - 1) {
   .main-container {

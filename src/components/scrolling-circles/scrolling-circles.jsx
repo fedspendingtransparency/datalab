@@ -14,6 +14,13 @@ const ScrollingCircles = ({ sections }) => {
 
   const [positions, setPositions] = useState([]);
 
+  const fade = () => {
+    setFadeClass('');
+    setTimeout(() => {
+      setFadeClass(styles.fade);
+    }, 2000);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const pathname = window.location.pathname.split('/').join('');
@@ -80,16 +87,14 @@ const ScrollingCircles = ({ sections }) => {
   }, []);
 
   useEffect(() => {
-    setFadeClass('');
-    setTimeout(() => {
-      setFadeClass(styles.fade);
-    }, 2000);
+    fade();
   }, [activeSection]);
 
   const scrollToSection = (id, e) => {
     if (!e || e.key === 'Enter') {
       const section = positions.find((s) => s.id === id);
       window.scrollTo(0, section.top + 10);
+      fade();
     }
   };
 
