@@ -1,7 +1,11 @@
 @import '../../../styles/variables.scss';
 
-.storySection:not(:first-of-type) {
+.storySection:not(.firstSection) {
   margin-top: 100px;
+}
+
+.firstSection {
+  margin-top: 0;
 }
 
 .alignLeft {
@@ -13,13 +17,13 @@
 }
 
 @media (min-width: $desktop-xl){
-  .storySection:not(:first-of-type) {
+  .storySection:not(.firstSection) {
     margin-top: 50px;
   }
 }
 
 @media (max-width: $phone - 1){
-  .storySection:not(:first-of-type) {
-    margin-top: 50px;
+  .storySection:not(.firstSection) {
+    margin-top: 35px;
   }
 }
