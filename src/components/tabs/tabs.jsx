@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import withStyles from '@material-ui/styles/widthStyles';
+import withStyles from '@material-ui/styles/withStyles';
 import TabPanel from './tab-panel';
 import { legacyBlue } from 'src/styles/variables.scss';
 
