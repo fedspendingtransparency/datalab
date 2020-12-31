@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReply } from '@fortawesome/free-solid-svg-icons';
+import { faReply } from '@fortawesome/free-solid-svg-icons/faReply';
 
 import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
 import DeficitData from '../../../../../static/americas-finance-guide/data/explore_federal_deficit.csv';

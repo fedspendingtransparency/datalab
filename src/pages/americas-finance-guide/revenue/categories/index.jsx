@@ -12,14 +12,12 @@ import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faAngleRight,
-	faSearch,
-	faSortAlphaDown,
-	faSortAlphaUp,
-	faSortAmountDown,
-	faSortAmountUp,
-} from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
+import { faSortAlphaDown } from '@fortawesome/free-solid-svg-icons/faSortAlphaDown';
+import { faSortAlphaUp } from '@fortawesome/free-solid-svg-icons/faSortAlphaUp';
+import { faSortAmountDown } from '@fortawesome/free-solid-svg-icons/faSortAmountDown';
+import { faSortAmountUp } from '@fortawesome/free-solid-svg-icons/faSortAmountUp';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function RevenueCategoriesPage(props) {

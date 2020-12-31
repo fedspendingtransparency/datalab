@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import downloadsStyles from './downloads.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import withStyles from '@material-ui/styles/withStyles';

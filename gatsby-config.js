@@ -10,6 +10,7 @@ module.exports = {
 		'gatsby-plugin-root-import',
 		'gatsby-plugin-material-ui',
 		'gatsby-plugin-react-helmet',
+		'gatsby-plugin-webpack-bundle-analyzer',
 		{
 			resolve: 'gatsby-plugin-sass',
 			options: {

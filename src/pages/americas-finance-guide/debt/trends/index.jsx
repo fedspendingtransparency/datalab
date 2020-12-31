@@ -11,7 +11,7 @@ import Og from 'src/components/og-tag/og';
 import GdpTemplate from 'src/components/gdp-template/gdp-template';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 import DebtTrendsToggle from 'src/page-sections/afg-debt/trends/index';
 import AfgLayout from 'src/components/layouts/afg/afg';
 import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
@@ -114,10 +114,16 @@ function DebtTrendsPage({ location }) {
 								appropriate comparison.
 							</p>
 							<div className="afg__download--div">
-							 <div className="afg__download--heading">Download Source Data</div>
-							 <ul>
-							   <li><a href="/americas-finance-guide/data/federal_debt_trends.csv" download="federal_debt_trends.csv">federal_debt_trends.csv</a></li>
-							 </ul>
+								<div className="afg__download--heading">Download Source Data</div>
+								<ul>
+									<li>
+										<a
+											href="/americas-finance-guide/data/federal_debt_trends.csv"
+											download="federal_debt_trends.csv">
+											federal_debt_trends.csv
+										</a>
+									</li>
+								</ul>
 							</div>
 						</AccordionList>
 					</section>

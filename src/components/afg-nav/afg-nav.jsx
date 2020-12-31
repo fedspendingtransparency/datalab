@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons/faAngleDown';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons/faAngleUp';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
+
 import { checkAfgScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
 import style from './afg-nav.module.scss';
 

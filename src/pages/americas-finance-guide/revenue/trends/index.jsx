@@ -10,7 +10,7 @@ import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 import RevenueTrends from 'src/page-sections/afg-revenue/trends/index';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
