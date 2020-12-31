@@ -135,8 +135,7 @@ function DebtCountryComparisonPage(props) {
 									target="_blank">
 									Bureau of Economic Analysis (BEA)
 								</a>
-								. Debt figures for countries other than the United States also come from
-								the{' '}
+								. Debt figures for countries other than the United States come from the{' '}
 								<a
 									href={AfgData.gfs_url.value}
 									rel="noopener noreferrer"

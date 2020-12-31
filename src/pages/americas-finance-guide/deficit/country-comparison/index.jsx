@@ -170,12 +170,12 @@ function DeficitCountryComparisonPage(props) {
 								Countries without {AfgData.country_compare_year.value} figures were
 								excluded from the country comparison data set, as well as countries
 								reporting only general government figures. General government figures
-								include province, state, and local revenue and are not as useful of a
-								comparison to federal financial figures for the United States. Some
-								governments rely more heavily on provincial, state, or local revenue
-								than on the central government, and as a result, this visualization
-								should not be considered an absolute comparison of the revenue of
-								central governments for all countries.
+								include province, state, and local revenue and spending and are not as
+								useful of a comparison to federal financial figures for the United
+								States. Some governments rely more heavily on provincial, state, or
+								local revenue and spending than on the central government, and as a
+								result, this visualization should not be considered an absolute
+								comparison of the revenue of central governments for all countries.
 							</p>
 							<p>
 								Deficit figures were converted to U.S. dollars using the{' '}
