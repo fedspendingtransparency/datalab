@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './investment.scss';
 import contractsSvg from '../../../images/colleges-and-universities/contractsv2.svg';
 import aidSvg from '../../../images/colleges-and-universities/aidv2.svg';

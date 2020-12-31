@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as $ from 'jquery';
 import * as d3 from 'd3v4';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import BarChartRenderer from './bar-chart-renderer';
 import barChartStyles from './bar-chart.module.scss';
 import Multiselector from '../../../multiselector/multiselector';
@@ -37,9 +37,9 @@ function BarChart(props) {
 		}
 	}
 
-	loadStates((states) => {
-		loadAgencies((agencies) => {
-			loadOccupationCategories((occupationCategories) => {
+	loadStates(states => {
+		loadAgencies(agencies => {
+			loadOccupationCategories(occupationCategories => {
 				loadEmployeeCountData([initAgencyOccupationIds], {
 					states,
 					agencies,
@@ -61,9 +61,10 @@ function BarChart(props) {
 	function filterOccupationsList(selectedAgencies) {
 		if (selectedAgencies) {
 			const currentOccupations = agencyOccupationIds[selectedAgencies[0]].slice();
-			if (selectedAgencies.length > 1) { // add to array of unique occupation IDs for the other selected agencies (besides above)
-				selectedAgencies.slice(1).forEach((agencyId) => {
-					agencyOccupationIds[agencyId].forEach((occupationId) => {
+			if (selectedAgencies.length > 1) {
+				// add to array of unique occupation IDs for the other selected agencies (besides above)
+				selectedAgencies.slice(1).forEach(agencyId => {
+					agencyOccupationIds[agencyId].forEach(occupationId => {
 						if (!currentOccupations.includes(occupationId)) {
 							currentOccupations.push(occupationId);
 						}
@@ -86,20 +87,20 @@ function BarChart(props) {
 
 		function filterBySelections() {
 			clearAll();
-			const filterStates = selectedStates.map((item) => item.abbreviation);
-			const filterAgencies = selectedAgencies.map((item) => item.id);
+			const filterStates = selectedStates.map(item => item.abbreviation);
+			const filterAgencies = selectedAgencies.map(item => item.id);
 			const { employeeCounts, agencies, occupationCategories } = mem;
 
 			let newData = employeeCounts;
 
 			if (filterStates && filterStates.length) {
-				newData = newData.filter((e) =>
-					filterStates.some((s) => e.stateAbbreviation === s));
+				newData = newData.filter(e =>
+					filterStates.some(s => e.stateAbbreviation === s)
+				);
 			}
 
 			if (filterAgencies && filterAgencies.length) {
-				newData = newData.filter((e) =>
-					filterAgencies.some((a) => e.agencyId === +a));
+				newData = newData.filter(e => filterAgencies.some(a => e.agencyId === +a));
 			}
 
 			BarChartRenderer.draw(newData, {
@@ -108,18 +109,20 @@ function BarChart(props) {
 			});
 		}
 
-		$(containerElem).find('.reset-button').click((e) => {
-			e.preventDefault();
-			setSelectedStates([]);
-			setSelectedAgencies([]);
+		$(containerElem)
+			.find('.reset-button')
+			.click(e => {
+				e.preventDefault();
+				setSelectedStates([]);
+				setSelectedAgencies([]);
 
-			const { employeeCounts, states, occupationCategories } = mem;
+				const { employeeCounts, states, occupationCategories } = mem;
 
-			BarChartRenderer.draw([...employeeCounts], {
-				states,
-				occupationCategories,
+				BarChartRenderer.draw([...employeeCounts], {
+					states,
+					occupationCategories,
+				});
 			});
-		});
 
 		filterBySelections();
 	}, [selectedStates, selectedAgencies]);
@@ -148,32 +151,42 @@ function BarChart(props) {
 			<div id="barChartToolbar" className={`row ${barChartStyles.toolbar}`}>
 				<div className={`filter-tools ${barChartStyles.formItem}`}>
 					<Multiselector
-  key="Agencies"
-  optionList={agencyOptionList}
-  valueKey="id"
-  labelKey="name"
-  selectedVal={selectedAgencies}
-  placeholder="Agencies"
-  id="barChartAgencies"
-  changeHandler={setSelectedAgencies}
+						key="Agencies"
+						optionList={agencyOptionList}
+						valueKey="id"
+						labelKey="name"
+						selectedVal={selectedAgencies}
+						placeholder="Agencies"
+						id="barChartAgencies"
+						changeHandler={setSelectedAgencies}
 					/>
 				</div>
 				<div className={`filter-tools ${barChartStyles.formItem}`}>
 					<Multiselector
-  key="States"
-  optionList={stateOptionList}
-  valueKey="abbreviation"
-  labelKey="name"
-  selectedVal={selectedStates}
-  placeholder="States"
-  id="barChartStates"
-  changeHandler={setSelectedStates}
+						key="States"
+						optionList={stateOptionList}
+						valueKey="abbreviation"
+						labelKey="name"
+						selectedVal={selectedStates}
+						placeholder="States"
+						id="barChartStates"
+						changeHandler={setSelectedStates}
 					/>
 				</div>
 			</div>
 			<div className={`fed-emp-bar-chart ${barChartStyles.barContainer}`}>
-				<svg width="900" height="500" viewBox="0 0 900 500" id="barChartSvg" aria-labelledby="bar-chart-desc" className={barChartStyles.visBarChart}>
-					<desc id="bar-chart-desc">Interactive chart listing occupational categories across the CFO Act Agencies. Administration had 300,000 employees, the highest for any category.</desc>
+				<svg
+					width="900"
+					height="500"
+					viewBox="0 0 900 500"
+					id="barChartSvg"
+					aria-labelledby="bar-chart-desc"
+					className={barChartStyles.visBarChart}>
+					<desc id="bar-chart-desc">
+						Interactive chart listing occupational categories across the CFO Act
+						Agencies. Administration had 300,000 employees, the highest for any
+						category.
+					</desc>
 				</svg>
 				{legend()}
 			</div>

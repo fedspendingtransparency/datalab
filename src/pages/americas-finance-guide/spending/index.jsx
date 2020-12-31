@@ -2,7 +2,7 @@ import 'src/styles/afg/chapterIntroCommon.scss';
 import 'src/styles/afg/cg.scss';
 import 'src/page-sections/afg-spending/intro/spending-intro.scss';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SpendingIntro from 'src/page-sections/afg-spending/intro/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
@@ -13,10 +13,14 @@ import ControlBar from 'src/components/control-bar/control-bar';
 import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
 import TabsWrapper from 'src/components/tabs/tabs';
-import { activeLayer, setActiveLayer } from '../../../afg-helpers/dots/revenue-and-spending/compareManager';
+import {
+  activeLayer,
+  setActiveLayer,
+} from '../../../afg-helpers/dots/revenue-and-spending/compareManager';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
-import AnecdoteSpendingSVG from '../../../../static/americas-finance-guide/icons/anecdote-spending.svg';
+import AnecdoteSpendingSVG
+  from '../../../../static/americas-finance-guide/icons/anecdote-spending.svg';
 import DefinitionSpendingSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
 import AfgLayout from '../../../components/layouts/afg/afg';
 import { isMobileDevice } from '../../../afg-helpers/utils';

@@ -1,4 +1,4 @@
-import { chartWidth } from "./widthManager";
+import { chartWidth } from './widthManager';
 
 export const dotConstants = {
     offset: {

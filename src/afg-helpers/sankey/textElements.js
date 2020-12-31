@@ -1,6 +1,12 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
-import { translator, simplifyNumber, getElementBox, wordWrap, getTransform } from 'src/afg-helpers/utils';
+import {
+    getElementBox,
+    getTransform,
+    simplifyNumber,
+    translator,
+    wordWrap,
+} from 'src/afg-helpers/utils';
 import colors from 'src/styles/afg/colors.scss';
 import { getZoomState } from './zoom';
 

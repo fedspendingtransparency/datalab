@@ -1,7 +1,5 @@
 import { select, selectAll } from 'd3-selection';
-import { translator, simplifyNumber, getElementBox, wordWrap } from 'src/afg-helpers/utils';
-import { line } from 'd3-shape';
-import { drawChart } from './chart';
+import { getElementBox, simplifyNumber, translator, wordWrap } from 'src/afg-helpers/utils';
 import colors from 'src/styles/afg/colors.scss';
 
 const d3 = { select, selectAll };

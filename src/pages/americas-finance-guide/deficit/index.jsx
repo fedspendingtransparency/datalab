@@ -2,7 +2,7 @@ import 'src/styles/afg/chapterIntroCommon.scss';
 import 'src/styles/afg/cg.scss';
 import 'src/page-sections/afg-deficit/intro/deficit-intro.scss';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SEO from 'src/components/seo';
 import TabsWrapper from 'src/components/tabs/tabs';
 import AccordionList from 'src/components/accordion-list/accordion-list';
@@ -12,12 +12,16 @@ import DeficitIntro from 'src/page-sections/afg-deficit/intro/index';
 import DeficitTab from 'src/page-sections/afg-deficit/intro/mobile/deficit';
 import SpendingTab from 'src/page-sections/afg-deficit/intro/mobile/spending';
 import DebtTab from 'src/page-sections/afg-deficit/intro/mobile/debt';
-import { activeLayer, setActiveLayer } from 'src/page-sections/afg-deficit/intro/helpers/manageLayers';
+import {
+  activeLayer,
+  setActiveLayer,
+} from 'src/page-sections/afg-deficit/intro/helpers/manageLayers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AfgLayout from 'src/components/layouts/afg/afg';
-import AnecdoteDeficitSVG from '../../../../static/americas-finance-guide/icons/anecdote-deficit.svg';
+import AnecdoteDeficitSVG
+  from '../../../../static/americas-finance-guide/icons/anecdote-deficit.svg';
 import Og from '../../../components/og-tag/og';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 

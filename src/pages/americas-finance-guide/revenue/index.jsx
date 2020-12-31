@@ -2,7 +2,7 @@ import 'src/styles/afg/chapterIntroCommon.scss';
 import 'src/styles/afg/cg.scss';
 import 'src/page-sections/afg-revenue/intro/revenue-intro.scss';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import SEO from 'src/components/seo';
 import GdpTemplate from 'src/components/gdp-template/gdp-template';
 import AccordionList from 'src/components/accordion-list/accordion-list';
@@ -16,10 +16,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
 import AfgLayout from 'src/components/layouts/afg/afg';
 import DefinitionSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
-import AnecdoteRevenueSVG from '../../../../static/americas-finance-guide/icons/anecdote-revenue.svg';
+import AnecdoteRevenueSVG
+  from '../../../../static/americas-finance-guide/icons/anecdote-revenue.svg';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 import { isMobileDevice } from '../../../afg-helpers/utils';
-import { activeLayer, setActiveLayer } from '../../../afg-helpers/dots/revenue-and-spending/compareManager';
+import {
+  activeLayer,
+  setActiveLayer,
+} from '../../../afg-helpers/dots/revenue-and-spending/compareManager';
 import styles from './revenue.module.scss';
 
 function RevenueAndGdpPage({ location }) {

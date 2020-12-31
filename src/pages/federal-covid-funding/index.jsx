@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import storyHeadingStyles from '../../components/section-elements/story-section-heading/story-section-heading.module.scss';
+import storyHeadingStyles
+	from '../../components/section-elements/story-section-heading/story-section-heading.module.scss';
 import globalStyles from 'src/styles/variables.scss';
 
 import StoryLayout from '../../components/layouts/story/story';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import Footnotes from '../../components/footnotes/footnotes';
 import SEO from '../../components/seo';
 import StorySection from 'src/components/section-elements/story-section/story-section';
@@ -13,7 +14,6 @@ import Budget from '../../page-sections/federal-covid-funding/budget/budget';
 import Overview from '../../page-sections/federal-covid-funding/overview/overview';
 import Tracking from '../../page-sections/federal-covid-funding/tracking';
 import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
-import { FixedSizeList as List } from 'react-window';
 
 const BudgetAccordionContent = () => (
 	<div className={styles.accordionContents}>

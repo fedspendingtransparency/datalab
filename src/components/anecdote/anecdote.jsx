@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { select, selectAll, event } from 'd3-selection';
+import { event, select, selectAll } from 'd3-selection';
 import ChevronRight from '@material-ui/icons/ChevronRight';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import Close from '@material-ui/icons/Close';

@@ -4,8 +4,7 @@ import { Vega } from 'react-vega';
 import appendPolyfill from './utils/append-polyfill';
 import sunburstSpec from './utils/sunburst-spec';
 import './sunburst-vega.scss';
-import PropTypes from "prop-types"
-import * as d3 from 'd3v3';
+import PropTypes from 'prop-types';
 
 /* PLEASE DO NOT DELETE this import
   This code is used to transform the sunburst data in to code that's usable by Vega.  This should be handled on the data analyst
@@ -43,7 +42,7 @@ export default class Sunburst extends React.Component {
         node.appendChild(textnode);
         el.insertAdjacentElement('afterend', node);
       });
-    
+
       this.resizeWindow();
       window.addEventListener('resize', this.resizeWindow);
       return () => {
@@ -51,7 +50,7 @@ export default class Sunburst extends React.Component {
       }
     }
   }
-  
+
   resizeWindow = () => {
     this.setState({ spec: sunburstSpec(window.innerWidth) })
   }
@@ -82,7 +81,7 @@ export default class Sunburst extends React.Component {
         <Vega
           data={data}
           spec={spec}
-          signalListeners={this.signalListeners}  
+          signalListeners={this.signalListeners}
         />
       )
     } else {

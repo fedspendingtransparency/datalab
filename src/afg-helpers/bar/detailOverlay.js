@@ -1,5 +1,11 @@
-import { select, selectAll, mouse } from 'd3-selection';
-import { translator, fadeAndRemove, getElementBox, establishContainer, wordWrap } from 'src/afg-helpers/utils';
+import { mouse, select, selectAll } from 'd3-selection';
+import {
+  establishContainer,
+  fadeAndRemove,
+  getElementBox,
+  translator,
+  wordWrap,
+} from 'src/afg-helpers/utils';
 import { closeDetail } from './sort';
 
 const d3 = { select, selectAll, mouse },

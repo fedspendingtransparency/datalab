@@ -5,8 +5,8 @@ import { StorypageHeader } from 'src/components/headers/headers';
 import SEO from 'src/components/seo';
 import { lg } from 'src/styles/variables.scss';
 import scrolledToBottom from 'src/utils/scrolled-to-bottom';
-import WhoWeAreIllustration from 'src/svgs/about-us/who-we-are.svg'
-import BackgroundIllustration from 'src/svgs/about-us/background.svg'
+import WhoWeAreIllustration from 'src/svgs/about-us/who-we-are.svg';
+import BackgroundIllustration from 'src/svgs/about-us/background.svg';
 import styles from './about.module.scss';
 
 const AboutUs = () => {

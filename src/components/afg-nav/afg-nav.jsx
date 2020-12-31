@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faHome,
-	faAngleDown,
-	faAngleUp,
-} from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faAngleUp, faHome } from '@fortawesome/free-solid-svg-icons';
 import { checkAfgScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
-import { lg } from 'src/styles/variables.scss';
 import style from './afg-nav.module.scss';
-import * as d3 from 'd3v3';
 
 const AfgNav = ({ chapter }) => {
 	const sections = [

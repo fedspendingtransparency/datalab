@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './filter.module.scss';
 
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@material-ui/styles/withStyles';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
@@ -9,7 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputBase from '@material-ui/core/InputBase';
 
 const Filter = ({ title, options, activeFilter, handleDropdownChange }) => {
-  const InputComponent = withStyles(() => ({
+	const InputComponent = withStyles(() => ({
 		input: {
 			display: 'flex',
 			alignItems: 'center',
@@ -24,46 +24,42 @@ const Filter = ({ title, options, activeFilter, handleDropdownChange }) => {
 				boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
 			},
 		},
-  }))(InputBase);
-  
-  return (
-    <div className={styles.container}>
-      <div className={styles.heading}>{title}</div>
-      <FormControl>
-        <InputLabel id={styles.dropdownLabel} />
-        <Select
-          labelId={styles.dropdownLabel}
-          className={styles.dropdown}
-          input={<InputComponent />}
-          value={activeFilter}
-          onChange={handleDropdownChange}
-          MenuProps={{
-            anchorOrigin: {
-              vertical: 'bottom',
-              horizontal: 'left',
-            },
-            transformOrigin: {
-              vertical: 'top',
-              horizontal: 'left',
-            },
-            getContentAnchorEl: null,
-          }}
-        >
-          {options.map((option) => (
-            <MenuItem
-              key={option.name}
-              value={option.name}
-              className={styles.dropdownItem}
-            >
-              {option.icon}
-              {' '}
-              {option.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
-  );
-}
- 
+	}))(InputBase);
+
+	return (
+		<div className={styles.container}>
+			<div className={styles.heading}>{title}</div>
+			<FormControl>
+				<InputLabel id={styles.dropdownLabel} />
+				<Select
+					labelId={styles.dropdownLabel}
+					className={styles.dropdown}
+					input={<InputComponent />}
+					value={activeFilter}
+					onChange={handleDropdownChange}
+					MenuProps={{
+						anchorOrigin: {
+							vertical: 'bottom',
+							horizontal: 'left',
+						},
+						transformOrigin: {
+							vertical: 'top',
+							horizontal: 'left',
+						},
+						getContentAnchorEl: null,
+					}}>
+					{options.map(option => (
+						<MenuItem
+							key={option.name}
+							value={option.name}
+							className={styles.dropdownItem}>
+							{option.icon} {option.name}
+						</MenuItem>
+					))}
+				</Select>
+			</FormControl>
+		</div>
+	);
+};
+
 export default Filter;

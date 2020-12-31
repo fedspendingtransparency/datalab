@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react';
 import HWCTA from '../../components/hwcta/hwcta';
 
 function BFHWCTA(props) {

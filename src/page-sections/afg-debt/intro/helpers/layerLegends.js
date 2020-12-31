@@ -1,7 +1,6 @@
 import { line } from 'd3-shape';
 import formatNumber from 'src/utils/number-formatter/number-formatter';
 import { select, selectAll } from 'd3-selection';
-import { transition } from 'd3-transition';
 import colors from '../../../../styles/afg/colors.scss';
 import DebtData from '../../../../../static/americas-finance-guide/data/explore_federal_debt.csv';
 

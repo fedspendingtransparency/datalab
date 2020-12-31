@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import d3 from 'd3v3';
 import homeImg from '../../../static/images/home-solid.svg';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { checkScreenMode, ScreenModeEnum } from '../../utils/screen-mode';
-import styles from './breadcrumbs.module.scss'
+import styles from './breadcrumbs.module.scss';
 
 export default class BreadCrumbs extends Component {
   constructor(props) {

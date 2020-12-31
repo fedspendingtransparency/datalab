@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import accordionStyles from './accordion-list.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export default class AccordionList extends React.Component {
 	constructor(props) {

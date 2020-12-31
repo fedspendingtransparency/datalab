@@ -13,25 +13,53 @@ import styles from '../bars/bar.module.scss';
 export default function ReversedJoinedCallout(props) {
 	const {
 		// eslint-disable-next-line max-len
-		xStart, xMid, isModal, xEnd, label1Offset, label2Offset, label1, label2, label1Amount, label2Amount, mobile,
+		xStart,
+		xMid,
+		isModal,
+		xEnd,
+		label1Offset,
+		label2Offset,
+		label1,
+		label2,
+		label1Amount,
+		label2Amount,
+		mobile,
 	} = props;
 
 	function TextBlock() {
 		if (isModal) {
 			return (
 				<>
-					<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition} fontSize={mobile ? defaults.smFontSize : defaults.mdFontSize} fontWeight="600">
+					<text
+						fill={defaults.fontColor}
+						x={`${label1Offset}%`}
+						y={defaults.textPosition}
+						fontSize={mobile ? defaults.smFontSize : defaults.mdFontSize}
+						fontWeight="600">
 						{label1}
 					</text>
-					<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
+					<text
+						fill={defaults.fontColor}
+						x={`${label1Offset}%`}
+						y={defaults.textPosition + defaults.lineHeight}
+						fontSize={defaults.smFontSize}>
 						&nbsp;
 						{numberFormatter('dollars suffix', label1Amount, 3)}
 					</text>
 
-					<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition} fontSize={mobile ? defaults.smFontSize : defaults.mdFontSize} fontWeight="600">
+					<text
+						fill={defaults.fontColor}
+						x={`${label2Offset}%`}
+						y={defaults.textPosition}
+						fontSize={mobile ? defaults.smFontSize : defaults.mdFontSize}
+						fontWeight="600">
 						{label2}
 					</text>
-					<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
+					<text
+						fill={defaults.fontColor}
+						x={`${label2Offset}%`}
+						y={defaults.textPosition + defaults.lineHeight}
+						fontSize={defaults.smFontSize}>
 						&nbsp;
 						{numberFormatter('dollars suffix', label2Amount, 3)}
 					</text>
@@ -40,20 +68,33 @@ export default function ReversedJoinedCallout(props) {
 		}
 		return (
 			<>
-				<text fill={defaults.fontColor} x={`${label1Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-					<tspan className={styles.label} style={{ display: mobile ? 'none' : 'block' }} fontWeight="600">{label1}</tspan>
-					{' '}
+				<text
+					fill={defaults.fontColor}
+					x={`${label1Offset}%`}
+					y={defaults.textPosition}
+					fontSize={defaults.fontSize}>
+					<tspan
+						className={styles.label}
+						style={{ display: mobile ? 'none' : 'block' }}
+						fontWeight="600">
+						{label1}
+					</tspan>{' '}
 					{numberFormatter('dollars suffix', label1Amount, 3)}
 				</text>
-				<text fill={defaults.fontColor} x={`${label2Offset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
-					<tspan className={styles.label} style={{ display: mobile ? 'none' : 'block' }} fontWeight="600">
-						{label2}
-						{' '}
+				<text
+					fill={defaults.fontColor}
+					x={`${label2Offset}%`}
+					y={defaults.textPosition}
+					fontSize={defaults.fontSize}>
+					<tspan
+						className={styles.label}
+						style={{ display: mobile ? 'none' : 'block' }}
+						fontWeight="600">
+						{label2}{' '}
 					</tspan>
 					<tspan
 						className={styles.amountLabel}
-						style={{ fontWeight: mobile ? '600' : '0' }}
-					>
+						style={{ fontWeight: mobile ? '600' : '0' }}>
 						{numberFormatter('dollars suffix', label2Amount, 3)}
 					</tspan>
 				</text>
@@ -66,7 +107,7 @@ export default function ReversedJoinedCallout(props) {
 			<rect
 				fill={defaults.lineColor}
 				x={`${xStart}%`}
-  			y="0"
+				y="0"
 				width={defaults.lineStroke}
 				height={defaults.starterHeight}
 			/>
@@ -75,7 +116,7 @@ export default function ReversedJoinedCallout(props) {
 				fill={defaults.lineColor}
 				x={`${xEnd}%`}
 				y={defaults.starterHeight}
-  			width={`${xStart - xEnd}%`}
+				width={`${xStart - xEnd}%`}
 				height={defaults.lineStroke}
 			/>
 
@@ -83,8 +124,8 @@ export default function ReversedJoinedCallout(props) {
 				fill={defaults.lineColor}
 				x={`${xMid}%`}
 				y={defaults.starterHeight}
-  			width={defaults.lineStroke}
-  			height={defaults.endingHeight}
+				width={defaults.lineStroke}
+				height={defaults.endingHeight}
 			/>
 
 			<rect

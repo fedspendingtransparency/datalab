@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StoryLayout from "../story/story";
+import StoryLayout from '../story/story';
 
 export default function ExpressLayout(props) {
   return (

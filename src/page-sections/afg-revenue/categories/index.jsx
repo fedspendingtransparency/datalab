@@ -1,91 +1,89 @@
-import * as d3 from "d3v3";
+import * as d3 from 'd3v3';
 import { receiptsConstants } from 'src/afg-helpers/dots/receipts-utils.js';
 import { getDataByYear } from './utils/data';
-import { initSankey, destroySankey } from "../../../afg-helpers/sankey/init";
-import { init as initBarGraph, initChart } from "src/page-sections/afg-spending/categories/helpers/init";
+import { destroySankey, initSankey } from '../../../afg-helpers/sankey/init';
+import {
+	init as initBarGraph,
+	initChart,
+} from 'src/page-sections/afg-spending/categories/helpers/init';
 
 import colors from 'src/styles/afg/colors.scss';
 import React, { useEffect } from 'react';
-import AfgData from "../../../../static/americas-finance-guide/_data/object_mapping.yml";
+import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 const config = {
-    data: [],
-    containerClass: receiptsConstants.shaderContainerClass,
-    sectionColor: colors.colorPrimaryDarker,
-    accessibilityAttrs: {
-        title: `${AfgData.current_fy.value} Federal Revenue Categories`,
-        desc: `Bar chart showing source categories of revenue collected by the federal government in ${AfgData.current_fy.value}, with the largest category being individual income taxes.`
-    }
+	data: [],
+	containerClass: receiptsConstants.shaderContainerClass,
+	sectionColor: colors.colorPrimaryDarker,
+	accessibilityAttrs: {
+		title: `${AfgData.current_fy.value} Federal Revenue Categories`,
+		desc: `Bar chart showing source categories of revenue collected by the federal government in ${AfgData.current_fy.value}, with the largest category being individual income taxes.`,
+	},
 };
 
 export default function RevenueCategories() {
+	useEffect(() => {
+		const data = getDataByYear('2020');
+		const viz = d3.select('#viz');
 
-    useEffect(() => {
-      const data = getDataByYear('2020');
-      const viz = d3.select('#viz');
+		let isDesktopInd = false,
+			debounce,
+			resizeBarGraphDebounce,
+			mainSvg;
 
-      let isDesktopInd = false,
-        debounce,
-        resizeBarGraphDebounce,
-        mainSvg;
+		function init() {
+			config.data = JSON.parse(JSON.stringify(data));
+			if (window.innerWidth >= 1200) {
+				isDesktopInd = true;
+				initSankey(config);
+			} else {
+				initBarGraph(config);
+			}
+		}
 
-      function init() {
-        config.data = JSON.parse(JSON.stringify(data));
-        if (window.innerWidth >= 1200) {
-          isDesktopInd = true;
-          initSankey(config);
-        } else {
-          initBarGraph(config);
-        }
-      }
+		window.addEventListener('resize', function() {
+			const defaultTimeout = 100;
+			if (debounce) {
+				clearTimeout(debounce);
+			}
 
-      window.addEventListener('resize', function () {
-        const defaultTimeout = 100;
-        if (debounce) {
-          clearTimeout(debounce);
-        }
+			let actualTimeout = defaultTimeout;
 
-        let actualTimeout = defaultTimeout;
+			if (window.innerWidth < 1200 && isDesktopInd) {
+				actualTimeout = 0;
+			} else if (window.innerWidth >= 1200 && !isDesktopInd) {
+				actualTimeout = 0;
+			}
 
-        if (window.innerWidth < 1200 && isDesktopInd) {
-          actualTimeout = 0;
-        } else if (window.innerWidth >= 1200 && !isDesktopInd) {
-          actualTimeout = 0;
-        }
+			debounce = setTimeout(function() {
+				config.data = JSON.parse(JSON.stringify(data));
+				if (window.innerWidth < 1200) {
+					if (isDesktopInd) {
+						isDesktopInd = false;
+						d3.select('#viz svg').html(null);
+						destroySankey();
+						initBarGraph(config);
+					} else {
+						if (resizeBarGraphDebounce) {
+							clearTimeout(resizeBarGraphDebounce);
+						}
+						resizeBarGraphDebounce = setTimeout(initChart, 100);
+					}
+				} else {
+					if (!isDesktopInd) {
+						d3.select('#viz svg').html(null);
+						destroySankey();
+						initSankey(config);
+						isDesktopInd = true;
+					}
+				}
+			}, actualTimeout);
+		});
 
-        debounce = setTimeout(function () {
-          config.data = JSON.parse(JSON.stringify(data));
-          if (window.innerWidth < 1200) {
-            if (isDesktopInd) {
-              isDesktopInd = false;
-              d3.select('#viz svg').html(null);
-              destroySankey();
-              initBarGraph(config);
-            } else {
-              if (resizeBarGraphDebounce) {
-                clearTimeout(resizeBarGraphDebounce);
-              }
-              resizeBarGraphDebounce = setTimeout(initChart, 100);
-            }
-          } else {
-            if (!isDesktopInd) {
-              d3.select('#viz svg').html(null);
-              destroySankey();
-              initSankey(config);
-              isDesktopInd = true;
-            }
-          }
-        }, actualTimeout);
-      });
+		if (typeof window !== `undefined`) {
+			init();
+		}
+	}, []);
 
-      if (typeof window !== `undefined`) {
-        init();
-      }
-
-    }, []);
-
-    return (<div id="viz"></div>);
-
+	return <div id="viz"></div>;
 }
-
-

@@ -1,12 +1,12 @@
-import { select, selectAll } from "d3-selection"
-import { scaleLinear } from "d3-scale"
-import { extent, min, max } from "d3-array"
-import { transition } from "d3-transition"
-import { zoom } from "d3-zoom"
-import { establishContainer, translator } from "src/afg-helpers/utils"
-import { placeLabels } from "./text"
-import { initSort } from "./sort"
-import { initOverlay } from "./detailOverlay"
+import { select, selectAll } from 'd3-selection';
+import { scaleLinear } from 'd3-scale';
+import { extent, max, min } from 'd3-array';
+import { transition } from 'd3-transition';
+import { zoom } from 'd3-zoom';
+import { establishContainer, translator } from 'src/afg-helpers/utils';
+import { placeLabels } from './text';
+import { initSort } from './sort';
+import { initOverlay } from './detailOverlay';
 
 const d3 = {
 		select,

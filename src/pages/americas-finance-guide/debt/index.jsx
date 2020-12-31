@@ -2,7 +2,7 @@ import 'src/styles/afg/chapterIntroCommon.scss';
 import 'src/styles/afg/cg.scss';
 import 'src/page-sections/afg-debt/intro/debt-intro.scss';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SEO from 'src/components/seo';
 import GdpTemplate from 'src/components/gdp-template/gdp-template';
 import AccordionList from 'src/components/accordion-list/accordion-list';

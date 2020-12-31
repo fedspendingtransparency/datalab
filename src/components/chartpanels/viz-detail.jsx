@@ -2,93 +2,121 @@ import './viz-detail.scss'; // because this overrides MUI class names and they a
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Paper, IconButton } from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
+import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import formatNumber from 'src/utils/number-formatter/number-formatter';
 
 export default class VizDetailPanel extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      expanded: false,
-      details: props.details
-    };
-    this.expandDetails = this.expandDetails.bind(this);
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			expanded: false,
+			details: props.details,
+		};
+		this.expandDetails = this.expandDetails.bind(this);
+	}
 
-  expandDetails() {
-    this.setState({ expanded: true });
-  }
+	expandDetails() {
+		this.setState({ expanded: true });
+	}
 
-  closeDetails() {
-    this.setState({ expanded: false });
-  }
+	closeDetails() {
+		this.setState({ expanded: false });
+	}
 
-  updateDetails(data) {
-    this.setState({
-      expanded: true,
-      details: data
-    });
-  }
+	updateDetails(data) {
+		this.setState({
+			expanded: true,
+			details: data,
+		});
+	}
 
-  renderDetails() {
-    let tables;
-    if (this.state.details.tables) {
-      tables = this.renderTables(this.state.details.tables);
-    }
+	renderDetails() {
+		let tables;
+		if (this.state.details.tables) {
+			tables = this.renderTables(this.state.details.tables);
+		}
 
-    const header = this.state.details.header;
-    if (header) {
-      return <>
-        <Grid container justify='space-between' alignItems='baseline'>
-          <Grid item xs={12} className='label'>{header.title}</Grid>
-          <Grid item xs={12} className='itemName'>{header.itemName}</Grid>
-          <Grid item xs={12} className='label'>{header.label}</Grid>
-          <Grid item xs={12} className='itemName'>{header.subItemName}</Grid>
-          <Grid item xs={6} className='col1title'>{header.totalLabel}</Grid>
-          <Grid item xs={6} className='col2title'>{formatNumber('dollars', header.totalValue)}</Grid>
-        </Grid>
-        {tables}
-      </>
-    }
-  }
+		const header = this.state.details.header;
+		if (header) {
+			return (
+				<>
+					<Grid container justify="space-between" alignItems="baseline">
+						<Grid item xs={12} className="label">
+							{header.title}
+						</Grid>
+						<Grid item xs={12} className="itemName">
+							{header.itemName}
+						</Grid>
+						<Grid item xs={12} className="label">
+							{header.label}
+						</Grid>
+						<Grid item xs={12} className="itemName">
+							{header.subItemName}
+						</Grid>
+						<Grid item xs={6} className="col1title">
+							{header.totalLabel}
+						</Grid>
+						<Grid item xs={6} className="col2title">
+							{formatNumber('dollars', header.totalValue)}
+						</Grid>
+					</Grid>
+					{tables}
+				</>
+			);
+		}
+	}
 
-  renderTables(data) {
-    let tableFrag = [];
-    data.forEach((table, i) => {
-      let rowsFrag = [];
-      if (table.rows) {
-        Object.keys(table.rows).forEach((rowLabel, i) => {
-          rowsFrag.push(<tr key={'viz-detail-row-' + i}>
-            <td>{rowLabel}</td>
-            <td>{formatNumber('dollars', table.rows[rowLabel])}</td>
-          </tr>);
-        });
-      }
-      tableFrag.push(<div className='viz-detail-table-section' key={'viz-detail-table-' + i}><table><thead><tr>
-        <th>{table.col1Title}</th>
-        <th>{table.col2Title}</th>
-      </tr></thead>
-        <tbody>
-          {rowsFrag}
-        </tbody>
-      </table></div>);
-    });
-    return tableFrag;
-  }
+	renderTables(data) {
+		let tableFrag = [];
+		data.forEach((table, i) => {
+			let rowsFrag = [];
+			if (table.rows) {
+				Object.keys(table.rows).forEach((rowLabel, i) => {
+					rowsFrag.push(
+						<tr key={'viz-detail-row-' + i}>
+							<td>{rowLabel}</td>
+							<td>{formatNumber('dollars', table.rows[rowLabel])}</td>
+						</tr>
+					);
+				});
+			}
+			tableFrag.push(
+				<div className="viz-detail-table-section" key={'viz-detail-table-' + i}>
+					<table>
+						<thead>
+							<tr>
+								<th>{table.col1Title}</th>
+								<th>{table.col2Title}</th>
+							</tr>
+						</thead>
+						<tbody>{rowsFrag}</tbody>
+					</table>
+				</div>
+			);
+		});
+		return tableFrag;
+	}
 
-  render = () => (
-    <div className={'viz-details-container' + (this.state.expanded ? ' expanded' : '')}>
-      <Paper className='details'>
-        <IconButton className='closeButton' onClick={() => this.closeDetails()} aria-label='Close'>
-          <HighlightOffIcon />
-        </IconButton>
-        {this.renderDetails()}
-      </Paper>
-    </div>
-  );
-};
+	render = () => (
+		<div
+			className={
+				'viz-details-container' + (this.state.expanded ? ' expanded' : '')
+			}>
+			<Paper className="details">
+				<IconButton
+					className="closeButton"
+					onClick={() => this.closeDetails()}
+					aria-label="Close">
+					<HighlightOffIcon />
+				</IconButton>
+				{this.renderDetails()}
+			</Paper>
+		</div>
+	);
+}
 
 /*
   Notes on props:
@@ -128,6 +156,6 @@ export default class VizDetailPanel extends React.Component {
 */
 
 VizDetailPanel.propTypes = {
-  showDetails: PropTypes.func,
-  details: PropTypes.object.isRequired
+	showDetails: PropTypes.func,
+	details: PropTypes.object.isRequired,
 };

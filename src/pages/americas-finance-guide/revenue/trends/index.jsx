@@ -1,7 +1,7 @@
 import 'src/styles/afg/cg.scss';
 import 'src/styles/afg/trendsCommon.scss';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SEO from 'src/components/seo';
 import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
 import AccordionList from 'src/components/accordion-list/accordion-list';

@@ -1,5 +1,5 @@
-import colors from "src/styles/afg/colors.scss";
-import { translator, establishContainer } from "src/afg-helpers/utils";
+import colors from 'src/styles/afg/colors.scss';
+import { establishContainer, translator } from 'src/afg-helpers/utils';
 import { select } from 'd3-selection';
 
 const d3 = { select },

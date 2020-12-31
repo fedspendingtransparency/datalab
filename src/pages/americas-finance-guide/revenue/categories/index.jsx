@@ -16,8 +16,8 @@ import {
 	faAngleRight,
 	faSearch,
 	faSortAlphaDown,
-	faSortAmountDown,
 	faSortAlphaUp,
+	faSortAmountDown,
 	faSortAmountUp,
 } from '@fortawesome/free-solid-svg-icons';
 import AfgLayout from 'src/components/layouts/afg/afg';
