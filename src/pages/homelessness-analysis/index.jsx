@@ -152,8 +152,8 @@ export default class HomelessnessPage extends Component {
           hwctaLink={this.props.location.pathname + '/methodologies'}
         >
           <SEO
-            title="U.S. Treasury Data Lab - Homelessness Analysis"
-            description="Any night in 2018 over 550,000 people experienced homelessness in America. This analysis shows the federal programs in place to assist them and where they are."
+            title="Homelessness Federal Financial Data |U.S. Treasury Data Lab"
+            description="This visualization shows how government financial data is being spent to address homelessness in America."
             keywords={[`homelessness`, `federal spending`, `housing`, `federal programs`, `homeless`, `government programs`, `homeless housing`, `homeless shelter`, `homeless people`, `choropleth`, `bar chart`, `tree map`]}
           />
           {sections.map((item, key) => {

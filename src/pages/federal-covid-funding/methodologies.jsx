@@ -2,6 +2,7 @@ import React from 'react';
 import FootnoteAnchor from '../../components/footnotes/footnote-anchor';
 import HWCTA from '../../components/hwcta/hwcta';
 import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
+import SEO from "../../components/seo";
 
 const C19HWTCA = ({ location }) => {
   const title = 'The Federal Response to COVID-19';
@@ -50,6 +51,11 @@ const C19HWTCA = ({ location }) => {
   const methodologies = [{
     name: <>Legislation values:</>,
     sources: (
+    <>
+      <SEO
+          title="Data Sources and Methodologies for Federal Response to COVID-19 | U.S. Treasury Data Lab"
+          description="View the various data sources, methodologies, and notations that were used to conduct the Federal Response to COVID-19 analysis."
+      />
       <ul>
         <li>
           <strong>Agency Funding To-Date:</strong> The value of the four supplemental laws passed by Congress is approximately ${CovidCopy.totalbudgetresources} trillion. This value reflects the total value of appropriation warrants made to agencies’ TAS accounts to date for each of the four laws passed
@@ -79,6 +85,7 @@ const C19HWTCA = ({ location }) => {
           <li>Total utilized lending was calculated using the most recent data on reported loans and loan guarantees for the reporting period provided by each agency: The Department of the Treasury’s Payroll Support Program for Pandemic Relief for Aviation Workers<a href="#fn10" className="footnoteref"><FootnoteAnchor footnoteId="fr10" />10</a>, Credit Assistance for Air Carriers and Businesses Critical to National Security<a href="#fn11" className="footnoteref"><FootnoteAnchor footnoteId="fr11" />11</a>, the Small Business Administration’s Economic Injury Disaster Loans (EIDL)<a href="#fn12" className="footnoteref"><FootnoteAnchor footnoteId="fr12" />12</a> and Paycheck Protection Program (PPP)<a href="#fn13" className="footnoteref"><FootnoteAnchor footnoteId="fr13" />13</a>, and the Federal Reserve Emergency Lending facilities<a href="#fn14" className="footnoteref"><FootnoteAnchor footnoteId="fr14" />14</a>. Total value of loan guarantees issued for the USDA’s Rural Development Business and Industry CARES Act Program<a href="#fn15" className="footnoteref"><FootnoteAnchor footnoteId="fr15" />15</a> reflect data reported as of the close of the two months prior to the publishing date due to the reporting timeline</li>
         </ul>
       </ul>
+    </>
     )
   }, {
     name: <>Calculating total spending:</>,

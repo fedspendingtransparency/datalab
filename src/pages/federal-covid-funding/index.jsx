@@ -248,8 +248,8 @@ export default class FederalCovidFunding extends React.Component {
 			sectionToc={this.sections}
 			hwctaLink={this.props.location.pathname + "/methodologies"}>
 			<SEO
-				title="Data Lab – The Federal Response to COVID-19 – U.S. Treasury"
-				description="SEO description"
+				title="Federal Response to COVID-19 | U.S. Treasury Data Lab"
+				description={`In this analysis you can explore how the ${CovidCopy.totalbudgetresources} trillion in supplemental funding for COVID-19 makes it was from Congress to the U.S. economy.`}
 				keywords={[
 					"federal spending",
 					"government spending",
