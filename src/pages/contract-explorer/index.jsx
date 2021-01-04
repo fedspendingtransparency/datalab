@@ -23,8 +23,8 @@ export default class ContractExplorerPage extends Component {
 	}
 
   render = () => <>
-		<SEO title='U.S. Treasury Data Lab – Contract Explorer'
-				 description="Ever wonder who’s getting federal contracts and what agencies are awarding them? This analysis lets you explore contract-related information for FY17."
+		<SEO title='Federal Contract Explorer | U.S. Treasury Data Lab'
+				 description="Find out which organizations receive government contracts, and which agencies award them. Explore contract amounts as well as the types of goods and services provided to the federal government."
 				 keywords={[`contracts`, `federal contracts`, `federal agencies`, `agencies`, `government agency`, `government contract`, `procurement`, `appropriations`, `federal procurement`, `government procurement`, `sunburst`]} />
 
 		<ToolLayout title='Contract Federal Explorer'

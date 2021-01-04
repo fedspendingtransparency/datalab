@@ -103,6 +103,10 @@ const AnalystGuidePage = ({ location }) => {
 
   return (
     <>
+      <SEO
+          title="Analyst's Guide to Federal Spending Data | U.S. Treasury Data Lab"
+          description="Find guidance on how to use USAspending.gov data. Get answers to questions to help you conduct your own analyses and develop tools using federal spending data."
+      />
       <div id={styles.analystGuidePage}>
         <FaqLayout
           title={title}
@@ -111,10 +115,6 @@ const AnalystGuidePage = ({ location }) => {
           location={location}
           useMoreResources
         >
-          <SEO
-            title="Data Lab – Analysts Guide – U.S. Treasury"
-            description="What is the Analyst’s Guide to Federal Spending Data? The Analyst’s Guide was designed to make it easier for you to conduct your own analyses and develop tools using federal spending data."
-          />
           {content}
           <Hidden lgDown>
             <Downloads href="/unstructured-data/resources/analyst-guide.pdf" />
