@@ -18,8 +18,8 @@ function DebtAnalysisPage({ location }) {
 	return (
 		<>
 			<SEO
-				title="Data Lab - Federal Debt Analysis – U.S. Treasury"
-				description="Who owns the U.S. government’s debt and how much does it cost to maintain?"
+				title="Summary of debt for the United States | U.S. Treasury Data Lab"
+				description="What does the U.S. government’s debt look like? See characteristics of the federal debt and how they have changed over time."
 				excerpt="Explore this section to learn more about who owns U.S. debt, how much it costs to maintain the debt, and how interest rates affect debt expenses."
 				keywords={[
 					'debt, national debt, federal debt, U.S.debt, interest rate, interest expense, total debt, cost of debt, cost to maintain debt, federal government’s debt, US investors, social security, Federal Reserve, China,Japan, Brazil top owners of US debt, monthly statement of the public debt, MSPD',
