@@ -76,7 +76,7 @@ function IndexPage(props) {
 					<Grid item>
 						<SecondaryTile
 							heading="The Federal Response to COVID-19"
-							subheading="How much does the government spend and collect?"
+							subheading="How is the federal government funding relief efforts for COVID-19?"
 							href="/federal-covid-funding/"
 							imgSrc={covid}
 							imgAlt="Woman standing with medical face mask on, social distanced between two others, with a cartoon image of the U.S. Capitol in the background."
