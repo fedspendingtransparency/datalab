@@ -1,22 +1,22 @@
-import React from "react"
-import { Grid } from "@material-ui/core"
+import React from 'react';
+import { Grid } from '@material-ui/core';
 
-import DtsTile from "src/page-sections/home/dts-tile/dts-tile"
-import FeatureRow from "src/page-sections/home/feature-row/feature-row"
-import FeatureTile from "src/page-sections/home/feature-tile/feature-tile"
-import Home from "src/components/layouts/home/home"
-import MoreAnalysesTiles from "src/page-sections/home/more-analyses-tiles/more-analyses-tiles"
-import ResourcesRow from "src/page-sections/home/resources-row/resources-row"
-import SecondaryTile from "src/page-sections/home/secondary-tile/stacked-layout/secondary-tile"
-import SEO from "src/components/seo"
+import DtsTile from 'src/page-sections/home/dts-tile/dts-tile';
+import FeatureRow from 'src/page-sections/home/feature-row/feature-row';
+import FeatureTile from 'src/page-sections/home/feature-tile/feature-tile';
+import Home from 'src/components/layouts/home/home';
+import MoreAnalysesTiles from 'src/page-sections/home/more-analyses-tiles/more-analyses-tiles';
+import ResourcesRow from 'src/page-sections/home/resources-row/resources-row';
+import SecondaryTile from 'src/page-sections/home/secondary-tile/stacked-layout/secondary-tile';
+import SEO from 'src/components/seo';
 
-import afg from "src/images/home/afg-feature-module.png"
-import covid from "src/images/home/homepage-covid-image.jpg"
-import cu from "src/images/home/collegehomepage.svg"
-import homelessImg from "src/images/home/homelessness.png"
-import explorer from "src/images/home/contractexplorersunburst.png"
-import homeStyles from "./index.module.scss"
-import CovidCopy from "src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml"
+import afg from 'src/images/home/afg-feature-module.png';
+import covid from 'src/images/home/homepage-covid-image.jpg';
+import cu from 'src/images/home/collegehomepage.svg';
+import homelessImg from 'src/images/home/homelessness.png';
+import explorer from 'src/images/home/contractexplorersunburst.png';
+import homeStyles from './index.module.scss';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
 
 function IndexPage(props) {
 	return (
@@ -25,17 +25,17 @@ function IndexPage(props) {
 				title="Data Lab - U.S. Treasury"
 				description="The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending."
 				keywords={[
-					"Federal spending",
-					"data",
-					"visualizations",
-					"contracts",
-					"accounts",
-					"grants",
-					"federal programs",
-					"federal financial data",
-					"government spending",
-					"government programs",
-					"government contracts",
+					'Federal spending',
+					'data',
+					'visualizations',
+					'contracts',
+					'accounts',
+					'grants',
+					'federal programs',
+					'federal financial data',
+					'government spending',
+					'government programs',
+					'government contracts',
 				]}
 			/>
 			<Grid
@@ -54,11 +54,10 @@ function IndexPage(props) {
 						mobileBody={[
 							<>
 								<p>
-									Your guide to understanding the trillions of dollars that make
-									up the federal{" "}
-									<a href="/?glossary=balance_sheet">balance sheet</a>. Our
-									interactive visualizations walk you through federal spending,
-									revenue, the deficit, and debt.
+									Your guide to understanding the trillions of dollars that make up the
+									federal <a href="/?glossary=balance_sheet">balance sheet</a>. Our
+									interactive visualizations walk you through federal spending, revenue,
+									the deficit, and debt.
 								</p>
 							</>,
 						]}
@@ -73,7 +72,7 @@ function IndexPage(props) {
 					<Grid item>
 						<SecondaryTile
 							heading="The Federal Response to COVID-19"
-							subheading="How much does the government spend and collect?"
+							subheading="How is the federal government funding relief efforts for COVID-19?"
 							href="federal-covid-funding"
 							imgSrc={covid}
 							imgAlt="Woman standing with medical face mask on, social distanced between two others, with a cartoon image of the U.S. Capitol in the background."
@@ -120,7 +119,7 @@ function IndexPage(props) {
 				<ResourcesRow />
 			</div>
 		</Home>
-	)
+	);
 }
 
-export default IndexPage
+export default IndexPage;
