@@ -72,7 +72,7 @@ function DeficitCountryComparisonPage(props) {
 						<Share
 							location={props.location}
 							title="Data Lab - Deficit Country Comparison – U.S. Treasury"
-							twitter="How does the U.S. deficit compare with other countries? Check out Your Guide America’s Finances for data from 169 countries, then download .CSV data files to perform your own analysis. #YourGuide #DataLab #OpenGov"
+							twitter={`How does the U.S. deficit compare with other countries? Check out Your Guide America’s Finances for data from ${AfgData.countries_compared_deficit.value}, then download .CSV data files to perform your own analysis. #YourGuide #DataLab #OpenGov `}
 						/>
 					</ControlBar>
 					<h1>
@@ -83,8 +83,9 @@ function DeficitCountryComparisonPage(props) {
 							<p>
 								How does the United States compare to countries of similar size and
 								gross domestic product? Explore the chart, which shows the total deficit
-								of the United States compared to {AfgData.countries_compared_deficit.value}{' '}
-								other countries. You can compare deficits (in dollars) and deficit as a percent of gross domestic
+								of the United States compared to{' '}
+								{AfgData.countries_compared_deficit.value} other countries. You can
+								compare deficits (in dollars) and deficit as a percent of gross domestic
 								product. Find a country of interest and see for yourself. To ensure an
 								accurate comparison, {AfgData.country_compare_year.value} deficit data
 								is used in this section, not current fiscal year data.{' '}
@@ -138,36 +139,43 @@ function DeficitCountryComparisonPage(props) {
 								.
 							</p>
 							<p>
-								In researching potential data sources for information on the revenue and spending and deficit as a
-								percent of GDP of other governments for the country comparison module, the{' '}
+								In researching potential data sources for information on the revenue and
+								spending and deficit as a percent of GDP of other governments for the
+								country comparison module, the{' '}
 								<a
 									href={AfgData.gfs_url.value}
 									rel="noopener noreferrer"
 									target="_blank">
 									International Monetary Fund Global Financial Statistics
-								</a>
-								{' '}and{' '}
+								</a>{' '}
+								and{' '}
 								<a
 									href={AfgData.eurostats_url.value}
 									rel="noopener noreferrer"
 									target="_blank">
 									Eurostats
-								</a>
-								{' '}were chosen because they provide the best comparison for the following reasons:
+								</a>{' '}
+								were chosen because they provide the best comparison for the following
+								reasons:
 							</p>
 							<ul>
 								<li>
-									consistency with the level of government measured (central government only as a standard),
+									consistency with the level of government measured (central government
+									only as a standard),
 								</li>
-								<li>
-									frequency of updates to the data,
-								</li>
-								<li>
-									use of real figures over estimates in these datasets.
-								</li>
+								<li>frequency of updates to the data,</li>
+								<li>use of real figures over estimates in these datasets.</li>
 							</ul>
 							<p>
-								Countries without {AfgData.country_compare_year.value} figures were excluded from the country comparison data set, as well as countries reporting only general government figures.  General government figures include province, state, and local revenue and are not as useful of a comparison to federal financial figures for the United States. Some governments rely more heavily on provincial, state, or local revenue than on the central government, and as a result, this visualization should not be considered an absolute comparison of the revenue of central governments for all countries.
+								Countries without {AfgData.country_compare_year.value} figures were
+								excluded from the country comparison data set, as well as countries
+								reporting only general government figures. General government figures
+								include province, state, and local revenue and spending and are not as
+								useful of a comparison to federal financial figures for the United
+								States. Some governments rely more heavily on provincial, state, or
+								local revenue and spending than on the central government, and as a
+								result, this visualization should not be considered an absolute
+								comparison of the revenue of central governments for all countries.
 							</p>
 							<p>
 								Deficit figures were converted to U.S. dollars using the{' '}
@@ -176,9 +184,10 @@ function DeficitCountryComparisonPage(props) {
 									rel="noopener noreferrer"
 									target="_blank">
 									Rates of Exchange
-								</a>
-								{' '}published by the US Treasury for {AfgData.conversion_date.value}.
-								Countries were excluded that did not have revenue, spending, and exchange rate data available.
+								</a>{' '}
+								published by the US Treasury for {AfgData.conversion_date.value}.
+								Countries were excluded that did not have revenue, spending, and
+								exchange rate data available.
 							</p>
 							<div className="afg__download--div">
 								<div className="afg__download--heading">Download Source Data</div>
