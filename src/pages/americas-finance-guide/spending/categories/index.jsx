@@ -25,8 +25,8 @@ function SpendingCategoriesPage(props) {
 	return (
 		<>
 			<SEO
-				title="Data Lab - Federal Spending Categories – U.S. Treasury"
-				description={`In ${AfgData.current_fy.value}, the U.S. government spent ${AfgData.current_fy_spending_short.value}. Explore the breakdown of federal spending by category or agency.`}
+				title="Federal Spending by Category | U.S. Treasury Data Lab "
+				description={`This analysis allows you to explore U.S. spending by category or agency to see how the federal government spent money in ${AfgData.current_fy.value}.`}
 				excerpt={`You can explore ${AfgData.current_fy_spending_short.value} in spending either by category or by agency.  Curious to find out more? Dive deeper to see spending details by sub-category and other options.`}
 				keywords={[
 					`federal spending, revenue, federal revenue, U.S. spending, social security, national defense, medicare, health,  interest from debt, veteran’s benefits`,
