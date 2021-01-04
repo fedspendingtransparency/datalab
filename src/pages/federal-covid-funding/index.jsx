@@ -7,6 +7,7 @@ import StoryLayout from "../../components/layouts/story/story"
 import { Grid } from "@material-ui/core"
 import Footnotes from "../../components/footnotes/footnotes"
 import SEO from "../../components/seo"
+import ScrollingCircles from "src/components/scrolling-circles/scrolling-circles"
 import StorySection from "src/components/section-elements/story-section/story-section"
 import Accordion from "src/components/accordion/accordion"
 import Budget from "../../page-sections/federal-covid-funding/budget/budget"
@@ -263,11 +264,11 @@ export default class FederalCovidFunding extends React.Component {
 					"COVID19",
 				]}
 			/>
-
+			<ScrollingCircles sections={this.sections} />
 			{this.sections.map((item, key) => {
 				const SectionTag = this.sectionComponents[item.tagName]
 				return (
-					<StorySection key={key} header={item}>
+					<StorySection key={key} header={item} firstSection={key === 0}>
 						<SectionTag
 							sectionId={`section-${item.anchor}`}
 							section={item}

@@ -37,7 +37,7 @@ const ScrollingCircles = ({ sections }) => {
           entries.forEach((entry) => {
             const id = entry.target.id.split('-')[1];
             const { top, bottom } = entry.boundingClientRect;
-
+            
             if (!sectionScrollPositions.find((s) => s.id === id)) {
               sectionScrollPositions.push({
                 id,
@@ -54,7 +54,7 @@ const ScrollingCircles = ({ sections }) => {
       });
     };
 
-    observe();
+    setTimeout(observe, 2000);
 
     window.addEventListener('scroll', () => {
       const scrollPositions = sectionScrollPositions.sort((a, b) => a.bottom - b.bottom);
@@ -93,7 +93,7 @@ const ScrollingCircles = ({ sections }) => {
   const scrollToSection = (id, e) => {
     if (!e || e.key === 'Enter') {
       const section = positions.find((s) => s.id === id);
-      window.scrollTo(0, section.top + 10);
+      window.scrollTo(0, section.top + 25);
       fade();
     }
   };
@@ -131,7 +131,7 @@ const ScrollingCircles = ({ sections }) => {
                 onClick={() => scrollToSection(section.anchor)}
                 onKeyPress={(e) => scrollToSection(section.anchor, e)}
               >
-                {`0${number}`}
+                {section.number || `0${number + 1}`}
               </div>
               {label}
             </div>
