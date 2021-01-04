@@ -93,7 +93,11 @@ const ScrollingCircles = ({ sections }) => {
   const scrollToSection = (id, e) => {
     if (!e || e.key === 'Enter') {
       const section = positions.find((s) => s.id === id);
-      window.scrollTo(0, section.top + 25);
+      let scrollMargin = 25;
+      if (screenMode === ScreenModeEnum.tablet) {
+        scrollMargin = 10;
+      }
+      window.scrollTo(0, section.top + scrollMargin);
       fade();
     }
   };
