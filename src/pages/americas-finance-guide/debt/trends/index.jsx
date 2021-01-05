@@ -22,8 +22,8 @@ function DebtTrendsPage({ location }) {
 			<Og socialMediaImage="/americas-finance-guide/images/social-share/social-media-share-debt.jpg" />
 
 			<SEO
-				title="Data Lab - Federal Debt Trends – U.S. Treasury"
-				description={`The U.S. has generally increased the federal debt since ${AfgData.debt_trend_start.value}.`}
+				title="Federal Debt Trends Over Time | U.S. Treasury Data Lab"
+				description="This visualization allows you to view the debt trend and ratio of debt to GDP over time."
 				excerpt={`In the U.S., federal debt has generally increased over the past two decades. According to the most recent Financial Report of the United States Government (FR), the current fiscal policy is not sustainable. By the end of ${AfgData.current_fy.value}, federal debt was ${AfgData.current_fy_debt.value} trillion.`}
 				keywords={[
 					'debt, national debt, federal debt, U.S. debt, deficit vs. debt, deficit, national deficit, surplus, spending exceeds income, spending exceeds revenue, federal deficit, total debt, federal government’s debt, monthly statement of the public debt, MSPD',

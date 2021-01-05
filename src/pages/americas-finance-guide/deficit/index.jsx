@@ -124,8 +124,8 @@ function ExploreDeficitPage({ location }) {
   return (
     <>
       <SEO
-        title="Data Lab - Explore Deficit – U.S. Treasury"
-        description={`In ${AfgData.current_fy.value}, the federal government spent ${AfgData.current_fy_deficit_short.value} more than it collected, resulting in a deficit.`}
+        title="Federal Deficit | U.S. Treasury Data Lab"
+        description="Learn about the national deficit, the difference between deficit and debt, and how the government pays for deficit spending."
         excerpt={`How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent ${AfgData.current_fy_spending_short.value} and collected ${AfgData.current_fy_revenue_short.value} in ${AfgData.current_fy.value}, the government ran a deficit for the year.`}
         keywords={['Deficit, federal deficit, national deficit, spending, revenue, U.S. deficit money going out, money coming in, debt, national debt, federal debt, deficit vs. debt']}
       />

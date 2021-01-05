@@ -26,8 +26,8 @@ function IndexPage(props) {
 				<link rel="canonical" href="https://datalab.usaspending.gov" />
 			</Helmet>
 			<SEO
-				title="Data Lab - U.S. Treasury"
-				description="The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending."
+				title="Data Lab - Federal Finance Data Visualizations"
+				description="Data Lab, a U.S. Treasury website, presents topic-based analyses and visualizations to help you understand government finance. Data Lab’s mission is to provide open data on federal spending to promote government transparency."
 				keywords={[
 					'Federal spending',
 					'data',

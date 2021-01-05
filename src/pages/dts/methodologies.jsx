@@ -1,5 +1,6 @@
 import React from 'react';
 import HWCTA from '../../components/hwcta/hwcta';
+import SEO from "../../components/seo";
 
 function DTSHWCTA(props) {
   const title = 'DTS';
@@ -19,6 +20,10 @@ function DTSHWCTA(props) {
     {
       content:
       <>
+        <SEO
+            title="Data Sources and Methodologies for DTS Tracker | U.S. Treasury Data Lab"
+            description="The data used to create the Daily Spending Tracker is sourced from the Bureau of the Fiscal Service’s Daily Treasury Statement (DTS) archive."
+        />
         <p>
           The data used to create the Daily Spending Tracker is sourced from the Bureau of the Fiscal Service’s Daily Treasury Statement (DTS) archive. The download and transformation scripts come from the Federal Treasury API, developed for the treasury.io tool. The data goes through three stages of cleaning prior to reaching its completed state: download, parse, and aggregate.
         </p>

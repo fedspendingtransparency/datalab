@@ -39,8 +39,8 @@ class FederalAccountExplorerPage extends Component {
       >
 
         <SEO
-          title="U.S. Treasury Data Lab - Federal Account Explorer – U.S. Treasury"
-          description="The U.S. Treasury’s Data Lab presents a tree-style visualization exploring nearly 2,000 federal government spending accounts and the amounts spent."
+          title="Federal Account Explorer | U.S. Treasury Data Lab"
+          description="Learn how federal government agencies are organized into sub-agencies and find a list of each sub-agency's accounts."
           keywords={[`contracts`, `federal contracts`, `contractors`, `federal agencies`, `agencies`, `spending`, `federal account`, `dendrogram`]}
         />
 

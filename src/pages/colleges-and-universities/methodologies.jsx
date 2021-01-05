@@ -1,12 +1,17 @@
 import React from "react"
 import HWCTA from '../../components/hwcta/hwcta';
 import styles from '../../components/hwcta/hwcta.module.scss';
+import SEO from "../../components/seo";
 
 export default function CUHWCTA(props) {
   const title = 'FEDERAL INVESTMENT IN HIGHER EDUCATION';
 
   const methodologies = [{
     content: <>
+      <SEO
+          title="Data Sources and Methodologies for Federal Investment in Higher Education | U.S. Treasury Data Lab"
+          description="This analysis was conducted in five phases, described in detail."
+      />
       <p>
         This analysis was conducted in five phases, listed below. Each step is
         described in more detail below.

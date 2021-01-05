@@ -1,6 +1,7 @@
 import React from "react";
 import HWCTA from '../../components/hwcta/hwcta';
 import styles from '../../components/hwcta/hwcta.module.scss';
+import SEO from "../../components/seo";
 
 function HAHWCTA(props) {
   const title = 'HOMELESSNESS ANALYSIS';
@@ -79,6 +80,10 @@ function HAHWCTA(props) {
       name: <>Selecting Programs</>,
       sources:
         <>
+          <SEO
+            title="Data Sources and Methodologies for Homelessness Financial Data | U.S. Treasury Data Lab"
+            description="This analysis was conducting using federal grant award data from USAspending.gov and Point-in-Tine estimates provided by the Departments of Housing and Urban Development."
+          />
           <p>
             To accurately determine the amount the federal government spends addressing homelessness, we reviewed federal
             program descriptions using the CFDA, looking for any mention of keywords related to homelessness.

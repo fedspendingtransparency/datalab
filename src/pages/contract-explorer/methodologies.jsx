@@ -1,5 +1,6 @@
 import React from "react"
 import HWCTA from '../../components/hwcta/hwcta';
+import SEO from "../../components/seo";
 
 function CEHWCTA(props) {
   const title = 'CONTRACT EXPLORER';
@@ -15,6 +16,10 @@ function CEHWCTA(props) {
   }];
   const methodologies = [{
     content: <>
+      <SEO
+          title="Data Sources and Methodologies for Contract Explorer | U.S. Treasury Data Lab"
+          description="This analysis was conducted using publicly available agency contract award data reported to USAspending.gov."
+      />
       <p>
         We added up obligation amounts for every combination of contractor,
         sub-agency, and agency so that we could show the total dollars awarded

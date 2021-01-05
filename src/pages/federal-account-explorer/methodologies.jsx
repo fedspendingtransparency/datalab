@@ -1,11 +1,16 @@
 import React from "react"
 import HWCTA from '../../components/hwcta/hwcta';
+import SEO from "../../components/seo";
 
 function FEHWCTA(props) {
   const title = 'FEDERAL ACCOUNT EXPLORER';
 
   const methodologies = [{
     content: <>
+      <SEO
+          title="Data Sources and Methodologies for Federal Account Explorer | U.S. Treasury Data Lab"
+          description="This analysis organizes the spending data reported to USAspending.gov in a way that reflects the structure of the federal government."
+      />
       <p>
         We conducted this analysis by organizing the spending data reported to
         USAspending.gov in a way that reflects the structure of the federal
