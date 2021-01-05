@@ -6,7 +6,7 @@ import {
 	faAngleDown,
 	faAngleUp,
 } from '@fortawesome/free-solid-svg-icons';
-import { checkAfgScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
+import { checkAfgScreenMode, ScreenModeEnum } from '../../utils/screen-mode';
 import style from './afg-nav.module.scss';
 
 const AfgNav = ({ chapter }) => {
