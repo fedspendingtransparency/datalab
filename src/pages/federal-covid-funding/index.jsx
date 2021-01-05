@@ -281,7 +281,7 @@ export default class FederalCovidFunding extends React.Component {
 				<Grid item xs={10}>
 					<Footnotes
 						footnotes={[
-							"This estimate represents the maximum amount of credit possible given the current amounts commited by Treasury to various Federal Reserve loan facilities and total loans and loan guarantees available through agency programs. This number could grow with additional commitments by Treasury. For more information and detail on this estimate, see the Data Sources and Methodologies section.",
+							"This estimate represents the maximum amount of credit possible given the current amounts committed by Treasury to various Federal Reserve loan facilities and total loans and loan guarantees available through agency programs. This number could grow with additional commitments by Treasury. For more information and detail on this estimate, see the Data Sources and Methodologies section.",
 						]}
 					/>
 				</Grid>
