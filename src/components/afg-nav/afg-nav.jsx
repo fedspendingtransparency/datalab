@@ -268,13 +268,15 @@ const AfgNav = ({ chapter }) => {
 						  ${!activeSection ? style.activeSection : style.inactiveSection}
 						  ${!activeMainSection ? style.activeMainSection : ''}
             `}
+						id="overview-chevron"
+						data-testid="overview-chevron"
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						onKeyUp={handleTabEnter}>
 						<div className={style.sectionName}>
 							<a
 								href="/americas-finance-guide/"
-								tabindex={-1}
+								tabIndex={-1}
 								style={
 									screenMode <= ScreenModeEnum.tablet &&
 									!isMenuOpen &&
@@ -287,7 +289,7 @@ const AfgNav = ({ chapter }) => {
 							</a>
 							{screenMode >= ScreenModeEnum.desktop &&
 								(isLarger === 'Overview' || !activeMainSection) && (
-									<div className={style.sectionNameExtension} />
+									<div className={style.sectionNameExtension} data-testid={'overview-extension'} />
 								)}
 						</div>
 					</li>
@@ -332,6 +334,7 @@ const AfgNav = ({ chapter }) => {
 										className={`${section.navClass} ${
 											isActive ? style.activeSection : style.inactiveSection
 										} ${isMainSection ? style.activeMainSection : ''}`}
+										data-testid={`${section.chapter}-chevron`}
 										onMouseEnter={handleMouseEnter}
 										onMouseLeave={handleMouseLeave}
 										onKeyUp={handleTabEnter}>
@@ -346,7 +349,7 @@ const AfgNav = ({ chapter }) => {
 												{section.name}
 											</span>
 											{screenMode >= ScreenModeEnum.desktop && larger && (
-												<div className={style.sectionNameExtension} />
+												<div className={style.sectionNameExtension} data-testid={`${section.chapter}-extension`} />
 											)}
 										</div>
 									</li>
@@ -355,6 +358,7 @@ const AfgNav = ({ chapter }) => {
 										className={`${style.chapterNavSubPages} ${
 											screenMode > ScreenModeEnum.tablet || !isMenuOpen ? style.closed : ''
 										}`}
+										data-testid={`${section.chapter}-subpages`}
 										style={
 											isActive && isMounted ? activeSubPageStyle : inactiveSubPageStyle
 										}>
@@ -449,9 +453,6 @@ const AfgNav = ({ chapter }) => {
 											onKeyUp={handleEnterPress}
 											style={!isMenuOpen ? { fontSize: '1rem' } : {}}>
 											{activeSubPageName}
-											{screenMode >= ScreenModeEnum.desktop && (
-												<div className={style.sectionNameExtension} />
-											)}
 										</div>
 									</li>
 									<li
