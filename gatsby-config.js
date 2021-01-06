@@ -10,7 +10,6 @@ module.exports = {
 		'gatsby-plugin-root-import',
 		'gatsby-plugin-material-ui',
 		'gatsby-plugin-react-helmet',
-		'gatsby-plugin-webpack-bundle-analyzer',
 		{
 			resolve: 'gatsby-plugin-sass',
 			options: {
@@ -67,6 +66,15 @@ module.exports = {
 					'https://datalab.usaspending.gov/',
 					'https://datalab.usaspending.gov/index.html',
 				],
+			},
+		},
+		{
+			resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+			options: {
+				production: true,
+				disable: !process.env.ANALYZE_BUNDLE_SIZE,
+				generateStatsFile: true,
+				analyzerMode: 'static',
 			},
 		},
 		// this (optional) plugin enables Progressive Web App + Offline functionality
