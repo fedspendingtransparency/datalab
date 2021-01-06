@@ -102,6 +102,14 @@ const ScrollingCircles = ({ sections }) => {
     }
   };
 
+  const handleFocus = (e) => {
+    e.target.classList.add(styles.focused);
+  };
+
+  const handleBlur = (e) => {
+    e.target.classList.remove(styles.focused);
+  };
+
   return (
     <div className={styles.mainContainer} style={{ top: topMargin }}>
       {sections.map((section, number) => {
@@ -134,6 +142,8 @@ const ScrollingCircles = ({ sections }) => {
                 tabIndex={0}
                 onClick={() => scrollToSection(section.anchor)}
                 onKeyPress={(e) => scrollToSection(section.anchor, e)}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
               >
                 {section.number || `0${number + 1}`}
               </div>

@@ -63,19 +63,23 @@
         opacity: 0;
         transition: opacity 500ms;
       }
-    }
+    }   
   }
 }
 
 @media screen and (min-width: $desktop) {
-  .circle:focus {
-    box-shadow: 0 0 0 2px #888;
+  .main-container {
+    left: 40px;
+
+    .focused {
+      box-shadow: 0 0 0 2px #888;
+    }
   }
 }
 
 @media screen and (max-width: $desktop - 1) {
   .main-container {
-    right: 15px;
+    right: 14px;
     width: 50px;
 
     .label {
