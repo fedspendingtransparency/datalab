@@ -3,13 +3,13 @@ import styles from './rd-in-contracting.module.scss';
 import globalStyles from 'src/styles/variables.scss';
 
 import Categories from 'src/page-sections/rd-in-contracting/categories/categories.jsx';
-import ExpressLayout from 'src/components/layouts/express/express';
 import Footnotes from "../../components/footnotes/footnotes"
 import { Hidden } from '@material-ui/core';
 import ReadMore from '../../components/read-more/read-more';
 import SEO from 'src/components/seo';
 import Spending from 'src/page-sections/rd-in-contracting/spending/spending-chart';
 import Studies from 'src/page-sections/rd-in-contracting/studies/studies';
+import StoryLayout from "../../components/layouts/story/story";
 import StorySection from 'src/components/section-elements/story-section/story-section';
 
 import Accordion from 'src/components/accordion/accordion';
@@ -250,11 +250,10 @@ export default class RdInContractingPage extends React.Component {
        )
      } else {
        return (
-         <ExpressLayout
-           title='Research & Development in Contract Spending'
-           introSentence='How much did the federal government invest in Research & Development with FY 2019 Contract Spending?'
-           hwctaLink={this.props.location.pathname + '/methodologies'}
-         >
+         <StoryLayout hwctaLink={this.props.location.pathname + '/methodologies'}
+                      title='Research & Development in Contract Spending'
+                      introSentence='How much did the federal government invest in Research & Development with FY 2019 Contract Spending?'
+                      hwctaLink={this.props.location.pathname + '/methodologies'} >
            <SEO
              description='How much does the federal government invest in Research & Development? In FY 2019, $41.5 billion was contracted to R&D initiatives.'
              keywords={['research and development', 'federal research contracts', 'federal spending', 'R&D funding', 'R&D', 'federal contract spending']}
@@ -314,7 +313,7 @@ export default class RdInContractingPage extends React.Component {
                ]} />
              </Grid>
            </Grid>
-         </ExpressLayout>
+         </StoryLayout>
        )
      }
   }
