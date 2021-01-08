@@ -103,7 +103,6 @@ const AboutUs = () => {
       <SEO
         title="About Us | U.S. Treasury Data Lab"
         description="Data Lab's mission is to promote transparency of government finances by providing engaging and informative data-driven analyses of federal spending data."
-        keywords={['U.S. Treasury', 'Data Lab', 'Fiscal Data', 'USAspending.gov', 'API', 'government', 'government financial data', 'debt', 'Treasury', 'US government', 'Federal spending', 'data', 'visualizations', 'government spending']}
       />
       <div className={styles.aboutUsHeaderImage}>
         <h1 className={styles.headerTitle}>

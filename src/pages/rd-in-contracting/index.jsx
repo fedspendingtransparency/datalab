@@ -257,7 +257,6 @@ export default class RdInContractingPage extends React.Component {
          >
            <SEO
              description='How much does the federal government invest in Research & Development? In FY 2019, $41.5 billion was contracted to R&D initiatives.'
-             keywords={['research and development', 'federal research contracts', 'federal spending', 'R&D funding', 'R&D', 'federal contract spending']}
              title='U.S. Treasury Data Lab – Research & Development in Contract Spending'
            />
 

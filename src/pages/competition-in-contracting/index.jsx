@@ -53,8 +53,7 @@ class CompetitionInContractingPage extends Component {
         hwctaLink={this.props.location.pathname + '/methodologies'}>
         <SEO title="Competition in Government Contracting | U.S. Treasury Data Lab"
              description="Learn how many federal contracts are competitively awarded in accordance with the Competition in Contracting Act."
-             keywords={[`federal contracts`, `competition`, `awards`, `federal procurement`, `1984 Competition in Contracting Act`,
-							 `federal agencies`, `government contracts`, `government procurement`, `government agencies`, `bar chart`]} />
+        />
 
         <AccordionList
           title="Instructions">
