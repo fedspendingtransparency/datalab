@@ -97,7 +97,7 @@ function RevenueTrendsPage(props) {
 							<h2 className="chart-title">
 								Federal Revenue Trends over Time by Category
 							</h2>
-							<div className="hint">Click a revenue category to view more</div>
+							<div className="trend-hint">Click a revenue category to view more</div>
 							<RevenueTrends />
 						</div>
 					</div>
