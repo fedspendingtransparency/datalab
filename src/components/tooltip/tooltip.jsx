@@ -98,7 +98,6 @@ class MouseOverPopover extends React.Component {
 					open={this.isOpen(id)}
 					anchorEl={anchorEl}
 					placement="bottom-end"
-					data-anchorEl={anchorEl}
 					transition>
 					{({ TransitionProps }) => (
 						<Fade {...TransitionProps} timeout={350}>
