@@ -104,7 +104,7 @@ function DeficitCountryComparisonPage(props) {
 						<h2 className="chart-title">
 							{AfgData.country_compare_year.value} Country Comparison
 						</h2>
-						<div className="hint">
+						<div className="country-hint">
 							Click{' '}
 							<FontAwesomeIcon
 								icon={faSortAmountDown}
