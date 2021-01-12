@@ -47,9 +47,6 @@ function DeficitTrendsPage(props) {
 				title="Federal Budget Deficit by Year | U.S. Treasury Data Lab"
 				description="Find out how changes in spending and federal revenue contribute to fluctuations in the national deficit over time."
 				excerpt="The U.S. has experienced a deficit each year since 2001. Beginning in 2016, increases in spending on Social Security, health care, and interest on federal debt have outpaced the growth of federal revenue."
-				keywords={[
-					`Deficit, surplus, national deficit, debt, national debt, federal deficit, U.S. deficit, spending, revenue, money going out, money coming in, debtdeficit vs. debt, deficit trends, balanced budget`,
-				]}
 			/>
 
 			<Og

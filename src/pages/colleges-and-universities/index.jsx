@@ -67,8 +67,7 @@ export default class CollegesAndUniversitiesPage extends React.Component {
                  hwctaLink={this.props.location.pathname + '/methodologies'} >
       <SEO title='Federal Investment in Higher Education | U.S. Treasury Data Lab'
            description="Discover how much the federal government spends on colleges and universities and what the money is used for."
-           keywords={[`universities`, `colleges`, `higher education`, `funding`, `government spending`, `federal funding`, `government funding`,
-						 `federal grants`, `research grants`, `federal contracts`, `bubble chart`, `sunburst`]} />
+      />
 
       <CustomHeader
         subtext={'Federal Investment in Higher Education'}

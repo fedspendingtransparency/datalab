@@ -27,7 +27,6 @@ export default class DTSPage extends React.Component {
     <SEO
       title='Visualizing the Daily Treasury Statement | U.S. Treasury Data Lab'
       description='Explore our daily government spending chart to visualize how much the federal government spends each day.'
-      keywords={[`federal spending`, `federal programs`, `spending trends`, `spending`, `government programs`, `treasury statement`, `US spending`, `government expenditures`, `government spending`, `line graph`]}
     />
     <ToolLayout
       title='Visualizing The Daily Treasury Statement'
