@@ -1112,28 +1112,26 @@ export default function FederalPrograms(props) {
 				Federal grant awards by Continuum of Care Area
 			</div>
 			<AccordionList title="Instructions">
-				<div>
-					<strong>Map</strong>
-					<ul>
-						<li>Double click the map to zoom into a region.</li>
-						<li>Double click that same region to zoom out.</li>
-						<li>
-							While zoomed in, double clicking a different region will re-center the
-							map on that region.
-						</li>
-						<li>
-							To select a different Continuum of Care area and update the charts,
-							single-click a different region.
-						</li>
-					</ul>
-					<strong>Bar Charts</strong>
-					<ul>
-						<li>
-							Single-click the bars on the charts to visit a website describing each
-							listed program in depth.
-						</li>
-					</ul>
-				</div>
+				<strong>Map</strong>
+				<ul>
+					<li>Double click the map to zoom into a region.</li>
+					<li>Double click that same region to zoom out.</li>
+					<li>
+						While zoomed in, double clicking a different region will re-center the map
+						on that region.
+					</li>
+					<li>
+						To select a different Continuum of Care area and update the charts,
+						single-click a different region.
+					</li>
+				</ul>
+				<strong>Bar Charts</strong>
+				<ul>
+					<li>
+						Single-click the bars on the charts to visit a website describing each
+						listed program in depth.
+					</li>
+				</ul>
 			</AccordionList>
 
 			<Share location={props.location} />
