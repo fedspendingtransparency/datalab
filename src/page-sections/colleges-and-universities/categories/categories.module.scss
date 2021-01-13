@@ -40,27 +40,3 @@
     padding: 16px 32px 16px 16px;
   }
 }
-
-@media (min-width: $desktop-xl) {
-  .cat-container {
-    height: 800px;
-  }
-}
-
-@media (min-width: $desktop) and (max-width: $desktop-xl - 1) {
-  .cat-container {
-    height: 780px;
-  }
-}
-
-@media (min-width: $tablet) and (max-width: $desktop - 1) {
-  .cat-container {
-    height: 550px;
-  }
-}
-
-@media (max-width: $tablet - 1) {
-  .cat-container {
-    height: 425px;
-  }
-}

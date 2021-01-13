@@ -129,13 +129,11 @@ const Agencies = props => {
 	function vizView() {
 		if (chartView) {
 			return (
-				<>
-					<VizContainer
-						display={chartView}
-						data={_data.allCuBubbleChartV2Csv.nodes}
-						chartRef={chartRef}
-					/>
-				</>
+				<VizContainer
+					display={chartView}
+					data={_data.allCuBubbleChartV2Csv.nodes}
+					chartRef={chartRef}
+				/>
 			);
 		} else {
 			return (
