@@ -307,11 +307,10 @@ const Categories = () => {
 			return (
 				<Table
 					idName={'categoriesTable'}
-					fundingType={fundingType}
-					display={!chartView}
-					title={titlesByType[fundingType].categoryLabel + 's'}
 					columns={tableColumnTitles}
 					data={filteredTableData}
+					defaultField={'family'}
+					defaultDirection={'desc'}
 				/>
 			);
 		}
