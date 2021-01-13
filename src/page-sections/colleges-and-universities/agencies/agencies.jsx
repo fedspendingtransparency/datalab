@@ -131,6 +131,7 @@ const Agencies = props => {
 			return (
 				<>
 					<VizContainer
+						display={chartView}
 						data={_data.allCuBubbleChartV2Csv.nodes}
 						chartRef={chartRef}
 					/>
@@ -142,6 +143,8 @@ const Agencies = props => {
 					data={filteredTableData}
 					columns={tableColumnTitles}
 					idName={'agenciesTable'}
+					defaultField={'Recipient'}
+					defaultDirection={'desc'}
 				/>
 			);
 		}
@@ -208,18 +211,7 @@ const Agencies = props => {
 						</VizControlPanel>
 					</Hidden>
 				</Grid>
-				<>
-					<VizContainer
-						display={chartView}
-						data={_data.allCuBubbleChartV2Csv.nodes}
-						chartRef={chartRef}
-					/>
-				</>
-				<Table
-					data={filteredTableData}
-					columns={tableColumnTitles}
-					idName={'agenciesTable'}
-				/>
+				{vizView()}
 			</Grid>
 
 			<Downloads
