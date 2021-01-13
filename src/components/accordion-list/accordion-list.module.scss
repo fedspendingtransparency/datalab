@@ -26,11 +26,12 @@
 
 .content {
   padding: 0 $margin-25;
-  line-height: 0;
+  line-height: 1.2;
   text-align: left;
   visibility: hidden;
-  transition: line-height 0.5s ease;
-  
+  max-height: 0;
+  transition: max-height 0.5s ease;
+
   p,
   h1 {
     margin-bottom: 0;
@@ -42,7 +43,7 @@
     margin-top: 0;
     margin-bottom: 0;
     padding-left: $margin-30;
- 
+
     li {
       font-size: 0;
       transition: font-size 0.5s ease;
@@ -74,6 +75,7 @@
     padding-bottom: $margin-25;
     border-color: #eee;
     visibility: visible;
+    max-height: 1000px;
 
     p + p {
       margin-top: $margin-25;
