@@ -104,6 +104,7 @@
     "test": "jest --config=jest.config.js",
     "test-puppeteer": "jest --config=jest-pupp.config.js",
     "coverage": "jest --coverage",
+    "updateSnapshots": "jest --updateSnapshot",
     "check-outdated": "check-outdated"
   },
   "repository": {
