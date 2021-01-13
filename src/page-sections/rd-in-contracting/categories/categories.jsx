@@ -51,37 +51,39 @@ export default function Categories(props) {
 
 	function onEsc(e) {
 		if (e.keyCode === 27) {
-			Object.keys(tooltipData)
-				.forEach((index) => {
-					const item = tooltipData[index];
-					if (isOpen(item.id, item.tooltipRef)) {
-						const el = document.getElementById(index).getElementsByTagName('circle')[0];
-						el.setAttribute('fill', 'white');
-						el.setAttribute('fill-opacity', '1');
-						el.setAttribute('stroke', '#555555');
-						onPopoverClose(item.tooltipRef);
-					}
-				});
+			Object.keys(tooltipData).forEach(index => {
+				const item = tooltipData[index];
+				if (isOpen(item.id, item.tooltipRef)) {
+					const el = document
+						.getElementById(index)
+						.getElementsByTagName('circle')[0];
+					el.setAttribute('fill', 'white');
+					el.setAttribute('fill-opacity', '1');
+					el.setAttribute('stroke', '#555555');
+					onPopoverClose(item.tooltipRef);
+				}
+			});
 		}
 	}
 
-	function onKeyUp(e, key, item) {
+	function onKeyDown(e, key, item) {
 		if (e.keyCode === 13) {
 			toggle(e, key, item);
 		}
 
 		if (e.keyCode === 9) {
-			Object.keys(tooltipData)
-				.forEach((index) => {
-					const item = tooltipData[index];
-					if (isOpen(item.id, item.tooltipRef)) {
-						const el = document.getElementById(index).getElementsByTagName('circle')[0];
-						el.setAttribute('fill', 'white');
-						el.setAttribute('fill-opacity', '1');
-						el.setAttribute('stroke', '#555555');
-						onPopoverClose(item.tooltipRef);
-					}
-				});
+			Object.keys(tooltipData).forEach(index => {
+				const item = tooltipData[index];
+				if (isOpen(item.id, item.tooltipRef)) {
+					const el = document
+						.getElementById(index)
+						.getElementsByTagName('circle')[0];
+					el.setAttribute('fill', 'white');
+					el.setAttribute('fill-opacity', '1');
+					el.setAttribute('stroke', '#555555');
+					onPopoverClose(item.tooltipRef);
+				}
+			});
 		}
 	}
 
@@ -108,7 +110,10 @@ export default function Categories(props) {
 		el.setAttribute('fill-opacity', '.12');
 		el.setAttribute('stroke', variables.rdBlue);
 		el.setAttribute('aria-haspopup', true);
-		el.setAttribute('aria-owns', isOpen(item.id, item.tooltipRef) ? 'mouse-over-popover' : undefined);
+		el.setAttribute(
+			'aria-owns',
+			isOpen(item.id, item.tooltipRef) ? 'mouse-over-popover' : undefined
+		);
 
 		onPopoverOpen(e, item.id, item.tooltipRef);
 	}
@@ -123,10 +128,9 @@ export default function Categories(props) {
 			el.setAttribute('stroke', '#555555');
 		}
 
-		Object.keys(tooltipData)
-			.forEach((key) => {
-				onPopoverClose(tooltipData[key].tooltipRef);
-			});
+		Object.keys(tooltipData).forEach(key => {
+			onPopoverClose(tooltipData[key].tooltipRef);
+		});
 	}
 
 	function onBlur(e, key) {
@@ -152,36 +156,36 @@ export default function Categories(props) {
 		}
 
 		if (typeof document !== 'undefined') {
-			Object.keys(tooltipData)
-				.forEach((key) => {
-					const el = document.getElementById(key);
-					el.setAttribute('tabindex', '0');
-					el.setAttribute('focusable', true);
-					el.addEventListener('mouseover', (e) => onHover(e));
-					el.addEventListener('keyup', (e) => onKeyUp(e, key, tooltipData[key]));
-					el.addEventListener('click', (e) => toggle(e, key, tooltipData[key]));
-					el.addEventListener('mouseout', (e) => clearSelection(e));
-				});
+			Object.keys(tooltipData).forEach(key => {
+				const el = document.getElementById(key);
+				el.setAttribute('tabindex', '0');
+				el.setAttribute('focusable', true);
+				el.addEventListener('mouseover', e => onHover(e));
+				el.addEventListener('keydown', e => onKeyDown(e, key, tooltipData[key]));
+				el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
+				el.addEventListener('mouseout', e => clearSelection(e));
+			});
 		}
 
 		window.addEventListener('resize', handleResize);
-		window.addEventListener('keyup', (e) => onEsc(e));
+		window.addEventListener('keydown', e => onEsc(e));
 
-		return (_) => {
-			Object.keys(tooltipData)
-				.forEach((key) => {
-					if (typeof document !== 'undefined') {
-						const el = document.getElementById(key);
+		return _ => {
+			Object.keys(tooltipData).forEach(key => {
+				if (typeof document !== 'undefined') {
+					const el = document.getElementById(key);
 
-						el.removeEventListener('mouseover', (e) => onHover(e));
-						el.removeEventListener('keyup', (e) => onKeyUp(e, key, tooltipData[key]));
-						el.removeEventListener('click', (e) => toggle(e, key, tooltipData[key]));
-						el.removeEventListener('mouseout', (e) => clearSelection(e));
-					}
-				});
+					el.removeEventListener('mouseover', e => onHover(e));
+					el.removeEventListener('keydown', e =>
+						onKeyDown(e, key, tooltipData[key])
+					);
+					el.removeEventListener('click', e => toggle(e, key, tooltipData[key]));
+					el.removeEventListener('mouseout', e => clearSelection(e));
+				}
+			});
 
 			window.removeEventListener('resize', handleResize);
-			window.removeEventListener('keyup', (e) => onEsc(e));
+			window.removeEventListener('keydown', e => onEsc(e));
 		};
 	});
 
@@ -228,15 +232,14 @@ export default function Categories(props) {
 
 	function Chart() {
 		switch (device) {
-		case 'tablet':
-			return <Tablet />;
-		case 'mobile':
-			return <Mobile />;
-		default:
-			return <Desktop />;
+			case 'tablet':
+				return <Tablet />;
+			case 'mobile':
+				return <Mobile />;
+			default:
+				return <Desktop />;
 		}
 	}
-
 
 	return (
 		<>
@@ -244,7 +247,11 @@ export default function Categories(props) {
 			<AccordionList title="Instructions">
 				<p>In this visualization, categories are represented by icons.</p>
 				<ul>
-					<li>Click or tap on an icon to see the category name, total dollars contracted for this category, and the percentage this total accounts for within R&D contract spending</li>
+					<li>
+						Click or tap on an icon to see the category name, total dollars contracted
+						for this category, and the percentage this total accounts for within R&D
+						contract spending
+					</li>
 					<li>To exit the pop-up, click or tap the X</li>
 				</ul>
 			</AccordionList>
@@ -266,16 +273,21 @@ export default function Categories(props) {
 				date="October 2019"
 			/>
 
-			{Object.keys(tooltipData)
-				.map((i) => {
-					const item = tooltipData[i];
-					return <Tooltip ref={item.tooltipRef} title={item.title} id={item.id} rows={item.rows} />;
-				})}
-
-
+			{Object.keys(tooltipData).map(i => {
+				const item = tooltipData[i];
+				return (
+					<Tooltip
+						key={`tooltip-${i}`}
+						ref={item.tooltipRef}
+						title={item.title}
+						id={item.id}
+						rows={item.rows}
+					/>
+				);
+			})}
 		</>
 	);
 }
 
-
-const altText = 'Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.';
+const altText =
+	'Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.';
