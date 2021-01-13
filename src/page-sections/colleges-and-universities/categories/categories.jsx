@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styles from './categories.module.scss';
 import storyHeadingStyles from 'src/components/section-elements/story-section-heading/story-section-heading.module.scss';
-import * as _ from 'lodash';
-
+import filter from 'lodash/filter';
+import flatten from 'lodash/flatten';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import CategoriesVizContainer from './sunburst-container/sunburst-container';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Table from 'src/components/table/table';
 import Downloads from 'src/components/section-elements/downloads/downloads';
-import { Grid, Hidden } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import IconButton from '@material-ui/core/IconButton';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
@@ -197,6 +198,7 @@ const Categories = () => {
 		{
 			title: 'Obligation',
 			displayName: 'Obligation',
+			type: 'dollars',
 		},
 	];
 
@@ -242,14 +244,14 @@ const Categories = () => {
 		const searchListByType = searchList[fundingType];
 		itemList = searchListByType.find(el => el.id === id);
 
-		const obj = _.filter(tableData[fundingType], {
+		const obj = filter(tableData[fundingType], {
 			0: itemList.heading,
 			1: itemList.subheading,
 		});
 		if (obj && obj.length > 0) {
 			data.push(obj);
 		}
-		data = _.flatten(data);
+		data = flatten(data);
 		setFilteredData(data);
 	}
 

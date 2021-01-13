@@ -5,7 +5,7 @@ import storyHeadingStyles from '../../components/section-elements/story-section-
 import styles from './cu.module.scss';
 import refreshLogo from '../../images/colleges-and-universities/refresh.svg';
 import AccordionList from '../../components/accordion-list/accordion-list';
-import { Hidden } from '@material-ui/core';
+import Hidden from '@material-ui/core/Hidden';
 import SearchPanel from 'src/components/chartpanels/search';
 import ControlBar from '../../components/control-bar/control-bar';
 import Table from '../../components/table/table';
@@ -17,7 +17,8 @@ import StoryHeading from 'src/components/section-elements/story-section-heading/
 import VizControlPanel from '../../components/chartpanels/viz-control';
 import VizDetails from '../../components/chartpanels/viz-detail';
 import Reset from '../../components/reset/reset';
-
+import filter from 'lodash/filter';
+import flatten from 'lodash/flatten';
 import dataTableData from '../../../static/unstructured-data/mapbox/tableData.csv';
 import GeoDataMapbox from '../../../static/unstructured-data/mapbox/mapData.json';
 
@@ -92,18 +93,22 @@ export default function Institutions(props) {
 		{
 			title: 'contracts',
 			displayName: 'Contracts',
+			type: 'dollars',
 		},
 		{
 			title: 'grants',
 			displayName: 'Grants',
+			type: 'dollars',
 		},
 		{
 			title: 'student_aid',
 			displayName: 'Student Aid',
+			type: 'dollars',
 		},
 		{
 			title: 'Total_Federal_Investment',
 			displayName: 'Total $ Received',
+			type: 'dollars',
 		},
 	];
 
@@ -206,13 +211,13 @@ export default function Institutions(props) {
 	function filterTableData(id) {
 		let data = [];
 		const itemList = searchList.find(x => x.id == id);
-		const obj = _.filter(dataTableData, { Recipient: itemList.display });
+		const obj = filter(dataTableData, { Recipient: itemList.display });
 
 		if (obj && obj.length > 0) {
 			data.push(obj);
 		}
 
-		data = _.flatten(data);
+		data = flatten(data);
 
 		setFilteredData(data);
 	}

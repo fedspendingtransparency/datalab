@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Hidden } from '@material-ui/core';
+import Hidden from '@material-ui/core/Hidden';
 import Mapviz from '../../components/visualizations/homelessness-analysis/mapviz/mapviz';
-import * as _ from 'lodash';
+import filter from 'lodash/filter';
+import flatten from 'lodash/flatten';
 
 import dataSource from '../../components/visualizations/homelessness-analysis/utils/data-module';
-import DataTable from 'src/components/table/data-table';
+import Table from 'src/components/table/table';
 import styles from '../../components/visualizations/homelessness-analysis/mapviz/mapviz.module.scss';
 import mapImg from '../../components/visualizations/homelessness-analysis/mapviz/map.svg';
 import tableImg from '../../components/visualizations/homelessness-analysis/mapviz/table.svg';
@@ -20,9 +21,10 @@ export default function Geography(props) {
 	const [clicked, setClicked] = useState(false);
 	const { mem } = dataSource;
 	const populationData = mem.pop;
+	const tableData = populationData;
 
 	const switchView = view => {
-		updateTableData(tableData);
+		setFilteredData(tableData);
 		if (view === 'chart') {
 			isChartView(true);
 		} else {
@@ -48,69 +50,68 @@ export default function Geography(props) {
 
 	const tableColumnTitles = [
 		{
-			title: 'CoC Number',
+			title: 'coc_number',
+			displayName: 'CoC Number',
 			width: 112.5,
+			type: 'number',
 		},
 		{
-			title: 'CoC Name',
+			title: 'coc_name',
+			displayName: 'CoC Name',
 			width: 250,
+			type: 'number',
 		},
 		{
-			title: 'Total Homeless',
+			title: 'total_homeless',
+			displayName: 'Total Homeless',
 			width: 100,
 			type: 'number',
 		},
 		{
-			title: 'Sheltered Homeless',
+			title: 'sheltered_homeless',
+			displayName: 'Sheltered Homeless',
 			width: 100,
 			type: 'number',
 		},
 		{
-			title: 'Unsheltered Homeless',
+			title: 'unsheltered_homeless',
+			displayName: 'Unsheltered Homeless',
 			width: 100,
 			type: 'number',
 		},
 		{
-			title: 'Chronically Homeless',
+			title: 'chronically_homeless',
+			displayName: 'Chronically Homeless',
 			width: 100,
 			type: 'number',
 		},
 		{
-			title: 'Homeless Veterans',
+			title: 'homeless_veterans',
+			displayName: 'Homeless Veterans',
 			width: 100,
 			type: 'number',
 		},
 		{
-			title: 'Homeless Individuals',
+			title: 'homeless_individuals',
+			displayName: 'Homeless Individuals',
 			width: 100,
 			type: 'number',
 		},
 		{
-			title: 'Homeless People in Families',
+			title: 'homeless_people_in_families',
+			displayName: 'Homeless People in Families',
 			width: 137.5,
 			type: 'number',
 		},
 		{
-			title: 'Homeless Unaccompanied Youth (Under 25)',
+			title: 'total_homeless_unaccompanied_youth_under_25',
+			displayName: 'Homeless Unaccompanied Youth (Under 25)',
 			width: 150,
 			type: 'number',
 		},
 	];
-	const tableData = populationData.map(n => [
-		n.coc_number,
-		n.coc_name,
-		n.total_homeless,
-		n.sheltered_homeless,
-		n.unsheltered_homeless,
-		n.chronically_homeless,
-		n.homeless_veterans,
-		n.homeless_individuals,
-		n.homeless_people_in_families,
-		n.total_homeless_unaccompanied_youth_under_25,
-	]);
 
 	const [filteredTableData, setFilteredData] = useState(tableData);
-	const tableRef = React.createRef();
 
 	function filterTableData(id) {
 		let data = [];
@@ -120,24 +121,17 @@ export default function Geography(props) {
 			return el.id === id;
 		});
 
-		let obj = _.filter(tableData, {
-			1: itemList.heading,
-			2: itemList.subheading,
+		let obj = filter(tableData, {
+			coc_number: itemList.heading,
+			coc_name: itemList.subheading,
 		});
 		if (obj && obj.length > 0) {
 			data.push(obj);
 		}
 
-		data = _.flatten(data);
+		data = flatten(data);
 
-		updateTableData(data);
-	}
-
-	function updateTableData(data) {
 		setFilteredData(data);
-		if (tableRef && tableRef.current) {
-			tableRef.current.updateTableData(data);
-		}
 	}
 
 	function searchData(e) {
@@ -145,15 +139,15 @@ export default function Geography(props) {
 		let newData;
 		if (strCap) {
 			newData = tableData.filter(d => {
-				const cocName = d[1].toUpperCase();
-				const cocNum = d[0].toUpperCase();
+				const cocName = d['coc_name'].toUpperCase();
+				const cocNum = d['coc_number'].toUpperCase();
 				return cocName.indexOf(strCap) >= 0 || cocNum.indexOf(strCap) >= 0;
 			});
 		} else {
 			newData = tableData;
 		}
 
-		updateTableData(newData);
+		setFilteredData(newData);
 	}
 
 	function searchBoxFocus() {
@@ -176,11 +170,11 @@ export default function Geography(props) {
 			return <Mapviz display={chartView} data={dataSource} isClicked={clicked} />;
 		} else {
 			return (
-				<DataTable
-					display={!chartView}
-					columnTitles={tableColumnTitles}
+				<Table
+					columns={tableColumnTitles}
 					data={filteredTableData}
-					tableRef={tableRef}
+					defaultField={'coc_number'}
+					defaultDirection={'desc'}
 				/>
 			);
 		}
@@ -254,15 +248,13 @@ export default function Geography(props) {
 					</div>
 				</Hidden>
 			</div>
-			<div id="chart-area">
-				{vizView()}
-				<Downloads
-					href={
-						'/unstructured-data/homelessness-analysis/panel_2_table_and_counts_v7_2020_03_27.csv'
-					}
-					date={'November 2019'}
-				/>
-			</div>
+			<div id={styles.chartArea}>{vizView()}</div>
+			<Downloads
+				href={
+					'/unstructured-data/homelessness-analysis/panel_2_table_and_counts_v7_2020_03_27.csv'
+				}
+				date={'November 2019'}
+			/>
 		</>
 	);
 }

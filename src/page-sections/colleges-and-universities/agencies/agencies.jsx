@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import * as _ from 'lodash';
+import filter from 'lodash/filter';
+import flatten from 'lodash/flatten';
 import storyHeadingStyles from 'src/components/section-elements/story-section-heading/story-section-heading.module.scss';
 import styles from './agencies.module.scss';
 
@@ -8,7 +9,7 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import BubbleChartOutlinedIcon from '@material-ui/icons/BubbleChartOutlined';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import Grid from '@material-ui/core/Grid';
-import { Hidden } from '@material-ui/core';
+import Hidden from '@material-ui/core/Hidden';
 import SearchPanel from 'src/components/chartpanels/search';
 import Share from 'src/components/share/share';
 import StoryHeading from 'src/components/section-elements/story-section-heading/story-section-heading';
@@ -93,7 +94,7 @@ const Agencies = props => {
 			title: 'family',
 		},
 		{ displayName: 'Type', title: 'type' },
-		{ displayName: 'Obligation', title: 'obligation' },
+		{ displayName: 'Obligation', title: 'obligation', type: 'dollars' },
 	];
 
 	const tableData = _data.allCuBubbleChartTableV2Csv.nodes.map(n => {
@@ -112,7 +113,7 @@ const Agencies = props => {
 	function filterTableData(id) {
 		let data = [];
 		const itemList = searchList.find(el => el.id === id);
-		const obj = _.filter(tableData, {
+		const obj = filter(tableData, {
 			agency: itemList.heading,
 			subagency: itemList.subheading,
 		});
@@ -121,7 +122,7 @@ const Agencies = props => {
 			data.push(obj);
 		}
 
-		data = _.flatten(data);
+		data = flatten(data);
 
 		setFilteredData(data);
 	}

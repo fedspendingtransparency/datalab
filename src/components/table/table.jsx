@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Pagination } from 'data-transparency-ui';
 import 'data-transparency-ui/dist/data-transparency-ui.css';
-import './demo.scss';
+import './table.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
 	faAngleRight,
@@ -29,17 +29,22 @@ const DataTable = props => {
 	const [currentList, changeCurrentList] = useState(null);
 	const [field, updateField] = useState(props.defaultField);
 	const [direction, updateDirection] = useState(props.defaultDirection);
+	const { columns } = props;
 
 	useEffect(() => {
 		changeCurrentList(updateData(props.data));
 		setData(props.data);
 	}, [props.data]);
 
+	const columnsByType = {};
+
+	columns.forEach(x => (columnsByType[x.title] = x.type ? x.type : null));
+
 	const formatDollars = list => {
 		if (list && list.length > 0) {
 			list.forEach((x, i) => {
 				Object.keys(x).forEach(key => {
-					if (typeof list[i][key] === 'number') {
+					if (columnsByType[key] === 'dollars' && typeof list[i][key] === 'number') {
 						list[i][key] = formatNumber('dollars', list[i][key]);
 					}
 				});
@@ -98,22 +103,22 @@ const DataTable = props => {
 		return data.slice(startIndex, endIndex);
 	};
 
-	const { columns } = props;
-
 	return (
 		<>
-			<Table
-				columns={columns}
-				rows={currentList}
-				updateSort={updateSort}
-				currentSort={currentSort}
-				expandable
-			/>
+			<div className="usas-dl-table-container">
+				<Table
+					columns={columns}
+					rows={currentList}
+					updateSort={updateSort}
+					currentSort={currentSort}
+					expandable
+				/>
+			</div>
 			<Pagination
 				resultsText
 				currentPage={page}
 				changePage={handlePageChange}
-				pageSize={10}
+				pageSize={pageSize}
 				totalItems={data ? data.length : 0}
 			/>
 		</>
