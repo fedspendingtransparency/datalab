@@ -36,19 +36,16 @@ const DataTable = props => {
 	}, [props.data]);
 
 	const formatDollars = list => {
-		return list.map(x => {
-			return {
-				Recipient: x.Recipient,
-				Inst_Type: x.Inst_Type,
-				contracts: formatNumber('dollars', x.contracts),
-				grants: formatNumber('dollars', x.grants),
-				student_aid: formatNumber('dollars', x.student_aid),
-				Total_Federal_Investment: formatNumber(
-					'dollars',
-					x.Total_Federal_Investment
-				),
-			};
-		});
+		if (list && list.length > 0) {
+			list.forEach((x, i) => {
+				Object.keys(x).forEach(key => {
+					if (typeof list[i][key] === 'number') {
+						list[i][key] = formatNumber('dollars', list[i][key]);
+					}
+				});
+			});
+			return list;
+		}
 	};
 
 	const updateData = list => {

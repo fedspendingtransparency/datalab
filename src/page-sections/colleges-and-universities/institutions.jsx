@@ -152,7 +152,6 @@ export default function Institutions(props) {
 			.forEach(row => {
 				invTop5[row.target] = row.value;
 			});
-
 		const agencyTop5 = {};
 		panelDetails.agencies.nodes
 			.filter(node => node.source === institutionName)
