@@ -23,7 +23,8 @@ export default function Geography(props) {
 	const populationData = mem.pop;
 	const tableData = populationData.map(n => {
 		return {
-			coc: `${n.coc_number} /${n.coc_name}`,
+			coc_number: n.coc_number,
+			coc_name: n.coc_name,
 			total_homeless: n.total_homeless,
 			sheltered_homeless: n.sheltered_homeless,
 			unsheltered_homeless: n.unsheltered_homeless,
@@ -63,8 +64,14 @@ export default function Geography(props) {
 
 	const tableColumnTitles = [
 		{
-			title: 'coc',
-			displayName: 'CoC Number / Name',
+			title: 'coc_number',
+			displayName: 'CoC Number',
+			width: 112.5,
+			type: 'number',
+		},
+		{
+			title: 'coc_name',
+			displayName: 'CoC Name',
 			width: 112.5,
 			type: 'number',
 		},
