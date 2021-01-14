@@ -21,7 +21,20 @@ export default function Geography(props) {
 	const [clicked, setClicked] = useState(false);
 	const { mem } = dataSource;
 	const populationData = mem.pop;
-	const tableData = populationData;
+	const tableData = populationData.map(n => {
+		return {
+			coc: `${n.coc_number} /${n.coc_name}`,
+			total_homeless: n.total_homeless,
+			sheltered_homeless: n.sheltered_homeless,
+			unsheltered_homeless: n.unsheltered_homeless,
+			chronically_homeless: n.chronically_homeless,
+			homeless_veterans: n.homeless_veterans,
+			homeless_individuals: n.homeless_individuals,
+			homeless_people_in_families: n.homeless_people_in_families,
+			total_homeless_unaccompanied_youth_under_25:
+				n.total_homeless_unaccompanied_youth_under_25,
+		};
+	});
 
 	const switchView = view => {
 		setFilteredData(tableData);
@@ -50,32 +63,26 @@ export default function Geography(props) {
 
 	const tableColumnTitles = [
 		{
-			title: 'coc_number',
-			displayName: 'CoC Number',
+			title: 'coc',
+			displayName: 'CoC Number / Name',
 			width: 112.5,
 			type: 'number',
 		},
 		{
-			title: 'coc_name',
-			displayName: 'CoC Name',
-			width: 250,
-			type: 'number',
-		},
-		{
 			title: 'total_homeless',
-			displayName: 'Total Homeless',
+			displayName: 'Total',
 			width: 100,
 			type: 'number',
 		},
 		{
 			title: 'sheltered_homeless',
-			displayName: 'Sheltered Homeless',
+			displayName: 'With Shelter',
 			width: 100,
 			type: 'number',
 		},
 		{
 			title: 'unsheltered_homeless',
-			displayName: 'Unsheltered Homeless',
+			displayName: 'Without Shelter',
 			width: 100,
 			type: 'number',
 		},
@@ -87,25 +94,25 @@ export default function Geography(props) {
 		},
 		{
 			title: 'homeless_veterans',
-			displayName: 'Homeless Veterans',
+			displayName: 'Veterans',
 			width: 100,
 			type: 'number',
 		},
 		{
 			title: 'homeless_individuals',
-			displayName: 'Homeless Individuals',
+			displayName: 'Individuals',
 			width: 100,
 			type: 'number',
 		},
 		{
 			title: 'homeless_people_in_families',
-			displayName: 'Homeless People in Families',
+			displayName: 'In Families',
 			width: 137.5,
 			type: 'number',
 		},
 		{
 			title: 'total_homeless_unaccompanied_youth_under_25',
-			displayName: 'Homeless Unaccompanied Youth (Under 25)',
+			displayName: 'Youth (Under 25)',
 			width: 150,
 			type: 'number',
 		},
