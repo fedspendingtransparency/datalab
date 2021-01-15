@@ -66,61 +66,51 @@ export default function Geography(props) {
 		{
 			title: 'coc_number',
 			displayName: 'CoC Number',
-			width: 112.5,
 			type: 'number',
 		},
 		{
 			title: 'coc_name',
 			displayName: 'CoC Name',
-			width: 112.5,
 			type: 'number',
 		},
 		{
 			title: 'total_homeless',
 			displayName: 'Total',
-			width: 100,
 			type: 'number',
 		},
 		{
 			title: 'sheltered_homeless',
 			displayName: 'With Shelter',
-			width: 100,
 			type: 'number',
 		},
 		{
 			title: 'unsheltered_homeless',
 			displayName: 'Without Shelter',
-			width: 100,
 			type: 'number',
 		},
 		{
 			title: 'chronically_homeless',
 			displayName: 'Chronically Homeless',
-			width: 100,
 			type: 'number',
 		},
 		{
 			title: 'homeless_veterans',
-			displayName: 'Veterans',
-			width: 100,
+			displayName: 'Homeless Veterans',
 			type: 'number',
 		},
 		{
 			title: 'homeless_individuals',
-			displayName: 'Individuals',
-			width: 100,
+			displayName: 'Homeless Individuals',
 			type: 'number',
 		},
 		{
 			title: 'homeless_people_in_families',
-			displayName: 'In Families',
-			width: 137.5,
+			displayName: 'Homeless People In Families',
 			type: 'number',
 		},
 		{
 			title: 'total_homeless_unaccompanied_youth_under_25',
 			displayName: 'Youth (Under 25)',
-			width: 150,
 			type: 'number',
 		},
 	];
@@ -184,12 +174,14 @@ export default function Geography(props) {
 			return <Mapviz display={chartView} data={dataSource} isClicked={clicked} />;
 		} else {
 			return (
-				<Table
-					columns={tableColumnTitles}
-					data={filteredTableData}
-					defaultField={'coc_number'}
-					defaultDirection={'desc'}
-				/>
+				<div className={styles.homelessnessTableContainer}>
+					<Table
+						columns={tableColumnTitles}
+						data={filteredTableData}
+						defaultField={'coc_number'}
+						defaultDirection={'desc'}
+					/>
+				</div>
 			);
 		}
 	}
