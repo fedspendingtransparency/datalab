@@ -15,25 +15,18 @@ const spendingConfig = {
   chapter: 'debt',
   defaultCountries: [{
     display: 'United States',
-    plainName: 'United States',
   }, {
     display: 'Germany',
-    plainName: 'Germany',
   }, {
     display: 'United Kingdom',
-    plainName: 'United Kingdom',
   }, {
     display: 'France',
-    plainName: 'France',
   }, {
     display: 'Australia',
-    plainName: 'Australia',
   }, {
     display: 'Italy',
-    plainName: 'Italy',
   }, {
     display: 'Turkey',
-    plainName: 'Turkey',
   }],
   accessibilityAttrs: {
     title: 'Federal Debt Country Comparison',

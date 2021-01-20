@@ -26,7 +26,7 @@ export default class OpioidCrisisPage extends React.Component {
   render = () =>
     <StoryLayout isCustomHeader={true}
                  hwctaLink={this.props.location.pathname + '/methodologies'}>
-      <SEO title='Opioid Crisis' keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title='Opioid Crisis' />
 
 
       <CustomOpioidHeader

@@ -43,10 +43,9 @@ function SpendingTrendsPage(props) {
     return (
         <>
             <SEO
-                title='Data Lab - Federal Spending Trends – U.S. Treasury'
-                description='Find out how federal spending has changed over time.'
+                title='Government Spending Trends Over Time | U.S. Treasury Data Lab'
+                description='Explore U.S. spending by category and agency over a five-year period using an interactive chart.'
                 excerpt='This chart presents federal spending by spending type or by agency over a five year period. Have there been significant changes in federal spending? What impact does an increase or decrease have on spending at the sub-category level? You can track trends in federal spending by category or at the sub-category level.'
-                keywords={[`federal spending, , revenue, federal revenue, U.S. spending, gross domestic product, GDP, deficit, debt, federal spending trends over time`]}
             />
             <Og socialMediaImage={"/americas-finance-guide/images/social-share/social-media-share-spending.jpg"} />
             <AfgLayout location={props.location} chapter={'spending'}>

@@ -82,12 +82,9 @@ function SpendingAndGdpPage({ location }) {
   return (
     <>
       <SEO
-        title="Data Lab - Federal Spending and GDP – U.S. Treasury"
-        description={`How does federal spending compare to federal revenue and the size of the economy? In ${AfgData.current_fy.value}, the U.S. government spent ${AfgData.current_fy_spending_short.value}.`}
+        title="U.S. Federal Spending | U.S. Treasury Data Lab"
+        description={`In ${AfgData.current_fy.value}, the government spent ${AfgData.current_fy_spending.value}. How does that federal spending compare to the federal revenue and the size of the economy?`}
         excerpt="Where does all the money go? Most government spending is concentrated on programs that ensure the health and well-being of the people of the United States. Explore how spending compares to the size of the economy or to federal revenue."
-        keywords={[
-          'federal spending, outlays, U.S. spending, U.S. revenue, gross domestic product, GDP, deficit, debt, mandatory spending, discretionary spending',
-        ]}
       />
       <Og socialMediaImage="/americas-finance-guide/images/social-share/social-media-share-spending.jpg" />
       <AfgLayout location={location} chapter="spending">

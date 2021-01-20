@@ -54,12 +54,9 @@ function DeficitCountryComparisonPage(props) {
 	return (
 		<>
 			<SEO
-				title="Data Lab - Deficit Country Comparison – U.S. Treasury"
-				description="Compare the federal deficit of the United States to other countries."
+				title="Compare the Federal Deficit to Other Countries | U.S. Treasury Data Lab"
+				description="Explore a list of countries by budget deficit. Compare deficits in dollars or as a percentage of GDP."
 				excerpt={`How does the U.S. deficit compare with other countries? Check out Your Guide America’s Finances for data from ${AfgData.countries_compared_deficit.value}, then download .CSV data files to perform your own analysis. #YourGuide #DataLab #OpenGov https://datalab.usaspending.gov/americas-finance-guide/deficit/country-comparison/`}
-				keywords={[
-					`Deficit, federal deficit, U.S.deficit, national deficit,  debt, national debt, federal debt, U.S. debt compared to other countries`,
-				]}
 			/>
 			<Og
 				socialMediaImage={
@@ -104,7 +101,7 @@ function DeficitCountryComparisonPage(props) {
 						<h2 className="chart-title">
 							{AfgData.country_compare_year.value} Country Comparison
 						</h2>
-						<div className="hint">
+						<div className="country-hint">
 							Click{' '}
 							<FontAwesomeIcon
 								icon={faSortAmountDown}

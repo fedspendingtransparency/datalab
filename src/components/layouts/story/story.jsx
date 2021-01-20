@@ -25,9 +25,11 @@ const StoryLayout = (props) => {
             <p className={styles.introSentence}>
               {props.introSentence}
             </p>
-            <p className={styles.contextStatement}>
-              {props.contextStatement}
-            </p>
+            {props.contextStatement &&
+              <p className={styles.contextStatement}>
+                {props.contextStatement}
+              </p>
+            }
           </header>
         </Grid>
       </Grid>;

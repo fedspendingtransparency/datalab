@@ -16,25 +16,18 @@ const spendingConfig = {
   chapter: 'spending',
   defaultCountries: [{
     display: 'United States',
-    plainName: 'United States',
   }, {
     display: 'Germany',
-    plainName: 'Germany',
   }, {
     display: 'United Kingdom',
-    plainName: 'United Kingdom',
   }, {
     display: 'France',
-    plainName: 'France',
   }, {
     display: 'Australia',
-    plainName: 'Australia',
   }, {
     display: 'Korea',
-    plainName: 'Korea',
   }, {
     display: 'Canada',
-    plainName: 'Canada',
   }],
   accessibilityAttrs: {
     title: 'Federal Spending Country Comparison',

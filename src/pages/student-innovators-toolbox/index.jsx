@@ -17,6 +17,7 @@ import aboutTheData from '../../page-sections/student-innovators-toolbox/about';
 import finalProduct from '../../page-sections/student-innovators-toolbox/final-product';
 import resources from '../../page-sections/student-innovators-toolbox/resources';
 import projects from '../../page-sections/student-innovators-toolbox/projects';
+import SEO from "../../components/seo";
 
 class AnalystGuidePage extends Component {
 
@@ -117,6 +118,10 @@ class AnalystGuidePage extends Component {
     </>
 
     return <>
+      <SEO
+          title="Student Innovator's Toolbox | U.S. Treasury Data Lab"
+          description="Use the Student Innovator's Toolbox to connect with data from the U.S. Treasury to complement classroom learning and facilitate research and analysis."
+      />
       <div id={styles.analystGuidePage}>
         <FaqLayout
           title={title}

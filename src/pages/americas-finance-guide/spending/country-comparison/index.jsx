@@ -53,12 +53,9 @@ function SpendingCountryComparisonPage(props) {
 	return (
 		<>
 			<SEO
-				title="Data Lab - Spending Country Comparison – U.S. Treasury"
-				description={`How does U.S. federal spending compare to other countries? Check out Your Guide to America’s Finances for data from ${AfgData.countries_compared_spending.value}. #YourGuide #DataLab #OpenGov https://datalab.usaspending.gov/americas-finance-guide/spending/country-comparison/`}
+				title="Compare Federal Spending to Other Countries | U.S. Treasury Data Lab "
+				description={`How does government spending in the United States compare to ${AfgData.countries_compared_spending.value} other countries? Explore and compare spending using the interactive bar chart.`}
 				excerpt={`Check out total spending of the United States compared to ${AfgData.countries_compared_spending.value} different countries in ${AfgData.country_compare_year.value}.`}
-				keywords={[
-					`spending, federal spending, U.S. spending, gross domestic product, GDP,  federal spending per capita, country comparison, federal spending of the United States compared to other countries`,
-				]}
 			/>
 			<Og
 				socialMediaImage={
@@ -112,7 +109,7 @@ function SpendingCountryComparisonPage(props) {
 						<h2 className="chart-title">
 							{AfgData.country_compare_year.value} Country Comparison
 						</h2>
-						<div className="hint">
+						<div className="country-hint">
 							Click{' '}
 							<FontAwesomeIcon
 								icon={faSortAmountDown}

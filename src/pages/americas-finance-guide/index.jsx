@@ -30,12 +30,9 @@ export default function OverviewPage({ location }) {
   return (
     <>
       <SEO
-        title=" Data Lab - Your Guide to America’s Finances – U.S. Treasury"
-        description="Explore U.S. revenue, spending, deficit, and debt with Your Guide to America’s Finances, an accessible and open-source guide to federal finances."
+        title="America's Finance Guide | U.S. Treasury Data Lab"
+        description="Your guide to America's finances: explore U.S. revenue, spending, deficit, and debt with this accessible and open-source guide to federal finance data."
         excerpt="Your Guide to America’s Finances visualizes federal revenue, spending, deficit, and debt. It was created in response to the public’s desire to learn more about the financial picture of the United States. The federal financial information is open and accessible to all - the very principles that our founding fathers set forth when the United States was formed."
-        keywords={[
-          'federal, revenue, federal income, federal taxes, federal spending, deficit, debt',
-        ]}
       />
 
       <Og socialMediaImage="/americas-finance-guide/images/social-share/social-media-share-overview.jpg" />

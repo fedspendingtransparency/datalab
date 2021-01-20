@@ -1,0 +1,89 @@
+@import "../../styles/variables.scss";
+
+.main-container {
+  position: fixed;
+  height: 100%;
+  z-index: 10;
+
+  .section-container {
+    display: flex;
+    align-items: center;
+
+    .circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      width: 30px;
+      margin: 10px;
+      color: #fff;
+      border-radius: 15px;
+      font-size: 1rem;
+
+      &.active {
+        font-weight: bold;
+        color: #fff;
+      }
+
+      &:not(.active) {
+        background-color: #eaeaea;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+    
+    .label {
+      position: relative;
+      height: 40px;
+      margin-left: 10px;
+      padding: 8px 10px;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+
+      .before-arrow {
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 10px;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+      }
+
+      &.fade {
+        opacity: 0;
+        transition: opacity 500ms;
+      }
+    }   
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .main-container {
+    left: 40px;
+
+    .focused {
+      box-shadow: 0 0 0 2px #888;
+    }
+  }
+}
+
+@media screen and (max-width: $desktop - 1) {
+  .main-container {
+    right: 14px;
+    width: 50px;
+
+    .label {
+      display: none;
+    }
+  }
+}

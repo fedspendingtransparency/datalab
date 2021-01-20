@@ -57,12 +57,9 @@ function RevenueTrendsPage(props) {
 	return (
 		<>
 			<SEO
-				title="Data Lab - Federal Revenue Trends – U.S. Treasury"
-				description="Find out how U.S. federal revenue has changed over time."
+				title="Federal Revenue by Year | U.S. Treasury Data Lab"
+				description="How has federal revenue changed over the past few years? Explore federal revenue trends over time by category."
 				excerpt="This chart shows the categories for federal revenue sources over a five year period. Explore the interactive visualization to see what changes have occurred over the past five years."
-				keywords={[
-					`federal revenue, revenue trends over time, federal revenue sources, federal income sources, U.S. revenue categories`,
-				]}
 			/>
 			<Og
 				socialMediaImage={
@@ -97,7 +94,7 @@ function RevenueTrendsPage(props) {
 							<h2 className="chart-title">
 								Federal Revenue Trends over Time by Category
 							</h2>
-							<div className="hint">Click a revenue category to view more</div>
+							<div className="trend-hint">Click a revenue category to view more</div>
 							<RevenueTrends />
 						</div>
 					</div>

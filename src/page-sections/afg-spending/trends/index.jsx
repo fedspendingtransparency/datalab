@@ -263,7 +263,7 @@ export default function SpendingTrends() {
 					<div id="show-hide-list"></div>
 				</div>
 			</div>
-			<div className="hint">Click a spending category to view more</div>
+			<div className="trend-hint">Click a spending category to view more</div>
 			<div id="viz"></div>
 		</>
 	);

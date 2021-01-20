@@ -7,6 +7,7 @@ import StoryLayout from "../../components/layouts/story/story"
 import { Grid } from "@material-ui/core"
 import Footnotes from "../../components/footnotes/footnotes"
 import SEO from "../../components/seo"
+import ScrollingCircles from "src/components/scrolling-circles/scrolling-circles"
 import StorySection from "src/components/section-elements/story-section/story-section"
 import Accordion from "src/components/accordion/accordion"
 import Budget from "../../page-sections/federal-covid-funding/budget/budget"
@@ -248,26 +249,14 @@ export default class FederalCovidFunding extends React.Component {
 			sectionToc={this.sections}
 			hwctaLink={this.props.location.pathname + "/methodologies"}>
 			<SEO
-				title="Data Lab – The Federal Response to COVID-19 – U.S. Treasury"
-				description="SEO description"
-				keywords={[
-					"federal spending",
-					"government spending",
-					"economic relief",
-					"relief package",
-					"economic stimulus",
-					"obligations",
-					"appropriations",
-					"covid",
-					"coronavirus",
-					"COVID19",
-				]}
+				title="Federal Response to COVID-19 | U.S. Treasury Data Lab"
+				description={`In this analysis you can explore how the $${CovidCopy.totalbudgetresources} trillion in supplemental funding for COVID-19 makes it was from Congress to the U.S. economy.`}
 			/>
-
+			<ScrollingCircles sections={this.sections} />
 			{this.sections.map((item, key) => {
 				const SectionTag = this.sectionComponents[item.tagName]
 				return (
-					<StorySection key={key} header={item}>
+					<StorySection key={key} header={item} firstSection={key === 0}>
 						<SectionTag
 							sectionId={`section-${item.anchor}`}
 							section={item}
@@ -281,7 +270,7 @@ export default class FederalCovidFunding extends React.Component {
 				<Grid item xs={10}>
 					<Footnotes
 						footnotes={[
-							"This estimate represents the maximum amount of credit possible given the current amounts commited by Treasury to various Federal Reserve loan facilities and total loans and loan guarantees available through agency programs. This number could grow with additional commitments by Treasury. For more information and detail on this estimate, see the Data Sources and Methodologies section.",
+							"This estimate represents the maximum amount of credit possible given the current amounts committed by Treasury to various Federal Reserve loan facilities and total loans and loan guarantees available through agency programs. This number could grow with additional commitments by Treasury. For more information and detail on this estimate, see the Data Sources and Methodologies section.",
 						]}
 					/>
 				</Grid>
