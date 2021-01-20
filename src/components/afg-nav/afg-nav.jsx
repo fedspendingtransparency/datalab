@@ -268,8 +268,6 @@ const AfgNav = ({ chapter }) => {
 						  ${!activeSection ? style.activeSection : style.inactiveSection}
 						  ${!activeMainSection ? style.activeMainSection : ''}
             `}
-						id="overview-chevron"
-						data-testid="overview-chevron"
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						onKeyUp={handleTabEnter}>
