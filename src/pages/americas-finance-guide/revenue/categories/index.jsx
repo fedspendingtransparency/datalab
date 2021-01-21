@@ -29,9 +29,6 @@ function RevenueCategoriesPage(props) {
 				title="Sources of Federal Government Revenue | U.S. Treasury Data Lab"
 				description="What is the largest source of revenue for the federal government? Learn about the categories of revenue the government receives."
 				excerpt="Most of the revenue the government collects comes from taxes from individuals, small businesses, and corporations. Other sources of federal revenue include excise, estate, and other taxes and fees."
-				keywords={[
-					`federal revenue, revenue categories, individual taxes, corporate taxes, excise tax, estate tax, payroll tax, Social Security, Medicare, trust fund`,
-				]}
 			/>
 
 			<Og

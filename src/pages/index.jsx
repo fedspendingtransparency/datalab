@@ -28,19 +28,6 @@ function IndexPage(props) {
 			<SEO
 				title="Data Lab - Federal Finance Data Visualizations"
 				description="Data Lab, a U.S. Treasury website, presents topic-based analyses and visualizations to help you understand government finance. Data Lab’s mission is to provide open data on federal spending to promote government transparency."
-				keywords={[
-					'Federal spending',
-					'data',
-					'visualizations',
-					'contracts',
-					'accounts',
-					'grants',
-					'federal programs',
-					'federal financial data',
-					'government spending',
-					'government programs',
-					'government contracts',
-				]}
 			/>
 			<Grid
 				container

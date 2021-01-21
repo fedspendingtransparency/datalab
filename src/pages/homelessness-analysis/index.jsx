@@ -154,7 +154,6 @@ export default class HomelessnessPage extends Component {
           <SEO
             title="Homelessness Federal Financial Data |U.S. Treasury Data Lab"
             description="This visualization shows how government financial data is being spent to address homelessness in America."
-            keywords={[`homelessness`, `federal spending`, `housing`, `federal programs`, `homeless`, `government programs`, `homeless housing`, `homeless shelter`, `homeless people`, `choropleth`, `bar chart`, `tree map`]}
           />
           {sections.map((item, key) => {
             const SectionTag = this.sectionComponents[item.tagName];

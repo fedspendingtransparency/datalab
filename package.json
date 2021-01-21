@@ -31,7 +31,6 @@
     "d3v5": "npm:d3@^5.0.0",
     "data-transparency-ui": "https://github.com/fedspendingtransparency/data-transparency-ui#v1.3.2",
     "dotenv": "^8.1.0",
-    "flexboxgrid": "^6.3.1",
     "gatsby": "^2.18.17",
     "gatsby-cli": "^2.12.108",
     "gatsby-plugin-google-analytics": "^2.3.13",
@@ -106,6 +105,7 @@
     "test": "jest --config=jest.config.js",
     "test-puppeteer": "jest --config=jest-pupp.config.js",
     "coverage": "jest --coverage",
+    "updateSnapshots": "jest --updateSnapshot",
     "check-outdated": "check-outdated"
   },
   "repository": {

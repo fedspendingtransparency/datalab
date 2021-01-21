@@ -41,7 +41,6 @@ class FederalAccountExplorerPage extends Component {
         <SEO
           title="Federal Account Explorer | U.S. Treasury Data Lab"
           description="Learn how federal government agencies are organized into sub-agencies and find a list of each sub-agency's accounts."
-          keywords={[`contracts`, `federal contracts`, `contractors`, `federal agencies`, `agencies`, `spending`, `federal account`, `dendrogram`]}
         />
 
         <AccordionList title="Instructions">

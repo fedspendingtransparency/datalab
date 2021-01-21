@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './rd-in-contracting.module.scss';
 import globalStyles from 'src/styles/variables.scss';
 
@@ -31,13 +31,20 @@ import { HeadOnly } from "src/components/headers/headers"
 export default class RdInContractingPage extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = { screenMode: 0 };
+    this.state = {
+      screenMode: 0,
+      isQAT: false
+    };
   }
 
   componentDidMount() {
     this.resizeWindow();
     window.addEventListener('resize', this.resizeWindow);
+    this.setState({
+      isQAT:
+        (window.location.href.indexOf('localhost') > -1 ||
+        window.location.href.indexOf('datalab-qat') > -1)
+    })
   }
 
   componentWillUnmount() {
@@ -227,12 +234,7 @@ export default class RdInContractingPage extends React.Component {
   ];
 
   prerelease = () => {
-    let isQAT = false;
-    if (typeof window !== 'undefined') {
-      isQAT = window.location.href.indexOf('localhost') > -1 || window.location.href.indexOf('datalab-qat') > -1 ? true : false;
-    }
-
-     if(!isQAT) {
+     if(!this.state.isQAT) {
        return (
          <Default>
            <HeadOnly/>
@@ -256,7 +258,6 @@ export default class RdInContractingPage extends React.Component {
                       hwctaLink={this.props.location.pathname + '/methodologies'} >
            <SEO
              description='How much does the federal government invest in Research & Development? In FY 2019, $41.5 billion was contracted to R&D initiatives.'
-             keywords={['research and development', 'federal research contracts', 'federal spending', 'R&D funding', 'R&D', 'federal contract spending']}
              title='U.S. Treasury Data Lab – Research & Development in Contract Spending'
            />
 

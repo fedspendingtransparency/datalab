@@ -94,9 +94,6 @@ function RevenueAndGdpPage({ location }) {
         title="Government Revenue | U.S. Treasury Data Lab"
         description="Learn how much the U.S. government collects in revenue. Compare federal revenue to federal spending and the size of the U.S. economy."
         excerpt="Federal revenue consists mostly of individual, corporate, and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal Year."
-        keywords={[
-          'revenue, federal revenue, U.S. revenue, gdp, receipts, income taxes, corporate taxes',
-        ]}
       />
       <Og socialMediaImage="/americas-finance-guide/images/social-share/social-media-share-revenue.jpg" />
       <AfgLayout location={location} chapter="revenue">

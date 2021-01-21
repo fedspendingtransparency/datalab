@@ -251,18 +251,6 @@ export default class FederalCovidFunding extends React.Component {
 			<SEO
 				title="Federal Response to COVID-19 | U.S. Treasury Data Lab"
 				description={`In this analysis you can explore how the $${CovidCopy.totalbudgetresources} trillion in supplemental funding for COVID-19 makes it was from Congress to the U.S. economy.`}
-				keywords={[
-					"federal spending",
-					"government spending",
-					"economic relief",
-					"relief package",
-					"economic stimulus",
-					"obligations",
-					"appropriations",
-					"covid",
-					"coronavirus",
-					"COVID19",
-				]}
 			/>
 			<ScrollingCircles sections={this.sections} />
 			{this.sections.map((item, key) => {

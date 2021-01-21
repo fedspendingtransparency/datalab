@@ -81,7 +81,6 @@ export default class FederalEmployeesPage extends Component {
 				<SEO
 					title='Federal Employee Financial and Employment Data | U.S. Treasury Data Lab'
 					description="Explore government employees and agencies using federal financial and employee data from the Office of Personnel and Management."
-					keywords={[`Federal Employees`, `federal spending`, `Federal finances`, `work`, `personnel`, `CFO Act Agencie`, `states`, `occupation categories`, `government finances`, `government employees`, `tree map`, `bar chart`, `choropleth`]}
 				/>
 				{sections.map((item, key) => {
 						const SectionTag = this.sectionComponents[item.tagName];

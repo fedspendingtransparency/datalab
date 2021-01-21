@@ -56,9 +56,6 @@ function SpendingCountryComparisonPage(props) {
 				title="Compare Federal Spending to Other Countries | U.S. Treasury Data Lab "
 				description={`How does government spending in the United States compare to ${AfgData.countries_compared_spending.value} other countries? Explore and compare spending using the interactive bar chart.`}
 				excerpt={`Check out total spending of the United States compared to ${AfgData.countries_compared_spending.value} different countries in ${AfgData.country_compare_year.value}.`}
-				keywords={[
-					`spending, federal spending, U.S. spending, gross domestic product, GDP,  federal spending per capita, country comparison, federal spending of the United States compared to other countries`,
-				]}
 			/>
 			<Og
 				socialMediaImage={

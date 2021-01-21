@@ -26,15 +26,6 @@ function BudgetFunctionPage(props) {
 			<SEO
 				title="Budget Function - Federal Spending by Budget Category | U.S. Treasury Data Lab"
 				description="Data Lab presents an analysis on federal spending related to the government’s main functions. This visualization sheds light on both budget functions and object classes."
-				keywords={[
-					`spending categories`,
-					`budget function`,
-					`object class`,
-					`federal spending`,
-					`object categories`,
-					`agency accounts`,
-					`sankey`,
-				]}
 			/>
 
 			<ToolLayout
