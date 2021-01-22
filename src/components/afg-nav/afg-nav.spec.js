@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import AfgNav from './afg-nav';
 
 describe('AfgNav', () => {
@@ -51,4 +52,58 @@ describe('AfgNav', () => {
     expect(getByTestId('deficit-subpages')).toHaveStyle({ width: 0 });
     expect(getByTestId('debt-subpages')).toHaveStyle({ width: 0 });
   });
-});
+})
+
+describe('AfgNav tablet and mobile', () => {
+  let instance;
+  let component;
+
+  // behavior is the same at any size < 992
+  beforeAll(() => {
+    global.window.innerWidth = 400;
+    component = renderer.create(<AfgNav />);
+    instance = component.root;
+  });
+
+  it('sets the Overview section to its active class and the four chapters are not visible by default', () => {
+    const overview = instance.findByProps({'data-testid': 'overview'});
+    const revenue = instance.findByProps({'data-testid': 'revenue-mobile'});
+    expect(overview.props.className).toContain('activeSection');
+    expect(revenue.props.className).toContain('closed');
+  });
+
+  it('when the menu button is clicked, draws the four chapters', () => {
+    const menuButton = instance.findByType('button');
+    renderer.act(() => {
+      menuButton.props.onClick();
+    });
+    const revenue = instance.findByProps({'data-testid': 'revenue-mobile'});
+    expect(revenue.props.className).not.toContain('closed');
+  });
+
+  it('shows the links to the subchapters when a chapter is chosen', () => {
+    const deficit = instance.findByProps({'data-testid': 'deficit-mobile'});
+    // the deficit chapter is open (they all are)
+    expect(deficit.props.className).not.toContain('closed');
+    const deficitSubPagesUl = instance.findByProps({'data-testid': 'deficit-subPages'});
+    // subPages is currently closed
+    expect(deficitSubPagesUl.props.className).toContain('closed');
+
+    const mockEvent = {
+      key: '',
+      target: {
+        textContent: 'Deficit'
+      }
+    }
+
+    // click the Deficit chapter
+    renderer.act(() => {
+      deficit.props.children[1].props.onClick(mockEvent);
+    });
+    // subPages is open
+    expect(deficitSubPagesUl.props.className).not.toContain('closed');
+    // links are present
+    const links = deficitSubPagesUl.findAllByType('a');
+    expect(links.length).toBe(3);
+  });
+})

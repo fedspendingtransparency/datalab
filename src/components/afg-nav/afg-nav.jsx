@@ -268,6 +268,7 @@ const AfgNav = ({ chapter }) => {
 						  ${!activeSection ? style.activeSection : style.inactiveSection}
 						  ${!activeMainSection ? style.activeMainSection : ''}
             `}
+						data-testid={'overview'}
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						onKeyUp={handleTabEnter}>
@@ -440,7 +441,8 @@ const AfgNav = ({ chapter }) => {
 											isActive ? style.activeSection : style.inactiveSection
 										} ${isMainSection ? style.activeMainSection : ''} ${
 											!isMenuOpen ? style.closed : ''
-										}`}>
+										}`}
+										data-testid={`${section.chapter}-mobile`}>
 										<div
 											className={`${style.mobileBlock} ${section.backgroundColorClass}`}
 										/>
@@ -457,6 +459,7 @@ const AfgNav = ({ chapter }) => {
 										className={`${style.chapterNavSubPages} ${
 											!isMenuOpen || !isActive ? style.closed : ''
 										}`}
+										data-testid={`${section.chapter}-subPages`}
 										style={
 											isActive && !activeMainSectionClosed
 												? activeSubPageStyle
@@ -501,7 +504,8 @@ const AfgNav = ({ chapter }) => {
 				className={`${style.mobileMenuButtonContainer} ${
 					!isMenuOpen ? style.closed : ''
 				}`}>
-				<button className={style.mobileMenuButton} onClick={toggleMenu}>
+				<button className={style.mobileMenuButton}
+								onClick={toggleMenu}>
 					{isMenuOpen ? (
 						<FontAwesomeIcon icon={faAngleUp} width={14} className="fa fa-angle-up" />
 					) : (
