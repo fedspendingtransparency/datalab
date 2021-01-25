@@ -107,8 +107,8 @@
     "test-puppeteer": "jest --config=jest-pupp.config.js",
     "coverage": "jest --coverage",
     "check-outdated": "check-outdated",
-    "analyze": "ANALYZE_BUNDLE_SIZE=true node --max-old-space-size=8192 node_modules/gatsby/dist/bin/gatsby.js build"
-    "updateSnapshots": "jest --updateSnapshot",
+    "analyze": "ANALYZE_BUNDLE_SIZE=true node --max-old-space-size=8192 node_modules/gatsby/dist/bin/gatsby.js build",
+    "updateSnapshots": "jest --updateSnapshot"
   },
   "repository": {
     "type": "git",
