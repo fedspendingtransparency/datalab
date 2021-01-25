@@ -11,142 +11,101 @@ import loadable from '@loadable/component';
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 import styles from './cu.module.scss';
 
-const Agencies = loadable(
-	() =>
-		import('../../page-sections/colleges-and-universities/agencies/agencies'),
-	{
-		fallback: (
-			<div className="progress_wrapper">
-				<CircularProgress className="progress" size={70} color="inherit" />
-			</div>
-		),
-	}
-);
+const Agencies = loadable(() => import('../../page-sections/colleges-and-universities/agencies/agencies'),
+  {
+    fallback: <div className='progress_wrapper'>
+      <CircularProgress className='progress' size={70} color='inherit' />
+    </div>
+  });
 
-const Categories = loadable(
-	() =>
-		import('../../page-sections/colleges-and-universities/categories/categories'),
-	{
-		fallback: (
-			<div className="progress_wrapper">
-				<CircularProgress className="progress" size={70} color="inherit" />
-			</div>
-		),
-	}
-);
+const Categories = loadable(() => import('../../page-sections/colleges-and-universities/categories/categories'),
+  {
+    fallback: <div className='progress_wrapper'>
+      <CircularProgress className='progress' size={70} color='inherit' />
+    </div>
+  });
 
-const Institutions = loadable(
-	() => import('../../page-sections/colleges-and-universities/institutions'),
-	{
-		fallback: (
-			<div className="progress_wrapper">
-				<CircularProgress className="progress" size={70} color="inherit" />
-			</div>
-		),
-	}
-);
+const Institutions = loadable(() => import('../../page-sections/colleges-and-universities/institutions'),  {
+  fallback: <div className='progress_wrapper'>
+    <CircularProgress className='progress' size={70} color='inherit' />
+  </div>
+});
 
-const sections = [
-	{
-		section: 'Investment Overview',
-		number: '01',
-		anchor: 'overview',
-		subblurb: 'WHAT IS A FEDERAL INVESTMENT?',
-		blurb:
-			'Learn more about the three categories of federal investments: student aid, grants, and contracts.',
-	},
-	{
-		section: 'My Alma Mater',
-		number: '02',
-		anchor: 'institutions',
-		subblurb: 'How much did my school receive?',
-		blurb:
-			'Search for your school and discover details about federal funding at your alma mater.',
-	},
-	{
-		section: 'Agency Investment',
-		number: '03',
-		anchor: 'agencies',
-		subblurb: 'Which federal agencies are involved?',
-		blurb:
-			'Find out which federal agencies provide investments and in what amounts.',
-	},
-	{
-		section: 'Investment Categories',
-		number: '04',
-		anchor: 'categories',
-		subblurb: 'What are the investments used for?',
-		blurb: 'Discover more about what is funded by federal investment.',
-	},
-];
+const sections=
+  [{
+    section: 'Investment Overview',
+    number: '01',
+    anchor: 'overview',
+    subblurb: 'WHAT IS A FEDERAL INVESTMENT?',
+    blurb: 'Learn more about the three categories of federal investments: student aid, grants, and contracts.'
+  },
+  {
+    section: 'My Alma Mater',
+    number: '02',
+    anchor: 'institutions',
+    subblurb: 'How much did my school receive?',
+    blurb: 'Search for your school and discover details about federal funding at your alma mater.'
+  },
+  {
+    section: 'Agency Investment',
+    number: '03',
+    anchor: 'agencies',
+    subblurb: 'Which federal agencies are involved?',
+    blurb: 'Find out which federal agencies provide investments and in what amounts.'
+  },
+  {
+    section: 'Investment Categories',
+    number: '04',
+    anchor: 'categories',
+    subblurb: 'What are the investments used for?',
+    blurb: 'Discover more about what is funded by federal investment.'
+  }];
 
 export default class CollegesAndUniversitiesPage extends React.Component {
-	render = () => (
-		<StoryLayout
-			isCustomHeader={true}
-			hwctaLink={this.props.location.pathname + '/methodologies'}>
-			<SEO
-				title="Data Lab – Colleges and Universities – U.S. Treasury"
-				description="Did you know the federal government invested over $149 billion in higher education in 2018? Check out this analysis to see how much your Alma Mater received!"
-				keywords={[
-					`universities`,
-					`colleges`,
-					`higher education`,
-					`funding`,
-					`government spending`,
-					`federal funding`,
-					`government funding`,
-					`federal grants`,
-					`research grants`,
-					`federal contracts`,
-					`bubble chart`,
-					`sunburst`,
-				]}
-			/>
 
-			<CustomHeader
-				subtext={'Federal Investment in Higher Education'}
-				subblurb={[
-					'Explore the Federal Investment in your ',
-					<br key="subblurb-linebreak" />,
-					<span key="subblurb-callout" className={styles.headerRed}>
-						Alma Mater
-					</span>,
-				]}
-				blurb={[
-					'Did you know the federal government invested over $149 billion in colleges and universities in fiscal year 2018?',
-					<br key="blurb-linebreak" />,
-					'Those funds made an impact on over 3,000 schools, approximately 15 million undergraduates, and a little over 2.5 million graduate students.',
-				]}
-				sectionToc={sections}
-			/>
+  render = () =>
+    <StoryLayout isCustomHeader={true}
+                 hwctaLink={this.props.location.pathname + '/methodologies'} >
+      <SEO title='Federal Investment in Higher Education | U.S. Treasury Data Lab'
+           description="Discover how much the federal government spends on colleges and universities and what the money is used for."
+      />
 
-			<Grid container justify="center" className={styles.cu}>
-				<Grid item xs={10} className={styles.section} id={'section-overview'}>
-					<Overview location={this.props.location} />
-				</Grid>
+      <CustomHeader
+        subtext={'Federal Investment in Higher Education'}
+        subblurb={['Explore the Federal Investment in your ', <br key='subblurb-linebreak' />,
+          <span key='subblurb-callout' className={styles.headerRed}>Alma Mater</span>]}
+        blurb={['Did you know the federal government invested over $149 billion in colleges and universities in fiscal year 2018?',
+          <br key='blurb-linebreak' />,
+          'Those funds made an impact on over 3,000 schools, approximately 15 million undergraduates, and a little over 2.5 million graduate students.']}
+        sectionToc={sections}
+      />
 
-				<Grid item xs={10} className={styles.section} id={'section-institutions'}>
-					<Institutions location={this.props.location} />
-				</Grid>
+      <Grid container
+            justify="center"
+            className={styles.cu}>
+        <Grid item xs={10} className={styles.section} id={"section-overview"}>
+          <Overview location={this.props.location} />
+        </Grid>
 
-				<Grid item xs={10} className={styles.section} id={'section-agencies'}>
-					<Agencies location={this.props.location} />
-				</Grid>
+        <Grid item xs={10} className={styles.section} id={"section-institutions"}>
+          <Institutions location={this.props.location} />
+        </Grid>
 
-				<Grid item xs={10} className={styles.section} id={'section-categories'}>
-					<Categories location={this.props.location} />
-				</Grid>
+        <Grid item xs={10} className={styles.section} id={"section-agencies"}>
+          <Agencies location={this.props.location} />
+        </Grid>
 
-				<Grid item xs={10} className={styles.section}>
-					<Footnotes
-						footnotes={[
-							'Financial obligations represent outstanding debt or regular payments to another party. A negative value obligation (de-obligation) results from a transaction that lowers the debt amount. A grant or contract has a negative obligation for a given fiscal year when it spans multiple fiscal years and the sum of the transactions for that particular fiscal year was a net reduction of the original obligation.',
-							'Due to the way military academies are funded, they have not been included in this analysis.',
-						]}
-					/>
-				</Grid>
-			</Grid>
-		</StoryLayout>
-	);
+        <Grid item xs={10} className={styles.section} id={"section-categories"}>
+          <Categories location={this.props.location} />
+        </Grid>
+
+        <Grid item xs={10} className={styles.section}>
+          <Footnotes footnotes={['Financial obligations represent outstanding debt or regular payments to another party. A negative value obligation (de-obligation) results from a transaction that lowers the debt amount. A grant or contract has a negative obligation for a given fiscal year when it spans multiple fiscal years and the sum of the transactions for that particular fiscal year was a net reduction of the original obligation.',
+            'Due to the way military academies are funded, they have not been included in this analysis.']}
+          />
+        </Grid>
+
+      </Grid>
+
+    </StoryLayout>
 }

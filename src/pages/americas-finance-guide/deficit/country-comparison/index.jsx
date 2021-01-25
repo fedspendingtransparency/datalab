@@ -52,12 +52,9 @@ function DeficitCountryComparisonPage(props) {
 	return (
 		<>
 			<SEO
-				title="Data Lab - Deficit Country Comparison – U.S. Treasury"
-				description="Compare the federal deficit of the United States to other countries."
+				title="Compare the Federal Deficit to Other Countries | U.S. Treasury Data Lab"
+				description="Explore a list of countries by budget deficit. Compare deficits in dollars or as a percentage of GDP."
 				excerpt={`How does the U.S. deficit compare with other countries? Check out Your Guide America’s Finances for data from ${AfgData.countries_compared_deficit.value}, then download .CSV data files to perform your own analysis. #YourGuide #DataLab #OpenGov https://datalab.usaspending.gov/americas-finance-guide/deficit/country-comparison/`}
-				keywords={[
-					`Deficit, federal deficit, U.S.deficit, national deficit,  debt, national debt, federal debt, U.S. debt compared to other countries`,
-				]}
 			/>
 			<Og
 				socialMediaImage={
@@ -70,7 +67,7 @@ function DeficitCountryComparisonPage(props) {
 						<Share
 							location={props.location}
 							title="Data Lab - Deficit Country Comparison – U.S. Treasury"
-							twitter="How does the U.S. deficit compare with other countries? Check out Your Guide America’s Finances for data from 169 countries, then download .CSV data files to perform your own analysis. #YourGuide #DataLab #OpenGov"
+							twitter={`How does the U.S. deficit compare with other countries? Check out Your Guide America’s Finances for data from ${AfgData.countries_compared_deficit.value}, then download .CSV data files to perform your own analysis. #YourGuide #DataLab #OpenGov `}
 						/>
 					</ControlBar>
 					<h1>
@@ -102,7 +99,7 @@ function DeficitCountryComparisonPage(props) {
 						<h2 className="chart-title">
 							{AfgData.country_compare_year.value} Country Comparison
 						</h2>
-						<div className="hint">
+						<div className="country-hint">
 							Click{' '}
 							<FontAwesomeIcon
 								icon={faSortAmountDown}
@@ -168,12 +165,12 @@ function DeficitCountryComparisonPage(props) {
 								Countries without {AfgData.country_compare_year.value} figures were
 								excluded from the country comparison data set, as well as countries
 								reporting only general government figures. General government figures
-								include province, state, and local revenue and are not as useful of a
-								comparison to federal financial figures for the United States. Some
-								governments rely more heavily on provincial, state, or local revenue
-								than on the central government, and as a result, this visualization
-								should not be considered an absolute comparison of the revenue of
-								central governments for all countries.
+								include province, state, and local revenue and spending and are not as
+								useful of a comparison to federal financial figures for the United
+								States. Some governments rely more heavily on provincial, state, or
+								local revenue and spending than on the central government, and as a
+								result, this visualization should not be considered an absolute
+								comparison of the revenue of central governments for all countries.
 							</p>
 							<p>
 								Deficit figures were converted to U.S. dollars using the{' '}

@@ -1,12 +1,17 @@
 import React from 'react';
 import HWCTA from '../../components/hwcta/hwcta';
 import styles from '../../components/hwcta/hwcta.module.scss';
+import SEO from "../../components/seo";
 
 function FEHWCTA(props) {
   const title = 'WHO WORKS IN GOVERNMENT';
 
   const methodologies = [{
     content: <>
+      <SEO
+        title="Data Sources and Methodologies for Federal Employees | U.S. Treasury Data Lab"
+        description="This analysis was conducted using federal obligations data from USAspending.gov and agency employment data made available by the Office of Personnel Management."
+      />
       <p>
         We conducted this analysis using federal agency obligations data
         reported to USAspending.gov (which is available to the public) and

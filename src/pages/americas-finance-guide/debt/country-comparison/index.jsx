@@ -52,12 +52,9 @@ function DebtCountryComparisonPage(props) {
 	return (
 		<>
 			<SEO
-				title="Data Lab - Debt Country Comparison – U.S. Treasury"
-				description="Compare the federal debt of the United States to other countries."
+				title="Compare the U.S. Debt to Other Countries | U.S. Treasury Data Lab"
+				description={`How does the United States compare to countries of similar size and GDP? Explore this interactive bar chart showing the U.S. debt compared to ${AfgData.countries_compared_debt.value} countries.`}
 				excerpt={`How does the federal debt of the U.S. compare to other countries? Check out Your Guide to America’s Finances for data from ${AfgData.countries_compared_debt.value}.  Check out the site’s data visualizations, then download .CSV files of the data to perform your own analysis. #YourGuide #DataLab #OpenGov" https://datalab.usaspending.gov/americas-finance-guide/debt/country-comparison/`}
-				keywords={[
-					` debt, national debt, federal debt, U.S. debt, interest rate, interest expense, total debt, cost of debt, GDP, gross domestic product, debt of US.S. compared to other countries, China, Japan, France, Germany, United Kingdom, India owners of US debt, monthly statement of the public debt, MSPD`,
-				]}
 			/>
 			<Og
 				socialMediaImage={
@@ -70,7 +67,7 @@ function DebtCountryComparisonPage(props) {
 						<Share
 							location={props.location}
 							title="Data Lab - Debt Country Comparison – U.S. Treasury"
-							twitter='How does the federal debt of the U.S. compare to other countries? Check out Your Guide to America’s Finances for data from 169 countries.  Check out the site’s data visualizations, then download .CSV files of the data to perform your own analysis. #YourGuide #DataLab #OpenGov"'
+							twitter={`How does the federal debt of the U.S. compare to other countries? Check out Your Guide to America’s Finances for data from ${AfgData.countries_compared_debt.value}. Check out the site’s data visualizations, then download .CSV files of the data to perform your own analysis. #YourGuide #DataLab #OpenGov"`}
 						/>
 					</ControlBar>
 					<h1>Compare the Federal Debt of the United States to Other Countries</h1>
@@ -103,7 +100,7 @@ function DebtCountryComparisonPage(props) {
 						<h2 className="chart-title">
 							{AfgData.country_compare_year.value} Country Comparison
 						</h2>
-						<div className="hint">
+						<div className="country-hint">
 							Click{' '}
 							<FontAwesomeIcon
 								icon={faSortAmountDown}
@@ -134,8 +131,7 @@ function DebtCountryComparisonPage(props) {
 									target="_blank">
 									Bureau of Economic Analysis (BEA)
 								</a>
-								. Debt figures for countries other than the United States also come from
-								the{' '}
+								. Debt figures for countries other than the United States come from the{' '}
 								<a
 									href={AfgData.gfs_url.value}
 									rel="noopener noreferrer"

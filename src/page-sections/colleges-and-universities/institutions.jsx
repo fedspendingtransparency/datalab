@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import React, { useState, useEffect } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import '../../styles/index.scss';
 import storyHeadingStyles from '../../components/section-elements/story-section-heading/story-section-heading.module.scss';
 import styles from './cu.module.scss';
+import refreshLogo from '../../images/colleges-and-universities/refresh.svg';
 import AccordionList from '../../components/accordion-list/accordion-list';
 import Hidden from '@material-ui/core/Hidden';
 import SearchPanel from 'src/components/chartpanels/search';
 import ControlBar from '../../components/control-bar/control-bar';
-import DataTable from '../../components/table/data-table';
+import Table from '../../components/table/table';
 import Downloads from '../../components/section-elements/downloads/downloads';
 import GeolocationIcon from '@material-ui/icons/Room';
 import Grid from '@material-ui/core/Grid';
@@ -16,12 +17,12 @@ import StoryHeading from 'src/components/section-elements/story-section-heading/
 import VizControlPanel from '../../components/chartpanels/viz-control';
 import VizDetails from '../../components/chartpanels/viz-detail';
 import Reset from '../../components/reset/reset';
-
+import filter from 'lodash/filter';
+import flatten from 'lodash/flatten';
 import dataTableData from '../../../static/unstructured-data/mapbox/tableData.csv';
 import GeoDataMapbox from '../../../static/unstructured-data/mapbox/mapData.json';
 
 import loadable from '@loadable/component';
-
 const Mapbox = loadable(() =>
 	import('../../components/visualizations/mapbox/mapbox')
 );
@@ -61,12 +62,63 @@ export default function Institutions(props) {
 		return filteredList;
 	}
 
+	const initializeTable = dataTableData => {
+		return dataTableData.map(x => {
+			return {
+				Recipient: x.Recipient,
+				Inst_Type: x.INST_TYPE_1 + ' / ' + x.INST_TYPE_2,
+				contracts: parseInt(x.contracts),
+				grants: parseInt(x.grants),
+				student_aid: parseInt(x.student_aid),
+				Total_Federal_Investment: parseInt(x.Total_Federal_Investment),
+			};
+		});
+	};
+
+	const [filteredTableData, setFilteredData] = useState(null);
+
+	useEffect(() => {
+		setFilteredData(initializeTable(dataTableData));
+	}, []);
+
+	const tableColumnTitles = [
+		{
+			title: 'Recipient',
+			displayName: 'Institution',
+		},
+		{
+			title: 'Inst_Type',
+			displayName: 'Type',
+		},
+		{
+			title: 'contracts',
+			displayName: 'Contracts',
+			type: 'dollars',
+		},
+		{
+			title: 'grants',
+			displayName: 'Grants',
+			type: 'dollars',
+		},
+		{
+			title: 'student_aid',
+			displayName: 'Student Aid',
+			type: 'dollars',
+		},
+		{
+			title: 'Total_Federal_Investment',
+			displayName: 'Total $ Received',
+			type: 'dollars',
+		},
+	];
+
 	const [chartView, isChartView] = useState(true);
+
 	const switchView = view => {
 		if (view === 'chart') {
 			isChartView(true);
 		} else {
-			updateTableData(tableData);
+			setFilteredData(initializeTable(dataTableData));
 			isChartView(false);
 			detailPanelRef.current && detailPanelRef.current.closeDetails(); // hide details if open
 		}
@@ -105,7 +157,6 @@ export default function Institutions(props) {
 			.forEach(row => {
 				invTop5[row.target] = row.value;
 			});
-
 		const agencyTop5 = {};
 		panelDetails.agencies.nodes
 			.filter(node => node.source === institutionName)
@@ -156,45 +207,55 @@ export default function Institutions(props) {
 	};
 
 	const detailPanelRef = React.createRef();
-	const tableColumnTitles = [
-		{ title: 'Institution' },
-		{ title: 'Type' },
-		{ title: 'Contracts' },
-		{ title: 'Grants' },
-		{ title: 'Student Aid' },
-		{ title: 'Total $ Received' },
-	];
-	const tableData = dataTableData.map(x => [
-		x.Recipient,
-		x.INST_TYPE_1 + ' / ' + x.INST_TYPE_2,
-		parseInt(x.contracts),
-		parseInt(x.grants),
-		parseInt(x.student_aid),
-		parseInt(x.Total_Federal_Investment),
-	]);
-
-	const [filteredTableData, setFilteredData] = useState(tableData);
-
-	const tableRef = React.createRef();
 
 	function filterTableData(id) {
 		let data = [];
 		const itemList = searchList.find(x => x.id == id);
-		const obj = _.filter(tableData, { 0: itemList.display });
+		const obj = filter(dataTableData, { Recipient: itemList.display });
 
 		if (obj && obj.length > 0) {
 			data.push(obj);
 		}
 
-		data = _.flatten(data);
+		data = flatten(data);
 
-		updateTableData(data);
+		setFilteredData(data);
 	}
 
-	function updateTableData(data) {
-		setFilteredData(data);
-		if (tableRef && tableRef.current) {
-			tableRef.current.updateTableData(data);
+	function vizView() {
+		if (chartView) {
+			return (
+				<>
+					<Grid item xs={10}>
+						<Mapbox
+							display={chartView}
+							data={GeoDataMapbox}
+							showDetails={getClickedDetails}
+							clickedSchool={clickedSchool}
+							altText={
+								'U.S. map that displays FY2018 investment by regional cluster and institution. Institutional level data includes contracts, grants, and student aid.'
+							}
+						/>
+					</Grid>
+					<Grid item xs={1}>
+						<VizDetails
+							showDetails={getClickedDetails}
+							details={schoolDetails}
+							ref={detailPanelRef}
+						/>
+					</Grid>
+				</>
+			);
+		} else {
+			return (
+				<Table
+					data={filteredTableData}
+					columns={tableColumnTitles}
+					idName={'institutionsTable'}
+					defaultField={'Recipient'}
+					defaultDirection={'desc'}
+				/>
+			);
 		}
 	}
 
@@ -263,31 +324,7 @@ export default function Institutions(props) {
 						</VizControlPanel>
 					</Hidden>
 				</Grid>
-				<Grid item xs={10}>
-					<Mapbox
-						display={chartView}
-						data={GeoDataMapbox}
-						showDetails={getClickedDetails}
-						clickedSchool={clickedSchool}
-						altText={
-							'U.S. map that displays FY2018 investment by regional cluster and institution. Institutional level data includes contracts, grants, and student aid.'
-						}
-					/>
-				</Grid>
-				<Grid item xs={1}>
-					<VizDetails
-						showDetails={getClickedDetails}
-						details={schoolDetails}
-						ref={detailPanelRef}
-					/>
-				</Grid>
-				<DataTable
-					display={!chartView}
-					data={filteredTableData}
-					columnTitles={tableColumnTitles}
-					idName={'institutionsTable'}
-					ref={tableRef}
-				/>
+				{vizView()}
 			</Grid>
 
 			<Downloads

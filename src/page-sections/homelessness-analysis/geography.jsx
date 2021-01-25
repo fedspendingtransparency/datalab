@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Hidden from '@material-ui/core/Hidden';
 import Mapviz from '../../components/visualizations/homelessness-analysis/mapviz/mapviz';
-import * as _ from 'lodash';
+import filter from 'lodash/filter';
+import flatten from 'lodash/flatten';
 
 import dataSource from '../../components/visualizations/homelessness-analysis/utils/data-module';
-import DataTable from 'src/components/table/data-table';
+import Table from 'src/components/table/table';
 import styles from '../../components/visualizations/homelessness-analysis/mapviz/mapviz.module.scss';
 import mapImg from '../../components/visualizations/homelessness-analysis/mapviz/map.svg';
 import tableImg from '../../components/visualizations/homelessness-analysis/mapviz/table.svg';
@@ -20,9 +21,24 @@ export default function Geography(props) {
 	const [clicked, setClicked] = useState(false);
 	const { mem } = dataSource;
 	const populationData = mem.pop;
+	const tableData = populationData.map(n => {
+		return {
+			coc_number: n.coc_number,
+			coc_name: n.coc_name,
+			total_homeless: n.total_homeless,
+			sheltered_homeless: n.sheltered_homeless,
+			unsheltered_homeless: n.unsheltered_homeless,
+			chronically_homeless: n.chronically_homeless,
+			homeless_veterans: n.homeless_veterans,
+			homeless_individuals: n.homeless_individuals,
+			homeless_people_in_families: n.homeless_people_in_families,
+			total_homeless_unaccompanied_youth_under_25:
+				n.total_homeless_unaccompanied_youth_under_25,
+		};
+	});
 
 	const switchView = view => {
-		updateTableData(tableData);
+		setFilteredData(tableData);
 		if (view === 'chart') {
 			isChartView(true);
 		} else {
@@ -48,69 +64,58 @@ export default function Geography(props) {
 
 	const tableColumnTitles = [
 		{
-			title: 'CoC Number',
-			width: 112.5,
-		},
-		{
-			title: 'CoC Name',
-			width: 250,
-		},
-		{
-			title: 'Total Homeless',
-			width: 100,
+			title: 'coc_number',
+			displayName: 'CoC Number',
 			type: 'number',
 		},
 		{
-			title: 'Sheltered Homeless',
-			width: 100,
+			title: 'coc_name',
+			displayName: 'CoC Name',
 			type: 'number',
 		},
 		{
-			title: 'Unsheltered Homeless',
-			width: 100,
+			title: 'total_homeless',
+			displayName: 'Total',
 			type: 'number',
 		},
 		{
-			title: 'Chronically Homeless',
-			width: 100,
+			title: 'sheltered_homeless',
+			displayName: 'With Shelter',
 			type: 'number',
 		},
 		{
-			title: 'Homeless Veterans',
-			width: 100,
+			title: 'unsheltered_homeless',
+			displayName: 'Without Shelter',
 			type: 'number',
 		},
 		{
-			title: 'Homeless Individuals',
-			width: 100,
+			title: 'chronically_homeless',
+			displayName: 'Chronically Homeless',
 			type: 'number',
 		},
 		{
-			title: 'Homeless People in Families',
-			width: 137.5,
+			title: 'homeless_veterans',
+			displayName: 'Homeless Veterans',
 			type: 'number',
 		},
 		{
-			title: 'Homeless Unaccompanied Youth (Under 25)',
-			width: 150,
+			title: 'homeless_individuals',
+			displayName: 'Homeless Individuals',
+			type: 'number',
+		},
+		{
+			title: 'homeless_people_in_families',
+			displayName: 'Homeless People In Families',
+			type: 'number',
+		},
+		{
+			title: 'total_homeless_unaccompanied_youth_under_25',
+			displayName: 'Youth (Under 25)',
 			type: 'number',
 		},
 	];
-	const tableData = populationData.map(n => [
-		n.coc_number,
-		n.coc_name,
-		n.total_homeless,
-		n.sheltered_homeless,
-		n.unsheltered_homeless,
-		n.chronically_homeless,
-		n.homeless_veterans,
-		n.homeless_individuals,
-		n.homeless_people_in_families,
-		n.total_homeless_unaccompanied_youth_under_25,
-	]);
 
 	const [filteredTableData, setFilteredData] = useState(tableData);
-	const tableRef = React.createRef();
 
 	function filterTableData(id) {
 		let data = [];
@@ -120,24 +125,17 @@ export default function Geography(props) {
 			return el.id === id;
 		});
 
-		let obj = _.filter(tableData, {
-			1: itemList.heading,
-			2: itemList.subheading,
+		let obj = filter(tableData, {
+			coc_number: itemList.heading,
+			coc_name: itemList.subheading,
 		});
 		if (obj && obj.length > 0) {
 			data.push(obj);
 		}
 
-		data = _.flatten(data);
+		data = flatten(data);
 
-		updateTableData(data);
-	}
-
-	function updateTableData(data) {
 		setFilteredData(data);
-		if (tableRef && tableRef.current) {
-			tableRef.current.updateTableData(data);
-		}
 	}
 
 	function searchData(e) {
@@ -145,15 +143,15 @@ export default function Geography(props) {
 		let newData;
 		if (strCap) {
 			newData = tableData.filter(d => {
-				const cocName = d[1].toUpperCase();
-				const cocNum = d[0].toUpperCase();
+				const cocName = d['coc_name'].toUpperCase();
+				const cocNum = d['coc_number'].toUpperCase();
 				return cocName.indexOf(strCap) >= 0 || cocNum.indexOf(strCap) >= 0;
 			});
 		} else {
 			newData = tableData;
 		}
 
-		updateTableData(newData);
+		setFilteredData(newData);
 	}
 
 	function searchBoxFocus() {
@@ -169,6 +167,23 @@ export default function Geography(props) {
 		}
 
 		setClicked(true);
+	}
+
+	function vizView() {
+		if (chartView) {
+			return <Mapviz display={chartView} data={dataSource} isClicked={clicked} />;
+		} else {
+			return (
+				<div className={styles.homelessnessTableContainer}>
+					<Table
+						columns={tableColumnTitles}
+						data={filteredTableData}
+						defaultField={'coc_number'}
+						defaultDirection={'desc'}
+					/>
+				</div>
+			);
+		}
 	}
 
 	return (
@@ -239,21 +254,13 @@ export default function Geography(props) {
 					</div>
 				</Hidden>
 			</div>
-			<div id="chart-area">
-				<Mapviz display={chartView} data={dataSource} isClicked={clicked} />
-				<DataTable
-					display={!chartView}
-					columnTitles={tableColumnTitles}
-					data={filteredTableData}
-					tableRef={tableRef}
-				/>
-				<Downloads
-					href={
-						'/unstructured-data/homelessness-analysis/panel_2_table_and_counts_v7_2020_03_27.csv'
-					}
-					date={'November 2019'}
-				/>
-			</div>
+			<div id={styles.chartArea}>{vizView()}</div>
+			<Downloads
+				href={
+					'/unstructured-data/homelessness-analysis/panel_2_table_and_counts_v7_2020_03_27.csv'
+				}
+				date={'November 2019'}
+			/>
 		</>
 	);
 }

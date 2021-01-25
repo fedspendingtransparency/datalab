@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import * as _ from 'lodash';
+import filter from 'lodash/filter';
+import flatten from 'lodash/flatten';
 import storyHeadingStyles from 'src/components/section-elements/story-section-heading/story-section-heading.module.scss';
 import styles from './agencies.module.scss';
 
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import BubbleChartOutlinedIcon from '@material-ui/icons/BubbleChartOutlined';
-import DataTable from 'src/components/table/data-table';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
@@ -15,6 +15,7 @@ import Share from 'src/components/share/share';
 import StoryHeading from 'src/components/section-elements/story-section-heading/story-section-heading';
 import VizControlPanel from 'src/components/chartpanels/viz-control';
 import VizContainer from './bubble-chart-container/bubble-chart-container';
+import Table from 'src/components/table/table';
 
 const Agencies = props => {
 	const _data = useStaticQuery(graphql`
@@ -46,7 +47,7 @@ const Agencies = props => {
 		if (view === 'chart') {
 			isChartView(true);
 		} else {
-			updateTableData(tableData);
+			setFilteredData(tableData);
 			isChartView(false);
 		}
 	};
@@ -76,46 +77,75 @@ const Agencies = props => {
 	};
 
 	const tableColumnTitles = [
-		{ title: 'Recipient' },
-		{ title: 'Agency' },
-		{ title: 'SubAgency' },
-		{ title: 'Family' },
-		{ title: 'Type' },
-		{ title: 'Obligation' },
+		{
+			title: 'Recipient',
+			displayName: 'Recipient',
+		},
+		{
+			displayName: 'Agency',
+			title: 'agency',
+		},
+		{
+			displayName: 'Sub-Agency',
+			title: 'subagency',
+		},
+		{
+			displayName: 'Family',
+			title: 'family',
+		},
+		{ displayName: 'Type', title: 'type' },
+		{ displayName: 'Obligation', title: 'obligation', type: 'dollars' },
 	];
-	const tableData = _data.allCuBubbleChartTableV2Csv.nodes.map(n => [
-		n.Recipient,
-		n.agency,
-		n.subagency,
-		n.family,
-		n.type,
-		parseInt(n.obligation),
-	]);
+
+	const tableData = _data.allCuBubbleChartTableV2Csv.nodes.map(n => {
+		return {
+			Recipient: n.Recipient,
+			agency: n.agency,
+			subagency: n.subagency,
+			family: n.family,
+			type: n.type,
+			obligation: parseInt(n.obligation),
+		};
+	});
 
 	const [filteredTableData, setFilteredData] = useState(tableData);
-	const tableRef = React.createRef();
 
 	function filterTableData(id) {
 		let data = [];
 		const itemList = searchList.find(el => el.id === id);
-		const obj = _.filter(tableData, {
-			1: itemList.heading,
-			2: itemList.subheading,
+		const obj = filter(tableData, {
+			agency: itemList.heading,
+			subagency: itemList.subheading,
 		});
 
 		if (obj && obj.length > 0) {
 			data.push(obj);
 		}
 
-		data = _.flatten(data);
+		data = flatten(data);
 
-		updateTableData(data);
+		setFilteredData(data);
 	}
 
-	function updateTableData(data) {
-		setFilteredData(data);
-		if (tableRef && tableRef.current) {
-			tableRef.current.updateTableData(data);
+	function vizView() {
+		if (chartView) {
+			return (
+				<VizContainer
+					display={chartView}
+					data={_data.allCuBubbleChartV2Csv.nodes}
+					chartRef={chartRef}
+				/>
+			);
+		} else {
+			return (
+				<Table
+					data={filteredTableData}
+					columns={tableColumnTitles}
+					idName={'agenciesTable'}
+					defaultField={'Recipient'}
+					defaultDirection={'desc'}
+				/>
+			);
 		}
 	}
 
@@ -180,18 +210,7 @@ const Agencies = props => {
 						</VizControlPanel>
 					</Hidden>
 				</Grid>
-				<VizContainer
-					display={chartView}
-					data={_data.allCuBubbleChartV2Csv.nodes}
-					chartRef={chartRef}
-				/>
-				<DataTable
-					display={!chartView}
-					data={filteredTableData}
-					columnTitles={tableColumnTitles}
-					idName={'agenciesTable'}
-					ref={tableRef}
-				/>
+				{vizView()}
 			</Grid>
 
 			<Downloads

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "The Data Lab is a U.S. Treasury Department website of topic-based analyses and visualizations to help the public understand government spending. ",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@loadable/babel-plugin": "^5.10.3",
@@ -29,8 +29,8 @@
     "d3v3": "npm:d3@^3.0.0",
     "d3v4": "npm:d3@^4.0.0",
     "d3v5": "npm:d3@^5.0.0",
+    "data-transparency-ui": "https://github.com/fedspendingtransparency/data-transparency-ui#v1.3.2",
     "dotenv": "^8.1.0",
-    "flexboxgrid": "^6.3.1",
     "gatsby": "^2.18.17",
     "gatsby-cli": "^2.12.108",
     "gatsby-plugin-google-analytics": "^2.3.13",
@@ -64,7 +64,6 @@
     "react-virtualized": "^9.21.2",
     "resolve-url-loader": "^3.1.1",
     "sass-loader": "^7.3.1",
-    "semantic-ui-react": "^0.88.2",
     "smoothscroll-polyfill": "^0.4.3",
     "swipe-listener": "^1.0.7",
     "vega": "^5.9.0",
@@ -109,6 +108,7 @@
     "coverage": "jest --coverage",
     "check-outdated": "check-outdated",
     "analyze": "ANALYZE_BUNDLE_SIZE=true node --max-old-space-size=8192 node_modules/gatsby/dist/bin/gatsby.js build"
+    "updateSnapshots": "jest --updateSnapshot",
   },
   "repository": {
     "type": "git",

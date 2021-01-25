@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styles from './categories.module.scss';
 import storyHeadingStyles from 'src/components/section-elements/story-section-heading/story-section-heading.module.scss';
-import * as _ from 'lodash';
-
+import filter from 'lodash/filter';
+import flatten from 'lodash/flatten';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import CategoriesVizContainer from './sunburst-container/sunburst-container';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import DataTable from 'src/components/table/data-table';
+import Table from 'src/components/table/table';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
@@ -23,7 +23,7 @@ import VizControlPanel from 'src/components/chartpanels/viz-control';
 const Categories = () => {
 	const [chartView, isChartView] = useState(true);
 	const switchView = view => {
-		updateTableData(tableData[fundingType]);
+		setFilteredData(tableData[fundingType]);
 		if (view === 'chart') {
 			isChartView(true);
 		} else {
@@ -34,7 +34,7 @@ const Categories = () => {
 	const [fundingType, setFundingType] = useState('contracts');
 	function onTypeChange(e) {
 		setFundingType(e.currentTarget.value);
-		updateTableData(tableData[e.currentTarget.value]);
+		setFilteredData(tableData[e.currentTarget.value]);
 	}
 
 	const titlesByType = {
@@ -175,38 +175,64 @@ const Categories = () => {
 	};
 
 	const tableColumnTitles = [
-		{ title: 'Family' },
-		{ title: 'Program Title' },
-		{ title: 'Agency' },
-		{ title: 'Subagency' },
-		{ title: 'Recipient' },
-		{ title: 'Obligation' },
+		{
+			title: 'family',
+			displayName: 'Family',
+		},
+		{
+			title: 'Program_Title',
+			displayName: 'Program Title',
+		},
+		{
+			title: 'Agency',
+			displayName: 'Agency',
+		},
+		{
+			title: 'Subagency',
+			displayName: 'Sub-Agency',
+		},
+		{
+			title: 'Recipient',
+			displayName: 'Recipient',
+		},
+		{
+			title: 'Obligation',
+			displayName: 'Obligation',
+			type: 'dollars',
+		},
 	];
+
 	const tableData = {
-		contracts: _data.contracts.nodes.map(n => [
-			n.family,
-			n.Program_Title,
-			n.Agency,
-			n.Subagency,
-			n.Recipient,
-			parseInt(n.Obligation),
-		]),
-		grants: _data.grants.nodes.map(n => [
-			n.family,
-			n.Program_Title,
-			n.Agency,
-			n.Subagency,
-			n.Recipient,
-			parseInt(n.Obligation),
-		]),
-		research: _data.research.nodes.map(n => [
-			n.family,
-			n.Program_Title,
-			n.Agency,
-			n.Subagency,
-			n.Recipient,
-			parseInt(n.Obligation),
-		]),
+		contracts: _data.contracts.nodes.map(n => {
+			return {
+				family: n.family,
+				Program_Title: n.Program_Title,
+				Agency: n.Agency,
+				Subagency: n.Subagency,
+				Recipient: n.Recipient,
+				Obligation: parseInt(n.Obligation),
+			};
+		}),
+		grants: _data.grants.nodes.map(n => {
+			return {
+				family: n.family,
+				Program_Title: n.Program_Title,
+				Agency: n.Agency,
+				Subagency: n.Subagency,
+				Recipient: n.Recipient,
+				Obligation: parseInt(n.Obligation),
+			};
+		}),
+		research: _data.research.nodes.map(n => {
+			return {
+				family: n.family,
+				Program_Title: n.Program_Title,
+				Agency: n.Agency,
+				Subagency: n.Subagency,
+				Recipient: n.Recipient,
+				Obligation: parseInt(n.Obligation),
+			};
+		}),
 	};
 
 	const [filteredTableData, setFilteredData] = useState(tableData[fundingType]);
@@ -218,23 +244,15 @@ const Categories = () => {
 		const searchListByType = searchList[fundingType];
 		itemList = searchListByType.find(el => el.id === id);
 
-		const obj = _.filter(tableData[fundingType], {
+		const obj = filter(tableData[fundingType], {
 			0: itemList.heading,
 			1: itemList.subheading,
 		});
 		if (obj && obj.length > 0) {
 			data.push(obj);
 		}
-		data = _.flatten(data);
-		updateTableData(data);
-	}
-
-	const tableRef = React.createRef();
-	function updateTableData(data) {
+		data = flatten(data);
 		setFilteredData(data);
-		if (tableRef && tableRef.current) {
-			tableRef.current.updateTableData(data);
-		}
 	}
 
 	const chartRef = React.createRef();
@@ -271,6 +289,34 @@ const Categories = () => {
 			</Card>
 		</>
 	);
+
+	const vizView = () => {
+		if (chartView) {
+			return (
+				<>
+					<CategoriesVizContainer
+						display={chartView}
+						items={_data[fundingType].nodes}
+						title={titlesByType[fundingType]}
+						chartRef={chartRef}
+					/>
+					<p className="cu-header__blurb">
+						To return to a higher level click the center node
+					</p>
+				</>
+			);
+		} else {
+			return (
+				<Table
+					idName={'categoriesTable'}
+					columns={tableColumnTitles}
+					data={filteredTableData}
+					defaultField={'family'}
+					defaultDirection={'desc'}
+				/>
+			);
+		}
+	};
 
 	return (
 		<>
@@ -321,63 +367,43 @@ const Categories = () => {
 					</Hidden>
 				</Grid>
 				<Grid item className={styles.catContainer}>
-					<div id="sunburstRadio">
-						<Grid container>
-							<Grid item lg={2} xs={4}>
-								<input
-									type="radio"
-									id="cuContracts"
-									name="fundingType"
-									value="contracts"
-									onChange={onTypeChange}
-									checked={fundingType === 'contracts'}
-								/>
-								<label htmlFor="cuContracts">&nbsp;Contracts</label>
-							</Grid>
-							<Grid item lg={2} xs={4}>
-								<input
-									type="radio"
-									id="cuGrants"
-									name="fundingType"
-									value="grants"
-									onChange={onTypeChange}
-									checked={fundingType === 'grants'}
-								/>
-								<label htmlFor="cuGrants">&nbsp;Grants</label>
-							</Grid>
-							<Grid item lg={2} xs={4}>
-								<input
-									type="radio"
-									id="cuResearch"
-									name="fundingType"
-									value="research"
-									onChange={onTypeChange}
-									checked={fundingType === 'research'}
-								/>
-								<label htmlFor="cuResearch">&nbsp;Research Grants</label>
-								{grantsInfo()}
-							</Grid>
+					<Grid container id="sunburstRadio">
+						<Grid item lg={2} xs={4}>
+							<input
+								type="radio"
+								id="cuContracts"
+								name="fundingType"
+								value="contracts"
+								onChange={onTypeChange}
+								checked={fundingType === 'contracts'}
+							/>
+							<label htmlFor="cuContracts">&nbsp;Contracts</label>
 						</Grid>
-					</div>
-
-					<CategoriesVizContainer
-						display={chartView}
-						items={_data[fundingType].nodes}
-						title={titlesByType[fundingType]}
-						chartRef={chartRef}
-					/>
-					<DataTable
-						idName={'categoriesTable'}
-						fundingType={fundingType}
-						display={!chartView}
-						title={titlesByType[fundingType].categoryLabel + 's'}
-						columnTitles={tableColumnTitles}
-						data={filteredTableData}
-						tableRef={tableRef}
-					/>
-					<p className="cu-header__blurb">
-						To return to a higher level click the center node
-					</p>
+						<Grid item lg={2} xs={4}>
+							<input
+								type="radio"
+								id="cuGrants"
+								name="fundingType"
+								value="grants"
+								onChange={onTypeChange}
+								checked={fundingType === 'grants'}
+							/>
+							<label htmlFor="cuGrants">&nbsp;Grants</label>
+						</Grid>
+						<Grid item lg={2} xs={4}>
+							<input
+								type="radio"
+								id="cuResearch"
+								name="fundingType"
+								value="research"
+								onChange={onTypeChange}
+								checked={fundingType === 'research'}
+							/>
+							<label htmlFor="cuResearch">&nbsp;Research Grants</label>
+							{grantsInfo()}
+						</Grid>
+					</Grid>
+					{vizView()}
 				</Grid>
 			</Grid>
 

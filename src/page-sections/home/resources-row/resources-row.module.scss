@@ -41,7 +41,11 @@
     }
 
     .titleAPI {
-	color: #4a4a4a;
+	font-size: 1.125rem; // 18px
+	text-align: center;
+	color: #555555;
+	font-weight: 600;
+	margin-top: 31px;
     }
 
     h1 {
@@ -101,10 +105,6 @@
 	    text-decoration: underline;
 	}
     }
-
-
-
-
 }
 
 @media (max-width: $desktop - 1) {

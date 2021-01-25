@@ -66,7 +66,7 @@ export default function Categories(props) {
 		}
 	}
 
-	function onKeyUp(e, key, item) {
+	function onKeyDown(e, key, item) {
 		if (e.keyCode === 13) {
 			toggle(e, key, item);
 		}
@@ -161,14 +161,14 @@ export default function Categories(props) {
 				el.setAttribute('tabindex', '0');
 				el.setAttribute('focusable', true);
 				el.addEventListener('mouseover', e => onHover(e));
-				el.addEventListener('keyup', e => onKeyUp(e, key, tooltipData[key]));
+				el.addEventListener('keydown', e => onKeyDown(e, key, tooltipData[key]));
 				el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
 				el.addEventListener('mouseout', e => clearSelection(e));
 			});
 		}
 
 		window.addEventListener('resize', handleResize);
-		window.addEventListener('keyup', e => onEsc(e));
+		window.addEventListener('keydown', e => onEsc(e));
 
 		return _ => {
 			Object.keys(tooltipData).forEach(key => {
@@ -176,14 +176,16 @@ export default function Categories(props) {
 					const el = document.getElementById(key);
 
 					el.removeEventListener('mouseover', e => onHover(e));
-					el.removeEventListener('keyup', e => onKeyUp(e, key, tooltipData[key]));
+					el.removeEventListener('keydown', e =>
+						onKeyDown(e, key, tooltipData[key])
+					);
 					el.removeEventListener('click', e => toggle(e, key, tooltipData[key]));
 					el.removeEventListener('mouseout', e => clearSelection(e));
 				}
 			});
 
 			window.removeEventListener('resize', handleResize);
-			window.removeEventListener('keyup', e => onEsc(e));
+			window.removeEventListener('keydown', e => onEsc(e));
 		};
 	});
 
@@ -275,6 +277,7 @@ export default function Categories(props) {
 				const item = tooltipData[i];
 				return (
 					<Tooltip
+						key={`tooltip-${i}`}
 						ref={item.tooltipRef}
 						title={item.title}
 						id={item.id}

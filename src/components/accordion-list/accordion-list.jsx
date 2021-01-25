@@ -9,18 +9,19 @@ import accordionStyles from './accordion-list.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
+import Grid from '@material-ui/core/Grid';
 
 export default class AccordionList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			closed: true,
+			closed: true
 		};
 
 		this.toggle = this.toggle.bind(this);
 	}
 
-	/* props notes
+  /* props notes
     title: shows in the top box, collapsed or open
     color: theme color for border, collapsed background, and highlighted text within
     backgroundColor: background of collapsed box
@@ -55,8 +56,8 @@ export default class AccordionList extends React.Component {
 						? this.props.containerClass
 						: accordionStyles.container
 				}>
-				<div className="row">
-					<div className="col-xs-12">
+				<Grid container>
+					<Grid item xs={12}>
 						<section
 							className={
 								!this.state.closed
@@ -87,8 +88,8 @@ export default class AccordionList extends React.Component {
 							</h1>
 							<div className={accordionStyles.content}>{this.props.children}</div>
 						</section>
-					</div>
-				</div>
+					</Grid>
+				</Grid>
 			</div>
 		);
 	}

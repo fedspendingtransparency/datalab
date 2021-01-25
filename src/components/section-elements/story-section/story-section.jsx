@@ -5,7 +5,11 @@ import StorySectionHeading from '../story-section-heading/story-section-heading'
 
 function StorySection(props) {
 	return (
-		<Grid container justify="center" className={storySectionStyles.storySection}>
+		<Grid
+			container
+			justify="center"
+			className={`${storySectionStyles.storySection} ${props.firstSection ? storySectionStyles.firstSection : ''}`}
+		>
 			<Grid item xs={12} xl={10}>
 				<section id={`section-${props.header.anchor}`}>
 					<div className="anchor-padding" />
