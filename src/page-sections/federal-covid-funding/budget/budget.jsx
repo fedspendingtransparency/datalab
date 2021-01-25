@@ -180,7 +180,6 @@ export default function Budget(props) {
       <Downloads
         href={"/data/federal-covid-spending/budget/" + CovidCopy.viz1csv}
         date={CovidCopy.vizdates}
-        mobileSpace
         justify={screenMode <= ScreenModeEnum.tablet ? "center" : ""}
       />
     </>
