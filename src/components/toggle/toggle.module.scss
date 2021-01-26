@@ -7,21 +7,22 @@
   .toggle-label-active {
     display: flex;
     align-items: center;
-    font-size: 1.125rem;
+    font-size: 20px;
     color: $darkGrey;
     margin: 0.5rem 0 0.5rem;
     padding-bottom: 4px;
-    font-weight: 600;
+    font-weight: $semibold;
     cursor: pointer;
   }
 
   .toggle-label-inactive {
     display: flex;
     align-items: center;
-    font-size: 1.125rem;
+    font-size: 20px;
     color: $darkGrey;
     margin: 0.5rem 0 0.5rem;
     padding-bottom: 4px;
+    font-weight: $regular;
     opacity: 0.7;
     cursor: pointer;
   }
@@ -34,5 +35,8 @@
 @media (max-width: $phone) {
   .toggle-container {
     justify-content: center;
+  }
+  .toggle-label-active, .toggle-label-inactive{
+    white-space: nowrap;
   }
 }

@@ -54,6 +54,9 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
 		}
 	};
 
+	first.color = first.color || '#666';
+	second.color = second.color || '#666';
+
 	return (
 		<div className={toggleStyles.toggleContainer}>
 			<div
@@ -61,6 +64,7 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
 				className={
 					checked ? toggleStyles.toggleLabelInactive : toggleStyles.toggleLabelActive
 				}
+				style={{color: checked ? '#666' : first.color }}
 				onClick={handleLabelClick}
 				onKeyPress={handleLabelClick}
 				tabIndex={0}>
@@ -82,6 +86,7 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
 				className={
 					checked ? toggleStyles.toggleLabelActive : toggleStyles.toggleLabelInactive
 				}
+				style={{color: checked ? second.color : '#666'}}
 				onClick={handleLabelClick}
 				onKeyPress={handleLabelClick}
 				tabIndex={0}>
