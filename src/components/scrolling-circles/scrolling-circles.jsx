@@ -9,15 +9,8 @@ const ScrollingCircles = ({ sections }) => {
 	const [screenMode, setScreenMode] = useState(0);
 	const [activeSection, setActiveSection] = useState(sections[0].anchor);
 	const [fillColor, setFillColor] = useState(legacy);
-	const [topMargin, setTopMargin] = useState(106);
 	const [fadeClass, setFadeClass] = useState('');
-
-	const [positions, setPositions] = useState([]);
-	const [currentY, setCurrentY] = useState({
-		budget: null,
-		overview: null,
-		tracking: null,
-	});
+	const [topMargin, setTopMargin] = useState(106);
 
 	const fade = () => {
 		setFadeClass('');
@@ -32,33 +25,37 @@ const ScrollingCircles = ({ sections }) => {
 		threshold: [...Array(100).keys()].map(x => x / 100),
 	};
 
+	let previousY = { budget: 0, overview: 0, tracking: 0 };
+
 	const observer = new IntersectionObserver(entries => {
 		entries.forEach(entry => {
 			const ratio = entry.intersectionRatio;
 			const boundingRect = entry.boundingClientRect;
-			const intersectionRect = entry.intersectionRect;
-			const currentY = entry.boundingClientRect.y;
 			const section = entry.target.id.replace('section-', '');
+			const isScrollingDown = previousY[section] > boundingRect.y;
+			const scrollingDownToSection =
+				isScrollingDown && boundingRect.top > 50 && boundingRect.top < 100;
+			const scrollingUpToSection =
+				!isScrollingDown && boundingRect.bottom > 50 && boundingRect.bottom < 100;
 
-			if (ratio === 0) {
-				console.log('outside');
-			} else if (ratio < 1) {
-				console.log(boundingRect.bottom);
-				console.log(boundingRect.top);
+			if (ratio < 1) {
+				// console.log(boundingRect.bottom);
+				// console.log(boundingRect.top);
+				//
+				// console.log('y: ', boundingRect.y);
+				// console.log('page offset: ', window.pageYOffset);
 
-				if (boundingRect.top > 50 && boundingRect.top < 100) {
-					console.log('top in scroll view');
-					// if scroll direction is down then set the section state and show the flag
-				} else if (boundingRect.bottom > 50 && boundingRect.bottom < 100) {
-					console.log('bottom in view');
-					// if scroll direction is up then set the section state and show the flag
-				} else if (boundingRect.top >= 100 || boundingRect.bottom <= 50) {
-					console.log('on page but not inview');
-				} else {
-					console.log('inview');
+				// This condition is not correct right now
+				if (boundingRect.top < 100 && boundingRect.bottom > 50) {
+					console.log(`${section} inview`);
+				}
+
+				if (scrollingDownToSection || scrollingUpToSection) {
+					setActiveSection(section);
 				}
 			}
-			setCurrentY(prevState => ...prevState.currentY, [section]: boundingRect.y)
+
+			previousY = { ...previousY, [section]: boundingRect.y };
 		});
 	}, options);
 
@@ -72,37 +69,7 @@ const ScrollingCircles = ({ sections }) => {
 		sections.forEach(section => {
 			const target = document.getElementById(`section-${section.anchor}`);
 			observer.observe(target);
-			// setPositions(sectionScrollPositions);
 		});
-
-		// window.addEventListener('scroll', () => {
-		//   const scrollPositions = sectionScrollPositions.sort((a, b) => a.bottom - b.bottom);
-		//   const newActiveSection = scrollPositions.find((s) => s.bottom > window.pageYOffset);
-		//
-		//   if (newActiveSection) {
-		//     setActiveSection(newActiveSection.id);
-		//   }
-		//
-		//   if (window.pageYOffset <= 26) {
-		//     setTopMargin(106 - window.pageYOffset);
-		//   } else {
-		//     setTopMargin(80);
-		//   }
-		// });
-
-		// const resizeWindow = () => {
-		// 	const newMode = checkScreenMode(window.innerWidth);
-		// 	if (newMode !== screenMode) {
-		// 		setScreenMode(newMode);
-		// 	}
-		// };
-		//
-		// resizeWindow();
-		//
-		// window.addEventListener('resize', () => {
-		// 	resizeWindow();
-		// 	observe();
-		// });
 	});
 
 	useEffect(() => {
