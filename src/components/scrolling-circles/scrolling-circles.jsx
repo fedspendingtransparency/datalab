@@ -7,7 +7,7 @@ import { checkScreenMode, ScreenModeEnum } from '../../utils/screen-mode';
 
 const ScrollingCircles = ({ sections }) => {
 	const [screenMode, setScreenMode] = useState(0);
-	const [activeSection, setActiveSection] = useState(sections[0].anchor);
+	const [activeSection, setActiveSection] = useState(null);
 	const [fillColor, setFillColor] = useState(legacy);
 	const [fadeClass, setFadeClass] = useState('');
 	const [topMargin, setTopMargin] = useState(106);
@@ -34,23 +34,24 @@ const ScrollingCircles = ({ sections }) => {
 			const section = entry.target.id.replace('section-', '');
 			const isScrollingDown = previousY[section] > boundingRect.y;
 			const scrollingDownToSection =
-				isScrollingDown && boundingRect.top > 50 && boundingRect.top < 100;
+				isScrollingDown && boundingRect.top < 5 && boundingRect.bottom > 0;
+			const inView = scrollingDownToSection;
 			const scrollingUpToSection =
 				!isScrollingDown && boundingRect.bottom > 50 && boundingRect.bottom < 100;
 
 			if (ratio < 1) {
-				// console.log(boundingRect.bottom);
-				// console.log(boundingRect.top);
-				//
+				console.log(`${section}: bottom - ${boundingRect.bottom}`);
+				console.log(`${section}: top - ${boundingRect.top}`);
+				console.log(`${section}: y - ${boundingRect.y}`);
+
 				// console.log('y: ', boundingRect.y);
-				// console.log('page offset: ', window.pageYOffset);
 
 				// This condition is not correct right now
 				if (boundingRect.top < 100 && boundingRect.bottom > 50) {
 					console.log(`${section} inview`);
 				}
 
-				if (scrollingDownToSection || scrollingUpToSection) {
+				if (scrollingDownToSection) {
 					setActiveSection(section);
 				}
 			}
@@ -60,24 +61,21 @@ const ScrollingCircles = ({ sections }) => {
 	}, options);
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		const pathname = window.location.pathname.split('/').join('');
 		setFillColor(pageColorMap[pathname]);
-
-		const sectionScrollPositions = [];
 
 		sections.forEach(section => {
 			const target = document.getElementById(`section-${section.anchor}`);
 			observer.observe(target);
 		});
-	});
+	}, []);
 
 	useEffect(() => {
 		fade();
 	}, [activeSection]);
 
 	const scrollToSection = (id, e) => {
-		console.log('hello');
+		setActiveSection(id);
 		if (!e || e.key === 'Enter') {
 			fade();
 		}
