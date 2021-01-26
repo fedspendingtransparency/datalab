@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { select, selectAll } from 'd3-selection';
 
 export default function Tabs(props) {

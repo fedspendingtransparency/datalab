@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './tab-panel.module.scss'
+import styles from './tab-panel.module.scss';
 
 const TabPanel = ({ value, index, children, ...other }) => (
   <div

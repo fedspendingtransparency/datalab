@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import moreAnalysesStyles from './more-analyses.module.scss';
 
 import federal from 'src/images/more-analyses/federal.jpg';
@@ -10,10 +10,8 @@ import cu from 'src/images/more-analyses/cu.png';
 import homeless from 'src/images/more-analyses/homeless.png';
 import dts from 'src/images/more-analyses/dts.png';
 import explorer from 'src/images/more-analyses/explorer.png';
-import rd from 'src/images/more-analyses/rd.png';
 import covid from 'src/images/more-analyses/covid.png';
 import afg from 'src/images/more-analyses/afg.png';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 export default class MoreAnalyses extends React.Component {
 	constructor(props) {
@@ -132,54 +130,42 @@ export default class MoreAnalyses extends React.Component {
 		return false;
 	};
 
-	theme = createMuiTheme({
-		breakpoints: {
-			values: {
-				xs: 0,
-				md: 660,
-				lg: 960,
-			},
-		},
-	});
-
 	render = () => (
-		<ThemeProvider theme={this.props.afg ? this.theme : ''}>
-			<section
-				className={
-					this.props.afg
-						? `${moreAnalysesStyles.analyses} ${moreAnalysesStyles.afg}`
-						: `${moreAnalysesStyles.analyses} ${moreAnalysesStyles.dl}`
-				}>
-				<div className={moreAnalysesStyles.heading}>More Analyses</div>
-				<Grid container spacing={3} className={moreAnalysesStyles.tiles}>
-					{this.showAnything() &&
-						this.showAnalyses.map((analysesIndex, i) => (
-							<Grid
-								item
-								xs={12}
-								md={6}
-								lg={3}
-								key={'analyses_tile_' + i}
-								className={`tile ${moreAnalysesStyles.tile}`}>
-								<a href={`${this.analyses[analysesIndex].href}`}>
-									<div className={moreAnalysesStyles.text}>
-										<div className={moreAnalysesStyles.title}>
-											{this.analyses[analysesIndex].title}
-										</div>
-										<p className={moreAnalysesStyles.subtitle}>
-											{this.analyses[analysesIndex].subtitle}
-										</p>
+		<section
+			className={
+				this.props.afg
+					? `${moreAnalysesStyles.analyses} ${moreAnalysesStyles.afg}`
+					: `${moreAnalysesStyles.analyses} ${moreAnalysesStyles.dl}`
+			}>
+			<div className={moreAnalysesStyles.heading}>More Analyses</div>
+			<Grid container spacing={3} className={moreAnalysesStyles.tiles}>
+				{this.showAnything() &&
+					this.showAnalyses.map((analysesIndex, i) => (
+						<Grid
+							item
+							xs={12}
+							md={6}
+							lg={3}
+							key={'analyses_tile_' + i}
+							className={`tile ${moreAnalysesStyles.tile}`}>
+							<a href={`${this.analyses[analysesIndex].href}`}>
+								<div className={moreAnalysesStyles.text}>
+									<div className={moreAnalysesStyles.title}>
+										{this.analyses[analysesIndex].title}
 									</div>
-									<img
-										data-src={this.analyses[analysesIndex].imageSrc}
-										alt={this.analyses[analysesIndex].altText}
-										className={`${moreAnalysesStyles.image} lazyload`}
-									/>
-								</a>
-							</Grid>
-						))}
-				</Grid>
-			</section>
-		</ThemeProvider>
+									<p className={moreAnalysesStyles.subtitle}>
+										{this.analyses[analysesIndex].subtitle}
+									</p>
+								</div>
+								<img
+									data-src={this.analyses[analysesIndex].imageSrc}
+									alt={this.analyses[analysesIndex].altText}
+									className={`${moreAnalysesStyles.image} lazyload`}
+								/>
+							</a>
+						</Grid>
+					))}
+			</Grid>
+		</section>
 	);
 }

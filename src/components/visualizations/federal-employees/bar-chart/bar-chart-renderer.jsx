@@ -1,5 +1,5 @@
-import * as d3 from "d3v4";
-import Tooltip from "../util/tooltip";
+import * as d3 from 'd3v4';
+import Tooltip from '../util/tooltip';
 
 /* Adapted from fedscope barchart-module.js */
 const BarChartRenderer = {

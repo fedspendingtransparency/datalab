@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import * as d3 from 'd3v3';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import Search from 'src/components/chartpanels/search';
 import { graphql, useStaticQuery } from 'gatsby';
 import styles from './federal-programs.module.scss';

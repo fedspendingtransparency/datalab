@@ -1,7 +1,7 @@
 import OfficialBanner from '../../headers/official-banner';
 import { HeadOnly } from '../../headers/headers';
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const HeaderOnly = ({children, _containerClass, _headerClass}) => (
   <div className={_containerClass}>

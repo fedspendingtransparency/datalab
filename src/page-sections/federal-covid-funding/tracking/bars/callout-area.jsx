@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
+import { checkScreenMode, ScreenModeEnum } from 'src/utils/screen-mode.js';
 
 import ElbowCallout from 'src/page-sections/federal-covid-funding/tracking/callouts/elbow';
 import ReversedElbowCallout from 'src/page-sections/federal-covid-funding/tracking/callouts/reversed-elbow';
@@ -39,11 +39,17 @@ export default function CalloutBar(props) {
 	 */
 	const [obligatedState, setObligatedState] = useState({
 		isStraightObligated: false,
-		isReverseElbowObligated: false
-	})
+		isReverseElbowObligated: false,
+	});
 
 	/* The Callout lines can be one of the following states - straight, elbow, joined, reversed elbow or reversed joined */
-	const calloutTypeEnum = Object.freeze({ 'straight': 0, 'elbow': 1, 'joined': 2, 'reversedElbow': 3, 'reversedJoined': 4 });
+	const calloutTypeEnum = Object.freeze({
+		straight: 0,
+		elbow: 1,
+		joined: 2,
+		reversedElbow: 3,
+		reversedJoined: 4,
+	});
 
 	/* By default set the callout state for outlay, obligated and unobligated to elbow */
 	const callouts = {
@@ -67,40 +73,69 @@ export default function CalloutBar(props) {
 				rightOffset: null,
 			};
 
-			const el = props.isModal ? document.getElementById('covid-modal').getElementsByClassName(styles.bar)[0]
+			const el = props.isModal
+				? document
+						.getElementById('covid-modal')
+						.getElementsByClassName(styles.bar)[0]
 				: document.getElementsByClassName(styles.bar)[0];
 			const barWidth = el.getBoundingClientRect().width;
 
 			const tempLabelLengths = {
-				outlayPercentage: Math.round(50 / barWidth * 100),
-				obligatedPercentage: Math.round(72 / barWidth * 100),
-				unobligatedPercentage: Math.round(72 / barWidth * 100),
-				padding: Math.round(25 / barWidth * 100),
-				unobligatedRightPadding: ScreenModeEnum.mobile || ScreenModeEnum.tablet ? Math.round(40 / barWidth * 100) : 2
+				outlayPercentage: Math.round((50 / barWidth) * 100),
+				obligatedPercentage: Math.round((72 / barWidth) * 100),
+				unobligatedPercentage: Math.round((72 / barWidth) * 100),
+				padding: Math.round((25 / barWidth) * 100),
+				unobligatedRightPadding:
+					ScreenModeEnum.mobile || ScreenModeEnum.tablet
+						? Math.round((40 / barWidth) * 100)
+						: 2,
 			};
 
-			tempLabelOffsets.rightOffset = 100 - tempLabelLengths.unobligatedRightPadding;
-			tempLabelOffsets.outlayMidPoint = threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage / 2;
-			tempLabelOffsets.unobligated = tempLabelOffsets.rightOffset - tempLabelLengths.unobligatedPercentage;
-			tempLabelOffsets.obligated = threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage + tempLabelLengths.padding;
-			tempLabelOffsets.obligatedMidPoint = tempLabelOffsets.obligated + tempLabelLengths.obligatedPercentage / 2;
+			tempLabelOffsets.rightOffset =
+				100 - tempLabelLengths.unobligatedRightPadding;
+			tempLabelOffsets.outlayMidPoint =
+				threshold.outlayLabelOffset + tempLabelLengths.outlayPercentage / 2;
+			tempLabelOffsets.unobligated =
+				tempLabelOffsets.rightOffset - tempLabelLengths.unobligatedPercentage;
+			tempLabelOffsets.obligated =
+				threshold.outlayLabelOffset +
+				tempLabelLengths.outlayPercentage +
+				tempLabelLengths.padding;
+			tempLabelOffsets.obligatedMidPoint =
+				tempLabelOffsets.obligated + tempLabelLengths.obligatedPercentage / 2;
 
-			if (props.outlaid + props.obligated / 2 > tempLabelOffsets.obligated + tempLabelLengths.obligatedPercentage / 4) {
-				if (props.outlaid + props.obligated / 2 + tempLabelLengths.obligatedPercentage / 2 < tempLabelOffsets.unobligated - tempLabelLengths.padding) {
+			if (
+				props.outlaid + props.obligated / 2 >
+				tempLabelOffsets.obligated + tempLabelLengths.obligatedPercentage / 4
+			) {
+				if (
+					props.outlaid +
+						props.obligated / 2 +
+						tempLabelLengths.obligatedPercentage / 2 <
+					tempLabelOffsets.unobligated - tempLabelLengths.padding
+				) {
 					setObligatedState(prevState => ({
 						...prevState,
-						isStraightObligated: true
+						isStraightObligated: true,
 					}));
-					tempLabelOffsets.obligated = props.outlaid + props.obligated / 2 - tempLabelLengths.obligatedPercentage / 2;
+					tempLabelOffsets.obligated =
+						props.outlaid +
+						props.obligated / 2 -
+						tempLabelLengths.obligatedPercentage / 2;
 					tempLabelOffsets.obligatedMidPoint = props.outlaid + props.obligated / 2;
-
 				} else {
 					setObligatedState(prevState => ({
 						...prevState,
-						isReverseElbowObligated: true
+						isReverseElbowObligated: true,
 					}));
-					tempLabelOffsets.obligated = tempLabelOffsets.unobligated - tempLabelLengths.obligatedPercentage - tempLabelLengths.padding;
-					tempLabelOffsets.obligatedMidPoint = tempLabelOffsets.unobligated - tempLabelLengths.obligatedPercentage / 2 - tempLabelLengths.padding;
+					tempLabelOffsets.obligated =
+						tempLabelOffsets.unobligated -
+						tempLabelLengths.obligatedPercentage -
+						tempLabelLengths.padding;
+					tempLabelOffsets.obligatedMidPoint =
+						tempLabelOffsets.unobligated -
+						tempLabelLengths.obligatedPercentage / 2 -
+						tempLabelLengths.padding;
 				}
 			}
 
@@ -123,45 +158,39 @@ export default function CalloutBar(props) {
 		if (props.outlaid + props.obligated < labelOffsets.outlayMidPoint) {
 			callouts.outlay = calloutTypeEnum.joined;
 			callouts.obligated = calloutTypeEnum.joined;
-
 		} else if (props.outlaid > labelOffsets.rightOffset) {
 			callouts.outlay = calloutTypeEnum.straight;
 			callouts.obligated = calloutTypeEnum.reversedJoined;
 			callouts.unobligated = calloutTypeEnum.reversedJoined;
-
 		} else if (props.outlaid <= labelOffsets.outlayMidPoint) {
 			callouts.outlay = calloutTypeEnum.elbow;
 
 			// Determine obligated position
 			if (obligatedState.isReverseElbowObligated) {
 				callouts.obligated = calloutTypeEnum.reversedElbow;
-
 			} else if (obligatedState.isStraightObligated) {
 				callouts.obligated = calloutTypeEnum.straight;
-
 			} else {
-				 callouts.obligated = calloutTypeEnum.elbow;
-		 	}
-
+				callouts.obligated = calloutTypeEnum.elbow;
+			}
 		} else if (props.outlaid > labelOffsets.outlayMidPoint) {
 			callouts.outlay = calloutTypeEnum.straight;
 
 			// Determine obligated position
 			if (obligatedState.isReverseElbowObligated) {
 				callouts.obligated = calloutTypeEnum.reversedElbow;
-
 			} else if (obligatedState.isStraightObligated) {
 				callouts.obligated = calloutTypeEnum.straight;
-
 			} else {
 				callouts.obligated = calloutTypeEnum.elbow;
-
 			}
 		}
 
 		if (props.unobligated < 100 - labelOffsets.rightOffset) {
-			if (callouts.unobligated !== calloutTypeEnum.reversedJoined) callouts.unobligated = calloutTypeEnum.elbow;
-		} else if (callouts.unobligated !== calloutTypeEnum.reversedJoined) callouts.unobligated = calloutTypeEnum.straight;
+			if (callouts.unobligated !== calloutTypeEnum.reversedJoined)
+				callouts.unobligated = calloutTypeEnum.elbow;
+		} else if (callouts.unobligated !== calloutTypeEnum.reversedJoined)
+			callouts.unobligated = calloutTypeEnum.straight;
 	};
 
 	/* Select the callout component for outlay, set props on component and push to the calloutComponent array */
@@ -170,46 +199,52 @@ export default function CalloutBar(props) {
 
 		// joined label
 		if (callouts.outlay === calloutTypeEnum.joined) {
-			calloutComponent.push(<JoinedCallout
-				xStart={props.outlaid / 2}
-				xMid={labelOffsets.outlayMidPoint - threshold.outlayLabelOffset}
-				xEnd={labelOffsets.obligated + threshold.outlayLabelOffset}
-				label1Offset={threshold.outlayLabelOffset}
-				label2Offset={labelOffsets.obligated}
-				label1="Outlays"
-				label2="Obligations"
-				label1Amount={props.data[0].amount}
-				label1Percent={props.outlaid}
-				label2Amount={props.data[1].amount}
-				label2Percent={props.obligated}
-				isModal={props.isModal}
-				mobile={screenMode === ScreenModeEnum.mobile}
-			/>);
+			calloutComponent.push(
+				<JoinedCallout
+					xStart={props.outlaid / 2}
+					xMid={labelOffsets.outlayMidPoint - threshold.outlayLabelOffset}
+					xEnd={labelOffsets.obligated + threshold.outlayLabelOffset}
+					label1Offset={threshold.outlayLabelOffset}
+					label2Offset={labelOffsets.obligated}
+					label1="Outlays"
+					label2="Obligations"
+					label1Amount={props.data[0].amount}
+					label1Percent={props.outlaid}
+					label2Amount={props.data[1].amount}
+					label2Percent={props.obligated}
+					isModal={props.isModal}
+					mobile={screenMode === ScreenModeEnum.mobile}
+				/>
+			);
 		} else if (callouts.outlay === calloutTypeEnum.straight) {
-			calloutComponent.push(<StraightCallout
-				xStart={defaultStartingPoint}
-				labelOffset={threshold.outlayLabelOffset}
-				label="Outlays"
-				labelAmount={props.data[0].amount}
-				labelPercent={props.outlaid}
-				isModal={props.isModal}
-				mobile={screenMode === ScreenModeEnum.mobile}
-			/>);
+			calloutComponent.push(
+				<StraightCallout
+					xStart={defaultStartingPoint}
+					labelOffset={threshold.outlayLabelOffset}
+					label="Outlays"
+					labelAmount={props.data[0].amount}
+					labelPercent={props.outlaid}
+					isModal={props.isModal}
+					mobile={screenMode === ScreenModeEnum.mobile}
+				/>
+			);
 		} else {
-			calloutComponent.push(<ElbowCallout
-				xStart={props.outlaid / 2}
-				xEnd={labelOffsets.outlayMidPoint - threshold.outlayLabelOffset}
-				labelOffset={threshold.outlayLabelOffset}
-				label="Outlays"
-				labelAmount={props.data[0].amount}
-				labelPercent={props.outlaid}
-				isModal={props.isModal}
-				mobile={screenMode === ScreenModeEnum.mobile}
-			/>);
+			calloutComponent.push(
+				<ElbowCallout
+					xStart={props.outlaid / 2}
+					xEnd={labelOffsets.outlayMidPoint - threshold.outlayLabelOffset}
+					labelOffset={threshold.outlayLabelOffset}
+					label="Outlays"
+					labelAmount={props.data[0].amount}
+					labelPercent={props.outlaid}
+					isModal={props.isModal}
+					mobile={screenMode === ScreenModeEnum.mobile}
+				/>
+			);
 		}
 	};
 
-	const calculateReversedJoinedSpecialCasesLabel1 = (xEnd) => {
+	const calculateReversedJoinedSpecialCasesLabel1 = xEnd => {
 		if (screenMode === ScreenModeEnum.mobile && !props.isModal) {
 			return xEnd - labelLengths.obligatedPercentage / 4;
 		}
@@ -232,64 +267,79 @@ export default function CalloutBar(props) {
 	/* Select the callout component for obligated, set props on component and push to the calloutComponent array */
 	const setObligated = () => {
 		if (callouts.obligated === calloutTypeEnum.straight) {
-			calloutComponent.push(<StraightCallout
-				xStart={props.outlaid + props.obligated / 2}
-				labelOffset={labelOffsets.obligated}
-				label="Obligations"
-				labelAmount={props.data[1].amount}
-				labelPercent={props.obligated}
-				isModal={props.isModal}
-				mobile={screenMode === ScreenModeEnum.mobile}
-			/>);
+			calloutComponent.push(
+				<StraightCallout
+					xStart={props.outlaid + props.obligated / 2}
+					labelOffset={labelOffsets.obligated}
+					label="Obligations"
+					labelAmount={props.data[1].amount}
+					labelPercent={props.obligated}
+					isModal={props.isModal}
+					mobile={screenMode === ScreenModeEnum.mobile}
+				/>
+			);
 		} else if (callouts.obligated === calloutTypeEnum.elbow) {
-			calloutComponent.push(<ElbowCallout
-				xStart={props.outlaid + props.obligated / 2}
-				xEnd={labelOffsets.obligatedMidPoint}
-				labelOffset={labelOffsets.obligated}
-				label="Obligations"
-				labelAmount={props.data[1].amount}
-				labelPercent={props.obligated}
-				isModal={props.isModal}
-				mobile={screenMode === ScreenModeEnum.mobile}
-			/>);
+			calloutComponent.push(
+				<ElbowCallout
+					xStart={props.outlaid + props.obligated / 2}
+					xEnd={labelOffsets.obligatedMidPoint}
+					labelOffset={labelOffsets.obligated}
+					label="Obligations"
+					labelAmount={props.data[1].amount}
+					labelPercent={props.obligated}
+					isModal={props.isModal}
+					mobile={screenMode === ScreenModeEnum.mobile}
+				/>
+			);
 		} else if (callouts.obligated === calloutTypeEnum.reversedElbow) {
-			calloutComponent.push(<ReversedElbowCallout
-				xStart={parseFloat(props.outlaid + props.obligated / 2)}
-				xEnd ={labelOffsets.obligatedMidPoint}
-				labelOffset={labelOffsets.obligated}
-				label="Obligations"
-				labelAmount={props.data[1].amount}
-				labelPercent={props.obligated}
-				isModal={props.isModal}
-				mobile={screenMode === ScreenModeEnum.mobile}
-			/>);
+			calloutComponent.push(
+				<ReversedElbowCallout
+					xStart={parseFloat(props.outlaid + props.obligated / 2)}
+					xEnd={labelOffsets.obligatedMidPoint}
+					labelOffset={labelOffsets.obligated}
+					label="Obligations"
+					labelAmount={props.data[1].amount}
+					labelPercent={props.obligated}
+					isModal={props.isModal}
+					mobile={screenMode === ScreenModeEnum.mobile}
+				/>
+			);
 		} else if (callouts.obligated === calloutTypeEnum.reversedJoined) {
 			// reversed joined
 			// Calculate end point for reverse joined callout
 			// NOTE:  The xEnd is relative from the right side NOT the left in this case
 			const xEnd = props.isModal ? 50 : 45;
 
-			calloutComponent.push(<ReversedJoinedCallout
-				xStart={Math.max(props.outlaid + props.obligated + props.unobligated / 2 - 0.5, 95)}
-				xMid={labelOffsets.rightOffset}
-				xEnd={xEnd}
-				label1Offset={calculateReversedJoinedSpecialCasesLabel1(xEnd)}
-				label2Offset={calculateReversedJoinedSpecialCasesLabel2()}
-				label1="Obligations"
-				label2="Unobligated"
-				label1Amount={props.data[1].amount}
-				label1Percent={props.obligated}
-				label2Amount={props.data[2].amount}
-				label2Percent={props.unobligated}
-				isModal={props.isModal}
-				mobile={screenMode === ScreenModeEnum.mobile}
-			/>);
+			calloutComponent.push(
+				<ReversedJoinedCallout
+					xStart={Math.max(
+						props.outlaid + props.obligated + props.unobligated / 2 - 0.5,
+						95
+					)}
+					xMid={labelOffsets.rightOffset}
+					xEnd={xEnd}
+					label1Offset={calculateReversedJoinedSpecialCasesLabel1(xEnd)}
+					label2Offset={calculateReversedJoinedSpecialCasesLabel2()}
+					label1="Obligations"
+					label2="Unobligated"
+					label1Amount={props.data[1].amount}
+					label1Percent={props.obligated}
+					label2Amount={props.data[2].amount}
+					label2Percent={props.unobligated}
+					isModal={props.isModal}
+					mobile={screenMode === ScreenModeEnum.mobile}
+				/>
+			);
 		}
 	};
 
 	const calculateUnobligatedSpecialCases = () => {
 		// Case for mobile and tablet modal
-		if ((screenMode === ScreenModeEnum.mobile || screenMode === ScreenModeEnum.tablet) && props.isModal) {
+		if (
+			(screenMode === ScreenModeEnum.mobile ||
+				screenMode === ScreenModeEnum.tablet) &&
+			props.isModal
+		) {
 			return labelOffsets.rightOffset - labelLengths.unobligatedPercentage * 0.5;
 		}
 
@@ -310,33 +360,37 @@ export default function CalloutBar(props) {
 	/* Select the callout component for unobligated, set props on component and push to the calloutComponent array */
 	const setUnobligated = () => {
 		if (callouts.unobligated === calloutTypeEnum.straight) {
-			calloutComponent.push(<StraightCallout
-				xStart={labelOffsets.rightOffset}
-				labelOffset={calculateUnobligatedSpecialCases()}
-				label="Unobligated"
-				labelAmount={props.data[2].amount}
-				labelPercent={props.unobligated}
-				isModal={props.isModal}
-				mobile={screenMode === ScreenModeEnum.mobile}
-			/>);
+			calloutComponent.push(
+				<StraightCallout
+					xStart={labelOffsets.rightOffset}
+					labelOffset={calculateUnobligatedSpecialCases()}
+					label="Unobligated"
+					labelAmount={props.data[2].amount}
+					labelPercent={props.unobligated}
+					isModal={props.isModal}
+					mobile={screenMode === ScreenModeEnum.mobile}
+				/>
+			);
 		} else if (callouts.unobligated === calloutTypeEnum.elbow) {
 			// Subtracted 0.5 from xStart position to add padding to the right side of the bar
-			calloutComponent.push(<ReversedElbowCallout
-				xStart={props.outlaid + props.obligated + props.unobligated / 2 - 0.5}
-				xEnd={labelOffsets.rightOffset}
-				labelOffset={labelOffsets.unobligated}
-				label="Unobligated"
-				labelAmount={props.data[2].amount}
-				labelPercent={props.unobligated}
-				isModal={props.isModal}
-				mobile={screenMode === ScreenModeEnum.mobile}
-			/>);
+			calloutComponent.push(
+				<ReversedElbowCallout
+					xStart={props.outlaid + props.obligated + props.unobligated / 2 - 0.5}
+					xEnd={labelOffsets.rightOffset}
+					labelOffset={labelOffsets.unobligated}
+					label="Unobligated"
+					labelAmount={props.data[2].amount}
+					labelPercent={props.unobligated}
+					isModal={props.isModal}
+					mobile={screenMode === ScreenModeEnum.mobile}
+				/>
+			);
 		}
 	};
 
 	/* Function to draw the callout bar based on a percentage - ie. 0 - 100% */
 	const drawCalloutBar = () => {
-		if(labelOffsets) {
+		if (labelOffsets) {
 			// determine if callouts are straight, joined, or elbow, then set callouts for outlay, obligated, and unobligated
 			setCallouts();
 			setOutlays();

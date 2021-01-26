@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
 import apiImg from 'src/images/home/resources-api-2.svg';
 import userGuideImg from 'src/images/home/resources-user-guide-2.svg';

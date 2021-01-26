@@ -2,12 +2,11 @@ import { select, selectAll } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
 import { min } from 'd3-array';
 import { transition } from 'd3-transition';
-import {  translator } from 'src/afg-helpers/utils';
+import { establishContainer, translator } from 'src/afg-helpers/utils';
 import { stack } from 'd3-shape';
-import { establishContainer } from 'src/afg-helpers/utils';
-import { zoomInit, getZoomState, resetZoom } from './zoom';
+import { getZoomState, resetZoom, zoomInit } from './zoom';
 import { addTextElements } from './textElements';
-import { showDetail, section2_2_init, clearDetails, destroyDetails } from './showDetails';
+import { clearDetails, destroyDetails, section2_2_init, showDetail } from './showDetails';
 import colors from 'src/styles/afg/colors.scss';
 
 const d3 = { select, selectAll, scaleLinear, min, stack, transition },

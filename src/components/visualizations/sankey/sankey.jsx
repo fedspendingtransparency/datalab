@@ -4,13 +4,11 @@ import * as d3 from 'd3v3';
 import './sankey.scss';
 import './sankey-brackets.scss';
 
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import SankeyBrackets from './sankey-brackets';
 
 function Sankey(props) {
-	const {
-		data, sPanel, sTitle, descriptions, altText,
-	} = props;
+	const { data, sPanel, sTitle, descriptions, altText } = props;
 
 	const margin = {
 		top: 0,
@@ -23,90 +21,118 @@ function Sankey(props) {
 	const height = 608 - margin.top - margin.bottom;
 
 	const formatNumber = d3.format('$,.0f'); // zero decimal places
-	const format = (d) => formatNumber(d);
+	const format = d => formatNumber(d);
 
-	const color = [{
-		name: 'Social Security',
-		color: '#143e64',
-	}, {
-		name: 'Medicare',
-		color: '#2869a4',
-	}, {
-		name: 'Income Security',
-		color: '#0086c8',
-	}, {
-		name: 'Health',
-		color: '#29e0ff',
-	}, {
-		name: 'Net Interest',
-		color: '#00b5db',
-	}, {
-		name: 'National Defense',
-		color: '#aae1f4',
-	}, {
-		name: 'General Government',
-		color: '#143e64',
-	}, {
-		name: 'Agriculture',
-		color: '#2869a4',
-	}, {
-		name: 'Education, Training, Employment, and Social Services',
-		color: '#0086c8',
-	}, {
-		name: 'Veterans Benefits and Services',
-		color: '#29e0ff',
-	}, {
-		name: 'Regional Development, Commerce, and Housing',
-		color: '#00b5db',
-	}, {
-		name: 'Natural Resources and Environment',
-		color: '#aae1f4',
-	}, {
-		name: 'Administration of Justice',
-		color: '#143e64',
-	}, {
-		name: 'Transportation',
-		color: '#2869a4',
-	}, {
-		name: 'International Affairs',
-		color: '#0086c8',
-	}, {
-		name: 'Energy, Science, Space, and Technology',
-		color: '#29e0ff',
-	}, {
-		name: 'Insurance Claims and Indemnities',
-		color: '#461e45',
-	}, {
-		name: 'Grants, Subsidies, and Contributions',
-		color: '#783877',
-	}, {
-		name: 'Interest and Dividends',
-		color: '#b56db4',
-	}, {
-		name: 'Personnel Compensation and Benefits',
-		color: '#e0b1df',
-	}, {
-		name: 'Refunds',
-		color: '#f8dbf8',
-	}, {
-		name: 'Advisory, R&D, Medical, and Other Contracts',
-		color: '#783877',
-	}, {
-		name: 'Acquisition of Assets',
-		color: '#783877',
-	}, {
-		name: 'Printing and Supplies',
-		color: '#b56db4',
-	}, {
-		name: 'Other',
-		color: '#e0b1df',
-	}, {
-		name: 'Travel and Transportation',
-		color: '#f8dbf8',
-	}, {
-		name: 'Rent, Communications, and Utilities',
-		color: '#461e45',
-	}];
+	const color = [
+		{
+			name: 'Social Security',
+			color: '#143e64',
+		},
+		{
+			name: 'Medicare',
+			color: '#2869a4',
+		},
+		{
+			name: 'Income Security',
+			color: '#0086c8',
+		},
+		{
+			name: 'Health',
+			color: '#29e0ff',
+		},
+		{
+			name: 'Net Interest',
+			color: '#00b5db',
+		},
+		{
+			name: 'National Defense',
+			color: '#aae1f4',
+		},
+		{
+			name: 'General Government',
+			color: '#143e64',
+		},
+		{
+			name: 'Agriculture',
+			color: '#2869a4',
+		},
+		{
+			name: 'Education, Training, Employment, and Social Services',
+			color: '#0086c8',
+		},
+		{
+			name: 'Veterans Benefits and Services',
+			color: '#29e0ff',
+		},
+		{
+			name: 'Regional Development, Commerce, and Housing',
+			color: '#00b5db',
+		},
+		{
+			name: 'Natural Resources and Environment',
+			color: '#aae1f4',
+		},
+		{
+			name: 'Administration of Justice',
+			color: '#143e64',
+		},
+		{
+			name: 'Transportation',
+			color: '#2869a4',
+		},
+		{
+			name: 'International Affairs',
+			color: '#0086c8',
+		},
+		{
+			name: 'Energy, Science, Space, and Technology',
+			color: '#29e0ff',
+		},
+		{
+			name: 'Insurance Claims and Indemnities',
+			color: '#461e45',
+		},
+		{
+			name: 'Grants, Subsidies, and Contributions',
+			color: '#783877',
+		},
+		{
+			name: 'Interest and Dividends',
+			color: '#b56db4',
+		},
+		{
+			name: 'Personnel Compensation and Benefits',
+			color: '#e0b1df',
+		},
+		{
+			name: 'Refunds',
+			color: '#f8dbf8',
+		},
+		{
+			name: 'Advisory, R&D, Medical, and Other Contracts',
+			color: '#783877',
+		},
+		{
+			name: 'Acquisition of Assets',
+			color: '#783877',
+		},
+		{
+			name: 'Printing and Supplies',
+			color: '#b56db4',
+		},
+		{
+			name: 'Other',
+			color: '#e0b1df',
+		},
+		{
+			name: 'Travel and Transportation',
+			color: '#f8dbf8',
+		},
+		{
+			name: 'Rent, Communications, and Utilities',
+			color: '#461e45',
+		},
+	];
 
 	useEffect(() => {
 		clearAll();
@@ -188,15 +214,12 @@ function Sankey(props) {
 				const xi = d3.interpolateNumber(x0, x1);
 				const x2 = xi(curvature);
 				const x3 = xi(1 - curvature);
-				const y0 = d.source.y + d.sy + (d.dy / 2);
-				const y1 = d.target.y + d.ty + (d.dy / 2);
-				return `M${x0},${y0
-				}C${x2},${y0
-				} ${x3},${y1
-				} ${x1},${y1}`;
+				const y0 = d.source.y + d.sy + d.dy / 2;
+				const y1 = d.target.y + d.ty + d.dy / 2;
+				return `M${x0},${y0}C${x2},${y0} ${x3},${y1} ${x1},${y1}`;
 			}
 
-			link.curvature = (nArg) => {
+			link.curvature = nArg => {
 				if (nArg == null) {
 					return curvature;
 				}
@@ -208,7 +231,7 @@ function Sankey(props) {
 		};
 
 		function center(node) {
-			return node.y + (node.dy / 2);
+			return node.y + node.dy / 2;
 		}
 
 		function value(link) {
@@ -218,11 +241,11 @@ function Sankey(props) {
 		// Populate the sourceLinks and targetLinks for each node.
 		// Also, if the source and target are not objects, assume they are indices.
 		function computeNodeLinks() {
-			nodes.forEach((node) => {
+			nodes.forEach(node => {
 				node.sourceLinks = [];
 				node.targetLinks = [];
 			});
-			links.forEach((link) => {
+			links.forEach(link => {
 				let { source } = link;
 				let { target } = link;
 				if (typeof source === 'number') {
@@ -240,16 +263,16 @@ function Sankey(props) {
 
 		// Compute the value (size) of each node by summing the associated links.
 		function computeNodeValues() {
-			nodes.forEach((node) => {
+			nodes.forEach(node => {
 				node.value = Math.max(
 					d3.sum(node.sourceLinks, value),
-					d3.sum(node.targetLinks, value),
+					d3.sum(node.targetLinks, value)
 				);
 			});
 		}
 
 		function moveSinksRight(x) {
-			nodes.forEach((node) => {
+			nodes.forEach(node => {
 				if (!node.sourceLinks.length) {
 					node.x = x - 1;
 				}
@@ -257,7 +280,7 @@ function Sankey(props) {
 		}
 
 		function scaleNodeBreadths(kx) {
-			nodes.forEach((node) => {
+			nodes.forEach(node => {
 				node.x *= kx;
 			});
 		}
@@ -271,10 +294,10 @@ function Sankey(props) {
 			let nextNodes;
 			let x = 0;
 
-			const breadthFunc = (node) => {
+			const breadthFunc = node => {
 				node.x = x;
 				node.dx = nodeWidth;
-				node.sourceLinks.forEach((link) => {
+				node.sourceLinks.forEach(link => {
 					nextNodes.push(link.target);
 				});
 			};
@@ -291,21 +314,24 @@ function Sankey(props) {
 		}
 
 		function computeNodeDepths(iterations) {
-			const nodesByBreadth = d3.nest()
-				.key((d) => d.x)
+			const nodesByBreadth = d3
+				.nest()
+				.key(d => d.x)
 				.sortKeys(d3.ascending)
 				.entries(nodes)
-				.map((d) => d.values);
+				.map(d => d.values);
 
 			function relaxLeftToRight(alpha) {
 				function weightedSource(link) {
 					return center(link.source) * link.value;
 				}
 
-				nodesByBreadth.forEach((innerNodes) => {
-					innerNodes.forEach((node) => {
+				nodesByBreadth.forEach(innerNodes => {
+					innerNodes.forEach(node => {
 						if (node.targetLinks.length) {
-							const y = d3.sum(node.targetLinks, weightedSource) / d3.sum(node.targetLinks, value);
+							const y =
+								d3.sum(node.targetLinks, weightedSource) /
+								d3.sum(node.targetLinks, value);
 							node.y += (y - center(node)) * alpha;
 						}
 					});
@@ -317,18 +343,23 @@ function Sankey(props) {
 					return center(link.target) * link.value;
 				}
 
-				nodesByBreadth.slice().reverse().forEach((innerNodes) => {
-					innerNodes.forEach((node) => {
-						if (node.sourceLinks.length) {
-							const y = d3.sum(node.sourceLinks, weightedTarget) / d3.sum(node.sourceLinks, value);
-							node.y += (y - center(node)) * alpha;
-						}
+				nodesByBreadth
+					.slice()
+					.reverse()
+					.forEach(innerNodes => {
+						innerNodes.forEach(node => {
+							if (node.sourceLinks.length) {
+								const y =
+									d3.sum(node.sourceLinks, weightedTarget) /
+									d3.sum(node.sourceLinks, value);
+								node.y += (y - center(node)) * alpha;
+							}
+						});
 					});
-				});
 			}
 
 			function resolveCollisions() {
-				nodesByBreadth.forEach((innerNodes) => {
+				nodesByBreadth.forEach(innerNodes => {
 					let node;
 					let dy;
 					let y0 = 0;
@@ -353,7 +384,7 @@ function Sankey(props) {
 						// Push any overlapping nodes back up.
 						for (i = n - 2; i >= 0; --i) {
 							node = innerNodes[i];
-							dy = (node.y + node.dy + nodePadding) - y0;
+							dy = node.y + node.dy + nodePadding - y0;
 							if (dy > 0) node.y -= dy;
 							y0 = node.y;
 						}
@@ -362,16 +393,21 @@ function Sankey(props) {
 			}
 
 			function initializeNodeDepth() {
-				const ky = d3.min(nodesByBreadth, (innerNodes) => (size[1] - ((innerNodes.length - 1) * nodePadding)) / d3.sum(innerNodes, value));
+				const ky = d3.min(
+					nodesByBreadth,
+					innerNodes =>
+						(size[1] - (innerNodes.length - 1) * nodePadding) /
+						d3.sum(innerNodes, value)
+				);
 
-				nodesByBreadth.forEach((innerNodes) => {
+				nodesByBreadth.forEach(innerNodes => {
 					innerNodes.forEach((node, i) => {
 						node.y = i;
 						node.dy = node.value * ky;
 					});
 				});
 
-				links.forEach((link) => {
+				links.forEach(link => {
 					link.dy = link.value * ky;
 				});
 			}
@@ -379,7 +415,7 @@ function Sankey(props) {
 			initializeNodeDepth();
 			resolveCollisions();
 			for (let alpha = 1; iterations > 0; --iterations) {
-				relaxRightToLeft(alpha *= 0.99);
+				relaxRightToLeft((alpha *= 0.99));
 				resolveCollisions();
 				relaxLeftToRight(alpha);
 				resolveCollisions();
@@ -395,25 +431,25 @@ function Sankey(props) {
 				return a.target.y - b.target.y;
 			}
 
-			nodes.forEach((node) => {
+			nodes.forEach(node => {
 				node.sourceLinks.sort(ascendingTargetDepth);
 				node.targetLinks.sort(ascendingSourceDepth);
 			});
-			nodes.forEach((node) => {
+			nodes.forEach(node => {
 				let sy = 0;
 				let ty = 0;
-				node.sourceLinks.forEach((link) => {
+				node.sourceLinks.forEach(link => {
 					link.sy = sy;
 					sy += link.dy;
 				});
-				node.targetLinks.forEach((link) => {
+				node.targetLinks.forEach(link => {
 					link.ty = ty;
 					ty += link.dy;
 				});
 			});
 		}
 
-		sankey.layout = (iterations) => {
+		sankey.layout = iterations => {
 			computeNodeLinks();
 			computeNodeValues();
 			computeNodeBreadths();
@@ -432,30 +468,34 @@ function Sankey(props) {
 
 	function makeSankey(data, sPanel, sTitle, descriptions) {
 		// append the svg canvas to the page
-		const svg = d3.select('#sankey-viz').append('svg')
+		const svg = d3
+			.select('#sankey-viz')
+			.append('svg')
 			.attr('width', width + margin.left + margin.right)
 			.attr('height', height + margin.top + margin.bottom)
-			.attr('viewBox', `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+			.attr(
+				'viewBox',
+				`0 0 ${width + margin.left + margin.right} ${height +
+					margin.top +
+					margin.bottom}`
+			)
 			.attr('class', 'sankey-viz-svg')
 			.attr('role', 'img')
 			.append('g')
-			.attr('transform', `translate(${margin.left},${margin.top})`)
-      ;
-
-		d3.select('#sankey-viz svg')
+			.attr('transform', `translate(${margin.left},${margin.top})`);
+		d3
+			.select('#sankey-viz svg')
 			.attr('aria-labelledby', 'viz-description')
 			.append('desc')
 			.attr('id', 'viz-description')
-			.text(altText)
-		;
+			.text(altText);
 
 		// Set the sankey diagram properties
-		const sankey = d3.sankey()
+		const sankey = d3
+			.sankey()
 			.nodeWidth(25)
 			.nodePadding(8)
-			.size([width, height])
-      ;
-
+			.size([width, height]);
 		const path = sankey.link();
 
 		const legend = d3.select('#sankey-table');
@@ -466,7 +506,7 @@ function Sankey(props) {
 			links: [],
 		};
 
-		data.forEach((d) => {
+		data.forEach(d => {
 			graph.nodes.push({
 				name: d.source,
 			});
@@ -481,10 +521,12 @@ function Sankey(props) {
 		});
 
 		// return only the distinct / unique nodes
-		graph.nodes = d3.keys(d3.nest()
-			.key((d) => d.name)
-			.map(graph.nodes))
-		;
+		graph.nodes = d3.keys(
+			d3
+				.nest()
+				.key(d => d.name)
+				.map(graph.nodes)
+		);
 		graph.nodes.sort((x, y) => d3.ascending(x.value, y.value));
 
 		// loop through each link replacing the text with its index from node
@@ -503,11 +545,12 @@ function Sankey(props) {
 		sankey
 			.nodes(graph.nodes)
 			.links(graph.links)
-			.layout(200)
-		;
+			.layout(200);
 
 		// add in the links
-		const link = svg.append('g').selectAll('.link')
+		const link = svg
+			.append('g')
+			.selectAll('.link')
 			.data(graph.links)
 			.enter()
 			.append('path')
@@ -517,11 +560,11 @@ function Sankey(props) {
 				d.id = i;
 				return `link-${i}`;
 			})
-			.style('stroke-width', (d) => Math.max(1, d.dy))
-			.sort((a, b) => b.dy - a.dy)
-      ;
-
-		link.append('title').text((d) => `${d.source.name} → ${d.target.name}\n${format(d.value)}`);
+			.style('stroke-width', d => Math.max(1, d.dy))
+			.sort((a, b) => b.dy - a.dy);
+		link
+			.append('title')
+			.text(d => `${d.source.name} → ${d.target.name}\n${format(d.value)}`);
 
 		function highlightLink(id, opacity) {
 			d3.select(`#link-${id}`).style('stroke-opacity', opacity);
@@ -550,22 +593,25 @@ function Sankey(props) {
 				strokeOpacity = 0.3;
 			}
 
-			const traverse = [{
-				linkType: 'sourceLinks',
-				nodeType: 'target',
-			}, {
-				linkType: 'targetLinks',
-				nodeType: 'source',
-			}];
+			const traverse = [
+				{
+					linkType: 'sourceLinks',
+					nodeType: 'target',
+				},
+				{
+					linkType: 'targetLinks',
+					nodeType: 'source',
+				},
+			];
 
-			traverse.forEach((step) => {
-				node[step.linkType].forEach((nodeLink) => {
+			traverse.forEach(step => {
+				node[step.linkType].forEach(nodeLink => {
 					remainingNodes.push(nodeLink[step.nodeType]);
 					unhighlightLink(nodeLink.id, strokeOpacity);
 				});
 
-				const traverseFunc = (innerNode) => {
-					innerNode[step.linkType].forEach((nodeLink) => {
+				const traverseFunc = innerNode => {
+					innerNode[step.linkType].forEach(nodeLink => {
 						nextNodes.push(nodeLink[step.nodeType]);
 						unhighlightLink(nodeLink.id, strokeOpacity);
 					});
@@ -584,7 +630,15 @@ function Sankey(props) {
 		}
 
 		function dragmove(d) {
-			d3.select(this).attr('transform', `translate(${d.x},${d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))})`);
+			d3
+				.select(this)
+				.attr(
+					'transform',
+					`translate(${d.x},${(d.y = Math.max(
+						0,
+						Math.min(height - d.dy, d3.event.y)
+					))})`
+				);
 			sankey.relayout();
 			link.attr('d', path);
 		}
@@ -604,18 +658,23 @@ function Sankey(props) {
 
 			for (let j = 0; j < sTitle.length; j++) {
 				if (sTitle[j].name === innerNode.name) {
-					legend.append('div')
+					legend
+						.append('div')
 						.attr('id', 'tab')
 						.attr('height', 200)
 						.attr('width', 700)
-						.html(`<h1 class='panel_title'>${sTitle[j].name}</h1>`
-              + `<h3 class='panel_desc'><div class='panel_total_amount'>Total Amount</div>${formatNumber(sTitle[j].value)
-              }<br /></h3>`);
+						.html(
+							`<h1 class='panel_title'>${sTitle[j].name}</h1>` +
+								`<h3 class='panel_desc'><div class='panel_total_amount'>Total Amount</div>${formatNumber(
+									sTitle[j].value
+								)}<br /></h3>`
+						);
 				}
 			}
 			for (let j = 0; j < descriptions.length; j++) {
 				if (descriptions[j].name === innerNode.name) {
-					legend.append('div')
+					legend
+						.append('div')
 						.attr('id', 'description')
 						.attr('height', 200)
 						.attr('width', 600)
@@ -645,39 +704,51 @@ function Sankey(props) {
 
 			for (let k = 0; k < sPanel.length; k++) {
 				if (sPanel[k].target === innerNode.name) {
-					dataTable += `<tr><td class='val'>${formatNumber(sPanel[k].value)}</td><td>${sPanel[k].source}</td></tr>`;
+					dataTable += `<tr><td class='val'>${formatNumber(
+						sPanel[k].value
+					)}</td><td>${sPanel[k].source}</td></tr>`;
 				}
 				if (sPanel[k].source === innerNode.name) {
-					dataTable += `<tr><td class='val'>${formatNumber(sPanel[k].value)}</td><td>${sPanel[k].target}</td></tr>`;
+					dataTable += `<tr><td class='val'>${formatNumber(
+						sPanel[k].value
+					)}</td><td>${sPanel[k].target}</td></tr>`;
 				}
 			}
 
 			if (dataTable.length > 0) {
-				legend.append('div').attr('id', 'tab_2').attr('class', 'treecolumn').append('table')
+				legend
+					.append('div')
+					.attr('id', 'tab_2')
+					.attr('class', 'treecolumn')
+					.append('table')
 					.html(dataTable);
 			}
 
-			legend.append('div')
+			legend
+				.append('div')
 				.attr('id', 'tab_3')
 				.style('margin-top', '20px')
 				.html('<div>Negative values are not included in the visualization.</div>');
 
-			const traverse = [{
-				linkType: 'sourceLinks',
-				nodeType: 'target',
-			}, {
-				linkType: 'targetLinks',
-				nodeType: 'source',
-			}];
+			const traverse = [
+				{
+					linkType: 'sourceLinks',
+					nodeType: 'target',
+				},
+				{
+					linkType: 'targetLinks',
+					nodeType: 'source',
+				},
+			];
 
-			traverse.forEach((step) => {
-				innerNode[step.linkType].forEach((nodeLink) => {
+			traverse.forEach(step => {
+				innerNode[step.linkType].forEach(nodeLink => {
 					remainingNodes.push(nodeLink[step.nodeType]);
 					highlightLink(nodeLink.id, strokeOpacity);
 				});
 
-				const traverseFunc = (remainingNode) => {
-					remainingNode[step.linkType].forEach((nodeLink) => {
+				const traverseFunc = remainingNode => {
+					remainingNode[step.linkType].forEach(nodeLink => {
 						nextNodes.push(nodeLink[step.nodeType]);
 						highlightLink(nodeLink.id, strokeOpacity);
 					});
@@ -691,22 +762,25 @@ function Sankey(props) {
 			});
 		}
 
-		const node = svg.append('g').selectAll('.sankey-node')
+		const node = svg
+			.append('g')
+			.selectAll('.sankey-node')
 			.data(graph.nodes)
 			.enter()
 			.append('g')
 			.attr('class', 'sankey-node')
-			.attr('transform', (d) => `translate(${d.x},${d.y})`)
+			.attr('transform', d => `translate(${d.x},${d.y})`)
 			.on('click', highlightNodeLinks);
 		// .on("mouseout", removeHighlight)
 		/* .call(d3.behavior.drag()
         .origin((d) => d)
         .on("drag", dragmove)); */
 
-		node.append('rect')
-			.attr('height', (d) => d.dy)
+		node
+			.append('rect')
+			.attr('height', d => d.dy)
 			.attr('width', sankey.nodeWidth())
-			.style('fill', (d) => {
+			.style('fill', d => {
 				for (let i = 0; i < color.length; i++) {
 					if (d.name === color[i].name) {
 						return color[i].color;
@@ -715,14 +789,15 @@ function Sankey(props) {
 				return '';
 			});
 
-		node.append('text')
+		node
+			.append('text')
 			.attr('x', -6)
-			.attr('y', (d) => d.dy / 3)
+			.attr('y', d => d.dy / 3)
 			.attr('dy', '.35em')
 			.attr('text-anchor', 'end')
 			.attr('transform', null)
-			.text((d) => d.name)
-			.filter((d) => d.x < width / 2)
+			.text(d => d.name)
+			.filter(d => d.x < width / 2)
 			.attr('x', 6 + sankey.nodeWidth())
 			.attr('text-anchor', 'start');
 	}
@@ -734,14 +809,8 @@ function Sankey(props) {
 
 	return (
 		<>
-			<Grid
-  container
-  className="budget-sankey"
-			>
-				<Grid
-					item xl={8}
-  id="sankey-container"
-				>
+			<Grid container className="budget-sankey">
+				<Grid item xl={8} id="sankey-container">
 					<div id="sankey-brackets">
 						<SankeyBrackets />
 					</div>
@@ -754,6 +823,5 @@ function Sankey(props) {
 		</>
 	);
 }
-
 
 export default Sankey;

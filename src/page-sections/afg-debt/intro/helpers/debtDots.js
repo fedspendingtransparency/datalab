@@ -1,4 +1,4 @@
-import { dotsPerRow, dotConstants } from "./dotConstants";
+import { dotConstants, dotsPerRow } from './dotConstants';
 
 let config, layer;
 

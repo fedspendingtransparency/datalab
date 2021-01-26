@@ -4,10 +4,10 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import SEO from 'src/components/seo';
 import Share from 'src/components/share/share';
 import ToolLayout from 'src/components/layouts/tool/tool';
-import ControlBar from "src/components/control-bar/control-bar";
+import ControlBar from 'src/components/control-bar/control-bar';
 
 import loadable from '@loadable/component';
-import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 
 const SunburstDetailsContainer = loadable(() => import('src/containers/contract-explorer/contract-explorer-container'),
   {

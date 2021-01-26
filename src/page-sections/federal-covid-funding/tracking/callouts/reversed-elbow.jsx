@@ -12,7 +12,13 @@ xEnd = x position of ending vertical line, end of the horizontal line (pointing 
 
 export default function ReversedElbowCallout(props) {
 	const {
-		xStart, xEnd, isModal, labelOffset, label, labelAmount, mobile,
+		xStart,
+		xEnd,
+		isModal,
+		labelOffset,
+		label,
+		labelAmount,
+		mobile,
 	} = props;
 
 	function TextBlock() {
@@ -20,18 +26,18 @@ export default function ReversedElbowCallout(props) {
 			return (
 				<>
 					<text
-						fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition}
+						fill={defaults.fontColor}
+						x={`${labelOffset}%`}
+						y={defaults.textPosition}
 						fontSize={mobile ? defaults.smFontSize : defaults.mdFontSize}
-						fontWeight="600"
-					>
+						fontWeight="600">
 						{label}
 					</text>
 					<text
-  					fill={defaults.fontColor}
+						fill={defaults.fontColor}
 						x={`${labelOffset}%`}
 						y={defaults.textPosition + defaults.lineHeight}
-						fontSize={defaults.smFontSize}
-					>
+						fontSize={defaults.smFontSize}>
 						{numberFormatter('dollars suffix', labelAmount, 3)}
 					</text>
 				</>
@@ -39,17 +45,19 @@ export default function ReversedElbowCallout(props) {
 		}
 		return (
 			<text
-				fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition}
-				fontSize={defaults.fontSize}
-			>
-				<tspan className={styles.label} style={{ display: mobile ? 'none' : 'block' }} fontWeight="600">
-					{label}
-					{' '}
+				fill={defaults.fontColor}
+				x={`${labelOffset}%`}
+				y={defaults.textPosition}
+				fontSize={defaults.fontSize}>
+				<tspan
+					className={styles.label}
+					style={{ display: mobile ? 'none' : 'block' }}
+					fontWeight="600">
+					{label}{' '}
 				</tspan>
 				<tspan
 					className={styles.amountLabel}
-					style={{ fontWeight: mobile ? '600' : '0' }}
-				>
+					style={{ fontWeight: mobile ? '600' : '0' }}>
 					{numberFormatter('dollars suffix', labelAmount, 3)}
 				</tspan>
 			</text>
@@ -76,18 +84,16 @@ export default function ReversedElbowCallout(props) {
 
 			<rect
 				fill={defaults.lineColor}
-  			x={`${xStart}%`}
+				x={`${xStart}%`}
 				y="0"
 				width={defaults.lineStroke}
 				height={defaults.starterHeight}
 			/>
 
-
 			<TextBlock />
 		</g>
 	);
 }
-
 
 ReversedElbowCallout.propTypes = {
 	xStart: PropTypes.number.isRequired,

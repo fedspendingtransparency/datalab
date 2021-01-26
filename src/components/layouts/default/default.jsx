@@ -6,8 +6,6 @@ import OfficialBanner from '../../headers/official-banner';
 import PageFooter from '../../footers/page';
 import SiteFooter from '../../footers/site';
 
-import '../../../styles/index.scss';
-
 const Default = ({ children }) => (
   <>
     <OfficialBanner />

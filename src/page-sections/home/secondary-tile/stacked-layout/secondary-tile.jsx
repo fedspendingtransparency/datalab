@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import secondaryAnalysesTileStyles from './secondary-tile.module.scss';
 
-import { Grid, Hidden } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
 import flag from '../../../../images/home/new-data-flag.svg';
 
 const hiddenDate = '12/06/2020';

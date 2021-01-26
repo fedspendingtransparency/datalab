@@ -1,5 +1,4 @@
 import { select } from 'd3-selection';
-import colors from 'src/styles/afg/colors.scss';
 
 const d3 = { select };
 

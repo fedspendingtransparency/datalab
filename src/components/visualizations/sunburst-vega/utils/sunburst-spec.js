@@ -1,4 +1,4 @@
-import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode';
+import { checkScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
 
 const sunburstSpec = (windowWidth) => {
   let size = windowWidth;
