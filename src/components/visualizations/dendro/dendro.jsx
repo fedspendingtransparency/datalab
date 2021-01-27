@@ -539,7 +539,7 @@ export default function Dendro(props) {
 			}
 
 			function getLink(d) {
-				const baseUrl = 'https://beta.usaspending.gov/#/federal_account/';
+				const baseUrl = 'https://www.usaspending.gov/#/federal_account/';
 				const acctNum = d.id;
 				window.open(baseUrl + acctNum);
 			}

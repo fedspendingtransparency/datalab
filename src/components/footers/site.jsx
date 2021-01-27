@@ -39,7 +39,7 @@ const SiteFooter = () => {
 						<a
 							target="_blank"
 							rel="noopener noreferrer"
-							href="https://beta.usaspending.gov/#/db_info">
+							href="https://www.usaspending.gov/#/db_info">
 							You must click here for very important D&B information.
 						</a>
 					</div>
@@ -71,7 +71,7 @@ const SiteFooter = () => {
 						<a
 							target="_blank"
 							rel="noopener noreferrer"
-							href="https://beta.usaspending.gov/#/db_info">
+							href="https://www.usaspending.gov/#/db_info">
 							You must click here for very important D&B information.
 						</a>
 					</div>
