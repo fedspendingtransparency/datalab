@@ -268,7 +268,7 @@ export default function Tracking(props) {
 
 	const data = useStaticQuery(graphql`
 		query {
-			totalsByLaw: allCovid19ResponseModalAgencytotalbylaw20200921Csv {
+			totalsByLaw: allCovid19ResponseModalAgencytotalbylaw20210122Csv {
 				group(field: Legislation) {
 					fieldValue
 					nodes {
@@ -284,7 +284,7 @@ export default function Tracking(props) {
 					}
 				}
 			}
-			total: allCovid19ResponseMain20200921Csv {
+			total: allCovid19ResponseMain20210122Csv {
 				nodes {
 					label: Legislation
 					Percent_Outlayed
@@ -297,7 +297,7 @@ export default function Tracking(props) {
 					Loan_Program_Account
 				}
 			}
-			accountsByType: allCovid19ResponseModal20200921Csv {
+			accountsByType: allCovid19ResponseModal20210122Csv {
 				group(field: Legislation) {
 					fieldValue
 					nodes {
