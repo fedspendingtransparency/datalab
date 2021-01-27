@@ -3,11 +3,9 @@ import pageColorMap from 'src/utils/page-color';
 import { legacy } from 'src/styles/variables.scss';
 
 import styles from './scrolling-circles.module.scss';
-import { checkScreenMode, ScreenModeEnum } from '../../utils/screen-mode';
 
 const ScrollingCircles = ({ sections }) => {
-	const [screenMode, setScreenMode] = useState(0);
-	const [activeSection, setActiveSection] = useState(null);
+	const [activeSection, setActiveSection] = useState(sections[0].anchor);
 	const [fillColor, setFillColor] = useState(legacy);
 	const [fadeClass, setFadeClass] = useState('');
 	const [topMargin, setTopMargin] = useState(106);
@@ -25,49 +23,37 @@ const ScrollingCircles = ({ sections }) => {
 		threshold: [...Array(100).keys()].map(x => x / 100),
 	};
 
-	let previousY = { budget: 0, overview: 0, tracking: 0 };
-
-	const observer = new IntersectionObserver(entries => {
-		entries.forEach(entry => {
-			const ratio = entry.intersectionRatio;
-			const boundingRect = entry.boundingClientRect;
-			const section = entry.target.id.replace('section-', '');
-			const isScrollingDown = previousY[section] > boundingRect.y;
-			const scrollingDownToSection =
-				isScrollingDown && boundingRect.top < 5 && boundingRect.bottom > 0;
-			const inView = scrollingDownToSection;
-			const scrollingUpToSection =
-				!isScrollingDown && boundingRect.bottom > 50 && boundingRect.bottom < 100;
-
-			if (ratio < 1) {
-				console.log(`${section}: bottom - ${boundingRect.bottom}`);
-				console.log(`${section}: top - ${boundingRect.top}`);
-				console.log(`${section}: y - ${boundingRect.y}`);
-
-				// console.log('y: ', boundingRect.y);
-
-				// This condition is not correct right now
-				if (boundingRect.top < 100 && boundingRect.bottom > 50) {
-					console.log(`${section} inview`);
-				}
-
-				if (scrollingDownToSection) {
-					setActiveSection(section);
-				}
-			}
-
-			previousY = { ...previousY, [section]: boundingRect.y };
-		});
-	}, options);
+	let previousY = sections.reduce(
+		(result, item) => ((result[item.anchor] = 0), result),
+		{}
+	);
 
 	useEffect(() => {
 		const pathname = window.location.pathname.split('/').join('');
 		setFillColor(pageColorMap[pathname]);
 
+		const observer = new window.IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				const ratio = entry.intersectionRatio;
+				const boundingRect = entry.boundingClientRect;
+				const section = entry.target.id.replace('section-', '');
+				const isScrollingDown = previousY[section] > boundingRect.y;
+				const inView = boundingRect.top < 15 && boundingRect.bottom > 0;
+
+				if (entry.isIntersecting && ratio < 1 && inView) {
+					setActiveSection(section);
+				}
+
+				previousY = { ...previousY, [section]: boundingRect.y };
+			});
+		}, options);
+
 		sections.forEach(section => {
 			const target = document.getElementById(`section-${section.anchor}`);
 			observer.observe(target);
 		});
+
+		return () => observer.disconnect();
 	}, []);
 
 	useEffect(() => {
@@ -75,8 +61,8 @@ const ScrollingCircles = ({ sections }) => {
 	}, [activeSection]);
 
 	const scrollToSection = (id, e) => {
-		setActiveSection(id);
 		if (!e || e.key === 'Enter') {
+			setActiveSection(id);
 			fade();
 		}
 	};
