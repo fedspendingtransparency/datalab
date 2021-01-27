@@ -4,7 +4,7 @@ import globalStyles from 'src/styles/variables.scss';
 
 import Categories from 'src/page-sections/rd-in-contracting/categories/categories.jsx';
 import Footnotes from '../../components/footnotes/footnotes';
-import { Hidden } from '@material-ui/core';
+import Hidden from '@material-ui/core/Hidden';
 import ReadMore from '../../components/read-more/read-more';
 import SEO from 'src/components/seo';
 import Spending from 'src/page-sections/rd-in-contracting/spending/spending-chart';

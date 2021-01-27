@@ -1,5 +1,5 @@
-import { select, selectAll } from "d3-selection";
-import { translator } from "src/afg-helpers/utils";
+import { select, selectAll } from 'd3-selection';
+import { translator } from 'src/afg-helpers/utils';
 
 const d3 = { select, selectAll },
     rect = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
 import secondaryAnalysesTileStyles from './secondary-tile.module.scss';
 import PropTypes from 'prop-types';

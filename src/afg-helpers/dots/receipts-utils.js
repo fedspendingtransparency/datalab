@@ -1,4 +1,3 @@
-import { translator } from 'src/afg-helpers/utils';
 import { select } from 'd3-selection';
 import colors from '../../styles/afg/colors.scss';
 

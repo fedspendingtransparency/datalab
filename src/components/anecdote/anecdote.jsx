@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { select, selectAll, event } from 'd3-selection';
-import { ChevronRight, ChevronLeft, Close } from "@material-ui/icons";
+import { event, select, selectAll } from 'd3-selection';
+import ChevronRight from '@material-ui/icons/ChevronRight';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import Close from '@material-ui/icons/Close';
 
 const d3 = { select, selectAll, event },
 	config = {
@@ -22,7 +24,7 @@ const d3 = { select, selectAll, event },
 		infoIcon: {
 			class: 'anecdote__icon',
 			src: 'assets/icons/anecdote.svg',
-			alt: 'anecdote icon'
+			alt: 'anecdote icon',
 		},
 		linkCtaContainerClass: 'anecdote__cta--container',
 		linkButtonContainerClass: 'anecdote__link--button-container',
@@ -31,25 +33,25 @@ const d3 = { select, selectAll, event },
 		linkButtonText: '',
 		panesClass: 'anecdote__panes',
 		paneClass: 'anecdote__pane',
-		paneClassActive: 'anecdote__pane--active'
+		paneClassActive: 'anecdote__pane--active',
 	};
 
 export default function AfgAnecdote() {
-
 	function addCloseIcon(anecdote) {
-		anecdote.select(`.${config.controlsClass}`)
+		anecdote
+			.select(`.${config.controlsClass}`)
 			.append('button')
 			.classed(config.closeButtonClass, true)
 			.on('click', toggleVisibility)
-			.html(d3.select('#anecdoteCloseButton').html())
+			.html(d3.select('#anecdoteCloseButton').html());
 	}
 
 	function toggleVisibility() {
 		let anecdote;
 		if (this.closest) {
 			anecdote = d3.select(this.closest(`.${config.anecdoteClass}`));
-
-		} else { // IE's Element doesn't have .closest(), and project build doesn't have a polyfill
+		} else {
+			// IE's Element doesn't have .closest(), and project build doesn't have a polyfill
 			let _this = this;
 			do {
 				if (_this.classList.contains(`${config.anecdoteClass}`)) {
@@ -58,7 +60,10 @@ export default function AfgAnecdote() {
 				_this = _this.parentElement;
 			} while (anecdote == null);
 		}
-		anecdote.classed(config.anecdoteActiveClass, !anecdote.classed(config.anecdoteActiveClass));
+		anecdote.classed(
+			config.anecdoteActiveClass,
+			!anecdote.classed(config.anecdoteActiveClass)
+		);
 	}
 
 	function setActiveDot(anecdote, index) {
@@ -78,28 +83,36 @@ export default function AfgAnecdote() {
 
 	function buildDots(anecdote) {
 		const dotLength = anecdote.selectAll(`.${config.paneClass}`).size(),
-			dotContainer = anecdote.select(`.${config.contentsClass}`).insert('div').classed(config.dotsContainerClass, true),
+			dotContainer = anecdote
+				.select(`.${config.contentsClass}`)
+				.insert('div')
+				.classed(config.dotsContainerClass, true),
 			dots = dotContainer.append('div').classed(config.dotsClass, true),
 			dotArray = new Array(dotLength);
 
-		dots.selectAll(`.${config.dotClass}`)
+		dots
+			.selectAll(`.${config.dotClass}`)
 			.data(dotArray)
 			.enter()
 			.append('button')
 			.classed(config.dotClass, true)
-			.on('click', function (d, i) {
+			.on('click', function(d, i) {
 				showPane(anecdote, i);
 			});
 
-		dotContainer.append('div')
-			.classed(config.dotTextClass, true);
+		dotContainer.append('div').classed(config.dotTextClass, true);
 
 		setActiveDot(anecdote, 0);
 	}
 
 	function showPane(anecdote, index) {
-		const panes = anecdote.selectAll(`.${config.paneClass}`).classed(config.paneClassActive, false),
-			activePane = panes.filter((d, i) => { return i === index })
+		const panes = anecdote
+				.selectAll(`.${config.paneClass}`)
+				.classed(config.paneClassActive, false),
+			activePane = panes
+				.filter((d, i) => {
+					return i === index;
+				})
 				.classed(config.paneClassActive, true);
 
 		anecdote.attr('data-current', index);
@@ -110,11 +123,10 @@ export default function AfgAnecdote() {
 
 	function addKeyboardNavigation() {
 		// Add keyboard navigation (left/right keys).
-		window.addEventListener("keydown", function (e) {
+		window.addEventListener('keydown', function(e) {
 			const activeAnecdotes = d3.selectAll(`.${config.anecdoteActiveClass}`);
 
 			let navigateDir, prev;
-
 
 			switch (e.key) {
 				case 'Right':
@@ -131,11 +143,11 @@ export default function AfgAnecdote() {
 				return;
 			}
 
-			prev = (navigateDir === 'previous');
+			prev = navigateDir === 'previous';
 
-			activeAnecdotes.each(function () {
+			activeAnecdotes.each(function() {
 				advancePane(d3.select(this), prev);
-			})
+			});
 		});
 	}
 
@@ -143,7 +155,7 @@ export default function AfgAnecdote() {
 		// Add mobile navigation (swipe left/right).
 		const anecdoteEl = anecdote.node();
 
-		anecdoteEl.addEventListener('swipe', function (e) {
+		anecdoteEl.addEventListener('swipe', function(e) {
 			const activeAnecdotes = d3.selectAll(`.${config.anecdoteActiveClass}`),
 				swipeDirection = e.detail.directions;
 
@@ -155,41 +167,42 @@ export default function AfgAnecdote() {
 				return; // Ignore up or down swipes.
 			}
 
-			activeAnecdotes.each(function () {
+			activeAnecdotes.each(function() {
 				advancePane(d3.select(this), prev);
-			})
+			});
 		});
 	}
 
 	function setWidthForPanes(anecdote) {
 		const count = anecdote.selectAll(`.${config.paneClass}`).size();
 
-		anecdote.select(`.${config.panesClass}`).style('width', `${100 * count}%`)
+		anecdote.select(`.${config.panesClass}`).style('width', `${100 * count}%`);
 	}
 
 	function initNav(anecdote) {
-		const buttons = anecdote.selectAll(`.${config.navClass}`).append('button').classed(config.navButtonClass, true);
+		const buttons = anecdote
+			.selectAll(`.${config.navClass}`)
+			.append('button')
+			.classed(config.navButtonClass, true);
 
-		buttons.each(function (d, i) {
-			const chevronId = (i === 0) ? '#anecdoteLeftChevron' : '#anecdoteRightChevron';
+		buttons.each(function(d, i) {
+			const chevronId = i === 0 ? '#anecdoteLeftChevron' : '#anecdoteRightChevron';
 
 			d3.select(this).html(d3.select(chevronId).html());
 		});
 
-		buttons.each(function (d, i) {
+		buttons.each(function(d, i) {
 			const button = d3.select(this),
-				prev = (i === 0) ? true : null;
+				prev = i === 0 ? true : null;
 
-			button.on('click', d => advancePane(anecdote, prev)
-			)
-				;
-		})
+			button.on('click', d => advancePane(anecdote, prev));
+		});
 	}
 
 	function initPanes(anecdote) {
 		const panes = anecdote.selectAll(`.${config.paneClass}`);
 
-		panes.on('click', function (d, i) {
+		panes.on('click', function(d, i) {
 			const paneCount = anecdote.selectAll(`.${config.paneClass}`).size(),
 				src = event.srcElement ? event.srcElement : event.target;
 
@@ -229,9 +242,9 @@ export default function AfgAnecdote() {
 	}
 
 	function indexPanes(anecdote) {
-		anecdote.selectAll(`.${config.paneClass}`).each(function (d, i) {
+		anecdote.selectAll(`.${config.paneClass}`).each(function(d, i) {
 			d3.select(this).attr('data-pane-index', i);
-		})
+		});
 	}
 
 	function buildAnecdote() {
@@ -260,7 +273,10 @@ export default function AfgAnecdote() {
 	}
 
 	function enableFocusOnActivePaneLinks(pane) {
-		d3.selectAll('.anecdote__pane').selectAll('a').attr('tabindex', -1);
+		d3
+			.selectAll('.anecdote__pane')
+			.selectAll('a')
+			.attr('tabindex', -1);
 
 		if (pane) {
 			pane.selectAll('a').attr('tabindex', 0);
@@ -268,11 +284,14 @@ export default function AfgAnecdote() {
 	}
 
 	function shiftLinksIntoFocus() {
-		const paneLinks = d3.selectAll('.anecdote__pane').selectAll('a').attr('tabindex', -1);
+		const paneLinks = d3
+			.selectAll('.anecdote__pane')
+			.selectAll('a')
+			.attr('tabindex', -1);
 
-		paneLinks.each(function () {
+		paneLinks.each(function() {
 			this.addEventListener('focus', onLinkFocus);
-		})
+		});
 	}
 
 	function anecdoteInit() {
@@ -284,19 +303,19 @@ export default function AfgAnecdote() {
 
 	useEffect(() => {
 		anecdoteInit();
-	},[]);
+	}, []);
 
 	return (
 		<>
-			<div className='hidden' id='anecdoteCloseButton'>
+			<div className="hidden" id="anecdoteCloseButton">
 				<Close />
 			</div>
-			<div className='hidden' id='anecdoteLeftChevron'>
+			<div className="hidden" id="anecdoteLeftChevron">
 				<ChevronLeft />
 			</div>
-			<div className='hidden' id='anecdoteRightChevron'>
+			<div className="hidden" id="anecdoteRightChevron">
 				<ChevronRight />
 			</div>
 		</>
-	)
+	);
 }

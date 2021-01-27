@@ -7,11 +7,9 @@ import Share from 'src/components/share/share';
 import BpToc from 'src/components/bpToc/bpToc';
 import AfgAnecdote from 'src/components/anecdote/anecdote';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faAngleRight,
-  faAngleDown,
-  faStreetView,
-} from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons/faAngleDown';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
+import { faStreetView } from '@fortawesome/free-solid-svg-icons/faStreetView';
 import { AFGHeader } from 'src/components/headers/headers';
 import AfgNav from 'src/components/afg-nav/afg-nav';
 
@@ -228,7 +226,7 @@ export default function OverviewPage({ location }) {
                             renting a {AfgData.household_contribution_type.value}
                           </strong>
                             {' '}
-                            in 
+                            in
 {' '}
                             {AfgData.household_contribution_city.value}
                             .
@@ -508,7 +506,7 @@ export default function OverviewPage({ location }) {
                             to renting a {AfgData.household_spending_type.value}
                           </strong>
                             {' '}
-                            in 
+                            in
 {' '}
                             {AfgData.household_spending_city.value}
                             .
@@ -548,7 +546,7 @@ export default function OverviewPage({ location }) {
                             times!
 </strong>
                             {' '}
-                            (That's 
+                            (That's
 {' '}
                             {AfgData.dc_sf_miles.value}
                             {' '}
@@ -791,7 +789,7 @@ export default function OverviewPage({ location }) {
                             of deficit spending
 </strong>
                             {' '}
-                            per household in 
+                            per household in
 {' '}
                             {AfgData.current_fy.value}
                             .

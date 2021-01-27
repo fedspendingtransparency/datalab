@@ -1,13 +1,12 @@
 import React from 'react';
-import { Hidden, Grid } from '@material-ui/core';
-
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
 /* components */
 import FaqLayout from 'src/components/layouts/faq/faq';
 import SEO from 'src/components/seo';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import AccordionList from 'src/components/accordion-list/accordion-list';
 import HeroImage from 'src/images/analyst-guide/hero-img.png';
-
 /* Sections */
 import generalQuestions from 'src/page-sections/analyst-guide/general-questions';
 import classifications from 'src/page-sections/analyst-guide/classifications';

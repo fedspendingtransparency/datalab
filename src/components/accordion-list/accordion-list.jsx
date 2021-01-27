@@ -7,20 +7,21 @@ import PropTypes from 'prop-types';
 import accordionStyles from './accordion-list.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
+import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 import Grid from '@material-ui/core/Grid';
 
 export default class AccordionList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			closed: true,
+			closed: true
 		};
 
 		this.toggle = this.toggle.bind(this);
 	}
 
-	/* props notes
+  /* props notes
     title: shows in the top box, collapsed or open
     color: theme color for border, collapsed background, and highlighted text within
     backgroundColor: background of collapsed box

@@ -10,14 +10,14 @@ import SectionFive from '../../page-sections/opioid-crisis/sectionFive/sectionFi
 import { CustomOpioidHeader, CustomOpioidTocHeader } from '../../components/headers/customHeader';
 import SEO from '../../components/seo';
 import StoryLayout from '../../components/layouts/story/story';
-import { Grid } from "@material-ui/core";
+import Grid from '@material-ui/core/Grid';
 
-/* 
+/*
   For story templates we need to pass different colors.
   Keeps TOC and other page dynamic with header component
 
   TODO: remove the 'page-section' custom header components and port that to
-  dynamic component for all story templates (C&U...) 
+  dynamic component for all story templates (C&U...)
 */
 
 const primaryColors = {opioidOrange: '#FC5A20'};

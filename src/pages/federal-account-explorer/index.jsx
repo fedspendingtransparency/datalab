@@ -1,16 +1,17 @@
-import React, { Component } from "react";
-import SEO from "../../components/seo";
-import "../../styles/index.scss";
+import React, { Component } from 'react';
+import SEO from '../../components/seo';
+import '../../styles/index.scss';
 
-import AccordionList from "../../components/accordion-list/accordion-list";
+import AccordionList from '../../components/accordion-list/accordion-list';
 import Reset from '../../components/reset/reset';
-import Share from "../../components/share/share";
-import ToolLayout from "../../components/layouts/tool/tool";
-import ControlBar from "../../components/control-bar/control-bar";
+import Share from '../../components/share/share';
+import ToolLayout from '../../components/layouts/tool/tool';
+import ControlBar from '../../components/control-bar/control-bar';
 
 
 import loadable from '@loadable/component';
-import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
+
 const DendroContainer = loadable(() => import("src/containers/fed-acct/fed-acct-container"),
   {
     fallback: <div className='progress_wrapper'>

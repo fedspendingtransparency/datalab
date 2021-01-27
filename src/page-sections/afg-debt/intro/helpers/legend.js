@@ -1,6 +1,6 @@
 import * as d3 from 'd3v3';
-import { establishContainer, translator, fadeAndRemove } from 'src/afg-helpers/utils';
-import { triggerInfoBox, triggerMainInfoBox } from 'src/afg-helpers/infoBox';
+import { establishContainer, fadeAndRemove, translator } from 'src/afg-helpers/utils';
+import { triggerMainInfoBox } from 'src/afg-helpers/infoBox';
 import colors from '../../../../styles/afg/colors.scss';
 import { chartWidth } from './widthManager';
 

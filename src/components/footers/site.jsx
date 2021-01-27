@@ -1,6 +1,6 @@
 import React from 'react';
 import siteFooterStyles from './site.module.scss';
-import { Hidden } from '@material-ui/core';
+import Hidden from '@material-ui/core/Hidden';
 
 const SiteFooter = () => {
 	return (

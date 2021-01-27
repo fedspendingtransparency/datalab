@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faHome,
-	faAngleDown,
-	faAngleUp,
-} from '@fortawesome/free-solid-svg-icons';
-import { checkAfgScreenMode, ScreenModeEnum } from '../../utils/screen-mode';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons/faAngleDown';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons/faAngleUp';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
+
+import { checkAfgScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
 import style from './afg-nav.module.scss';
 
 const AfgNav = ({ chapter }) => {

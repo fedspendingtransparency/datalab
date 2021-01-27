@@ -1,4 +1,4 @@
-import * as d3 from "d3v3"
+import * as d3 from 'd3v3';
 
 export default function formatNumber(type, number, sig = 2) {
   const formatPercent = d3.format(",.0%")

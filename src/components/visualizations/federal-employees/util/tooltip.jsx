@@ -1,5 +1,5 @@
-import * as d3 from "d3v4"
-import "./tooltip.scss"
+import * as d3 from 'd3v4';
+import './tooltip.scss';
 
 const Tooltip = (() => {
   function getLeftPosition() {

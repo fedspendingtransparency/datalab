@@ -2,7 +2,7 @@ import React from 'react';
 import pageFooterStyles from './page.module.scss';
 import { Link } from 'gatsby';
 
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import DataLab from '../logos/datalab';
 import Github from '../logos/github';
 import Dataworld from '../logos/dataworld';
