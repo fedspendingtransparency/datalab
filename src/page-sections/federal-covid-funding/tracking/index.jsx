@@ -23,6 +23,8 @@ import PurpleDot from '../../../svgs/federal-covid-spending/purpleDot.svg';
 
 import GovtTotalSVG from 'src/images/covid/tracking/desktop/govtTotal.svg';
 import Phase1SVG from 'src/images/covid/tracking/desktop/phase1.svg';
+import Phase1GeneralSVG from 'src/images/covid/tracking/desktop/phase1General.svg';
+import Phase1LoanSVG from 'src/images/covid/tracking/desktop/phase1Loan.svg';
 import Phase2SVG from 'src/images/covid/tracking/desktop/phase2.svg';
 import Phase3TotalSVG from 'src/images/covid/tracking/desktop/phase3Total.svg';
 import Phase3GeneralSVG from 'src/images/covid/tracking/desktop/phase3General.svg';
@@ -33,6 +35,8 @@ import Phase35LoanSVG from 'src/images/covid/tracking/desktop/phase35Loan.svg';
 
 import GovtTotalMobileSVG from 'src/images/covid/tracking/mobile/govtTotal.svg';
 import Phase1MobileSVG from 'src/images/covid/tracking/mobile/phase1.svg';
+import Phase1GeneralMobileSVG from 'src/images/covid/tracking/mobile/phase1General.svg';
+import Phase1LoanMobileSVG from 'src/images/covid/tracking/mobile/phase1Loan.svg';
 import Phase2MobileSVG from 'src/images/covid/tracking/mobile/phase2.svg';
 import Phase3TotalMobileSVG from 'src/images/covid/tracking/mobile/phase3Total.svg';
 import Phase3GeneralMobileSVG from 'src/images/covid/tracking/mobile/phase3General.svg';
@@ -43,6 +47,8 @@ import Phase35LoanMobileSVG from 'src/images/covid/tracking/mobile/phase35Loan.s
 
 import GovtTotalTabletSVG from 'src/images/covid/tracking/tablet/govtTotal.svg';
 import Phase1TabletSVG from 'src/images/covid/tracking/tablet/phase1.svg';
+import Phase1GeneralTabletSVG from 'src/images/covid/tracking/tablet/phase1General.svg';
+import Phase1LoanTabletSVG from 'src/images/covid/tracking/tablet/phase1Loan.svg';
 import Phase2TabletSVG from 'src/images/covid/tracking/tablet/phase2.svg';
 import Phase3TotalTabletSVG from 'src/images/covid/tracking/tablet/phase3Total.svg';
 import Phase3GeneralTabletSVG from 'src/images/covid/tracking/tablet/phase3General.svg';
@@ -67,6 +73,14 @@ export default function Tracking(props) {
 			'Law Total': {
 				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 1 legislation ($${CovidCopy.law1}B) that have been obligated and outlayed ($${CovidCopy.law1outlays_bill}B) to date. `,
 				className: 'lawTotalOnly',
+			},
+			Spending: {
+				altText: `Horizontal stacked bar chart of budgetary resources ($8B) allocated to general account spending from the Phase 1 legislation. `,
+				className: 'spending',
+			},
+			Loan: {
+				altText: `Horizontal stacked bar chart of budgetary resources ($20M) allocated to loan account spending from the Phase 1 legislation.`,
+				className: 'loan',
 			},
 		},
 		'2': {
@@ -125,6 +139,16 @@ export default function Tracking(props) {
 			'Law Total': {
 				svg: Phase1SVG,
 				width: 365,
+			},
+			Spending: {
+				svg: Phase1GeneralSVG,
+				width: 299,
+				className: 'spending',
+			},
+			Loan: {
+				svg: Phase1LoanSVG,
+				width: 130,
+				className: 'loan',
 			},
 		},
 		'2': {
@@ -705,6 +729,14 @@ export default function Tracking(props) {
 					);
 					break;
 				case '1':
+					return (
+						<PhaseWrapper>
+							{['Law Total', 'Spending', 'Loan'].map((item, key) => {
+								SectionTag = svgs[phaseItem][item];
+								return phase(chartData[phaseItem][item], SectionTag);
+							})}
+						</PhaseWrapper>
+					);
 				case '2':
 					SectionTag = svgs[phaseItem]['Law Total'];
 					return (
