@@ -3,7 +3,7 @@ import ModalReference from 'src/components/modal/modal';
 import styles from './modal.module.scss';
 import Grid from '@material-ui/core/Grid';
 
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2021-01-22.yml';
 import Medical from 'src/svgs/federal-covid-spending/tracking/law-summary-modal/medical.svg';
 import Individuals from 'src/svgs/federal-covid-spending/tracking/law-summary-modal/individuals.svg';
 import Government from 'src/svgs/federal-covid-spending/tracking/law-summary-modal/government.svg';
