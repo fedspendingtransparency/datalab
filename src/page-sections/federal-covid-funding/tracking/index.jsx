@@ -68,18 +68,18 @@ export default function Tracking(props) {
 		'1': {
 			title:
 				'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
-			loanAcct: 'no',
+			loanAcct: 'yes',
 			enactedDate: 'March 6, 2020',
 			'Law Total': {
 				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 1 legislation ($${CovidCopy.law1}B) that have been obligated and outlayed ($${CovidCopy.law1outlays_bill}B) to date. `,
 				className: 'lawTotalOnly',
 			},
 			Spending: {
-				altText: `Horizontal stacked bar chart of budgetary resources ($8B) allocated to general account spending from the Phase 1 legislation. `,
+				altText: `TBD`,
 				className: 'spending',
 			},
 			Loan: {
-				altText: `Horizontal stacked bar chart of budgetary resources ($20M) allocated to loan account spending from the Phase 1 legislation.`,
+				altText: `TBD`,
 				className: 'loan',
 			},
 		},
@@ -205,6 +205,14 @@ export default function Tracking(props) {
 				svg: Phase1TabletSVG,
 				width: 365,
 			},
+			Spending: {
+				svg: Phase1GeneralTabletSVG,
+				width: 351,
+			},
+			Loan: {
+				svg: Phase1LoanTabletSVG,
+				width: 351,
+			},
 		},
 		'2': {
 			'Law Total': {
@@ -254,6 +262,14 @@ export default function Tracking(props) {
 				svg: Phase1MobileSVG,
 				width: 310,
 			},
+			Spending: {
+				svg: Phase1GeneralMobileSVG,
+				width: 351,
+			},
+			Loan: {
+				svg: Phase1LoanMobileSVG,
+				width: 351,
+			},
 		},
 		'2': {
 			'Law Total': {
@@ -293,7 +309,7 @@ export default function Tracking(props) {
 
 	const data = useStaticQuery(graphql`
 		query {
-			totalsByLaw: allCovid19ResponseModalAgencytotalbylaw20200921Csv {
+			totalsByLaw: allCovid19ResponseModalAgencytotalbylaw20210122Csv {
 				group(field: Legislation) {
 					fieldValue
 					nodes {
@@ -309,7 +325,7 @@ export default function Tracking(props) {
 					}
 				}
 			}
-			total: allCovid19ResponseMain20200921Csv {
+			total: allCovid19ResponseMain20210122Csv {
 				nodes {
 					label: Legislation
 					Percent_Outlayed
@@ -322,7 +338,7 @@ export default function Tracking(props) {
 					Loan_Program_Account
 				}
 			}
-			accountsByType: allCovid19ResponseModal20200921Csv {
+			accountsByType: allCovid19ResponseModal20210122Csv {
 				group(field: Legislation) {
 					fieldValue
 					nodes {
