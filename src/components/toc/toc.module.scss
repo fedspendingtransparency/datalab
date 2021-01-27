@@ -50,7 +50,7 @@ $mdGrey: #555555;
       background-color: $legacyBlue;
       text-transform: uppercase;
       font-weight: bold;
-  
+
       &:before {
         content: "";
         height: 0;
@@ -68,6 +68,7 @@ $mdGrey: #555555;
     font-weight: bold;
     font-style: italic;
     color: black;
+    margin-right: 45px;
   }
 
   .legacy-anchor:hover {
@@ -101,26 +102,26 @@ $mdGrey: #555555;
       text-decoration: underline;
     }
   }
-  
+
   .legacy-section {
     color: $legacyBlue;
   }
-  
+
   .colleges-and-universities-section {
     color: $cuRed;
   }
-  
+
   .federal-covid-funding-section {
     color: $covidPurple;
   }
-  
+
   .homelessness-analysis-section {
     color: $homelessAnalysisPurple;
   }
 
   .faded {
     opacity: 0.6;
-    
+
     &:not(.number) {
       font-style: italic;
       font-weight: 300;
@@ -260,38 +261,32 @@ $mdGrey: #555555;
 
 @media (max-width: $tablet - 1) {
   #TOC {
-    .a {
-      display: flex;
-      flex-grow: 1;
-    }
-    .tile {
-      border-right: unset;
-      border-bottom: $light-grey-border solid 1px;
-      padding-bottom: 32px;
-
-      &:last-child {
-        border-bottom: none;
-      }
-    }
-  }
-}
-
-@media (max-width: $tablet - 1) {
-  #TOC {
-    margin-bottom: $margin-25;
-    margin-top: $margin-25;
+    padding-bottom: $margin-25;
+    padding-top: $margin-25;
+    border-bottom: $light-grey-border solid 1px;
 
     .content {
       margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .a {
+      display: flex;
+      flex-grow: 1;
     }
 
     .tile {
       padding: 0;
       border: none;
     }
+
     .subblurb {
       display: none;
     }
+
     .number {
       font-size: 1.5rem;
       line-height: 3.125rem;
@@ -299,9 +294,11 @@ $mdGrey: #555555;
       max-width: 40px;
       min-width: 40px;
     }
+
     .section {
       margin: auto 0;
     }
+
     .blurb {
       text-transform: uppercase;
     }
@@ -309,7 +306,7 @@ $mdGrey: #555555;
     .new-flag-container {
       height: 50px;
       align-items: center;
-      
+
       .new-flag {
         width: 36px;
         margin-right: 14px;
