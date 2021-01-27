@@ -23,13 +23,13 @@ import styles from './budget.module.scss';
 const desktopSVGs = [
 	{
 		img: DesktopA,
-		width: 699,
+		width: 659,
 		alt:
 			'Bar chart of new agency funding through the four phases of COVID-19 appropriations, the largest funding coming from Phase 3 and the CARES Act.',
 	},
 	{
 		img: DesktopB,
-		width: 824,
+		width: 764,
 		alt:
 			'Bar chart of the total estimated value of legislation ($' +
 			CovidCopy.legislationvalue_trill +
@@ -41,7 +41,7 @@ const desktopSVGs = [
 	},
 	{
 		img: DesktopC,
-		width: 945,
+		width: 875,
 		alt:
 			'Bar chart showing total estimated lending ($' +
 			CovidCopy.totcredit_trillions +
@@ -62,7 +62,7 @@ const mobileSVGs = [
 	},
 	{
 		img: MobileB,
-		width: 340,
+		width: 312,
 		alt:
 			'Bar chart of the total estimated value of legislation ($' +
 			CovidCopy.legislationvalue_trill +
@@ -74,7 +74,7 @@ const mobileSVGs = [
 	},
 	{
 		img: MobileC,
-		width: 333,
+		width: 299,
 		alt:
 			'Bar chart showing total estimated lending ($' +
 			CovidCopy.totcredit_trillions +
