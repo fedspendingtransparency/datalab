@@ -171,16 +171,15 @@ export default class RdInContractingPage extends React.Component {
 				to perform R&D work in fiscal year 2019 (FY 2019), totaling $41.5B. Let’s
 				take a look at the top ten CFO Act agencies by R&D contract spending.
 			</p>
-			<aside>
-				<Accordion
-					title="What is R&D?"
-					color="#1302D9"
-					backgroundColor="rgba(19, 2, 217, 0.1)">
-					{this.whatIsContents()}
-				</Accordion>
-			</aside>
 		</>,
-		'Federal R&D contract spending supports a wide range of objectives, including agriculture, education, energy, housing, and national defense. When the government uses contracts to buy products and services, like leasing laboratory space or conducting field research, they use the General Services Administration’s Product and Services Codes (PSC).  Using PSCs, we grouped R&D contract spending into 20 spending categories.',
+		<p>
+			Federal R&D contract spending supports a wide range of objectives, including
+			agriculture, education, energy, housing, and national defense. When the
+			government uses contracts to buy products and services, like leasing
+			laboratory space or conducting field research, they use the General Services
+			Administration’s Product and Services Codes (PSC). Using PSCs, we grouped R&D
+			contract spending into 20 spending categories.
+		</p>,
 		<>
 			<p>
 				The federal government is one of the largest and most consistent funding
@@ -224,27 +223,7 @@ export default class RdInContractingPage extends React.Component {
 					goes to R&D initiatives?
 				</>
 			),
-			introBlurb: (
-				<>
-					<p key={'si1'}>
-						Investment in Research and Development, or R&D, is largely seen as a
-						driver of innovation in both the public and private sectors.
-						<a id="fr1" href="#fn1" className="footnoteref">
-							1
-						</a>{' '}
-						From medicine to autonomous vehicles, R&D investments lead to new
-						products, technology advancements, and improved quality of life. To fund
-						R&D work, federal agencies can use grants, loans, and contracts. In this
-						analysis we focus on contracts.
-					</p>
-					<p key={'si2'}>
-						Each of the 24 Chief Financial Officers (CFO) Act agencies awarded
-						contracts to perform R&D work in fiscal year 2019 (FY 2019), totaling
-						$41.5B. Let’s take a look at the top ten CFO Act agencies by R&D contract
-						spending.
-					</p>
-				</>
-			),
+			introBlurb: this.secBlurbs[0],
 			accordion: (
 				<aside>
 					<Accordion title="What is R&D?" color="#1302D9" backgroundColor="#E7E5FB">
@@ -254,6 +233,8 @@ export default class RdInContractingPage extends React.Component {
 			),
 			viztitle: 'R&D as a Portion of Total Federal Contract Spending by Agency',
 			tagName: 'spending',
+			readMoreOnMobile: true,
+			readMoreStyle: { color: globalStyles.rdBlue },
 		},
 		{
 			section: 'Categories',
@@ -270,18 +251,11 @@ export default class RdInContractingPage extends React.Component {
 					contract spending in FY 2019
 				</>
 			),
-			introBlurb: (
-				<>
-					<Hidden smDown>{this.secBlurbs[1]}</Hidden>
-					<Hidden mdUp>
-						<ReadMore buttonStyle={{ color: globalStyles.rdBlue }}>
-							{this.secBlurbs[1]}
-						</ReadMore>
-					</Hidden>
-				</>
-			),
+			introBlurb: this.secBlurbs[1],
 			viztitle: 'R&D Federal Spending in Contracting by Category',
 			tagName: 'categories',
+			readMoreOnMobile: true,
+			readMoreStyle: { color: globalStyles.rdBlue },
 		},
 		{
 			section: 'Studies',
@@ -298,18 +272,11 @@ export default class RdInContractingPage extends React.Component {
 					in federal R&D spending
 				</>
 			),
-			introBlurb: (
-				<>
-					<Hidden smDown>{this.secBlurbs[2]}</Hidden>
-					<Hidden mdUp>
-						<ReadMore buttonStyle={{ color: globalStyles.rdBlue }}>
-							{this.secBlurbs[2]}
-						</ReadMore>
-					</Hidden>
-				</>
-			),
+			introBlurb: this.secBlurbs[2],
 			viztitle: 'Federal R&D Obligations 2009-2019',
 			tagName: 'studies',
+			readMoreOnMobile: true,
+			readMoreStyle: { color: globalStyles.rdBlue },
 		},
 	];
 
