@@ -68,7 +68,6 @@ export default function Tracking(props) {
 		'1': {
 			title:
 				'Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020',
-			loanAcct: 'yes',
 			enactedDate: 'March 6, 2020',
 			'Law Total': {
 				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 1 legislation ($${CovidCopy.law1}B) that have been obligated and outlayed ($${CovidCopy.law1outlays_bill}B) to date. `,
@@ -85,7 +84,6 @@ export default function Tracking(props) {
 		},
 		'2': {
 			title: 'Families First Coronavirus Response Act',
-			loanAcct: 'no',
 			enactedDate: 'March 18, 2020',
 			'Law Total': {
 				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 2 legislation ($${CovidCopy.law2}B) that have been obligated and outlayed ($${CovidCopy.law2outlays_bill}B) to date. `,
@@ -94,7 +92,6 @@ export default function Tracking(props) {
 		},
 		'3': {
 			title: 'Coronavirus Aid, Relief, and Economic Security Act (CARES ACT)',
-			loanAcct: 'yes',
 			enactedDate: 'March 27, 2020',
 			'Law Total': {
 				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 3 legislation ($${CovidCopy.law3}T) that have been obligated and outlayed ($${CovidCopy.law3outlays_trill}T) to date.`,
@@ -111,7 +108,6 @@ export default function Tracking(props) {
 		},
 		'3.5': {
 			title: 'Paycheck Protection Program and Health Care Enhancement Act',
-			loanAcct: 'yes',
 			enactedDate: 'April 24, 2020',
 			'Law Total': {
 				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 3.5 legislation ($${CovidCopy.law4}B) that have been obligated and outlayed ($${CovidCopy.law4outlays_bill}B) to date.`,
@@ -138,39 +134,39 @@ export default function Tracking(props) {
 		'1': {
 			'Law Total': {
 				svg: Phase1SVG,
-				width: 365,
+				width: 364,
 			},
 			Spending: {
 				svg: Phase1GeneralSVG,
-				width: 299,
+				width: 298,
 				className: 'spending',
 			},
 			Loan: {
 				svg: Phase1LoanSVG,
-				width: 130,
+				width: 129,
 				className: 'loan',
 			},
 		},
 		'2': {
 			'Law Total': {
 				svg: Phase2SVG,
-				width: 378,
+				width: 377,
 			},
 		},
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalSVG,
-				width: 748,
+				width: 728,
 				className: 'lawTotal',
 			},
 			Spending: {
 				svg: Phase3GeneralSVG,
-				width: 448,
+				width: 472,
 				className: 'spending',
 			},
 			Loan: {
 				svg: Phase3LoanSVG,
-				width: 391,
+				width: 390,
 				className: 'loan',
 			},
 		},
@@ -182,12 +178,12 @@ export default function Tracking(props) {
 			},
 			Spending: {
 				svg: Phase35GeneralSVG,
-				width: 407,
+				width: 402,
 				className: 'spending',
 			},
 			Loan: {
 				svg: Phase35LoanSVG,
-				width: 493,
+				width: 478,
 				className: 'loan',
 			},
 		},
@@ -197,47 +193,47 @@ export default function Tracking(props) {
 		Total: {
 			'Law Total': {
 				svg: GovtTotalTabletSVG,
-				width: 658,
+				width: 687,
 			},
 		},
 		'1': {
 			'Law Total': {
 				svg: Phase1TabletSVG,
-				width: 365,
+				width: 364,
 			},
 			Spending: {
 				svg: Phase1GeneralTabletSVG,
-				width: 351,
+				width: 272,
 			},
 			Loan: {
 				svg: Phase1LoanTabletSVG,
-				width: 351,
+				width: 129,
 			},
 		},
 		'2': {
 			'Law Total': {
 				svg: Phase2TabletSVG,
-				width: 378,
+				width: 377,
 			},
 		},
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalTabletSVG,
-				width: 538,
+				width: 562,
 			},
 			Spending: {
 				svg: Phase3GeneralTabletSVG,
-				width: 351,
+				width: 368,
 			},
 			Loan: {
 				svg: Phase3LoanTabletSVG,
-				width: 351,
+				width: 375,
 			},
 		},
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalTabletSVG,
-				width: 319,
+				width: 349,
 			},
 			Spending: {
 				svg: Phase35GeneralTabletSVG,
@@ -245,7 +241,7 @@ export default function Tracking(props) {
 			},
 			Loan: {
 				svg: Phase35LoanTabletSVG,
-				width: 462,
+				width: 451,
 			},
 		},
 	};
@@ -260,49 +256,49 @@ export default function Tracking(props) {
 		'1': {
 			'Law Total': {
 				svg: Phase1MobileSVG,
-				width: 310,
+				width: 309,
 			},
 			Spending: {
 				svg: Phase1GeneralMobileSVG,
-				width: 351,
+				width: 262,
 			},
 			Loan: {
 				svg: Phase1LoanMobileSVG,
-				width: 351,
+				width: 119,
 			},
 		},
 		'2': {
 			'Law Total': {
 				svg: Phase2MobileSVG,
-				width: 310,
+				width: 318,
 			},
 		},
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalMobileSVG,
-				width: 324,
+				width: 323,
 			},
 			Spending: {
 				svg: Phase3GeneralMobileSVG,
-				width: 324,
+				width: 323,
 			},
 			Loan: {
 				svg: Phase3LoanMobileSVG,
-				width: 324,
+				width: 323,
 			},
 		},
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalMobileSVG,
-				width: 324,
+				width: 323,
 			},
 			Spending: {
 				svg: Phase35GeneralMobileSVG,
-				width: 324,
+				width: 323,
 			},
 			Loan: {
 				svg: Phase35LoanMobileSVG,
-				width: 324,
+				width: 323,
 			},
 		},
 	};
@@ -387,7 +383,7 @@ export default function Tracking(props) {
 				}
 				break;
 			case 'No':
-				if (phaseDetail[item.label].loanAcct === 'yes') {
+				if (Object.keys(phaseDetail[item.label]).indexOf('Loan') > -1) {
 					accountsByPhase[item.label]['Spending'] = item;
 				}
 				break;
@@ -679,7 +675,7 @@ export default function Tracking(props) {
 					</>
 				) : null}
 
-				{phaseDetail[item.label].loanAcct === 'yes' ||
+				{Object.keys(phaseDetail[item.label]).indexOf('Loan') > -1 ||
 				item.Loan_Program_Account === 'Law Total' ? (
 					<div className={styles.barDiv}>
 						<a
