@@ -65,7 +65,7 @@ function IndexPage(props) {
 							href="/federal-covid-funding/"
 							imgSrc={covid}
 							imgAlt="Woman standing with medical face mask on, social distanced between two others, with a cartoon image of the U.S. Capitol in the background."
-							body="Follow along as Data Lab tracks the flow of funding from four emergency laws for COVID-19. As of July 1, government agencies have reported $1.3 trillion in spending."
+							body="Follow along as Data Lab tracks the flow of funding from four emergency laws for COVID-19. As of October 1, 2020, government agencies have reported $2.59 trillion in spending."
 							newFlag
 						/>
 					</Grid>

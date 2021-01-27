@@ -15,8 +15,6 @@ import Overview from "../../page-sections/federal-covid-funding/overview/overvie
 import Tracking from "../../page-sections/federal-covid-funding/tracking"
 import CovidCopy from "src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2021-01-22.yml"
 
-// insignificant change for the IDE
-
 const BudgetAccordionContent = () => (
 	<div className={styles.accordionContents}>
 		<p>
