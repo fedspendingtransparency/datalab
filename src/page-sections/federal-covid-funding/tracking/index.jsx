@@ -74,11 +74,11 @@ export default function Tracking(props) {
 				className: 'lawTotal',
 			},
 			Spending: {
-				altText: `TBD`,
+				altText: `Horizontal stacked bar chart of general account spending from the Phase 1 legislation ($${CovidCopy.law1gen_bill}B) that have been obligated and outlayed ($${CovidCopy.law1genoutlays_bill}B) to date.`,
 				className: 'spending',
 			},
 			Loan: {
-				altText: `TBD`,
+				altText: `Horizontal stacked bar chart of loan account spending from the Phase 1 legislation ($${CovidCopy.law1loans_mill}M) that have been obligated and outlayed ($${CovidCopy.law1loanoutlays_mill}M) to date.`,
 				className: 'loan',
 			},
 		},
