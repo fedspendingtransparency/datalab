@@ -496,32 +496,14 @@ export default function Tracking(props) {
 				<>
 					<p>
 						This spending includes funds from accounts which are used to finance and
-						administer{' '}
-						<a
-							target="_blank"
-							href="https://www.usaspending.gov/#/?glossary=direct-loan">
-							direct loans
-						</a>{' '}
-						or{' '}
-						<a
-							target="_blank"
-							href="https://www.usaspending.gov/#/?glossary=guaranteed-insured-loans">
-							guaranteed loan
-						</a>{' '}
-						programs through an intermediary lender. The amounts do not show the total{' '}
-						<a target="_blank" href="https://usaspending.gov/#/?glossary=face-value">
-							face value
-						</a>{' '}
-						of loans and loan guarantees that lenders have disbursed to businesses or
-						individuals or when a PPP loan is forgiven. Instead, they show the
-						estimated{' '}
-						<a
-							target="_blank"
-							href="https://usaspending.gov/#/?glossary=subsidy-cost">
-							subsidy cost
-						</a>{' '}
-						of those loans and loan guarantees and the cost of servicing and running
-						the programs.
+						administer <a href="?glossary=direct_loan">direct loans</a> or{' '}
+						<a href="?glossary=guaranteed_loan_program">guaranteed loan</a> programs
+						through an intermediary lender. The amounts do not show the total{' '}
+						<a href="?glossary=face_value">face value</a> of loans and loan guarantees
+						that lenders have disbursed to businesses or individuals or when a PPP
+						loan is forgiven. Instead, they show the estimated{' '}
+						<a href="?glossary=subsidy_cost">subsidy cost</a> of those loans and loan
+						guarantees and the cost of servicing and running the programs.
 					</p>
 					<p>
 						Visit the{' '}

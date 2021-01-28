@@ -442,8 +442,9 @@ export default function Glossary() {
 
 				const urlParams = new URLSearchParams(window.location.search);
 				let glossaryTerm = urlParams.get('glossary');
+				const regex = /_/g;
 				if (glossaryTerm) {
-					glossaryTerm = glossaryTerm.replace('_', ' ');
+					glossaryTerm = glossaryTerm.replace(regex, ' ');
 					showIndividualTerm(filteredData, glossaryTerm);
 				}
 			}
