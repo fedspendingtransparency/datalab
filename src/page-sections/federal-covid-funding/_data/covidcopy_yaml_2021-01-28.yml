@@ -5,6 +5,10 @@ creditused_bill: 833
 frbavail_trill: 2.3
 frbused_bill: 87
 law1: 8
+law1gen_bill: 8
+law1genoutlays_bill: 2
+law1loanoutlays_mill: 20
+law1loans_mill: 20
 law1outlays_bill: 2
 law2: 19
 law2outlays_bill: 12
