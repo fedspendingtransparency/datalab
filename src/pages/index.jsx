@@ -66,7 +66,6 @@ To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress pas
 							heading="Your Guide to America's Finances"
 							subheading="How much does the government spend and collect?"
 							body={`Your Guide to America's Finances is an overview of U.S. government finances for 2020. Here you’ll find information on spending, revenue, the deficit, and debt. The Guide presents a series of interactive visualizations exploring each category and how it has changed over time. Ultimately, the Guide seeks to provide a comprehensive overview of the trillions of dollars collected and spent by the federal government each year.`}
-							newFlag
 						/>
 					</Grid>
 				</Grid>
