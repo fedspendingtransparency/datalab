@@ -185,7 +185,7 @@ export default class FederalCovidFunding extends React.Component {
 			introBlurb: [
 				<>
 					<p key="section-3-p-1">
-						Ninety-two percent of the ${CovidCopy.totalbudgetresources} trillion in
+						{CovidCopy.top4percent} percent of the ${CovidCopy.totalbudgetresources} trillion in
 						COVID-19 funding was appropriated to four agencies: The Treasury, Health
 						and Human Services, Labor, and the Small Business Administration (SBA). Of
 						those funds, roughly half, or ${CovidCopy.loanspending_trillions}{' '}
@@ -207,8 +207,10 @@ export default class FederalCovidFunding extends React.Component {
 						(GTAS).
 					</p>
 					<p key="section-3-p-3">
-						This analysis will be updated quarterly as new data becomes available. To
-						learn more about how we developed this analysis and download the raw data,
+						Data in this analysis is reflective of Fiscal Year 2020. The Data Lab team
+						is working on updating data from the Consolidated Appropriations Act, 2021
+						(PL 116-260) as well as Fiscal Year 2021. Data will be published when it is
+						ready. To learn more about how we developed this analysis and download the raw data,
 						visit the{' '}
 						<a href="/federal-covid-funding/methodologies">
 							Data Sources and Methodologies
@@ -248,7 +250,7 @@ export default class FederalCovidFunding extends React.Component {
 				title="Federal Response to COVID-19 | U.S. Treasury Data Lab"
 				description={`In this analysis you can explore how the $${CovidCopy.totalbudgetresources} trillion in supplemental funding for COVID-19 makes it was from Congress to the U.S. economy.`}
 			/>
-			<ScrollingCircles sections={this.sections} />
+			{/*<ScrollingCircles sections={this.sections} />*/}
 			{this.sections.map((item, key) => {
 				const SectionTag = this.sectionComponents[item.tagName];
 				return (

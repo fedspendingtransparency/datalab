@@ -57,7 +57,7 @@ import Phase35TotalTabletSVG from 'src/images/covid/tracking/tablet/phase35Total
 import Phase35GeneralTabletSVG from 'src/images/covid/tracking/tablet/phase35General.svg';
 import Phase35LoanTabletSVG from 'src/images/covid/tracking/tablet/phase35Loan.svg';
 
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2021-01-28.yml';
 
 export default function Tracking(props) {
 	const phaseDetail = {
@@ -74,11 +74,11 @@ export default function Tracking(props) {
 				className: 'lawTotal',
 			},
 			Spending: {
-				altText: `TBD`,
+				altText: `Horizontal stacked bar chart of general account spending from the Phase 1 legislation ($${CovidCopy.law1gen_bill}B) that have been obligated and outlayed ($${CovidCopy.law1genoutlays_bill}B) to date.`,
 				className: 'spending',
 			},
 			Loan: {
-				altText: `TBD`,
+				altText: `Horizontal stacked bar chart of loan account spending from the Phase 1 legislation ($${CovidCopy.law1loans_mill}M) that have been obligated and outlayed ($${CovidCopy.law1loanoutlays_mill}M) to date.`,
 				className: 'loan',
 			},
 		},
