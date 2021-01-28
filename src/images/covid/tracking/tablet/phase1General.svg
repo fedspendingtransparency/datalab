@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="364px" height="40px" viewBox="0 0 364 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Law 1 Total</title>
+    <title>Law 1 -A General Tablet</title>
     <g id="SVG-2.0" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="viz-3-desktop-outline" transform="translate(-147.000000, -375.000000)">
-            <g id="Law-1-Total" transform="translate(147.000000, 375.000000)">
+        <g id="viz-3-tablet-outline" transform="translate(-61.000000, -456.000000)">
+            <g id="Law-1--A-General-Tablet" transform="translate(61.000000, 456.000000)">
                 <rect id="unobligated" fill="#F3E9FF" x="2" y="0" width="2" height="40"></rect>
                 <rect id="obligated" fill="#6F41A7" x="0" y="0" width="2" height="40"></rect>
                 <g id="labels" transform="translate(50.000000, 2.000000)">
