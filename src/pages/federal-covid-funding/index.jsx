@@ -13,7 +13,7 @@ import Accordion from 'src/components/accordion/accordion';
 import Budget from '../../page-sections/federal-covid-funding/budget/budget';
 import Overview from '../../page-sections/federal-covid-funding/overview/overview';
 import Tracking from '../../page-sections/federal-covid-funding/tracking';
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2021-01-28.yml';
 
 const BudgetAccordionContent = () => (
 	<div className={styles.accordionContents}>
@@ -248,7 +248,7 @@ export default class FederalCovidFunding extends React.Component {
 				title="Federal Response to COVID-19 | U.S. Treasury Data Lab"
 				description={`In this analysis you can explore how the $${CovidCopy.totalbudgetresources} trillion in supplemental funding for COVID-19 makes it was from Congress to the U.S. economy.`}
 			/>
-			{/*<ScrollingCircles sections={this.sections} />*/}
+			<ScrollingCircles sections={this.sections} />
 			{this.sections.map((item, key) => {
 				const SectionTag = this.sectionComponents[item.tagName];
 				return (
