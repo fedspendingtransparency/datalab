@@ -220,15 +220,10 @@ function SpendingCategoriesPage(props) {
 											</a>
 											, also referred to as supplemental spending. In 2020, the U.S.
 											Congress passed four supplemental{' '}
-											<a
-												href={'https://www.usaspending.gov/?glossary=appropriation'}
-												rel="noopener noreferrer"
-												target="_blank">
-												appropriations
-											</a>{' '}
-											laws for the federal government to use in relief efforts, to aid the
-											nation’s recovery from the coronavirus disease 2019 (COVID-19). These
-											four supplemental appropriations laws, including the Coronavirus Aid,
+											<a href={'?glossary=appropriation'}>appropriations</a> laws for the
+											federal government to use in relief efforts, to aid the nation’s
+											recovery from the coronavirus disease 2019 (COVID-19). These four
+											supplemental appropriations laws, including the Coronavirus Aid,
 											Relief, and Economic Security (CARES) Act, totaled $2.58 trillion for
 											use by federal agencies. You can take an in-depth look at those
 											supplemental appropriation laws in the{' '}

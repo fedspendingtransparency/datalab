@@ -117,25 +117,14 @@ export default class FederalCovidFunding extends React.Component {
 						After a special appropriations law passes, it is the role of the
 						Department of the Treasury (Treasury) to review the new legislation and
 						issue funds to agencies’ spending accounts. The{' '}
-						<a
-							href="https://www.usaspending.gov/#/?glossary=appropriation"
-							target="_blank"
-							rel="noopener noreferrer">
-							appropriations
-						</a>{' '}
-						process gives agencies the authority to begin using funding according to
-						the purpose assigned in the law. To spend the money, agencies obligate the
-						funds to different programs through contracts, direct payments, grants, or
-						loans. When agencies make an{' '}
-						<a
-							href="https://www.usaspending.gov/#/?glossary=obligation"
-							target="_blank"
-							rel="noopener noreferrer">
-							obligation
-						</a>
-						, they create a binding agreement to use the funds for a particular
-						purpose. An example of an obligation is an agency setting aside adequate
-						funds when it enters into a contract with a vendor to purchase{' '}
+						<a href="?glossary=appropriation">appropriations</a> process gives
+						agencies the authority to begin using funding according to the purpose
+						assigned in the law. To spend the money, agencies obligate the funds to
+						different programs through contracts, direct payments, grants, or loans.
+						When agencies make an <a href="?glossary=obligation">obligation</a>, they
+						create a binding agreement to use the funds for a particular purpose. An
+						example of an obligation is an agency setting aside adequate funds when it
+						enters into a contract with a vendor to purchase{' '}
 						<a
 							href="https://www.usaspending.gov/#/award/CONT_AWD_75A50120C00030_7505_-NONE-_-NONE-"
 							target="_blank"
@@ -152,14 +141,9 @@ export default class FederalCovidFunding extends React.Component {
 					</p>
 					<p key="section-2-p-4">
 						The final step in the process is making a payment, which is called an{' '}
-						<a
-							href="https://www.usaspending.gov/#/?glossary=outlay"
-							target="_blank"
-							rel="noopener noreferrer">
-							outlay
-						</a>
-						. This is the step where the agencies authorize the Treasury to issue a
-						payment to individuals, businesses, or other organizations.
+						<a href="?glossary=outlay">outlay</a>. This is the step where the agencies
+						authorize the Treasury to issue a payment to individuals, businesses, or
+						other organizations.
 					</p>
 				</>,
 			],
