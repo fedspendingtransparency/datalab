@@ -71,7 +71,7 @@ export default function Tracking(props) {
 			enactedDate: 'March 6, 2020',
 			'Law Total': {
 				altText: `Horizontal stacked bar chart of total budgetary resources from the Phase 1 legislation ($${CovidCopy.law1}B) that have been obligated and outlayed ($${CovidCopy.law1outlays_bill}B) to date. `,
-				className: 'lawTotalOnly',
+				className: 'lawTotal',
 			},
 			Spending: {
 				altText: `TBD`,
@@ -138,7 +138,7 @@ export default function Tracking(props) {
 			},
 			Spending: {
 				svg: Phase1GeneralSVG,
-				width: 298,
+				width: 364,
 				className: 'spending',
 			},
 			Loan: {
@@ -203,7 +203,7 @@ export default function Tracking(props) {
 			},
 			Spending: {
 				svg: Phase1GeneralTabletSVG,
-				width: 272,
+				width: 364,
 			},
 			Loan: {
 				svg: Phase1LoanTabletSVG,
@@ -260,7 +260,7 @@ export default function Tracking(props) {
 			},
 			Spending: {
 				svg: Phase1GeneralMobileSVG,
-				width: 218,
+				width: 277,
 			},
 			Loan: {
 				svg: Phase1LoanMobileSVG,
