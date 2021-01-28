@@ -161,7 +161,7 @@ export default function Tracking(props) {
 			},
 			Spending: {
 				svg: Phase3GeneralSVG,
-				width: 472,
+				width: 368,
 				className: 'spending',
 			},
 			Loan: {
@@ -183,7 +183,7 @@ export default function Tracking(props) {
 			},
 			Loan: {
 				svg: Phase35LoanSVG,
-				width: 478,
+				width: 451,
 				className: 'loan',
 			},
 		},
@@ -250,17 +250,17 @@ export default function Tracking(props) {
 		Total: {
 			'Law Total': {
 				svg: GovtTotalMobileSVG,
-				width: 323,
+				width: 273,
 			},
 		},
 		'1': {
 			'Law Total': {
 				svg: Phase1MobileSVG,
-				width: 309,
+				width: 277,
 			},
 			Spending: {
 				svg: Phase1GeneralMobileSVG,
-				width: 262,
+				width: 218,
 			},
 			Loan: {
 				svg: Phase1LoanMobileSVG,
@@ -270,35 +270,35 @@ export default function Tracking(props) {
 		'2': {
 			'Law Total': {
 				svg: Phase2MobileSVG,
-				width: 318,
+				width: 288,
 			},
 		},
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalMobileSVG,
-				width: 323,
+				width: 279,
 			},
 			Spending: {
 				svg: Phase3GeneralMobileSVG,
-				width: 323,
+				width: 276,
 			},
 			Loan: {
 				svg: Phase3LoanMobileSVG,
-				width: 323,
+				width: 264,
 			},
 		},
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalMobileSVG,
-				width: 323,
+				width: 270,
 			},
 			Spending: {
 				svg: Phase35GeneralMobileSVG,
-				width: 323,
+				width: 292,
 			},
 			Loan: {
 				svg: Phase35LoanMobileSVG,
-				width: 323,
+				width: 289,
 			},
 		},
 	};
