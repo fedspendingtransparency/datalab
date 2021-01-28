@@ -1,7 +1,7 @@
 import React from 'react';
 import FootnoteAnchor from '../../components/footnotes/footnote-anchor';
 import HWCTA from '../../components/hwcta/hwcta';
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2020-09-22.yml';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2021-01-28.yml';
 import SEO from "../../components/seo";
 
 const C19HWTCA = ({ location }) => {

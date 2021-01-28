@@ -1,0 +1,39 @@
+carestotal_round: 2.08
+creditavail_trill: 3
+creditavailprecise_trill: 3.08
+creditused_bill: 833
+frbavail_trill: 2.3
+frbused_bill: 87
+law1: 8
+law1gen_bill: 8
+law1genoutlays_bill: 2
+law1loanoutlays_mill: 20
+law1loans_mill: 20
+law1outlays_bill: 2
+law2: 19
+law2outlays_bill: 12
+law3: 2.08
+law3gen_trill: 1.18
+law3loans_bill: 899
+law3outlays_trill: 1.25
+law4: 483
+law4gen_bill: 112
+law4loans_bill: 371
+law4outlays_bill: 360
+legislationvalue_trill: 3.49
+loanspending_trillions: 1.27
+monthday: "October 1"
+reportingdate: "October 1, 2020"
+taxrelief_billion: 902
+top4percent: 0.9
+topagency1: "Department of the Treasury"
+topagency2: "Small Business Administration"
+topagency3: "Department of Labor"
+topagency4: "Department of Health & Human Services"
+totalbudgetresources: 2.59
+totcredit_trillions: 3.92
+totobligations_trillions: 1.79
+totoutlays_trillions: 1.62
+viz1csv: "covid19_Viz_1_Data_Download_2021-01-22.csv"
+viz3csv: "covid19_response_Viz_3_Data_Download_2021-01-22.csv"
+vizdates: "October 2020"
