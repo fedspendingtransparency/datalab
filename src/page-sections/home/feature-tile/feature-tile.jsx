@@ -4,7 +4,7 @@ import flag from 'src/images/home/new-data-flag.svg';
 import featuredAnalysesTitleStyles from './feature-tile.module.scss';
 import PropTypes from 'prop-types';
 
-const hiddenDate = '12/06/2020';
+const hiddenDate = '03/04/2021';
 
 const FeatureTile = props => {
 	function DisplayedImg() {
