@@ -169,7 +169,7 @@ export default class FederalCovidFunding extends React.Component {
 			introBlurb: [
 				<>
 					<p key="section-3-p-1">
-						{CovidCopy.top4percent} percent of the ${CovidCopy.totalbudgetresources}
+						{CovidCopy.top4percent} percent of the ${CovidCopy.totalbudgetresources}{' '}
 						trillion in COVID-19 funding was appropriated to four agencies:
 						{' '}{CovidCopy.topagency1}, {CovidCopy.topagency4}, {CovidCopy.topagency3},
 						and the {CovidCopy.topagency2} (SBA). Of
