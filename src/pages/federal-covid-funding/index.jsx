@@ -169,9 +169,10 @@ export default class FederalCovidFunding extends React.Component {
 			introBlurb: [
 				<>
 					<p key="section-3-p-1">
-						{CovidCopy.top4percent} percent of the ${CovidCopy.totalbudgetresources} trillion in
-						COVID-19 funding was appropriated to four agencies: The Treasury, Health
-						and Human Services, Labor, and the Small Business Administration (SBA). Of
+						{CovidCopy.top4percent} percent of the ${CovidCopy.totalbudgetresources}
+						trillion in COVID-19 funding was appropriated to four agencies:
+						{' '}{CovidCopy.topagency1}, {CovidCopy.topagency4}, {CovidCopy.topagency3},
+						and the {CovidCopy.topagency2} (SBA). Of
 						those funds, roughly half, or ${CovidCopy.loanspending_trillions}{' '}
 						trillion, were allocated to fund loan and loan guarantee programs. These
 						funds could be used to generate an estimated $
