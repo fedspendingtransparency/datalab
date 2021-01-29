@@ -45,7 +45,6 @@ To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress pas
 							<>
 								<p>
 									Follow along as Data Lab tracks the flow of four emergency funding laws for COVID-19.
-									As of October 1, 2020, government agencies have reported $1.6 trillion in spending.
 								</p>
 							</>,
 						]}
