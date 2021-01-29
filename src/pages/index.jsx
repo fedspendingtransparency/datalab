@@ -44,7 +44,7 @@ To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress pas
 						mobileBody={[
 							<>
 								<p>
-									Follow along as Data Lab tracks the flow of five emergency funding laws for COVID-19.
+									Follow along as Data Lab tracks the flow of four emergency funding laws for COVID-19.
 								</p>
 							</>,
 						]}
