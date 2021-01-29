@@ -112,7 +112,7 @@ const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
 				{
 					title: 'Business, Government & Institutions',
 					bulletPoints: [
-						'Additional $62B Economic Injury Disaster loans and grants, and more than $300B for the Paycheck Protection Program (PPP)',
+						'Additional $62B for Economic Injury Disaster loans and grants, and more than $300B for the Paycheck Protection Program (PPP)',
 					],
 					icon: <Government />,
 				},
