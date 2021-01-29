@@ -41,7 +41,7 @@ const desktopSVGs = [
 	},
 	{
 		img: DesktopC,
-		width: 875,
+		width: 945,
 		alt:
 			'Bar chart showing total estimated lending ($' +
 			CovidCopy.totcredit_trillions +
@@ -74,7 +74,7 @@ const mobileSVGs = [
 	},
 	{
 		img: MobileC,
-		width: 299,
+		width: 333,
 		alt:
 			'Bar chart showing total estimated lending ($' +
 			CovidCopy.totcredit_trillions +
