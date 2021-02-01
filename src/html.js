@@ -17,7 +17,11 @@ export default function HTML(props) {
 					src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=TRE"
 					id="_fed_an_ua_tag"
 				/>
-
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf"
+					as="font"
+				/>
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
