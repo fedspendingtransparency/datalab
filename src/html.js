@@ -22,6 +22,26 @@ export default function HTML(props) {
 					href="../static/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf"
 					as="font"
 				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/SourceSansPro-Black.ttf"
+					as="font"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/SourceSansPro-BlackItalic.ttf"
+					as="font"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf"
+					as="font"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/SourceSansPro-BoldItalic.ttf"
+					as="font"
+				/>
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
