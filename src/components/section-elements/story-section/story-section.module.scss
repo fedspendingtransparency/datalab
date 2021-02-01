@@ -16,7 +16,7 @@
   text-align: left;
 }
 
-@media (min-width: $desktop-xl){
+@media (min-width: $desktop){
   .storySection:not(.firstSection) {
     margin-top: 50px;
   }
