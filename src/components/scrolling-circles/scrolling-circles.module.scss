@@ -87,3 +87,15 @@
     }
   }
 }
+
+@media screen and (max-width: $phone) {
+  .main-container {
+    right: 14px;
+    width: 50px;
+
+    //.label {
+    //  display: none;
+    //}
+  }
+}
+

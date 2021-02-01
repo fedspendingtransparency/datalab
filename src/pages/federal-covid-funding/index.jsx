@@ -235,7 +235,7 @@ export default class FederalCovidFunding extends React.Component {
 				title="Federal Response to COVID-19 | U.S. Treasury Data Lab"
 				description={`In this analysis you can explore how the $${CovidCopy.totalbudgetresources} trillion in supplemental funding for COVID-19 makes it was from Congress to the U.S. economy.`}
 			/>
-			{/*<ScrollingCircles sections={this.sections} />*/}
+			<ScrollingCircles sections={this.sections} />
 			{this.sections.map((item, key) => {
 				const SectionTag = this.sectionComponents[item.tagName];
 				return (
