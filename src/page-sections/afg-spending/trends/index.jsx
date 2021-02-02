@@ -9,7 +9,7 @@ import { trendMobile } from 'src/afg-helpers/trendsMobile/index';
 import colors from '../../../styles/afg/colors.scss';
 import CategoryData from '../../../../static/americas-finance-guide/data/federal_spending_trends.csv';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import { faSlidersH } from '@fortawesome/free-solid-svg-icons/faSlidersH';
 import AfgData from '../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 export default function SpendingTrends() {

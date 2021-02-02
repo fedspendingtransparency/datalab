@@ -1,13 +1,14 @@
 import React from 'react';
 
-import CustomHeader from '../../page-sections/colleges-and-universities/custom-header/custom-header';
+import CustomHeader
+  from '../../page-sections/colleges-and-universities/custom-header/custom-header';
 import Footnotes from '../../components/footnotes/footnotes';
 import Overview from '../../page-sections/colleges-and-universities/overview';
 import SEO from '../../components/seo';
 import StoryLayout from '../../components/layouts/story/story';
-import { Grid } from "@material-ui/core";
-import loadable from "@loadable/component";
-import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
+import Grid from '@material-ui/core/Grid';
+import loadable from '@loadable/component';
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 import styles from './cu.module.scss';
 
 const Agencies = loadable(() => import('../../page-sections/colleges-and-universities/agencies/agencies'),

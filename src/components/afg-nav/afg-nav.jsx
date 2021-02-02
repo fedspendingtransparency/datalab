@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faHome,
-	faAngleDown,
-	faAngleUp,
-} from '@fortawesome/free-solid-svg-icons';
-import { checkAfgScreenMode, ScreenModeEnum } from '../../utils/screen-mode';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons/faAngleDown';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons/faAngleUp';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
+
+import { checkAfgScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
 import style from './afg-nav.module.scss';
 
 const AfgNav = ({ chapter }) => {
@@ -268,6 +267,7 @@ const AfgNav = ({ chapter }) => {
 						  ${!activeSection ? style.activeSection : style.inactiveSection}
 						  ${!activeMainSection ? style.activeMainSection : ''}
             `}
+						data-testid={'overview'}
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						onKeyUp={handleTabEnter}>
@@ -440,7 +440,8 @@ const AfgNav = ({ chapter }) => {
 											isActive ? style.activeSection : style.inactiveSection
 										} ${isMainSection ? style.activeMainSection : ''} ${
 											!isMenuOpen ? style.closed : ''
-										}`}>
+										}`}
+										data-testid={`${section.chapter}-mobile`}>
 										<div
 											className={`${style.mobileBlock} ${section.backgroundColorClass}`}
 										/>
@@ -457,6 +458,7 @@ const AfgNav = ({ chapter }) => {
 										className={`${style.chapterNavSubPages} ${
 											!isMenuOpen || !isActive ? style.closed : ''
 										}`}
+										data-testid={`${section.chapter}-subPages`}
 										style={
 											isActive && !activeMainSectionClosed
 												? activeSubPageStyle
@@ -501,7 +503,8 @@ const AfgNav = ({ chapter }) => {
 				className={`${style.mobileMenuButtonContainer} ${
 					!isMenuOpen ? style.closed : ''
 				}`}>
-				<button className={style.mobileMenuButton} onClick={toggleMenu}>
+				<button className={style.mobileMenuButton}
+								onClick={toggleMenu}>
 					{isMenuOpen ? (
 						<FontAwesomeIcon icon={faAngleUp} width={14} className="fa fa-angle-up" />
 					) : (

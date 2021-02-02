@@ -1,12 +1,12 @@
 import { select, selectAll } from 'd3-selection';
-import { min, max, range } from 'd3-array';
+import { max, min } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
 import {
-  translator,
-  simplifyNumber,
   establishContainer,
-  wordWrap,
   getElementBox,
+  simplifyNumber,
+  translator,
+  wordWrap,
 } from 'src/afg-helpers/utils';
 import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
@@ -14,9 +14,9 @@ import { createDonut } from 'src/afg-helpers/dots/donut.js';
 import { ink, placeHorizontalStripes } from './ink';
 import { selectCountryInit } from './selectCountry';
 import { selectedCountries } from './selectedCountryManager';
-import { redrawMobile, updateMobileTableList, sortMobileTable } from './chartmobile';
+import { redrawMobile, sortMobileTable, updateMobileTableList } from './chartmobile';
 import './selectCountry.scss';
-import { setData, prepareData } from './data';
+import { prepareData, setData } from './data';
 import { renderSortIcon, updateIcons } from './sortIcon';
 
 const d3 = {

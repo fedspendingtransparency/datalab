@@ -1,11 +1,12 @@
-import React, {Component} from "react";
+import React, { Component } from 'react';
 import styles from './student-innovators-toolbox.module.scss';
 
 /* components */
 import FaqLayout from "../../components/layouts/faq/faq";
 import Downloads from '../../components/section-elements/downloads/downloads';
-import { Hidden, Grid } from '@material-ui/core';
-import AccordionList from "../../components/accordion-list/accordion-list"
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import AccordionList from '../../components/accordion-list/accordion-list';
 import DesktopImage from '../../images/student-innovators-toolbox/Toolbox Desktop.png';
 import TabletImage from '../../images/student-innovators-toolbox/Toolbox Tablet.png';
 import MobileImage from '../../images/student-innovators-toolbox/Toolbox Mobile.png';
@@ -147,4 +148,4 @@ class AnalystGuidePage extends Component {
   }
 }
 
-export default AnalystGuidePage
+export default AnalystGuidePage;

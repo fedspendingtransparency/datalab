@@ -12,10 +12,8 @@ import Og from 'src/components/og-tag/og';
 import RevenueCountryComparison from 'src/page-sections/afg-revenue/countries';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faAngleRight,
-	faSortAmountDown,
-} from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
+import { faSortAmountDown } from '@fortawesome/free-solid-svg-icons/faSortAmountDown';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function RevenueCountryComparisonPage(props) {

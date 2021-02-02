@@ -13,7 +13,8 @@ import TabsWrapper from 'src/components/tabs/tabs';
 import RevenueIntro from 'src/page-sections/afg-revenue/intro/index';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faReply } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
+import { faReply } from '@fortawesome/free-solid-svg-icons/faReply';
 import AfgLayout from 'src/components/layouts/afg/afg';
 import DefinitionSVG from '../../../../static/americas-finance-guide/icons/definition.svg';
 import AnecdoteRevenueSVG from '../../../../static/americas-finance-guide/icons/anecdote-revenue.svg';

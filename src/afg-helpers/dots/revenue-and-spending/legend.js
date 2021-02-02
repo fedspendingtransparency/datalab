@@ -1,5 +1,5 @@
 import { select, selectAll } from 'd3-selection';
-import { establishContainer, translator, fadeAndRemove } from 'src/afg-helpers/utils';
+import { establishContainer, fadeAndRemove, translator } from 'src/afg-helpers/utils';
 import { transition } from 'd3-transition';
 import colors from '../../../styles/afg/colors.scss';
 import { placeDots } from './placeDots';

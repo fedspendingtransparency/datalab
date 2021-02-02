@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import hwctaLinkStyles from './hwcta-link.module.scss';
 
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Grid, Hidden, Container } from '@material-ui/core';
-import { withStyles } from '@material-ui/styles';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import Container from '@material-ui/core/Container';
+import withStyles from '@material-ui/styles/withStyles';
 import Sources from '../logos/sources';
 import { Link } from 'gatsby';
 import { legacy } from '../../styles/variables.scss';

@@ -1,7 +1,7 @@
 import 'src/styles/afg/cg.scss';
 import 'src/styles/afg/countryCommon.scss';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 import SEO from 'src/components/seo';
 import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
@@ -12,10 +12,8 @@ import Og from 'src/components/og-tag/og';
 import SpendingCountryComparison from 'src/page-sections/afg-spending/countries/index';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faAngleRight,
-	faSortAmountDown,
-} from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
+import { faSortAmountDown } from '@fortawesome/free-solid-svg-icons/faSortAmountDown';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function SpendingCountryComparisonPage(props) {

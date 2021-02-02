@@ -1,11 +1,10 @@
 import React from 'react';
 import moreAnalysesStyles from './more-analyses-tiles.module.scss';
 
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
 import homeless from 'src/images/more-analyses/homeless.png';
 import federal from 'src/images/more-analyses/federal.jpg';
-import workers from 'src/images/more-analyses/workers.jpg';
 import budget from 'src/images/more-analyses/budget.jpg';
 import competition from 'src/images/more-analyses/competition.jpg';
 

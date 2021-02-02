@@ -10,10 +10,10 @@ import FinalThoughts from "../../page-sections/homelessness-analysis/final-thoug
 import StorySection from "../../components/section-elements/story-section/story-section";
 
 import loadable from '@loadable/component';
-import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
-import Footnotes from "../../components/footnotes/footnotes"
-import { Grid } from "@material-ui/core"
-import FootnoteAnchor from "../../components/footnotes/footnote-anchor";
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
+import Footnotes from '../../components/footnotes/footnotes';
+import Grid from '@material-ui/core/Grid';
+import FootnoteAnchor from '../../components/footnotes/footnote-anchor';
 
 const Geography = loadable(() => import('src/page-sections/homelessness-analysis/geography'),
   {

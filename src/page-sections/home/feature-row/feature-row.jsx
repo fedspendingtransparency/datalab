@@ -1,6 +1,6 @@
 import React from 'react';
 import featuredAnalysesStyles from './feature-row.module.scss';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 
 const FeatureRow = props => {

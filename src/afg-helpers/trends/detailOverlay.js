@@ -1,12 +1,12 @@
-import { select, selectAll, mouse } from "d3-selection"
+import { mouse, select, selectAll } from 'd3-selection';
 import {
-	translator,
+	establishContainer,
 	fadeAndRemove,
 	getElementBox,
-	establishContainer,
+	translator,
 	wordWrap,
-} from "src/afg-helpers/utils"
-import { trendDesktop } from "./chart"
+} from 'src/afg-helpers/utils';
+import { trendDesktop } from './chart';
 
 const d3 = { select, selectAll, mouse },
 	overlayPadding = 20

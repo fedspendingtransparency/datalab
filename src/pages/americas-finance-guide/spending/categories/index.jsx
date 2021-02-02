@@ -11,14 +11,12 @@ import SpendingCategories from 'src/page-sections/afg-spending/categories/index'
 import Og from 'src/components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faAngleRight,
-	faSearch,
-	faSortAlphaDown,
-	faSortAlphaUp,
-	faSortAmountDown,
-	faSortAmountUp,
-} from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
+import { faSortAlphaDown } from '@fortawesome/free-solid-svg-icons/faSortAlphaDown';
+import { faSortAlphaUp } from '@fortawesome/free-solid-svg-icons/faSortAlphaUp';
+import { faSortAmountDown } from '@fortawesome/free-solid-svg-icons/faSortAmountDown';
+import { faSortAmountUp } from '@fortawesome/free-solid-svg-icons/faSortAmountUp';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function SpendingCategoriesPage(props) {
@@ -222,15 +220,10 @@ function SpendingCategoriesPage(props) {
 											</a>
 											, also referred to as supplemental spending. In 2020, the U.S.
 											Congress passed four supplemental{' '}
-											<a
-												href={'https://www.usaspending.gov/?glossary=appropriation'}
-												rel="noopener noreferrer"
-												target="_blank">
-												appropriations
-											</a>{' '}
-											laws for the federal government to use in relief efforts, to aid the
-											nation’s recovery from the coronavirus disease 2019 (COVID-19). These
-											four supplemental appropriations laws, including the Coronavirus Aid,
+											<a href={'?glossary=appropriation'}>appropriations</a> laws for the
+											federal government to use in relief efforts, to aid the nation’s
+											recovery from the coronavirus disease 2019 (COVID-19). These four
+											supplemental appropriations laws, including the Coronavirus Aid,
 											Relief, and Economic Security (CARES) Act, totaled $2.58 trillion for
 											use by federal agencies. You can take an in-depth look at those
 											supplemental appropriation laws in the{' '}

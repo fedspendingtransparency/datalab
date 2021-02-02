@@ -9,9 +9,7 @@ import styles from '../bars/bar.module.scss';
 */
 
 export default function StraightCallout(props) {
-	const {
-		xStart, isModal, labelOffset, label, labelAmount, mobile,
-	} = props;
+	const { xStart, isModal, labelOffset, label, labelAmount, mobile } = props;
 
 	function TextBlock() {
 		if (isModal) {
@@ -22,16 +20,14 @@ export default function StraightCallout(props) {
 						x={`${labelOffset}%`}
 						y={defaults.textPosition}
 						fontSize={mobile ? defaults.smFontSize : defaults.mdFontSize}
-						fontWeight="600"
-					>
+						fontWeight="600">
 						{label}
 					</text>
 					<text
 						fill={defaults.fontColor}
 						x={`${labelOffset}%`}
 						y={defaults.textPosition + defaults.lineHeight}
-						fontSize={defaults.smFontSize}
-					>
+						fontSize={defaults.smFontSize}>
 						{numberFormatter('dollars suffix', labelAmount, 3)}
 					</text>
 				</>
@@ -39,23 +35,19 @@ export default function StraightCallout(props) {
 		}
 		return (
 			<text
-  			fill={defaults.fontColor}
-  			x={`${labelOffset}%`}
+				fill={defaults.fontColor}
+				x={`${labelOffset}%`}
 				y={defaults.textPosition}
-				fontSize={defaults.fontSize}
-			>
+				fontSize={defaults.fontSize}>
 				<tspan
 					className={styles.label}
 					style={{ display: mobile ? 'none' : 'block' }}
-					fontWeight="600"
-				>
-					{label}
-					{' '}
+					fontWeight="600">
+					{label}{' '}
 				</tspan>
 				<tspan
 					className={styles.amountLabel}
-					style={{ fontWeight: mobile ? '600' : '0' }}
-				>
+					style={{ fontWeight: mobile ? '600' : '0' }}>
 					{numberFormatter('dollars suffix', labelAmount, 3)}
 				</tspan>
 			</text>

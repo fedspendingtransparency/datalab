@@ -11,7 +11,7 @@ import Og from 'src/components/og-tag/og';
 import DebtCards from 'src/page-sections/afg-debt/analysis/cards';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
 
 function DebtAnalysisPage({ location }) {

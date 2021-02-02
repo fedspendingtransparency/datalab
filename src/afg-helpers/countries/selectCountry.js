@@ -1,10 +1,9 @@
 import './selectCountry.scss';
-import { select, event } from 'd3-selection';
+import { event, select } from 'd3-selection';
 import { establishContainer } from 'src/afg-helpers/utils';
-import { countryList, refreshData } from './chart';
-import { addXIcon, addButtonIcon, addSearchIcon } from './iconGenerators';
+import { refreshData } from './chart';
+import { addButtonIcon, addSearchIcon, addXIcon } from './iconGenerators';
 import { selectedCountries } from './selectedCountryManager';
-import { translate } from 'src/afg-helpers/utils';
 import { getCountryList } from './data';
 
 const d3 = { select, event }

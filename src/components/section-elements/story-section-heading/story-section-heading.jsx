@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Hidden } from '@material-ui/core';
-import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import { checkScreenMode, ScreenModeEnum } from 'src/utils/screen-mode.js';
 import storySectionHeadingStyles from './story-section-heading.module.scss';
 import ReadMore from '../../read-more/read-more';
 
@@ -33,7 +34,12 @@ export default function StorySectionHeading(props) {
 	function NumberItem() {
 		if (props.number) {
 			return (
-				<Grid item xs={1} md={12} lg={1} className={storySectionHeadingStyles.headerNumber}>
+				<Grid
+					item
+					xs={1}
+					md={12}
+					lg={1}
+					className={storySectionHeadingStyles.headerNumber}>
 					<span>{props.number}</span>
 				</Grid>
 			);
@@ -41,14 +47,17 @@ export default function StorySectionHeading(props) {
 		return <></>;
 	}
 
-	const blurb = props.readMoreOnMobile && screenMode < ScreenModeEnum.tablet ? (
-		<ReadMore buttonStyle={props.readMoreStyle} sectionId={props.sectionId} collapsedHeight="5.5rem">
+	const blurb =
+		props.readMoreOnMobile && screenMode < ScreenModeEnum.tablet ? (
+			<ReadMore
+				buttonStyle={props.readMoreStyle}
+				sectionId={props.sectionId}
+				collapsedHeight="5.5rem">
+				<div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
+			</ReadMore>
+		) : (
 			<div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
-		</ReadMore>
-	)
-		: <div className={storySectionHeadingStyles.blurb}>{props.blurb}</div>
-    ;
-
+		);
 	return (
 		<header>
 			<section className={storySectionHeadingStyles.header}>
@@ -58,13 +67,28 @@ export default function StorySectionHeading(props) {
 					<Hidden smUp>
 						<Grid item xs={1} />
 					</Hidden>
-					<Grid item xs={10} md={12} lg={11} className={storySectionHeadingStyles.headerTitle}>
+					<Grid
+						item
+						xs={10}
+						md={12}
+						lg={11}
+						className={storySectionHeadingStyles.headerTitle}>
 						{props.title}
 					</Grid>
 				</Grid>
 				<Grid container className={storySectionHeadingStyles.introContainer}>
-					<Grid item xs={12} lg={5} className={`${storySectionHeadingStyles.intro} ${storySectionHeadingStyles.introTeaser}`}>{props.teaser}</Grid>
-					<Grid item xs={12} lg={7} className={`${storySectionHeadingStyles.intro} ${storySectionHeadingStyles.introBlurb}`}>
+					<Grid
+						item
+						xs={12}
+						lg={5}
+						className={`${storySectionHeadingStyles.intro} ${storySectionHeadingStyles.introTeaser}`}>
+						{props.teaser}
+					</Grid>
+					<Grid
+						item
+						xs={12}
+						lg={7}
+						className={`${storySectionHeadingStyles.intro} ${storySectionHeadingStyles.introBlurb}`}>
 						{blurb}
 						{props.accordion}
 					</Grid>

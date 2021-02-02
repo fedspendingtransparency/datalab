@@ -2,9 +2,9 @@ import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import {
 	establishContainer,
-	translator,
 	findAmountInCsv,
 	isMobileDevice,
+	translator,
 } from 'src/afg-helpers/utils';
 import formatNumber from 'src/utils/number-formatter/number-formatter';
 import { generateOverlay, registerLayer } from './compareManager';

@@ -1,11 +1,11 @@
 import React from 'react';
-import { withStyles } from '@material-ui/styles';
+import withStyles from '@material-ui/styles/withStyles';
 import PropTypes from 'prop-types';
 import styles from './tooltip.module.scss';
 import CloseIcon from '@material-ui/icons/Close';
 import Popper from '@material-ui/core/Popper';
 import Fade from '@material-ui/core/Fade';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
 const inlineStyles = () => ({
 	paper: {

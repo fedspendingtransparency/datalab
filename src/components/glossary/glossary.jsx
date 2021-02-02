@@ -4,7 +4,7 @@ import * as d3 from 'd3v4';
 import styles from '../headers/page.module.scss';
 import './glossary.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook } from '@fortawesome/free-solid-svg-icons';
+import { faBook } from '@fortawesome/free-solid-svg-icons/faBook';
 
 export default function Glossary() {
 	useEffect(() => {
@@ -442,8 +442,9 @@ export default function Glossary() {
 
 				const urlParams = new URLSearchParams(window.location.search);
 				let glossaryTerm = urlParams.get('glossary');
+				const regex = /_/g;
 				if (glossaryTerm) {
-					glossaryTerm = glossaryTerm.replace('_', ' ');
+					glossaryTerm = glossaryTerm.replace(regex, ' ');
 					showIndividualTerm(filteredData, glossaryTerm);
 				}
 			}
