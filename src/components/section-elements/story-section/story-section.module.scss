@@ -16,12 +16,6 @@
   text-align: left;
 }
 
-@media (min-width: $desktop-xl){
-  .storySection:not(.firstSection) {
-    margin-top: 50px;
-  }
-}
-
 @media (max-width: $phone - 1){
   .storySection:not(.firstSection) {
     margin-top: 35px;
