@@ -100,8 +100,7 @@ const Downloads = props => {
 			alignItems={align}
 			justify={props.justify || 'flex-end'}
 			direction="row"
-			className={downloadsStyles.download}
-			id={props.mobileSpace ? downloadsStyles.downloadMobile : ``}>
+			className={downloadsStyles.download}>
 			{props.withFiscalDataLogo && (
 				<a
 					target="_blank"
@@ -138,7 +137,6 @@ Downloads.propTypes = {
 	data: PropTypes.arrayOf(PropTypes.object),
 	date: PropTypes.string,
 	href: PropTypes.string,
-	mobileSpace: PropTypes.bool,
 };
 
 export default Downloads;

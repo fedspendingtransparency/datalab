@@ -57,7 +57,7 @@ import Phase35TotalTabletSVG from 'src/images/covid/tracking/tablet/phase35Total
 import Phase35GeneralTabletSVG from 'src/images/covid/tracking/tablet/phase35General.svg';
 import Phase35LoanTabletSVG from 'src/images/covid/tracking/tablet/phase35Loan.svg';
 
-import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2021-01-28.yml';
+import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2021-02-01.yml';
 
 export default function Tracking(props) {
 	const phaseDetail = {

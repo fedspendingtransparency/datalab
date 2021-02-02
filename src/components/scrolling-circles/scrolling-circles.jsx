@@ -3,159 +3,129 @@ import pageColorMap from 'src/utils/page-color';
 import { legacy } from 'src/styles/variables.scss';
 
 import styles from './scrolling-circles.module.scss';
-import { checkScreenMode, ScreenModeEnum } from '../../utils/screen-mode';
 
 const ScrollingCircles = ({ sections }) => {
-	const [screenMode, setScreenMode] = useState(0);
-  const [activeSection, setActiveSection] = useState(sections[0].anchor);
-  const [fillColor, setFillColor] = useState(legacy);
-  const [topMargin, setTopMargin] = useState(106);
-  const [fadeClass, setFadeClass] = useState('');
+	const [activeSection, setActiveSection] = useState(sections[0].anchor);
+	const [fillColor, setFillColor] = useState(legacy);
+	const [fadeClass, setFadeClass] = useState('');
+	const [topMargin, setTopMargin] = useState(106);
 
-  const [positions, setPositions] = useState([]);
+	const fade = () => {
+		setFadeClass('');
+		setTimeout(() => {
+			setFadeClass(styles.fade);
+		}, 2000);
+	};
 
-  const fade = () => {
-    setFadeClass('');
-    setTimeout(() => {
-      setFadeClass(styles.fade);
-    }, 2000);
-  };
+	const options = {
+		root: null,
+		rootMargin: '0px',
+		threshold: [...Array(100).keys()].map(x => x / 100),
+	};
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    const pathname = window.location.pathname.split('/').join('');
-    setFillColor(pageColorMap[pathname]);
+	let previousY = sections.reduce(
+		(result, item) => ((result[item.anchor] = 0), result),
+		{}
+	);
 
-    const sectionScrollPositions = [];
-    const observe = () => {
-      setPositions([]);
+	useEffect(() => {
+		const pathname = window.location.pathname.split('/').join('');
+		setFillColor(pageColorMap[pathname]);
 
-      sections.forEach((section) => {
-        const target = document.getElementById(`section-${section.anchor}`);
+		const observer = new window.IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				const ratio = entry.intersectionRatio;
+				const boundingRect = entry.boundingClientRect;
+				const section = entry.target.id.replace('section-', '');
+				const isScrollingDown = previousY[section] > boundingRect.y;
+				const inView = boundingRect.top < 15 && boundingRect.bottom > 0;
 
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            const id = entry.target.id.split('-')[1];
-            const { top, bottom } = entry.boundingClientRect;
-            
-            if (!sectionScrollPositions.find((s) => s.id === id)) {
-              sectionScrollPositions.push({
-                id,
-                top,
-                bottom,
-              });
-            }
+				if (entry.isIntersecting && ratio < 1 && inView) {
+					setActiveSection(section);
+				}
 
-            setPositions(sectionScrollPositions);
-          });
-        });
+				previousY = { ...previousY, [section]: boundingRect.y };
+			});
+		}, options);
 
-        observer.observe(target);
-      });
-    };
+		sections.forEach(section => {
+			const target = document.getElementById(`section-${section.anchor}`);
+			observer.observe(target);
+		});
 
-    setTimeout(observe, 2000);
+		return () => observer.disconnect();
+	}, []);
 
-    window.addEventListener('scroll', () => {
-      const scrollPositions = sectionScrollPositions.sort((a, b) => a.bottom - b.bottom);
-      const newActiveSection = scrollPositions.find((s) => s.bottom > window.pageYOffset);
+	useEffect(() => {
+		fade();
+	}, [activeSection]);
 
-      if (newActiveSection) {
-        setActiveSection(newActiveSection.id);
-      }
+	const scrollToSection = (id, e) => {
+		if (!e || e.key === 'Enter') {
+			setActiveSection(id);
+			fade();
+		}
+	};
 
-      if (window.pageYOffset <= 26) {
-        setTopMargin(106 - window.pageYOffset);
-      } else {
-        setTopMargin(80);
-      }
-    });
+	const handleFocus = e => {
+		e.target.classList.add(styles.focused);
+	};
 
-    const resizeWindow = () => {
-      const newMode = checkScreenMode(window.innerWidth);
-      if (newMode !== screenMode) {
-        setScreenMode(newMode);
-      }
-    };
+	const handleBlur = e => {
+		e.target.classList.remove(styles.focused);
+	};
 
-    resizeWindow();
+	return (
+		<div className={styles.mainContainer} style={{ top: topMargin }}>
+			{sections.map((section, number) => {
+				const isActive = activeSection === section.anchor;
 
-    window.addEventListener('resize', () => {
-      resizeWindow();
-      observe();
-    });
-  }, []);
+				let label = <></>;
+				let activeStyle = {
+					color: fillColor,
+				};
 
-  useEffect(() => {
-    fade();
-  }, [activeSection]);
+				if (isActive) {
+					activeStyle = {
+						backgroundColor: fillColor,
+					};
 
-  const scrollToSection = (id, e) => {
-    if (!e || e.key === 'Enter') {
-      const section = positions.find((s) => s.id === id);
-      let scrollMargin = 25;
-      if (screenMode === ScreenModeEnum.tablet) {
-        scrollMargin = 10;
-      }
-      window.scrollTo(0, section.top + scrollMargin);
-      fade();
-    }
-  };
+					label = (
+						<div className={`${styles.label} ${fadeClass}`} style={activeStyle}>
+							<div
+								className={styles.beforeArrow}
+								style={{ borderRight: `solid 10px ${fillColor}` }}
+							/>
+							{section.section}
+						</div>
+					);
+				}
 
-  const handleFocus = (e) => {
-    e.target.classList.add(styles.focused);
-  };
+				if (!section.comingSoon && sections.length > 1) {
+					return (
+						<div className={styles.sectionContainer}>
+							<a
+								href={`#section-${section.anchor}`}
+								onClick={() => scrollToSection(section.anchor)}
+								onKeyPress={e => scrollToSection(section.anchor, e)}>
+								<div
+									className={`${styles.circle} ${isActive ? styles.active : ''}`}
+									style={activeStyle}
+									tabIndex={0}
+									onFocus={handleFocus}
+									onBlur={handleBlur}>
+									{section.number || `0${number + 1}`}
+								</div>
+							</a>
+							{label}
+						</div>
+					);
+				}
 
-  const handleBlur = (e) => {
-    e.target.classList.remove(styles.focused);
-  };
-
-  return (
-    <div className={styles.mainContainer} style={{ top: topMargin }}>
-      {sections.map((section, number) => {
-        const isActive = activeSection === section.anchor;
-
-        let label = <></>;
-        let activeStyle = {
-          color: fillColor,
-        };
-
-        if (isActive) {
-          activeStyle = {
-            backgroundColor: fillColor,
-          };
-
-          label = (
-            <div className={`${styles.label} ${fadeClass}`} style={activeStyle}>
-              <div className={styles.beforeArrow} style={{ borderRight: `solid 10px ${fillColor}` }} />
-              {section.section}
-            </div>
-          );
-        }
-
-        if (!section.comingSoon && sections.length > 1) {
-          return (
-            <div className={styles.sectionContainer}>
-              <div
-                className={`${styles.circle} ${isActive ? styles.active : ''}`}
-                style={activeStyle}
-                tabIndex={0}
-                onClick={() => scrollToSection(section.anchor)}
-                onKeyPress={(e) => scrollToSection(section.anchor, e)}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-              >
-                {section.number || `0${number + 1}`}
-              </div>
-              {label}
-            </div>
-          );
-        }
-
-        return null;
-      })}
-    </div>
-  );
+				return null;
+			})}
+		</div>
+	);
 };
 
 export default ScrollingCircles;

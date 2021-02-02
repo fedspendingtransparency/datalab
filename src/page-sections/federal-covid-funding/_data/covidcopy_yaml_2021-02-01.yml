@@ -2,6 +2,7 @@ carestotal_round: 2.08
 creditavail_trill: 3
 creditavailprecise_trill: 3.08
 creditused_bill: 833
+dsm_download: "covid19_response_download_2021-01-22.xlsx"
 frbavail_trill: 2.3
 frbused_bill: 87
 law1: 8

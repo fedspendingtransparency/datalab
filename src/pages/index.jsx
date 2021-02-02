@@ -40,7 +40,7 @@ function IndexPage(props) {
 						imgAlt="Woman standing with medical face mask on, social distanced between two others, with a cartoon image of the U.S. Capitol in the background."
 						heading="The Federal Response to COVID-19"
 						body="How is the federal government funding relief efforts for COVID-19?
-To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress passed five special appropriations laws, which provide multiple forms of financial relief through agency spending, tax relief, and lending. In this analysis, we break down how the funding provides financial relief, explain the process of how the money moves from legislation to the American people, and track the progress of spending."
+To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress passed four special appropriations laws, which provide multiple forms of financial relief through agency spending, tax relief, and lending. In this analysis, we break down how the funding provides financial relief, explain the process of how the money moves from legislation to the American people, and track the progress of spending."
 						mobileBody={[
 							<>
 								<p>
