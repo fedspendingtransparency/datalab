@@ -21,51 +21,61 @@ export default function HTML(props) {
 					rel="preload"
 					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-semibolditalic-webfont.woff"
 					as="font"
+					crossorigin="anonymous"
 				/>
 				<link
 					rel="preload"
 					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-semibold-webfont.woff"
 					as="font"
+					crossorigin="anonymous"
 				/>
 				<link
 					rel="preload"
 					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-regular-webfont.woff"
 					as="font"
+					crossorigin="anonymous"
 				/>
 				<link
 					rel="preload"
 					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-lightitalic-webfont.woff"
 					as="font"
+					crossorigin="anonymous"
 				/>
 				<link
 					rel="preload"
 					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-light-webfont.woff"
 					as="font"
+					crossorigin="anonymous"
 				/>
 				<link
 					rel="preload"
 					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-italic-webfont.woff"
 					as="font"
+					crossorigin="anonymous"
 				/>
 				<link
 					rel="preload"
 					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-extralightitalic-webfont.woff"
 					as="font"
+					crossorigin="anonymous"
 				/>
 				<link
 					rel="preload"
 					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-extralight-webfont.woff"
 					as="font"
+					crossorigin="anonymous"
 				/>
 				<link
 					rel="preload"
 					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-bolditalic-webfont.woff"
 					as="font"
+					crossorigin="anonymous"
 				/>
 				<link
 					rel="preload"
 					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-bold-webfont.woff"
 					as="font"
+					crossorigin="anonymous"
 				/>
 				{props.headComponents}
 			</head>
