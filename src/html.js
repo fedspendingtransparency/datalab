@@ -17,31 +17,56 @@ export default function HTML(props) {
 					src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=TRE"
 					id="_fed_an_ua_tag"
 				/>
-				{/*<link*/}
-				{/*	rel="preload"*/}
-				{/*	href="../static/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf"*/}
-				{/*	as="font"*/}
-				{/*/>*/}
-				{/*<link*/}
-				{/*	rel="preload"*/}
-				{/*	href="../static/fonts/Source_Sans_Pro/SourceSansPro-Black.ttf"*/}
-				{/*	as="font"*/}
-				{/*/>*/}
-				{/*<link*/}
-				{/*	rel="preload"*/}
-				{/*	href="../static/fonts/Source_Sans_Pro/SourceSansPro-BlackItalic.ttf"*/}
-				{/*	as="font"*/}
-				{/*/>*/}
-				{/*<link*/}
-				{/*	rel="preload"*/}
-				{/*	href="../static/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf"*/}
-				{/*	as="font"*/}
-				{/*/>*/}
-				{/*<link*/}
-				{/*	rel="preload"*/}
-				{/*	href="../static/fonts/Source_Sans_Pro/SourceSansPro-BoldItalic.ttf"*/}
-				{/*	as="font"*/}
-				{/*/>*/}
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-semibolditalic-webfont.woff"
+					as="font"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-semibold-webfont.woff"
+					as="font"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-regular-webfont.woff"
+					as="font"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-lightitalic-webfont.woff"
+					as="font"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-light-webfont.woff"
+					as="font"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-italic-webfont.woff"
+					as="font"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-extralightitalic-webfont.woff"
+					as="font"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-extralight-webfont.woff"
+					as="font"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-bolditalic-webfont.woff"
+					as="font"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-bold-webfont.woff"
+					as="font"
+				/>
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
