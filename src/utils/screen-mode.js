@@ -5,11 +5,25 @@ export const ScreenModeEnum = Object.freeze({ 'mobile': 0, 'tablet': 1, 'desktop
 export function checkScreenMode(width) {
   if (width < parseInt(globals.md)) {
     return ScreenModeEnum.mobile;
-  } else if (width < parseInt(globals.lg)) {
-    return ScreenModeEnum.tablet;
-  } else if (width < parseInt(globals.xl)) {
-    return ScreenModeEnum.desktop;
-  } else {
-    return ScreenModeEnum.desktop_xl;
   }
+  if (width < parseInt(globals.lg)) {
+    return ScreenModeEnum.tablet;
+  }
+  if (width < parseInt(globals.xl)) {
+    return ScreenModeEnum.desktop;
+  }
+  return ScreenModeEnum.desktop_xl;
+}
+
+export function checkAfgScreenMode(width) {
+  if (width < 660) {
+    return ScreenModeEnum.mobile;
+  }
+  if (width < 992) {
+    return ScreenModeEnum.tablet;
+  }
+  if (width < 1200) {
+    return ScreenModeEnum.desktop;
+  }
+  return ScreenModeEnum.desktop_xl;
 }

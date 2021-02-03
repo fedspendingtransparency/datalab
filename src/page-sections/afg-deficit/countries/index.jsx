@@ -16,32 +16,25 @@ const spendingConfig = {
   gdpField: 'deficit_gdp',
   amountLabel: 'Deficit',
   negativeAmountLabel: 'Surplus',
-  sourceFields: ['deficit_source_url_name', 'gdp_source'],
+  sourceFields: ['source'],
   primaryColor: colors.colorDeficitPrimary,
   negativeValueColor: colors.colorDeficitSurplus,
   chapter: 'deficit',
   defaultCountries: [{
     display: 'United States',
-    plainName: 'United States',
-  }, {
-    display: 'China',
-    plainName: 'China',
-  }, {
-    display: 'Japan',
-    plainName: 'Japan',
   }, {
     display: 'Germany',
-    plainName: 'Germany',
   }, {
     display: 'United Kingdom',
-    plainName: 'United Kingdom',
-  }, {
-    display: 'India',
-    plainName: 'India',
   }, {
     display: 'France',
-    plainName: 'France',
-  }],
+  }, {
+    display: 'Australia',
+  }, {
+    display: 'Korea',
+  }, {
+    display: 'Canada',
+  }]
 };
 
 const DefecitCountryComparison = () => {

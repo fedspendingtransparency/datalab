@@ -30,7 +30,7 @@
   text-align: left;
   visibility: hidden;
   transition: line-height 0.5s ease;
-  
+
   p,
   h1 {
     margin-bottom: 0;
@@ -42,7 +42,7 @@
     margin-top: 0;
     margin-bottom: 0;
     padding-left: $margin-30;
- 
+
     li {
       font-size: 0;
       transition: font-size 0.5s ease;
@@ -74,6 +74,7 @@
     padding-bottom: $margin-25;
     border-color: #eee;
     visibility: visible;
+
 
     p + p {
       margin-top: $margin-25;

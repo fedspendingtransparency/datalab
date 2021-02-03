@@ -1,0 +1,52 @@
+.usas-dl-table-container {
+  overflow-x: scroll;
+
+  td {
+    font-size: 0.875rem;
+  }
+
+  label, th div {
+    font-size: 1rem !important;
+  }
+}
+
+li.pager__item {
+  font-size: 1rem !important;
+}
+
+.usa-dt-pagination__totals {
+  font-size: 1rem !important;
+}
+
+.usda-table__cell {
+  display: table-cell !important;
+  padding: 1rem !important;
+}
+
+button.pager__button {
+  font-size: 0.875rem !important;
+}
+
+.usa-dt-pagination {
+  width: 100%;
+  padding: 20px;
+}
+
+table.usda-table thead.usda-table__head th.table-header .table-header__content .table-header__label {
+  line-height: 1rem;
+}
+
+table.usda-table thead.usda-table__head th.table-header .table-header__content .table-header__sort button.table-header__icon {
+  height: 0.875rem;
+}
+
+table.usda-table thead.usda-table__head th.table-header .table-header__content .table-header__sort button.table-header__icon.table-header__icon_active svg {
+  color: #2272CE;
+}
+
+.usa-dt-pagination .usa-dt-pagination__wrapper .pager .pager__item .pager__button.pager__button_active {
+  background-color: #2272CE;
+  color: #fff;
+  border-color: #2272CE;
+}
+

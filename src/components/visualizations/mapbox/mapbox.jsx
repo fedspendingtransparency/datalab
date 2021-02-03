@@ -4,7 +4,6 @@ import mapboxgl from 'mapbox-gl';
 import './mapbox.scss';
 import '../../../../node_modules/mapbox-gl/dist/mapbox-gl.css';
 import formatNumber from 'src/utils/number-formatter/number-formatter';
-import img from '../../../images/colleges-and-universities/map-pin.png';
 
 export default function Mapbox(props) {
 	if (!props.display) {

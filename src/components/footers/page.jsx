@@ -2,7 +2,7 @@ import React from 'react';
 import pageFooterStyles from './page.module.scss';
 import { Link } from 'gatsby';
 
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import DataLab from '../logos/datalab';
 import Github from '../logos/github';
 import Dataworld from '../logos/dataworld';
@@ -26,7 +26,7 @@ export default class PageFooter extends React.Component {
 				<Grid item xs={12} md={4} lg={2} className={pageFooterStyles.ourSites}>
 					<div>
 						<div className={pageFooterStyles.title}>About</div>
-						<a href="/about">About Data Lab</a>
+						<a href="/about/">About Data Lab</a>
 					</div>
 				</Grid>
 				<Grid item xs={12} md={4} lg={2} className={pageFooterStyles.ourSites}>

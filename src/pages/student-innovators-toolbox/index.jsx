@@ -1,11 +1,12 @@
-import React, {Component} from "react";
+import React, { Component } from 'react';
 import styles from './student-innovators-toolbox.module.scss';
 
 /* components */
 import FaqLayout from "../../components/layouts/faq/faq";
 import Downloads from '../../components/section-elements/downloads/downloads';
-import { Hidden, Grid } from '@material-ui/core';
-import AccordionList from "../../components/accordion-list/accordion-list"
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import AccordionList from '../../components/accordion-list/accordion-list';
 import DesktopImage from '../../images/student-innovators-toolbox/Toolbox Desktop.png';
 import TabletImage from '../../images/student-innovators-toolbox/Toolbox Tablet.png';
 import MobileImage from '../../images/student-innovators-toolbox/Toolbox Mobile.png';
@@ -17,6 +18,7 @@ import aboutTheData from '../../page-sections/student-innovators-toolbox/about';
 import finalProduct from '../../page-sections/student-innovators-toolbox/final-product';
 import resources from '../../page-sections/student-innovators-toolbox/resources';
 import projects from '../../page-sections/student-innovators-toolbox/projects';
+import SEO from "../../components/seo";
 
 class AnalystGuidePage extends Component {
 
@@ -117,6 +119,10 @@ class AnalystGuidePage extends Component {
     </>
 
     return <>
+      <SEO
+          title="Student Innovator's Toolbox | U.S. Treasury Data Lab"
+          description="Use the Student Innovator's Toolbox to connect with data from the U.S. Treasury to complement classroom learning and facilitate research and analysis."
+      />
       <div id={styles.analystGuidePage}>
         <FaqLayout
           title={title}
@@ -142,4 +148,4 @@ class AnalystGuidePage extends Component {
   }
 }
 
-export default AnalystGuidePage
+export default AnalystGuidePage;

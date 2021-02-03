@@ -1,15 +1,14 @@
-import React, { Component } from "react";
-import "src/styles/index.scss";
-
+import React, { Component } from 'react';
+import 'src/styles/index.scss';
 /* components */
-import SEO from "src/components/seo";
-import AccordionList from "src/components/accordion-list/accordion-list";
-import ToolLayout from "src/components/layouts/tool/tool";
-import loadable from "@loadable/component";
-import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
-import ControlBar from "../../components/control-bar/control-bar";
-import Reset from "../../components/reset/reset";
-import Share from "../../components/share/share";
+import SEO from 'src/components/seo';
+import AccordionList from 'src/components/accordion-list/accordion-list';
+import ToolLayout from 'src/components/layouts/tool/tool';
+import loadable from '@loadable/component';
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
+import ControlBar from '../../components/control-bar/control-bar';
+import Reset from '../../components/reset/reset';
+import Share from '../../components/share/share';
 
 const CompetitionInContractingContainer = loadable(() => import('src/containers/competition-in-contracting/competition-in-contracting-container'),
   {
@@ -51,10 +50,9 @@ class CompetitionInContractingPage extends Component {
         sectionTitle={sectionTitle}
         sectionText={sectionText}
         hwctaLink={this.props.location.pathname + '/methodologies'}>
-        <SEO title="U.S. Treasury Data Lab – Competition in Contracting"
-             description="The U.S. Treasury’s Data Lab presents an analysis conducted on competition in government contracting. In FY 2017 more than 60% of federal contracts were competitively awarded."
-             keywords={[`federal contracts`, `competition`, `awards`, `federal procurement`, `1984 Competition in Contracting Act`,
-							 `federal agencies`, `government contracts`, `government procurement`, `government agencies`, `bar chart`]} />
+        <SEO title="Competition in Government Contracting | U.S. Treasury Data Lab"
+             description="Learn how many federal contracts are competitively awarded in accordance with the Competition in Contracting Act."
+        />
 
         <AccordionList
           title="Instructions">

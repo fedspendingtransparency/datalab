@@ -5,8 +5,8 @@ import { StorypageHeader } from 'src/components/headers/headers';
 import SEO from 'src/components/seo';
 import { lg } from 'src/styles/variables.scss';
 import scrolledToBottom from 'src/utils/scrolled-to-bottom';
-import WhoWeAreIllustration from 'src/svgs/about-us/who-we-are.svg'
-import BackgroundIllustration from 'src/svgs/about-us/background.svg'
+import WhoWeAreIllustration from 'src/svgs/about-us/who-we-are.svg';
+import BackgroundIllustration from 'src/svgs/about-us/background.svg';
 import styles from './about.module.scss';
 
 const AboutUs = () => {
@@ -101,9 +101,8 @@ const AboutUs = () => {
     <DefaultLayout>
       <StorypageHeader />
       <SEO
-        title="About Us"
-        description="Data Lab’s mission is to promote transparency of government finances by providing engaging and informative data-driven analyses of federal spending data."
-        keywords={['U.S. Treasury', 'Data Lab', 'Fiscal Data', 'USAspending.gov', 'API', 'government', 'government financial data', 'debt', 'Treasury', 'US government', 'Federal spending', 'data', 'visualizations', 'government spending']}
+        title="About Us | U.S. Treasury Data Lab"
+        description="Data Lab's mission is to promote transparency of government finances by providing engaging and informative data-driven analyses of federal spending data."
       />
       <div className={styles.aboutUsHeaderImage}>
         <h1 className={styles.headerTitle}>

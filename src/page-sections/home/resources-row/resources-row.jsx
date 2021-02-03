@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
 import apiImg from 'src/images/home/resources-api-2.svg';
 import userGuideImg from 'src/images/home/resources-user-guide-2.svg';
@@ -65,7 +65,7 @@ const ResourcesRow = () => {
                   />
                 </div>
                 <div className={resourcesRowStyles.titleContainer}>
-                  <h1 className={`${resourcesRowStyles.title} ${resourcesRowStyles.titleAPI}`}>
+                  <h1 className={resourcesRowStyles.titleAPI}>
                     {resource.title}
                   </h1>
                   <p className={resourcesRowStyles.description}>

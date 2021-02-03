@@ -1,5 +1,5 @@
 import { select, selectAll } from 'd3-selection';
-import { establishContainer, translator, isMobileDevice } from 'src/afg-helpers/utils';
+import { establishContainer, translator } from 'src/afg-helpers/utils';
 import { dotConstants, dotsPerRow } from './dotConstants';
 import { initRevenueOverlay } from './compareRevenue';
 import { initGdp } from './compareGdp';
@@ -67,7 +67,7 @@ export function readyDots(width, activeLayer) {
           const activeLayerHeight = svg.select(`.${activeLayer}-layer`)
             .node()
             .getBoundingClientRect().height;
-          
+
           if (activeLayerHeight > dotRectHeight) dotRectHeight = activeLayerHeight;
         }
         svg.style('height', dotRectHeight + 31);

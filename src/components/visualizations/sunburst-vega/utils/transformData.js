@@ -2,9 +2,10 @@
   This code is used to transform the sunburst data in to code that's usable by Vega.  This should be handled on the data analyst
   side but hasn't been rewritten yet due to the analyst backlog being long. */
 
-import csvData from "../../../../../static/unstructured-data/contract-explorer/awards_contracts_FY18_v2.csv";
+import csvData
+  from '../../../../../static/unstructured-data/contract-explorer/awards_contracts_FY18_v2.csv';
 import * as _ from 'lodash';
-  
+
 function convertCsvToJson() {
   let id = 1, existingItem;
 
@@ -163,7 +164,7 @@ function convertCsvToJson() {
   });
 
   console.log(tree);
-  
+
   return tree;
 
 }

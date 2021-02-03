@@ -4,10 +4,10 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import SEO from 'src/components/seo';
 import Share from 'src/components/share/share';
 import ToolLayout from 'src/components/layouts/tool/tool';
-import ControlBar from "src/components/control-bar/control-bar";
+import ControlBar from 'src/components/control-bar/control-bar';
 
 import loadable from '@loadable/component';
-import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 
 const SunburstDetailsContainer = loadable(() => import('src/containers/contract-explorer/contract-explorer-container'),
   {
@@ -23,10 +23,9 @@ export default class ContractExplorerPage extends Component {
 	}
 
   render = () => <>
-		<SEO title='U.S. Treasury Data Lab – Contract Explorer'
-				 description="Ever wonder who’s getting federal contracts and what agencies are awarding them? This analysis lets you explore contract-related information for FY17."
-				 keywords={[`contracts`, `federal contracts`, `federal agencies`, `agencies`, `government agency`, `government contract`, `procurement`, `appropriations`, `federal procurement`, `government procurement`, `sunburst`]} />
-
+		<SEO title='Federal Contract Explorer | U.S. Treasury Data Lab'
+				 description="Find out which organizations receive government contracts, and which agencies award them. Explore contract amounts as well as the types of goods and services provided to the federal government."
+		/>
 		<ToolLayout title='Contract Federal Explorer'
 			introSentence="The federal government spends about $500 billion each year on contracts - that's roughly the size of Sweden's economy."
 			contextStatement="Ever wonder who's getting federal contracts and what agencies are awarding them? This tool lets you explore contract-related information for FY 18, including which organizations received federal contracts, contract amounts, awarding agencies and sub-agencies, and the types of goods or services contract recipients provided to the federal government."

@@ -11,17 +11,32 @@ import styles from '../bars/bar.module.scss';
 
 export default function ElbowCallout(props) {
 	const {
-		xStart, xEnd, isModal, labelOffset, label, labelAmount, mobile,
+		xStart,
+		xEnd,
+		isModal,
+		labelOffset,
+		label,
+		labelAmount,
+		mobile,
 	} = props;
 
 	function TextBlock() {
 		if (isModal) {
 			return (
 				<>
-					<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition} fontSize={mobile ? defaults.smFontSize : defaults.mdFontSize} fontWeight="600">
+					<text
+						fill={defaults.fontColor}
+						x={`${labelOffset}%`}
+						y={defaults.textPosition}
+						fontSize={mobile ? defaults.smFontSize : defaults.mdFontSize}
+						fontWeight="600">
 						{label}
 					</text>
-					<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition + defaults.lineHeight} fontSize={defaults.smFontSize}>
+					<text
+						fill={defaults.fontColor}
+						x={`${labelOffset}%`}
+						y={defaults.textPosition + defaults.lineHeight}
+						fontSize={defaults.smFontSize}>
 						{numberFormatter('dollars suffix', labelAmount, 3)}
 					</text>
 				</>
@@ -29,19 +44,20 @@ export default function ElbowCallout(props) {
 		}
 
 		return (
-			<text fill={defaults.fontColor} x={`${labelOffset}%`} y={defaults.textPosition} fontSize={defaults.fontSize}>
+			<text
+				fill={defaults.fontColor}
+				x={`${labelOffset}%`}
+				y={defaults.textPosition}
+				fontSize={defaults.fontSize}>
 				<tspan
 					style={{ display: mobile ? 'none' : 'block' }}
 					className={styles.label}
-					fontWeight="600"
-				>
-					{label}
-					{' '}
+					fontWeight="600">
+					{label}{' '}
 				</tspan>
 				<tspan
 					className={styles.amountLabel}
-					style={{ fontWeight: mobile ? '600' : '0' }}
-				>
+					style={{ fontWeight: mobile ? '600' : '0' }}>
 					{numberFormatter('dollars suffix', labelAmount, 3)}
 				</tspan>
 			</text>
@@ -75,7 +91,6 @@ export default function ElbowCallout(props) {
 			/>
 
 			<TextBlock />
-
 		</g>
 	);
 }

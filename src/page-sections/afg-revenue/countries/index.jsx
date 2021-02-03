@@ -5,34 +5,27 @@ import { chartInit } from '../../../afg-helpers/countries/chart';
 import CountryData from '../../../../static/americas-finance-guide/data/revenue_country_comparison.csv';
 import AfgData from "../../../../static/americas-finance-guide/_data/object_mapping.yml";
 
-const incomeConfig = {
+const revenueConfig = {
   amountField: 'revenue_usd',
   gdpField: 'revenue_gdp',
   amountLabel: 'Revenue',
-  sourceFields: ['revenue_source', 'gdp_source'],
+  sourceFields: ['source'],
   chapter: 'revenue',
   primaryColor: colors.revenuePrimary,
   defaultCountries: [{
     display: 'United States',
-    plainName: 'United States',
-  }, {
-    display: 'China',
-    plainName: 'China',
-  }, {
-    display: 'Japan',
-    plainName: 'Japan',
   }, {
     display: 'Germany',
-    plainName: 'Germany',
   }, {
     display: 'United Kingdom',
-    plainName: 'United Kingdom',
-  }, {
-    display: 'India',
-    plainName: 'India',
   }, {
     display: 'France',
-    plainName: 'France',
+  }, {
+    display: 'Australia',
+  }, {
+    display: 'Korea',
+  }, {
+    display: 'Canada',
   }],
   accessibilityAttrs: {
     title: 'Federal Revenue Country Comparison',
@@ -46,7 +39,7 @@ const RevenueCountryComparison = () => {
 
     const init = () => {
       loadSourceData(CountryData);
-      chartInit(incomeConfig);
+      chartInit(revenueConfig);
     };
 
     const handleResize = () => {
