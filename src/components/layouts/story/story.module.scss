@@ -125,6 +125,10 @@ h2 {
 }
 
 @media (max-width: $phone - 1) {
+  .story-page {
+    margin: 0 0 $margin-75 0;
+    padding: 0 40px;
+  }
   .title {
     margin-top: 5rem;
   }

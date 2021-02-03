@@ -51,7 +51,6 @@
       .before-arrow {
         content: "";
         position: absolute;
-        right: 100%;
         top: 10px;
         width: 0;
         height: 0;
@@ -77,25 +76,17 @@
   }
 }
 
-@media screen and (max-width: $tablet - 1) {
+@media screen and (max-width: $phone) {
   .main-container {
-    right: 14px;
+    right: 0;
     width: 50px;
 
     .label {
-      display: none;
+      position: absolute;
+      right: 140px;
     }
   }
 }
 
-@media screen and (max-width: $phone) {
-  .main-container {
-    right: 14px;
-    width: 50px;
 
-    //.label {
-    //  display: none;
-    //}
-  }
-}
 
