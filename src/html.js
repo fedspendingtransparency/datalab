@@ -17,31 +17,31 @@ export default function HTML(props) {
 					src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=TRE"
 					id="_fed_an_ua_tag"
 				/>
-				<link
-					rel="preload"
-					href="../static/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf"
-					as="font"
-				/>
-				<link
-					rel="preload"
-					href="../static/fonts/Source_Sans_Pro/SourceSansPro-Black.ttf"
-					as="font"
-				/>
-				<link
-					rel="preload"
-					href="../static/fonts/Source_Sans_Pro/SourceSansPro-BlackItalic.ttf"
-					as="font"
-				/>
-				<link
-					rel="preload"
-					href="../static/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf"
-					as="font"
-				/>
-				<link
-					rel="preload"
-					href="../static/fonts/Source_Sans_Pro/SourceSansPro-BoldItalic.ttf"
-					as="font"
-				/>
+				{/*<link*/}
+				{/*	rel="preload"*/}
+				{/*	href="../static/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf"*/}
+				{/*	as="font"*/}
+				{/*/>*/}
+				{/*<link*/}
+				{/*	rel="preload"*/}
+				{/*	href="../static/fonts/Source_Sans_Pro/SourceSansPro-Black.ttf"*/}
+				{/*	as="font"*/}
+				{/*/>*/}
+				{/*<link*/}
+				{/*	rel="preload"*/}
+				{/*	href="../static/fonts/Source_Sans_Pro/SourceSansPro-BlackItalic.ttf"*/}
+				{/*	as="font"*/}
+				{/*/>*/}
+				{/*<link*/}
+				{/*	rel="preload"*/}
+				{/*	href="../static/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf"*/}
+				{/*	as="font"*/}
+				{/*/>*/}
+				{/*<link*/}
+				{/*	rel="preload"*/}
+				{/*	href="../static/fonts/Source_Sans_Pro/SourceSansPro-BoldItalic.ttf"*/}
+				{/*	as="font"*/}
+				{/*/>*/}
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
