@@ -39,14 +39,15 @@
     }
 
     .label {
-      position: relative;
+      position: absolute;
       height: 40px;
-      margin-left: 10px;
+      margin-left: 66px;
       padding: 8px 10px;
       color: #fff;
       border-radius: 4px;
       font-size: 1rem;
       font-weight: bold;
+      white-space: nowrap;
 
       .before-arrow {
         content: "";
@@ -82,8 +83,7 @@
     width: 50px;
 
     .label {
-      right: 220px;
-      white-space: nowrap;
+      right: 60px;
     }
   }
 }
