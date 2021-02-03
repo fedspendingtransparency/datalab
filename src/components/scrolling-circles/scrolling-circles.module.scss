@@ -77,7 +77,7 @@
   }
 }
 
-@media screen and (max-width: $phone) {
+@media screen and (max-width: $tablet - 1) {
   .main-container {
     right: 0;
     width: 50px;
