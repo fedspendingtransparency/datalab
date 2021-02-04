@@ -69,7 +69,7 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
 				onKeyPress={handleLabelClick}
 				tabIndex={0}>
 				{first.icon}
-				<p>{first.name}</p>
+				<p className={toggleStyles.toggleLabel}>{first.name}</p>
 			</div>
 			<div id={toggleStyles.toggleSwitchContainer}>
 				<StyledSwitch
@@ -91,7 +91,7 @@ const Toggle = ({ first, second, handleToggle, checked }) => {
 				onKeyPress={handleLabelClick}
 				tabIndex={0}>
 				{second.icon}
-				<p>{second.name}</p>
+				<p className={toggleStyles.toggleLabel}>{second.name}</p>
 			</div>
 		</div>
 	);
