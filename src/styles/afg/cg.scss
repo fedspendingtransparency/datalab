@@ -7,11 +7,7 @@
 @import 'hwcta';
 @import 'buttons';
 @import 'ffgShare';
-
-@font-face {
-    font-family: 'Source Sans Pro';
-    font-display: swap;
-}
+@import '../fonts';
 
 .cg-wrapper {
     //this class wraps this whole page
