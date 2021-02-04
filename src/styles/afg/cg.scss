@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,700&display=swap");
 @import 'generalVars';
 @import 'headings';
 @import 'tour';
@@ -8,11 +7,6 @@
 @import 'hwcta';
 @import 'buttons';
 @import 'ffgShare';
-
-@font-face {
-    font-family: 'Source Sans Pro';
-    font-display: swap;
-}
 
 .cg-wrapper {
     //this class wraps this whole page
