@@ -77,6 +77,66 @@ export default function HTML(props) {
 					as="font"
 					crossorigin="anonymous"
 				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-semibolditalic-webfont.woff2"
+					as="font"
+					crossOrigin="anonymous"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-semibold-webfont.woff2"
+					as="font"
+					crossOrigin="anonymous"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-regular-webfont.woff2"
+					as="font"
+					crossOrigin="anonymous"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-lightitalic-webfont.woff2"
+					as="font"
+					crossOrigin="anonymous"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-light-webfont.woff2"
+					as="font"
+					crossOrigin="anonymous"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-italic-webfont.woff2"
+					as="font"
+					crossOrigin="anonymous"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-extralightitalic-webfont.woff2"
+					as="font"
+					crossOrigin="anonymous"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-extralight-webfont.woff2"
+					as="font"
+					crossOrigin="anonymous"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-bolditalic-webfont.woff2"
+					as="font"
+					crossOrigin="anonymous"
+				/>
+				<link
+					rel="preload"
+					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-bold-webfont.woff2"
+					as="font"
+					crossOrigin="anonymous"
+				/>
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
