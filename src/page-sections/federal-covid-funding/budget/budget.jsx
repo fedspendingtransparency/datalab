@@ -24,12 +24,14 @@ const desktopSVGs = [
 	{
 		img: DesktopA,
 		width: 659,
+		height: 208,
 		alt:
 			'Bar chart of new agency funding through the four phases of COVID-19 appropriations, the largest funding coming from Phase 3 and the CARES Act.',
 	},
 	{
 		img: DesktopB,
 		width: 764,
+		height: 141,
 		alt:
 			'Bar chart of the total estimated value of legislation ($' +
 			CovidCopy.legislationvalue_trill +
@@ -42,6 +44,7 @@ const desktopSVGs = [
 	{
 		img: DesktopC,
 		width: 945,
+		height: 134,
 		alt:
 			'Bar chart showing total estimated lending ($' +
 			CovidCopy.totcredit_trillions +
@@ -57,12 +60,14 @@ const mobileSVGs = [
 	{
 		img: MobileA,
 		width: 303,
+		height: 264,
 		alt:
 			'Bar chart of new agency funding through the four phases of COVID-19 appropriations, the largest funding coming from Phase 3 and the CARES Act.',
 	},
 	{
 		img: MobileB,
 		width: 312,
+		height: 139,
 		alt:
 			'Bar chart of the total estimated value of legislation ($' +
 			CovidCopy.legislationvalue_trill +
@@ -75,6 +80,7 @@ const mobileSVGs = [
 	{
 		img: MobileC,
 		width: 333,
+		height: 131,
 		alt:
 			'Bar chart showing total estimated lending ($' +
 			CovidCopy.totcredit_trillions +
@@ -90,12 +96,14 @@ const tabletSVGs = [
 	{
 		img: TabletA,
 		width: 530,
+		height: 208,
 		alt:
 			'Bar chart of new agency funding through the four phases of COVID-19 appropriations, the largest funding coming from Phase 3 and the CARES Act.',
 	},
 	{
 		img: TabletB,
 		width: 661,
+		height: 141,
 		alt:
 			'Bar chart of the total estimated value of legislation ($' +
 			CovidCopy.legislationvalue_trill +
@@ -108,6 +116,7 @@ const tabletSVGs = [
 	{
 		img: TabletC,
 		width: 690,
+		height: 134,
 		alt:
 			'Bar chart showing total estimated lending ($' +
 			CovidCopy.totcredit_trillions +
@@ -172,7 +181,12 @@ export default function Budget(props) {
 					assistance, as well as direct payments like the Economic Impact Payments
 					(EIP) appropriated in Phase 3.
 				</p>
-				<img src={svgs[0].img} width={svgs[0].width} alt={svgs[0].alt} />
+				<img
+					src={svgs[0].img}
+					width={svgs[0].width}
+					height={svgs[0].height}
+					alt={svgs[0].alt}
+				/>
 			</PhaseWrapper>
 			<PhaseWrapper>
 				<p>
@@ -187,7 +201,12 @@ export default function Budget(props) {
 					two-year impact will be over ${CovidCopy.taxrelief_billion} billion in tax
 					relief.
 				</p>
-				<img src={svgs[1].img} width={svgs[1].width} alt={svgs[1].alt} />
+				<img
+					src={svgs[1].img}
+					width={svgs[1].width}
+					height={svgs[1].height}
+					alt={svgs[1].alt}
+				/>
 			</PhaseWrapper>
 			<PhaseWrapper>
 				<p>
@@ -208,7 +227,12 @@ export default function Budget(props) {
 					{CovidCopy.frbavail_trill} trillion in potential credit.
 					{/*This includes six loan programs: the Federal Reserve's emergency lending facilities, two programs managed by the Small Business Administration, two managed by the Department of the Treasury, and one by the Department of Agriculture.*/}
 				</p>
-				<img src={svgs[2].img} width={svgs[2].width} alt={svgs[2].alt} />
+				<img
+					src={svgs[2].img}
+					width={svgs[2].width}
+					height={svgs[2].height}
+					alt={svgs[2].alt}
+				/>
 			</PhaseWrapper>
 			<PhaseWrapper hideLine>
 				<p>
