@@ -63,6 +63,8 @@ const Overview = props => {
 	let chartComponent = (
 		<img
 			src={DesktopChart}
+			width="957"
+			height="307"
 			alt="Process flow diagram of COVID-19 supplemental funding from appropriations to obligations and ending with outlays."
 		/>
 	);
@@ -70,6 +72,8 @@ const Overview = props => {
 		chartComponent = (
 			<img
 				src={TabletChart}
+				width="720"
+				height="225"
 				alt="Process flow diagram of COVID-19 supplemental funding from appropriations to obligations and ending with outlays."
 			/>
 		);
@@ -83,6 +87,8 @@ const Overview = props => {
 					<Grid item className={overviewStyles.overviewMobileSvgContainer}>
 						<img
 							src={MobileChartA}
+							width="352"
+							height="367"
 							alt="Process flow diagram of COVID-19 supplemental funding from appropriations to obligations and ending with outlays."
 						/>
 					</Grid>
@@ -90,6 +96,8 @@ const Overview = props => {
 					<Grid item className={overviewStyles.overviewMobileSvgContainer}>
 						<img
 							src={MobileChartB}
+							width="352"
+							height="367"
 							alt="Process flow diagram of COVID-19 supplemental funding from appropriations to obligations and ending with outlays."
 						/>
 					</Grid>
@@ -97,6 +105,8 @@ const Overview = props => {
 					<Grid item className={overviewStyles.overviewMobileSvgContainer}>
 						<img
 							src={MobileChartC}
+							width="352"
+							height="307"
 							alt="Process flow diagram of COVID-19 supplemental funding from appropriations to obligations and ending with outlays."
 						/>
 					</Grid>
