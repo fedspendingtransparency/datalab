@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Dendro from '../../components/visualizations/dendro/dendro';
-import Downloads from "../../components/section-elements/downloads/downloads";
+import Downloads from '../../components/section-elements/downloads/downloads';
 
 class FedAcctContainer extends React.Component {
   constructor(props){
@@ -23,7 +23,7 @@ class FedAcctContainer extends React.Component {
     if (this.state.fiscalYearVal === 'fy17') return '/unstructured-data/federal-account-explorer/account_obligations_link_update_FY17.csv';
     else return '';
   };
-  
+
   render() {
     return <> <Dendro radioCheck={this.radioCheck}/>
              <Downloads

@@ -1,4 +1,4 @@
-import { max, min, extent } from 'd3-array';
+import { extent, max, min } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
 import { line } from 'd3-shape';
 import { getElementBox, translator } from 'src/afg-helpers/utils';

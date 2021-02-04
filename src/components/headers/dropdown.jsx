@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './page.module.scss';
 
@@ -78,31 +78,6 @@ export default class Dropdown extends React.Component {
           <div className={styles.dataList} onMouseLeave={this.props.mouseHandle} onKeyUp={this.menuKeyUp}>
             <section className={`${styles.section} ${styles.express}`}>
               <ul className={`${styles.ul} ${styles.ulExpress}`}>{this.returnActiveList(this.state.data[1].express, true, true)}</ul>
-            </section>
-          </div>
-        }
-        {
-          activeItem === "America's Finance Guide" &&
-          <div className={styles.dataList} onMouseLeave={this.props.mouseHandle} onKeyUp={this.menuKeyUp}>
-            <section className={styles.section}>
-              <h4 className={styles.sectionTitle}>Overview</h4>
-              <ul className={styles.ulFfg} role="menubar" aria-label="Overview">{this.returnActiveList(this.state.data[2].ffg.slice(0, 1), true)}</ul>
-            </section>
-            <section className={styles.section}>
-              <h4 className={styles.sectionTitle}>Revenue</h4>
-              <ul className={styles.ulFfg} role="menubar" aria-label="Revenue">{this.returnActiveList(this.state.data[2].ffg.slice(1, 5))}</ul>
-            </section>
-            <section className={styles.section}>
-              <h4 className={styles.sectionTitle}>Spending</h4>
-              <ul className={styles.ulFfg} role="menubar" aria-label="Spending">{this.returnActiveList(this.state.data[2].ffg.slice(5, 9))}</ul>
-            </section>
-            <section className={styles.section}>
-              <h4 className={styles.sectionTitle}>Deficit</h4>
-              <ul className={styles.ulFfg} role="menubar" aria-label="Deficit">{this.returnActiveList(this.state.data[2].ffg.slice(9, 12))}</ul>
-            </section>
-            <section className={styles.section}>
-              <h4 className={styles.sectionTitle}>Debt</h4>
-              <ul className={styles.ulFfg} role="menubar" aria-label="Debt">{this.returnActiveList(this.state.data[2].ffg.slice(12, 16), false, true)}</ul>
             </section>
           </div>
         }

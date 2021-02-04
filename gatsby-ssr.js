@@ -6,5 +6,5 @@ import 'src/styles/progress.scss';
 import TopLayout from './plugins/gatsby-plugin-top-layout/TopLayout';
 
 export const wrapRootElement = ({ element }) => {
-  return <TopLayout>{element}</TopLayout>;
+	return <TopLayout>{element}</TopLayout>;
 };

@@ -5,7 +5,7 @@ import {
   translator,
 } from 'src/afg-helpers/utils';
 import { select, selectAll } from 'd3-selection';
-import { min, max, range } from 'd3-array';
+import { max, min, range } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
 import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';

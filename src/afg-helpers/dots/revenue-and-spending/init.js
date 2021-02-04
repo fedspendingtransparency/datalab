@@ -3,7 +3,7 @@ import { establishContainer } from 'src/afg-helpers/utils';
 import { triggerMainInfoBox } from 'src/afg-helpers/infoBox';
 import { placeDots } from './placeDots';
 import { startLegendAnimation } from './legend';
-import { setChartWidth, chartWidth } from './widthManager';
+import { chartWidth, setChartWidth } from './widthManager';
 import { setDotsPerRow } from './dotConstants';
 
 const d3 = { select, selectAll };

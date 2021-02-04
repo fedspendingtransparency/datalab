@@ -4,7 +4,7 @@ import dataSource from '../utils/data-module';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import './treemap.scss';
-import AccordionList from "../../../accordion-list/accordion-list"
+import AccordionList from '../../../accordion-list/accordion-list';
 
 export default function Treemap() {
   const { mem } = dataSource;

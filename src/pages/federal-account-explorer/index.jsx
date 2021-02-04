@@ -1,16 +1,17 @@
-import React, { Component } from "react";
-import SEO from "../../components/seo";
-import "../../styles/index.scss";
+import React, { Component } from 'react';
+import SEO from '../../components/seo';
+import '../../styles/index.scss';
 
-import AccordionList from "../../components/accordion-list/accordion-list";
+import AccordionList from '../../components/accordion-list/accordion-list';
 import Reset from '../../components/reset/reset';
-import Share from "../../components/share/share";
-import ToolLayout from "../../components/layouts/tool/tool";
-import ControlBar from "../../components/control-bar/control-bar";
+import Share from '../../components/share/share';
+import ToolLayout from '../../components/layouts/tool/tool';
+import ControlBar from '../../components/control-bar/control-bar';
 
 
 import loadable from '@loadable/component';
-import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
+
 const DendroContainer = loadable(() => import("src/containers/fed-acct/fed-acct-container"),
   {
     fallback: <div className='progress_wrapper'>
@@ -39,9 +40,8 @@ class FederalAccountExplorerPage extends Component {
       >
 
         <SEO
-          title="U.S. Treasury Data Lab - Federal Account Explorer – U.S. Treasury"
-          description="The U.S. Treasury’s Data Lab presents a tree-style visualization exploring nearly 2,000 federal government spending accounts and the amounts spent."
-          keywords={[`contracts`, `federal contracts`, `contractors`, `federal agencies`, `agencies`, `spending`, `federal account`, `dendrogram`]}
+          title="Federal Account Explorer | U.S. Treasury Data Lab"
+          description="Learn how federal government agencies are organized into sub-agencies and find a list of each sub-agency's accounts."
         />
 
         <AccordionList title="Instructions">

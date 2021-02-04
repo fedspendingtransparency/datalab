@@ -5,10 +5,10 @@ exports[`Accordion expect the snapshot to match 1`] = `
   className="container"
 >
   <div
-    className="row"
+    className="MuiGrid-root MuiGrid-container"
   >
     <div
-      className="col-xs-12"
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
     >
       <section
         className="accordion"

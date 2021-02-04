@@ -22,8 +22,8 @@
 .overviewText {
     color: $darkGrey;
     font-size: 1rem;
-    font-weight: 300;
-    padding: 12px 20px; 
+    font-weight: $body-copy-weight;
+    padding: 12px 20px;
     margin-bottom: 12px;
     text-align: center;
 }
@@ -48,14 +48,14 @@
 @media (max-width: $tablet - 1) {
     .overviewMobileContainer {
 	justify-content: center;
-	
+
 	.textContainer {
 	    display: flex;
 	    flex-direction: column;
 	    align-items: center;
 	    min-width: 352px;
 	}
-	
+
 	.overviewText {
         font-size: 1.25rem;
 	    text-align: center;

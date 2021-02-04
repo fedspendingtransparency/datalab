@@ -5,8 +5,8 @@ import fedEmpStyles from './index.module.scss';
 import DataModule from '../../components/visualizations/federal-employees/util/data-module';
 import StoryLayout from '../../components/layouts/story/story';
 import StorySection from '../../components/section-elements/story-section/story-section';
-import loadable from "@loadable/component";
-import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
+import loadable from '@loadable/component';
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 
 const Who = loadable(() => import('src/page-sections/federal-employees/who'),  {
   fallback: <div className='progress_wrapper'>
@@ -79,9 +79,8 @@ export default class FederalEmployeesPage extends Component {
 				hwctaLink={this.props.location.pathname + '/methodologies'}
 			>
 				<SEO
-					title='U.S. Treasury Data lab – Federal Employee Analysis'
-					description="In 2017, the 24 CFO Act Agencies employed nearly 2 million people. This analysis explores federal employees using federal financial data and employment data from OPM."
-					keywords={[`Federal Employees`, `federal spending`, `Federal finances`, `work`, `personnel`, `CFO Act Agencie`, `states`, `occupation categories`, `government finances`, `government employees`, `tree map`, `bar chart`, `choropleth`]}
+					title='Federal Employee Financial and Employment Data | U.S. Treasury Data Lab'
+					description="Explore government employees and agencies using federal financial and employee data from the Office of Personnel and Management."
 				/>
 				{sections.map((item, key) => {
 						const SectionTag = this.sectionComponents[item.tagName];
