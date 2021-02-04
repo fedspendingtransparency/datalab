@@ -39,19 +39,19 @@
     }
 
     .label {
-      position: relative;
+      position: absolute;
       height: 40px;
-      margin-left: 10px;
+      margin-left: 66px;
       padding: 8px 10px;
       color: #fff;
       border-radius: 4px;
       font-size: 1rem;
       font-weight: bold;
+      white-space: nowrap;
 
       .before-arrow {
         content: "";
         position: absolute;
-        right: 100%;
         top: 10px;
         width: 0;
         height: 0;
@@ -79,11 +79,14 @@
 
 @media screen and (max-width: $tablet - 1) {
   .main-container {
-    right: 14px;
+    right: 0;
     width: 50px;
 
     .label {
-      display: none;
+      right: 60px;
     }
   }
 }
+
+
+
