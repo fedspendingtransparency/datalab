@@ -34,7 +34,7 @@
   }
 }
 
-@media (max-width: $phone) {
+@media (max-width: $tablet - 1) {
   .toggle-container {
     justify-content: center;
 
