@@ -37,7 +37,12 @@
 @media (max-width: $phone) {
   .toggle-container {
     justify-content: center;
+
+    .toggle-label {
+      font-size: 0.875rem;
+    }
   }
+
   .toggle-label-active, .toggle-label-inactive{
     white-space: nowrap;
   }
