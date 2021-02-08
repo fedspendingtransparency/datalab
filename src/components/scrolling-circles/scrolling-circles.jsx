@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import pageColorMap from 'src/utils/page-color';
 import { legacy } from 'src/styles/variables.scss';
-import { isMobileDevice } from "../../afg-helpers/utils";
+import { isMobileDevice } from '../../afg-helpers/utils';
 
 import styles from './scrolling-circles.module.scss';
 
@@ -54,6 +54,12 @@ const ScrollingCircles = ({ sections }) => {
 			observer.observe(target);
 		});
 
+		document
+			.getElementById('scroll-to-top')
+			.addEventListener('click', function() {
+				setActiveSection(sections[0].anchor);
+			});
+
 		return () => observer.disconnect();
 	}, []);
 
@@ -95,7 +101,11 @@ const ScrollingCircles = ({ sections }) => {
 						<div className={`${styles.label} ${fadeClass}`} style={activeStyle}>
 							<div
 								className={styles.beforeArrow}
-								style={ isMobileDevice() ? { borderLeft: `solid 10px ${fillColor}`, left: '100%' } : { borderRight: `solid 10px ${fillColor}`, right: '100%' }}
+								style={
+									isMobileDevice()
+										? { borderLeft: `solid 10px ${fillColor}`, left: '100%' }
+										: { borderRight: `solid 10px ${fillColor}`, right: '100%' }
+								}
 							/>
 							{section.section}
 						</div>
