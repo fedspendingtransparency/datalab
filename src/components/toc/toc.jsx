@@ -11,6 +11,7 @@ const Toc = ({ sections }) => {
 		'colleges-and-universities': 'collegesAndUniversities',
 		'federal-covid-funding': 'federalCovidFunding',
 		'homelessness-analysis': 'homelessnessAnalysis',
+		'rd-in-contracting': 'rdInContracting'
 	};
 
 	const [screenMode, setScreenMode] = useState(0);
