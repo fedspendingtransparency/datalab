@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import pageColorMap from 'src/utils/page-color';
 import { legacy } from 'src/styles/variables.scss';
-import { isMobileDevice } from "../../afg-helpers/utils";
 
 import styles from './scrolling-circles.module.scss';
+import { checkScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
 
 const ScrollingCircles = ({ sections }) => {
 	const [activeSection, setActiveSection] = useState(sections[0].anchor);
 	const [fillColor, setFillColor] = useState(legacy);
 	const [fadeClass, setFadeClass] = useState('');
 	const [topMargin, setTopMargin] = useState(106);
+	const [screenMode, setScreenMode] = useState(0);
 
 	const fade = () => {
 		setFadeClass('');
@@ -39,7 +40,23 @@ const ScrollingCircles = ({ sections }) => {
 				const boundingRect = entry.boundingClientRect;
 				const section = entry.target.id.replace('section-', '');
 				const isScrollingDown = previousY[section] > boundingRect.y;
-				const inView = boundingRect.top < 15 && boundingRect.bottom > 0;
+
+				let topThreshold = 15;
+				let bottomThreshold = 0;
+
+				const newMode = checkScreenMode(window.innerWidth);
+
+				if (newMode !== screenMode) {
+					setScreenMode(newMode);
+				}
+
+				if (newMode !== ScreenModeEnum.desktop) {
+					topThreshold = 80;
+					bottomThreshold = 95;
+				}
+
+				const inView =
+					boundingRect.top < topThreshold && boundingRect.bottom > bottomThreshold;
 
 				if (entry.isIntersecting && ratio < 1 && inView) {
 					setActiveSection(section);
@@ -95,7 +112,11 @@ const ScrollingCircles = ({ sections }) => {
 						<div className={`${styles.label} ${fadeClass}`} style={activeStyle}>
 							<div
 								className={styles.beforeArrow}
-								style={ isMobileDevice() ? { borderLeft: `solid 10px ${fillColor}`, left: '100%' } : { borderRight: `solid 10px ${fillColor}`, right: '100%' }}
+								style={
+									screenMode === ScreenModeEnum.mobile
+										? { borderLeft: `solid 10px ${fillColor}`, left: '100%' }
+										: { borderRight: `solid 10px ${fillColor}`, right: '100%' }
+								}
 							/>
 							{section.section}
 						</div>
