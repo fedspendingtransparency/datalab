@@ -168,7 +168,7 @@ export default function Tracking(props) {
 			Spending: {
 				svg: Phase3GeneralSVG,
 				width: 368,
-				height: 93,
+				height: 83,
 				className: 'spending',
 			},
 			Loan: {
