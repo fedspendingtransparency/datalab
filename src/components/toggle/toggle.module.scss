@@ -34,10 +34,15 @@
   }
 }
 
-@media (max-width: $phone) {
+@media (max-width: $tablet - 1) {
   .toggle-container {
     justify-content: center;
+
+    .toggle-label {
+      font-size: 0.875rem;
+    }
   }
+
   .toggle-label-active, .toggle-label-inactive{
     white-space: nowrap;
   }
