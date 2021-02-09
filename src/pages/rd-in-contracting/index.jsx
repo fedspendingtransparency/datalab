@@ -162,14 +162,17 @@ export default class RdInContractingPage extends React.Component {
 					1
 				</a>{' '}
 				From medicine to autonomous vehicles, R&D investments lead to new products,
-				technology advancements, and improved quality of life. To fund R&D work,
-				federal agencies can use grants, loans, and contracts. In this analysis we
-				focus on contracts.
+				technology advancements, and improved quality of life.  And in Fiscal Year
+				2020, R&D has been foundational to addressing the COVID-19 pandemic, from
+				vaccine development, production, and management. To fund R&D work, federal
+				agencies can use grants, loans, and contracts. In this analysis we focus on
+				contracts.
 			</p>
 			<p key={'si2'}>
 				Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts
-				to perform R&D work in fiscal year 2019 (FY 2019), totaling $41.5B. Let’s
-				take a look at the top ten CFO Act agencies by R&D contract spending.
+				to perform R&D work in fiscal year 2020 (FY 2020), totaling $47.8 billion.
+				Let’s take a look at the top ten CFO Act agencies by R&D contract funding
+				and the top seven agencies by COVID-19 R&D contract funding.
 			</p>
 		</>,
 		<p>
@@ -212,16 +215,16 @@ export default class RdInContractingPage extends React.Component {
 
 	sections = [
 		{
-			section: 'Spending',
+			section: 'Funding',
 			anchor: 'spending',
 			number: '01',
-			subtext: 'Spending',
-			subblurb: '2019 Agency Spending',
+			subtext: 'Funding',
+			subblurb: '2020 Agency R&D Funding',
 			sectionTeaser: (
 				<>
 					What{' '}
 					<span className={styles.subtitleHighlight}>
-						portion of federal agency contract spending
+						portion of federal agency contract funding in FY 2020
 					</span>{' '}
 					goes to R&D initiatives?
 				</>
@@ -234,7 +237,7 @@ export default class RdInContractingPage extends React.Component {
 					</Accordion>
 				</aside>
 			),
-			viztitle: 'R&D as a Portion of Total Federal Contract Spending by Agency',
+			viztitle: 'R&D as a Portion of Total Federal Contract Funding by Agency',
 			tagName: 'spending',
 			readMoreOnMobile: true,
 			readMoreStyle: { color: globalStyles.rdBlue },
@@ -304,8 +307,8 @@ export default class RdInContractingPage extends React.Component {
 			return (
 				<StoryLayout
 					hwctaLink={this.props.location.pathname + '/methodologies'}
-					title="Research & Development in Contract Spending"
-					introSentence="How much did the federal government invest in Research & Development with FY 2019 Contract Spending?"
+					title="Research & Development in Contract Funding"
+					introSentence="How much did the federal government invest in Research & Development with FY 2020 Contract Funding?"
 					sectionToc={this.sections}
 					hwctaLink={this.props.location.pathname + '/methodologies'}>
 					<SEO
