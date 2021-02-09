@@ -162,13 +162,13 @@ export default function Tracking(props) {
 			'Law Total': {
 				svg: Phase3TotalSVG,
 				width: 728,
-				height: 83,
+				height: 94,
 				className: 'lawTotal',
 			},
 			Spending: {
 				svg: Phase3GeneralSVG,
 				width: 368,
-				height: 94,
+				height: 83,
 				className: 'spending',
 			},
 			Loan: {
@@ -229,14 +229,14 @@ export default function Tracking(props) {
 			'Law Total': {
 				svg: Phase2TabletSVG,
 				width: 377,
-				height: 31,
+				height: 40,
 			},
 		},
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalTabletSVG,
 				width: 562,
-				height: 40,
+				height: 94,
 			},
 			Spending: {
 				svg: Phase3GeneralTabletSVG,
