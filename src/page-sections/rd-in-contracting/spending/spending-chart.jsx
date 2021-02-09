@@ -6,12 +6,12 @@ import Downloads from '../../../components/section-elements/downloads/downloads'
 import ControlBar from '../../../components/control-bar/control-bar';
 import Share from '../../../components/share/share';
 
-import SectionOneChartDesktop from '../../../svgs/rd-and-contracting/spending/desktop.svg';
-import SectionOneChartTablet from '../../../svgs/rd-and-contracting/spending/tablet.svg';
-import SectionOneChartMobile from '../../../svgs/rd-and-contracting/spending/mobile.svg';
-import SectionOneChartPopupDesktop from '../../../svgs/rd-and-contracting/spending/chart1-desktop-popup.svg';
-import SectionOneChartPopupTablet from '../../../svgs/rd-and-contracting/spending/chart1-tablet-popup.svg';
-import SectionOneChartPopupMobile from '../../../svgs/rd-and-contracting/spending/chart1-mobile-popup.svg';
+import SectionOneChartDesktopAll from '../../../svgs/rd-and-contracting/spending/sectionOneChartDesktopAll.svg';
+import SectionOneChartDesktopCovid from '../../../svgs/rd-and-contracting/spending/sectionOneChartDesktopCovid.svg';
+import SectionOneChartTabletAll from '../../../svgs/rd-and-contracting/spending/SectionOneChartTabletAll.svg';
+import SectionOneChartTabletCovid from '../../../svgs/rd-and-contracting/spending/SectionOneChartTabletCovid.svg';
+import SectionOneChartMobileAll from '../../../svgs/rd-and-contracting/spending/SectionOneChartMobileAll.svg';
+import SectionOneChartMobileCovid from '../../../svgs/rd-and-contracting/spending/SectionOneChartMobileCovid.svg';
 
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -33,110 +33,14 @@ export default class SpendingChart extends React.Component {
 		this.handleWindowSizeChange();
 
 		window.addEventListener('resize', this.handleWindowSizeChange);
-		document.addEventListener('click', this.detailsListener);
-		window.addEventListener('keyup', this.detailsEsc);
-		this.detailsKeyup();
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.handleWindowSizeChange);
-		window.removeEventListener('resize', this.closeDetailResize);
-		document.removeEventListener('click', this.detailsListener);
-		window.removeEventListener('keyup', this.detailsEsc);
 	}
 
 	handleWindowSizeChange = () => {
 		this.setState({bWidth: window.innerWidth});
-	};
-
-	detailsEsc = event => {
-		let that = this;
-		if (that.state.showDetails) {
-			if (event.keyCode === 27) {
-				that.setState({showDetails: false});
-			}
-		}
-	};
-
-	// noinspection JSDeprecatedSymbols
-	detailsKeyup = () => {
-		let that = this;
-		document
-			.getElementById('Show-Details')
-			.addEventListener('keyup', function (event) {
-				event.preventDefault();
-				if (event.keyCode === 13) {
-					that.setState({showDetails: !that.state.showDetails});
-				}
-			});
-		document
-			.getElementById('Show-Details-Text')
-			.addEventListener('keyup', function (event) {
-				event.preventDefault();
-				if (event.keyCode === 13) {
-					that.setState({showDetails: !that.state.showDetails});
-				}
-			});
-	};
-
-	/*
-    - Dynamic Event Listener -
-    Use "e.target" and not element directly as some are not drawn
-    on the DOM yet.
-  */
-	detailsListener = e => {
-		let element = e.target;
-
-		if (element.id === 'Show-Details-Text') {
-			this.setState({showDetails: !this.state.showDetails});
-		}
-
-		if (element.id === 'Show-Details') {
-			this.setState({showDetails: !this.state.showDetails});
-		}
-
-		if (element.id === 'path-10') {
-			this.setState({showDetails: !this.state.showDetails});
-		}
-
-		if (element.id === 'mask-11') {
-			this.setState({showDetails: !this.state.showDetails});
-		}
-
-		/* Little Person Icon */
-		if (element.id === 'Detail-Icon') {
-			this.setState({showDetails: !this.state.showDetails});
-		}
-
-		/* Region bounded by dotted lines */
-		/* This region is covered in IE11... */
-		if (element.id === 'toggle-region') {
-			this.setState({showDetails: !this.state.showDetails});
-		}
-
-		/* The 'x' on "popup-x.svg" to close! */
-		if (element.id === 'x-icon') {
-			this.setState({showDetails: false});
-		}
-
-		/* selectors for IE11... */
-		if (element.correspondingElement) {
-			if (element.correspondingElement.id === 'path-10') {
-				this.setState({showDetails: !this.state.showDetails});
-			}
-
-			if (element.correspondingElement.id === 'Show-Details-Text') {
-				this.setState({showDetails: !this.state.showDetails});
-			}
-
-			if (element.correspondingElement.id === 'Detail-Icon') {
-				this.setState({showDetails: !this.state.showDetails});
-			}
-		}
-	};
-
-	closePopup = () => {
-		this.setState({showDetails: false});
 	};
 
 	instructions = () => (
@@ -216,31 +120,17 @@ export default class SpendingChart extends React.Component {
 					/>
 					{isMobileSvg && (
 						<>
-						<div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`}>
-							<CloseIcon className={styles.closeIconMobile} onClick={this.closePopup}/>
-							<SectionOneChartPopupMobile/>
-						</div>
-							{this.state.checked ? <span style={{color: 'red', fontSize: '50px', marginBottom: '30px'}}>cat photo here</span> : <SectionOneChartMobile />}
+							{this.state.checked ? <SectionOneChartMobileCovid /> : <SectionOneChartMobileAll />}
 						</>
 						)}
 					{isTabletSvg && (
 						<>
-						<div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`}
-								 style={tabletPopupStyle}>
-							<SectionOneChartPopupTablet/>
-							<CloseIcon className={styles.closeIconTablet} onClick={this.closePopup}/>
-						</div>
-							{this.state.checked ? <span style={{color: 'red', fontSize: '50px', marginBottom: '30px'}}>cat photo here</span> : <SectionOneChartTablet />}
+							{this.state.checked ? <SectionOneChartTabletCovid /> : <SectionOneChartTabletAll />}
 						</>
 						)}
 					{largestSvg && (
 						<>
-						<div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`}
-								 style={desktopPopupStyle}>
-							<SectionOneChartPopupDesktop/>
-							<CloseIcon className={styles.closeIconDesktop} onClick={this.closePopup}/>
-						</div>
-							{this.state.checked ? <span style={{color: 'red', fontSize: '50px', marginBottom: '30px'}}>cat photo here</span> : <SectionOneChartDesktop />}
+							{this.state.checked ? <SectionOneChartDesktopCovid /> : <SectionOneChartDesktopAll />}
 						</>
 						)}
 					<Legend/>
