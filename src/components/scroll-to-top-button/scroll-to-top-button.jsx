@@ -7,6 +7,7 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 const ScrollToTopButton = ({ onClick, visible }) => {
 	return (
 		<div
+			id="scroll-to-top"
 			className={styles.scrollToTopContainer}
 			style={{ opacity: visible ? 1 : 0 }}>
 			<IconButton
