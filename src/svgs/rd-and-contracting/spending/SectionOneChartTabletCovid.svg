@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="615px" height="619px" viewBox="0 0 615 619" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="613px" height="615px" viewBox="0 0 613 615" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Viz 1 Tablet Covid Outline</title>
     <defs>
         <polygon id="path-1" points="0 0.642965 48.8110751 0.642965 48.8110751 49.45 0 49.45"></polygon>
@@ -12,7 +12,7 @@
         <polygon id="path-15" points="0.7709 0.477 32.5299 0.477 32.5299 49 0.7709 49"></polygon>
     </defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Viz-1-Tablet-Covid-Outline" transform="translate(0.500000, 0.000000)">
+        <g id="Viz-1-Tablet-Covid-Outline" transform="translate(-0.500000, -4.000000)">
             <g>
                 <g id="Viz-1-Tablet-Covid" transform="translate(18.500000, 0.000000)">
                     <g id="Covid-Tablet">
