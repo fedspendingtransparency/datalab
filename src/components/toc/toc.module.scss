@@ -103,6 +103,14 @@ $mdGrey: #555555;
     }
   }
 
+  .rd-in-contracting-anchor:hover {
+    color: $rdMdBlue;
+    .a {
+      color: $rdMdBlue !important;
+      text-decoration: underline;
+    }
+  }
+
   .legacy-section {
     color: $legacyBlue;
   }
@@ -117,6 +125,10 @@ $mdGrey: #555555;
 
   .homelessness-analysis-section {
     color: $homelessAnalysisPurple;
+  }
+
+  .rd-in-contracting-section {
+    color: $rdMdBlue;
   }
 
   .faded {
