@@ -176,12 +176,12 @@ export default class RdInContractingPage extends React.Component {
 			</p>
 		</>,
 		<p>
-			Federal R&D contract spending supports a wide range of objectives, including
+			Federal R&D contract funding supports a wide range of objectives, including
 			agriculture, education, energy, housing, and national defense. When the
-			government uses contracts to buy products and services, like leasing
-			laboratory space or conducting field research, they use the General Services
-			Administration’s Product and Services Codes (PSC). Using PSCs, we grouped R&D
-			contract spending into 20 spending categories.
+			government uses contracts to buy products and services, like leasing laboratory
+			space or conducting field research, they use the General Services Administration’s
+			Product and Services Codes (PSC).  Using PSCs, we grouped R&D contract funding
+			into 20 funding categories.
 		</p>,
 		<>
 			<p>
@@ -243,22 +243,22 @@ export default class RdInContractingPage extends React.Component {
 			readMoreStyle: { color: globalStyles.rdBlue },
 		},
 		{
-			section: 'Categories',
+			section: 'R&D Funding Categories',
 			anchor: 'categories',
 			number: '02',
-			subtext: 'Categories',
-			subblurb: 'R&D Spending Categories',
+			subtext: 'R&D Funding Categories',
+			subblurb: 'R&D Funding Categories',
 			sectionTeaser: (
 				<>
 					20{' '}
 					<span className={styles.subtitleHighlight} key={'categories-teaser'}>
 						categories of R&D
 					</span>{' '}
-					contract spending in FY 2019
+					contract funding in FY 2020
 				</>
 			),
 			introBlurb: this.secBlurbs[1],
-			viztitle: 'R&D Federal Spending in Contracting by Category',
+			viztitle: 'R&D Federal Funding in Contracting by Category',
 			tagName: 'categories',
 			readMoreOnMobile: true,
 			readMoreStyle: { color: globalStyles.rdBlue },
