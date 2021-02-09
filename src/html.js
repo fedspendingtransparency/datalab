@@ -19,7 +19,7 @@ export default function HTML(props) {
 				/>
 				<link
 					rel="preload"
-					href="../static/fonts/Source_Sans_Pro/woff/sourcesanspro-semibolditalic-webfont.woff"
+					href="/fonts/Source_Sans_Pro/woff/sourcesanspro-semibolditalic-webfont.woff"
 					as="font"
 					crossOrigin="anonymous"
 				/>
