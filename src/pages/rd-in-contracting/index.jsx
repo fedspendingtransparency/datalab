@@ -25,6 +25,7 @@ import Tablet from 'src/svgs/rd-and-contracting/comingsoon/tablet.svg';
 import Mobile from 'src/svgs/rd-and-contracting/comingsoon/mobile.svg';
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import { HeadOnly } from 'src/components/headers/headers';
+import FootnoteAnchor from "../../components/footnotes/footnote-anchor";
 
 export default class RdInContractingPage extends React.Component {
 	constructor(props) {
@@ -156,7 +157,8 @@ export default class RdInContractingPage extends React.Component {
 			<p key={'si1'}>
 				Investment in Research and Development, or R&D, is largely seen as a driver
 				of innovation in both the public and private sectors.
-				<a id="fr1" href="#fn1" className="footnoteref">
+				<a href="#fn1" className="footnoteref">
+					<FootnoteAnchor footnoteId={'fr1'}/>
 					1
 				</a>{' '}
 				From medicine to autonomous vehicles, R&D investments lead to new products,
@@ -182,14 +184,16 @@ export default class RdInContractingPage extends React.Component {
 			<p>
 				The federal government is one of the largest and most consistent funding
 				sources of R&D in the United States,
-				<a id="fr2" href="#fn2" className="footnoteref">
+				<a href="#fn2" className="footnoteref">
+					<FootnoteAnchor footnoteId={'fr2'}/>
 					2
 				</a>{' '}
 				where total R&D obligations had only a net 1% change over the last decade.
 				In total, the National Science Foundation reports that the federal
 				government obligated $146B to R&D initiatives in its 2019 budget, which
 				includes contracts as well as other key funding sources such as grants.
-				<a id="fr3" href="#fn3" className="footnoteref">
+				<a href="#fn3" className="footnoteref">
+					<FootnoteAnchor footnoteId={'fr3'}/>
 					3
 				</a>
 			</p>
@@ -198,7 +202,8 @@ export default class RdInContractingPage extends React.Component {
 				<br />A common rationale for federal R&D spending is that many socially
 				beneficial research projects would not be attempted if society depended on
 				the private sector alone for funding.
-				<a id="fr4" href="#fn4" className="footnoteref">
+				<a href="#fn4" className="footnoteref">
+					<FootnoteAnchor footnoteId={'fr4'}/>
 					4
 				</a>
 			</p>
@@ -328,6 +333,7 @@ export default class RdInContractingPage extends React.Component {
 							<Footnotes
 								footnotes={[
 									<>
+										<FootnoteAnchor footnoteId={"fn1"}/>
 										Global R&D: One Measure of Commitment to Innovation, Global R&D: One
 										Measure of Commitment to Innovation § (2018).
 										<br />
@@ -341,6 +347,7 @@ export default class RdInContractingPage extends React.Component {
 										</a>
 									</>,
 									<>
+										<FootnoteAnchor footnoteId={"fn2"}/>
 										Sargent, John F. "Federal Research and Development (R&D) Funding:
 										FY2019." Federal Research and Development (R&D) Funding: FY2019,
 										October 4, 2018.
@@ -355,6 +362,7 @@ export default class RdInContractingPage extends React.Component {
 										</a>
 									</>,
 									<>
+										<FootnoteAnchor footnoteId={"fn3"}/>
 										National Center for Science and Engineering Statistics, National
 										Science Foundation. 2019. Federal R&D Funding, by Budget Function:
 										Fiscal Years 2018–20. Detailed Statistical Tables NSF 20-305.
@@ -370,6 +378,7 @@ export default class RdInContractingPage extends React.Component {
 										.
 									</>,
 									<>
+										<FootnoteAnchor footnoteId={"fn4"}/>
 										Maloney, Carolyn B, and Charles E Schumer. “The Pivotal Role of
 										Government Investment in Basic Research.” U.S. Congress Joint Economic
 										Committee. U.S. Congress Joint Economic Committee, May 2010.
