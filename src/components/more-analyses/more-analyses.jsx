@@ -12,6 +12,7 @@ import dts from 'src/images/more-analyses/dts.png';
 import explorer from 'src/images/more-analyses/explorer.png';
 import covid from 'src/images/more-analyses/covid.png';
 import afg from 'src/images/more-analyses/afg.png';
+import rd from 'src/images/more-analyses/rd.png';
 
 export default class MoreAnalyses extends React.Component {
 	constructor(props) {
@@ -99,21 +100,29 @@ export default class MoreAnalyses extends React.Component {
 			title: "America's Finance Guide",
 			subtitle: 'How much does the government spend and collect?',
 		},
+		{
+			href: '/rd-in-contracting/',
+			imageSrc: rd,
+			altText:
+				'Abstract Brain with 4 categories: Aeronautics, Infectious Disease, Renewable Energy & Anti-Terrorism. This analysis shows federal R&D funding in 2020.',
+			title: 'R&D in Contracting',
+			subtitle: 'How much does the government invest in research & development?',
+		},
 	];
 
 	show = {
 		// key is current page URL frag, value is array of analyses (above) to show
-		'federal-employees': [8, 9, 0, 4],
-		'colleges-and-universities': [8, 5, 9, 6],
-		dts: [8, 9, 2, 0],
-		'federal-account-explorer': [8, 9, 6, 7],
-		'contract-explorer': [8, 9, 3, 0],
-		'homelessness-analysis': [8, 9, 1, 4],
-		'budget-function': [8, 9, 0, 6],
-		'competition-in-contracting': [8, 9, 7, 5],
-		'rd-in-contracting': [8, 5, 4, 7],
-		'federal-covid-funding': [9, 5, 4, 6],
-		'americas-finance-guide': [8, 6, 7, 2],
+		'federal-employees': [10, 8, 9, 0],
+		'colleges-and-universities': [10, 8, 5, 9],
+		dts: [10, 8, 9, 2],
+		'federal-account-explorer': [10, 8, 9, 6],
+		'contract-explorer': [10, 8, 9, 3],
+		'homelessness-analysis': [10, 8, 9, 1],
+		'budget-function': [10, 8, 9, 0],
+		'competition-in-contracting': [10, 8, 9, 7],
+		'rd-in-contracting': [8, 4, 9, 7],
+		'federal-covid-funding': [10, 9, 5, 4],
+		'americas-finance-guide': [10, 8, 6, 7],
 	};
 
 	showAnything = () => {
