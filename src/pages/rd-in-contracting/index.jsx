@@ -152,7 +152,7 @@ export default class RdInContractingPage extends React.Component {
 		studies: Studies,
 	};
 
-	getSecBlurbs = (state) =>
+	getSecBlurbs = ()  =>
 		[
 			<>
 				<p key={'si1'}>
@@ -173,8 +173,8 @@ export default class RdInContractingPage extends React.Component {
 					Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts
 					to perform R&D work in fiscal year 2020 (FY 2020), totaling $47.8 billion.
 					Let’s take a look at the top ten CFO Act agencies by R&D contract funding
-					and the top {state && state.screenMode > 1 ? 'seven' : 'five'} agencies by
-					COVID-19 R&D contract funding.
+					and the top {this.state && this.state.screenMode > 1 ? 'seven' : 'five'}{' '}
+					agencies by COVID-19 R&D contract funding.
 				</p>
 			</>,
 			<p>
@@ -215,8 +215,7 @@ export default class RdInContractingPage extends React.Component {
 			</>,
 		];
 
-	getSections = (state) =>
-		[
+	getSections = () => [
 			{
 				section: 'Funding',
 				anchor: 'spending',
@@ -232,7 +231,7 @@ export default class RdInContractingPage extends React.Component {
 						goes to R&D initiatives?
 					</>
 				),
-				introBlurb: this.getSecBlurbs(state)[0],
+				introBlurb: this.getSecBlurbs()[0],
 				accordion: (
 					<aside>
 						<Accordion title="What is R&D?" color="#1302D9" backgroundColor="#E7E5FB">
@@ -312,14 +311,14 @@ export default class RdInContractingPage extends React.Component {
 					hwctaLink={this.props.location.pathname + '/methodologies'}
 					title="Research & Development in Contract Funding"
 					introSentence="How much did the federal government invest in Research & Development with FY 2020 Contract Funding?"
-					sectionToc={this.getSections()}
+					sectionToc={this.sections}
 					hwctaLink={this.props.location.pathname + '/methodologies'}>
 					<SEO
 						description="How much does the federal government invest in Research & Development? In FY 2020, $47.8 billion was contracted to R&D initiatives."
 						title="Research & Development in Contract Funding | U.S. Treasury Data Lab"
 					/>
 
-					{this.getSections(this.state).map((item, key) => {
+					{this.getSections().map((item, key) => {
 						const SectionTag = this.sectionComponents[item.tagName];
 						if (!item.comingSoon) {
 							return (
