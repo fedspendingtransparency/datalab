@@ -170,18 +170,17 @@ export default class FederalCovidFunding extends React.Component {
 				<>
 					<p key="section-3-p-1">
 						{CovidCopy.top4percent} percent of the ${CovidCopy.totalbudgetresources}{' '}
-						trillion in COVID-19 funding was appropriated to four agencies:
-						{' '}{CovidCopy.topagency1}, {CovidCopy.topagency4}, {CovidCopy.topagency3},
-						and the {CovidCopy.topagency2} (SBA). Of
-						those funds, roughly half, or ${CovidCopy.loanspending_trillions}{' '}
-						trillion, were allocated to fund loan and loan guarantee programs. These
-						funds could be used to generate an estimated $
-						{CovidCopy.totcredit_trillions} trillion in loans and loan guarantees to
-						businesses and individuals. This includes loans which will be disbursed
-						directly by the government, like the SBA’s Economic Injury Disaster Loan
-						(EIDL) Program. It also includes funds for loan guarantee programs, such
-						as the SBA’s Paycheck Protection Program (PPP), which are disbursed by
-						partner financial institutions.
+						trillion in COVID-19 funding was appropriated to four agencies:{' '}
+						{CovidCopy.topagency1}, {CovidCopy.topagency4}, {CovidCopy.topagency3},
+						and the {CovidCopy.topagency2} (SBA). Of those funds, roughly half, or $
+						{CovidCopy.loanspending_trillions} trillion, were allocated to fund loan
+						and loan guarantee programs. These funds could be used to generate an
+						estimated ${CovidCopy.totcredit_trillions} trillion in loans and loan
+						guarantees to businesses and individuals. This includes loans which will
+						be disbursed directly by the government, like the SBA’s Economic Injury
+						Disaster Loan (EIDL) Program. It also includes funds for loan guarantee
+						programs, such as the SBA’s Paycheck Protection Program (PPP), which are
+						disbursed by partner financial institutions.
 					</p>
 					<p key="section-3-p-2">
 						As of {CovidCopy.monthday}, the federal government had made $
@@ -194,9 +193,9 @@ export default class FederalCovidFunding extends React.Component {
 					<p key="section-3-p-3">
 						Data in this analysis is reflective of Fiscal Year 2020. The Data Lab team
 						is working on updating data from the Consolidated Appropriations Act, 2021
-						(PL 116-260) as well as Fiscal Year 2021. Data will be published when it is
-						ready. To learn more about how we developed this analysis and download the raw data,
-						visit the{' '}
+						(PL 116-260) as well as Fiscal Year 2021. Data will be published when it
+						is ready. To learn more about how we developed this analysis and download
+						the raw data, visit the{' '}
 						<a href="/federal-covid-funding/methodologies">
 							Data Sources and Methodologies
 						</a>{' '}
@@ -248,16 +247,6 @@ export default class FederalCovidFunding extends React.Component {
 					</StorySection>
 				);
 			})}
-
-			<Grid container justify="center">
-				<Grid item xs={10}>
-					<Footnotes
-						footnotes={[
-							'This estimate represents the maximum amount of credit possible given the current amounts committed by Treasury to various Federal Reserve loan facilities and total loans and loan guarantees available through agency programs. This number could grow with additional commitments by Treasury. For more information and detail on this estimate, see the Data Sources and Methodologies section.',
-						]}
-					/>
-				</Grid>
-			</Grid>
 		</StoryLayout>
 	);
 }
