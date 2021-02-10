@@ -152,139 +152,142 @@ export default class RdInContractingPage extends React.Component {
 		studies: Studies,
 	};
 
-	secBlurbs = [
-		<>
-			<p key={'si1'}>
-				Investment in Research and Development, or R&D, is largely seen as a driver
-				of innovation in both the public and private sectors.
-				<a href="#fn1" className="footnoteref">
-					<FootnoteAnchor footnoteId={'fr1'}/>
-					1
-				</a>{' '}
-				From medicine to autonomous vehicles, R&D investments lead to new products,
-				technology advancements, and improved quality of life.  And in Fiscal Year
-				2020, R&D has been foundational to addressing the COVID-19 pandemic, from
-				vaccine development, production, and management. To fund R&D work, federal
-				agencies can use grants, loans, and contracts. In this analysis we focus on
-				contracts.
-			</p>
-			<p key={'si2'}>
-				Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts
-				to perform R&D work in fiscal year 2020 (FY 2020), totaling $47.8 billion.
-				Let’s take a look at the top ten CFO Act agencies by R&D contract funding
-				and the top seven agencies by COVID-19 R&D contract funding.
-			</p>
-		</>,
-		<p>
-			Federal R&D contract funding supports a wide range of objectives, including
-			agriculture, education, energy, housing, and national defense. When the
-			government uses contracts to buy products and services, like leasing laboratory
-			space or conducting field research, they use the General Services Administration’s
-			Product and Services Codes (PSC).  Using PSCs, we grouped R&D contract funding
-			into 20 funding categories.
-		</p>,
-		<>
+	getSecBlurbs = (state) =>
+		[
+			<>
+				<p key={'si1'}>
+					Investment in Research and Development, or R&D, is largely seen as a driver
+					of innovation in both the public and private sectors.
+					<a href="#fn1" className="footnoteref">
+						<FootnoteAnchor footnoteId={'fr1'}/>
+						1
+					</a>{' '}
+					From medicine to autonomous vehicles, R&D investments lead to new products,
+					technology advancements, and improved quality of life.  And in Fiscal Year
+					2020, R&D has been foundational to addressing the COVID-19 pandemic, from
+					vaccine development, production, and management. To fund R&D work, federal
+					agencies can use grants, loans, and contracts. In this analysis we focus on
+					contracts.
+				</p>
+				<p key={'si2'}>
+					Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts
+					to perform R&D work in fiscal year 2020 (FY 2020), totaling $47.8 billion.
+					Let’s take a look at the top ten CFO Act agencies by R&D contract funding
+					and the top {state && state.screenMode > 1 ? 'seven' : 'five'} agencies by
+					COVID-19 R&D contract funding.
+				</p>
+			</>,
 			<p>
-				The federal government is one of the largest and most consistent funding
-				sources of R&D in the United States,
-				<a href="#fn2" className="footnoteref">
-					<FootnoteAnchor footnoteId={'fr2'}/>
-					2
-				</a>{' '}
-				where total R&D obligations had only a net 1% change over the last decade.
-				In total, the National Science Foundation reports that the federal
-				government obligated $146B to R&D initiatives in its 2019 budget, which
-				includes contracts as well as other key funding sources such as grants.
-				<a href="#fn3" className="footnoteref">
-					<FootnoteAnchor footnoteId={'fr3'}/>
-					3
-				</a>
-			</p>
-			<p>
-				<span className={styles.bold}>Why does the government invest in R&D?</span>
-				<br />A common rationale for federal R&D spending is that many socially
-				beneficial research projects would not be attempted if society depended on
-				the private sector alone for funding.
-				<a href="#fn4" className="footnoteref">
-					<FootnoteAnchor footnoteId={'fr4'}/>
-					4
-				</a>
-			</p>
-		</>,
-	];
+				Federal R&D contract funding supports a wide range of objectives, including
+				agriculture, education, energy, housing, and national defense. When the
+				government uses contracts to buy products and services, like leasing laboratory
+				space or conducting field research, they use the General Services Administration’s
+				Product and Services Codes (PSC).  Using PSCs, we grouped R&D contract funding
+				into 20 funding categories.
+			</p>,
+			<>
+				<p>
+					The federal government is one of the largest and most consistent funding
+					sources of R&D in the United States,
+					<a href="#fn2" className="footnoteref">
+						<FootnoteAnchor footnoteId={'fr2'}/>
+						2
+					</a>{' '}
+					where total R&D obligations had only a net 1% change over the last decade.
+					In total, the National Science Foundation reports that the federal
+					government obligated $146B to R&D initiatives in its 2019 budget, which
+					includes contracts as well as other key funding sources such as grants.
+					<a href="#fn3" className="footnoteref">
+						<FootnoteAnchor footnoteId={'fr3'}/>
+						3
+					</a>
+				</p>
+				<p>
+					<span className={styles.bold}>Why does the government invest in R&D?</span>
+					<br />A common rationale for federal R&D spending is that many socially
+					beneficial research projects would not be attempted if society depended on
+					the private sector alone for funding.
+					<a href="#fn4" className="footnoteref">
+						<FootnoteAnchor footnoteId={'fr4'}/>
+						4
+					</a>
+				</p>
+			</>,
+		];
 
-	sections = [
-		{
-			section: 'Funding',
-			anchor: 'spending',
-			number: '01',
-			subtext: 'Funding',
-			subblurb: '2020 Agency R&D Funding',
-			sectionTeaser: (
-				<>
-					What{' '}
-					<span className={styles.subtitleHighlight}>
-						portion of federal agency contract funding in FY 2020
-					</span>{' '}
-					goes to R&D initiatives?
-				</>
-			),
-			introBlurb: this.secBlurbs[0],
-			accordion: (
-				<aside>
-					<Accordion title="What is R&D?" color="#1302D9" backgroundColor="#E7E5FB">
-						{this.whatIsContents()}
-					</Accordion>
-				</aside>
-			),
-			viztitle: 'R&D as a Portion of Total Federal Contract Funding by Agency',
-			tagName: 'spending',
-			readMoreOnMobile: true,
-			readMoreStyle: { color: globalStyles.rdBlue },
-		},
-		{
-			section: 'R&D Funding Categories',
-			anchor: 'categories',
-			number: '02',
-			subtext: 'R&D Funding Categories',
-			subblurb: 'R&D Funding Categories',
-			sectionTeaser: (
-				<>
-					20{' '}
-					<span className={styles.subtitleHighlight} key={'categories-teaser'}>
-						categories of R&D
-					</span>{' '}
-					contract funding in FY 2020
-				</>
-			),
-			introBlurb: this.secBlurbs[1],
-			viztitle: 'R&D Federal Funding in Contracting by Category',
-			tagName: 'categories',
-			readMoreOnMobile: true,
-			readMoreStyle: { color: globalStyles.rdBlue },
-		},
-		{
-			section: 'Studies',
-			anchor: 'studies',
-			number: '03',
-			subtext: 'Studies',
-			subblurb: 'The Big Picture for R&D',
-			comingSoon: true,
-			sectionTeaser: (
-				<>
-					<span className={styles.subtitleHighlight} key={'studies-teaser'}>
-						Long-term trends
-					</span>{' '}
-					in federal R&D spending
-				</>
-			),
-			introBlurb: this.secBlurbs[2],
-			viztitle: 'Federal R&D Obligations 2009-2019',
-			tagName: 'studies',
-			readMoreOnMobile: true,
-			readMoreStyle: { color: globalStyles.rdBlue },
-		},
-	];
+	getSections = (state) =>
+		[
+			{
+				section: 'Funding',
+				anchor: 'spending',
+				number: '01',
+				subtext: 'Funding',
+				subblurb: '2020 Agency R&D Funding',
+				sectionTeaser: (
+					<>
+						What{' '}
+						<span className={styles.subtitleHighlight}>
+							portion of federal agency contract funding in FY 2020
+						</span>{' '}
+						goes to R&D initiatives?
+					</>
+				),
+				introBlurb: this.getSecBlurbs(state)[0],
+				accordion: (
+					<aside>
+						<Accordion title="What is R&D?" color="#1302D9" backgroundColor="#E7E5FB">
+							{this.whatIsContents()}
+						</Accordion>
+					</aside>
+				),
+				viztitle: 'R&D as a Portion of Total Federal Contract Funding by Agency',
+				tagName: 'spending',
+				readMoreOnMobile: true,
+				readMoreStyle: { color: globalStyles.rdBlue },
+			},
+			{
+				section: 'R&D Funding Categories',
+				anchor: 'categories',
+				number: '02',
+				subtext: 'R&D Funding Categories',
+				subblurb: 'R&D Funding Categories',
+				sectionTeaser: (
+					<>
+						20{' '}
+						<span className={styles.subtitleHighlight} key={'categories-teaser'}>
+							categories of R&D
+						</span>{' '}
+						contract funding in FY 2020
+					</>
+				),
+				introBlurb: this.getSecBlurbs()[1],
+				viztitle: 'R&D Federal Funding in Contracting by Category',
+				tagName: 'categories',
+				readMoreOnMobile: true,
+				readMoreStyle: { color: globalStyles.rdBlue },
+			},
+			{
+				section: 'Studies',
+				anchor: 'studies',
+				number: '03',
+				subtext: 'Studies',
+				subblurb: 'The Big Picture for R&D',
+				comingSoon: true,
+				sectionTeaser: (
+					<>
+						<span className={styles.subtitleHighlight} key={'studies-teaser'}>
+							Long-term trends
+						</span>{' '}
+						in federal R&D spending
+					</>
+				),
+				introBlurb: this.getSecBlurbs()[2],
+				viztitle: 'Federal R&D Obligations 2009-2019',
+				tagName: 'studies',
+				readMoreOnMobile: true,
+				readMoreStyle: { color: globalStyles.rdBlue },
+			},
+		];
 
 	prerelease = () => {
 		if (!this.state.isQAT) {
@@ -309,14 +312,14 @@ export default class RdInContractingPage extends React.Component {
 					hwctaLink={this.props.location.pathname + '/methodologies'}
 					title="Research & Development in Contract Funding"
 					introSentence="How much did the federal government invest in Research & Development with FY 2020 Contract Funding?"
-					sectionToc={this.sections}
+					sectionToc={this.getSections()}
 					hwctaLink={this.props.location.pathname + '/methodologies'}>
 					<SEO
 						description="How much does the federal government invest in Research & Development? In FY 2020, $47.8 billion was contracted to R&D initiatives."
 						title="Research & Development in Contract Funding | U.S. Treasury Data Lab"
 					/>
 
-					{this.sections.map((item, key) => {
+					{this.getSections(this.state).map((item, key) => {
 						const SectionTag = this.sectionComponents[item.tagName];
 						if (!item.comingSoon) {
 							return (
