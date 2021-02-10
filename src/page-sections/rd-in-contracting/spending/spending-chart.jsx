@@ -5,18 +5,14 @@ import AccordionList from 'src/components/accordion-list/accordion-list';
 import Downloads from '../../../components/section-elements/downloads/downloads';
 import ControlBar from '../../../components/control-bar/control-bar';
 import Share from '../../../components/share/share';
-
-import SectionOneChartDesktopAll from '../../../svgs/rd-and-contracting/spending/sectionOneChartDesktopAll.svg';
-import SectionOneChartDesktopCovid from '../../../svgs/rd-and-contracting/spending/sectionOneChartDesktopCovid.svg';
-import SectionOneChartTabletAll from '../../../svgs/rd-and-contracting/spending/SectionOneChartTabletAll.svg';
-import SectionOneChartTabletCovid from '../../../svgs/rd-and-contracting/spending/SectionOneChartTabletCovid.svg';
-import SectionOneChartMobileAll from '../../../svgs/rd-and-contracting/spending/SectionOneChartMobileAll.svg';
-import SectionOneChartMobileCovid from '../../../svgs/rd-and-contracting/spending/SectionOneChartMobileCovid.svg';
-
-import CloseIcon from '@material-ui/icons/Close';
-
-import Legend from './legend.jsx';
 import Toggle from "../../../components/toggle/toggle";
+
+import SectionOneChartDesktopAll from 'src/svgs/rd-and-contracting/spending/sectionOneChartDesktopAll.svg';
+import SectionOneChartDesktopCovid from 'src/svgs/rd-and-contracting/spending/sectionOneChartDesktopCovid.svg';
+import SectionOneChartTabletAll from 'src/svgs/rd-and-contracting/spending/SectionOneChartTabletAll.svg';
+import SectionOneChartTabletCovid from 'src/svgs/rd-and-contracting/spending/SectionOneChartTabletCovid.svg';
+import SectionOneChartMobileAll from 'src/svgs/rd-and-contracting/spending/SectionOneChartMobileAll.svg';
+import SectionOneChartMobileCovid from 'src/svgs/rd-and-contracting/spending/SectionOneChartMobileCovid.svg';
 
 export default class SpendingChart extends React.Component {
 	constructor(props) {
@@ -75,12 +71,6 @@ export default class SpendingChart extends React.Component {
 		const isMobileSvg = bWidth <= 576;
 		const largestSvg = bWidth >= 769;
 
-		const tabletPopupStyle = {
-			width: 350,
-			right: '7.5%',
-			top: '10%',
-		};
-
 		const firstToggleOption = {
 			name: 'All R&D Contracts',
 			color: '#002AFF'
@@ -95,8 +85,6 @@ export default class SpendingChart extends React.Component {
 				return {checked: !this.state.checked};
 			})
 		}
-
-		const desktopPopupStyle = {};
 
 		return (
 			<>
@@ -133,7 +121,6 @@ export default class SpendingChart extends React.Component {
 							{this.state.checked ? <SectionOneChartDesktopCovid /> : <SectionOneChartDesktopAll />}
 						</>
 						)}
-					<Legend/>
 					<Downloads
 						href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
 						date={'October 2019'}
@@ -143,3 +130,4 @@ export default class SpendingChart extends React.Component {
 		)
 	}
 }
+
