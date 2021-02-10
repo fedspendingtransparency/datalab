@@ -247,12 +247,6 @@ export default class FederalCovidFunding extends React.Component {
 					</StorySection>
 				);
 			})}
-
-			<Grid container justify="center">
-				<Grid item xs={10}>
-					<Footnotes footnotes={[]} />
-				</Grid>
-			</Grid>
 		</StoryLayout>
 	);
 }

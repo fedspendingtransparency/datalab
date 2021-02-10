@@ -200,7 +200,6 @@ export default function Budget(props) {
 					As of {CovidCopy.reportingdate}, ${CovidCopy.creditused_bill} billion in
 					credit, loans and loan guarantees have been reported and more than $
 					{CovidCopy.creditavail_trill} trillion remain available.
-					{/*This includes six loan programs: the Federal Reserve's emergency lending facilities, two programs managed by the Small Business Administration, two managed by the Department of the Treasury, and one by the Department of Agriculture.*/}
 				</p>
 				<img src={svgs[2].img} width={svgs[2].width} alt={svgs[2].alt} />
 			</PhaseWrapper>
