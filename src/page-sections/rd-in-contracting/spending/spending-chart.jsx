@@ -7,12 +7,53 @@ import ControlBar from '../../../components/control-bar/control-bar';
 import Share from '../../../components/share/share';
 import Toggle from "../../../components/toggle/toggle";
 
-import SectionOneChartDesktopAll from 'src/svgs/rd-and-contracting/spending/sectionOneChartDesktopAll.svg';
-import SectionOneChartDesktopCovid from 'src/svgs/rd-and-contracting/spending/sectionOneChartDesktopCovid.svg';
-import SectionOneChartTabletAll from 'src/svgs/rd-and-contracting/spending/SectionOneChartTabletAll.svg';
-import SectionOneChartTabletCovid from 'src/svgs/rd-and-contracting/spending/SectionOneChartTabletCovid.svg';
-import SectionOneChartMobileAll from 'src/svgs/rd-and-contracting/spending/SectionOneChartMobileAll.svg';
-import SectionOneChartMobileCovid from 'src/svgs/rd-and-contracting/spending/SectionOneChartMobileCovid.svg';
+import SectionOneChartDesktopAll from 'src/images/rd-in-contracting/spending/sectionOneChartDesktopAll.svg';
+import SectionOneChartDesktopCovid from 'src/images/rd-in-contracting/spending/sectionOneChartDesktopCovid.svg';
+import SectionOneChartTabletAll from 'src/images/rd-in-contracting/spending/SectionOneChartTabletAll.svg';
+import SectionOneChartTabletCovid from 'src/images/rd-in-contracting/spending/SectionOneChartTabletCovid.svg';
+import SectionOneChartMobileAll from 'src/images/rd-in-contracting/spending/SectionOneChartMobileAll.svg';
+import SectionOneChartMobileCovid from 'src/images/rd-in-contracting/spending/SectionOneChartMobileCovid.svg';
+
+const desktopSvgs = [
+	{
+		img: SectionOneChartDesktopAll,
+		width: 953,
+		height: 618,
+		alt: ''
+	},
+	{
+		img: SectionOneChartDesktopCovid,
+		width: 955,
+		height: 619,
+		alt: ''
+	},
+]
+
+const tabletSvgs = [
+	{
+		img: SectionOneChartTabletAll,
+		width: 613,
+		height: 615,
+	},
+	{
+		img: SectionOneChartTabletCovid,
+		width: 613,
+		height: 615,
+	},
+]
+
+const phoneSvgs = [
+	{
+		img: SectionOneChartMobileAll,
+		width: 336,
+		height: 613,
+	},
+	{
+		img: SectionOneChartMobileCovid,
+		width: 337,
+		height: 613,
+	},
+]
 
 export default class SpendingChart extends React.Component {
 	constructor(props) {
@@ -108,17 +149,53 @@ export default class SpendingChart extends React.Component {
 					/>
 					{isMobileSvg && (
 						<>
-							{this.state.checked ? <SectionOneChartMobileCovid /> : <SectionOneChartMobileAll />}
+							{this.state.checked ?
+								<img
+									src={phoneSvgs[1].img}
+									width={phoneSvgs[1].width}
+									height={phoneSvgs[1].height}
+								/>
+								:
+								<img
+									src={phoneSvgs[0].img}
+									width={phoneSvgs[0].width}
+									height={phoneSvgs[0].height}
+								/>
+							}
 						</>
 						)}
 					{isTabletSvg && (
 						<>
-							{this.state.checked ? <SectionOneChartTabletCovid /> : <SectionOneChartTabletAll />}
+							{this.state.checked ?
+								<img
+									src={tabletSvgs[1].img}
+									width={tabletSvgs[1].width}
+									height={tabletSvgs[1].height}
+								/>
+								:
+								<img
+									src={tabletSvgs[0].img}
+									width={tabletSvgs[0].width}
+									height={tabletSvgs[0].height}
+								/>
+							}
 						</>
 						)}
 					{largestSvg && (
 						<>
-							{this.state.checked ? <SectionOneChartDesktopCovid /> : <SectionOneChartDesktopAll />}
+							{this.state.checked ?
+								<img
+									src={desktopSvgs[1].img}
+									width={desktopSvgs[1].width}
+									height={desktopSvgs[1].height}
+								/>
+								:
+								<img
+									src={desktopSvgs[0].img}
+									width={desktopSvgs[0].width}
+									height={desktopSvgs[0].height}
+								/>
+							}
 						</>
 						)}
 					<Downloads
