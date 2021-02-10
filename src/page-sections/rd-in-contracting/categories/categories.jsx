@@ -89,9 +89,9 @@ export default function Categories(props) {
 
 	function onHover(e) {
 		const el = e.currentTarget.getElementsByTagName('circle')[0];
-		el.setAttribute('fill', variables.rdBlue);
+		el.setAttribute('fill', variables.rdMdBlue);
 		el.setAttribute('fill-opacity', '.12');
-		el.setAttribute('stroke', variables.rdBlue);
+		el.setAttribute('stroke', variables.rdMdBlue);
 	}
 
 	function clearSelection(e) {
@@ -106,9 +106,9 @@ export default function Categories(props) {
 		const el = e.currentTarget.getElementsByTagName('circle')[0];
 		const item = tooltipData[key];
 
-		el.setAttribute('fill', variables.rdBlue);
+		el.setAttribute('fill', variables.rdMdBlue);
 		el.setAttribute('fill-opacity', '.12');
-		el.setAttribute('stroke', variables.rdBlue);
+		el.setAttribute('stroke', variables.rdMdBlue);
 		el.setAttribute('aria-haspopup', true);
 		el.setAttribute(
 			'aria-owns',
