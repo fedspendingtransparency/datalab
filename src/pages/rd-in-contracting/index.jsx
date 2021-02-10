@@ -224,7 +224,10 @@ export default class RdInContractingPage extends React.Component {
 			introBlurb: this.secBlurbs[0],
 			accordion: (
 				<aside>
-					<Accordion title="What is R&D?" color="#1302D9" backgroundColor="#E7E5FB">
+					<Accordion
+						title="What is R&D?"
+						color={globalStyles.rdMdBlue}
+						backgroundColor={globalStyles.rdAccordionBackground}>
 						{this.whatIsContents()}
 					</Accordion>
 				</aside>
@@ -232,7 +235,7 @@ export default class RdInContractingPage extends React.Component {
 			viztitle: 'R&D as a Portion of Total Federal Contract Spending by Agency',
 			tagName: 'spending',
 			readMoreOnMobile: true,
-			readMoreStyle: { color: globalStyles.rdBlue },
+			readMoreStyle: { color: globalStyles.rdMdBlue },
 		},
 		{
 			section: 'Categories',
@@ -253,29 +256,29 @@ export default class RdInContractingPage extends React.Component {
 			viztitle: 'R&D Federal Spending in Contracting by Category',
 			tagName: 'categories',
 			readMoreOnMobile: true,
-			readMoreStyle: { color: globalStyles.rdBlue },
+			readMoreStyle: { color: globalStyles.rdMdBlue },
 		},
-		{
-			section: 'Studies',
-			anchor: 'studies',
-			number: '03',
-			subtext: 'Studies',
-			subblurb: 'The Big Picture for R&D',
-			comingSoon: true,
-			sectionTeaser: (
-				<>
-					<span className={styles.subtitleHighlight} key={'studies-teaser'}>
-						Long-term trends
-					</span>{' '}
-					in federal R&D spending
-				</>
-			),
-			introBlurb: this.secBlurbs[2],
-			viztitle: 'Federal R&D Obligations 2009-2019',
-			tagName: 'studies',
-			readMoreOnMobile: true,
-			readMoreStyle: { color: globalStyles.rdBlue },
-		},
+		// {
+		// 	section: 'Studies',
+		// 	anchor: 'studies',
+		// 	number: '03',
+		// 	subtext: 'Studies',
+		// 	subblurb: 'The Big Picture for R&D',
+		// 	comingSoon: true,
+		// 	sectionTeaser: (
+		// 		<>
+		// 			<span className={styles.subtitleHighlight} key={'studies-teaser'}>
+		// 				Long-term trends
+		// 			</span>{' '}
+		// 			in federal R&D spending
+		// 		</>
+		// 	),
+		// 	introBlurb: this.secBlurbs[2],
+		// 	viztitle: 'Federal R&D Obligations 2009-2019',
+		// 	tagName: 'studies',
+		// 	readMoreOnMobile: true,
+		// 	readMoreStyle: { color: globalStyles.rdMdBlue },
+		// },
 	];
 
 	prerelease = () => {
@@ -302,7 +305,8 @@ export default class RdInContractingPage extends React.Component {
 					title="Research & Development in Contract Spending"
 					introSentence="How much did the federal government invest in Research & Development with FY 2019 Contract Spending?"
 					sectionToc={this.sections}
-					hwctaLink={this.props.location.pathname + '/methodologies'}>
+					hwctaLink={this.props.location.pathname + '/methodologies'}
+					scrollingToc>
 					<SEO
 						description="How much does the federal government invest in Research & Development? In FY 2019, $41.5 billion was contracted to R&D initiatives."
 						title="U.S. Treasury Data Lab – Research & Development in Contract Spending"
