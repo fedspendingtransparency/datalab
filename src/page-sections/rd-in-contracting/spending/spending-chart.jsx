@@ -108,9 +108,9 @@ export default class SpendingChart extends React.Component {
 
 	render() {
 		const {bWidth} = this.state;
-		const isTabletSvg = bWidth <= 768 && bWidth >= 576;
-		const isMobileSvg = bWidth <= 576;
-		const largestSvg = bWidth >= 769;
+		const isTabletSvg = bWidth <= 991 && bWidth >= 768;
+		const isMobileSvg = bWidth < 768;
+		const largestSvg = bWidth >= 992;
 
 		const firstToggleOption = {
 			name: 'All R&D Contracts',
