@@ -4,19 +4,19 @@ import moreAnalysesStyles from './more-analyses-tiles.module.scss';
 import Grid from '@material-ui/core/Grid';
 
 import homeless from 'src/images/more-analyses/homeless.png';
-import federal from 'src/images/more-analyses/federal.jpg';
 import budget from 'src/images/more-analyses/budget.jpg';
 import competition from 'src/images/more-analyses/competition.jpg';
+import cu from 'src/images/home/collegehomepage.svg';
 
 const MoreAnalysesTiles = () => {
 	const analyses = [
 		{
-			href: '/federal-account-explorer/',
-			imageSrc: federal,
+			href: '/colleges-and-universities/',
+			imageSrc: cu,
 			alt:
-				'A close view of a withered copy of the Statement of the Income and Expenditures of the United States.',
-			title: 'Federal Account Explorer',
-			subtitle: "Discover the federal government's spending accounts",
+				'A university building with three streets leading up to it, each has an icon representing financial aid, grants, and contracts respectively.',
+			title: 'Federal Investment in Higher Education',
+			subtitle: "Explore the federal investment in your alma mater",
 		},
 		{
 			href: '/homelessness-analysis/',
