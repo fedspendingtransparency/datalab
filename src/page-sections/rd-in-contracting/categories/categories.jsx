@@ -44,19 +44,25 @@ export default function Categories(props) {
 	useEffect(() => {
 		const items = {};
 
-		data.map((item, key) => {
+		data.map(item => {
 			items[item.parentpscode] = {
 				id: keyMapper[item.parentpscode],
 				title: item.description,
 				rows: [
-					{ Obligation: numberFormatter('dollars suffix', item.obligations) },
-					{ Percentage: numberFormatter('percent', Math.abs(item.percents)) },
+					{
+						'FY 2020 Obligation': numberFormatter('dollars suffix', item.obligations),
+					},
+					{
+						'FY 2020 COVID-19 Obligation': numberFormatter(
+							'dollars suffix',
+							item.covidobligations
+						),
+					},
 				],
 				tooltipRef: React.createRef(),
 			};
 		});
 
-		console.log(items);
 		setData(items);
 	}, []);
 
@@ -198,13 +204,13 @@ export default function Categories(props) {
 		window.addEventListener('resize', handleResize);
 		window.addEventListener('keydown', e => onEsc(e));
 
-		return _ => {
+		return () => {
 			Object.keys(tooltipData).forEach(key => {
 				const item = tooltipData[key];
 
-				if (typeof document !== 'undefined') {
-					const el = document.getElementById(item.id);
+				const el = document.getElementById(item.id);
 
+				if (el) {
 					el.removeEventListener('mouseover', e => onHover(e));
 					el.removeEventListener('keydown', e =>
 						onKeyDown(e, key, tooltipData[key])
