@@ -270,7 +270,7 @@ export default function Tracking(props) {
 		'2': {
 			'Law Total': {
 				svg: Phase2MobileSVG,
-				width: 288,
+				width: 319,
 			},
 		},
 		'3': {
