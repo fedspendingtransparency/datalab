@@ -11,18 +11,42 @@ import variables from 'src/styles/variables.scss';
 import Desktop from 'src/svgs/rd-and-contracting/categories/desktop.svg';
 import Tablet from 'src/svgs/rd-and-contracting/categories/tablet.svg';
 import Mobile from 'src/svgs/rd-and-contracting/categories/mobile.svg';
-import data from '../../../../static/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318_with_keys.csv';
+// import data from '../../../../static/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318_with_keys.csv';
+import data from '../../../../static/unstructured-data/rd-in-contracting/RnD_viz2_2021-02-09.csv';
 
 export default function Categories(props) {
 	const [windowWidth, setWindowWidth] = useState(null);
 	const [device, setDevice] = useState('desktop');
 	const [tooltipData, setData] = useState({});
+	const keyMapper = {
+		AE: 'economic',
+		AF: 'education',
+		AH: 'environment',
+		AA: 'agriculture',
+		AT: 'transportation-other',
+		AS: 'transportation-modal',
+		AG: 'energy',
+		AP: 'natural-resources',
+		AQ: 'social-services',
+		AV: 'mining',
+		AK: 'housing',
+		AM: 'international',
+		AL: 'income',
+		AB: 'community',
+		AJ: 'Science',
+		AN: 'Medical',
+		AD: 'defense',
+		AR: 'Group-40',
+		AZ: 'other',
+		AC: 'Defense',
+	};
 
 	useEffect(() => {
 		const items = {};
+
 		data.map((item, key) => {
-			items[item.keys] = {
-				id: key,
+			items[item.parentpscode] = {
+				id: keyMapper[item.parentpscode],
 				title: item.description,
 				rows: [
 					{ Obligation: numberFormatter('dollars suffix', item.obligations) },
@@ -32,6 +56,7 @@ export default function Categories(props) {
 			};
 		});
 
+		console.log(items);
 		setData(items);
 	}, []);
 
@@ -55,7 +80,7 @@ export default function Categories(props) {
 				const item = tooltipData[index];
 				if (isOpen(item.id, item.tooltipRef)) {
 					const el = document
-						.getElementById(index)
+						.getElementById(item.id)
 						.getElementsByTagName('circle')[0];
 					el.setAttribute('fill', 'white');
 					el.setAttribute('fill-opacity', '1');
@@ -76,7 +101,7 @@ export default function Categories(props) {
 				const item = tooltipData[index];
 				if (isOpen(item.id, item.tooltipRef)) {
 					const el = document
-						.getElementById(index)
+						.getElementById(item.id)
 						.getElementsByTagName('circle')[0];
 					el.setAttribute('fill', 'white');
 					el.setAttribute('fill-opacity', '1');
@@ -157,13 +182,16 @@ export default function Categories(props) {
 
 		if (typeof document !== 'undefined') {
 			Object.keys(tooltipData).forEach(key => {
-				const el = document.getElementById(key);
-				el.setAttribute('tabindex', '0');
-				el.setAttribute('focusable', true);
-				el.addEventListener('mouseover', e => onHover(e));
-				el.addEventListener('keydown', e => onKeyDown(e, key, tooltipData[key]));
-				el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
-				el.addEventListener('mouseout', e => clearSelection(e));
+				const item = tooltipData[key];
+				const el = document.getElementById(item.id);
+				if (el) {
+					el.setAttribute('tabindex', '0');
+					el.setAttribute('focusable', true);
+					el.addEventListener('mouseover', e => onHover(e));
+					el.addEventListener('keydown', e => onKeyDown(e, key, tooltipData[key]));
+					el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
+					el.addEventListener('mouseout', e => clearSelection(e));
+				}
 			});
 		}
 
@@ -172,8 +200,10 @@ export default function Categories(props) {
 
 		return _ => {
 			Object.keys(tooltipData).forEach(key => {
+				const item = tooltipData[key];
+
 				if (typeof document !== 'undefined') {
-					const el = document.getElementById(key);
+					const el = document.getElementById(item.id);
 
 					el.removeEventListener('mouseover', e => onHover(e));
 					el.removeEventListener('keydown', e =>
