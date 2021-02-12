@@ -35,9 +35,9 @@ export default function Categories(props) {
 		AB: 'community',
 		AJ: 'Science',
 		AN: 'Medical',
-		AD: 'defense',
-		AR: 'Group-40',
-		AZ: 'other',
+		AD: 'defense-other',
+		AR: 'Space',
+		AZ: 'Other',
 		AC: 'Defense',
 	};
 
@@ -63,6 +63,7 @@ export default function Categories(props) {
 			};
 		});
 
+		console.log(items);
 		setData(items);
 	}, []);
 
@@ -191,6 +192,7 @@ export default function Categories(props) {
 				const item = tooltipData[key];
 				const el = document.getElementById(item.id);
 				if (el) {
+					console.log(el);
 					el.setAttribute('tabindex', '0');
 					el.setAttribute('focusable', true);
 					el.addEventListener('mouseover', e => onHover(e));
