@@ -63,7 +63,6 @@ export default function Categories(props) {
 			};
 		});
 
-		console.log(items);
 		setData(items);
 	}, []);
 
@@ -192,7 +191,6 @@ export default function Categories(props) {
 				const item = tooltipData[key];
 				const el = document.getElementById(item.id);
 				if (el) {
-					console.log(el);
 					el.setAttribute('tabindex', '0');
 					el.setAttribute('focusable', true);
 					el.addEventListener('mouseover', e => onHover(e));
