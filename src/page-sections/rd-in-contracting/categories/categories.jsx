@@ -271,7 +271,7 @@ export default function Categories(props) {
 			case 'tablet':
 				return <Tablet />;
 			case 'mobile':
-				return <Mobile />;
+				return <Mobile className="category-svg-centered" />;
 			default:
 				return <Desktop />;
 		}
