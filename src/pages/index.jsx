@@ -34,7 +34,7 @@ function IndexPage(props) {
 				className={homeStyles.featuredTileRow}>
 				<Grid item md={12} lg={8} className={homeStyles.featuredTile}>
 					<FeatureTile
-						href="/rd-in contracting/"
+						href="/rd-in-contracting/"
 						imgSrc={rd}
 						isMain
 						imgAlt="Abstract Brain with 4 categories: Aeronautics, Infectious Disease, Renewable Energy & Anti-Terrorism. This analysis shows federal R&D funding in 2020."
