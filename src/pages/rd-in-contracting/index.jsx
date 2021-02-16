@@ -340,7 +340,8 @@ export default class RdInContractingPage extends React.Component {
 					title="Research & Development in Contract Funding"
 					introSentence="How much did the federal government invest in Research & Development with FY 2020 Contract Funding?"
 					sectionToc={this.sections}
-					hwctaLink={this.props.location.pathname + '/methodologies'}>
+					hwctaLink={this.props.location.pathname + '/methodologies'}
+					scrollingToc>
 					<SEO
 						description="How much does the federal government invest in Research & Development? In FY 2020, $47.8 billion was contracted to R&D initiatives."
 						title="Research & Development in Contract Funding | U.S. Treasury Data Lab"

@@ -3,6 +3,8 @@ https://datalab.usaspending.gov/budget-function/
 https://datalab.usaspending.gov/budget-function/methodologies/
 https://datalab.usaspending.gov/colleges-and-universities/
 https://datalab.usaspending.gov/colleges-and-universities/methodologies/
+https://datalab.usaspending.gov/rd-in-contracting/
+https://datalab.usaspending.gov/rd-in-contracting/methodologies/
 https://datalab.usaspending.gov/competition-in-contracting/
 https://datalab.usaspending.gov/competition-in-contracting/methodologies/
 https://datalab.usaspending.gov/contract-explorer/

@@ -11,6 +11,7 @@ const GenericHeader = ({ isHome }) => (
           { name: 'Colleges and Universities', link: '/colleges-and-universities/' },
           { name: 'Homelessness Analysis', link: '/homelessness-analysis/' },
           { name: 'Federal Employees', link: '/federal-employees/' },
+          { name: 'R&D In Contracting', link: '/rd-in-contracting/' },
           { name: 'Competition In Contracting', link: '/competition-in-contracting/' },
           { name: 'Contract Explorer', link: '/contract-explorer/' },
           { name: 'DTS Tracker', link: '/dts/' },
