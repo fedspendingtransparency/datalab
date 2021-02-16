@@ -165,9 +165,9 @@ export default class RdInContractingPage extends React.Component {
 					From medicine to autonomous vehicles, R&D investments lead to new products,
 					technology advancements, and improved quality of life.  And in Fiscal Year
 					2020, R&D has been foundational to addressing the COVID-19 pandemic, from
-					vaccine development, production, and management. To fund R&D work, federal
-					agencies can use grants, loans, and contracts. In this analysis we focus on
-					contracts.
+					vaccine development, production, and logistics management. To fund R&D work,
+					federal agencies can use grants, loans, and contracts. In this analysis we
+					focus on contracts.
 				</p>
 				<p key={'si2'}>
 					Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts
@@ -184,6 +184,13 @@ export default class RdInContractingPage extends React.Component {
 				space or conducting field research, they use the General Services Administration’s
 				Product and Services Codes (PSC).  Using PSCs, we grouped R&D contract funding
 				into 20 funding categories.
+			</p>,
+			<p>
+				The federal government awards a variety of entities, educational institutions,
+				private companies,  when it comes to R&D contracts. Below, we highlight the
+				top 5 R&D contract awardees by each of the 20 categories explored in Section 2.
+				We also break out the top 5 COVID-19 R&D contract awardees by the categories
+				under which COVID-19.
 			</p>,
 			<>
 				<p>
@@ -245,47 +252,68 @@ export default class RdInContractingPage extends React.Component {
 				readMoreStyle: { color: globalStyles.rdBlue },
 			},
 			{
-				section: 'R&D Funding Categories',
+				section: 'R&D Spending Categories',
 				anchor: 'categories',
 				number: '02',
-				subtext: 'R&D Funding Categories',
-				subblurb: 'R&D Funding Categories',
+				subtext: 'R&D Spending Categories',
+				subblurb: 'R&D Spending Categories',
 				sectionTeaser: (
 					<>
 						20{' '}
 						<span className={styles.subtitleHighlight} key={'categories-teaser'}>
 							categories of R&D
 						</span>{' '}
-						contract funding in FY 2020
+						contract spending in FY 2020
 					</>
 				),
 				introBlurb: this.getSecBlurbs()[1],
-				viztitle: 'R&D Federal Funding in Contracting by Category',
+				viztitle: 'R&D Federal Spending in Contracting by Category',
 				tagName: 'categories',
 				readMoreOnMobile: true,
 				readMoreStyle: { color: globalStyles.rdBlue },
 			},
 			{
-				section: 'Studies',
-				anchor: 'studies',
+				section: 'Contracts',
+				anchor: 'contracts',
 				number: '03',
-				subtext: 'Studies',
-				subblurb: 'The Big Picture for R&D',
+				subtext: 'Contracts',
+				subblurb: 'Top R&D Contracts',
 				comingSoon: true,
 				sectionTeaser: (
 					<>
-						<span className={styles.subtitleHighlight} key={'studies-teaser'}>
-							Long-term trends
-						</span>{' '}
-						in federal R&D spending
+							<span className={styles.subtitleHighlight} key={'studies-teaser'}>
+								Top 5 R&D Contracts
+							</span>{' '}
+						by category in FY 2020
 					</>
 				),
 				introBlurb: this.getSecBlurbs()[2],
-				viztitle: 'Federal R&D Obligations 2009-2019',
-				tagName: 'studies',
+				viztitle: '',
+				tagName: 'contracts',
 				readMoreOnMobile: true,
 				readMoreStyle: { color: globalStyles.rdBlue },
 			},
+			// {
+			// 	section: 'Studies',
+			// 	anchor: 'studies',
+			// 	number: '04',
+			// 	subtext: 'Studies',
+			// 	subblurb: 'The Big Picture for R&D',
+			// 	comingSoon: true,
+			// 	sectionTeaser: (
+			// 		<>
+			// 			<span className={styles.subtitleHighlight} key={'studies-teaser'}>
+			// 				Long-term trends
+			// 			</span>{' '}
+			// 			in federal R&D spending
+			// 		</>
+			// 	),
+			// 	introBlurb: this.getSecBlurbs()[3],
+			// 	viztitle: 'Federal R&D Obligations 2010-2020',
+			// 	tagName: 'studies',
+			// 	readMoreOnMobile: true,
+			// 	readMoreStyle: { color: globalStyles.rdBlue },
+			// },
 		];
 
 	prerelease = () => {

@@ -204,7 +204,7 @@ export default class SpendingChart extends React.Component {
 							siteUrl={this.props.location.origin}
 							pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
 							title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-							text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY20? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+							text={`Which agencies had the highest proportion of contract funding devoted to R&D initiatives in FY20? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
 							hoverColor='#1302d9'
 						/>
 					</ControlBar>
