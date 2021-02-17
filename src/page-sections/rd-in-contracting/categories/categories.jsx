@@ -11,22 +11,52 @@ import variables from 'src/styles/variables.scss';
 import Desktop from 'src/svgs/rd-and-contracting/categories/desktop.svg';
 import Tablet from 'src/svgs/rd-and-contracting/categories/tablet.svg';
 import Mobile from 'src/svgs/rd-and-contracting/categories/mobile.svg';
-import data from '../../../../static/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318_with_keys.csv';
+import data from '../../../../static/unstructured-data/rd-in-contracting/RnD_viz2_2021-02-09.csv';
 
 export default function Categories(props) {
 	const [windowWidth, setWindowWidth] = useState(null);
 	const [device, setDevice] = useState('desktop');
 	const [tooltipData, setData] = useState({});
+	const keyMapper = {
+		AE: 'economic',
+		AF: 'education',
+		AH: 'environment',
+		AA: 'agriculture',
+		AT: 'transportation-other',
+		AS: 'transportation-modal',
+		AG: 'energy',
+		AP: 'natural-resources',
+		AQ: 'social-services',
+		AV: 'mining',
+		AK: 'housing',
+		AM: 'international',
+		AL: 'income',
+		AB: 'community',
+		AJ: 'Science',
+		AN: 'Medical',
+		AD: 'defense-other',
+		AR: 'Space',
+		AZ: 'Other',
+		AC: 'Defense',
+	};
 
 	useEffect(() => {
 		const items = {};
-		data.map((item, key) => {
-			items[item.keys] = {
-				id: key,
+
+		data.map(item => {
+			items[item.parentpscode] = {
+				id: keyMapper[item.parentpscode],
 				title: item.description,
 				rows: [
-					{ Obligation: numberFormatter('dollars suffix', item.obligations) },
-					{ Percentage: numberFormatter('percent', Math.abs(item.percents)) },
+					{
+						'FY 2020 Obligation': numberFormatter('dollars suffix', item.obligations),
+					},
+					{
+						'FY 2020 COVID-19 Obligation': numberFormatter(
+							'dollars suffix',
+							item.covidobligations
+						),
+					},
 				],
 				tooltipRef: React.createRef(),
 			};
@@ -55,7 +85,7 @@ export default function Categories(props) {
 				const item = tooltipData[index];
 				if (isOpen(item.id, item.tooltipRef)) {
 					const el = document
-						.getElementById(index)
+						.getElementById(item.id)
 						.getElementsByTagName('circle')[0];
 					el.setAttribute('fill', 'white');
 					el.setAttribute('fill-opacity', '1');
@@ -76,7 +106,7 @@ export default function Categories(props) {
 				const item = tooltipData[index];
 				if (isOpen(item.id, item.tooltipRef)) {
 					const el = document
-						.getElementById(index)
+						.getElementById(item.id)
 						.getElementsByTagName('circle')[0];
 					el.setAttribute('fill', 'white');
 					el.setAttribute('fill-opacity', '1');
@@ -157,24 +187,29 @@ export default function Categories(props) {
 
 		if (typeof document !== 'undefined') {
 			Object.keys(tooltipData).forEach(key => {
-				const el = document.getElementById(key);
-				el.setAttribute('tabindex', '0');
-				el.setAttribute('focusable', true);
-				el.addEventListener('mouseover', e => onHover(e));
-				el.addEventListener('keydown', e => onKeyDown(e, key, tooltipData[key]));
-				el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
-				el.addEventListener('mouseout', e => clearSelection(e));
+				const item = tooltipData[key];
+				const el = document.getElementById(item.id);
+				if (el) {
+					el.setAttribute('tabindex', '0');
+					el.setAttribute('focusable', true);
+					el.addEventListener('mouseover', e => onHover(e));
+					el.addEventListener('keydown', e => onKeyDown(e, key, tooltipData[key]));
+					el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
+					el.addEventListener('mouseout', e => clearSelection(e));
+				}
 			});
 		}
 
 		window.addEventListener('resize', handleResize);
 		window.addEventListener('keydown', e => onEsc(e));
 
-		return _ => {
+		return () => {
 			Object.keys(tooltipData).forEach(key => {
-				if (typeof document !== 'undefined') {
-					const el = document.getElementById(key);
+				const item = tooltipData[key];
 
+				const el = document.getElementById(item.id);
+
+				if (el) {
 					el.removeEventListener('mouseover', e => onHover(e));
 					el.removeEventListener('keydown', e =>
 						onKeyDown(e, key, tooltipData[key])
@@ -209,7 +244,11 @@ export default function Categories(props) {
 
 	function onPopoverOpen(event, id, ref) {
 		if (ref && ref.current) {
-			ref.current.handlePopoverOpen(event, id);
+			ref.current.handlePopoverOpen(
+				id,
+				event.currentTarget.id,
+				event.currentTarget
+			);
 		}
 
 		// close all other popups
@@ -230,14 +269,16 @@ export default function Categories(props) {
 		return isOpen;
 	}
 
+	const altText = 'Horizontal scatter plot diagram displaying icons of various funding categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.';
+
 	function Chart() {
 		switch (device) {
 			case 'tablet':
-				return <Tablet />;
+				return <Tablet alt={altText} />;
 			case 'mobile':
-				return <Mobile />;
+				return <Mobile  className="category-svg-centered" alt={altText} />;
 			default:
-				return <Desktop />;
+				return <Desktop alt={altText} />;
 		}
 	}
 
@@ -248,11 +289,12 @@ export default function Categories(props) {
 				<p>In this visualization, categories are represented by icons.</p>
 				<ul>
 					<li>
-						Click or tap on an icon to see the category name, total dollars contracted
-						for this category, and the percentage this total accounts for within R&D
-						contract spending
+						Click or tap on an icon to see the category name, total dollars
+						obligated for R&D in this category, total dollars obligated for COVID-19
+						R&D in this category, and the percentage this total accounts for within
+						R&D contract funding.
 					</li>
-					<li>To exit the pop-up, click or tap the X</li>
+					<li>To exit the pop-up, reclick the icon or click on the X.</li>
 				</ul>
 			</AccordionList>
 
@@ -260,8 +302,8 @@ export default function Categories(props) {
 				<Share
 					siteUrl={props.location.origin}
 					pageUrl={`${props.location.pathname}#${props.sectionId}`}
-					title="Data Lab - R&D in Contract Spending - U.S. Treasury"
-					text="What do agriculture, energy, and national defense all have in common? They’re all areas where the government spent dollars on R&D in 2019! Check out the latest analysis at #DataLab to learn more! #Transparency #Research"
+					title="Data Lab - R&D in Contract Funding - U.S. Treasury"
+					text="What do agriculture, energy, and national defense all have in common? They’re all areas where the government spent dollars on R&D in 2020! Check out the latest analysis at #DataLab to learn more! #Transparency #Research"
 					hoverColor="#1302d9"
 				/>
 			</ControlBar>
@@ -270,7 +312,7 @@ export default function Categories(props) {
 
 			<Downloads
 				href="/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv"
-				date="October 2019"
+				date="October 2020"
 			/>
 
 			{Object.keys(tooltipData).map(i => {
