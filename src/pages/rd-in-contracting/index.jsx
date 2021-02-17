@@ -277,28 +277,7 @@ export default class RdInContractingPage extends React.Component {
 			viztitle: '',
 			tagName: 'contracts',
 			readMoreOnMobile: true,
-			readMoreStyle: { color: globalStyles.rdBlue },
-		},
-		{
-			section: 'Contracts',
-			anchor: 'contracts',
-			number: '03',
-			subtext: 'Contracts',
-			subblurb: 'Top R&D Contracts',
-			comingSoon: true,
-			sectionTeaser: (
-				<>
-						<span className={styles.subtitleHighlight} key={'studies-teaser'}>
-							Top 5 R&D Contracts
-						</span>{' '}
-					by category in FY 2020
-				</>
-			),
-			introBlurb: this.getSecBlurbs()[2],
-			viztitle: '',
-			tagName: 'contracts',
-			readMoreOnMobile: true,
-			readMoreStyle: { color: globalStyles.rdBlue },
+			readMoreStyle: { color: globalStyles.rdMdBlue },
 		},
 		// {
 		// 	section: 'Studies',
