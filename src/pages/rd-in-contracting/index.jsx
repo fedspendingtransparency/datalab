@@ -18,32 +18,20 @@ import bottle from 'src/images/rd-in-contracting/bottle.svg';
 import bulb from 'src/images/rd-in-contracting/bulb.svg';
 import Grid from '@material-ui/core/Grid';
 
-// Coming Soon only!
-import Default from 'src/components/layouts/default/default';
-import Desktop from 'src/svgs/rd-and-contracting/comingsoon/desktop.svg';
-import Tablet from 'src/svgs/rd-and-contracting/comingsoon/tablet.svg';
-import Mobile from 'src/svgs/rd-and-contracting/comingsoon/mobile.svg';
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
-import { HeadOnly } from 'src/components/headers/headers';
 import FootnoteAnchor from '../../components/footnotes/footnote-anchor';
 
 export default class RdInContractingPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			screenMode: 0,
-			isQAT: false,
+			screenMode: ScreenModeEnum.mobile,
 		};
 	}
 
 	componentDidMount() {
 		this.resizeWindow();
 		window.addEventListener('resize', this.resizeWindow);
-		this.setState({
-			isQAT:
-				window.location.href.indexOf('localhost') > -1 ||
-				window.location.href.indexOf('datalab-qat') > -1,
-		});
 	}
 
 	componentWillUnmount() {
@@ -311,80 +299,58 @@ export default class RdInContractingPage extends React.Component {
 		// },
 	];
 
-	prerelease = () => {
-		if (!this.state.isQAT) {
-			return (
-				<Default>
-					<HeadOnly />
-					<div className={styles.comingSoon}>
-						<h1>Research & Development in Contract Spending</h1>
-						{this.state.screenMode === ScreenModeEnum.mobile ? (
-							<Mobile />
-						) : this.state.screenMode === ScreenModeEnum.tablet ? (
-							<Tablet />
-						) : (
-							<Desktop />
-						)}
-					</div>
-				</Default>
-			);
-		} else {
-			return (
-				<StoryLayout
-					hwctaLink={this.props.location.pathname + '/methodologies'}
-					title="Research & Development in Contract Funding"
-					introSentence="How much did the federal government invest in Research & Development with FY 2020 Contract Funding?"
-					sectionToc={this.sections}
-					hwctaLink={this.props.location.pathname + '/methodologies'}
-					scrollingToc>
-					<SEO
-						description="How much does the federal government invest in Research & Development? In FY 2020, $47.8 billion was contracted to R&D initiatives."
-						title="Research & Development in Contract Funding | U.S. Treasury Data Lab"
-					/>
-
-					{this.sections.map((item, key) => {
-						const SectionTag = this.sectionComponents[item.tagName];
-						if (!item.comingSoon) {
-							return (
-								<StorySection key={key} header={item}>
-									<SectionTag
-										sectionId={`section-${item.anchor}`}
-										section={item}
-										location={this.props.location}
-									/>
-								</StorySection>
-							);
-						}
-					})}
-
-					<Grid container className={styles.footnotes}>
-						<Grid item xs={10}>
-							<Footnotes
-								footnotes={[
-									<>
-										<FootnoteAnchor footnoteId={'fn1'} />
-										Global R&D: One Measure of Commitment to Innovation, Global R&D: One
-										Measure of Commitment to Innovation § (2018).
-										<br />
-										<a
-											href="https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation"
-											rel="noreferrer noopener"
-											target="_blank"
-											className={styles.link}>
-											https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation
-											<LaunchOutlinedIcon className={styles.extLink} />
-										</a>
-									</>,
-								]}
-							/>
-						</Grid>
-					</Grid>
-				</StoryLayout>
-			);
-		}
-	};
-
 	render = () => {
-		return this.prerelease();
+		return (
+			<StoryLayout
+				hwctaLink={this.props.location.pathname + '/methodologies'}
+				title="Research & Development in Contract Funding"
+				introSentence="How much did the federal government invest in Research & Development with FY 2020 Contract Funding?"
+				sectionToc={this.sections}
+				hwctaLink={this.props.location.pathname + '/methodologies'}
+				scrollingToc>
+				<SEO
+					description="How much does the federal government invest in Research & Development? In FY 2020, $47.8 billion was contracted to R&D initiatives."
+					title="Research & Development in Contract Funding | U.S. Treasury Data Lab"
+				/>
+
+				{this.sections.map((item, key) => {
+					const SectionTag = this.sectionComponents[item.tagName];
+					if (!item.comingSoon) {
+						return (
+							<StorySection key={key} header={item}>
+								<SectionTag
+									sectionId={`section-${item.anchor}`}
+									section={item}
+									location={this.props.location}
+								/>
+							</StorySection>
+						);
+					}
+				})}
+
+				<Grid container className={styles.footnotes}>
+					<Grid item xs={10}>
+						<Footnotes
+							footnotes={[
+								<>
+									<FootnoteAnchor footnoteId={'fn1'} />
+									Global R&D: One Measure of Commitment to Innovation, Global R&D: One
+									Measure of Commitment to Innovation § (2018).
+									<br />
+									<a
+										href="https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation"
+										rel="noreferrer noopener"
+										target="_blank"
+										className={styles.link}>
+										https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation
+										<LaunchOutlinedIcon className={styles.extLink} />
+									</a>
+								</>,
+							]}
+						/>
+					</Grid>
+				</Grid>
+			</StoryLayout>
+		);
 	};
 }
