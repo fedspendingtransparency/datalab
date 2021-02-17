@@ -24,7 +24,7 @@ class MouseOverPopover extends React.Component {
 		this.state = {
 			anchorEl: null,
 			openedPopperId: null,
-			event: null,
+			target: null,
 		};
 	}
 
@@ -42,37 +42,21 @@ class MouseOverPopover extends React.Component {
 		}
 	};
 
+	handleResize = e => {
+		this.handlePopoverClose();
+	};
+
 	isOpen = id => {
 		const { openedPopperId } = this.state;
 		return openedPopperId === id;
 	};
 
-	handlePopoverOpen = (event, popperId) => {
+	handlePopoverOpen = (popperId, target, anchor) => {
 		this.setState({
 			openedPopperId: popperId,
-			anchorEl: event.currentTarget,
-			event: event,
+			target: target,
+			anchorEl: anchor,
 		});
-	};
-
-	handleResize = e => {
-		this.setState(
-			prevState => {
-				if (prevState.anchorEl) {
-					return {
-						openedPopperId: prevState.openedPopperId,
-						anchorEl: prevState.anchorEl,
-						event: prevState.event,
-					};
-				}
-			},
-			() => {
-				if (this.state.anchorEl) {
-					console.log(this.state);
-					this.handlePopoverOpen(this.state.event, this.state.openedPopperId);
-				}
-			}
-		);
 	};
 
 	handlePopoverClose = () => {

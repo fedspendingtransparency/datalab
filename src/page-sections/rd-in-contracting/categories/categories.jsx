@@ -209,7 +209,11 @@ export default function Categories(props) {
 
 	function onPopoverOpen(event, id, ref) {
 		if (ref && ref.current) {
-			ref.current.handlePopoverOpen(event, id);
+			ref.current.handlePopoverOpen(
+				id,
+				event.currentTarget.id,
+				event.currentTarget
+			);
 		}
 
 		// close all other popups
