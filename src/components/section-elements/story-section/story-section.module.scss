@@ -21,3 +21,10 @@
     margin-top: 35px;
   }
 }
+
+@media (max-width: $tablet - 1) {
+  .alignLeft {
+    display: flex;
+    flex-direction: column;
+  }
+}
