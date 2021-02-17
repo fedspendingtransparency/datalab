@@ -82,6 +82,7 @@ h2 {
 @media (min-width: $tablet) and (max-width: $desktop - 1) {
   .story-page {
     max-width: $tablet-mcw;
+    padding: 0 40px;
   }
 }
 
@@ -94,6 +95,7 @@ h2 {
 @media (max-width: $tablet - 1) {
   .story-page {
     margin: 0 $margin-15 $margin-50;
+    padding: 0 40px;
   }
 
   .intro-sentence {

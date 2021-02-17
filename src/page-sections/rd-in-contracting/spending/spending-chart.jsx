@@ -143,10 +143,9 @@ export default class SpendingChart extends React.Component {
 		<AccordionList title="Instructions">
 			<ul>
 				<li>
-					To better view the values for DHS, AID, DoEd, DOC, and the VA, click or tap
-					on the values for any of these agencies
+					Toggle between the views to see agency funding by total R&D contracts
+					and COVID-19 R&D contracts.
 				</li>
-				<li>To exit the pop-up, click or tap the X</li>
 			</ul>
 			<span className={styles.instructionHeader}>Label Definitions</span>
 			<div className={styles.instructionNotes}>
@@ -156,14 +155,13 @@ export default class SpendingChart extends React.Component {
         DOE – Department of Energy
         DOT – Department of Transportation
         DHS – Department of Homeland Security
-        AID – Agency for International Development
+        USAID – US Agency for International Development
         DoEd – Department of Education
         DOC – Department of Commerce
         VA – Department of Veterans’ Affairs`}
 			</div>
 		</AccordionList>
 	);
-
 
 	render() {
 		const {bWidth} = this.state;
@@ -194,6 +192,8 @@ export default class SpendingChart extends React.Component {
 
 		const desktopPopupStyle = {};
 
+		const altText = 'Donut chart of FY 20 federal agency R&D contract funding as a percentage of total contract funding by each agency. Below it is a bar chart of FY 20 federal agency R&D contract funding in billions by each agency. DoD & NASA have the highest R&D contract funding, with NASA having the highest R&D contract funding as proportion of total contract funding. Toggling to the COVID-19 R&D Contracts reveals a similar donut chart of FY 20 federal agency COVID-19 R&D Contracts as a percentage of total R&D contract funding. Below this chart is a bar chart of FY 20 federal agency COVID-19 R&D contracts in billions. HHS and DOD have the highest COVID-19 R&D contract funding, with HHS having the highest COVID-19 R&D contract funding as a proportion of total R&D contract funding. '
+
 		return (
 			<>
 				<h2 className='rd-viztitle'>{this.props.section.viztitle}</h2>
@@ -204,7 +204,7 @@ export default class SpendingChart extends React.Component {
 							siteUrl={this.props.location.origin}
 							pageUrl={this.props.location.pathname + '#' + this.props.sectionId}
 							title='Data Lab - R&D in Contract Spending - U.S. Treasury'
-							text={`Which agencies had the highest proportion of contract spend devoted to R&D initiatives in FY19? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
+							text={`Which agencies had the highest proportion of contract funding devoted to R&D initiatives in FY20? Find out in #DataLab's newest analysis, R&D in Contract Spending! #OpenData #RandD`}
 							hoverColor='#1302d9'
 						/>
 					</ControlBar>
@@ -216,40 +216,60 @@ export default class SpendingChart extends React.Component {
 					/>
 					{isMobileSvg && (
 						<>
-						<div className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`}>
-							<CloseIcon className={styles.closeIconMobile} onClick={this.closePopup}/>
-							<SectionOneChartPopupMobile/>
-						</div>
-							{this.state.checked ? <span style={{color: 'red', fontSize: '50px', marginBottom: '30px'}}>cat photo here</span> : <SectionOneChartMobile />}
+							<div
+								className={`${this.state.showDetails ? styles.svgPopoutShowMobile : styles.svgPopout}`}>
+								<CloseIcon className={styles.closeIconMobile}
+													 onClick={this.closePopup}/>
+								<SectionOneChartPopupMobile/>
+							</div>
+							{this.state.checked
+								?
+								<span
+									style={{color: 'red', fontSize: '50px', marginBottom: '30px'}}>cat photo here</span>
+								:
+								<SectionOneChartMobile alt={altText}/>}
 						</>
-						)}
+					)}
 					{isTabletSvg && (
 						<>
-						<div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`}
-								 style={tabletPopupStyle}>
-							<SectionOneChartPopupTablet/>
-							<CloseIcon className={styles.closeIconTablet} onClick={this.closePopup}/>
-						</div>
-							{this.state.checked ? <span style={{color: 'red', fontSize: '50px', marginBottom: '30px'}}>cat photo here</span> : <SectionOneChartTablet />}
+							<div
+								className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`}
+								style={tabletPopupStyle}>
+								<SectionOneChartPopupTablet/>
+								<CloseIcon className={styles.closeIconTablet}
+													 onClick={this.closePopup}/>
+							</div>
+							{this.state.checked
+								?
+								<span
+									style={{color: 'red', fontSize: '50px', marginBottom: '30px'}}>cat photo here</span>
+								:
+								<SectionOneChartTablet alt={altText}/>}
 						</>
-						)}
+					)}
 					{largestSvg && (
 						<>
-						<div className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`}
-								 style={desktopPopupStyle}>
-							<SectionOneChartPopupDesktop/>
-							<CloseIcon className={styles.closeIconDesktop} onClick={this.closePopup}/>
-						</div>
-							{this.state.checked ? <span style={{color: 'red', fontSize: '50px', marginBottom: '30px'}}>cat photo here</span> : <SectionOneChartDesktop />}
+							<div
+								className={`${this.state.showDetails ? styles.svgPopoutShow : styles.svgPopout}`}
+								style={desktopPopupStyle}>
+								<SectionOneChartPopupDesktop/>
+								<CloseIcon className={styles.closeIconDesktop}
+													 onClick={this.closePopup}/>
+							</div>
+							{this.state.checked
+								?
+								<span style={{color: 'red', fontSize: '50px', marginBottom: '30px'}}>cat photo here</span>
+								:
+								<SectionOneChartDesktop alt={altText}/>}
 						</>
-						)}
+					)}
 					<Legend/>
 					<Downloads
 						href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
-						date={'October 2019'}
+						date={'October 2020'}
 					/>
 				</div>
 			</>
-		)
+		);
 	}
 }
