@@ -68,7 +68,9 @@ const ScrollingCircles = ({ sections }) => {
 
 		sections.forEach(section => {
 			const target = document.getElementById(`section-${section.anchor}`);
-			observer.observe(target);
+			if (typeof target === 'Element') {
+				observer.observe(target);
+			}
 		});
 
 		document

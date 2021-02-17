@@ -25,7 +25,7 @@ import Tablet from 'src/svgs/rd-and-contracting/comingsoon/tablet.svg';
 import Mobile from 'src/svgs/rd-and-contracting/comingsoon/mobile.svg';
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import { HeadOnly } from 'src/components/headers/headers';
-import FootnoteAnchor from "../../components/footnotes/footnote-anchor";
+import FootnoteAnchor from '../../components/footnotes/footnote-anchor';
 
 export default class RdInContractingPage extends React.Component {
 	constructor(props) {
@@ -158,8 +158,7 @@ export default class RdInContractingPage extends React.Component {
 				Investment in Research and Development, or R&D, is largely seen as a driver
 				of innovation in both the public and private sectors.
 				<a href="#fn1" className="footnoteref">
-					<FootnoteAnchor footnoteId={'fr1'}/>
-					1
+					<FootnoteAnchor footnoteId={'fr1'} />1
 				</a>{' '}
 				From medicine to autonomous vehicles, R&D investments lead to new products,
 				technology advancements, and improved quality of life. To fund R&D work,
@@ -185,16 +184,14 @@ export default class RdInContractingPage extends React.Component {
 				The federal government is one of the largest and most consistent funding
 				sources of R&D in the United States,
 				<a href="#fn2" className="footnoteref">
-					<FootnoteAnchor footnoteId={'fr2'}/>
-					2
+					<FootnoteAnchor footnoteId={'fr2'} />2
 				</a>{' '}
 				where total R&D obligations had only a net 1% change over the last decade.
 				In total, the National Science Foundation reports that the federal
 				government obligated $146B to R&D initiatives in its 2019 budget, which
 				includes contracts as well as other key funding sources such as grants.
 				<a href="#fn3" className="footnoteref">
-					<FootnoteAnchor footnoteId={'fr3'}/>
-					3
+					<FootnoteAnchor footnoteId={'fr3'} />3
 				</a>
 			</p>
 			<p>
@@ -203,8 +200,7 @@ export default class RdInContractingPage extends React.Component {
 				beneficial research projects would not be attempted if society depended on
 				the private sector alone for funding.
 				<a href="#fn4" className="footnoteref">
-					<FootnoteAnchor footnoteId={'fr4'}/>
-					4
+					<FootnoteAnchor footnoteId={'fr4'} />4
 				</a>
 			</p>
 		</>,
@@ -263,27 +259,27 @@ export default class RdInContractingPage extends React.Component {
 			readMoreOnMobile: true,
 			readMoreStyle: { color: globalStyles.rdMdBlue },
 		},
-		// {
-		// 	section: 'Studies',
-		// 	anchor: 'studies',
-		// 	number: '03',
-		// 	subtext: 'Studies',
-		// 	subblurb: 'The Big Picture for R&D',
-		// 	comingSoon: true,
-		// 	sectionTeaser: (
-		// 		<>
-		// 			<span className={styles.subtitleHighlight} key={'studies-teaser'}>
-		// 				Long-term trends
-		// 			</span>{' '}
-		// 			in federal R&D spending
-		// 		</>
-		// 	),
-		// 	introBlurb: this.secBlurbs[2],
-		// 	viztitle: 'Federal R&D Obligations 2009-2019',
-		// 	tagName: 'studies',
-		// 	readMoreOnMobile: true,
-		// 	readMoreStyle: { color: globalStyles.rdMdBlue },
-		// },
+		{
+			section: 'Studies',
+			anchor: 'studies',
+			number: '03',
+			subtext: 'Studies',
+			subblurb: 'The Big Picture for R&D',
+			comingSoon: true,
+			sectionTeaser: (
+				<>
+					<span className={styles.subtitleHighlight} key={'studies-teaser'}>
+						Long-term trends
+					</span>{' '}
+					in federal R&D spending
+				</>
+			),
+			introBlurb: this.secBlurbs[2],
+			viztitle: 'Federal R&D Obligations 2009-2019',
+			tagName: 'studies',
+			readMoreOnMobile: true,
+			readMoreStyle: { color: globalStyles.rdMdBlue },
+		},
 	];
 
 	prerelease = () => {
@@ -337,7 +333,7 @@ export default class RdInContractingPage extends React.Component {
 							<Footnotes
 								footnotes={[
 									<>
-										<FootnoteAnchor footnoteId={"fn1"}/>
+										<FootnoteAnchor footnoteId={'fn1'} />
 										Global R&D: One Measure of Commitment to Innovation, Global R&D: One
 										Measure of Commitment to Innovation § (2018).
 										<br />
@@ -351,7 +347,7 @@ export default class RdInContractingPage extends React.Component {
 										</a>
 									</>,
 									<>
-										<FootnoteAnchor footnoteId={"fn2"}/>
+										<FootnoteAnchor footnoteId={'fn2'} />
 										Sargent, John F. "Federal Research and Development (R&D) Funding:
 										FY2019." Federal Research and Development (R&D) Funding: FY2019,
 										October 4, 2018.
@@ -366,7 +362,7 @@ export default class RdInContractingPage extends React.Component {
 										</a>
 									</>,
 									<>
-										<FootnoteAnchor footnoteId={"fn3"}/>
+										<FootnoteAnchor footnoteId={'fn3'} />
 										National Center for Science and Engineering Statistics, National
 										Science Foundation. 2019. Federal R&D Funding, by Budget Function:
 										Fiscal Years 2018–20. Detailed Statistical Tables NSF 20-305.
@@ -382,7 +378,7 @@ export default class RdInContractingPage extends React.Component {
 										.
 									</>,
 									<>
-										<FootnoteAnchor footnoteId={"fn4"}/>
+										<FootnoteAnchor footnoteId={'fn4'} />
 										Maloney, Carolyn B, and Charles E Schumer. “The Pivotal Role of
 										Government Investment in Basic Research.” U.S. Congress Joint Economic
 										Committee. U.S. Congress Joint Economic Committee, May 2010.
