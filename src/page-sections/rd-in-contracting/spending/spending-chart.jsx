@@ -8,72 +8,72 @@ import Share from '../../../components/share/share';
 import Toggle from "../../../components/toggle/toggle";
 
 import SectionOneChartDesktopAll
-  from 'src/images/rd-in-contracting/spending/sectionOneChartDesktopAll.svg';
+	from 'src/images/rd-in-contracting/spending/sectionOneChartDesktopAll.svg';
 import SectionOneChartDesktopCovid
-  from 'src/images/rd-in-contracting/spending/sectionOneChartDesktopCovid.svg';
+	from 'src/images/rd-in-contracting/spending/sectionOneChartDesktopCovid.svg';
 import SectionOneChartTabletAll
-  from 'src/images/rd-in-contracting/spending/SectionOneChartTabletAll.svg';
+	from 'src/images/rd-in-contracting/spending/SectionOneChartTabletAll.svg';
 import SectionOneChartTabletCovid
-  from 'src/images/rd-in-contracting/spending/SectionOneChartTabletCovid.svg';
+	from 'src/images/rd-in-contracting/spending/SectionOneChartTabletCovid.svg';
 import SectionOneChartMobileAll
-  from 'src/images/rd-in-contracting/spending/SectionOneChartMobileAll.svg';
+	from 'src/images/rd-in-contracting/spending/SectionOneChartMobileAll.svg';
 import SectionOneChartMobileCovid
-  from 'src/images/rd-in-contracting/spending/SectionOneChartMobileCovid.svg';
+	from 'src/images/rd-in-contracting/spending/SectionOneChartMobileCovid.svg';
 
 const desktopSvgs = [
-  {
-    img: SectionOneChartDesktopAll,
-    width: 953,
-    height: 618,
-    alt: ''
-  },
-  {
-    img: SectionOneChartDesktopCovid,
-    width: 955,
-    height: 619,
-    alt: ''
-  },
+	{
+		img: SectionOneChartDesktopAll,
+		width: 953,
+		height: 618,
+		alt: ''
+	},
+	{
+		img: SectionOneChartDesktopCovid,
+		width: 955,
+		height: 619,
+		alt: ''
+	},
 ]
 
 const tabletSvgs = [
-  {
-    img: SectionOneChartTabletAll,
-    width: 613,
-    height: 615,
-  },
-  {
-    img: SectionOneChartTabletCovid,
-    width: 613,
-    height: 615,
-  },
+	{
+		img: SectionOneChartTabletAll,
+		width: 613,
+		height: 615,
+	},
+	{
+		img: SectionOneChartTabletCovid,
+		width: 613,
+		height: 615,
+	},
 ]
 
 const phoneSvgs = [
-  {
-    img: SectionOneChartMobileAll,
-    width: 336,
-    height: 613,
-  },
-  {
-    img: SectionOneChartMobileCovid,
-    width: 337,
-    height: 613,
-  },
+	{
+		img: SectionOneChartMobileAll,
+		width: 336,
+		height: 613,
+	},
+	{
+		img: SectionOneChartMobileCovid,
+		width: 337,
+		height: 613,
+	},
 ]
 
 export default class SpendingChart extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      bWidth: 1200, // start desktop size
-      showDetails: false,
-      checked: false
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			bWidth: 1200, // start desktop size
+			showDetails: false,
+			checked: false
+		};
+	}
 
-  componentDidMount() {
-    this.setState({bWidth: window.innerWidth}); // set initial width for render
-    this.handleWindowSizeChange();
+	componentDidMount() {
+		this.setState({bWidth: window.innerWidth}); // set initial width for render
+		this.handleWindowSizeChange();
 
     window.addEventListener('resize', this.handleWindowSizeChange);
   }
@@ -104,7 +104,7 @@ export default class SpendingChart extends React.Component {
         DOE – Department of Energy
         DOT – Department of Transportation
         DHS – Department of Homeland Security
-        AID – Agency for International Development
+        USAID – US Agency for International Development
         DoEd – Department of Education
         DOC – Department of Commerce
         VA – Department of Veterans’ Affairs`}
@@ -214,4 +214,3 @@ export default class SpendingChart extends React.Component {
     )
   }
 }
-

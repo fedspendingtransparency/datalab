@@ -11,6 +11,9 @@
   border-bottom: solid 1px $light-grey-border;
 
   span {
+    display: block;
+    float: left;
+    width: 90%;
     font-weight: 600;
   }
 }

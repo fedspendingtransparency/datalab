@@ -18,32 +18,20 @@ import bottle from 'src/images/rd-in-contracting/bottle.svg';
 import bulb from 'src/images/rd-in-contracting/bulb.svg';
 import Grid from '@material-ui/core/Grid';
 
-// Coming Soon only!
-import Default from 'src/components/layouts/default/default';
-import Desktop from 'src/svgs/rd-and-contracting/comingsoon/desktop.svg';
-import Tablet from 'src/svgs/rd-and-contracting/comingsoon/tablet.svg';
-import Mobile from 'src/svgs/rd-and-contracting/comingsoon/mobile.svg';
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
-import { HeadOnly } from 'src/components/headers/headers';
-import FootnoteAnchor from "../../components/footnotes/footnote-anchor";
+import FootnoteAnchor from '../../components/footnotes/footnote-anchor';
 
 export default class RdInContractingPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			screenMode: 0,
-			isQAT: false,
+			screenMode: ScreenModeEnum.mobile,
 		};
 	}
 
 	componentDidMount() {
 		this.resizeWindow();
 		window.addEventListener('resize', this.resizeWindow);
-		this.setState({
-			isQAT:
-				window.location.href.indexOf('localhost') > -1 ||
-				window.location.href.indexOf('datalab-qat') > -1,
-		});
 	}
 
 	componentWillUnmount() {
@@ -152,49 +140,57 @@ export default class RdInContractingPage extends React.Component {
 		studies: Studies,
 	};
 
-	secBlurbs = [
+	getSecBlurbs = () => [
 		<>
 			<p key={'si1'}>
 				Investment in Research and Development, or R&D, is largely seen as a driver
 				of innovation in both the public and private sectors.
 				<a href="#fn1" className="footnoteref">
-					<FootnoteAnchor footnoteId={'fr1'}/>
-					1
+					<FootnoteAnchor footnoteId={'fr1'} />1
 				</a>{' '}
 				From medicine to autonomous vehicles, R&D investments lead to new products,
-				technology advancements, and improved quality of life. To fund R&D work,
+				technology advancements, and improved quality of life. And in Fiscal Year
+				2020, R&D has been foundational to addressing the COVID-19 pandemic, from
+				vaccine development, production, and logistics management. To fund R&D work,
 				federal agencies can use grants, loans, and contracts. In this analysis we
 				focus on contracts.
 			</p>
 			<p key={'si2'}>
 				Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts
-				to perform R&D work in fiscal year 2019 (FY 2019), totaling $41.5B. Let’s
-				take a look at the top ten CFO Act agencies by R&D contract spending.
+				to perform R&D work in fiscal year 2020 (FY 2020), totaling $47.8 billion.
+				Let’s take a look at the top ten CFO Act agencies by R&D contract funding
+				and the top {this.state && this.state.screenMode > 1 ? 'seven' : 'five'}{' '}
+				agencies by COVID-19 R&D contract funding.
 			</p>
 		</>,
 		<p>
-			Federal R&D contract spending supports a wide range of objectives, including
+			Federal R&D contract funding supports a wide range of objectives, including
 			agriculture, education, energy, housing, and national defense. When the
 			government uses contracts to buy products and services, like leasing
 			laboratory space or conducting field research, they use the General Services
 			Administration’s Product and Services Codes (PSC). Using PSCs, we grouped R&D
-			contract spending into 20 spending categories.
+			contract funding into 20 funding categories.
+		</p>,
+		<p>
+			The federal government awards a variety of entities, educational
+			institutions, private companies, when it comes to R&D contracts. Below, we
+			highlight the top 5 R&D contract awardees by each of the 20 categories
+			explored in Section 2. We also break out the top 5 COVID-19 R&D contract
+			awardees by the categories under which COVID-19.
 		</p>,
 		<>
 			<p>
 				The federal government is one of the largest and most consistent funding
 				sources of R&D in the United States,
 				<a href="#fn2" className="footnoteref">
-					<FootnoteAnchor footnoteId={'fr2'}/>
-					2
+					<FootnoteAnchor footnoteId={'fr2'} />2
 				</a>{' '}
 				where total R&D obligations had only a net 1% change over the last decade.
 				In total, the National Science Foundation reports that the federal
 				government obligated $146B to R&D initiatives in its 2019 budget, which
 				includes contracts as well as other key funding sources such as grants.
 				<a href="#fn3" className="footnoteref">
-					<FootnoteAnchor footnoteId={'fr3'}/>
-					3
+					<FootnoteAnchor footnoteId={'fr3'} />3
 				</a>
 			</p>
 			<p>
@@ -203,8 +199,7 @@ export default class RdInContractingPage extends React.Component {
 				beneficial research projects would not be attempted if society depended on
 				the private sector alone for funding.
 				<a href="#fn4" className="footnoteref">
-					<FootnoteAnchor footnoteId={'fr4'}/>
-					4
+					<FootnoteAnchor footnoteId={'fr4'} />4
 				</a>
 			</p>
 		</>,
@@ -212,38 +207,41 @@ export default class RdInContractingPage extends React.Component {
 
 	sections = [
 		{
-			section: 'Spending',
+			section: 'Funding',
 			anchor: 'spending',
 			number: '01',
-			subtext: 'Spending',
-			subblurb: '2019 Agency Spending',
+			subtext: 'Funding',
+			subblurb: '2020 Agency R&D Funding',
 			sectionTeaser: (
 				<>
 					What{' '}
 					<span className={styles.subtitleHighlight}>
-						portion of federal agency contract spending
+						portion of federal agency contract funding in FY 2020
 					</span>{' '}
 					goes to R&D initiatives?
 				</>
 			),
-			introBlurb: this.secBlurbs[0],
+			introBlurb: this.getSecBlurbs()[0],
 			accordion: (
 				<aside>
-					<Accordion title="What is R&D?" color="#1302D9" backgroundColor="#E7E5FB">
+					<Accordion
+						title="What is R&D?"
+						color={globalStyles.rdMdBlue}
+						backgroundColor={globalStyles.rdAccordionBackground}>
 						{this.whatIsContents()}
 					</Accordion>
 				</aside>
 			),
-			viztitle: 'R&D as a Portion of Total Federal Contract Spending by Agency',
+			viztitle: 'R&D as a Portion of Total Federal Contract Funding by Agency',
 			tagName: 'spending',
 			readMoreOnMobile: true,
-			readMoreStyle: { color: globalStyles.rdBlue },
+			readMoreStyle: { color: globalStyles.rdMdBlue },
 		},
 		{
-			section: 'Categories',
+			section: 'R&D Spending Categories',
 			anchor: 'categories',
 			number: '02',
-			subtext: 'Categories',
+			subtext: 'R&D Spending Categories',
 			subblurb: 'R&D Spending Categories',
 			sectionTeaser: (
 				<>
@@ -251,157 +249,111 @@ export default class RdInContractingPage extends React.Component {
 					<span className={styles.subtitleHighlight} key={'categories-teaser'}>
 						categories of R&D
 					</span>{' '}
-					contract spending in FY 2019
+					contract spending in FY 2020
 				</>
 			),
-			introBlurb: this.secBlurbs[1],
+			introBlurb: this.getSecBlurbs()[1],
 			viztitle: 'R&D Federal Spending in Contracting by Category',
 			tagName: 'categories',
 			readMoreOnMobile: true,
-			readMoreStyle: { color: globalStyles.rdBlue },
+			readMoreStyle: { color: globalStyles.rdMdBlue },
 		},
 		{
-			section: 'Studies',
-			anchor: 'studies',
+			section: 'Contracts',
+			anchor: 'contracts',
 			number: '03',
-			subtext: 'Studies',
-			subblurb: 'The Big Picture for R&D',
+			subtext: 'Contracts',
+			subblurb: 'Top R&D Contracts',
 			comingSoon: true,
 			sectionTeaser: (
 				<>
 					<span className={styles.subtitleHighlight} key={'studies-teaser'}>
-						Long-term trends
+						Top 5 R&D Contracts
 					</span>{' '}
-					in federal R&D spending
+					by category in FY 2020
 				</>
 			),
-			introBlurb: this.secBlurbs[2],
-			viztitle: 'Federal R&D Obligations 2009-2019',
-			tagName: 'studies',
+			introBlurb: this.getSecBlurbs()[2],
+			viztitle: '',
+			tagName: 'contracts',
 			readMoreOnMobile: true,
-			readMoreStyle: { color: globalStyles.rdBlue },
+			readMoreStyle: { color: globalStyles.rdMdBlue },
 		},
+		// {
+		// 	section: 'Studies',
+		// 	anchor: 'studies',
+		// 	number: '04',
+		// 	subtext: 'Studies',
+		// 	subblurb: 'The Big Picture for R&D',
+		// 	comingSoon: true,
+		// 	sectionTeaser: (
+		// 		<>
+		// 			<span className={styles.subtitleHighlight} key={'studies-teaser'}>
+		// 				Long-term trends
+		// 			</span>{' '}
+		// 			in federal R&D spending
+		// 		</>
+		// 	),
+		// 	introBlurb: this.getSecBlurbs()[3],
+		// 	viztitle: 'Federal R&D Obligations 2010-2020',
+		// 	tagName: 'studies',
+		// 	readMoreOnMobile: true,
+		// 	readMoreStyle: { color: globalStyles.rdBlue },
+		// },
 	];
 
-	prerelease = () => {
-		if (!this.state.isQAT) {
-			return (
-				<Default>
-					<HeadOnly />
-					<div className={styles.comingSoon}>
-						<h1>Research & Development in Contract Spending</h1>
-						{this.state.screenMode === ScreenModeEnum.mobile ? (
-							<Mobile />
-						) : this.state.screenMode === ScreenModeEnum.tablet ? (
-							<Tablet />
-						) : (
-							<Desktop />
-						)}
-					</div>
-				</Default>
-			);
-		} else {
-			return (
-				<StoryLayout
-					hwctaLink={this.props.location.pathname + '/methodologies'}
-					title="Research & Development in Contract Spending"
-					introSentence="How much did the federal government invest in Research & Development with FY 2019 Contract Spending?"
-					sectionToc={this.sections}
-					hwctaLink={this.props.location.pathname + '/methodologies'}>
-					<SEO
-						description="How much does the federal government invest in Research & Development? In FY 2019, $41.5 billion was contracted to R&D initiatives."
-						title="U.S. Treasury Data Lab – Research & Development in Contract Spending"
-					/>
-
-					{this.sections.map((item, key) => {
-						const SectionTag = this.sectionComponents[item.tagName];
-						if (!item.comingSoon) {
-							return (
-								<StorySection key={key} header={item}>
-									<SectionTag
-										sectionId={`section-${item.anchor}`}
-										section={item}
-										location={this.props.location}
-									/>
-								</StorySection>
-							);
-						}
-					})}
-
-					<Grid container className={styles.footnotes}>
-						<Grid item xs={10}>
-							<Footnotes
-								footnotes={[
-									<>
-										<FootnoteAnchor footnoteId={"fn1"}/>
-										Global R&D: One Measure of Commitment to Innovation, Global R&D: One
-										Measure of Commitment to Innovation § (2018).
-										<br />
-										<a
-											href="https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation"
-											rel="noreferrer noopener"
-											target="_blank"
-											className={styles.link}>
-											https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation
-											<LaunchOutlinedIcon className={styles.extLink} />
-										</a>
-									</>,
-									<>
-										<FootnoteAnchor footnoteId={"fn2"}/>
-										Sargent, John F. "Federal Research and Development (R&D) Funding:
-										FY2019." Federal Research and Development (R&D) Funding: FY2019,
-										October 4, 2018.
-										<br />
-										<a
-											href="https://fas.org/sgp/crs/misc/R45150.pdf"
-											rel="noreferrer noopener"
-											target="_blank"
-											className={styles.link}>
-											https://fas.org/sgp/crs/misc/R45150.pdf
-											<LaunchOutlinedIcon className={styles.extLink} />
-										</a>
-									</>,
-									<>
-										<FootnoteAnchor footnoteId={"fn3"}/>
-										National Center for Science and Engineering Statistics, National
-										Science Foundation. 2019. Federal R&D Funding, by Budget Function:
-										Fiscal Years 2018–20. Detailed Statistical Tables NSF 20-305.
-										Alexandria, VA. Available at{' '}
-										<a
-											href="https://ncses.nsf.gov/pubs/nsf20305/"
-											rel="noreferrer noopener"
-											target="_blank"
-											className={styles.link}>
-											https://ncses.nsf.gov/pubs/nsf20305/
-											<LaunchOutlinedIcon className={styles.extLink} />
-										</a>
-										.
-									</>,
-									<>
-										<FootnoteAnchor footnoteId={"fn4"}/>
-										Maloney, Carolyn B, and Charles E Schumer. “The Pivotal Role of
-										Government Investment in Basic Research.” U.S. Congress Joint Economic
-										Committee. U.S. Congress Joint Economic Committee, May 2010.
-										<br />
-										<a
-											href="https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf"
-											rel="noreferrer noopener"
-											target="_blank"
-											className={styles.link}>
-											https://www.jec.senate.gov/public/_cache/files/29aac456-fce3-4d69-956f-4add06f111c1/rd-report--final-report.pdf
-											<LaunchOutlinedIcon className={styles.extLink} />
-										</a>
-									</>,
-								]}
-							/>
-						</Grid>
-					</Grid>
-				</StoryLayout>
-			);
-		}
-	};
-
 	render = () => {
-		return this.prerelease();
+		return (
+			<StoryLayout
+				hwctaLink={this.props.location.pathname + '/methodologies'}
+				title="Research & Development in Contract Funding"
+				introSentence="How much did the federal government invest in Research & Development with FY 2020 Contract Funding?"
+				sectionToc={this.sections}
+				hwctaLink={this.props.location.pathname + '/methodologies'}
+				scrollingToc>
+				<SEO
+					description="How much does the federal government invest in Research & Development? In FY 2020, $47.8 billion was contracted to R&D initiatives."
+					title="Research & Development in Contract Funding | U.S. Treasury Data Lab"
+				/>
+
+				{this.sections.map((item, key) => {
+					const SectionTag = this.sectionComponents[item.tagName];
+					if (!item.comingSoon) {
+						return (
+							<StorySection key={key} header={item}>
+								<SectionTag
+									sectionId={`section-${item.anchor}`}
+									section={item}
+									location={this.props.location}
+								/>
+							</StorySection>
+						);
+					}
+				})}
+
+				<Grid container className={styles.footnotes}>
+					<Grid item xs={10}>
+						<Footnotes
+							footnotes={[
+								<>
+									<FootnoteAnchor footnoteId={'fn1'} />
+									Global R&D: One Measure of Commitment to Innovation, Global R&D: One
+									Measure of Commitment to Innovation § (2018).
+									<br />
+									<a
+										href="https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation"
+										rel="noreferrer noopener"
+										target="_blank"
+										className={styles.link}>
+										https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation
+										<LaunchOutlinedIcon className={styles.extLink} />
+									</a>
+								</>,
+							]}
+						/>
+					</Grid>
+				</Grid>
+			</StoryLayout>
+		);
 	};
 }
