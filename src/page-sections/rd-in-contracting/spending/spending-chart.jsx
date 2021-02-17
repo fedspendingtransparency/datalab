@@ -25,13 +25,11 @@ const desktopSvgs = [
 		img: SectionOneChartDesktopAll,
 		width: 953,
 		height: 618,
-		alt: ''
 	},
 	{
 		img: SectionOneChartDesktopCovid,
 		width: 955,
 		height: 619,
-		alt: ''
 	},
 ]
 
