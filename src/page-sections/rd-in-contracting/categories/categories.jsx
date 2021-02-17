@@ -230,14 +230,16 @@ export default function Categories(props) {
 		return isOpen;
 	}
 
+	const altText = 'Horizontal scatter plot diagram displaying icons of various funding categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.';
+
 	function Chart() {
 		switch (device) {
 			case 'tablet':
-				return <Tablet />;
+				return <Tablet alt={altText} />;
 			case 'mobile':
-				return <Mobile />;
+				return <Mobile alt={altText} />;
 			default:
-				return <Desktop />;
+				return <Desktop alt={altText} />;
 		}
 	}
 
@@ -248,11 +250,12 @@ export default function Categories(props) {
 				<p>In this visualization, categories are represented by icons.</p>
 				<ul>
 					<li>
-						Click or tap on an icon to see the category name, total dollars contracted
-						for this category, and the percentage this total accounts for within R&D
-						contract spending
+						Click or tap on an icon to see the category name, total dollars
+						obligated for R&D in this category, total dollars obligated for COVID-19
+						R&D in this category, and the percentage this total accounts for within
+						R&D contract funding.
 					</li>
-					<li>To exit the pop-up, click or tap the X</li>
+					<li>To exit the pop-up, reclick the icon or click on the X.</li>
 				</ul>
 			</AccordionList>
 
@@ -260,8 +263,8 @@ export default function Categories(props) {
 				<Share
 					siteUrl={props.location.origin}
 					pageUrl={`${props.location.pathname}#${props.sectionId}`}
-					title="Data Lab - R&D in Contract Spending - U.S. Treasury"
-					text="What do agriculture, energy, and national defense all have in common? They’re all areas where the government spent dollars on R&D in 2019! Check out the latest analysis at #DataLab to learn more! #Transparency #Research"
+					title="Data Lab - R&D in Contract Funding - U.S. Treasury"
+					text="What do agriculture, energy, and national defense all have in common? They’re all areas where the government spent dollars on R&D in 2020! Check out the latest analysis at #DataLab to learn more! #Transparency #Research"
 					hoverColor="#1302d9"
 				/>
 			</ControlBar>
@@ -270,7 +273,7 @@ export default function Categories(props) {
 
 			<Downloads
 				href="/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv"
-				date="October 2019"
+				date="October 2020"
 			/>
 
 			{Object.keys(tooltipData).map(i => {
