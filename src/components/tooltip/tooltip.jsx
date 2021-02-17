@@ -13,6 +13,7 @@ const inlineStyles = () => ({
 		borderRadius: '0',
 		boxShadow: '0 2px 30px 0 rgba(0, 0, 0, 0.16)',
 		backgroundColor: 'rgba(255, 253, 253, 0.95)',
+		maxWidth: '350px',
 	},
 });
 
