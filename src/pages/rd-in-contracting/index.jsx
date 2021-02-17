@@ -224,7 +224,10 @@ export default class RdInContractingPage extends React.Component {
 			introBlurb: this.getSecBlurbs()[0],
 			accordion: (
 				<aside>
-					<Accordion title="What is R&D?" color="#1302D9" backgroundColor="#E7E5FB">
+					<Accordion
+						title="What is R&D?"
+						color={globalStyles.rdMdBlue}
+						backgroundColor={globalStyles.rdAccordionBackground}>
 						{this.whatIsContents()}
 					</Accordion>
 				</aside>
@@ -232,7 +235,7 @@ export default class RdInContractingPage extends React.Component {
 			viztitle: 'R&D as a Portion of Total Federal Contract Funding by Agency',
 			tagName: 'spending',
 			readMoreOnMobile: true,
-			readMoreStyle: { color: globalStyles.rdBlue },
+			readMoreStyle: { color: globalStyles.rdMdBlue },
 		},
 		{
 			section: 'R&D Spending Categories',
@@ -252,6 +255,27 @@ export default class RdInContractingPage extends React.Component {
 			introBlurb: this.getSecBlurbs()[1],
 			viztitle: 'R&D Federal Spending in Contracting by Category',
 			tagName: 'categories',
+			readMoreOnMobile: true,
+			readMoreStyle: { color: globalStyles.rdMdBlue },
+		},
+		{
+			section: 'Contracts',
+			anchor: 'contracts',
+			number: '03',
+			subtext: 'Contracts',
+			subblurb: 'Top R&D Contracts',
+			comingSoon: true,
+			sectionTeaser: (
+				<>
+					<span className={styles.subtitleHighlight} key={'studies-teaser'}>
+						Top 5 R&D Contracts
+					</span>{' '}
+					by category in FY 2020
+				</>
+			),
+			introBlurb: this.getSecBlurbs()[2],
+			viztitle: '',
+			tagName: 'contracts',
 			readMoreOnMobile: true,
 			readMoreStyle: { color: globalStyles.rdBlue },
 		},
