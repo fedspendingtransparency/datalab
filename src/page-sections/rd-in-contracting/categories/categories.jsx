@@ -16,6 +16,7 @@ import data from '../../../../static/unstructured-data/rd-in-contracting/RnD_viz
 export default function Categories(props) {
 	const [device, setDevice] = useState('desktop');
 	const [tooltipData, setData] = useState({});
+	const [activeIcon, setActiveIcon] = useState(null);
 	const keyMapper = {
 		AE: 'economic',
 		AF: 'education',
@@ -83,9 +84,8 @@ export default function Categories(props) {
 			closeAll();
 			setDevice(currentDevice);
 		}
-
-		return;
 	}
+
 	function onEsc(e) {
 		if (e.keyCode === 27) {
 			Object.keys(tooltipData).forEach(index => {
@@ -192,20 +192,18 @@ export default function Categories(props) {
 			groups[i].setAttribute('cursor', 'pointer');
 		}
 
-		if (typeof document !== 'undefined') {
-			Object.keys(tooltipData).forEach(key => {
-				const item = tooltipData[key];
-				const el = document.getElementById(item.id);
-				if (el) {
-					el.setAttribute('tabindex', '0');
-					el.setAttribute('focusable', true);
-					el.addEventListener('mouseover', e => onHover(e));
-					el.addEventListener('keydown', e => onKeyDown(e, key, tooltipData[key]));
-					el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
-					el.addEventListener('mouseout', e => clearSelection(e));
-				}
-			});
-		}
+		Object.keys(tooltipData).forEach(key => {
+			const item = tooltipData[key];
+			const el = document.getElementById(item.id);
+			if (el) {
+				el.setAttribute('tabindex', '0');
+				el.setAttribute('focusable', true);
+				el.addEventListener('mouseover', e => onHover(e));
+				el.addEventListener('keydown', e => onKeyDown(e, key, tooltipData[key]));
+				el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
+				el.addEventListener('mouseout', e => clearSelection(e));
+			}
+		});
 
 		window.addEventListener('resize', handleResize);
 		window.addEventListener('keydown', e => onEsc(e));
@@ -232,13 +230,11 @@ export default function Categories(props) {
 	});
 
 	useEffect(() => {
-		if (typeof document !== 'undefined') {
-			const svg = document.getElementsByTagName('svg')[0];
-			svg.setAttribute('id', 'vizSvg');
-			svg.setAttribute('role', 'img');
-			svg.setAttribute('aria-labelledby', 'desc');
-			svg.setAttribute('desc', altText);
-		}
+		const svg = document.getElementsByTagName('svg')[0];
+		svg.setAttribute('id', 'vizSvg');
+		svg.setAttribute('role', 'img');
+		svg.setAttribute('aria-labelledby', 'desc');
+		svg.setAttribute('desc', altText);
 	});
 
 	function toggle(e, key, item) {
@@ -257,8 +253,6 @@ export default function Categories(props) {
 				event.currentTarget
 			);
 		}
-
-		// close all other popups
 	}
 
 	function onPopoverClose(ref) {
