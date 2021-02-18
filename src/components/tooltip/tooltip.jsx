@@ -28,22 +28,10 @@ class MouseOverPopover extends React.Component {
 		};
 	}
 
-	componentDidMount() {
-		window.addEventListener('resize', e => this.handleResize(e));
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener('resize', e => this.handleResize(e));
-	}
-
 	escHandler = e => {
 		if (e.keyCode === 27) {
 			this.handlePopoverClose();
 		}
-	};
-
-	handleResize = e => {
-		// this.handlePopoverClose();
 	};
 
 	isOpen = id => {
