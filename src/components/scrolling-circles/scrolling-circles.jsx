@@ -101,12 +101,22 @@ const ScrollingCircles = ({ sections }) => {
 		e.target.classList.remove(styles.focused);
 	};
 
+	const mouseOver = e => {
+		console.log('mouseOver');
+		e.target.classList.add(styles.hover);
+	}
+
+	const mouseOut = e => {
+		console.log('mouseOut');
+		e.target.classList.add(styles.labelFade);
+		e.target.classList.remove(styles.hover);
+	}
+
 	return (
 		<div className={styles.mainContainer} style={{ top: topMargin }}>
 			{sections.map((section, number) => {
 				const isActive = activeSection === section.anchor;
 
-				let label = <></>;
 				let activeStyle = {
 					color: fillColor,
 				};
@@ -115,20 +125,10 @@ const ScrollingCircles = ({ sections }) => {
 					activeStyle = {
 						backgroundColor: fillColor,
 					};
+				}
 
-					label = (
-						<div className={`${styles.label} ${fadeClass}`} style={activeStyle}>
-							<div
-								className={styles.beforeArrow}
-								style={
-									screenMode === ScreenModeEnum.mobile
-										? { borderLeft: `solid 10px ${fillColor}`, left: '100%' }
-										: { borderRight: `solid 10px ${fillColor}`, right: '100%' }
-								}
-							/>
-							{section.section}
-						</div>
-					);
+				let labelStyle = {
+					backgroundColor: fillColor
 				}
 
 				if (!section.comingSoon && sections.length > 1) {
@@ -142,12 +142,24 @@ const ScrollingCircles = ({ sections }) => {
 									className={`${styles.circle} ${isActive ? styles.active : ''}`}
 									style={activeStyle}
 									tabIndex={0}
+									onMouseOver={mouseOver}
+									onMouseOut={mouseOut}
 									onFocus={handleFocus}
 									onBlur={handleBlur}>
 									{section.number || `0${number + 1}`}
 								</div>
 							</a>
-							{label}
+							<div className={`${styles.label} ${fadeClass}`} style={labelStyle}>
+								<div
+									className={styles.beforeArrow}
+									style={
+										screenMode === ScreenModeEnum.mobile
+											? { borderLeft: `solid 10px ${fillColor}`, left: '100%' }
+											: { borderRight: `solid 10px ${fillColor}`, right: '100%' }
+									}
+								/>
+								{section.section}
+							</div>
 						</div>
 					);
 				}

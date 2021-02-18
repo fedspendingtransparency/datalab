@@ -59,6 +59,11 @@
         border-bottom: 10px solid transparent;
       }
 
+      &.hover {
+        opacity: 0.5%;
+        transition: opacity 100ms;
+      }
+
       &.fade {
         opacity: 0;
         transition: opacity 500ms;
