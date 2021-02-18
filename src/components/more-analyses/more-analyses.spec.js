@@ -20,28 +20,28 @@ describe('More Analyses', () => {
 		instance = component.root;
 	});
 
-	xit('expect heading to be in place', () => {
+	it('expect heading to be in place', () => {
 		expect(
 			instance.findByProps({ className: moreAnalysesStyles.heading }).children[0]
 		).toBe(analysesHeading);
 	});
 
-	xit('expect four images to be rendered', () => {
+	it('expect four images to be rendered', () => {
 		const images = instance.findAllByType('img');
 		expect(images.length).toBe(4);
 	});
 
-	xit('expect four links to be rendered', () => {
+	it('expect four links to be rendered', () => {
 		const links = instance.findAllByType('a');
 		expect(links.length).toBe(4);
 	});
 
-	xit('expect title to exist with className of title for $legacyBlue CSS', () => {
+	it('expect title to exist with className of title for $legacyBlue CSS', () => {
 		let titles = instance.findAllByProps({ className: 'title' });
 		expect(titles[0].props.className).toBe('title');
 	});
 
-	xit('expect four links and four images to exist on mobile/tablet', () => {
+	it('expect four links and four images to exist on mobile/tablet', () => {
 		renderer.act(() => {
 			global.window.innerWidth = 767;
 			component = renderer.create(<MoreAnalyses />);
