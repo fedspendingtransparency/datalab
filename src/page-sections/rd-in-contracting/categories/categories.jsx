@@ -14,7 +14,6 @@ import Mobile from 'src/svgs/rd-and-contracting/categories/mobile.svg';
 import data from '../../../../static/unstructured-data/rd-in-contracting/RnD_viz2_2021-02-09.csv';
 
 export default function Categories(props) {
-	const [windowWidth, setWindowWidth] = useState(null);
 	const [device, setDevice] = useState('desktop');
 	const [tooltipData, setData] = useState({});
 	const keyMapper = {
@@ -66,19 +65,27 @@ export default function Categories(props) {
 	}, []);
 
 	function handleResize() {
-		setWindowWidth(typeof window !== 'undefined' ? window.innerWidth : '');
+		const windowSize = typeof window !== 'undefined' ? window.innerWidth : '';
 
-		if (windowWidth) {
-			if (windowWidth >= parseInt(variables.lg)) {
-				setDevice('desktop');
-			} else if (windowWidth >= parseInt(variables.md)) {
-				setDevice('tablet');
+		if (windowSize) {
+			if (windowSize >= parseInt(variables.lg)) {
+				resetDevice('desktop');
+			} else if (windowSize >= parseInt(variables.md)) {
+				resetDevice('tablet');
 			} else {
-				setDevice('mobile');
+				resetDevice('mobile');
 			}
 		}
 	}
 
+	function resetDevice(currentDevice) {
+		if (device !== currentDevice) {
+			closeAll();
+			setDevice(currentDevice);
+		}
+
+		return;
+	}
 	function onEsc(e) {
 		if (e.keyCode === 27) {
 			Object.keys(tooltipData).forEach(index => {
@@ -269,14 +276,15 @@ export default function Categories(props) {
 		return isOpen;
 	}
 
-	const altText = 'Horizontal scatter plot diagram displaying icons of various funding categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.';
+	const altText =
+		'Horizontal scatter plot diagram displaying icons of various funding categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.';
 
 	function Chart() {
 		switch (device) {
 			case 'tablet':
 				return <Tablet alt={altText} />;
 			case 'mobile':
-				return <Mobile  className="category-svg-centered" alt={altText} />;
+				return <Mobile className="category-svg-centered" alt={altText} />;
 			default:
 				return <Desktop alt={altText} />;
 		}
@@ -289,10 +297,10 @@ export default function Categories(props) {
 				<p>In this visualization, categories are represented by icons.</p>
 				<ul>
 					<li>
-						Click or tap on an icon to see the category name, total dollars
-						obligated for R&D in this category, total dollars obligated for COVID-19
-						R&D in this category, and the percentage this total accounts for within
-						R&D contract funding.
+						Click or tap on an icon to see the category name, total dollars obligated
+						for R&D in this category, total dollars obligated for COVID-19 R&D in this
+						category, and the percentage this total accounts for within R&D contract
+						funding.
 					</li>
 					<li>To exit the pop-up, reclick the icon or click on the X.</li>
 				</ul>

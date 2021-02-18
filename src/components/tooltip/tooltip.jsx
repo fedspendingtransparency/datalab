@@ -43,7 +43,7 @@ class MouseOverPopover extends React.Component {
 	};
 
 	handleResize = e => {
-		this.handlePopoverClose();
+		// this.handlePopoverClose();
 	};
 
 	isOpen = id => {
@@ -63,6 +63,7 @@ class MouseOverPopover extends React.Component {
 		this.setState({
 			openedPopperId: null,
 			anchorEl: null,
+			target: null,
 		});
 	};
 
