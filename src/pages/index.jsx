@@ -17,6 +17,8 @@ import explorer from 'src/images/home/contractexplorersunburst.png';
 import homeStyles from './index.module.scss';
 import { Helmet } from 'react-helmet';
 
+//insignificant code change for DTI to test dev env
+
 function IndexPage(props) {
 	return (
 		<Home>
