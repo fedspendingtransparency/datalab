@@ -274,6 +274,8 @@ export default function Categories(props) {
 		'Horizontal scatter plot diagram displaying icons of various funding categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.';
 
 	function Chart() {
+		closeAll();
+
 		switch (device) {
 			case 'tablet':
 				return <Tablet alt={altText} />;
@@ -332,6 +334,3 @@ export default function Categories(props) {
 		</>
 	);
 }
-
-const altText =
-	'Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.';

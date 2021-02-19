@@ -107,5 +107,5 @@ MouseOverPopover.propTypes = {
 	classes: PropTypes.object.isRequired,
 	rows: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 	title: PropTypes.string.isRequired,
-	id: PropTypes.number.isRequired,
+	id: PropTypes.string.isRequired,
 };
