@@ -102,23 +102,22 @@ const ScrollingCircles = ({sections}) => {
     };
 
     const mouseOver = e => {
-      console.log('mouseOver', e.target);
-      // const id = e.target.id;
-      // console.log('id', id);
-      // const arrowElement = document.getElementById(`${id}Arrow`);
-      // const labelElement = document.getElementById(`${id}Label`);
-      // console.log('arrowElement', arrowElement);
-      // console.log('labelElement', labelElement);
-      // if (arrowElement && labelElement) {
-      // 	arrowElement.target.classList.add(styles.hover);
-      // 	labelElement.target.classList.add(styles.hover);
-      // }
+      const id = e.target.id;
+      const arrowElement = document.getElementById(`${id}Arrow`);
+      const labelElement = document.getElementById(`${id}Label`);
+      setFadeClass('');
+      arrowElement.classList.add(styles.showLabel);
+      labelElement.classList.add(styles.showLabel);
     }
 
     const mouseOut = e => {
       console.log('mouseOut');
-      // e.target.classList.add(styles.labelFade);
-      // e.target.classList.remove(styles.hover);
+      const id = e.target.id;
+      const arrowElement = document.getElementById(`${id}Arrow`);
+      const labelElement = document.getElementById(`${id}Label`);
+      arrowElement.classList.remove(styles.showLabel);
+      labelElement.classList.remove(styles.showLabel);
+      setFadeClass(styles.fade);
     }
 
     return (
@@ -150,7 +149,7 @@ const ScrollingCircles = ({sections}) => {
                   <div
                     className={`${styles.circle} ${isActive ? styles.active : ''}`}
                     style={activeStyle}
-                    // id={section.anchor}
+                    id={section.anchor}
                     tabIndex={0}
                     onMouseOver={mouseOver}
                     onMouseOut={mouseOut}
@@ -160,7 +159,7 @@ const ScrollingCircles = ({sections}) => {
                   </div>
                 </a>
                 <div
-                  className={`${styles.beforeArrow} ${fadeClass}`}
+                  className={`${styles.beforeArrow} ${isActive ? styles.showLabel : styles.hideLabel} ${fadeClass}`}
                   style={
                     screenMode === ScreenModeEnum.mobile
                       ? {borderLeft: `solid 10px ${fillColor}`, left: '100%'}
@@ -171,7 +170,7 @@ const ScrollingCircles = ({sections}) => {
                   }
                   id={`${section.anchor}Arrow`}
                 />
-                <div className={`${styles.label} ${fadeClass}`}
+                <div className={`${styles.label} ${isActive ? styles.showLabel : styles.hideLabel} ${fadeClass}`}
                      style={labelStyle}
                      id={`${section.anchor}Label`}>
                   {section.section}
