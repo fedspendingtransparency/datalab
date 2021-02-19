@@ -11,7 +11,7 @@ import Og from 'src/components/og-tag/og';
 import GdpTemplate from 'src/components/gdp-template/gdp-template';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 import DebtTrendsToggle from 'src/page-sections/afg-debt/trends/index';
 import AfgLayout from 'src/components/layouts/afg/afg';
 import AfgData from '../../../../../static/americas-finance-guide/_data/object_mapping.yml';
@@ -22,12 +22,9 @@ function DebtTrendsPage({ location }) {
 			<Og socialMediaImage="/americas-finance-guide/images/social-share/social-media-share-debt.jpg" />
 
 			<SEO
-				title="Data Lab - Federal Debt Trends – U.S. Treasury"
-				description={`The U.S. has generally increased the federal debt since ${AfgData.debt_trend_start.value}.`}
+				title="Federal Debt Trends Over Time | U.S. Treasury Data Lab"
+				description="This visualization allows you to view the debt trend and ratio of debt to GDP over time."
 				excerpt={`In the U.S., federal debt has generally increased over the past two decades. According to the most recent Financial Report of the United States Government (FR), the current fiscal policy is not sustainable. By the end of ${AfgData.current_fy.value}, federal debt was ${AfgData.current_fy_debt.value} trillion.`}
-				keywords={[
-					'debt, national debt, federal debt, U.S. debt, deficit vs. debt, deficit, national deficit, surplus, spending exceeds income, spending exceeds revenue, federal deficit, total debt, federal government’s debt, monthly statement of the public debt, MSPD',
-				]}
 			/>
 
 			<AfgLayout location={location} chapter="debt">
@@ -114,10 +111,16 @@ function DebtTrendsPage({ location }) {
 								appropriate comparison.
 							</p>
 							<div className="afg__download--div">
-							 <div className="afg__download--heading">Download Source Data</div>
-							 <ul>
-							   <li><a href="/americas-finance-guide/data/federal_debt_trends.csv" download="federal_debt_trends.csv">federal_debt_trends.csv</a></li>
-							 </ul>
+								<div className="afg__download--heading">Download Source Data</div>
+								<ul>
+									<li>
+										<a
+											href="/americas-finance-guide/data/federal_debt_trends.csv"
+											download="federal_debt_trends.csv">
+											federal_debt_trends.csv
+										</a>
+									</li>
+								</ul>
 							</div>
 						</AccordionList>
 					</section>

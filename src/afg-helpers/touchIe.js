@@ -1,6 +1,6 @@
 // this is a hack to fix an issue in Edge
 
-import { establishContainer } from "./utils";
+import { establishContainer } from './utils';
 import { selectAll } from 'd3-selection';
 
 const d3 = { selectAll };

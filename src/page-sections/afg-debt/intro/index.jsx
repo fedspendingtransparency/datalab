@@ -3,10 +3,14 @@ import { select, selectAll } from 'd3-selection';
 import 'd3-transition';
 import { createLayers, layers } from './helpers/createLayers';
 import { startLegendAnimation } from './helpers/legend';
-import { setChartWidth } from './helpers/widthManager';
-import { translator, isMobileDevice, establishContainer, findAmountInCsv } from 'src/afg-helpers/utils';
+import { chartWidth, setChartWidth } from './helpers/widthManager';
+import {
+	establishContainer,
+	findAmountInCsv,
+	isMobileDevice,
+	translator,
+} from 'src/afg-helpers/utils';
 import { setDotsPerRow } from './helpers/dotConstants';
-import { chartWidth } from './helpers/widthManager';
 import { vizHeight } from './helpers/debtDots';
 import { touchIe } from 'src/afg-helpers/touchIe';
 import { triggerMainInfoBox } from 'src/afg-helpers/infoBox';

@@ -1,6 +1,6 @@
-import { translator, isMobileDevice } from 'src/afg-helpers/utils';
-import { dotsPerRow, dotConstants } from './dotConstants';
-import { labelMaker, deficitLabel } from './layerLegends';
+import { isMobileDevice, translator } from 'src/afg-helpers/utils';
+import { dotConstants, dotsPerRow } from './dotConstants';
+import { deficitLabel, labelMaker } from './layerLegends';
 import { initDeficitDots, placeDotsMobile } from './deficitDots';
 import colors from '../../../../styles/afg/colors.scss';
 
@@ -14,141 +14,161 @@ let deficitRemainder;
 let deficitY1;
 
 function generateOverlay(number, id, label, rectColor) {
-  const amount = (id === 'debt') ? number - config.deficitAmount : number;
-  const labelAmount = (id === 'debt') ? config.debtBalance : amount;
-  const count = Math.ceil(amount / billion);
-  const debtRowOne = (id === 'debt') ? dotsPerRow - deficitRemainder : 0;
-  const rows = Math.floor((count - debtRowOne) / dotsPerRow);
-  const remainder = (count - debtRowOne) % dotsPerRow;
-  const spacing = dotConstants.offset.y - (dotConstants.radius * 2);
-  const mainRectHeight = (rows * dotConstants.offset.y) - spacing / 2;
-  const secondaryRectHeight = (dotConstants.radius * 2) + spacing / 2;
-  const overlayLayer = config.mainContainer.append('g').classed(`${id}-layer`, true);
+	const amount = id === 'debt' ? number - config.deficitAmount : number;
+	const labelAmount = id === 'debt' ? config.debtBalance : amount;
+	const count = Math.ceil(amount / billion);
+	const debtRowOne = id === 'debt' ? dotsPerRow - deficitRemainder : 0;
+	const rows = Math.floor((count - debtRowOne) / dotsPerRow);
+	const remainder = (count - debtRowOne) % dotsPerRow;
+	const spacing = dotConstants.offset.y - dotConstants.radius * 2;
+	const mainRectHeight = rows * dotConstants.offset.y - spacing / 2;
+	const secondaryRectHeight = dotConstants.radius * 2 + spacing / 2;
+	const overlayLayer = config.mainContainer
+		.append('g')
+		.classed(`${id}-layer`, true);
 
-  let overlayHeight = mainRectHeight + secondaryRectHeight;
-  let mainY = 0;
-  let secondaryY = mainRectHeight;
-  let sig = 3;
+	let overlayHeight = mainRectHeight + secondaryRectHeight;
+	let mainY = 0;
+	let secondaryY = mainRectHeight;
+	let sig = 3;
 
-  overlayLayer.attr('opacity', 0);
+	overlayLayer.attr('opacity', 0);
 
-  if (id === 'debt') {
-    mainY += secondaryRectHeight + deficitY1;
-    secondaryY += secondaryRectHeight + deficitY1;
-    overlayHeight += secondaryRectHeight + deficitY1;
-    sig = 4;
+	if (id === 'debt') {
+		mainY += secondaryRectHeight + deficitY1;
+		secondaryY += secondaryRectHeight + deficitY1;
+		overlayHeight += secondaryRectHeight + deficitY1;
+		sig = 4;
 
-    overlayLayer.append('rect')
-      .attr('width', debtRowOne * dotConstants.offset.x)
-      .attr('x', dotsPerRow * dotConstants.offset.x - debtRowOne * dotConstants.offset.x)
-      .attr('y', deficitY1)
-      .attr('height', secondaryRectHeight)
-      .attr('fill', rectColor)
-      .attr('opacity', 0.5);
-  }
+		overlayLayer
+			.append('rect')
+			.attr('width', debtRowOne * dotConstants.offset.x)
+			.attr(
+				'x',
+				dotsPerRow * dotConstants.offset.x - debtRowOne * dotConstants.offset.x
+			)
+			.attr('y', deficitY1)
+			.attr('height', secondaryRectHeight)
+			.attr('fill', rectColor)
+			.attr('opacity', 0.5);
+	}
 
-  overlayLayer.append('rect')
-    .attr('width', dotsPerRow * dotConstants.offset.x)
-    .attr('y', mainY)
-    .attr('height', mainRectHeight)
-    .attr('fill', rectColor)
-    .attr('opacity', 0.5);
+	overlayLayer
+		.append('rect')
+		.attr('width', dotsPerRow * dotConstants.offset.x)
+		.attr('y', mainY)
+		.attr('height', mainRectHeight)
+		.attr('fill', rectColor)
+		.attr('opacity', 0.5);
 
-  overlayLayer.append('rect')
-    .attr('width', remainder * dotConstants.offset.x)
-    .attr('y', secondaryY)
-    .attr('height', secondaryRectHeight)
-    .attr('fill', rectColor)
-    .attr('opacity', 0.5);
+	overlayLayer
+		.append('rect')
+		.attr('width', remainder * dotConstants.offset.x)
+		.attr('y', secondaryY)
+		.attr('height', secondaryRectHeight)
+		.attr('fill', rectColor)
+		.attr('opacity', 0.5);
 
-  if (id === 'revenue') {
-    deficitStartPosition = {
-      remainder,
-      y: mainRectHeight,
-    };
-  }
+	if (id === 'revenue') {
+		deficitStartPosition = {
+			remainder,
+			y: mainRectHeight,
+		};
+	}
 
-  if (!isMobileDevice()) {
-    labelMaker(overlayLayer, overlayHeight, label, labelAmount, sig);
-  }
+	if (!isMobileDevice()) {
+		labelMaker(overlayLayer, overlayHeight, label, labelAmount, sig);
+	}
 
-  overlayLayer.attr('data-height', overlayHeight);
+	overlayLayer.attr('data-height', overlayHeight);
 
-  layers[id] = overlayLayer;
+	layers[id] = overlayLayer;
 }
 
 function addDebtLabel() {
-  const yOffset = 50 + deficitY1;
+	const yOffset = 50 + deficitY1;
 
-  layers.debt.append('rect')
-    .attr('width', 300)
-    .attr('height', 60)
-    .attr('fill', 'white')
-    .attr('opacity', 0.7)
-    .attr('y', yOffset)
-    .attr('x', (dotsPerRow * dotConstants.offset.x - 300) / 2);
+	layers.debt
+		.append('rect')
+		.attr('width', 300)
+		.attr('height', 60)
+		.attr('fill', 'white')
+		.attr('opacity', 0.7)
+		.attr('y', yOffset)
+		.attr('x', (dotsPerRow * dotConstants.offset.x - 300) / 2);
 
-  layers.debt.append('text')
-    .text('Prior year debt balance*')
-    .attr('fill', colors.textColorParagraph)
-    .attr('text-anchor', 'middle')
-    .attr('y', yOffset + 37)
-    .attr('x', (dotsPerRow * dotConstants.offset.x) / 2)
-    .style('font-size', 24);
+	layers.debt
+		.append('text')
+		.text('Prior year debt balance*')
+		.attr('fill', colors.textColorParagraph)
+		.attr('text-anchor', 'middle')
+		.attr('y', yOffset + 37)
+		.attr('x', (dotsPerRow * dotConstants.offset.x) / 2)
+		.style('font-size', 24);
 }
 
 function createRevenue() {
-  generateOverlay(config.revenueAmount, 'revenue', 'Revenue', config.revenueColor);
+	generateOverlay(
+		config.revenueAmount,
+		'revenue',
+		'Revenue',
+		config.revenueColor
+	);
 }
 
 function createSpending() {
-  generateOverlay(config.spendingAmount, 'spending', 'Spending', config.spendingColor);
+	generateOverlay(
+		config.spendingAmount,
+		'spending',
+		'Spending',
+		config.spendingColor
+	);
 }
 
 function createDebt() {
-  generateOverlay(config.debtBalance, 'debt', 'Federal Debt', config.debtColor);
-  if (!isMobileDevice()) {
-    addDebtLabel();
-  }
-  layers.debt.attr('transform', translator(0, 100));
+	generateOverlay(config.debtBalance, 'debt', 'Federal Debt', config.debtColor);
+	if (!isMobileDevice()) {
+		addDebtLabel();
+	}
+	layers.debt.attr('transform', translator(0, 100));
 }
 
 function createDeficitDots() {
-  const deficitDots = initDeficitDots(config, deficitStartPosition);
+	const deficitDots = initDeficitDots(config, deficitStartPosition);
 
-  layers.master = config.mainContainer;
-  layers.deficit = deficitDots.layer.attr('data-y', deficitStartPosition.y);
-  layers.deficitCompareDots = deficitDots.deficitCompareDots;
-  layers.debtCompareDots = deficitDots.debtCompareDots;
+	layers.master = config.mainContainer;
+	layers.deficit = deficitDots.layer.attr('data-y', deficitStartPosition.y);
+	layers.deficitCompareDots = deficitDots.deficitCompareDots;
+	layers.debtCompareDots = deficitDots.debtCompareDots;
 
-  deficitRemainder = deficitDots.remainder;
-  deficitY1 = deficitDots.y - 2;
+	deficitRemainder = deficitDots.remainder;
+	deficitY1 = deficitDots.y - 2;
 
-  deficitLabel(deficitDots.y, layers.deficit, config.reportedDeficitAmount, 3);
+	deficitLabel(deficitDots.y, layers.deficit, config.reportedDeficitAmount, 3);
 }
 
 export function createLayers(c) {
-  config = c;
+	config = c;
 
-  createRevenue();
-  createSpending();
-  createDeficitDots();
-  createDebt();
+	createRevenue();
+	createSpending();
+	createDeficitDots();
+	createDebt();
 }
 
 export function createMobileLayers(c, separateContainer) {
-  config = c;
+	config = c;
 
-  const count = Math.ceil(c.deficitAmount / (billion * 10));
-  const rows = Math.floor(count / dotsPerRow);
-  const remainder = count % dotsPerRow;
-  const spacing = dotConstants.offset.y - (dotConstants.radius * 2);
-  const mainRectHeight = (rows * dotConstants.offset.y) - spacing / 2;
+	const count = Math.ceil(c.deficitAmount / (billion * 10));
+	const rows = Math.floor(count / dotsPerRow);
+	const remainder = count % dotsPerRow;
+	const spacing = dotConstants.offset.y - dotConstants.radius * 2;
+	const mainRectHeight = rows * dotConstants.offset.y - spacing / 2;
 
-  deficitStartPosition = {
-    remainder,
-    y: mainRectHeight,
-  };
+	deficitStartPosition = {
+		remainder,
+		y: mainRectHeight,
+	};
 
-  placeDotsMobile(c, deficitStartPosition, separateContainer);
+	placeDotsMobile(c, deficitStartPosition, separateContainer);
 }

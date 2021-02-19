@@ -12,26 +12,21 @@ import Share from 'src/components/share/share';
 import Og from 'src/components/og-tag/og';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faAngleRight,
-	faSearch,
-	faSortAlphaDown,
-	faSortAmountDown,
-	faSortAlphaUp,
-	faSortAmountUp,
-} from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
+import { faSortAlphaDown } from '@fortawesome/free-solid-svg-icons/faSortAlphaDown';
+import { faSortAlphaUp } from '@fortawesome/free-solid-svg-icons/faSortAlphaUp';
+import { faSortAmountDown } from '@fortawesome/free-solid-svg-icons/faSortAmountDown';
+import { faSortAmountUp } from '@fortawesome/free-solid-svg-icons/faSortAmountUp';
 import AfgLayout from 'src/components/layouts/afg/afg';
 
 function RevenueCategoriesPage(props) {
 	return (
 		<>
 			<SEO
-				title="Data Lab - Revenue Categories – U.S. Treasury"
-				description="Explore the breakdown of revenue sources of the federal government."
+				title="Sources of Federal Government Revenue | U.S. Treasury Data Lab"
+				description="What is the largest source of revenue for the federal government? Learn about the categories of revenue the government receives."
 				excerpt="Most of the revenue the government collects comes from taxes from individuals, small businesses, and corporations. Other sources of federal revenue include excise, estate, and other taxes and fees."
-				keywords={[
-					`federal revenue, revenue categories, individual taxes, corporate taxes, excise tax, estate tax, payroll tax, Social Security, Medicare, trust fund`,
-				]}
 			/>
 
 			<Og

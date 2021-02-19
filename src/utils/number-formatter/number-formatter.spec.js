@@ -1,4 +1,4 @@
-import formatNumber from "./number-formatter"
+import formatNumber from './number-formatter';
 
 it("expect thousands dollar amount to be formatted to 2 signficant digits", () => {
   expect(formatNumber("dollars suffix", 12345.9)).toBe("$12k")

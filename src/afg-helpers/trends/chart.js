@@ -1,13 +1,13 @@
 // import 'babel-polyfill';
 import { select, selectAll } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
-import { min, max, range } from 'd3-array';
+import { max, min, range } from 'd3-array';
 import { line } from 'd3-shape';
 import { axisBottom, axisLeft } from 'd3-axis';
-import { translator, getTransform, getElementBox } from 'src/afg-helpers/utils';
+import { getElementBox, getTransform, translator } from 'src/afg-helpers/utils';
 import { renderLabels } from './labels';
 import { zoomTrigger } from './zoomTrigger';
-import { ink } from './ink'
+import { ink } from './ink';
 import { addTooltips } from './addTooltips';
 import { xAxis } from './xAxis';
 import { yAxis } from './yAxis';

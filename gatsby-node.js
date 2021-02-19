@@ -9,9 +9,7 @@ const LoadablePlugin = require('@loadable/webpack-plugin');
 exports.onCreateWebpackConfig = ({ stage, actions, loaders }) => {
 	actions.setWebpackConfig({
 		devtool: 'eval-source-map',
-		plugins: [
-			new LoadablePlugin(),
-		],
+		plugins: [new LoadablePlugin()],
 		module: {
 			rules: [
 				{

@@ -38,3 +38,21 @@
   opacity: 1;
   fill: #4497C9;
 }
+
+.homelessness-table-container {
+  th {
+    padding: 0.44rem !important;
+
+    div:global(.table-header__label) {
+      font-size: 0.875rem !important;
+    }
+  }
+
+  :global(.table-header__sort) {
+    margin-left: 0.5rem !important;
+  }
+
+  :global(.svg-inline--fa.fa-w-10) {
+    width: 0.8rem;
+  }
+}
