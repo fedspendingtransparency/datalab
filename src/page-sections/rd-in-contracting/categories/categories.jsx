@@ -156,18 +156,20 @@ export default function Categories(props) {
 	}
 
 	function closeAll() {
-		const groups = document.getElementsByClassName('category-icon');
+		if (typeof document !== 'undefined') {
+			const groups = document.getElementsByClassName('category-icon');
 
-		for (let i = 0; i < groups.length; i++) {
-			const el = groups[i].getElementsByTagName('circle')[0];
-			el.setAttribute('fill', 'white');
-			el.setAttribute('fill-opacity', '1');
-			el.setAttribute('stroke', '#555555');
+			for (let i = 0; i < groups.length; i++) {
+				const el = groups[i].getElementsByTagName('circle')[0];
+				el.setAttribute('fill', 'white');
+				el.setAttribute('fill-opacity', '1');
+				el.setAttribute('stroke', '#555555');
+			}
+
+			Object.keys(tooltipData).forEach(key => {
+				onPopoverClose(tooltipData[key].tooltipRef);
+			});
 		}
-
-		Object.keys(tooltipData).forEach(key => {
-			onPopoverClose(tooltipData[key].tooltipRef);
-		});
 	}
 
 	function onBlur(e, key) {
