@@ -90,7 +90,7 @@ const Toc = ({ sections }) => {
 										isTablet && key <= 1 ? styles.bottomBorder : ''
 									} ${isTablet && key >= 2 ? styles.topPadding : ''}`}
 									style={isMobile ? mobileStyle : {}}>
-									<Grid item className={styles.newFlagContainer}>
+									<Grid item className={hasNewItems ? styles.newFlagContainer : ''}>
 										{section.isNew && <div className={styles.newFlag}>New</div>}
 										{section.comingSoon && (
 											<Grid item className={styles.comingSoon}>
