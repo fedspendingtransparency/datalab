@@ -52,12 +52,12 @@
 
     .before-arrow {
       top: 10px;
-      width: 0;
-      height: 0;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-right: solid 10px;
+      height: 20px;
+      width: 20px;
+      transform: rotate(-45deg);
       right: 100%;
+      margin-right: -13px;
+      z-index: -1;
     }
 
     .label {
@@ -70,12 +70,17 @@
       white-space: nowrap;
     }
 
-    .showLabel .labelContainer, .circle:hover .labelContainer {
+    .showLabel .labelContainer {
       opacity: 1;
       visibility: visible;
       transition: opacity 200ms linear;
     }
 
+    .circle:hover .labelContainer {
+      opacity: 80%;
+      visibility: visible;
+      transition: opacity 200ms linear;
+    }
   }
 }
 
@@ -99,16 +104,23 @@
         height: 23px;
         width: 23px;
         font-size: 0.656rem;
+
+        .labelContainer {
+          left: unset;
+          right: 45px;
+
+          .before-arrow {
+            order: 2;
+            margin-right: unset;
+            margin-left: -14px;
+            left: 100%;
+          }
+
+          .label {
+            order: 1;
+          }
+        }
       }
-    }
-
-    .before-arrow {
-      border-left: solid 10px;
-      left: 100%
-    }
-
-    .label {
-      right: 60px;
     }
   }
 }
