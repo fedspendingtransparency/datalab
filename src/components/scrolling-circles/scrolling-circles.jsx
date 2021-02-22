@@ -6,18 +6,11 @@ import styles from './scrolling-circles.module.scss';
 import {checkScreenMode, ScreenModeEnum} from 'src/utils/screen-mode';
 
 const ScrollingCircles = ({sections}) => {
-    const [activeSection, setActiveSection] = useState(sections[0].anchor);
+    const [activeSection, setActiveSection] = useState();
     const [fillColor, setFillColor] = useState(legacy);
-    const [fadeClass, setFadeClass] = useState('');
     const [topMargin, setTopMargin] = useState(106);
     const [screenMode, setScreenMode] = useState(0);
-
-    // const fade = () => {
-    //   setFadeClass('');
-    //   setTimeout(() => {
-    //     setFadeClass(styles.hidden);
-    //   }, 2000);
-    // };
+    const [showLabel, setShowLabel] = useState(true);
 
     const options = {
       root: null,
@@ -31,8 +24,15 @@ const ScrollingCircles = ({sections}) => {
     );
 
     useEffect(() => {
+
+      setTimeout(() => {
+        setShowLabel(false);
+      }, 2000);
+
       const pathname = window.location.pathname.split('/').join('');
       setFillColor(pageColorMap[pathname]);
+
+      let selectedSection;
 
       const observer = new window.IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -59,11 +59,14 @@ const ScrollingCircles = ({sections}) => {
             boundingRect.top < topThreshold && boundingRect.bottom > bottomThreshold;
 
           if (entry.isIntersecting && ratio < 1 && inView) {
-            setActiveSection(section);
+            selectedSection = section;
           }
 
           previousY = {...previousY, [section]: boundingRect.y};
         });
+
+        setActiveSection(selectedSection ? selectedSection : entries[0].target.id.replace('section-', ''));
+
       }, options);
 
       sections.forEach(section => {
@@ -83,15 +86,16 @@ const ScrollingCircles = ({sections}) => {
     }, []);
 
     useEffect(() => {
-      // fade();
-      hideLabel(activeSection);
+      // make the label appear as if on page load
+      setShowLabel(true);
+      setTimeout(() => {
+        setShowLabel(false);
+      }, 2000);
     }, [activeSection]);
 
     const scrollToSection = (id, e) => {
       if (!e || e.key === 'Enter') {
         setActiveSection(id);
-        hideLabel(id);
-        // fade();
       }
     };
 
@@ -102,31 +106,6 @@ const ScrollingCircles = ({sections}) => {
     const handleBlur = e => {
       e.target.classList.remove(styles.focused);
     };
-
-    const showLabel = e => {
-      console.log('show e', e);
-      const id = e.target ? e.target.id : e;
-      console.log('id', id);
-      const arrowElement = document.getElementById(`${id}Arrow`);
-      const labelElement = document.getElementById(`${id}Label`);
-      // setFadeClass('');
-      arrowElement.classList.add(styles.showLabel);
-      labelElement.classList.add(styles.showLabel);
-      arrowElement.classList.remove(styles.hideLabel);
-      labelElement.classList.remove(styles.hideLabel);
-    }
-
-    const hideLabel = e => {
-      // console.log('hide e', e);
-      const id = e.target ? e.target.id : e;
-      const arrowElement = document.getElementById(`${id}Arrow`);
-      const labelElement = document.getElementById(`${id}Label`);
-      arrowElement.classList.remove(styles.showLabel);
-      labelElement.classList.remove(styles.showLabel);
-      arrowElement.classList.add(styles.hideLabel);
-      labelElement.classList.add(styles.hideLabel);
-      // setFadeClass(styles.fade);
-    }
 
     return (
       <div className={styles.mainContainer} style={{top: topMargin}}>
@@ -141,10 +120,6 @@ const ScrollingCircles = ({sections}) => {
             activeStyle = {
               backgroundColor: fillColor,
             };
-            // showLabel(section.anchor);
-            // setTimeout(() => {
-            //   hideLabel(section.anchor);
-            // }, 1000);
           }
 
           let labelStyle = {
@@ -159,34 +134,27 @@ const ScrollingCircles = ({sections}) => {
                   onClick={() => scrollToSection(section.anchor)}
                   onKeyPress={e => scrollToSection(section.anchor, e)}>
                   <div
-                    className={`${styles.circle} ${isActive ? styles.active : ''}`}
+                    className={`${styles.circle} ${isActive ? styles.active : ''} ${isActive && showLabel ? styles.showLabel : ''}`}
                     style={activeStyle}
                     id={section.anchor}
                     tabIndex={0}
-                    onMouseOver={showLabel}
-                    onMouseOut={hideLabel}
                     onFocus={handleFocus}
                     onBlur={handleBlur}>
                     {section.number || `0${number + 1}`}
+                    <div className={styles.labelContainer}>
+                      <div
+                        className={`${styles.beforeArrow}`}
+                        style={{borderRightColor: fillColor}}
+                        id={`${section.anchor}Arrow`}
+                      />
+                      <div className={`${styles.label}`}
+                           style={labelStyle}
+                           id={`${section.anchor}Label`}>
+                        {section.section}
+                      </div>
+                    </div>
                   </div>
                 </a>
-                <div
-                  className={`${styles.beforeArrow} ${styles.hideLabel}`}
-                  style={
-                    screenMode === ScreenModeEnum.mobile
-                      ? {borderLeft: `solid 10px ${fillColor}`, left: '100%'}
-                      : {
-                        borderRight: `solid 10px ${fillColor}`,
-                        right: '100%'
-                      }
-                  }
-                  id={`${section.anchor}Arrow`}
-                />
-                <div className={`${styles.label} ${styles.hideLabel}`}
-                     style={labelStyle}
-                     id={`${section.anchor}Label`}>
-                  {section.section}
-                </div>
               </div>
             );
           }

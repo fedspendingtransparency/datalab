@@ -39,69 +39,43 @@
       }
     }
 
-    .before-arrow {
-      //content: "";
-      //position: absolute;
-      //margin-left: 50px;
+    .labelContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 50px;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s 2s, opacity 2s linear;
+    }
 
+    .before-arrow {
       top: 10px;
       width: 0;
       height: 0;
       border-top: 10px solid transparent;
       border-bottom: 10px solid transparent;
-
-      //&.showLabel {
-      //  opacity: 1;
-      //}
-      //
-      //&.hideLabel {
-      //  opacity: 0;
-      //}
-
-      //&.fade {
-      //  opacity: 0;
-      //  transition: opacity 500ms;
-      //}
+      border-right: solid 10px;
+      right: 100%;
     }
 
     .label {
-      //position: absolute;
-
-      //flex-flow: column;
-      //justify-content: flex-start;
-
-
       height: 40px;
-      //margin-left: 50px;
       padding: 8px 10px;
       color: #fff;
       border-radius: 4px;
       font-size: 1rem;
       font-weight: bold;
       white-space: nowrap;
-
-      //&.hover {
-      //  opacity: 0.5%;
-      //  transition: opacity 100ms;
-      //}
-      //
-      //&.fade {
-      //  opacity: 0;
-      //  transition: opacity 500ms;
-      //}
     }
 
-    .showLabel {
-      visibility: visible;
+    .showLabel .labelContainer, .circle:hover .labelContainer {
       opacity: 1;
-      transition: opacity 100ms linear;
+      visibility: visible;
+      transition: opacity 200ms linear;
     }
 
-    .hideLabel {
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0s 2s, opacity 2s linear;
-    }
   }
 }
 
@@ -128,11 +102,17 @@
       }
     }
 
+    .before-arrow {
+      border-left: solid 10px;
+      left: 100%
+    }
+
     .label {
       right: 60px;
     }
   }
 }
+
 
 
 
