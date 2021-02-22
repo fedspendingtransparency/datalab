@@ -12,12 +12,12 @@ const ScrollingCircles = ({sections}) => {
     const [topMargin, setTopMargin] = useState(106);
     const [screenMode, setScreenMode] = useState(0);
 
-    const fade = () => {
-      setFadeClass('');
-      setTimeout(() => {
-        setFadeClass(styles.fade);
-      }, 2000);
-    };
+    // const fade = () => {
+    //   setFadeClass('');
+    //   setTimeout(() => {
+    //     setFadeClass(styles.hidden);
+    //   }, 2000);
+    // };
 
     const options = {
       root: null,
@@ -83,13 +83,15 @@ const ScrollingCircles = ({sections}) => {
     }, []);
 
     useEffect(() => {
-      fade();
+      // fade();
+      hideLabel(activeSection);
     }, [activeSection]);
 
     const scrollToSection = (id, e) => {
       if (!e || e.key === 'Enter') {
         setActiveSection(id);
-        fade();
+        hideLabel(id);
+        // fade();
       }
     };
 
@@ -101,23 +103,29 @@ const ScrollingCircles = ({sections}) => {
       e.target.classList.remove(styles.focused);
     };
 
-    const mouseOver = e => {
-      const id = e.target.id;
+    const showLabel = e => {
+      console.log('show e', e);
+      const id = e.target ? e.target.id : e;
+      console.log('id', id);
       const arrowElement = document.getElementById(`${id}Arrow`);
       const labelElement = document.getElementById(`${id}Label`);
-      setFadeClass('');
+      // setFadeClass('');
       arrowElement.classList.add(styles.showLabel);
       labelElement.classList.add(styles.showLabel);
+      arrowElement.classList.remove(styles.hideLabel);
+      labelElement.classList.remove(styles.hideLabel);
     }
 
-    const mouseOut = e => {
-      console.log('mouseOut');
-      const id = e.target.id;
+    const hideLabel = e => {
+      // console.log('hide e', e);
+      const id = e.target ? e.target.id : e;
       const arrowElement = document.getElementById(`${id}Arrow`);
       const labelElement = document.getElementById(`${id}Label`);
       arrowElement.classList.remove(styles.showLabel);
       labelElement.classList.remove(styles.showLabel);
-      setFadeClass(styles.fade);
+      arrowElement.classList.add(styles.hideLabel);
+      labelElement.classList.add(styles.hideLabel);
+      // setFadeClass(styles.fade);
     }
 
     return (
@@ -133,6 +141,10 @@ const ScrollingCircles = ({sections}) => {
             activeStyle = {
               backgroundColor: fillColor,
             };
+            // showLabel(section.anchor);
+            // setTimeout(() => {
+            //   hideLabel(section.anchor);
+            // }, 1000);
           }
 
           let labelStyle = {
@@ -151,15 +163,15 @@ const ScrollingCircles = ({sections}) => {
                     style={activeStyle}
                     id={section.anchor}
                     tabIndex={0}
-                    onMouseOver={mouseOver}
-                    onMouseOut={mouseOut}
+                    onMouseOver={showLabel}
+                    onMouseOut={hideLabel}
                     onFocus={handleFocus}
                     onBlur={handleBlur}>
                     {section.number || `0${number + 1}`}
                   </div>
                 </a>
                 <div
-                  className={`${styles.beforeArrow} ${isActive ? styles.showLabel : styles.hideLabel} ${fadeClass}`}
+                  className={`${styles.beforeArrow} ${styles.hideLabel}`}
                   style={
                     screenMode === ScreenModeEnum.mobile
                       ? {borderLeft: `solid 10px ${fillColor}`, left: '100%'}
@@ -170,7 +182,7 @@ const ScrollingCircles = ({sections}) => {
                   }
                   id={`${section.anchor}Arrow`}
                 />
-                <div className={`${styles.label} ${isActive ? styles.showLabel : styles.hideLabel} ${fadeClass}`}
+                <div className={`${styles.label} ${styles.hideLabel}`}
                      style={labelStyle}
                      id={`${section.anchor}Label`}>
                   {section.section}

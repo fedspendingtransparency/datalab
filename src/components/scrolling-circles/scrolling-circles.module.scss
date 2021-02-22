@@ -50,18 +50,18 @@
       border-top: 10px solid transparent;
       border-bottom: 10px solid transparent;
 
-      &.showLabel {
-        opacity: 1;
-      }
+      //&.showLabel {
+      //  opacity: 1;
+      //}
+      //
+      //&.hideLabel {
+      //  opacity: 0;
+      //}
 
-      &.hideLabel {
-        opacity: 0;
-      }
-
-      &.fade {
-        opacity: 0;
-        transition: opacity 500ms;
-      }
+      //&.fade {
+      //  opacity: 0;
+      //  transition: opacity 500ms;
+      //}
     }
 
     .label {
@@ -80,23 +80,27 @@
       font-weight: bold;
       white-space: nowrap;
 
-      &.showLabel {
-        opacity: 1;
-      }
+      //&.hover {
+      //  opacity: 0.5%;
+      //  transition: opacity 100ms;
+      //}
+      //
+      //&.fade {
+      //  opacity: 0;
+      //  transition: opacity 500ms;
+      //}
+    }
 
-      &.hideLabel {
-        opacity: 0;
-      }
+    .showLabel {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 100ms linear;
+    }
 
-      &.hover {
-        opacity: 0.5%;
-        transition: opacity 100ms;
-      }
-
-      &.fade {
-        opacity: 0;
-        transition: opacity 500ms;
-      }
+    .hideLabel {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s 2s, opacity 2s linear;
     }
   }
 }
