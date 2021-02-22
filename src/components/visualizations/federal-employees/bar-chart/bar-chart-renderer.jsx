@@ -1,7 +1,23 @@
 import Tooltip from '../util/tooltip';
-import { selectAll } from 'd3-selection';
+import { event, select, selectAll } from 'd3-selection';
+import { format } from 'd3-format';
+import { scaleLinear, scaleBand } from 'd3-scale';
+import { min, max } from 'd3-array';
+import { axisLeft, axisBottom } from 'd3-axis';
 
-const d3 = { selectAll, format };
+const d3 = {
+	select,
+	selectAll,
+	event,
+	format,
+	scaleLinear,
+	scaleBand,
+	min,
+	max,
+	axisLeft,
+	axisBottom,
+};
+
 /* Adapted from fedscope barchart-module.js */
 const BarChartRenderer = {
 	draw: (data, { occupationCategories }) => {
