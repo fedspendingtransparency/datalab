@@ -11,11 +11,12 @@ export default function HTML(props) {
 					name="viewport"
 					content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no"
 				/>
-				<script
-					async
-					type="text/javascript"
-					src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=TRE"
+				<link
+					rel="preconnect"
+					as="script"
+					href="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=TRE"
 					id="_fed_an_ua_tag"
+					crossOrigin="anonymous"
 				/>
 				<link
 					rel="preload"
