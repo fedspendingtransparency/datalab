@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import * as $ from 'jquery';
-import * as d3 from 'd3v4';
 import Grid from '@material-ui/core/Grid';
 import BarChartRenderer from './bar-chart-renderer';
 import barChartStyles from './bar-chart.module.scss';
 import Multiselector from '../../../multiselector/multiselector';
+import { selectAll } from 'd3-selection';
 
+const d3 = { selectAll };
 /* Extracted and adapted from fedscope.js */
 
 function BarChart(props) {
