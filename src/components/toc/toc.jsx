@@ -11,7 +11,7 @@ const Toc = ({ sections }) => {
 		'colleges-and-universities': 'collegesAndUniversities',
 		'federal-covid-funding': 'federalCovidFunding',
 		'homelessness-analysis': 'homelessnessAnalysis',
-		'rd-in-contracting': 'rdInContracting'
+		'rd-in-contracting': 'rdInContracting',
 	};
 
 	const [screenMode, setScreenMode] = useState(0);
@@ -49,6 +49,7 @@ const Toc = ({ sections }) => {
 
 	const isTablet = screenMode === ScreenModeEnum.tablet;
 	const isMobile = screenMode === ScreenModeEnum.mobile;
+	const hasNewItems = sections.filter(e => e.isNew === true).length > 0;
 
 	return (
 		<section id={styles.TOC}>
@@ -66,7 +67,7 @@ const Toc = ({ sections }) => {
 						);
 
 					const mobileStyle = {};
-					if (!section.isNew) {
+					if (hasNewItems && !section.isNew) {
 						mobileStyle.paddingLeft = 50;
 					}
 					if (section.comingSoon) {
