@@ -1,7 +1,18 @@
 import React, { useEffect } from 'react';
-import * as d3 from 'd3v4';
+import { format } from 'd3-format';
+import { select, selectAll } from 'd3-selection';
+import { treemap, treemapResquarify, hierarchy } from 'd3-hierarchy';
 import Tooltip from '../util/tooltip';
 import treemapStyles from './treemap.module.scss';
+
+const d3 = {
+	select,
+	selectAll,
+	treemap,
+	treemapResquarify,
+	hierarchy,
+	format,
+};
 
 /* Extracted and adapted from fedscope.js an trreemap-module.js */
 
@@ -38,7 +49,7 @@ export default function Treemap(props) {
 
 			const root = d3
 				.hierarchy(data)
-				.sum((d) => d.obligations)
+				.sum(d => d.obligations)
 				.sort((a, b) => b.height - a.height || b.value - a.value);
 
 			treemap(root);
@@ -48,13 +59,13 @@ export default function Treemap(props) {
 				.data(root.leaves())
 				.enter()
 				.append('g')
-				.attr('transform', (d) => `translate(${d.x0},${d.y0})`);
+				.attr('transform', d => `translate(${d.x0},${d.y0})`);
 
 			cell
 				.append('rect')
-				.attr('id', (d) => d.data.agencyId)
-				.attr('width', (d) => d.x1 - d.x0)
-				.attr('height', (d) => d.y1 - d.y0)
+				.attr('id', d => d.data.agencyId)
+				.attr('width', d => d.x1 - d.x0)
+				.attr('height', d => d.y1 - d.y0)
 				.attr('fill', '#2272ce')
 				.on('mouseover', handleMouseOver)
 				.on('mousemove', handleMouseMove)
@@ -62,13 +73,13 @@ export default function Treemap(props) {
 
 			cell
 				.append('clipPath')
-				.attr('id', (d) => `clip-${d.data.agencyId}`)
+				.attr('id', d => `clip-${d.data.agencyId}`)
 				.append('use')
-				.attr('xlink:href', (d) => `#${d.data.agencyId}`);
+				.attr('xlink:href', d => `#${d.data.agencyId}`);
 
 			cell
 				.append('text')
-				.text((d) => agencies[d.data.agencyId].abbreviation)
+				.text(d => agencies[d.data.agencyId].abbreviation)
 				.attr('dy', 12)
 				.attr('dx', 2)
 				.attr('fill', 'white')
@@ -76,15 +87,11 @@ export default function Treemap(props) {
 		},
 	};
 
-	const {
-		loadStates,
-		loadAgencies,
-		loadEmployeeSalaryData,
-	} = props.dataSource;
+	const { loadStates, loadAgencies, loadEmployeeSalaryData } = props.dataSource;
 
 	useEffect(() => {
-		loadStates((states) => {
-			loadAgencies((agencies) => {
+		loadStates(states => {
+			loadAgencies(agencies => {
 				loadEmployeeSalaryData([TreemapModule.draw], {
 					agencies,
 				});
@@ -96,8 +103,17 @@ export default function Treemap(props) {
 		<>
 			<div id="tooltip" className="tooltip-module" />
 			<div className={treemapStyles.treemapContainer}>
-				<svg width="1200" height="700" viewBox="0 0 1200 700" id="treemapSvg" className={treemapStyles.treemapVisualization} aria-labelledby="treemap-desc">
-					<desc id="treemap-desc">Diagram showing a breakdown of the 24 CFO Act Agencies, and their respective personnel compensation amounts from Fiscal Year 2017.</desc>
+				<svg
+					width="1200"
+					height="700"
+					viewBox="0 0 1200 700"
+					id="treemapSvg"
+					className={treemapStyles.treemapVisualization}
+					aria-labelledby="treemap-desc">
+					<desc id="treemap-desc">
+						Diagram showing a breakdown of the 24 CFO Act Agencies, and their
+						respective personnel compensation amounts from Fiscal Year 2017.
+					</desc>
 				</svg>
 			</div>
 		</>
