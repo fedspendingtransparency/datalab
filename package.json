@@ -22,6 +22,7 @@
     "d3-brush": "^2.1.0",
     "d3-dispatch": "^2.0.0",
     "d3-ease": "^2.0.0",
+    "d3-fetch": "^2.0.0",
     "d3-format": "^2.0.0",
     "d3-hierarchy": "^2.0.0",
     "d3-interpolate": "^2.0.1",

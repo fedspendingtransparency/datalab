@@ -18,7 +18,7 @@ import {
 } from 'd3-time';
 import { select, selectAll, event, mouse } from 'd3-selection';
 import { scaleLinear, scaleTime, scaleBand } from 'd3-scale';
-import { axisBottom, axisLeft, axisBottom } from 'd3-axis';
+import { axisLeft, axisBottom } from 'd3-axis';
 import { arc, line } from 'd3-shape';
 import { brushX, brushY } from 'd3-brush';
 import { zoom, zoomIdentity } from 'd3-zoom';
