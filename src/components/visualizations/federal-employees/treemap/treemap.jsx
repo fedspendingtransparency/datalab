@@ -3,6 +3,10 @@ import * as d3 from 'd3v4';
 import Tooltip from '../util/tooltip';
 import treemapStyles from './treemap.module.scss';
 
+// import { format } from 'd3-format';
+// import { select, selectAll } from 'd3-selection';
+// import { treemap, treemapResquarify, hierarchy } from 'd3-hierarchy';
+
 // const d3 = {
 // 	select,
 // 	selectAll,
