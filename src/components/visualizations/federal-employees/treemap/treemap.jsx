@@ -1,18 +1,16 @@
 import React, { useEffect } from 'react';
-import { format } from 'd3-format';
-import { select, selectAll } from 'd3-selection';
-import { treemap, treemapResquarify, hierarchy } from 'd3-hierarchy';
+import * as d3 from 'd3v4';
 import Tooltip from '../util/tooltip';
 import treemapStyles from './treemap.module.scss';
 
-const d3 = {
-	select,
-	selectAll,
-	treemap,
-	treemapResquarify,
-	hierarchy,
-	format,
-};
+// const d3 = {
+// 	select,
+// 	selectAll,
+// 	treemap,
+// 	treemapResquarify,
+// 	hierarchy,
+// 	format,
+// };
 
 /* Extracted and adapted from fedscope.js an trreemap-module.js */
 

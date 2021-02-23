@@ -6,13 +6,15 @@ import barChartStyles from '../bar-chart/bar-chart.module.scss';
 import ControlBar from '../../../control-bar/control-bar';
 import Reset from '../../../reset/reset';
 import Share from '../../../share/share';
-import { select } from 'd3-selection';
-import { scaleLinear } from 'd3-scale';
-import { min, max } from 'd3-array';
-import { interpolateRgb } from 'd3-interpolate';
-import { format } from 'd3-format';
+import * as d3 from 'd3v4';
 
-const d3 = { select, min, max, scaleLinear, interpolateRgb, format };
+// import { select } from 'd3-selection';
+// import { scaleLinear } from 'd3-scale';
+// import { min, max } from 'd3-array';
+// import { interpolateRgb } from 'd3-interpolate';
+// import { format } from 'd3-format';
+//
+// const d3 = { select, min, max, scaleLinear, interpolateRgb, format };
 
 /* Extracted and adapted from fedscope.js an trreemap-module.js */
 
