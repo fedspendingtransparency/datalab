@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import pageColorMap from 'src/utils/page-color';
-import {legacy} from 'src/styles/variables.scss';
+import legacyBlue from 'src/styles/variables.scss';
 
 import styles from './scrolling-circles.module.scss';
 import {checkScreenMode, ScreenModeEnum} from 'src/utils/screen-mode';
 
 const ScrollingCircles = ({sections}) => {
   const [activeSection, setActiveSection] = useState();
-  const [fillColor, setFillColor] = useState(legacy);
+  const [fillColor, setFillColor] = useState(legacyBlue);
   const [topMargin, setTopMargin] = useState(106);
   const [screenMode, setScreenMode] = useState(0);
   const [showLabel, setShowLabel] = useState(true);
@@ -24,17 +24,8 @@ const ScrollingCircles = ({sections}) => {
   );
 
   useEffect(() => {
-    // give the observers a chance to set the activeSection before setting it
-    // to default
-    setTimeout(() => {
-      if (!activeSection) {
-        setActiveSection(sections[0].anchor);
-      }
-    }, 100);
-
     const pathname = window.location.pathname.split('/').join('');
     setFillColor(pageColorMap[pathname]);
-
 
     const observer = new window.IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -81,6 +72,14 @@ const ScrollingCircles = ({sections}) => {
       .addEventListener('click', function () {
         setActiveSection(sections[0].anchor);
       });
+
+    // give the observers a chance to set the activeSection before setting it
+    // to default
+    setTimeout(() => {
+      if (!activeSection) {
+        setActiveSection(sections[0].anchor);
+      }
+    }, 100);
 
     return () => observer.disconnect();
   }, []);
