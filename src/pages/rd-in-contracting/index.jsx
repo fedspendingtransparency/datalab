@@ -6,7 +6,18 @@ import Categories from 'src/page-sections/rd-in-contracting/categories/categorie
 import Footnotes from '../../components/footnotes/footnotes';
 import SEO from 'src/components/seo';
 import Spending from 'src/page-sections/rd-in-contracting/spending/spending-chart';
-import Studies from 'src/page-sections/rd-in-contracting/studies/studies';
+
+const Studies = loadable(
+	() => import('src/page-sections/rd-in-contracting/studies/studies'),
+	{
+		fallback: (
+			<div className="progress_wrapper">
+				<CircularProgress className="progress" size={70} color="inherit" />
+			</div>
+		),
+	}
+);
+
 import StoryLayout from '../../components/layouts/story/story';
 import StorySection from 'src/components/section-elements/story-section/story-section';
 
@@ -20,6 +31,8 @@ import Grid from '@material-ui/core/Grid';
 
 import { ScreenModeEnum, checkScreenMode } from 'src/utils/screen-mode.js';
 import FootnoteAnchor from '../../components/footnotes/footnote-anchor';
+import loadable from '@loadable/component';
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 
 export default class RdInContractingPage extends React.Component {
 	constructor(props) {

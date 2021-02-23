@@ -11,7 +11,7 @@ const Toc = ({ sections }) => {
 		'colleges-and-universities': 'collegesAndUniversities',
 		'federal-covid-funding': 'federalCovidFunding',
 		'homelessness-analysis': 'homelessnessAnalysis',
-		'rd-in-contracting': 'rdInContracting'
+		'rd-in-contracting': 'rdInContracting',
 	};
 
 	const [screenMode, setScreenMode] = useState(0);
@@ -49,6 +49,9 @@ const Toc = ({ sections }) => {
 
 	const isTablet = screenMode === ScreenModeEnum.tablet;
 	const isMobile = screenMode === ScreenModeEnum.mobile;
+	const isSeries =
+		sections.filter(e => e.isNew === true || e.comingSoon === true).length > 0;
+	const isNew = sections.filter(e => e.isNew === true).length > 0;
 
 	return (
 		<section id={styles.TOC}>
@@ -66,7 +69,7 @@ const Toc = ({ sections }) => {
 						);
 
 					const mobileStyle = {};
-					if (!section.isNew) {
+					if (isNew && !section.isNew) {
 						mobileStyle.paddingLeft = 50;
 					}
 					if (section.comingSoon) {
@@ -89,7 +92,7 @@ const Toc = ({ sections }) => {
 										isTablet && key <= 1 ? styles.bottomBorder : ''
 									} ${isTablet && key >= 2 ? styles.topPadding : ''}`}
 									style={isMobile ? mobileStyle : {}}>
-									<Grid item className={styles.newFlagContainer}>
+									<Grid item className={isSeries ? styles.newFlagContainer : ''}>
 										{section.isNew && <div className={styles.newFlag}>New</div>}
 										{section.comingSoon && (
 											<Grid item className={styles.comingSoon}>

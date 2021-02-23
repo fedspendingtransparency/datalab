@@ -1,8 +1,30 @@
 import React, { useEffect } from 'react';
 import './dts-tile.scss';
 import './landing-dts.scss';
-import * as d3 from 'd3v4';
 import formatNumber from 'src/utils/number-formatter/number-formatter';
+import { timeFormat, timeParse } from 'd3-time-format';
+import { select, selectAll } from 'd3-selection';
+import { scaleLinear, scaleTime } from 'd3-scale';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { line } from 'd3-shape';
+import { min, max, extent } from 'd3-array';
+import { csv } from 'd3-fetch';
+
+const d3 = {
+	line,
+	select,
+	selectAll,
+	timeParse,
+	timeFormat,
+	scaleLinear,
+	scaleTime,
+	axisBottom,
+	axisLeft,
+	min,
+	max,
+	extent,
+	csv,
+};
 
 function DtsTile(props) {
 	let svg,

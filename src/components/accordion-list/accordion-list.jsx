@@ -15,13 +15,13 @@ export default class AccordionList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			closed: true
+			closed: true,
 		};
 
 		this.toggle = this.toggle.bind(this);
 	}
 
-  /* props notes
+	/* props notes
     title: shows in the top box, collapsed or open
     color: theme color for border, collapsed background, and highlighted text within
     backgroundColor: background of collapsed box
@@ -34,7 +34,7 @@ export default class AccordionList extends React.Component {
 
 	toggle(e) {
 		e.stopPropagation();
-		this.setState(state => ({ closed: !state.closed }));
+		this.setState(prevState => ({ closed: !prevState.closed }));
 	}
 
 	styleOverrides() {

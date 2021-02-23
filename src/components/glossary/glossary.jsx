@@ -1,10 +1,16 @@
 import glossaryData from './glossary_2020.csv';
 import React, { useEffect } from 'react';
-import * as d3 from 'd3v4';
+import { select, selectAll, event } from 'd3-selection';
 import styles from '../headers/page.module.scss';
 import './glossary.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook } from '@fortawesome/free-solid-svg-icons/faBook';
+
+const d3 = {
+	select,
+	selectAll,
+	event,
+};
 
 export default function Glossary() {
 	useEffect(() => {

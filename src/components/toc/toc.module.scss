@@ -3,6 +3,9 @@
 $mdGrey: #555555;
 
 #TOC {
+
+  margin-top: 25px;
+
   .number {
     color: $font-body-copy;
     font-size: 2rem;
@@ -145,7 +148,6 @@ $mdGrey: #555555;
 
 @media (min-width: $desktop) {
   #TOC {
-    margin-top: $margin-75;
     margin-bottom: $margin-100;
 
     .content {
@@ -207,7 +209,6 @@ $mdGrey: #555555;
 
 @media (min-width: $tablet) and (max-width: $desktop - 1) {
   #TOC {
-    margin-top: $margin-30;
     margin-bottom: $margin-100;
 
     .number-container {
@@ -274,7 +275,6 @@ $mdGrey: #555555;
 @media (max-width: $tablet - 1) {
   #TOC {
     padding-bottom: $margin-25;
-    padding-top: $margin-25;
     border-bottom: $light-grey-border solid 1px;
 
     .content {
