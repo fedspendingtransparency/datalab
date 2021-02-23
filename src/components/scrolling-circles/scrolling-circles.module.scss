@@ -75,12 +75,6 @@
       visibility: visible;
       transition: opacity 200ms linear;
     }
-
-    .circle:hover .labelContainer {
-      opacity: 80%;
-      visibility: visible;
-      transition: opacity 200ms linear;
-    }
   }
 }
 
@@ -121,6 +115,16 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (hover: hover) {
+  .section-container {
+    .circle:hover .labelContainer {
+      opacity: 80%;
+      visibility: visible;
+      transition: opacity 200ms linear;
     }
   }
 }

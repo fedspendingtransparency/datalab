@@ -24,7 +24,6 @@ const ScrollingCircles = ({sections}) => {
   );
 
   useEffect(() => {
-
     // give the observers a chance to set the activeSection before setting it
     // to default
     setTimeout(() => {
