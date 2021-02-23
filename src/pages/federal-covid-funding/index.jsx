@@ -5,7 +5,6 @@ import globalStyles from 'src/styles/variables.scss';
 
 import StoryLayout from '../../components/layouts/story/story';
 import Grid from '@material-ui/core/Grid';
-import Footnotes from '../../components/footnotes/footnotes';
 import SEO from '../../components/seo';
 import ScrollingCircles from 'src/components/scrolling-circles/scrolling-circles';
 import StorySection from 'src/components/section-elements/story-section/story-section';
