@@ -1,5 +1,5 @@
 import React from 'react';
-import { csv } from 'd3-fetch';
+import d3 from 'd3v3';
 
 import ControlBar from '../../components/control-bar/control-bar';
 import Downloads from 'src/components/section-elements/downloads/downloads';
@@ -8,8 +8,6 @@ import Grid from '@material-ui/core/Grid';
 import SEO from '../../components/seo';
 import Share from '../../components/share/share';
 import ToolLayout from '../../components/layouts/tool/tool';
-
-const d3 = { csv };
 
 export default class DTSPage extends React.Component {
 	constructor(props) {

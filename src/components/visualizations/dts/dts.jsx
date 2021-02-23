@@ -1,61 +1,63 @@
 import './dts.scss';
 import React, { useEffect } from 'react';
-
+import * as d3 from 'd3v4';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Bars from '../../../svgs/bars.svg';
 import List from '../../../svgs/list.svg';
 
-import { bisector } from 'd3-array';
-import { timeFormat, timeParse } from 'd3-time-format';
-import { format } from 'd3-format';
-import {
-	timeSecond,
-	timeMinute,
-	timeWeek,
-	timeDay,
-	timeMonth,
-	timeYear,
-} from 'd3-time';
-import { select, selectAll, event, mouse } from 'd3-selection';
-import { scaleLinear, scaleTime, scaleBand } from 'd3-scale';
-import { axisLeft, axisBottom } from 'd3-axis';
-import { arc, line } from 'd3-shape';
-import { brushX, brushY } from 'd3-brush';
-import { zoom, zoomIdentity } from 'd3-zoom';
-import { easeLinear } from 'd3-ease';
-import { min, max, extent } from 'd3-array';
+// import { bisector } from 'd3-array';
+// import { timeFormat, timeParse } from 'd3-time-format';
+// import { format } from 'd3-format';
+// import {
+// 	timeSecond,
+// 	timeMinute,
+// 	timeWeek,
+// 	timeDay,
+// 	timeHour,
+// 	timeMonth,
+// 	timeYear,
+// } from 'd3-time';
+// import { select, selectAll, event, mouse } from 'd3-selection';
+// import { scaleLinear, scaleTime, scaleBand } from 'd3-scale';
+// import { axisLeft, axisBottom } from 'd3-axis';
+// import { arc, line } from 'd3-shape';
+// import { brushX, brushY } from 'd3-brush';
+// import { zoom, zoomIdentity } from 'd3-zoom';
+// import { easeLinear } from 'd3-ease';
+// import { min, max, extent } from 'd3-array';
 
-const d3 = {
-	bisector,
-	brushX,
-	brushY,
-	format,
-	line,
-	select,
-	selectAll,
-	timeParse,
-	timeFormat,
-	timeDay,
-	timeMonth,
-	timeYear,
-	timeSecond,
-	timeMinute,
-	timeWeek,
-	scaleLinear,
-	scaleTime,
-	axisBottom,
-	axisLeft,
-	zoom,
-	event,
-	zoomIdentity,
-	scaleBand,
-	easeLinear,
-	arc,
-	mouse,
-	min,
-	max,
-	extent,
-};
+// const d3 = {
+// 	bisector,
+// 	brushX,
+// 	brushY,
+// 	format,
+// 	line,
+// 	select,
+// 	selectAll,
+// 	timeParse,
+// 	timeFormat,
+// 	timeDay,
+// 	timeHour,
+// 	timeMonth,
+// 	timeYear,
+// 	timeSecond,
+// 	timeMinute,
+// 	timeWeek,
+// 	scaleLinear,
+// 	scaleTime,
+// 	axisBottom,
+// 	axisLeft,
+// 	zoom,
+// 	event,
+// 	zoomIdentity,
+// 	scaleBand,
+// 	easeLinear,
+// 	arc,
+// 	mouse,
+// 	min,
+// 	max,
+// 	extent,
+// };
 
 function DTS(props) {
 	useEffect(() => {
