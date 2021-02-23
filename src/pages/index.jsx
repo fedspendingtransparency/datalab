@@ -41,11 +41,15 @@ function IndexPage(props) {
 						isMain
 						imgAlt="Abstract Brain with 4 categories: Aeronautics, Infectious Disease, Renewable Energy & Anti-Terrorism. This analysis shows federal R&D funding in 2020."
 						heading="Research & Development in Contracting"
-						body="R&D is often associated with the private sector, but in 2020 the federal government backed more than $40 billion in research initiatives through contracts. Our analysis looks at the top agencies by R&D contract funding and where the money is going. See how categories such as energy, education, and space flight stack up and how R&D funding has trended over the last decade."
+						body={[
+							<p>
+								R&D is often associated with the private sector, but in 2020 the federal government backed more than $47 billion in research initiatives through contracts. Our analysis looks at the top agencies by R&D contract funding and where the money is going. See how categories such as energy, education, and space flight stack up and how R&D funding has trended over the last decade.
+							</p>
+						]}
 						mobileBody={[
 							<>
 								<p>
-									R&D is often associated with the private sector, but in 2020 the government backed more than $40B in research contracts. Our analysis looks at the top agencies by contract spend and where it went.
+									R&D is often associated with the private sector, but in 2020 the government backed more than $47B in research contracts. Our analysis looks at the top agencies by contract funding and where it went.
 								</p>
 							</>,
 						]}
