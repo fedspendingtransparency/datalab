@@ -6,7 +6,7 @@ import Arrow from '../../svgs/arrow.svg';
 import Book from '../../svgs/book.svg';
 import Dropdown from './dropdown.jsx';
 import styles from './page.module.scss';
-// import Glossary from '../glossary/glossary';
+import Glossary from '../glossary/glossary';
 
 class MobileMenu extends React.Component {
 	constructor(props) {
@@ -214,7 +214,7 @@ class MobileMenu extends React.Component {
 					</ul>
 					<Dropdown clickedItem={this.state.clickedItem} data={this.state.data} />
 				</div>
-				{/*<Glossary />*/}
+				<Glossary />
 			</>
 		);
 	}
