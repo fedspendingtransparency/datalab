@@ -1,11 +1,5 @@
+import * as d3 from 'd3v4';
 import './tooltip.scss';
-import { event, select, selectAll } from 'd3-selection';
-
-const d3 = {
-	select,
-	selectAll,
-	event,
-};
 
 const Tooltip = (() => {
 	function getLeftPosition() {
