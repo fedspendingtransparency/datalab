@@ -88,7 +88,7 @@ const ScrollingCircles = ({sections}) => {
     setShowLabel(true);
     setTimeout(() => {
       setShowLabel(false);
-    }, 2000);
+    }, 1000);
   }, [activeSection]);
 
   const scrollToSection = (id, e) => {

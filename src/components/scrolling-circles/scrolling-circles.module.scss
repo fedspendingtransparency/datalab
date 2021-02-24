@@ -47,7 +47,7 @@
       left: 50px;
       visibility: hidden;
       opacity: 0;
-      transition: visibility 0s 2s, opacity 2s linear;
+      transition: visibility 0s 1000ms, opacity 1000ms linear;
     }
 
     .before-arrow {
