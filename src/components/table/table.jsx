@@ -3,14 +3,12 @@ import { Table, Pagination } from 'data-transparency-ui';
 import 'data-transparency-ui/dist/data-transparency-ui.css';
 import './table.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-	faAngleRight,
-	faAngleLeft,
-	faCaretDown,
-	faCaretUp,
-	faInfo,
-	faInfoCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons/faAngleLeft';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
+import { faCaretUp } from '@fortawesome/free-solid-svg-icons/faCaretUp';
+import { faInfo } from '@fortawesome/free-solid-svg-icons/faInfo';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import formatNumber from '../../utils/number-formatter/number-formatter';
 
 library.add(

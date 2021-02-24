@@ -1,8 +1,29 @@
 import React, { useEffect } from 'react';
 import './dts-tile.scss';
 import './landing-dts.scss';
-import * as d3 from 'd3v4';
 import formatNumber from 'src/utils/number-formatter/number-formatter';
+import { timeFormat, timeParse } from 'd3-time-format';
+import { select, selectAll } from 'd3-selection';
+import { scaleLinear, scaleTime } from 'd3-scale';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { line } from 'd3-shape';
+import { min, max } from 'd3-array';
+import { csv } from 'd3-fetch';
+
+const d3 = {
+	line,
+	select,
+	selectAll,
+	timeParse,
+	timeFormat,
+	scaleLinear,
+	scaleTime,
+	axisBottom,
+	axisLeft,
+	min,
+	max,
+	csv,
+};
 
 function DtsTile(props) {
 	let svg,
@@ -23,13 +44,17 @@ function DtsTile(props) {
 	const parseDateYMD = d3.timeParse('%Y-%m-%d');
 
 	useEffect(() => {
-		d3.csv('/data-lab-data/dts/recent_30.csv', _data => {
-			data = _data;
-			data.forEach(d => {
-				d.date = parseDateYMD(d.date);
+		d3
+			.csv('/data-lab-data/dts/recent_30.csv', _data => {
+				return {
+					date: parseDateYMD(_data.date),
+					Totals: _data.Totals,
+				};
+			})
+			.then(_data => {
+				data = _data;
+				redraw();
 			});
-			redraw();
-		});
 
 		if (typeof window !== 'undefined') {
 			window.addEventListener('resize', function() {
@@ -104,11 +129,14 @@ function DtsTile(props) {
 		setDimensions();
 		setSvg();
 
-		x.domain(
-			d3.extent(data, function(d) {
+		x.domain([
+			d3.min(data, function(d) {
 				return new Date(d.date);
-			})
-		);
+			}),
+			d3.max(data, function(d) {
+				return new Date(d.date);
+			}),
+		]);
 		y.domain([
 			0,
 			d3.max(data, function(d) {
