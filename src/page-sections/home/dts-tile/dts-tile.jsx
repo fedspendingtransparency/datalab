@@ -53,7 +53,6 @@ function DtsTile(props) {
 			})
 			.then(_data => {
 				data = _data;
-				console.log(data);
 				redraw();
 			});
 

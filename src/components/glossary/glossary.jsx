@@ -5,7 +5,6 @@ import styles from '../headers/page.module.scss';
 import './glossary.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook } from '@fortawesome/free-solid-svg-icons/faBook';
-// import * as d3 from 'd3v4';
 
 const d3 = {
 	select,
@@ -320,7 +319,7 @@ export default function Glossary() {
 				previousSearchStr,
 				glossaryButtonHiddenInd = true;
 
-			function searchBoxEvent(event) {
+			function searchBoxEvent() {
 				if (debounce) {
 					clearTimeout(debounce);
 				}
@@ -328,9 +327,9 @@ export default function Glossary() {
 				const enterKey = 'Enter';
 				let searchStr, keyCode;
 
-				if (d3.event && d3.event.target) {
-					searchStr = d3.event.target.value;
-					keyCode = d3.event.key;
+				if (this) {
+					searchStr = this.value;
+					keyCode = event.key;
 				} else {
 					searchStr = d3.select(this).attr('value');
 				}
