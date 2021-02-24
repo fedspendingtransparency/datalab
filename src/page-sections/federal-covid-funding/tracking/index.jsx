@@ -749,6 +749,7 @@ export default function Tracking(props) {
 								className={phaseDetail['govtTotal'].className}
 								src={SectionTag.svg}
 								width={SectionTag.width}
+								height={SectionTag.height}
 								alt={SectionTag.altText}
 								alt={phaseDetail['govtTotal'].altText}
 							/>
