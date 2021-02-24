@@ -216,16 +216,9 @@ export default function Budget(props) {
 						in an estimated total of ${CovidCopy.totcredit_trillions} trillion in
 						total lending.
 					</strong>
-					<a href="#fn1" className="footnoteref">
-						<FootnoteAnchor footnoteId="fr1" />1
-					</a>{' '}
 					As of {CovidCopy.reportingdate}, ${CovidCopy.creditused_bill} billion in
 					credit, loans and loan guarantees have been reported and more than $
-					{CovidCopy.creditavail_trill} trillion remain available. This includes the
-					Federal Reserve’s emergency lending facilities, which have reported $
-					{CovidCopy.frbused_bill} billion utilized out of $
-					{CovidCopy.frbavail_trill} trillion in potential credit.
-					{/*This includes six loan programs: the Federal Reserve's emergency lending facilities, two programs managed by the Small Business Administration, two managed by the Department of the Treasury, and one by the Department of Agriculture.*/}
+					{CovidCopy.creditavail_trill} trillion remain available.
 				</p>
 				<img
 					src={svgs[2].img}
