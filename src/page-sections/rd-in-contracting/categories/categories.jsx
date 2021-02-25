@@ -297,11 +297,11 @@ export default function Categories(props) {
 				<p>In this visualization, categories are represented by icons.</p>
 				<ul>
 					<li>
-						Click or tap on an icon to see the category name, total dollars obligated
-						for R&D in this category, total dollars obligated for COVID-19 R&D in this
-						category.
+						Click or tap on an icon to see the category name, total dollars
+						obligated for R&D in this category, and the total dollars obligated for
+						COVID-19 R&D in this category.
 					</li>
-					<li>To exit the pop-up, reclick the icon or click on the X.</li>
+					<li>To exit the pop-up, re-click the icon or click on the X.</li>
 				</ul>
 			</AccordionList>
 
