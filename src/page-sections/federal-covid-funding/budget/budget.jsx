@@ -216,6 +216,7 @@ export default function Budget(props) {
 						in an estimated total of ${CovidCopy.totcredit_trillions} trillion in
 						total lending.
 					</strong>
+					{' '}
 					As of {CovidCopy.reportingdate}, ${CovidCopy.creditused_bill} billion in
 					credit, loans and loan guarantees have been reported and more than $
 					{CovidCopy.creditavail_trill} trillion remain available.
