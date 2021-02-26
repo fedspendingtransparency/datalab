@@ -26,7 +26,7 @@
 }
 
 .heading {
-    padding: 16px 20px;
+    padding: 12px 12px 12px 24px;
     font-size: 1.125rem;
     text-align: left;
     margin: 0;
@@ -36,31 +36,22 @@
     font-weight: 600;
     flex-wrap: nowrap;
 }
-
-.covidHeading {
-    padding: 10px 20px; // reduce padding for covid page
-    font-size: 1.125rem;
-    text-align: left;
-    margin: 0;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 600;
-    flex-wrap: nowrap;
-}
-
 
 .toggle {
     background: transparent;
     border: none;
-    margin-right: -7px;
     cursor: pointer;
-}
-
-.expand-icon {
-    font-size: 1.5rem;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 0.7; // adjust vertical to match heading
+}
+
+.plus {
+    display: block;
+}
+
+.minus {
+    display: none;
 }
 
 .content {
@@ -72,11 +63,11 @@
     a:not(:focus) {
         color: $legacyBlue;
     }
-    
+
     a:hover {
         text-decoration: underline !important;
     }
-    
+
     a:focus {
         color: #3e94cf;
         text-decoration: underline !important;
@@ -86,6 +77,14 @@
 .open {
     .content {
         max-height: 1400px; // hack; larger than any content's height
+    }
+
+    .plus {
+        display: none;
+    }
+
+    .minus {
+        display: block;
     }
 }
 

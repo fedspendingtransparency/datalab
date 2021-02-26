@@ -20,6 +20,8 @@ import SectionOneChartMobileAll
 import SectionOneChartMobileCovid
 	from 'src/images/rd-in-contracting/spending/SectionOneChartMobileCovid.svg';
 
+const altText = 'Donut chart of FY 2020 federal agency R&D contract funding as a percentage of total contract funding by each agency. Below it is a bar chart of FY 2020 federal agency R&D contract funding in billions or millions by each agency. DoD & NASA have the highest R&D contract funding, with NASA having the highest R&D contract funding as a proportion of total contract funding. Toggling to the COVID-19 R&D Contracts reveals a similar donut chart of FY 2020 federal agency COVID-19 R&D Contracts as a percentage of total R&D contract funding. Below this chart is a bar chart of FY 2020 federal agency COVID-19 R&D contracts in billions. HHS and DOD have the highest COVID-19 R&D contract funding, with HHS having the highest COVID-19 R&D contract funding as a proportion of total R&D contract funding.'
+
 const desktopSvgs = [
 	{
 		img: SectionOneChartDesktopAll,
@@ -88,24 +90,24 @@ export default class SpendingChart extends React.Component {
     <AccordionList title="Instructions">
       <ul>
         <li>
-          To better view the values for DHS, AID, DoEd, DOC, and the VA, click or
-          tap
-          on the values for any of these agencies
+          Toggle between the views to see agency funding by total R&D contracts and
+          COVID-19 R&D contracts.
         </li>
-        <li>To exit the pop-up, click or tap the X</li>
       </ul>
-      <span className={styles.instructionHeader}>Label Definitions</span>
+      <p className={styles.instructionHeader}>Label Definitions</p>
       <div className={styles.instructionNotes}>
-        {`        DOD – Department of Defense
+        {`
+        DOD – Department of Defense
         NASA – National Aeronautics and Space Administration
         HHS – Department of Health and Human Services
         DOE – Department of Energy
         DOT – Department of Transportation
         DHS – Department of Homeland Security
         USAID – US Agency for International Development
-        DoEd – Department of Education
+        ED – Department of Education
         DOC – Department of Commerce
-        VA – Department of Veterans’ Affairs`}
+        VA – Department of Veterans’ Affairs
+        `}
       </div>
     </AccordionList>
   );
@@ -159,12 +161,14 @@ export default class SpendingChart extends React.Component {
                   src={phoneSvgs[1].img}
                   width={phoneSvgs[1].width}
                   height={phoneSvgs[1].height}
+                  alt={altText}
                 />
                 :
                 <img
                   src={phoneSvgs[0].img}
                   width={phoneSvgs[0].width}
                   height={phoneSvgs[0].height}
+                  alt={altText}
                 />
               }
             </>
@@ -176,12 +180,14 @@ export default class SpendingChart extends React.Component {
                   src={tabletSvgs[1].img}
                   width={tabletSvgs[1].width}
                   height={tabletSvgs[1].height}
+                  alt={altText}
                 />
                 :
                 <img
                   src={tabletSvgs[0].img}
                   width={tabletSvgs[0].width}
                   height={tabletSvgs[0].height}
+                  alt={altText}
                 />
               }
             </>
@@ -193,12 +199,14 @@ export default class SpendingChart extends React.Component {
                   src={desktopSvgs[1].img}
                   width={desktopSvgs[1].width}
                   height={desktopSvgs[1].height}
+                  alt={altText}
                 />
                 :
                 <img
                   src={desktopSvgs[0].img}
                   width={desktopSvgs[0].width}
                   height={desktopSvgs[0].height}
+                  alt={altText}
                 />
               }
             </>

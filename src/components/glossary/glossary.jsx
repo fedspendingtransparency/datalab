@@ -1,10 +1,15 @@
 import glossaryData from './glossary_2020.csv';
 import React, { useEffect } from 'react';
-import * as d3 from 'd3v4';
+import { select, selectAll } from 'd3-selection';
 import styles from '../headers/page.module.scss';
 import './glossary.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook } from '@fortawesome/free-solid-svg-icons/faBook';
+
+const d3 = {
+	select,
+	selectAll,
+};
 
 export default function Glossary() {
 	useEffect(() => {
@@ -268,11 +273,7 @@ export default function Glossary() {
 				onOpenInd = true,
 				showListResultsInd = true;
 
-			if (d3.event && d3.event.target) {
-				glossaryLaunchedEl = d3.select(d3.event.target);
-			} else {
-				glossaryLaunchedEl = document.activeElement;
-			}
+			glossaryLaunchedEl = document.activeElement;
 
 			setActiveStatus(glossaryWrapper, activeInd);
 			setTermListView(showListResultsInd);
@@ -318,7 +319,7 @@ export default function Glossary() {
 				previousSearchStr,
 				glossaryButtonHiddenInd = true;
 
-			function searchBoxEvent(event) {
+			function searchBoxEvent() {
 				if (debounce) {
 					clearTimeout(debounce);
 				}
@@ -326,9 +327,9 @@ export default function Glossary() {
 				const enterKey = 'Enter';
 				let searchStr, keyCode;
 
-				if (d3.event && d3.event.target) {
-					searchStr = d3.event.target.value;
-					keyCode = d3.event.key;
+				if (this) {
+					searchStr = this.value;
+					keyCode = event.key;
 				} else {
 					searchStr = d3.select(this).attr('value');
 				}
@@ -361,8 +362,8 @@ export default function Glossary() {
 				setDocumentFocus();
 				glossaryLaunchedEl = null;
 			});
-			glossaryWrapper.selectAll('.cg-glossary-link').on('click', function(el) {
-				const curElement = d3.event.target,
+			glossaryWrapper.selectAll('.cg-glossary-link').on('click', function() {
+				const curElement = this,
 					termsArr = terms[curElement.getAttribute('hashMap')],
 					termDisplay = curElement.innerText;
 

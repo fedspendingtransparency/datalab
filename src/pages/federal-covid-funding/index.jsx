@@ -5,7 +5,6 @@ import globalStyles from 'src/styles/variables.scss';
 
 import StoryLayout from '../../components/layouts/story/story';
 import Grid from '@material-ui/core/Grid';
-import Footnotes from '../../components/footnotes/footnotes';
 import SEO from '../../components/seo';
 import ScrollingCircles from 'src/components/scrolling-circles/scrolling-circles';
 import StorySection from 'src/components/section-elements/story-section/story-section';
@@ -247,16 +246,6 @@ export default class FederalCovidFunding extends React.Component {
 					</StorySection>
 				);
 			})}
-
-			<Grid container justify="center">
-				<Grid item xs={10}>
-					<Footnotes
-						footnotes={[
-							'This estimate represents the maximum amount of credit possible given the current amounts committed by Treasury to various Federal Reserve loan facilities and total loans and loan guarantees available through agency programs. This number could grow with additional commitments by Treasury. For more information and detail on this estimate, see the Data Sources and Methodologies section.',
-						]}
-					/>
-				</Grid>
-			</Grid>
 		</StoryLayout>
 	);
 }

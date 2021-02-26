@@ -14,9 +14,9 @@ import Mobile from 'src/svgs/rd-and-contracting/categories/mobile.svg';
 import data from '../../../../static/unstructured-data/rd-in-contracting/RnD_viz2_2021-02-09.csv';
 
 export default function Categories(props) {
-	const [windowWidth, setWindowWidth] = useState(null);
 	const [device, setDevice] = useState('desktop');
 	const [tooltipData, setData] = useState({});
+	const [activeIcon, setActiveIcon] = useState(null);
 	const keyMapper = {
 		AE: 'economic',
 		AF: 'education',
@@ -66,16 +66,23 @@ export default function Categories(props) {
 	}, []);
 
 	function handleResize() {
-		setWindowWidth(typeof window !== 'undefined' ? window.innerWidth : '');
+		const windowSize = typeof window !== 'undefined' ? window.innerWidth : '';
 
-		if (windowWidth) {
-			if (windowWidth >= parseInt(variables.lg)) {
-				setDevice('desktop');
-			} else if (windowWidth >= parseInt(variables.md)) {
-				setDevice('tablet');
+		if (windowSize) {
+			if (windowSize >= parseInt(variables.lg)) {
+				resetDevice('desktop');
+			} else if (windowSize >= parseInt(variables.md)) {
+				resetDevice('tablet');
 			} else {
-				setDevice('mobile');
+				resetDevice('mobile');
 			}
+		}
+	}
+
+	function resetDevice(currentDevice) {
+		if (device !== currentDevice) {
+			closeAll();
+			setDevice(currentDevice);
 		}
 	}
 
@@ -149,18 +156,20 @@ export default function Categories(props) {
 	}
 
 	function closeAll() {
-		const groups = document.getElementsByClassName('category-icon');
+		if (typeof document !== 'undefined') {
+			const groups = document.getElementsByClassName('category-icon');
 
-		for (let i = 0; i < groups.length; i++) {
-			const el = groups[i].getElementsByTagName('circle')[0];
-			el.setAttribute('fill', 'white');
-			el.setAttribute('fill-opacity', '1');
-			el.setAttribute('stroke', '#555555');
+			for (let i = 0; i < groups.length; i++) {
+				const el = groups[i].getElementsByTagName('circle')[0];
+				el.setAttribute('fill', 'white');
+				el.setAttribute('fill-opacity', '1');
+				el.setAttribute('stroke', '#555555');
+			}
+
+			Object.keys(tooltipData).forEach(key => {
+				onPopoverClose(tooltipData[key].tooltipRef);
+			});
 		}
-
-		Object.keys(tooltipData).forEach(key => {
-			onPopoverClose(tooltipData[key].tooltipRef);
-		});
 	}
 
 	function onBlur(e, key) {
@@ -185,20 +194,18 @@ export default function Categories(props) {
 			groups[i].setAttribute('cursor', 'pointer');
 		}
 
-		if (typeof document !== 'undefined') {
-			Object.keys(tooltipData).forEach(key => {
-				const item = tooltipData[key];
-				const el = document.getElementById(item.id);
-				if (el) {
-					el.setAttribute('tabindex', '0');
-					el.setAttribute('focusable', true);
-					el.addEventListener('mouseover', e => onHover(e));
-					el.addEventListener('keydown', e => onKeyDown(e, key, tooltipData[key]));
-					el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
-					el.addEventListener('mouseout', e => clearSelection(e));
-				}
-			});
-		}
+		Object.keys(tooltipData).forEach(key => {
+			const item = tooltipData[key];
+			const el = document.getElementById(item.id);
+			if (el) {
+				el.setAttribute('tabindex', '0');
+				el.setAttribute('focusable', true);
+				el.addEventListener('mouseover', e => onHover(e));
+				el.addEventListener('keydown', e => onKeyDown(e, key, tooltipData[key]));
+				el.addEventListener('click', e => toggle(e, key, tooltipData[key]));
+				el.addEventListener('mouseout', e => clearSelection(e));
+			}
+		});
 
 		window.addEventListener('resize', handleResize);
 		window.addEventListener('keydown', e => onEsc(e));
@@ -225,13 +232,11 @@ export default function Categories(props) {
 	});
 
 	useEffect(() => {
-		if (typeof document !== 'undefined') {
-			const svg = document.getElementsByTagName('svg')[0];
-			svg.setAttribute('id', 'vizSvg');
-			svg.setAttribute('role', 'img');
-			svg.setAttribute('aria-labelledby', 'desc');
-			svg.setAttribute('desc', altText);
-		}
+		const svg = document.getElementsByTagName('svg')[0];
+		svg.setAttribute('id', 'vizSvg');
+		svg.setAttribute('role', 'img');
+		svg.setAttribute('aria-labelledby', 'desc');
+		svg.setAttribute('desc', altText);
 	});
 
 	function toggle(e, key, item) {
@@ -250,8 +255,6 @@ export default function Categories(props) {
 				event.currentTarget
 			);
 		}
-
-		// close all other popups
 	}
 
 	function onPopoverClose(ref) {
@@ -269,14 +272,19 @@ export default function Categories(props) {
 		return isOpen;
 	}
 
-	const altText = 'Horizontal scatter plot diagram displaying icons of various funding categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.';
+	const altText =
+		'Horizontal scatter plot diagram displaying icons of various funding categories ' +
+		'across the x-axis, ranging from approximately $1.8 million for income security ' +
+		'to over $13 billion for national defense.';
 
 	function Chart() {
+		closeAll();
+
 		switch (device) {
 			case 'tablet':
 				return <Tablet alt={altText} />;
 			case 'mobile':
-				return <Mobile  className="category-svg-centered" alt={altText} />;
+				return <Mobile className="category-svg-centered" alt={altText} />;
 			default:
 				return <Desktop alt={altText} />;
 		}
@@ -290,11 +298,10 @@ export default function Categories(props) {
 				<ul>
 					<li>
 						Click or tap on an icon to see the category name, total dollars
-						obligated for R&D in this category, total dollars obligated for COVID-19
-						R&D in this category, and the percentage this total accounts for within
-						R&D contract funding.
+						obligated for R&D in this category, and the total dollars obligated for
+						COVID-19 R&D in this category.
 					</li>
-					<li>To exit the pop-up, reclick the icon or click on the X.</li>
+					<li>To exit the pop-up, re-click the icon or click on the X.</li>
 				</ul>
 			</AccordionList>
 
@@ -330,6 +337,3 @@ export default function Categories(props) {
 		</>
 	);
 }
-
-const altText =
-	'Horizontal scatter plot diagram displaying icons of various spending categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.';
