@@ -15,7 +15,7 @@
       align-items: center;
       height: 30px;
       width: 30px;
-      margin: 10px 0 10px;
+      margin: 10px;
       color: #fff;
       border-radius: 15px;
       font-size: 1rem;
@@ -91,7 +91,7 @@
 
 @media screen and (max-width: $tablet - 1) {
   .main-container {
-    right: 0;
+    right: -10px;
     width: 45px;
 
     .section-container {
@@ -99,11 +99,11 @@
         height: 23px;
         width: 23px;
         font-size: 0.656rem;
-        margin: 10px 10px 10px 0;
+        margin: 10px 0;
 
         .labelContainer {
           left: unset;
-          right: 45px;
+          right: 55px;
 
           .before-arrow {
             order: 2;
