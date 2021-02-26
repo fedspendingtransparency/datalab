@@ -30,9 +30,9 @@
         background-color: #eaeaea;
       }
 
-      &:hover {
-        cursor: pointer;
-      }
+      //&:hover {
+      //  cursor: pointer;
+      //}
 
       &:focus {
         outline: none;
@@ -78,9 +78,23 @@
   }
 }
 
-@media screen and (min-width: $tablet) {
+@media screen and (min-width: $tablet) and (hover: hover) {
   .main-container {
     left: 10px;
+
+    .section-container {
+      .circle:hover .labelContainer {
+        opacity: 80%;
+        visibility: visible;
+        transition: opacity 200ms linear;
+      }
+
+      .circle {
+        &:hover {
+            cursor: pointer;
+          }
+      }
+    }
 
     .focused {
       box-shadow: 0 0 0 2px #888;
@@ -119,15 +133,15 @@
   }
 }
 
-@media (hover: hover) {
-  .section-container {
-    .circle:hover .labelContainer {
-      opacity: 80%;
-      visibility: visible;
-      transition: opacity 200ms linear;
-    }
-  }
-}
+//@media (hover: hover) {
+//  .section-container {
+//    .circle:hover .labelContainer {
+//      opacity: 80%;
+//      visibility: visible;
+//      transition: opacity 200ms linear;
+//    }
+//  }
+//}
 
 
 
