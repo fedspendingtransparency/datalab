@@ -129,14 +129,14 @@ export default function Tracking(props) {
 			'Law Total': {
 				svg: GovtTotalSVG,
 				width: 911,
-				height: 93,
+				height: 93
 			},
 		},
 		'1': {
 			'Law Total': {
 				svg: Phase1SVG,
 				width: 364,
-				height: 40,
+				height: 40
 			},
 			Spending: {
 				svg: Phase1GeneralSVG,
@@ -155,7 +155,7 @@ export default function Tracking(props) {
 			'Law Total': {
 				svg: Phase2SVG,
 				width: 377,
-				height: 41,
+				height: 41
 			},
 		},
 		'3': {
@@ -205,65 +205,65 @@ export default function Tracking(props) {
 			'Law Total': {
 				svg: GovtTotalTabletSVG,
 				width: 687,
-				height: 93,
+				height: 93
 			},
 		},
 		'1': {
 			'Law Total': {
 				svg: Phase1TabletSVG,
 				width: 364,
-				height: 40,
+				height: 40
 			},
 			Spending: {
 				svg: Phase1GeneralTabletSVG,
 				width: 364,
-				height: 40,
+				height: 40
 			},
 			Loan: {
 				svg: Phase1LoanTabletSVG,
 				width: 129,
-				height: 84,
+				height: 84
 			},
 		},
 		'2': {
 			'Law Total': {
 				svg: Phase2TabletSVG,
 				width: 377,
-				height: 40,
+				height: 40
 			},
 		},
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalTabletSVG,
 				width: 562,
-				height: 94,
+				height: 94
 			},
 			Spending: {
 				svg: Phase3GeneralTabletSVG,
 				width: 368,
-				height: 85,
+				height: 85
 			},
 			Loan: {
 				svg: Phase3LoanTabletSVG,
 				width: 375,
-				height: 85,
+				height: 85
 			},
 		},
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalTabletSVG,
 				width: 349,
-				height: 95,
+				height: 95
 			},
 			Spending: {
 				svg: Phase35GeneralTabletSVG,
 				width: 402,
-				height: 32,
+				height: 32
 			},
 			Loan: {
 				svg: Phase35LoanTabletSVG,
 				width: 451,
-				height: 31,
+				height: 31
 			},
 		},
 	};
@@ -273,65 +273,65 @@ export default function Tracking(props) {
 			'Law Total': {
 				svg: GovtTotalMobileSVG,
 				width: 273,
-				height: 109,
+				height: 109
 			},
 		},
 		'1': {
 			'Law Total': {
 				svg: Phase1MobileSVG,
 				width: 277,
-				height: 40,
+				height: 40
 			},
 			Spending: {
 				svg: Phase1GeneralMobileSVG,
 				width: 277,
-				height: 40,
+				height: 40
 			},
 			Loan: {
 				svg: Phase1LoanMobileSVG,
 				width: 119,
-				height: 81,
+				height: 81
 			},
 		},
 		'2': {
 			'Law Total': {
 				svg: Phase2MobileSVG,
-				width: 288,
-				height: 40,
+				width: 319,
+				height: 40
 			},
 		},
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalMobileSVG,
 				width: 279,
-				height: 84,
+				height: 84
 			},
 			Spending: {
 				svg: Phase3GeneralMobileSVG,
 				width: 276,
-				height: 75,
+				height: 75
 			},
 			Loan: {
 				svg: Phase3LoanMobileSVG,
 				width: 264,
-				height: 75,
+				height: 75
 			},
 		},
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalMobileSVG,
 				width: 270,
-				height: 83,
+				height: 83
 			},
 			Spending: {
 				svg: Phase35GeneralMobileSVG,
 				width: 292,
-				height: 34,
+				height: 34
 			},
 			Loan: {
 				svg: Phase35LoanMobileSVG,
 				width: 289,
-				height: 34,
+				height: 34
 			},
 		},
 	};
@@ -712,7 +712,6 @@ export default function Tracking(props) {
 							className={phaseDetail[item.label][barType].className}
 							src={SectionTag.svg}
 							width={SectionTag.width}
-							height={SectionTag.height}
 							alt={phaseDetail[item.label][barType].altText}
 							onClick={e => openModalTag(e, item, thisBar, true)}
 							onKeyDown={e => openModalTag(e, item, thisBar, true)}
@@ -751,6 +750,7 @@ export default function Tracking(props) {
 								src={SectionTag.svg}
 								width={SectionTag.width}
 								height={SectionTag.height}
+								alt={SectionTag.altText}
 								alt={phaseDetail['govtTotal'].altText}
 							/>
 						</PhaseWrapper>

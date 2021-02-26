@@ -28,22 +28,10 @@ class MouseOverPopover extends React.Component {
 		};
 	}
 
-	componentDidMount() {
-		window.addEventListener('resize', e => this.handleResize(e));
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener('resize', e => this.handleResize(e));
-	}
-
 	escHandler = e => {
 		if (e.keyCode === 27) {
 			this.handlePopoverClose();
 		}
-	};
-
-	handleResize = e => {
-		this.handlePopoverClose();
 	};
 
 	isOpen = id => {
@@ -63,6 +51,7 @@ class MouseOverPopover extends React.Component {
 		this.setState({
 			openedPopperId: null,
 			anchorEl: null,
+			target: null,
 		});
 	};
 
@@ -118,5 +107,5 @@ MouseOverPopover.propTypes = {
 	classes: PropTypes.object.isRequired,
 	rows: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 	title: PropTypes.string.isRequired,
-	id: PropTypes.number.isRequired,
+	id: PropTypes.string.isRequired,
 };

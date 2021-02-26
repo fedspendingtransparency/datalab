@@ -12,12 +12,10 @@ import SEO from 'src/components/seo';
 
 import afg from 'src/images/home/AFG_Desktop.png';
 import covid from 'src/images/home/covid.png';
-import rd from 'src/images/home/rd-homepage-v4.gif';
+import rd from 'src/images/home/R&D-Module-cut.gif';
 import explorer from 'src/images/home/contractexplorersunburst.png';
 import homeStyles from './index.module.scss';
 import { Helmet } from 'react-helmet';
-
-//insignificant code change for DTI to test dev env
 
 function IndexPage(props) {
 	return (
@@ -41,11 +39,15 @@ function IndexPage(props) {
 						isMain
 						imgAlt="Abstract Brain with 4 categories: Aeronautics, Infectious Disease, Renewable Energy & Anti-Terrorism. This analysis shows federal R&D funding in 2020."
 						heading="Research & Development in Contracting"
-						body="R&D is often associated with the private sector, but in 2020 the federal government backed more than $40 billion in research initiatives through contracts. Our analysis looks at the top agencies by R&D contract funding and where the money is going. See how categories such as energy, education, and space flight stack up and how R&D funding has trended over the last decade."
+						body={[
+							<p>
+								R&D is often associated with the private sector, but in 2020 the federal government backed more than $47 billion in research initiatives through contracts. Our analysis looks at the top agencies by R&D contract funding and where the money is going. See how categories such as energy, education, and space flight stack up and how R&D funding has trended over the last decade.
+							</p>
+						]}
 						mobileBody={[
 							<>
 								<p>
-									R&D is often associated with the private sector, but in 2020 the government backed more than $40B in research contracts. Our analysis looks at the top agencies by contract spend and where it went.
+									R&D is often associated with the private sector, but in 2020 the government backed more than $47B in research contracts. Our analysis looks at the top agencies by contract funding and where it went.
 								</p>
 							</>,
 						]}
@@ -66,11 +68,6 @@ function IndexPage(props) {
 							subheading="How is the federal government funding relief efforts for COVID-19?"
 							body={[
 								<>
-									{/*<p>*/}
-									{/*	How is the federal government funding relief efforts for COVID-19?*/}
-									{/*	To aid the nation’s recovery from the COVID-19 pandemic, the U.S. Congress passed four special appropriations laws, which provide multiple forms of financial relief through agency spending, tax relief, and lending. In this analysis, we break down how the funding provides financial relief, explain the process of how the money moves from legislation to the American people, and track the progress of spending.*/}
-									{/*</p>*/}
-
 									<p>
 										Follow along as Data Lab tracks the flow of four emergency funding laws for COVID-19.
 									</p>

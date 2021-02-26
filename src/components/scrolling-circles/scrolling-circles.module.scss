@@ -7,6 +7,7 @@
 
   .section-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
 
     .circle {
@@ -38,31 +39,41 @@
       }
     }
 
-    .label {
+    .labelContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: absolute;
+      left: 50px;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s 1000ms, opacity 1000ms linear;
+    }
+
+    .before-arrow {
+      top: 10px;
+      height: 20px;
+      width: 20px;
+      transform: rotate(-45deg);
+      right: 100%;
+      margin-right: -13px;
+      z-index: -1;
+    }
+
+    .label {
       height: 40px;
-      margin-left: 66px;
       padding: 8px 10px;
       color: #fff;
       border-radius: 4px;
       font-size: 1rem;
-      font-weight: bold;
+      font-weight: $semibold;
       white-space: nowrap;
+    }
 
-      .before-arrow {
-        content: "";
-        position: absolute;
-        top: 10px;
-        width: 0;
-        height: 0;
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-      }
-
-      &.fade {
-        opacity: 0;
-        transition: opacity 500ms;
-      }
+    .showLabel .labelContainer {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 200ms linear;
     }
   }
 }
@@ -87,14 +98,37 @@
         height: 23px;
         width: 23px;
         font-size: 0.656rem;
-      }
-    }
 
-    .label {
-      right: 60px;
+        .labelContainer {
+          left: unset;
+          right: 45px;
+
+          .before-arrow {
+            order: 2;
+            margin-right: unset;
+            margin-left: -14px;
+            left: 100%;
+          }
+
+          .label {
+            order: 1;
+          }
+        }
+      }
     }
   }
 }
+
+@media (hover: hover) {
+  .section-container {
+    .circle:hover .labelContainer {
+      opacity: 80%;
+      visibility: visible;
+      transition: opacity 200ms linear;
+    }
+  }
+}
+
 
 
 

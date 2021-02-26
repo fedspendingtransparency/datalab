@@ -1,12 +1,12 @@
 @import "src/styles/variables.scss";
 
 .instruction-header {
-  font-weight: $bold;
+  font-weight: $semibold;
 }
 
 .instruction-notes {
   white-space: pre-wrap;
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 
 .svg-container {
