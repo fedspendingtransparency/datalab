@@ -273,7 +273,9 @@ export default function Categories(props) {
 	}
 
 	const altText =
-		'Horizontal scatter plot diagram displaying icons of various funding categories across the x-axis, ranging from approximately a net negative $200,000 for International Affairs to over 13 billion dollars for defense systems.';
+		'Horizontal scatter plot diagram displaying icons of various funding categories ' +
+		'across the x-axis, ranging from approximately $1.8 million for income security ' +
+		'to over $13 billion for national defense.';
 
 	function Chart() {
 		closeAll();
@@ -295,12 +297,11 @@ export default function Categories(props) {
 				<p>In this visualization, categories are represented by icons.</p>
 				<ul>
 					<li>
-						Click or tap on an icon to see the category name, total dollars obligated
-						for R&D in this category, total dollars obligated for COVID-19 R&D in this
-						category, and the percentage this total accounts for within R&D contract
-						funding.
+						Click or tap on an icon to see the category name, total dollars
+						obligated for R&D in this category, and the total dollars obligated for
+						COVID-19 R&D in this category.
 					</li>
-					<li>To exit the pop-up, reclick the icon or click on the X.</li>
+					<li>To exit the pop-up, re-click the icon or click on the X.</li>
 				</ul>
 			</AccordionList>
 

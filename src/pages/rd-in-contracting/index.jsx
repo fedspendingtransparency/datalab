@@ -45,6 +45,7 @@ export default class RdInContractingPage extends React.Component {
 		}
 	};
 
+
 	whatIsContents = () => (
 		<div className={styles.accordionContents}>
 			<img src={microscope} role="presentation" className={styles.centerImg} />
@@ -160,7 +161,17 @@ export default class RdInContractingPage extends React.Component {
 				to perform R&D work in fiscal year 2020 (FY 2020), totaling $47.8 billion.
 				Let’s take a look at the top ten CFO Act agencies by R&D contract funding
 				and the top {this.state && this.state.screenMode > 1 ? 'seven' : 'five'}{' '}
-				agencies by COVID-19 R&D contract funding.
+				agencies by COVID-19 R&D contract funding. For more information about the 	 				Federal Response to COVID-19, including legislation and funding details,
+				click
+				{' '}
+				<a
+					href="https://datalab.usaspending.gov/federal-covid-funding/"
+					rel="noreferrer noopener"
+					target="_blank"
+					className={styles.link}>
+					here
+				</a>
+				.
 			</p>
 		</>,
 		<p>
@@ -205,7 +216,7 @@ export default class RdInContractingPage extends React.Component {
 		</>,
 	];
 
-	sections = [
+	getSections = () => [
 		{
 			section: 'Funding',
 			anchor: 'spending',
@@ -238,11 +249,11 @@ export default class RdInContractingPage extends React.Component {
 			readMoreStyle: { color: globalStyles.rdMdBlue },
 		},
 		{
-			section: 'R&D Spending Categories',
+			section: 'R&D Funding Categories',
 			anchor: 'categories',
 			number: '02',
-			subtext: 'R&D Spending Categories',
-			subblurb: 'R&D Spending Categories',
+			subtext: 'R&D Funding Categories',
+			subblurb: 'R&D Funding Categories',
 			sectionTeaser: (
 				<>
 					20{' '}
@@ -253,7 +264,7 @@ export default class RdInContractingPage extends React.Component {
 				</>
 			),
 			introBlurb: this.getSecBlurbs()[1],
-			viztitle: 'R&D Federal Spending in Contracting by Category',
+			viztitle: 'R&D Federal Funding in Contracting by Category',
 			tagName: 'categories',
 			readMoreOnMobile: true,
 			readMoreStyle: { color: globalStyles.rdMdBlue },
@@ -308,7 +319,7 @@ export default class RdInContractingPage extends React.Component {
 				hwctaLink={this.props.location.pathname + '/methodologies'}
 				title="Research & Development in Contract Funding"
 				introSentence="How much did the federal government invest in Research & Development with FY 2020 Contract Funding?"
-				sectionToc={this.sections}
+				sectionToc={this.getSections()}
 				hwctaLink={this.props.location.pathname + '/methodologies'}
 				scrollingToc>
 				<SEO
@@ -316,7 +327,7 @@ export default class RdInContractingPage extends React.Component {
 					title="Research & Development in Contract Funding | U.S. Treasury Data Lab"
 				/>
 
-				{this.sections.map((item, key) => {
+				{this.getSections().map((item, key) => {
 					const SectionTag = this.sectionComponents[item.tagName];
 					if (!item.comingSoon) {
 						return (
