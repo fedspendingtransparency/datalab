@@ -48,6 +48,8 @@ const SecondaryTile = props => (
 						data-src={props.imgSrc}
 						className="lazyload"
 						alt={props.imgAlt}
+						width={props.width}
+						height={props.height}
 					/>
 				</div>
 				<Hidden mdDown>
@@ -92,6 +94,8 @@ const SecondaryTile = props => (
 								data-src={props.imgSrc}
 								className="lazyload"
 								alt={props.imgAlt}
+								width={props.width}
+								height={props.height}
 							/>
 						</div>
 					</Grid>

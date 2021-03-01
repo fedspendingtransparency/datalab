@@ -16,7 +16,9 @@ const MoreAnalysesTiles = () => {
 			alt:
 				'A university building with three streets leading up to it, each has an icon representing financial aid, grants, and contracts respectively.',
 			title: 'Federal Investment in Higher Education',
-			subtitle: "Explore the federal investment in your alma mater",
+			subtitle: 'Explore the federal investment in your alma mater',
+			width: '260',
+			height: '177',
 		},
 		{
 			href: '/homelessness-analysis/',
@@ -25,6 +27,8 @@ const MoreAnalysesTiles = () => {
 			subtitle: 'Explore federal programs that address homelessness',
 			alt:
 				'A homeless person leaning against a street pole and additional homeless people stand against a building in the far background.',
+			width: '260',
+			height: '177',
 		},
 		{
 			href: '/budget-function/',
@@ -33,6 +37,8 @@ const MoreAnalysesTiles = () => {
 			subtitle: 'Check out how federal spending is categorized',
 			alt:
 				'A close view of the back of a dollar bill focused on the Great Seal of the United States.',
+			width: '260',
+			height: '177',
 		},
 		{
 			href: '/competition-in-contracting/',
@@ -40,6 +46,8 @@ const MoreAnalysesTiles = () => {
 			title: 'Competition in Contracting',
 			subtitle: 'How often do federal agencies compete for contracts?',
 			alt: 'Five individuals racing on an orange race track covering four lanes.',
+			width: '260',
+			height: '177',
 		},
 	];
 
@@ -59,6 +67,8 @@ const MoreAnalysesTiles = () => {
 									data-src={item.imageSrc}
 									className={`${moreAnalysesStyles.image} lazyload`}
 									alt={item.alt}
+									width={item.width}
+									height={item.height}
 								/>
 							</div>
 						</a>

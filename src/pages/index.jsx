@@ -38,16 +38,25 @@ function IndexPage(props) {
 						imgSrc={rd}
 						isMain
 						imgAlt="Abstract Brain with 4 categories: Aeronautics, Infectious Disease, Renewable Energy & Anti-Terrorism. This analysis shows federal R&D funding in 2020."
+						width="748"
+						height="504"
 						heading="Research & Development in Contracting"
 						body={[
 							<p>
-								R&D is often associated with the private sector, but in 2020 the federal government backed more than $47 billion in research initiatives through contracts. Our analysis looks at the top agencies by R&D contract funding and where the money is going. See how categories such as energy, education, and space flight stack up and how R&D funding has trended over the last decade.
-							</p>
+								R&D is often associated with the private sector, but in 2020 the federal
+								government backed more than $47 billion in research initiatives through
+								contracts. Our analysis looks at the top agencies by R&D contract
+								funding and where the money is going. See how categories such as energy,
+								education, and space flight stack up and how R&D funding has trended
+								over the last decade.
+							</p>,
 						]}
 						mobileBody={[
 							<>
 								<p>
-									R&D is often associated with the private sector, but in 2020 the government backed more than $47B in research contracts. Our analysis looks at the top agencies by contract funding and where it went.
+									R&D is often associated with the private sector, but in 2020 the
+									government backed more than $47B in research contracts. Our analysis
+									looks at the top agencies by contract funding and where it went.
 								</p>
 							</>,
 						]}
@@ -64,14 +73,17 @@ function IndexPage(props) {
 							href="/federal-covid-funding/"
 							imgSrc={covid}
 							imgAlt="Woman standing with medical face mask on, social distanced between two others, with a cartoon image of the U.S. Capitol in the background."
+							width="364"
+							height="258"
 							heading="The Federal Response to COVID-19"
 							subheading="How is the federal government funding relief efforts for COVID-19?"
 							body={[
 								<>
 									<p>
-										Follow along as Data Lab tracks the flow of four emergency funding laws for COVID-19.
+										Follow along as Data Lab tracks the flow of four emergency funding
+										laws for COVID-19.
 									</p>
-								</>
+								</>,
 							]}
 						/>
 					</Grid>
@@ -92,16 +104,27 @@ function IndexPage(props) {
 						href="/americas-finance-guide/"
 						imgSrc={afg}
 						imgAlt="Illustration of finance icons: dollar bill, bag of money, etc. with the text ‘Answer all your questions about federal government finance.” overlaid."
+						width="358"
+						height="255"
 						heading="Your Guide to America's Finances"
 						body={[
 							<p>
-								Your Guide to America's Finances is an overview of U.S. government finances for 2020. Here you’ll find information on spending, revenue, the deficit, and debt. The Guide presents a series of interactive visualizations exploring each category and how it has changed over time. Ultimately, the Guide seeks to provide a comprehensive overview of the trillions of dollars collected and spent by the federal government each year.
-							</p>
+								Your Guide to America's Finances is an overview of U.S. government
+								finances for 2020. Here you’ll find information on spending, revenue,
+								the deficit, and debt. The Guide presents a series of interactive
+								visualizations exploring each category and how it has changed over time.
+								Ultimately, the Guide seeks to provide a comprehensive overview of the
+								trillions of dollars collected and spent by the federal government each
+								year.
+							</p>,
 						]}
 						mobileBody={[
 							<p>
-								Your guide to understanding the trillions of dollars that make up the federal <a href="?glossary=balance_sheet">balance sheet</a>. Our interactive visualizations walk you through federal spending, revenue, the deficit, and debt.
-							</p>
+								Your guide to understanding the trillions of dollars that make up the
+								federal <a href="?glossary=balance_sheet">balance sheet</a>. Our
+								interactive visualizations walk you through federal spending, revenue,
+								the deficit, and debt.
+							</p>,
 						]}
 					/>
 				</Grid>
@@ -115,6 +138,8 @@ function IndexPage(props) {
 					blurb="Ever wonder who's getting federal contracts and what agencies are awarding them? This tool lets you explore contract-related information for FY18, including which organizations received federal contracts, contract amounts, awarding agencies and sub-agencies, and the types of goods or services contract recipients provided to the federal government."
 					imgSrc={explorer}
 					imgAlt="A picture of a microscope with a sunburst image overlaid."
+					width="554"
+					height="335"
 				/>
 			</div>
 

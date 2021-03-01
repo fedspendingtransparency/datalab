@@ -2,7 +2,7 @@ import React from 'react';
 import numberFormatter from 'src/utils/number-formatter/number-formatter';
 import Grid from '@material-ui/core/Grid';
 import Bar from '../bars/bar';
-import ScaleLine from '../../../../svgs/federal-covid-spending/tracking/scale-line.svg';
+import ScaleLine from '../../../../svgs/federal-covid-funding/tracking/scale-line.svg';
 
 import styles from './modal.module.scss';
 
