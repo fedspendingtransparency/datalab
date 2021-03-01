@@ -1,9 +1,9 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import apiImg from 'src/images/home/resources-api-2.svg';
-import userGuideImg from 'src/images/home/resources-user-guide-2.svg';
-import playbookImg from 'src/images/home/resources-playbook-2.svg';
+import apiImg from 'src/images/home/resources-api-2.webp';
+import userGuideImg from 'src/images/home/resources-user-guide-2.webp';
+import playbookImg from 'src/images/home/resources-playbook-2.webp';
 
 import resourcesRowStyles from './resources-row.module.scss';
 
