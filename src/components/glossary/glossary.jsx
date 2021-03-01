@@ -3,8 +3,7 @@ import React, { useEffect } from 'react';
 import { select, selectAll } from 'd3-selection';
 import styles from '../headers/page.module.scss';
 import './glossary.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook } from '@fortawesome/free-solid-svg-icons/faBook';
+import GlossaryButton from "./glossary-button/glossary-button";
 
 const d3 = {
 	select,
@@ -457,12 +456,7 @@ export default function Glossary() {
 	return (
 		<>
 			<div id="afg-launch-glossary-div" className="hidden">
-				<button id="afg-floating-glossary-button" tabIndex={-1}>
-					<div className="button-content">
-						<FontAwesomeIcon icon={faBook} className="floating-glossary-icon" />
-						Glossary
-					</div>
-				</button>
+				<GlossaryButton />
 			</div>
 			<div id="cg-glossary-wrapper">
 				<aside
