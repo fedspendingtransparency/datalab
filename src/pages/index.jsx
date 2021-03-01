@@ -12,7 +12,7 @@ import SEO from 'src/components/seo';
 
 import afg from 'src/images/home/AFG_Desktop.png';
 import covid from 'src/images/home/covid.png';
-import rd from 'src/images/home/R&D-Module-cut.gif';
+import rd from 'src/images/home/R&D-Homepage-cut.png';
 import explorer from 'src/images/home/contractexplorersunburst.png';
 import homeStyles from './index.module.scss';
 import { Helmet } from 'react-helmet';
