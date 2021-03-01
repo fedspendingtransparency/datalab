@@ -10,10 +10,10 @@ import ResourcesRow from 'src/page-sections/home/resources-row/resources-row';
 import SecondaryTile from 'src/page-sections/home/secondary-tile/stacked-layout/secondary-tile';
 import SEO from 'src/components/seo';
 
-import afg from 'src/images/home/AFG_Desktop.png';
+import afg from 'src/images/home/AFG_Desktop.webp';
 import covid from 'src/images/home/covid.webp';
 import rd from 'src/images/home/RD-Homepage-cut.webp';
-import explorer from 'src/images/home/contractexplorersunburst.png';
+import explorer from 'src/images/home/contractexplorersunburst.webp';
 import homeStyles from './index.module.scss';
 import { Helmet } from 'react-helmet';
 
