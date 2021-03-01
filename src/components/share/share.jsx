@@ -4,11 +4,11 @@ import withStyles from '@material-ui/styles/withStyles';
 
 import styles from './share.module.scss';
 import ShareLogo from '../../svgs/share.svg';
-import facebookLogo from '../../images/colleges-and-universities/facebook.svg';
-import twitterLogo from '../../images/colleges-and-universities/twitter.svg';
-import linkedinLogo from '../../images/colleges-and-universities/linkedin.svg';
-import redditLogo from '../../images/colleges-and-universities/reddit.svg';
-import emailLogo from '../../images/colleges-and-universities/email.svg';
+import facebookLogo from '../../images/share/facebook.svg';
+import twitterLogo from '../../images/share/twitter.svg';
+import linkedinLogo from '../../images/share/linkedin.svg';
+import redditLogo from '../../images/share/reddit.svg';
+import emailLogo from '../../images/share/email.svg';
 import pageColorMap from '../../utils/page-color';
 import { legacyBlue } from '../../styles/variables.scss';
 
