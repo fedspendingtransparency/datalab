@@ -4,16 +4,16 @@ import Share from 'src/components/share/share';
 import Downloads from 'src/components/section-elements/downloads/downloads';
 import FootnoteAnchor from 'src/components/footnotes/footnote-anchor';
 
-import DesktopA from 'src/images/covid/budget/viz1ADesktop.svg';
-import DesktopB from 'src/images/covid/budget/viz1BDesktop.svg';
-import DesktopC from 'src/images/covid/budget/viz1CDesktop.svg';
-import TabletA from 'src/images/covid/budget/viz1ATablet.svg';
-import TabletB from 'src/images/covid/budget/viz1BTablet.svg';
-import TabletC from 'src/images/covid/budget/viz1CTablet.svg';
-import MobileA from 'src/images/covid/budget/viz1AMobile.svg';
-import MobileB from 'src/images/covid/budget/viz1BMobile.svg';
-import MobileC from 'src/images/covid/budget/viz1CMobile.svg';
-import PurpleDot from 'src/svgs/federal-covid-spending/purpleDot.svg';
+import DesktopA from 'src/images/federal-covid-funding/budget/viz1ADesktop.svg';
+import DesktopB from 'src/images/federal-covid-funding/budget/viz1BDesktop.svg';
+import DesktopC from 'src/images/federal-covid-funding/budget/viz1CDesktop.svg';
+import TabletA from 'src/images/federal-covid-funding/budget/viz1ATablet.svg';
+import TabletB from 'src/images/federal-covid-funding/budget/viz1BTablet.svg';
+import TabletC from 'src/images/federal-covid-funding/budget/viz1CTablet.svg';
+import MobileA from 'src/images/federal-covid-funding/budget/viz1AMobile.svg';
+import MobileB from 'src/images/federal-covid-funding/budget/viz1BMobile.svg';
+import MobileC from 'src/images/federal-covid-funding/budget/viz1CMobile.svg';
+import PurpleDot from 'src/svgs/federal-covid-funding/purpleDot.svg';
 import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2021-02-01.yml';
 
 import { checkScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
@@ -215,8 +215,7 @@ export default function Budget(props) {
 						funding for credit, loans and loan guarantee programs, which could result
 						in an estimated total of ${CovidCopy.totcredit_trillions} trillion in
 						total lending.
-					</strong>
-					{' '}
+					</strong>{' '}
 					As of {CovidCopy.reportingdate}, ${CovidCopy.creditused_bill} billion in
 					credit, loans and loan guarantees have been reported and more than $
 					{CovidCopy.creditavail_trill} trillion remain available.

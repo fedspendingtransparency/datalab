@@ -26,6 +26,8 @@ const FeatureTile = props => {
 							className={`${featuredAnalysesTitleStyles.image} lazyload`}
 							src={props.imgSrc}
 							alt={props.imgAlt}
+							width={props.width}
+							height={props.height}
 						/>
 					</div>
 				);
@@ -35,6 +37,8 @@ const FeatureTile = props => {
 						className={`${featuredAnalysesTitleStyles.image} lazyload`}
 						src={props.imgSrc}
 						alt={props.imgAlt}
+						width={props.width}
+						height={props.height}
 					/>
 				);
 			}
@@ -44,6 +48,8 @@ const FeatureTile = props => {
 					className={`${featuredAnalysesTitleStyles.image}`}
 					src={props.imgSrc}
 					alt={props.imgAlt}
+					width={props.width}
+					height={props.height}
 				/>
 			);
 		}

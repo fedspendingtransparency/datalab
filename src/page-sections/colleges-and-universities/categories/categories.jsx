@@ -17,7 +17,7 @@ import IconButton from '@material-ui/core/IconButton';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import SearchPanel from 'src/components/chartpanels/search';
 import StoryHeading from 'src/components/section-elements/story-section-heading/story-section-heading';
-import SunburstIcon from 'src/images/sunburst_icon.svg';
+import SunburstIcon from 'src/images/colleges-and-universities/sunburst_icon.svg';
 import VizControlPanel from 'src/components/chartpanels/viz-control';
 
 const Categories = () => {

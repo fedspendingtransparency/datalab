@@ -13,7 +13,13 @@ const FeatureRow = props => {
 					<p className={featuredAnalysesStyles.blurb}>{props.blurb}</p>
 				</Grid>
 				<Grid item xs={12} md={6} className={featuredAnalysesStyles.image}>
-					<img data-src={props.imgSrc} alt={props.imgAlt} className="lazyload" />
+					<img
+						data-src={props.imgSrc}
+						alt={props.imgAlt}
+						width={props.width}
+						height={props.height}
+						className="lazyload"
+					/>
 				</Grid>
 			</Grid>
 		</a>
