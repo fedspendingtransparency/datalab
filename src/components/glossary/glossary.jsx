@@ -353,7 +353,7 @@ export default function Glossary() {
 				showGlossary();
 			});
 			// The following button exists at the bottom-right of the screen when the user scrolls down the page
-			// d3.select('#afg-floating-glossary-button').on('click', showGlossary);
+			d3.select('#afg-floating-glossary-button').on('click', showGlossary);
 
 			glossaryWrapper.select('#cg-glossary-close-button').on('click', function() {
 				const activeInd = false;
