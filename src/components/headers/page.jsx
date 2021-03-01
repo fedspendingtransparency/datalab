@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './page.module.scss';
+import glossaryButtonStyles from '../glossary/glossary-button/glossary-button.module.scss';
 
 import TagLine from '../../svgs/Logo-with-tagline.svg';
 import NoTagLine from '../../svgs/Logo-without-tagline.svg';
@@ -14,6 +15,7 @@ import ScrollToTopButton from '../scroll-to-top-button/scroll-to-top-button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import GlossaryButton from "../glossary/glossary-button/glossary-button";
 
 export default class PageHeader extends React.Component {
 	constructor(props) {
@@ -32,6 +34,11 @@ export default class PageHeader extends React.Component {
 			scrollButtonVisible: false,
 			showMenu: false,
 		};
+		this.glossaryRef = React.createRef();
+	}
+
+	onGlossaryButtonClick = () => {
+		this.glossaryRef.current.showGlossary();
 	}
 
 	componentDidMount() {
@@ -285,7 +292,11 @@ export default class PageHeader extends React.Component {
 					onClick={this.scrollToTop}
 					visible={scrollButtonVisible}
 				/>
-				<Glossary tabIndex="-1" />
+				<div id="afg-launch-glossary-div"
+						 className={`${glossaryButtonStyles.hidden} ${glossaryButtonStyles.afgLaunchGlossaryDiv}`}>
+					<GlossaryButton onClick={this.onGlossaryButtonClick} />
+				</div>
+				<Glossary tabIndex="-1" ref={this.glossaryRef} />
 			</>
 		);
 	}

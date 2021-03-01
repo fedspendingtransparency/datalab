@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { select, selectAll } from 'd3-selection';
 import styles from '../headers/page.module.scss';
 import './glossary.scss';
-import GlossaryButton from "./glossary-button/glossary-button";
+import glossaryButtonStyles from './glossary-button/glossary-button.module.scss';
 
 const d3 = {
 	select,
@@ -353,7 +353,7 @@ export default function Glossary() {
 				showGlossary();
 			});
 			// The following button exists at the bottom-right of the screen when the user scrolls down the page
-			d3.select('#afg-floating-glossary-button').on('click', showGlossary);
+			// d3.select('#afg-floating-glossary-button').on('click', showGlossary);
 
 			glossaryWrapper.select('#cg-glossary-close-button').on('click', function() {
 				const activeInd = false;
@@ -412,13 +412,13 @@ export default function Glossary() {
 				const scrollPos = document.documentElement.scrollTop,
 					glossaryButton = d3.select('#afg-launch-glossary-div');
 
-				let glossaryButtonHiddenInd = glossaryButton.classed('hidden');
+				let glossaryButtonHiddenInd = glossaryButton.classed(glossaryButtonStyles.hidden);
 				if (scrollPos === 0) {
 					if (glossaryButtonHiddenInd === false) {
-						glossaryButton.classed('hidden', true);
+						glossaryButton.classed(glossaryButtonStyles.hidden, true);
 					}
 				} else if (glossaryButtonHiddenInd === true) {
-					glossaryButton.classed('hidden', false);
+					glossaryButton.classed(glossaryButtonStyles.hidden, false);
 				}
 			});
 			setTimeout(function() {
@@ -455,9 +455,6 @@ export default function Glossary() {
 
 	return (
 		<>
-			<div id="afg-launch-glossary-div" className="hidden">
-				<GlossaryButton />
-			</div>
 			<div id="cg-glossary-wrapper">
 				<aside
 					className="cg-glossary-sidebar"
