@@ -14,7 +14,7 @@ const MoreAnalysesTiles = () => {
 		{
 			href: '/colleges-and-universities/',
 			imageSrc: cu,
-			imageSrcFallback: cuFallback,
+			imgSrcFallBack: cuFallback,
 			alt:
 				'A university building with three streets leading up to it, each has an icon representing financial aid, grants, and contracts respectively.',
 			title: 'Federal Investment in Higher Education',
@@ -24,8 +24,8 @@ const MoreAnalysesTiles = () => {
 		},
 		{
 			href: '/homelessness-analysis/',
-			imageSrc: homeless,
-			imageSrcFallback: '',
+			imgSrc: '',
+			imgSrcFallBack: homeless,
 			title: 'Homelessness Analysis',
 			subtitle: 'Explore federal programs that address homelessness',
 			alt:
@@ -35,8 +35,8 @@ const MoreAnalysesTiles = () => {
 		},
 		{
 			href: '/budget-function/',
-			imageSrc: budget,
-			imageSrcFallback: '',
+			imgSrc: '',
+			imgSrcFallBack: budget,
 			title: 'Budget Function',
 			subtitle: 'Check out how federal spending is categorized',
 			alt:
@@ -46,8 +46,8 @@ const MoreAnalysesTiles = () => {
 		},
 		{
 			href: '/competition-in-contracting/',
-			imageSrc: competition,
-			imageSrcFallback: '',
+			imgSrc: '',
+			imgSrcFallBack: competition,
 			title: 'Competition in Contracting',
 			subtitle: 'How often do federal agencies compete for contracts?',
 			alt: 'Five individuals racing on an orange race track covering four lanes.',
@@ -69,10 +69,10 @@ const MoreAnalysesTiles = () => {
 
 							<div className={moreAnalysesStyles.imageContainer}>
 								<picture>
-									<source type="image/webp" srcSet={item.imageSrc} />
-									<source type="image/svg" srcSet={item.imageSrcFallback} />
+									<source type="image/webp" srcSet={item.imgSrc} />
+									<source type="image" srcSet={item.imgSrcFallBack} />
 									<img
-										src={item.imageSrcFallback}
+										src={item.imgSrcFallBack}
 										className={`${moreAnalysesStyles.image} lazyload`}
 										alt={item.alt}
 										width={item.width}

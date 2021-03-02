@@ -1,9 +1,9 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import apiImg from 'src/images/home/resources-api-2.webp';
-import userGuideImg from 'src/images/home/resources-user-guide-2.webp';
-import playbookImg from 'src/images/home/resources-playbook-2.webp';
+import apiImg from 'src/images/home/resources-api-2.svg';
+import userGuideImg from 'src/images/home/resources-user-guide-2.svg';
+import playbookImg from 'src/images/home/resources-playbook-2.svg';
 
 import resourcesRowStyles from './resources-row.module.scss';
 
@@ -11,7 +11,7 @@ const ResourcesRow = () => {
 	const resourcesItems = [
 		{
 			href: '/analyst-guide/',
-			imageSrc: userGuideImg,
+			imgSrc: userGuideImg,
 			altText: 'An icon of a book.',
 			title: 'Analyst Guide',
 			description:
@@ -21,7 +21,7 @@ const ResourcesRow = () => {
 		},
 		{
 			href: '/student-innovators-toolbox/',
-			imageSrc: playbookImg,
+			imgSrc: playbookImg,
 			altText: 'An icon of a notebook.',
 			title: "Student Innovator's Toolbox",
 			description: 'Ways for professors and students to get involved.',
@@ -29,7 +29,7 @@ const ResourcesRow = () => {
 			height: '75',
 		},
 		{
-			imageSrc: apiImg,
+			imgSrc: apiImg,
 			altText: 'An icon of a computer monitor.',
 			title: 'API Documentation',
 			description:
@@ -69,7 +69,7 @@ const ResourcesRow = () => {
 								style={{ display: 'inline' }}>
 								<div>
 									<img
-										data-src={resource.imageSrc}
+										data-src={resource.imgSrc}
 										alt={resource.altText}
 										className={`${resourcesRowStyles.svgImgAPI} lazyload`}
 										width={resource.width}
@@ -103,7 +103,7 @@ const ResourcesRow = () => {
 								href={resource.href}>
 								<div>
 									<img
-										data-src={resource.imageSrc}
+										data-src={resource.imgSrc}
 										alt={resource.altText}
 										className={`${resourcesRowStyles.svgImg} lazyload`}
 										width={resource.width}
