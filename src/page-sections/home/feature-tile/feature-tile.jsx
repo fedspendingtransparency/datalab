@@ -3,49 +3,50 @@ import flag from 'src/images/home/new-data-flag.svg';
 
 import featuredAnalysesTitleStyles from './feature-tile.module.scss';
 import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
 
 const hiddenDate = '03/04/2021';
 
 const FeatureTile = props => {
-	function DisplayedImg() {
-		if (props && props.isMain) {
-			if (Date.parse(hiddenDate) > Date.now()) {
-				return (
-					<div>
-						<img
-							style={{
-								position: 'absolute',
-								marginTop: '10px',
-								marginLeft: '-9px',
-							}}
-							src={flag}
-							role="presentation"
-							alt=""
-						/>
-						<img
-							className={`${featuredAnalysesTitleStyles.image} lazyload`}
-							src={props.imgSrc}
-							alt={props.imgAlt}
-						/>
-					</div>
-				);
-			} else {
-				return (
-					<img
-						className={`${featuredAnalysesTitleStyles.image} lazyload`}
-						src={props.imgSrc}
-						alt={props.imgAlt}
-					/>
-				);
-			}
-		} else {
-			return (
-				<img
-					className={`${featuredAnalysesTitleStyles.image}`}
-					src={props.imgSrc}
-					alt={props.imgAlt}
+	function imageFallback() {
+		return (
+			<picture>
+				<source
+					type={props.imgType ? props.imgType : 'image/webp'}
+					srcSet={props.imgSrc}
 				/>
+				<source type="image/png" srcSet={props.imgSrcFallBack} />
+				<img
+					className={`${featuredAnalysesTitleStyles.image} lazyload`}
+					src={props.imgSrcFallBack}
+					alt={props.imgAlt}
+					width={props.width}
+					height={props.height}
+				/>
+			</picture>
+		);
+	}
+
+	function DisplayedImg() {
+		if (props && Date.parse(hiddenDate) > Date.now()) {
+			return (
+				<div>
+					<img
+						style={{
+							position: 'absolute',
+							marginTop: '10px',
+							marginLeft: '-9px',
+							width: 'unset',
+						}}
+						src={flag}
+						role="presentation"
+						alt=""
+					/>
+					{imageFallback()}
+				</div>
 			);
+		} else {
+			return <>{imageFallback()}</>;
 		}
 	}
 

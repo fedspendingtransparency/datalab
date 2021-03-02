@@ -4,9 +4,9 @@ import styles from './modal.module.scss';
 import Grid from '@material-ui/core/Grid';
 
 import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2021-02-01.yml';
-import Medical from 'src/svgs/federal-covid-spending/tracking/law-summary-modal/medical.svg';
-import Individuals from 'src/svgs/federal-covid-spending/tracking/law-summary-modal/individuals.svg';
-import Government from 'src/svgs/federal-covid-spending/tracking/law-summary-modal/government.svg';
+import Medical from 'src/svgs/federal-covid-funding/tracking/law-summary-modal/medical.svg';
+import Individuals from 'src/svgs/federal-covid-funding/tracking/law-summary-modal/individuals.svg';
+import Government from 'src/svgs/federal-covid-funding/tracking/law-summary-modal/government.svg';
 
 const LawSummaryModal = ({ phase, isOpen, closeModal }) => {
 	const phases = {

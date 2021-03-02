@@ -6,11 +6,11 @@ import Grid from '@material-ui/core/Grid';
 import Share from '../../../components/share/share';
 import ControlBar from 'src/components/control-bar/control-bar';
 
-import DesktopChart from '../../../images/covid/overview/desktop-chart.svg';
-import TabletChart from '../../../images/covid/overview/tablet-chart.svg';
-import MobileChartA from '../../../images/covid/overview/mobile-chart-a.svg';
-import MobileChartB from '../../../images/covid/overview/mobile-chart-b.svg';
-import MobileChartC from '../../../images/covid/overview/mobile-chart-c.svg';
+import DesktopChart from '../../../images/federal-covid-funding/overview/desktop-chart.svg';
+import TabletChart from '../../../images/federal-covid-funding/overview/tablet-chart.svg';
+import MobileChartA from '../../../images/federal-covid-funding/overview/mobile-chart-a.svg';
+import MobileChartB from '../../../images/federal-covid-funding/overview/mobile-chart-b.svg';
+import MobileChartC from '../../../images/federal-covid-funding/overview/mobile-chart-c.svg';
 
 const Overview = props => {
 	const [screenWidth, setScreenWidth] = useState(0);

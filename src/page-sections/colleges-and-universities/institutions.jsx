@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import '../../styles/index.scss';
 import storyHeadingStyles from '../../components/section-elements/story-section-heading/story-section-heading.module.scss';
 import styles from './cu.module.scss';
-import refreshLogo from '../../images/colleges-and-universities/refresh.svg';
 import AccordionList from '../../components/accordion-list/accordion-list';
 import Hidden from '@material-ui/core/Hidden';
 import SearchPanel from 'src/components/chartpanels/search';

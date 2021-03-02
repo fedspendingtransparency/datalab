@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: auto;
 }
 
 .dtsm-right-column {
@@ -112,4 +113,10 @@ hr.horizontal_dts{
     text-align: center;
   }
 
+}
+
+@media only screen and (min-width: $desktop) {
+  .dts-module {
+    height: 127px;
+  }
 }

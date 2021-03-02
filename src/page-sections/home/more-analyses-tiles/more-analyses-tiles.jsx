@@ -6,40 +6,53 @@ import Grid from '@material-ui/core/Grid';
 import homeless from 'src/images/more-analyses/homeless.png';
 import budget from 'src/images/more-analyses/budget.jpg';
 import competition from 'src/images/more-analyses/competition.jpg';
-import cu from 'src/images/home/collegehomepage.svg';
+import cu from 'src/images/home/collegehomepage.webp';
+import cuFallback from 'src/images/home/collegehomepage.svg';
 
 const MoreAnalysesTiles = () => {
 	const analyses = [
 		{
 			href: '/colleges-and-universities/',
 			imageSrc: cu,
+			imgSrcFallBack: cuFallback,
 			alt:
 				'A university building with three streets leading up to it, each has an icon representing financial aid, grants, and contracts respectively.',
 			title: 'Federal Investment in Higher Education',
-			subtitle: "Explore the federal investment in your alma mater",
+			subtitle: 'Explore the federal investment in your alma mater',
+			width: '260',
+			height: '177',
 		},
 		{
 			href: '/homelessness-analysis/',
-			imageSrc: homeless,
+			imgSrc: '',
+			imgSrcFallBack: homeless,
 			title: 'Homelessness Analysis',
 			subtitle: 'Explore federal programs that address homelessness',
 			alt:
 				'A homeless person leaning against a street pole and additional homeless people stand against a building in the far background.',
+			width: '260',
+			height: '177',
 		},
 		{
 			href: '/budget-function/',
-			imageSrc: budget,
+			imgSrc: '',
+			imgSrcFallBack: budget,
 			title: 'Budget Function',
 			subtitle: 'Check out how federal spending is categorized',
 			alt:
 				'A close view of the back of a dollar bill focused on the Great Seal of the United States.',
+			width: '260',
+			height: '177',
 		},
 		{
 			href: '/competition-in-contracting/',
-			imageSrc: competition,
+			imgSrc: '',
+			imgSrcFallBack: competition,
 			title: 'Competition in Contracting',
 			subtitle: 'How often do federal agencies compete for contracts?',
 			alt: 'Five individuals racing on an orange race track covering four lanes.',
+			width: '260',
+			height: '177',
 		},
 	];
 
@@ -55,11 +68,17 @@ const MoreAnalysesTiles = () => {
 							</div>
 
 							<div className={moreAnalysesStyles.imageContainer}>
-								<img
-									data-src={item.imageSrc}
-									className={`${moreAnalysesStyles.image} lazyload`}
-									alt={item.alt}
-								/>
+								<picture>
+									<source type="image/webp" srcSet={item.imgSrc} />
+									<source type="image" srcSet={item.imgSrcFallBack} />
+									<img
+										src={item.imgSrcFallBack}
+										className={`${moreAnalysesStyles.image} lazyload`}
+										alt={item.alt}
+										width={item.width}
+										height={item.height}
+									/>
+								</picture>
 							</div>
 						</a>
 					</Grid>

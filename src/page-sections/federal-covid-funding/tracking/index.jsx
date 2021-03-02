@@ -18,44 +18,44 @@ import LawSummaryModal from './law-summary-modal/modal';
 import Bar from './bars/bar';
 import styles from './tracking.module.scss';
 
-import LIcon from '../../../svgs/federal-covid-spending/tracking/l-icon.svg';
-import PurpleDot from '../../../svgs/federal-covid-spending/purpleDot.svg';
+import LIcon from '../../../svgs/federal-covid-funding/tracking/l-icon.svg';
+import PurpleDot from '../../../svgs/federal-covid-funding/purpleDot.svg';
 
-import GovtTotalSVG from 'src/images/covid/tracking/desktop/govtTotal.svg';
-import Phase1SVG from 'src/images/covid/tracking/desktop/phase1.svg';
-import Phase1GeneralSVG from 'src/images/covid/tracking/desktop/phase1General.svg';
-import Phase1LoanSVG from 'src/images/covid/tracking/desktop/phase1Loan.svg';
-import Phase2SVG from 'src/images/covid/tracking/desktop/phase2.svg';
-import Phase3TotalSVG from 'src/images/covid/tracking/desktop/phase3Total.svg';
-import Phase3GeneralSVG from 'src/images/covid/tracking/desktop/phase3General.svg';
-import Phase3LoanSVG from 'src/images/covid/tracking/desktop/phase3Loan.svg';
-import Phase35TotalSVG from 'src/images/covid/tracking/desktop/phase35Total.svg';
-import Phase35GeneralSVG from 'src/images/covid/tracking/desktop/phase35General.svg';
-import Phase35LoanSVG from 'src/images/covid/tracking/desktop/phase35Loan.svg';
+import GovtTotalSVG from 'src/images/federal-covid-funding/tracking/desktop/govtTotal.svg';
+import Phase1SVG from 'src/images/federal-covid-funding/tracking/desktop/phase1.svg';
+import Phase1GeneralSVG from 'src/images/federal-covid-funding/tracking/desktop/phase1General.svg';
+import Phase1LoanSVG from 'src/images/federal-covid-funding/tracking/desktop/phase1Loan.svg';
+import Phase2SVG from 'src/images/federal-covid-funding/tracking/desktop/phase2.svg';
+import Phase3TotalSVG from 'src/images/federal-covid-funding/tracking/desktop/phase3Total.svg';
+import Phase3GeneralSVG from 'src/images/federal-covid-funding/tracking/desktop/phase3General.svg';
+import Phase3LoanSVG from 'src/images/federal-covid-funding/tracking/desktop/phase3Loan.svg';
+import Phase35TotalSVG from 'src/images/federal-covid-funding/tracking/desktop/phase35Total.svg';
+import Phase35GeneralSVG from 'src/images/federal-covid-funding/tracking/desktop/phase35General.svg';
+import Phase35LoanSVG from 'src/images/federal-covid-funding/tracking/desktop/phase35Loan.svg';
 
-import GovtTotalMobileSVG from 'src/images/covid/tracking/mobile/govtTotal.svg';
-import Phase1MobileSVG from 'src/images/covid/tracking/mobile/phase1.svg';
-import Phase1GeneralMobileSVG from 'src/images/covid/tracking/mobile/phase1General.svg';
-import Phase1LoanMobileSVG from 'src/images/covid/tracking/mobile/phase1Loan.svg';
-import Phase2MobileSVG from 'src/images/covid/tracking/mobile/phase2.svg';
-import Phase3TotalMobileSVG from 'src/images/covid/tracking/mobile/phase3Total.svg';
-import Phase3GeneralMobileSVG from 'src/images/covid/tracking/mobile/phase3General.svg';
-import Phase3LoanMobileSVG from 'src/images/covid/tracking/mobile/phase3Loan.svg';
-import Phase35TotalMobileSVG from 'src/images/covid/tracking/mobile/phase35Total.svg';
-import Phase35GeneralMobileSVG from 'src/images/covid/tracking/mobile/phase35General.svg';
-import Phase35LoanMobileSVG from 'src/images/covid/tracking/mobile/phase35Loan.svg';
+import GovtTotalMobileSVG from 'src/images/federal-covid-funding/tracking/mobile/govtTotal.svg';
+import Phase1MobileSVG from 'src/images/federal-covid-funding/tracking/mobile/phase1.svg';
+import Phase1GeneralMobileSVG from 'src/images/federal-covid-funding/tracking/mobile/phase1General.svg';
+import Phase1LoanMobileSVG from 'src/images/federal-covid-funding/tracking/mobile/phase1Loan.svg';
+import Phase2MobileSVG from 'src/images/federal-covid-funding/tracking/mobile/phase2.svg';
+import Phase3TotalMobileSVG from 'src/images/federal-covid-funding/tracking/mobile/phase3Total.svg';
+import Phase3GeneralMobileSVG from 'src/images/federal-covid-funding/tracking/mobile/phase3General.svg';
+import Phase3LoanMobileSVG from 'src/images/federal-covid-funding/tracking/mobile/phase3Loan.svg';
+import Phase35TotalMobileSVG from 'src/images/federal-covid-funding/tracking/mobile/phase35Total.svg';
+import Phase35GeneralMobileSVG from 'src/images/federal-covid-funding/tracking/mobile/phase35General.svg';
+import Phase35LoanMobileSVG from 'src/images/federal-covid-funding/tracking/mobile/phase35Loan.svg';
 
-import GovtTotalTabletSVG from 'src/images/covid/tracking/tablet/govtTotal.svg';
-import Phase1TabletSVG from 'src/images/covid/tracking/tablet/phase1.svg';
-import Phase1GeneralTabletSVG from 'src/images/covid/tracking/tablet/phase1General.svg';
-import Phase1LoanTabletSVG from 'src/images/covid/tracking/tablet/phase1Loan.svg';
-import Phase2TabletSVG from 'src/images/covid/tracking/tablet/phase2.svg';
-import Phase3TotalTabletSVG from 'src/images/covid/tracking/tablet/phase3Total.svg';
-import Phase3GeneralTabletSVG from 'src/images/covid/tracking/tablet/phase3General.svg';
-import Phase3LoanTabletSVG from 'src/images/covid/tracking/tablet/phase3Loan.svg';
-import Phase35TotalTabletSVG from 'src/images/covid/tracking/tablet/phase35Total.svg';
-import Phase35GeneralTabletSVG from 'src/images/covid/tracking/tablet/phase35General.svg';
-import Phase35LoanTabletSVG from 'src/images/covid/tracking/tablet/phase35Loan.svg';
+import GovtTotalTabletSVG from 'src/images/federal-covid-funding/tracking/tablet/govtTotal.svg';
+import Phase1TabletSVG from 'src/images/federal-covid-funding/tracking/tablet/phase1.svg';
+import Phase1GeneralTabletSVG from 'src/images/federal-covid-funding/tracking/tablet/phase1General.svg';
+import Phase1LoanTabletSVG from 'src/images/federal-covid-funding/tracking/tablet/phase1Loan.svg';
+import Phase2TabletSVG from 'src/images/federal-covid-funding/tracking/tablet/phase2.svg';
+import Phase3TotalTabletSVG from 'src/images/federal-covid-funding/tracking/tablet/phase3Total.svg';
+import Phase3GeneralTabletSVG from 'src/images/federal-covid-funding/tracking/tablet/phase3General.svg';
+import Phase3LoanTabletSVG from 'src/images/federal-covid-funding/tracking/tablet/phase3Loan.svg';
+import Phase35TotalTabletSVG from 'src/images/federal-covid-funding/tracking/tablet/phase35Total.svg';
+import Phase35GeneralTabletSVG from 'src/images/federal-covid-funding/tracking/tablet/phase35General.svg';
+import Phase35LoanTabletSVG from 'src/images/federal-covid-funding/tracking/tablet/phase35Loan.svg';
 
 import CovidCopy from 'src/page-sections/federal-covid-funding/_data/covidcopy_yaml_2021-02-01.yml';
 
@@ -129,14 +129,14 @@ export default function Tracking(props) {
 			'Law Total': {
 				svg: GovtTotalSVG,
 				width: 911,
-				height: 93
+				height: 93,
 			},
 		},
 		'1': {
 			'Law Total': {
 				svg: Phase1SVG,
 				width: 364,
-				height: 40
+				height: 40,
 			},
 			Spending: {
 				svg: Phase1GeneralSVG,
@@ -155,7 +155,7 @@ export default function Tracking(props) {
 			'Law Total': {
 				svg: Phase2SVG,
 				width: 377,
-				height: 41
+				height: 41,
 			},
 		},
 		'3': {
@@ -205,65 +205,65 @@ export default function Tracking(props) {
 			'Law Total': {
 				svg: GovtTotalTabletSVG,
 				width: 687,
-				height: 93
+				height: 93,
 			},
 		},
 		'1': {
 			'Law Total': {
 				svg: Phase1TabletSVG,
 				width: 364,
-				height: 40
+				height: 40,
 			},
 			Spending: {
 				svg: Phase1GeneralTabletSVG,
 				width: 364,
-				height: 40
+				height: 40,
 			},
 			Loan: {
 				svg: Phase1LoanTabletSVG,
 				width: 129,
-				height: 84
+				height: 84,
 			},
 		},
 		'2': {
 			'Law Total': {
 				svg: Phase2TabletSVG,
 				width: 377,
-				height: 40
+				height: 40,
 			},
 		},
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalTabletSVG,
 				width: 562,
-				height: 94
+				height: 94,
 			},
 			Spending: {
 				svg: Phase3GeneralTabletSVG,
 				width: 368,
-				height: 85
+				height: 85,
 			},
 			Loan: {
 				svg: Phase3LoanTabletSVG,
 				width: 375,
-				height: 85
+				height: 85,
 			},
 		},
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalTabletSVG,
 				width: 349,
-				height: 95
+				height: 95,
 			},
 			Spending: {
 				svg: Phase35GeneralTabletSVG,
 				width: 402,
-				height: 32
+				height: 32,
 			},
 			Loan: {
 				svg: Phase35LoanTabletSVG,
 				width: 451,
-				height: 31
+				height: 31,
 			},
 		},
 	};
@@ -273,65 +273,65 @@ export default function Tracking(props) {
 			'Law Total': {
 				svg: GovtTotalMobileSVG,
 				width: 273,
-				height: 109
+				height: 109,
 			},
 		},
 		'1': {
 			'Law Total': {
 				svg: Phase1MobileSVG,
 				width: 277,
-				height: 40
+				height: 40,
 			},
 			Spending: {
 				svg: Phase1GeneralMobileSVG,
 				width: 277,
-				height: 40
+				height: 40,
 			},
 			Loan: {
 				svg: Phase1LoanMobileSVG,
 				width: 119,
-				height: 81
+				height: 81,
 			},
 		},
 		'2': {
 			'Law Total': {
 				svg: Phase2MobileSVG,
 				width: 319,
-				height: 40
+				height: 40,
 			},
 		},
 		'3': {
 			'Law Total': {
 				svg: Phase3TotalMobileSVG,
 				width: 279,
-				height: 84
+				height: 84,
 			},
 			Spending: {
 				svg: Phase3GeneralMobileSVG,
 				width: 276,
-				height: 75
+				height: 75,
 			},
 			Loan: {
 				svg: Phase3LoanMobileSVG,
 				width: 264,
-				height: 75
+				height: 75,
 			},
 		},
 		'3.5': {
 			'Law Total': {
 				svg: Phase35TotalMobileSVG,
 				width: 270,
-				height: 83
+				height: 83,
 			},
 			Spending: {
 				svg: Phase35GeneralMobileSVG,
 				width: 292,
-				height: 34
+				height: 34,
 			},
 			Loan: {
 				svg: Phase35LoanMobileSVG,
 				width: 289,
-				height: 34
+				height: 34,
 			},
 		},
 	};
