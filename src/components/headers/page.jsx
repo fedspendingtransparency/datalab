@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './page.module.scss';
+import glossaryButtonStyles from '../glossary/glossary-button/glossary-button.module.scss';
 
 import TagLine from '../../svgs/Logo-with-tagline.svg';
 import NoTagLine from '../../svgs/Logo-without-tagline.svg';
@@ -14,6 +15,7 @@ import ScrollToTopButton from '../scroll-to-top-button/scroll-to-top-button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import GlossaryButton from "../glossary/glossary-button/glossary-button";
 
 export default class PageHeader extends React.Component {
 	constructor(props) {
@@ -181,7 +183,7 @@ export default class PageHeader extends React.Component {
 					id={styles.header}
 					className={`${isSticky ? ' ' + styles.headerContainer : ``}`}>
 					<div
-						style={{ top: this.props.isHome == true ? `` : `${skinnyTop}px` }}
+						style={{top: this.props.isHome == true ? `` : `${skinnyTop}px`}}
 						className={`${styles.main} ${isSticky ? styles.tight : ``} ${
 							this.props.isHome ? `` : ``
 						}`}>
@@ -200,7 +202,7 @@ export default class PageHeader extends React.Component {
 									onClick={this.burgerClick}
 									tabIndex="0">
 									<span className={styles.toggle}>
-										<FontAwesomeIcon icon={faBars} width={21} />
+										<FontAwesomeIcon icon={faBars} width={21}/>
 									</span>
 								</button>
 
@@ -216,7 +218,7 @@ export default class PageHeader extends React.Component {
 										<button className={styles.anchor}>
 											Analyses
 											<span className={styles.arrow}>
-												<Arrow />
+												<Arrow/>
 											</span>
 										</button>
 									</li>
@@ -233,14 +235,16 @@ export default class PageHeader extends React.Component {
 										<button className={styles.anchor}>
 											Resources
 											<span className={styles.arrow}>
-												<Arrow />
+												<Arrow/>
 											</span>
 										</button>
 									</li>
 									<li className={styles.item}>
-										<button onClick={this.aboutUsRedirect} className={styles.anchor}>
+										<button onClick={this.aboutUsRedirect}
+														className={styles.anchor}>
 											<span className={styles.arrow}>
-												<FontAwesomeIcon icon={faInfoCircle} className="fa-xs" width={12} />
+												<FontAwesomeIcon icon={faInfoCircle} className="fa-xs"
+																				 width={12}/>
 											</span>
 											About Us
 										</button>
@@ -248,7 +252,7 @@ export default class PageHeader extends React.Component {
 									<li className={styles.item}>
 										<button className={`${styles.anchor} ${styles.glossary}`}>
 											<span className={styles.arrow}>
-												<Book />
+												<Book/>
 											</span>
 											Glossary
 										</button>
@@ -260,7 +264,7 @@ export default class PageHeader extends React.Component {
 
 					<div
 						className={`${styles.sub} ${isSticky ? ' ' + styles.tight : ``}`}
-						style={{ top: this.props.isHome === true ? `` : `${skinnySub}px` }}>
+						style={{top: this.props.isHome === true ? `` : `${skinnySub}px`}}>
 						<Dropdown
 							activeItem={activeItem ? activeItem.innerText : null}
 							mouseHandle={this.deactivateMenu}
@@ -285,7 +289,11 @@ export default class PageHeader extends React.Component {
 					onClick={this.scrollToTop}
 					visible={scrollButtonVisible}
 				/>
-				<Glossary tabIndex="-1" />
+				<div id="afg-launch-glossary-div"
+						 className={`${glossaryButtonStyles.hidden} ${glossaryButtonStyles.afgLaunchGlossaryDiv}`}>
+					<GlossaryButton/>
+				</div>
+				<Glossary tabIndex="-1"/>
 			</>
 		);
 	}

@@ -3,8 +3,7 @@ import React, { useEffect } from 'react';
 import { select, selectAll } from 'd3-selection';
 import styles from '../headers/page.module.scss';
 import './glossary.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook } from '@fortawesome/free-solid-svg-icons/faBook';
+import glossaryButtonStyles from './glossary-button/glossary-button.module.scss';
 
 const d3 = {
 	select,
@@ -413,13 +412,13 @@ export default function Glossary() {
 				const scrollPos = document.documentElement.scrollTop,
 					glossaryButton = d3.select('#afg-launch-glossary-div');
 
-				let glossaryButtonHiddenInd = glossaryButton.classed('hidden');
+				let glossaryButtonHiddenInd = glossaryButton.classed(glossaryButtonStyles.hidden);
 				if (scrollPos === 0) {
 					if (glossaryButtonHiddenInd === false) {
-						glossaryButton.classed('hidden', true);
+						glossaryButton.classed(glossaryButtonStyles.hidden, true);
 					}
 				} else if (glossaryButtonHiddenInd === true) {
-					glossaryButton.classed('hidden', false);
+					glossaryButton.classed(glossaryButtonStyles.hidden, false);
 				}
 			});
 			setTimeout(function() {
@@ -456,14 +455,6 @@ export default function Glossary() {
 
 	return (
 		<>
-			<div id="afg-launch-glossary-div" className="hidden">
-				<button id="afg-floating-glossary-button" tabIndex={-1}>
-					<div className="button-content">
-						<FontAwesomeIcon icon={faBook} className="floating-glossary-icon" />
-						Glossary
-					</div>
-				</button>
-			</div>
 			<div id="cg-glossary-wrapper">
 				<aside
 					className="cg-glossary-sidebar"
