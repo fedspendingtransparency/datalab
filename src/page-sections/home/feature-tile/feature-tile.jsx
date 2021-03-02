@@ -11,8 +11,11 @@ const FeatureTile = props => {
 	function imageFallback() {
 		return (
 			<picture>
-				<source type="image/webp" srcSet={props.imgSrc} />
-				<source type="image/jpeg" srcSet={props.imgSrcFallBack} />
+				<source
+					type={props.imgType ? props.imgType : 'image/webp'}
+					srcSet={props.imgSrc}
+				/>
+				<source type="image/png" srcSet={props.imgSrcFallBack} />
 				<img
 					className={`${featuredAnalysesTitleStyles.image} lazyload`}
 					src={props.imgSrcFallBack}
