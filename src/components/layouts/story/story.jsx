@@ -9,10 +9,11 @@ import MoreAnalyses from '../../more-analyses/more-analyses';
 import { StorypageHeader } from '../../headers/headers';
 import Toc from '../../toc/toc';
 import pageColorMap from 'src/utils/page-color';
-import { legacy } from '../../../styles/variables.scss';
+import legacyBlue from '../../../styles/variables.scss';
 import ScrollingCircles from '../../scrolling-circles/scrolling-circles';
 
 const StoryLayout = props => {
+	console.log('props.sectionToc', props.sectionToc);
 	let header, toc;
 
 	if (!props.isCustomHeader) {
@@ -38,7 +39,7 @@ const StoryLayout = props => {
 	) : (
 		<></>
 	);
-	const [color, setColor] = useState(legacy);
+	const [color, setColor] = useState(legacyBlue);
 
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
