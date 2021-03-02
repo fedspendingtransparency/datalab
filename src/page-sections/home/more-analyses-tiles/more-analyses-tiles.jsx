@@ -7,12 +7,14 @@ import homeless from 'src/images/more-analyses/homeless.png';
 import budget from 'src/images/more-analyses/budget.jpg';
 import competition from 'src/images/more-analyses/competition.jpg';
 import cu from 'src/images/home/collegehomepage.webp';
+import cuFallback from 'src/images/home/collegehomepage.svg';
 
 const MoreAnalysesTiles = () => {
 	const analyses = [
 		{
 			href: '/colleges-and-universities/',
 			imageSrc: cu,
+			imageSrcFallback: cuFallback,
 			alt:
 				'A university building with three streets leading up to it, each has an icon representing financial aid, grants, and contracts respectively.',
 			title: 'Federal Investment in Higher Education',
@@ -23,6 +25,7 @@ const MoreAnalysesTiles = () => {
 		{
 			href: '/homelessness-analysis/',
 			imageSrc: homeless,
+			imageSrcFallback: '',
 			title: 'Homelessness Analysis',
 			subtitle: 'Explore federal programs that address homelessness',
 			alt:
@@ -33,6 +36,7 @@ const MoreAnalysesTiles = () => {
 		{
 			href: '/budget-function/',
 			imageSrc: budget,
+			imageSrcFallback: '',
 			title: 'Budget Function',
 			subtitle: 'Check out how federal spending is categorized',
 			alt:
@@ -43,6 +47,7 @@ const MoreAnalysesTiles = () => {
 		{
 			href: '/competition-in-contracting/',
 			imageSrc: competition,
+			imageSrcFallback: '',
 			title: 'Competition in Contracting',
 			subtitle: 'How often do federal agencies compete for contracts?',
 			alt: 'Five individuals racing on an orange race track covering four lanes.',
@@ -63,13 +68,17 @@ const MoreAnalysesTiles = () => {
 							</div>
 
 							<div className={moreAnalysesStyles.imageContainer}>
-								<img
-									data-src={item.imageSrc}
-									className={`${moreAnalysesStyles.image} lazyload`}
-									alt={item.alt}
-									width={item.width}
-									height={item.height}
-								/>
+								<picture>
+									<source type="image/webp" srcSet={item.imageSrc} />
+									<source type="image/svg" srcSet={item.imageSrcFallback} />
+									<img
+										src={item.imageSrcFallback}
+										className={`${moreAnalysesStyles.image} lazyload`}
+										alt={item.alt}
+										width={item.width}
+										height={item.height}
+									/>
+								</picture>
 							</div>
 						</a>
 					</Grid>

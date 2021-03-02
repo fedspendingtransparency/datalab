@@ -5,6 +5,7 @@ import secondaryAnalysesTileStyles from './secondary-tile.module.scss';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import flag from '../../../../images/home/new-data-flag.svg';
+import moreAnalysesStyles from '../../more-analyses-tiles/more-analyses-tiles.module.scss';
 
 const hiddenDate = '12/06/2020';
 
@@ -43,14 +44,18 @@ const SecondaryTile = props => (
 					) : (
 						''
 					)}
-					<img
-						style={{ width: '100%' }}
-						data-src={props.imgSrc}
-						className="lazyload"
-						alt={props.imgAlt}
-						width={props.width}
-						height={props.height}
-					/>
+					<picture>
+						<source type="image/webp" srcSet={props.imgSrc} />
+						<source type="image/png" srcSet={props.imgSrcFallBack} />
+						<img
+							style={{ width: '100%' }}
+							data-src={props.imgSrcFallBack}
+							className="lazyload"
+							alt={props.imgAlt}
+							width={props.width}
+							height={props.height}
+						/>
+					</picture>
 				</div>
 				<Hidden mdDown>
 					<p className={secondaryAnalysesTileStyles.subheading}>
@@ -89,14 +94,19 @@ const SecondaryTile = props => (
 							) : (
 								''
 							)}
-							<img
-								style={{ width: '100%' }}
-								data-src={props.imgSrc}
-								className="lazyload"
-								alt={props.imgAlt}
-								width={props.width}
-								height={props.height}
-							/>
+
+							<picture>
+								<source type="image/webp" srcSet={props.imgSrc} />
+								<source type="image/png" srcSet={props.imgSrcFallBack} />
+								<img
+									style={{ width: '100%' }}
+									data-src={props.imgSrcFallBack}
+									className="lazyload"
+									alt={props.imgAlt}
+									width={props.width}
+									height={props.height}
+								/>
+							</picture>
 						</div>
 					</Grid>
 				</Grid>

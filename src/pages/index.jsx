@@ -11,9 +11,17 @@ import SecondaryTile from 'src/page-sections/home/secondary-tile/stacked-layout/
 import SEO from 'src/components/seo';
 
 import afg from 'src/images/home/AFG_Desktop.webp';
+import afgFallback from 'src/images/home/AFG_Desktop.png';
+
 import covid from 'src/images/home/covid.webp';
+import covidFallback from 'src/images/home/covid.png';
+
 import rd from 'src/images/home/RD-Homepage-cut.webp';
+import rdFallback from 'src/images/home/R&D-Homepage-cut.png';
+
 import explorer from 'src/images/home/contractexplorersunburst.webp';
+import explorerFallback from 'src/images/home/contractexplorersunburst.png';
+
 import homeStyles from './index.module.scss';
 import { Helmet } from 'react-helmet';
 
@@ -36,6 +44,7 @@ function IndexPage(props) {
 					<FeatureTile
 						href="/rd-in-contracting/"
 						imgSrc={rd}
+						imgSrcFallBack={rdFallback}
 						isMain
 						imgAlt="Abstract Brain with 4 categories: Aeronautics, Infectious Disease, Renewable Energy & Anti-Terrorism. This analysis shows federal R&D funding in 2020."
 						width="748"
@@ -72,6 +81,7 @@ function IndexPage(props) {
 						<SecondaryTile
 							href="/federal-covid-funding/"
 							imgSrc={covid}
+							imgSrcFallBack={covidFallback}
 							imgAlt="Woman standing with medical face mask on, social distanced between two others, with a cartoon image of the U.S. Capitol in the background."
 							width="364"
 							height="258"
@@ -103,6 +113,7 @@ function IndexPage(props) {
 					<FeatureTile
 						href="/americas-finance-guide/"
 						imgSrc={afg}
+						imgSrcFallBack={afgFallback}
 						imgAlt="Illustration of finance icons: dollar bill, bag of money, etc. with the text ‘Answer all your questions about federal government finance.” overlaid."
 						width="358"
 						height="255"
@@ -137,6 +148,7 @@ function IndexPage(props) {
 					title="Who receives federal contracts?"
 					blurb="Ever wonder who's getting federal contracts and what agencies are awarding them? This tool lets you explore contract-related information for FY18, including which organizations received federal contracts, contract amounts, awarding agencies and sub-agencies, and the types of goods or services contract recipients provided to the federal government."
 					imgSrc={explorer}
+					imgSrcFallBack={explorerFallback}
 					imgAlt="A picture of a microscope with a sunburst image overlaid."
 					width="554"
 					height="335"
