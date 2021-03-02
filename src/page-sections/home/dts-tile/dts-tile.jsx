@@ -210,7 +210,7 @@ function DtsTile(props) {
 			<section className="dts">
 				<h1>{props.heading}</h1>
 				<h2>{props.title}</h2>
-				<div className="dts-container">
+				<div className="dts-container" style={{ height: '127' }}>
 					<div className="dts-module">
 						<div className="dtsm-img"></div>
 						<div className="dtsm-right-column">
