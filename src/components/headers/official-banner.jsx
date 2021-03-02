@@ -13,23 +13,39 @@ class OfficialBanner extends React.Component {
 			<header className={styles.officialBanner}>
 				<ul className={styles.siteList}>
 					<li className={styles.siteItem}>
-						<a className={styles.siteLink} target="_blank" rel="noopener noreferrer" href="https://www.usaspending.gov">
+						<a
+							className={styles.siteLink}
+							target="_blank"
+							rel="noopener noreferrer"
+							href="https://www.usaspending.gov">
 							USAspending.gov
 						</a>
 					</li>
-					<li className={`${styles.siteItem} ${styles.itemSpacer}`} aria-hidden="true">
+					<li
+						className={`${styles.siteItem} ${styles.itemSpacer}`}
+						aria-hidden="true">
 						|
 					</li>
 					<li className={styles.siteItem}>
-						<a className={styles.siteLink} target="_blank" rel="noopener noreferrer" href="/">
+						<a
+							className={styles.siteLink}
+							target="_blank"
+							rel="noopener noreferrer"
+							href="/">
 							Data Lab
 						</a>
 					</li>
-					<li className={`${styles.siteItem} ${styles.itemSpacer}`} aria-hidden="true">
+					<li
+						className={`${styles.siteItem} ${styles.itemSpacer}`}
+						aria-hidden="true">
 						|
 					</li>
 					<li className={styles.siteItem}>
-						<a className={styles.siteLink} target="_blank" rel="noopener noreferrer" href="https://fiscaldata.treasury.gov/">
+						<a
+							className={styles.siteLink}
+							target="_blank"
+							rel="noopener noreferrer"
+							href="https://fiscaldata.treasury.gov/">
 							Fiscal Data
 						</a>
 					</li>
@@ -42,12 +58,13 @@ class OfficialBanner extends React.Component {
 						className={`${styles.flag} lazyload`}
 						src={flag}
 						alt="Data Lab Logo of an abstract American flag referencing a bar chart"
+						width="16"
+						height="11"
 					/>
 				</div>
 			</header>
 		);
 	}
 } // end class
-
 
 export default OfficialBanner;

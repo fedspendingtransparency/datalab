@@ -17,6 +17,7 @@ const FeatureTile = props => {
 								position: 'absolute',
 								marginTop: '10px',
 								marginLeft: '-9px',
+								width: 'unset',
 							}}
 							src={flag}
 							role="presentation"
