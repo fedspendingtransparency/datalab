@@ -13,7 +13,6 @@ import legacyBlue from '../../../styles/variables.scss';
 import ScrollingCircles from '../../scrolling-circles/scrolling-circles';
 
 const StoryLayout = props => {
-	console.log('props.sectionToc', props.sectionToc);
 	let header, toc;
 
 	if (!props.isCustomHeader) {
