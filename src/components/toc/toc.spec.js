@@ -59,7 +59,48 @@ describe('Toc', () => {
     expect(three).not.toHaveAttribute('href', '#section-three');
   });
 
-  it('does not display the sub-title at mobile size', () => {
+})
 
+describe('Toc at mobile size', () => {
+  const testSections = [
+    {
+      section: 'One',
+      anchor: 'one',
+      number: '01',
+      subblurb: 'Test Section One',
+    },
+    {
+      section: 'Two',
+      anchor: 'two',
+      number: '02',
+      subblurb: 'Test Section Two',
+      isNew: true
+    },
+    {
+      section: 'Three',
+      anchor: 'three',
+      number: '03',
+      subblurb: 'Test Section Three',
+      comingSoon: true
+    },
+  ]
+
+  let instance;
+  let component;
+
+  // mobile is < 768
+  beforeAll(() => {
+    global.window.innerWidth = 400;
+    component = renderer.create(<Toc sections={testSections}/>);
+    instance = component.root;
+  });
+
+  it('does not display the subBlurb for any section', () => {
+    // the divs showing the section names are there
+    const sectionDiv = instance.findAllByProps({className: 'section'});
+    expect(sectionDiv).toBeDefined();
+    // the divs showing the subBlurbs are not
+    const subBlurbDiv = instance.findAllByProps({className: 'subblurb'});
+    expect(subBlurbDiv).toStrictEqual([]);
   });
 })
