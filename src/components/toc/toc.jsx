@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
-import { checkScreenMode, ScreenModeEnum } from 'src/utils/screen-mode';
+import { checkScreenMode, ScreenModeEnum } from '../../utils/screen-mode';
 import styles from './toc.module.scss';
 
 const Toc = ({ sections }) => {
