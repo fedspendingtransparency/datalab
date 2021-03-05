@@ -34,6 +34,7 @@ export default class PageHeader extends React.Component {
 			scrollButtonVisible: false,
 			showMenu: false,
 		};
+		this.glossaryRef = React.createRef();
 	}
 
 	componentDidMount() {
@@ -68,6 +69,12 @@ export default class PageHeader extends React.Component {
 			if (window.pageYOffset > 26) {
 				this.setState({ skinnyTop: 0 });
 			}
+		}
+	}
+
+	glossaryButtonClick = e => {
+		if (this.glossaryRef.current) {
+			this.glossaryRef.current.showGlossary();
 		}
 	}
 
@@ -291,9 +298,9 @@ export default class PageHeader extends React.Component {
 				/>
 				<div id="afg-launch-glossary-div"
 						 className={`${glossaryButtonStyles.hidden} ${glossaryButtonStyles.afgLaunchGlossaryDiv}`}>
-					<GlossaryButton/>
+					<GlossaryButton onCLick={this.glossaryButtonClick(e)}/>
 				</div>
-				<Glossary tabIndex="-1"/>
+				<Glossary tabIndex="-1" ref={this.glossaryRef}/>
 			</>
 		);
 	}
