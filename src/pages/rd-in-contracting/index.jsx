@@ -343,7 +343,7 @@ export default class RdInContractingPage extends React.Component {
 				})}
 
 				<Grid container className={styles.footnotes}>
-					<Grid item xs={10}>
+					<Grid item xl={10}>
 						<Footnotes
 							footnotes={[
 								<>

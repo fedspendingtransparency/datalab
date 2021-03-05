@@ -129,8 +129,8 @@ $bullet-size: 1.5rem;
   }
 }
 
-@media screen and (min-width: tablet - 1) {
+@media (max-width: $tablet - 1) {
   .footnotes {
-    justify-content: start;
+    margin-top: 50px;
   }
 }
