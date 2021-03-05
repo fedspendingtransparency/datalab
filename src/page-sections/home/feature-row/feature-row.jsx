@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import ImageFallback from "../../../components/image-fallback/image-fallback";
 
 const FeatureRow = props => {
-	// todo - replace picture element with imageFallback component
 	return (
 		<a href={props.href}>
 			<Grid container spacing={3} className={featuredAnalysesStyles.container}>
