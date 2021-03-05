@@ -3,30 +3,11 @@ import flag from 'src/images/home/new-data-flag.svg';
 
 import featuredAnalysesTitleStyles from './feature-tile.module.scss';
 import PropTypes from 'prop-types';
-import Grid from '@material-ui/core/Grid';
+import ImageFallback from "../../../components/image-fallback/image-fallback";
 
 const hiddenDate = '03/04/2021';
 
 const FeatureTile = props => {
-	function imageFallback() {
-		return (
-			<picture>
-				<source
-					type={props.imgType ? props.imgType : 'image/webp'}
-					srcSet={props.imgSrc}
-				/>
-				<source type="image/png" srcSet={props.imgSrcFallBack} />
-				<img
-					className={`${featuredAnalysesTitleStyles.image} lazyload`}
-					src={props.imgSrcFallBack}
-					alt={props.imgAlt}
-					width={props.width}
-					height={props.height}
-				/>
-			</picture>
-		);
-	}
-
 	function DisplayedImg() {
 		if (props && Date.parse(hiddenDate) > Date.now()) {
 			return (
@@ -42,11 +23,11 @@ const FeatureTile = props => {
 						role="presentation"
 						alt=""
 					/>
-					{imageFallback()}
+					<ImageFallback {...props}/>
 				</div>
 			);
 		} else {
-			return <>{imageFallback()}</>;
+			return <ImageFallback {...props}/>
 		}
 	}
 

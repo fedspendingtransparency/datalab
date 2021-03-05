@@ -2,8 +2,10 @@ import React from 'react';
 import featuredAnalysesStyles from './feature-row.module.scss';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
+import ImageFallback from "../../../components/image-fallback/image-fallback";
 
 const FeatureRow = props => {
+	// todo - replace picture element with imageFallback component
 	return (
 		<a href={props.href}>
 			<Grid container spacing={3} className={featuredAnalysesStyles.container}>
@@ -13,17 +15,7 @@ const FeatureRow = props => {
 					<p className={featuredAnalysesStyles.blurb}>{props.blurb}</p>
 				</Grid>
 				<Grid item xs={12} md={6} className={featuredAnalysesStyles.image}>
-					<picture>
-						<source type="image/webp" srcSet={props.imgSrc} />
-						<source type="image/png" srcSet={props.imgSrcFallBack} />
-						<img
-							data-src={props.imgSrcFallBack}
-							alt={props.imgAlt}
-							width={props.width}
-							height={props.height}
-							className="lazyload"
-						/>
-					</picture>
+					<ImageFallback {...props}/>
 				</Grid>
 			</Grid>
 		</a>
