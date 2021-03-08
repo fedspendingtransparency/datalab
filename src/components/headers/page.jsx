@@ -73,7 +73,8 @@ export default class PageHeader extends React.Component {
 	}
 
 	glossaryClick = () => {
-		this.setState({glossaryClickCount});
+		const current = this.state.glossaryClickCount;
+		this.setState({glossaryClickCount: current + 1});
 		console.log('this.state.glossaryClickCount', this.state.glossaryClickCount);
 	}
 
@@ -291,16 +292,18 @@ export default class PageHeader extends React.Component {
 						)}
 					</div>
 				</header>
-				<ScrollToTopButton
-					onClick={this.scrollToTop}
-					visible={scrollButtonVisible}
-				/>
-				<div id="afg-launch-glossary-div"
-						 onClick={this.glossaryClick}
-						 className={`${glossaryButtonStyles.hidden} ${glossaryButtonStyles.afgLaunchGlossaryDiv}`}>
-					<GlossaryButton />
-				</div>
+					<ScrollToTopButton
+						onClick={this.scrollToTop}
+						visible={scrollButtonVisible}
+					/>
+					<div id="afg-launch-glossary-div"
+							 onClick={this.glossaryClick}
+							 className={`${scrollButtonVisible ? '' : glossaryButtonStyles.afgLaunchGlossaryDivHidden} ${glossaryButtonStyles.afgLaunchGlossaryDiv}`}>
+						<GlossaryButton/>
+					</div>
+				{this.state.glossaryClickCount > 0 &&
 				<Glossary tabIndex="-1" clickCount={this.state.glossaryClickCount}/>
+				}
 			</>
 		);
 	}
