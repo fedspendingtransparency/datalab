@@ -190,9 +190,14 @@ export default class RdInContractingPage extends React.Component {
 			Federal R&D contract funding supports a wide range of objectives, including
 			agriculture, education, energy, housing, and national defense. When the
 			government uses contracts to buy products and services, like leasing
-			laboratory space or conducting field research, they use the General Services
-			Administration’s Product and Services Codes (PSC). Using PSCs, we grouped R&D
-			contract funding into 20 funding categories.
+			laboratory space or conducting field research, they use the{' '}
+			<a
+				href="https://www.acquisition.gov/psc-manual"
+				rel="noreferrer noopener"
+				target="_blank">
+				General Services Administration’s Product and Services Codes (PSC)
+			</a>
+			. Using PSCs, we grouped R&D contract funding into 20 funding categories.
 		</p>,
 		<p>
 			The federal government awards a variety of entities, educational
