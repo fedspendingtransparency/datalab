@@ -117,7 +117,7 @@ export default class RdInContractingPage extends React.Component {
 				<div className={styles.bullet}></div>
 				<div style={{ width: '100%' }}>
 					<span className={styles.heading}>Experimental Development</span>
-					<a href="#fn3" className="footnoteref">
+					<a href="#fn4" className="footnoteref">
 						<FootnoteAnchor footnoteId={'fr4'} />4
 					</a>{' '}
 					<p>

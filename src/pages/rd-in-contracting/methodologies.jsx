@@ -3,71 +3,140 @@ import PropTypes from 'prop-types';
 import HWCTA from '../../components/hwcta/hwcta';
 
 export default class RDHWCTA extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+	constructor(props) {
+		super(props);
+	}
 
-  static propTypes = {
-    location: PropTypes.object.isRequired
-  };
+	static propTypes = {
+		location: PropTypes.object.isRequired,
+	};
 
-  title = 'Research & Development in Contract Spending';
-  methodologies = [{
-    content: <>
-      <p>
-        We conducted this analysis using agency contract award data for Fiscal Year 2020, which agencies report to <a href='https://www.usaspending.gov/#/' rel='noreferrer noopener' target='_blank'>USAspending.gov</a>. Each reported contract includes information about the agency and sub-agency that awarded the contract, the amount obligated by the contract, and a Product and Service Code (PSC) that indicates the goods or services delivered as a result of the contract.
-      </p>
-      <p>
-        We excluded R&D assistance funding such as grants, loans, and scholarships in the first two sections of our analysis because, unlike PSCs, they are tracked using the Catalog of Federal Domestic Assistance (CFDA) codes. Since one CFDA listing can be used for a range of purposes, it is difficult to identify and verify funding devoted to R&D within a given CFDA.
-      </p>
-      <p>
-        For the category analysis, we classified research and development (R&D) awards using the
-        <a href='https://www.acquisition.gov/PSC_Manual' rel='noreferrer noopener' target='_blank'>General Services Administration’s PSC Manual</a>. We excluded contract funding designated with PSC codes that ended in 5 and 7, which represent Operational System Development (5) and Commercialization (7), since these codes fall outside of the National Science Foundation’s definitions of R&D.
-      </p>
-      <p>
-        Further, in our review of PSC codes we determined that basic, applied, and development phases were often used interchangeably with PSC sub codes and were applied inconsistently to awards. Due to these challenges with PSC accuracy and completeness, we’ve cited examples of these phases of research only in cases where we could independently verify the nature of the R&D work being performed.
-      </p>
-      <p>
-        To create the R&D as a Portion of Total Federal Contract Funding by Agency graph, we looked at the funding of the 24  <a href='https://cfo.gov/about/' rel='noreferrer noopener' target='_blank'>Chief Financial Officers Act agencies</a> and calculated the percentage of contract funding with appropriate R&D PSC codes of contract funding by each agency in FY 2020.
-      </p>
-      <p>
-        For the visualization of Categories of R&D Contract Funding, we used the same data pull from the first visualization and grouped funding into 20 categories using the PSC manual. The categories are:
-      </p>
-      <ul>
-        <li>AGRICULTURE R&D (AA)</li>
-        <li>COMMUNITY SERVICE R&D (AB)</li>
-        <li>DEFENSE SYSTEMS R&D (AD)</li>
-        <li>DEFENSE (OTHER) R&D (AC)</li>
-        <li>ECONOMIC GROWTH & PRODUCTIVITY R&D (AE)</li>
-        <li>EDUCATION R&D (AF)</li>
-        <li>ENERGY R&D (AG)</li>
-        <li>ENVIRONMENTAL PROTECTION R&D (AH)</li>
-        <li>GEN. SCIENCE & TECHNOLOGY R&D (AJ)</li>
-        <li>HOUSING R&D (AK)</li>
-        <li>INCOME SECURITY R&D (AL)</li>
-        <li>INTERNATIONAL AFFAIRS & COOPERATION R&D (AM)</li>
-        <li>MEDICAL R&D (AN)</li>
-        <li>MINING R&D (AV)</li>
-        <li>NATURAL RESOURCES R&D (AP)</li>
-        <li>OTHER R&D (AZ)</li>
-        <li>SOCIAL SERVICES R&D (AQ)</li>
-        <li>SPACE R&D (AR)</li>
-        <li>TRANSPORTATION (MODAL) R&D (AS)</li>
-        <li>TRANSPORTATION (OTHER) R&D (AT)</li>
-      </ul>
-      <p>
-        The source data for the fourth visualization on Federal R&D obligations for 2010-2020 is from the National Center for Science and Engineering Statistics’ (NCSES) Survey of Federal Funds for Research and Development. The survey data from NCSES is collected during an annual census of federal agencies. It is noted that the source for this visualization is different than the rest of the analysis to be able to show the larger trends in R&D funding that includes assistance funding.
-      </p>
-    </>
-  }];
+	title = 'Research & Development in Contract Spending';
+	methodologies = [
+		{
+			content: (
+				<>
+					<p>
+						This analysis was conducted using agency contract award data for the most
+						recently completed fiscal year, which agencies report to{' '}
+						<a
+							href="https://www.usaspending.gov/#/"
+							rel="noreferrer noopener"
+							target="_blank">
+							USAspending.gov
+						</a>
+						. Each reported contract includes information about the agency and
+						sub-agency that awarded the contract, the amount obligated by the
+						contract, and a Product and Service Code (PSC) that indicates the goods or
+						services delivered as a result of the contract.
+					</p>
+					<p>
+						R&D assistance funding such as grants, loans, and scholarships were
+						excluded from sections one, two, and three of our analysis because, unlike
+						PSCs, they are tracked using the Catalog of Federal Domestic Assistance
+						(CFDA) codes. Since one CFDA listing can be used for a range of purposes,
+						it is difficult to identify and verify funding devoted to R&D within a
+						given CFDA.
+					</p>
+					<p>
+						Data used throughout this analysis includes contract transactions that
+						were classified as Research and Development (R&D) awards using the{' '}
+						<a
+							href="https://www.acquisition.gov/PSC_Manual"
+							rel="noreferrer noopener"
+							target="_blank">
+							General Services Administration’s (GSA) PSC Manual
+						</a>
+						for all CFO Act agencies. We excluded contract funding designated with PSC
+						codes that ended in 5 and 7, which represent Operational System
+						Development (5) and Commercialization (7), since these codes fall outside
+						of the Office of Management and Budget (OMB) definitions of R&D (see OMB
+						Circular A-11, Schedule C, Section 84.2(c)). As such, we refer to R&D
+						contract funding as limited to this group of contract transactions
+						throughout this analysis. The COVID-19 Funding versions of each
+						visualization were generated using the same subset of R&D, limiting the
+						contract transactions included to those funded using funding specifically
+						appropriated to address the COVID-19 pandemic. Contract transactions
+						funded by COVID-19 appropriations can be tracked using the Disaster
+						Emergency Fund Code (DEFC).
+					</p>
+					<p>
+						To create the R&D as a Portion of Total Federal Contract Funding by Agency
+						graph, we looked at total contract funding issued by the 24{' '}
+						<a
+							href="https://cfo.gov/about/"
+							rel="noreferrer noopener"
+							target="_blank">
+							CFO Act agencies
+						</a>{' '}
+						in the most recently completed fiscal year and calculated the percentage
+						of contract funding with appropriate R&D PSCs. The COVID-19 R&D Contracts
+						visualization calculates the total value of the COVID-19 funded R&D
+						contract transactions as a percentage of total R&D contract funding for
+						each agency.
+					</p>
+					<p>
+						The visualization of Categories of R&D Contract Funding grouped R&D
+						contract funding into the 20 PSC sub-categories within the larger R&D PSC
+						group, as reflected in the GSA’s PSC Manual. The categories include all
+						PSCs used in the most recent fiscal year including codes that were retired
+						or superseded in the October 2020 version of the manual but are still in
+						use for contracts that were issued prior to the release of the revised PSC
+						manual. All new contracts will be limited to using the updated PSCs.
+					</p>
+					<p>
+						The source data for the fourth visualization on Federal R&D obligations
+						for 2010-2020 is from the National Center for Science and Engineering
+						Statistics’ (NCSES) Survey of Federal Funds for Research and Development.
+						The survey data from NCSES is collected during an annual census of federal
+						agencies. It is noted that the source for this visualization is different
+						than the rest of the analysis to be able to show the larger trends in R&D
+						funding that includes assistance funding.
+					</p>
+				</>
+			),
+		},
+	];
 
-  notes = [{
-    content: <>
-      <p>Definitions for each of the types of R&D, including R&D Plant, can be found in the <a href='https://www.nsf.gov/statistics/fedfunds/glossary/def.htm' rel='noreferrer noopener' target='_blank'>Federal Funds Survey Glossary</a>.</p>
-      <p>The data reflects federal obligations through the end of Fiscal Year 2020.</p>
-      <p>Please note that <a href='https://www.usaspending.gov/#/' rel='noreferrer noopener' target='_blank'>USAspending.gov</a> data is available to the public.</p>
-    </>
-  }];
+	notes = [
+		{
+			content: (
+				<>
+					<p>
+						Definitions for each of the types of R&D, including R&D Plant, can be
+						found in the{' '}
+						<a
+							href="https://www.nsf.gov/statistics/fedfunds/glossary/def.htm"
+							rel="noreferrer noopener"
+							target="_blank">
+							Federal Funds Survey Glossary
+						</a>
+						.
+					</p>
+					<p>
+						The data reflects federal obligations through the end of Fiscal Year 2020.
+					</p>
+					<p>
+						Please note that{' '}
+						<a
+							href="https://www.usaspending.gov/#/"
+							rel="noreferrer noopener"
+							target="_blank">
+							USAspending.gov
+						</a>{' '}
+						data is available to the public.
+					</p>
+				</>
+			),
+		},
+	];
 
-  render = () => <HWCTA location={this.props.location} title={this.title} methodologies={this.methodologies} notes={this.notes} />
+	render = () => (
+		<HWCTA
+			location={this.props.location}
+			title={this.title}
+			methodologies={this.methodologies}
+			notes={this.notes}
+		/>
+	);
 }
