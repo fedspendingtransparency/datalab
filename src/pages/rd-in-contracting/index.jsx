@@ -5,7 +5,7 @@ import globalStyles from 'src/styles/variables.scss';
 import Categories from 'src/page-sections/rd-in-contracting/categories/categories.jsx';
 import Footnotes from '../../components/footnotes/footnotes';
 import SEO from 'src/components/seo';
-import Spending from 'src/page-sections/rd-in-contracting/spending/spending-chart';
+import Funding from 'src/page-sections/rd-in-contracting/spending/spending-chart';
 import Studies from 'src/page-sections/rd-in-contracting/studies/studies';
 import StoryLayout from '../../components/layouts/story/story';
 import StorySection from 'src/components/section-elements/story-section/story-section';
@@ -147,7 +147,7 @@ export default class RdInContractingPage extends React.Component {
 	);
 
 	sectionComponents = {
-		spending: Spending,
+		funding: Funding,
 		categories: Categories,
 		studies: Studies,
 	};
@@ -231,7 +231,7 @@ export default class RdInContractingPage extends React.Component {
 	getSections = () => [
 		{
 			section: 'Agency Funding',
-			anchor: 'spending',
+			anchor: 'funding',
 			number: '01',
 			subblurb:
 				'What portion of federal agency contract funding in FY 2020 went to R&D initiatives?',
@@ -256,7 +256,7 @@ export default class RdInContractingPage extends React.Component {
 				</aside>
 			),
 			viztitle: 'R&D as a Portion of Total Federal Contract Funding by Agency',
-			tagName: 'spending',
+			tagName: 'funding',
 			readMoreOnMobile: true,
 			readMoreStyle: { color: globalStyles.rdMdBlue },
 		},
