@@ -33,8 +33,8 @@ export default class PageHeader extends React.Component {
 			menuData: this.props.megamenuItems,
 			scrollButtonVisible: false,
 			showMenu: false,
+			glossaryClickCount: 0,
 		};
-		this.glossaryRef = React.createRef();
 	}
 
 	componentDidMount() {
@@ -72,10 +72,9 @@ export default class PageHeader extends React.Component {
 		}
 	}
 
-	glossaryButtonClick = e => {
-		if (this.glossaryRef.current) {
-			this.glossaryRef.current.showGlossary();
-		}
+	glossaryClick = () => {
+		this.setState({glossaryClickCount});
+		console.log('this.state.glossaryClickCount', this.state.glossaryClickCount);
 	}
 
 	burgerClick = e => {
@@ -297,10 +296,11 @@ export default class PageHeader extends React.Component {
 					visible={scrollButtonVisible}
 				/>
 				<div id="afg-launch-glossary-div"
+						 onClick={this.glossaryClick}
 						 className={`${glossaryButtonStyles.hidden} ${glossaryButtonStyles.afgLaunchGlossaryDiv}`}>
-					<GlossaryButton onCLick={this.glossaryButtonClick(e)}/>
+					<GlossaryButton />
 				</div>
-				<Glossary tabIndex="-1" ref={this.glossaryRef}/>
+				<Glossary tabIndex="-1" clickCount={this.state.glossaryClickCount}/>
 			</>
 		);
 	}

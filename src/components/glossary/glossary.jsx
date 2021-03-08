@@ -10,7 +10,19 @@ const d3 = {
 	selectAll,
 };
 
-export default function Glossary() {
+export default function Glossary(props) {
+	console.log('props.clickCount', props.clickCount);
+	// const clickCount = props.clickCount;
+
+	// the workaround to open the glossary when the bright pink Glossary
+	// button is clicked
+	useEffect(() => {
+		// if (props.clickCount > 0) {
+		// 	// could be just if clickCount, bc 0 is falsy, right?
+		// 	showGlossary();
+		// }
+	}, props.clickCount)
+
 	useEffect(() => {
 		let origCategorizedTerms = [],
 			filteredData,
@@ -276,7 +288,6 @@ export default function Glossary() {
 
 			setActiveStatus(glossaryWrapper, activeInd);
 			setTermListView(showListResultsInd);
-
 			setDocumentFocus(onOpenInd);
 		}
 
@@ -353,7 +364,7 @@ export default function Glossary() {
 				showGlossary();
 			});
 			// The following button exists at the bottom-right of the screen when the user scrolls down the page
-			d3.select('#afg-floating-glossary-button').on('click', showGlossary);
+			// d3.select('#afg-floating-glossary-button').on('click', showGlossary);
 
 			glossaryWrapper.select('#cg-glossary-close-button').on('click', function() {
 				const activeInd = false;
