@@ -300,7 +300,7 @@ export default class PageHeader extends React.Component {
 							 className={`${scrollButtonVisible ? '' : glossaryButtonStyles.afgLaunchGlossaryDivHidden} ${glossaryButtonStyles.afgLaunchGlossaryDiv}`}>
 						<GlossaryButton/>
 					</div>
-				{this.state.glossaryClickCount > 0 &&
+				{this.state.glossaryClickCount &&
 				<Glossary tabIndex="-1" clickCount={this.state.glossaryClickCount}/>
 				}
 			</>
