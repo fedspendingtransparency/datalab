@@ -45,7 +45,7 @@ function IndexPage(props) {
 						href="/rd-in-contracting/"
 						imgSrc={rd}
 						imgSrcFallBack={rdFallback}
-						imgType="images/gif"
+						imgType={'image/gif'}
 						isMain
 						imgAlt="Abstract Brain with 4 categories: Aeronautics, Infectious Disease, Renewable Energy & Anti-Terrorism. This analysis shows federal R&D funding in 2020."
 						width="748"
