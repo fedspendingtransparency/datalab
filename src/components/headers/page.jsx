@@ -74,7 +74,11 @@ export default class PageHeader extends React.Component {
 
 	glossaryClick = () => {
 		this.setState(prevState => ({ glossaryClickCount: prevState.glossaryClickCount + 1 }));
-	}
+	};
+
+	glossaryHeaderClick = () => {
+		this.setState(prevState => ({ glossaryClickCount: prevState.glossaryClickCount + 1 }));
+	};
 
 	burgerClick = e => {
 		this.setState(prevState => ({ showMobileMenu: !prevState.showMobileMenu }));
@@ -255,7 +259,8 @@ export default class PageHeader extends React.Component {
 										</button>
 									</li>
 									<li className={styles.item}>
-										<button className={`${styles.anchor} ${styles.glossary}`}>
+										<button className={`${styles.anchor} ${styles.glossary}`}
+														onClick={this.glossaryHeaderClick}>
 											<span className={styles.arrow}>
 												<Book/>
 											</span>

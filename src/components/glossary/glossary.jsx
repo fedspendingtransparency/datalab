@@ -347,11 +347,6 @@ export default function Glossary(props) {
       }, 400);
     }
 
-    // The following button will exist in the Datalab header
-    d3.selectAll('.' + styles.glossary).on('click', function (d, i) {
-      showGlossary();
-    });
-
     glossaryWrapper.select('#cg-glossary-close-button').on('click', function () {
       const activeInd = false;
       setActiveStatus(glossaryWrapper, activeInd);
