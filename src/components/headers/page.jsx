@@ -75,7 +75,6 @@ export default class PageHeader extends React.Component {
 	glossaryClick = () => {
 		const current = this.state.glossaryClickCount;
 		this.setState({glossaryClickCount: current + 1});
-		console.log('this.state.glossaryClickCount', this.state.glossaryClickCount);
 	}
 
 	burgerClick = e => {

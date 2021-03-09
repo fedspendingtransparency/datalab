@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react';
 import {select, selectAll} from 'd3-selection';
 import styles from '../headers/page.module.scss';
 import './glossary.scss';
-import glossaryButtonStyles from './glossary-button/glossary-button.module.scss';
 
 const d3 = {
   select,
@@ -11,9 +10,6 @@ const d3 = {
 };
 
 export default function Glossary(props) {
-  console.log('props.clickCount', props.clickCount);
-  // const clickCount = props.clickCount;
-
   const [glossaryWrapper, setGlossaryWrapper] = useState();
 
   let origCategorizedTerms = [],
@@ -415,7 +411,6 @@ export default function Glossary(props) {
   }
 
   function init() {
-    console.log('init');
     setGlossaryWrapper(d3.select('#cg-glossary-wrapper'));
   }
 
@@ -423,24 +418,8 @@ export default function Glossary(props) {
     init();
   }, glossaryData);
 
-
-  // todo - added the second useEffect to solve the problem of the first click
-  //  on the glossary button not opening the glossary; this is bc it doesn't
-  //  exist yet in the dom
-  // the workaround to open the glossary when the bright pink Glossary
-  // button is clicked
   useEffect(() => {
-    if (props.clickCount > 0) {
-      // could be just if clickCount, bc 0 is falsy, right?
-      showGlossary();
-    }
-  }, []);
-
-  useEffect(() => {
-    if (props.clickCount > 0) {
-      // could be just if clickCount, bc 0 is falsy, right?
-      showGlossary();
-    }
+    showGlossary();
   }, [props.clickCount]);
 
   useEffect(() => {
@@ -454,6 +433,8 @@ export default function Glossary(props) {
       createSVGElements();
       addGlossaryEvents();
 
+      // this block isn't actually allowing a user to send a link to a glossary
+      // definition; the url doesn't change when the glossary is in use
       if (window.location.search.indexOf('glossary') !== -1) {
         showGlossary();
 
@@ -465,6 +446,8 @@ export default function Glossary(props) {
           showIndividualTerm(filteredData, glossaryTerm);
         }
       }
+
+      showGlossary();
     }
   }, [glossaryWrapper]);
 
