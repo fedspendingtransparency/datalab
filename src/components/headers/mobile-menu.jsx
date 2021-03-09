@@ -89,7 +89,6 @@ class MobileMenu extends React.Component {
 	};
 
 	handleClick = dropdown => {
-		const current = this.state.glossaryClickCount;
 		switch (dropdown) {
 			case 'Analyses':
 				this.setState({ analysesCheck: !this.state.analysesCheck });
@@ -104,7 +103,7 @@ class MobileMenu extends React.Component {
 				document.getElementById('resources').childNodes[0].childNodes[0].focus();
 				break;
 			case 'Glossary':
-				this.setState({ glossaryCheck: !this.state.glossaryCheck, glossaryClickCount: current + 1 });
+				this.setState(prevState => ({ glossaryClickCount: prevState.glossaryClickCount + 1 }));
 				document.getElementById('glossary').childNodes[0].childNodes[0].focus();
 				break;
 		}

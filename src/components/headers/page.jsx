@@ -73,8 +73,7 @@ export default class PageHeader extends React.Component {
 	}
 
 	glossaryClick = () => {
-		const current = this.state.glossaryClickCount;
-		this.setState({glossaryClickCount: current + 1});
+		this.setState(prevState => ({ glossaryClickCount: prevState.glossaryClickCount + 1 }));
 	}
 
 	burgerClick = e => {
@@ -300,7 +299,7 @@ export default class PageHeader extends React.Component {
 							 className={`${scrollButtonVisible ? '' : glossaryButtonStyles.afgLaunchGlossaryDivHidden} ${glossaryButtonStyles.afgLaunchGlossaryDiv}`}>
 						<GlossaryButton/>
 					</div>
-				{this.state.glossaryClickCount &&
+				{this.state.glossaryClickCount > 0 &&
 				<Glossary tabIndex="-1" clickCount={this.state.glossaryClickCount}/>
 				}
 			</>
