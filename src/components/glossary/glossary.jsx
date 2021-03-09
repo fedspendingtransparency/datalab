@@ -447,7 +447,11 @@ export default function Glossary(props) {
         }
       }
 
-      showGlossary();
+      // on the first glossary button click, we need the short wait to make the
+      // animation happen
+      setTimeout(() => {
+        showGlossary();
+      }, 100);
     }
   }, [glossaryWrapper]);
 
