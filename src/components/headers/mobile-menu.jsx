@@ -215,7 +215,7 @@ class MobileMenu extends React.Component {
 					</ul>
 					<Dropdown clickedItem={this.state.clickedItem} data={this.state.data} />
 				</div>
-				{this.state.glossaryClickCount &&
+				{this.state.glossaryClickCount > 0 &&
 					<Glossary clickCount={this.state.glossaryClickCount} />
 				}
 			</>
