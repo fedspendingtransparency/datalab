@@ -212,10 +212,17 @@ export default class SpendingChart extends React.Component {
             </>
           )}
         </div>
-        <Downloads
-          href={'/unstructured-data/rd-in-contracting/r&d_funding_by_agency_fy2019_created_20200316.csv'}
-          date={'October 2019'}
-        />
+        {this.state.checked ?
+          <Downloads
+            href={'/unstructured-data/rd-in-contracting/RnD_covid_viz1_2021-02-08.csv'}
+            date={'October 2020'}
+          />
+          :
+          <Downloads
+            href={'/unstructured-data/rd-in-contracting/RnD_viz1_2021-02-08.csv'}
+            date={'October 2020'}
+          />
+        }
       </>
     )
   }
