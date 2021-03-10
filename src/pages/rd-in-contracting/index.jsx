@@ -5,7 +5,7 @@ import globalStyles from 'src/styles/variables.scss';
 import Categories from 'src/page-sections/rd-in-contracting/categories/categories.jsx';
 import Footnotes from '../../components/footnotes/footnotes';
 import SEO from 'src/components/seo';
-import Spending from 'src/page-sections/rd-in-contracting/spending/spending-chart';
+import Funding from 'src/page-sections/rd-in-contracting/spending/spending-chart';
 import Studies from 'src/page-sections/rd-in-contracting/studies/studies';
 import StoryLayout from '../../components/layouts/story/story';
 import StorySection from 'src/components/section-elements/story-section/story-section';
@@ -45,18 +45,22 @@ export default class RdInContractingPage extends React.Component {
 		}
 	};
 
-
 	whatIsContents = () => (
 		<div className={styles.accordionContents}>
 			<img src={microscope} role="presentation" className={styles.centerImg} />
 			<p className={styles.extraSpace}>
 				Research and development are part of a process to help us find solutions to
-				problems using science, engineering, and technology.
+				problems using science, engineering, and technology. There are three main
+				categories that R&D contracts are classified under: Basic, Applied, and
+				Experimental Development.
 			</p>
 			<div className={styles.flexContainer}>
 				<div className={styles.bullet}></div>
 				<div style={{ width: '100%' }}>
 					<span className={styles.heading}>Basic Research</span>
+					<a href="#fn2" className="footnoteref">
+						<FootnoteAnchor footnoteId={'fr2'} />2
+					</a>{' '}
 					<p>
 						The intent of basic research is to study more about a subject, to expand
 						upon what we already know about it. This type of research usually doesn't
@@ -84,6 +88,9 @@ export default class RdInContractingPage extends React.Component {
 				<div className={styles.bullet}></div>
 				<div style={{ width: '100%' }}>
 					<span className={styles.heading}>Applied Research</span>
+					<a href="#fn3" className="footnoteref">
+						<FootnoteAnchor footnoteId={'fr3'} />3
+					</a>{' '}
 					<p>
 						Applied research has a more specific goal of finding solutions to current
 						problems using the accumulated knowledge from basic research.
@@ -109,17 +116,21 @@ export default class RdInContractingPage extends React.Component {
 			<div className={styles.flexContainer}>
 				<div className={styles.bullet}></div>
 				<div style={{ width: '100%' }}>
-					<span className={styles.heading}>Development</span>
+					<span className={styles.heading}>Experimental Development</span>
+					<a href="#fn4" className="footnoteref">
+						<FootnoteAnchor footnoteId={'fr4'} />4
+					</a>{' '}
 					<p>
-						Development refers to the innovative process of using applied research to
-						create prototypes of potential solutions to real-world problems.
+						Experimental development refers to the innovative process of using prior
+						research and practical experience to produce new or improved products or
+						processes as potential solutions to real-world problems.
 					</p>
 					<div className={styles.flexContainer}>
 						<img src={bulb} role="presentation" className={styles.leftImg} />
 						<div style={{ width: '100%' }}>
 							<p>
 								EXAMPLE: The Department of Energy developed a long-term solution for
-								storing spent nuclear fuel and studied its impact on licensing and
+								storing spent nuclear fuel and has studied its impact on licensing and
 								operations of nuclear plants.
 							</p>
 							<a
@@ -136,7 +147,7 @@ export default class RdInContractingPage extends React.Component {
 	);
 
 	sectionComponents = {
-		spending: Spending,
+		funding: Funding,
 		categories: Categories,
 		studies: Studies,
 	};
@@ -151,25 +162,26 @@ export default class RdInContractingPage extends React.Component {
 				</a>{' '}
 				From medicine to autonomous vehicles, R&D investments lead to new products,
 				technology advancements, and improved quality of life. And in Fiscal Year
-				2020, R&D has been foundational to addressing the COVID-19 pandemic, from
-				vaccine development, production, and logistics management. To fund R&D work,
-				federal agencies can use grants, loans, and contracts. In this analysis we
-				focus on contracts.
+				(FY) 2020, R&D has been foundational to addressing the COVID-19 pandemic,
+				from vaccine development, production, and logistics management. To fund R&D
+				work, federal agencies can use grants, loans, and contracts. In this
+				analysis we focus on contracts.
 			</p>
 			<p key={'si2'}>
 				Each of the 24 Chief Financial Officers (CFO) Act agencies awarded contracts
-				to perform R&D work in fiscal year 2020 (FY 2020), totaling $47.8 billion.
-				Let’s take a look at the top ten CFO Act agencies by R&D contract funding
-				and the top {this.state && this.state.screenMode > 1 ? 'seven' : 'five'}{' '}
-				agencies by COVID-19 R&D contract funding. For more information about the 	 				Federal Response to COVID-19, including legislation and funding details,
-				click
-				{' '}
+				to perform R&D work in FY 2020, totaling $47.8 billion. Let’s take a look at
+				the top ten CFO Act agencies by R&D contract funding and the top{' '}
+				{this.state && this.state.screenMode > 1 ? 'seven' : 'five'} agencies by
+				COVID-19 R&D contract funding. COVID-19 R&D contract funding refers
+				specifically to contracts funded by the four supplemental appropriations
+				passed by congress to address the COVID-19 pandemic. For more information,
+				including legislation and funding details,{' '}
 				<a
 					href="https://datalab.usaspending.gov/federal-covid-funding/"
 					rel="noreferrer noopener"
 					target="_blank"
 					className={styles.link}>
-					here
+					visit our Federal Response to COVID-19 analysis.
 				</a>
 				.
 			</p>
@@ -178,9 +190,14 @@ export default class RdInContractingPage extends React.Component {
 			Federal R&D contract funding supports a wide range of objectives, including
 			agriculture, education, energy, housing, and national defense. When the
 			government uses contracts to buy products and services, like leasing
-			laboratory space or conducting field research, they use the General Services
-			Administration’s Product and Services Codes (PSC). Using PSCs, we grouped R&D
-			contract funding into 20 funding categories.
+			laboratory space or conducting field research, they use the{' '}
+			<a
+				href="https://www.acquisition.gov/psc-manual"
+				rel="noreferrer noopener"
+				target="_blank">
+				General Services Administration’s Product and Services Codes (PSC)
+			</a>
+			. Using PSCs, we grouped R&D contract funding into 20 funding categories.
 		</p>,
 		<p>
 			The federal government awards a variety of entities, educational
@@ -218,18 +235,18 @@ export default class RdInContractingPage extends React.Component {
 
 	getSections = () => [
 		{
-			section: 'Funding',
-			anchor: 'spending',
+			section: 'Agency Funding',
+			anchor: 'funding',
 			number: '01',
-			subtext: 'Funding',
-			subblurb: '2020 Agency R&D Funding',
+			subblurb:
+				'What portion of federal agency contract funding in FY 2020 went to R&D initiatives?',
 			sectionTeaser: (
 				<>
 					What{' '}
 					<span className={styles.subtitleHighlight}>
 						portion of federal agency contract funding in FY 2020
 					</span>{' '}
-					goes to R&D initiatives?
+					went to R&D initiatives?
 				</>
 			),
 			introBlurb: this.getSecBlurbs()[0],
@@ -244,23 +261,22 @@ export default class RdInContractingPage extends React.Component {
 				</aside>
 			),
 			viztitle: 'R&D as a Portion of Total Federal Contract Funding by Agency',
-			tagName: 'spending',
+			tagName: 'funding',
 			readMoreOnMobile: true,
 			readMoreStyle: { color: globalStyles.rdMdBlue },
 		},
 		{
-			section: 'R&D Funding Categories',
+			section: 'Funding Categories',
 			anchor: 'categories',
 			number: '02',
-			subtext: 'R&D Funding Categories',
-			subblurb: 'R&D Funding Categories',
+			subblurb: '20 CATEGORIES OF R&D FUNDING IN FY 2020',
 			sectionTeaser: (
 				<>
 					20{' '}
 					<span className={styles.subtitleHighlight} key={'categories-teaser'}>
 						categories of R&D
 					</span>{' '}
-					contract spending in FY 2020
+					contract funding in FY 2020
 				</>
 			),
 			introBlurb: this.getSecBlurbs()[1],
@@ -270,18 +286,17 @@ export default class RdInContractingPage extends React.Component {
 			readMoreStyle: { color: globalStyles.rdMdBlue },
 		},
 		{
-			section: 'Contracts',
+			section: 'Top Contracts',
 			anchor: 'contracts',
 			number: '03',
-			subtext: 'Contracts',
-			subblurb: 'Top R&D Contracts',
+			subblurb: 'TOP R&D CONTRACTS BY CATEGORY IN FY 2020',
 			comingSoon: true,
 			sectionTeaser: (
 				<>
 					<span className={styles.subtitleHighlight} key={'studies-teaser'}>
-						Top 5 R&D Contracts
+						Top R&D Contracts
 					</span>{' '}
-					by category in FY 2020
+					by Category in FY 2020
 				</>
 			),
 			introBlurb: this.getSecBlurbs()[2],
@@ -359,6 +374,34 @@ export default class RdInContractingPage extends React.Component {
 										https://www.nsf.gov/statistics/2018/nsb20181/digest/sections/global-r-d-one-measure-of-commitment-to-innovation
 										<LaunchOutlinedIcon className={styles.extLink} />
 									</a>
+								</>,
+								<>
+									<FootnoteAnchor footnoteId={'fn2'} />
+									According to the Office of Management and Budget (OMB) Circular A-11
+									(Preparation, Submission and Execution of the Budget), Section 84.2(c),
+									the official definition of Basic Research is: Experimental or
+									theoretical work undertaken primarily to acquire new knowledge of the
+									underlying foundations of phenomena and observable facts. Basic
+									research may include activities with broad or general applications in
+									mind, such as the study of how plant genomes change, but should exclude
+									research directed towards a specific application or requirement, such
+									as the optimization of the genome of a specific crop species.
+								</>,
+								<>
+									<FootnoteAnchor footnoteId={'fn3'} />
+									According to OMB Circular A-11, Section 84.2(c), the official
+									definition of Applied Research is: Original investigation undertaken in
+									order to acquire new knowledge. Applied research is, however, directed
+									primarily towards a specific practical aim or objective.
+								</>,
+								<>
+									<FootnoteAnchor footnoteId={'fn4'} />
+									According to the OMB Circular A-11, Section 84.2(c), the official
+									definition of Experimental Development is: Creative and systematic
+									work, drawing on knowledge gained from research and practical
+									experience, which is directed at producing new products or processes or
+									improving existing products or processes. Like research, experimental
+									development will result in gaining additional knowledge.
 								</>,
 							]}
 						/>
