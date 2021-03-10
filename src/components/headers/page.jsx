@@ -33,6 +33,7 @@ export default class PageHeader extends React.Component {
 			menuData: this.props.megamenuItems,
 			scrollButtonVisible: false,
 			showMenu: false,
+			glossaryClickCount: 0,
 		};
 	}
 
@@ -70,6 +71,10 @@ export default class PageHeader extends React.Component {
 			}
 		}
 	}
+
+	glossaryClick = () => {
+		this.setState(prevState => ({ glossaryClickCount: prevState.glossaryClickCount + 1 }));
+	};
 
 	burgerClick = e => {
 		this.setState(prevState => ({ showMobileMenu: !prevState.showMobileMenu }));
@@ -250,7 +255,8 @@ export default class PageHeader extends React.Component {
 										</button>
 									</li>
 									<li className={styles.item}>
-										<button className={`${styles.anchor} ${styles.glossary}`}>
+										<button className={`${styles.anchor} ${styles.glossary}`}
+														onClick={this.glossaryClick}>
 											<span className={styles.arrow}>
 												<Book/>
 											</span>
@@ -285,15 +291,18 @@ export default class PageHeader extends React.Component {
 						)}
 					</div>
 				</header>
-				<ScrollToTopButton
-					onClick={this.scrollToTop}
-					visible={scrollButtonVisible}
-				/>
-				<div id="afg-launch-glossary-div"
-						 className={`${glossaryButtonStyles.hidden} ${glossaryButtonStyles.afgLaunchGlossaryDiv}`}>
-					<GlossaryButton/>
-				</div>
-				<Glossary tabIndex="-1"/>
+					<ScrollToTopButton
+						onClick={this.scrollToTop}
+						visible={scrollButtonVisible}
+					/>
+					<div id="afg-launch-glossary-div"
+							 onClick={this.glossaryClick}
+							 className={`${scrollButtonVisible ? '' : glossaryButtonStyles.afgLaunchGlossaryDivHidden} ${glossaryButtonStyles.afgLaunchGlossaryDiv}`}>
+						<GlossaryButton/>
+					</div>
+				{this.state.glossaryClickCount > 0 &&
+				<Glossary tabIndex="-1" clickCount={this.state.glossaryClickCount}/>
+				}
 			</>
 		);
 	}

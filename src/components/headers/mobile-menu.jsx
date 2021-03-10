@@ -18,6 +18,7 @@ class MobileMenu extends React.Component {
 			resourcesCheck: false,
 			glossaryCheck: false,
 			data: this.props.data,
+			glossaryClickCount: 0,
 		};
 	}
 
@@ -102,7 +103,7 @@ class MobileMenu extends React.Component {
 				document.getElementById('resources').childNodes[0].childNodes[0].focus();
 				break;
 			case 'Glossary':
-				this.setState({ glossaryCheck: !this.state.glossaryCheck });
+				this.setState(prevState => ({ glossaryClickCount: prevState.glossaryClickCount + 1 }));
 				document.getElementById('glossary').childNodes[0].childNodes[0].focus();
 				break;
 		}
@@ -214,7 +215,9 @@ class MobileMenu extends React.Component {
 					</ul>
 					<Dropdown clickedItem={this.state.clickedItem} data={this.state.data} />
 				</div>
-				<Glossary />
+				{this.state.glossaryClickCount > 0 &&
+					<Glossary clickCount={this.state.glossaryClickCount} />
+				}
 			</>
 		);
 	}
