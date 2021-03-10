@@ -102,8 +102,6 @@ export default class SpendingChart extends React.Component {
         USAID – US Agency for International Development
         DOI - Department of the Interior
         ED – Department of Education
-        DOC – Department of Commerce
-        VA – Department of Veterans’ Affairs
         `}
 			</div>
 		</AccordionList>
