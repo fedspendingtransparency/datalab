@@ -182,7 +182,7 @@ export default class RdInContractingPage extends React.Component {
 					target="_blank"
 					className={styles.link}>
 					Federal Response to COVID-19
-				</a>
+				</a>{' '}
 				analysis.
 			</p>
 		</>,

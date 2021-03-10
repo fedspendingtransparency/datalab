@@ -47,10 +47,17 @@ export default class RDHWCTA extends React.Component {
 							target="_blank">
 							General Services Administration’s (GSA) PSC Manual
 						</a>{' '}
-						for all CFO Act agencies. We excluded contract funding designated with PSC
-						codes that ended in 5 and 7, which represent Operational System
-						Development (5) and Commercialization (7), since these codes fall outside
-						of the Office of Management and Budget (OMB) definitions of R&D (see{' '}
+						for all{' '}
+						<a
+							href="https://cfo.gov/about/"
+							rel="noreferrer noopener"
+							target="_blank">
+							CFO Act agencies
+						</a>
+						. We excluded contract funding designated with PSC codes that ended in 5
+						and 7, which represent Operational System Development (5) and
+						Commercialization (7), since these codes fall outside of the Office of
+						Management and Budget (OMB) definitions of R&D (see{' '}
 						<a
 							href="https://www.whitehouse.gov/wp-content/uploads/2018/06/s84.pdf"
 							rel="noreferrer noopener"
