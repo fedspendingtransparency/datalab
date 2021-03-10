@@ -318,7 +318,7 @@ export default function Categories(props) {
 			<Chart />
 
 			<Downloads
-				href="/unstructured-data/rd-in-contracting/r&d_spending_by_category_fy2019_created_20200318.csv"
+				href="/unstructured-data/rd-in-contracting/RnD_viz2_2021-02-09.csv"
 				date="October 2020"
 			/>
 
