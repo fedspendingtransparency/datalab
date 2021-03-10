@@ -47,18 +47,30 @@ export default class RDHWCTA extends React.Component {
 							target="_blank">
 							General Services Administration’s (GSA) PSC Manual
 						</a>{' '}
-						for all CFO Act agencies. We excluded contract funding designated with PSC
-						codes that ended in 5 and 7, which represent Operational System
-						Development (5) and Commercialization (7), since these codes fall outside
-						of the Office of Management and Budget (OMB) definitions of R&D (see OMB
-						Circular A-11, Schedule C, Section 84.2(c)). As such, we refer to R&D
-						contract funding as limited to this group of contract transactions
-						throughout this analysis. The COVID-19 Funding versions of each
-						visualization were generated using the same subset of R&D, limiting the
-						contract transactions included to those funded using funding specifically
-						appropriated to address the COVID-19 pandemic. Contract transactions
-						funded by COVID-19 appropriations can be tracked using the Disaster
-						Emergency Fund Code (DEFC).
+						for all{' '}
+						<a
+							href="https://cfo.gov/about/"
+							rel="noreferrer noopener"
+							target="_blank">
+							CFO Act agencies
+						</a>
+						. We excluded contract funding designated with PSC codes that ended in 5
+						and 7, which represent Operational System Development (5) and
+						Commercialization (7), since these codes fall outside of the Office of
+						Management and Budget (OMB) definitions of R&D (see{' '}
+						<a
+							href="https://www.whitehouse.gov/wp-content/uploads/2018/06/s84.pdf"
+							rel="noreferrer noopener"
+							target="_blank">
+							OMB Circular A-11, Schedule C, Section 84.2(c)
+						</a>
+						). As such, we refer to R&D contract funding as limited to this group of
+						contract transactions throughout this analysis. The COVID-19 Funding
+						versions of each visualization were generated using the same subset of
+						R&D, limiting the contract transactions included to those funded using
+						funding specifically appropriated to address the COVID-19 pandemic.
+						Contract transactions funded by COVID-19 appropriations can be tracked
+						using the Disaster Emergency Fund Code (DEFC).
 					</p>
 					<p>
 						To create the R&D as a Portion of Total Federal Contract Funding by Agency

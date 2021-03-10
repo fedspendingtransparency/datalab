@@ -175,15 +175,15 @@ export default class RdInContractingPage extends React.Component {
 				COVID-19 R&D contract funding. COVID-19 R&D contract funding refers
 				specifically to contracts funded by the four supplemental appropriations
 				passed by congress to address the COVID-19 pandemic. For more information,
-				including legislation and funding details,{' '}
+				including legislation and funding details, visit our{' '}
 				<a
 					href="https://datalab.usaspending.gov/federal-covid-funding/"
 					rel="noreferrer noopener"
 					target="_blank"
 					className={styles.link}>
-					visit our Federal Response to COVID-19 analysis.
-				</a>
-				.
+					Federal Response to COVID-19
+				</a>{' '}
+				analysis.
 			</p>
 		</>,
 		<p>
