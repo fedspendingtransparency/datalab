@@ -84,15 +84,6 @@ export default class RDHWCTA extends React.Component {
 						use for contracts that were issued prior to the release of the revised PSC
 						manual. All new contracts will be limited to using the updated PSCs.
 					</p>
-					<p>
-						The source data for the fourth visualization on Federal R&D obligations
-						for 2010-2020 is from the National Center for Science and Engineering
-						Statistics’ (NCSES) Survey of Federal Funds for Research and Development.
-						The survey data from NCSES is collected during an annual census of federal
-						agencies. It is noted that the source for this visualization is different
-						than the rest of the analysis to be able to show the larger trends in R&D
-						funding that includes assistance funding.
-					</p>
 				</>
 			),
 		},
