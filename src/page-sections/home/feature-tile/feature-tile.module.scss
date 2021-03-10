@@ -14,10 +14,6 @@
   text-align: center;
 }
 
-.image {
-  width: 100%;
-}
-
 .text, .text-mobile {
   @include homepageBodyCopy();
   padding: 0 2.188rem;
@@ -26,10 +22,6 @@
 
 .heading-mobile, .text-mobile {
   display: none;
-}
-
-.image {
-  padding-left: 0;
 }
 
 @media screen and (max-width: $desktop) {

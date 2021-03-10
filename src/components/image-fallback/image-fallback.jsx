@@ -1,17 +1,16 @@
 import React from "react";
-import featuredAnalysesTitleStyles
-  from "../../page-sections/home/feature-tile/feature-tile.module.scss";
+import styles from './image-fallback.module.scss';
 
 export default function ImageFallback(props) {
   return (
-    <picture>
+    <picture className={styles.pictureContainer}>
       <source
         type={props.imgType ? props.imgType : 'image/webp'}
         srcSet={props.imgSrc}
       />
       <source type="image/png" srcSet={props.imgSrcFallBack} />
       <img
-        className={`${featuredAnalysesTitleStyles.image} lazyload`}
+        className={'lazyload'}
         src={props.imgSrcFallBack}
         alt={props.imgAlt}
         width={props.width}
