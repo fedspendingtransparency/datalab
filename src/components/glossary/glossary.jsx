@@ -1,7 +1,7 @@
 import glossaryData from './glossary_2020.csv';
 import React, {useEffect, useState} from 'react';
 import {select, selectAll} from 'd3-selection';
-import styles from '../headers/page.module.scss';
+import styles from '../headers/page/page.module.scss';
 import './glossary.scss';
 
 const d3 = {

@@ -1,4 +1,4 @@
-@import "../../styles/index.scss";
+@import "src/styles/index";
 
 #header {
     background: #ffffff;
@@ -328,4 +328,4 @@ ul.ul-nav {
     display: none;
 }
 
-@import "./page-mobile.scss";
+@import "src/components/headers/page/page-mobile";

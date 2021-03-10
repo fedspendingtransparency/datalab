@@ -1,5 +1,5 @@
 import React from 'react';
-import PageHeader from './page';
+import PageHeader from './page/page';
 
 const GenericHeader = ({ isHome }) => (
   <PageHeader

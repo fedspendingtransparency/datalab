@@ -1,21 +1,21 @@
 import React from 'react';
 import styles from './page.module.scss';
-import glossaryButtonStyles from '../glossary/glossary-button/glossary-button.module.scss';
+import glossaryButtonStyles from '../../glossary/glossary-button/glossary-button.module.scss';
 
-import TagLine from '../../svgs/Logo-with-tagline.svg';
-import NoTagLine from '../../svgs/Logo-without-tagline.svg';
-import TagLineMobile from '../../svgs/logo-tablet-mobile.svg';
+import TagLine from '../../../svgs/Logo-with-tagline.svg';
+import NoTagLine from '../../../svgs/Logo-without-tagline.svg';
+import TagLineMobile from '../../../svgs/logo-tablet-mobile.svg';
 
-import Arrow from '../../svgs/arrow.svg';
-import Book from '../../svgs/book.svg';
-import Dropdown from '../../components/headers/dropdown.jsx';
-import MobileMenu from '../../components/headers/mobile-menu.jsx';
-import Glossary from '../glossary/glossary';
-import ScrollToTopButton from '../scroll-to-top-button/scroll-to-top-button';
+import Arrow from '../../../svgs/arrow.svg';
+import Book from '../../../svgs/book.svg';
+import Dropdown from '../dropdown.jsx';
+import MobileMenu from '../mobile-menu.jsx';
+import Glossary from '../../glossary/glossary';
+import ScrollToTopButton from '../../scroll-to-top-button/scroll-to-top-button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
-import GlossaryButton from "../glossary/glossary-button/glossary-button";
+import GlossaryButton from "../../glossary/glossary-button/glossary-button";
 
 export default class PageHeader extends React.Component {
 	constructor(props) {
