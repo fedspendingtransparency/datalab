@@ -51,7 +51,6 @@
     "gatsby-plugin-sass": "^2.1.12",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-source-filesystem": "^2.1.18",
-    "gatsby-transformer-csv": "^2.0.0",
     "gatsby-transformer-json": "^2.2.7",
     "identity-obj-proxy": "^3.0.0",
     "jest-dom": "^4.0.0",
