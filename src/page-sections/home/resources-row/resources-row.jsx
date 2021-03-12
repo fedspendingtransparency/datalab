@@ -1,41 +1,54 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import apiImg from 'src/images/home/resources-api-2.svg';
-import userGuideImg from 'src/images/home/resources-user-guide-2.svg';
-import playbookImg from 'src/images/home/resources-playbook-2.svg';
+// import apiImg from 'src/images/home/resources-api-2.svg';
+// import userGuideImg from 'src/images/home/resources-user-guide-2.svg';
+// import playbookImg from 'src/images/home/resources-playbook-2.svg';
+
+import analystGuide from 'src/images/home/analyst_guide.webp';
+import analystGuideFallback from 'src/images/home/analyst_guide.png';
+
+import studentInnovators from 'src/images/home/student_innovators.webp';
+import studentInnovatorsFallback from 'src/images/home/student_innovators.png';
+
+import apiDocumentation from 'src/images/home/api_documentation.webp';
+import apiDocumentationFallback from 'src/images/home/api_documentation.png';
 
 import resourcesRowStyles from './resources-row.module.scss';
+import ImageFallback from "../../../components/image-fallback/image-fallback";
 
 const ResourcesRow = () => {
 	const resourcesItems = [
 		{
 			href: '/analyst-guide/',
-			imgSrc: userGuideImg,
+			imgSrc: analystGuide,
+			imgSrcFallback: analystGuideFallback,
 			altText: 'An icon of a book.',
 			title: 'Analyst Guide',
 			description:
 				'Methods to easily navigate data from our sister site, USAspending.gov.',
-			width: '124',
-			height: '75',
+			width: '56',
+			height: '74',
 		},
 		{
 			href: '/student-innovators-toolbox/',
-			imgSrc: playbookImg,
+			imgSrc: studentInnovators,
+			imgSrcFallback: studentInnovatorsFallback,
 			altText: 'An icon of a notebook.',
 			title: "Student Innovator's Toolbox",
 			description: 'Ways for professors and students to get involved.',
-			width: '124',
-			height: '75',
+			width: '63',
+			height: '74',
 		},
 		{
-			imgSrc: apiImg,
+			imgSrc: apiDocumentation,
+			imgSrcFallback: apiDocumentationFallback,
 			altText: 'An icon of a computer monitor.',
 			title: 'API Documentation',
 			description:
 				'Guidance on using the USASpending API and APIs from Fiscal Data API.',
-			width: '124',
-			height: '75',
+			width: '81',
+			height: '74',
 		},
 	];
 
@@ -67,14 +80,15 @@ const ResourcesRow = () => {
 								key={'landing-row__tile_' + index}
 								className={resourcesRowStyles.tile}
 								style={{ display: 'inline' }}>
-								<div>
-									<img
-										data-src={resource.imgSrc}
-										alt={resource.altText}
-										className={`${resourcesRowStyles.svgImgAPI} lazyload`}
-										width={resource.width}
-										height={resource.height}
-									/>
+								<div className={resourcesRowStyles.svgImgAPI}>
+									<ImageFallback {...resource}/>
+									{/*<img*/}
+									{/*	data-src={resource.imgSrc}*/}
+									{/*	alt={resource.altText}*/}
+									{/*	className={`${resourcesRowStyles.svgImgAPI} lazyload`}*/}
+									{/*	width={resource.width}*/}
+									{/*	height={resource.height}*/}
+									{/*/>*/}
 								</div>
 								<div className={resourcesRowStyles.titleContainer}>
 									<h1 className={resourcesRowStyles.titleAPI}>{resource.title}</h1>
@@ -101,14 +115,15 @@ const ResourcesRow = () => {
 								key={'landing-row__tile_' + index}
 								className={resourcesRowStyles.tile}
 								href={resource.href}>
-								<div>
-									<img
-										data-src={resource.imgSrc}
-										alt={resource.altText}
-										className={`${resourcesRowStyles.svgImg} lazyload`}
-										width={resource.width}
-										height={resource.height}
-									/>
+								<div className={resourcesRowStyles.svgImg}>
+									<ImageFallback {...resource}/>
+									{/*<img*/}
+									{/*	data-src={resource.imgSrc}*/}
+									{/*	alt={resource.altText}*/}
+									{/*	className={`${resourcesRowStyles.svgImg} lazyload`}*/}
+									{/*	width={resource.width}*/}
+									{/*	height={resource.height}*/}
+									{/*/>*/}
 								</div>
 								<div className={resourcesRowStyles.titleContainer}>
 									<h1 className={resourcesRowStyles.title}>{resource.title}</h1>
