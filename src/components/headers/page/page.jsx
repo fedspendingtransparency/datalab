@@ -2,10 +2,6 @@ import React from 'react';
 import styles from './page.module.scss';
 import glossaryButtonStyles from '../../glossary/glossary-button/glossary-button.module.scss';
 
-import TagLine from '../../../svgs/Logo-with-tagline.svg';
-import NoTagLine from '../../../svgs/Logo-without-tagline.svg';
-import TagLineMobile from '../../../svgs/logo-tablet-mobile.svg';
-
 import Arrow from '../../../svgs/arrow.svg';
 import Book from '../../../svgs/book.svg';
 import Dropdown from '../dropdown.jsx';
@@ -16,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import GlossaryButton from "../../glossary/glossary-button/glossary-button";
+import HeaderLogo from "./headerLogo";
 
 export default class PageHeader extends React.Component {
 	constructor(props) {
@@ -146,17 +143,6 @@ export default class PageHeader extends React.Component {
 		}
 	};
 
-	tagLineCheck = () => {
-		if (this.state.isMobileTag) {
-			return <TagLineMobile />;
-		} else {
-			if (this.state.isSticky) {
-				return <NoTagLine />;
-			}
-			return <TagLine width="100%" />;
-		}
-	};
-
 	scrollToTop = () => {
 		if (typeof window !== 'undefined' && window.pageYOffset !== 0) {
 			window.scrollTo(0, 0);
@@ -195,7 +181,10 @@ export default class PageHeader extends React.Component {
 						<div
 							className={`${styles.logoWrapper} ${!isSticky ? ' ' + styles.col : ``}`}>
 							<a href="/">
-								<div>{this.tagLineCheck()}</div>
+								<div>
+									<HeaderLogo isMobileTag={this.state.isMobileTag}
+															isSticky={this.state.isSticky}/>
+								</div>
 							</a>
 
 							<nav
