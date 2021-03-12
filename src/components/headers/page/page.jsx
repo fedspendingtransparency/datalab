@@ -174,6 +174,7 @@ export default class PageHeader extends React.Component {
 					id={styles.header}
 					className={`${isSticky ? ' ' + styles.headerContainer : ``}`}>
 					<div
+						data-testid={'mainDiv'}
 						style={{top: this.props.isHome == true ? `` : `${skinnyTop}px`}}
 						className={`${styles.main} ${isSticky ? styles.tight : ``} ${
 							this.props.isHome ? `` : ``
@@ -188,6 +189,7 @@ export default class PageHeader extends React.Component {
 							</a>
 
 							<nav
+								data-testid={'nav'}
 								className={`${styles.nav} ${isSticky ? ' ' + styles.tight : ``} ${
 									this.props.isHome ? `` : ' ' + styles.tight
 								}`}>
@@ -258,6 +260,7 @@ export default class PageHeader extends React.Component {
 					</div>
 
 					<div
+						data-testid={'dropDown'}
 						className={`${styles.sub} ${isSticky ? ' ' + styles.tight : ``}`}
 						style={{top: this.props.isHome === true ? `` : `${skinnySub}px`}}>
 						<Dropdown

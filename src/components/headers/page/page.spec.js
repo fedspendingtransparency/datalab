@@ -63,10 +63,16 @@ describe('PageHeader', () => {
     expect(buttonList[7].className).toBe('afgFloatingGlossaryButton');
   });
 
-  it('adds classes to make the nav skinnier when not on home page', () => {
-    // styles.skinnyTop
-    // styles.tight
-    // styles.skinnySub
+  it('adds classes to three elements to make the nav skinnier when not on home' +
+    ' page', () => {
+    const { getByTestId } = renderComponent({isHome: false});
+    const mainDiv = getByTestId('mainDiv');
+    const nav = getByTestId('nav');
+    const dropDown = getByTestId('dropDown');
+    expect(mainDiv.className).toContain('tight');
+    expect(nav.className).toContain('tight');
+    expect(dropDown.className).toContain('tight');
+    // screen.debug();
   });
 
   it('shows the burger button when width is < 992', () => {
